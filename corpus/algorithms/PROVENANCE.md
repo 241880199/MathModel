@@ -51,7 +51,7 @@
 
 | 剔除项 | 数量 | 体量 | 理由 |
 | :--- | ---: | ---: | :--- |
-| `.pdf` | 41 | 84.59 MB | 主要体量；含 3 个 `Final Solution.pdf`（疑为真题论文，另见 §6） |
+| `.pdf` | 41 | 84.59 MB | 主要体量；含 3 个 `Final Solution.pdf`（实测为 TSP 结果图，非论文，见 §6） |
 | `.bmp` | 1,114 | 20.69 MB | 教材插图，无思考价值 |
 | `.mat` | 123 | 5.04 MB | 数据 blob；TSP 用的 `china.mat` 等按需重取 |
 | `.tif` / `.png` / `.gif` / `.jpg` | 183 | 8.56 MB | 同上，教材插图 |
@@ -93,9 +93,14 @@ out.write_bytes(src_bytes.decode('gb18030').encode('utf-8'))
 
 **教训**：把第三方文件搬进自己的仓库时，**换行符是转码链上最容易被静默改坏的一环**；事后一定要有一条独立校验（本次是 `b'\r\r\n' in bytes` 计数 + MATLAB `checkcode` 复跑）。**跨过这一层去解释"上游代码很差"之前，先排除自己的搬运环节。**
 
-## 6. 待定事项（未处置）
+## 6. 已结事项（2026-09-24 复核）
 
-- **3 个 `Final Solution.pdf`**（根目录 0.60 MB + `HeuristicAlgorithm/…/TSP(SA)/` 5.73 MB + `…/TSP(GA)/` 0.61 MB）从命名看**疑为竞赛论文正文**，属 M6 `corpus/papers/` 的候选。**作者与授权均不明，本次未收录、未打开**，仅登记在此，等用户决定是否单独审阅。
+- **3 个 `Final Solution.pdf`——已实测，非论文，不收录。**（根目录 0.60 MB + `HeuristicAlgorithm/…/TSP(SA)/` 5.73 MB + `…/TSP(GA)/` 0.61 MB）
+  实测（2026-09-24，从上游 `e15b0e9` 取到**仓库外**读取）：三份**各 1 页**，producer 为
+  `Apache FOP Version 1.1: PDFDocumentGraphics2D`（MATLAB 打印 figure 的产物），文本层只有坐标刻度与
+  `Total Distance = 15651.8` —— **是 TSP 的运行结果图，不是竞赛论文正文**。
+  **原判断（"疑为竞赛论文正文，属 M6 `corpus/papers/` 的候选"）已被实测推翻**，本项由"待定"转为"已结"：
+  **不收录、不进 `corpus/papers/`**。来源是上游算法仓库，**不在本仓**。
 
 ## 7. 质量声明
 

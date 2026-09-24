@@ -70,7 +70,7 @@ This section has no page limit and is not counted as part of the 25-page solutio
 
 **标题不一致的已知冲突（必须按采用侧写）**：官方政策 PDF 作 `Report on Use of AI Tools`（`Contest_AI_Policy.txt:57-58`、`81-83`、`88`），年度正文与 Tips 作 `Report on Use of AI`（`instructions.html:1216`、`1239`；`MCM-ICM_Tips.txt:204`）。**本项目采用 `Report on Use of AI`**，理由与票数见 `INDEX.md` §3 冲突 3。不要因为政策 PDF 里写的是 `...Tools` 就跟着写——那是被否的一侧。
 
-**全局约束（环境与来源）**：本机**无** LaTeX 工具链——**不得**写出依赖本机编译的步骤，**不得**声称已在本机验证编译；编译验证须在用户所用的网页端编译器上进行。**不得**引用任何未见于本项目语料的宏包命令（例如 `\AIcite` 之类）；`mcmthesis` 等宏包的 AI 披露环境与引用命令**以该宏包官方文档为准**，本 skill 不为 `ReportAiUse` / `\AIcite` 之类的包内机制背书。
+**全局约束（环境与来源）**：本机**已有** TeX Live 2026（2026-09-24 装，可本地编译自检）；凡声称编译结果须附真实命令与输出。用户**提交仍以网页端编译器为准**。**不得**引用任何未见于本项目语料的宏包命令（例如 `\AIcite` 之类）；`mcmthesis` 等宏包的 AI 披露环境与引用命令**以该宏包官方文档为准**，本 skill 不为 `ReportAiUse` / `\AIcite` 之类的包内机制背书。
 
 ## 触发范围
 

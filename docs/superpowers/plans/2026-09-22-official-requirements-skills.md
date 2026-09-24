@@ -1,5 +1,11 @@
 # 第一期：COMAP 官方要求与模板落成 skills — 实现计划
 
+> ⚠️ **环境前提已失效（2026-09-24）**：本计划里「**本机无 LaTeX 工具链**、不得写出依赖本机编译的步骤、不得声称已验证编译」
+> （见下方约束表与 Task 1 Step 5）**已不成立**——2026-09-24 本机已装 **TeX Live 2026**。
+> 现行纪律见 `docs/mcm-suite-lessons.md` **通则 6**（可真编译，故声称编译结果须附真实命令与输出；
+> 但页数/体积仍以用户提交的那次编译为准）与 `docs/mcm-suite-todo.md` §E.1。
+> 本文件作为**历史工单保留原样**，不逐句改写——但**不得**再把其中的环境陈述当作现行口径。
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 把已抓取的 COMAP 官方要求与模板，落成三个不依赖获奖论文语料的 skill，并建立官方材料索引。
