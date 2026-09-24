@@ -1,0 +1,9 @@
+PASS	K1 n2shortf 两点最短路 vs MATLAB shortestpath
+PASS	K2 fofuf 最大流 vs MATLAB maxflow
+PASS	K3 BGf 最小费用最大流的流量 vs MATLAB maxflow
+PASS	K4 concom 连通分量数 vs MATLAB conncomp
+PASS	K5 fc01 匹配基数 vs MATLAB maxmatching
+INFO	Fleuf1.m 在 5 环上：重复边 1 条、缺失边 1 条、游走连通=0
+PASS	K6 fixed/euler_circuit 输出为合法欧拉回路（K5 与 5 环）
+PASS	K7 DFS 访问序 vs MATLAB dfsearch
+# RESULT pass=7 fail=0 skip=0

@@ -1,0 +1,8 @@
+INFO	basic_CA.m 上游终态 1 的个数=4369，按规则迭代应为 416，差异 4241 格
+PASS	J1 fixed/parity_ca 正确迭代 vs 独立逐点重模拟
+PASS	J2 激发介质 状态迁移穷举（0-9 循环）
+PASS	J3 HPP气体 16 种块配置粒子数守恒
+PASS	J4 DLA 16 种块配置扩散步粒子数守恒
+PASS	J5 森林火灾 规则语义穷举（烧->空/绿->烧/空->绿）
+PASS	J6 砂堆规则 终态为二值且地形成分未被改写
+# RESULT pass=6 fail=0 skip=0

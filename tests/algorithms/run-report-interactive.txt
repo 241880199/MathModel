@@ -1,0 +1,3 @@
+# status	script	seconds	message
+ok	CellularAutomata元胞向量机\初等元胞自动机\basic_CA.m	8.10	
+ok	CellularAutomata元胞向量机\森林火灾\foreset_fire.m	11.66	
