@@ -1,0 +1,237 @@
+图表抽取校验（C1/C2/C3/C4）
+图表判据 C1/C2/C3/C4 · 试点 43 份
+========================================================================
+2500836    C1 图注=28 (图22/表6) 产出=28 (图22/表6) 差额=0  C2 最小非白= 2.32% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-18-p19.png=35.78% fig-05-p7.png=30.67% fig-13-p15.png=14.26%  <- 待人工确认 ['fig-18-p19.png', 'fig-05-p7.png', 'fig-13-p15.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2501567    C1 图注=15 (图12/表3) 产出=15 (图12/表3) 差额=0  C2 最小非白= 5.45% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-06-p11.png=10.50% fig-08-p14.png=4.21% fig-03-p8.png=1.43%  <- 待人工确认 ['fig-06-p11.png', 'fig-08-p14.png', 'fig-03-p8.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2501909    C1 图注=22 (图14/表8) 产出=22 (图14/表8) 差额=0  C2 最小非白= 4.05% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-09-p20.png=12.54% fig-10-p21.png=10.04% fig-03-p6.png=7.49%  <- 待人工确认 ['fig-09-p20.png', 'fig-10-p21.png', 'fig-03-p6.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2504218    C1 图注=16 (图14/表2) 产出=16 (图14/表2) 差额=0  C2 最小非白= 6.28% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-04-p7.png=27.14% fig-12-p17.png=8.96% fig-06-p12.png=7.30%  <- 待人工确认 ['fig-04-p7.png', 'fig-12-p17.png', 'fig-06-p12.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2511565    C1 图注=19 (图15/表4) 产出=19 (图15/表4) 差额=0  C2 最小非白= 6.43% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-05-p9.png=10.31% fig-01-p4.png=5.71% fig-03-p7.png=3.87%  <- 待人工确认 ['fig-05-p9.png', 'fig-01-p4.png', 'fig-03-p7.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2501687    C1 图注=15 (图14/表1) 产出=15 (图14/表1) 差额=0  C2 最小非白= 7.00% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-08-p13.png=9.72% fig-05-p10.png=8.36% fig-02-p4.png=7.85%  <- 待人工确认 ['fig-08-p13.png', 'fig-05-p10.png', 'fig-02-p4.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2502617    C1 图注=17 (图14/表3) 产出=17 (图14/表3) 差额=0  C2 最小非白= 5.36% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-02-p5.png=1.80% fig-06-p13.png=1.79% fig-05-p11.png=0.85%  <- 待人工确认 ['fig-02-p5.png', 'fig-06-p13.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2503268    C1 图注=19 (图12/表7) 产出=19 (图12/表7) 差额=0  C2 最小非白= 5.74% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-05-p12.png=17.47% fig-01-p5.png=6.75% fig-07-p18.png=5.61%  <- 待人工确认 ['fig-05-p12.png', 'fig-01-p5.png', 'fig-07-p18.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p5.png 与置空后的渲染逐像素相同（该带盖到水印）
+2504448    C1 图注=21 (图16/表5) 产出=21 (图16/表5) 差额=0  C2 最小非白= 5.14% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p3.png=3.05% fig-14-p18.png=1.07% fig-13-p17.png=1.05%  <- 待人工确认 ['fig-01-p3.png', 'fig-14-p18.png', 'fig-13-p17.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2505199    C1 图注=13 (图11/表2) 产出=13 (图11/表2) 差额=0  C2 最小非白= 9.46% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-03-p7.png=6.20% fig-07-p16.png=1.08% fig-04-p8.png=0.77%  <- 待人工确认 ['fig-03-p7.png', 'fig-07-p16.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2509557    C1 图注=16 (图13/表3) 产出=16 (图13/表3) 差额=0  C2 最小非白= 5.03% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-10-p19.png=13.88% fig-05-p7.png=6.60% fig-06-p7.png=5.25%  <- 待人工确认 ['fig-10-p19.png', 'fig-05-p7.png', 'fig-06-p7.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2517929    C1 图注=16 (图13/表3) 产出=16 (图13/表3) 差额=0  C2 最小非白= 5.98% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-02-p4.png=19.32% fig-10-p19.png=15.11% fig-04-p7.png=12.62%  <- 待人工确认 ['fig-02-p4.png', 'fig-10-p19.png', 'fig-04-p7.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2500759    C1 图注=22 (图17/表5) 产出=22 (图17/表5) 差额=0  C2 最小非白= 6.02% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-14-p20.png=22.12% fig-15-p20.png=10.45% fig-09-p16.png=0.77%  <- 待人工确认 ['fig-14-p20.png', 'fig-15-p20.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2501869    C1 图注=23 (图12/表11) 产出=23 (图12/表11) 差额=0  C2 最小非白= 6.67% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-06-p12.png=3.01% fig-12-p21.png=1.82% fig-08-p15.png=1.56%  <- 待人工确认 ['fig-06-p12.png', 'fig-12-p21.png', 'fig-08-p15.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2503389    C1 图注=31 (图20/表11) 产出=31 (图20/表11) 差额=0  C2 最小非白= 3.49% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p6.png=5.04% fig-07-p13.png=2.89% fig-18-p24.png=1.12%  <- 待人工确认 ['fig-01-p6.png', 'fig-07-p13.png', 'fig-18-p24.png']
+           C4 置空来源（A/B 差分）= 已验证：tab-01-p5.png 与置空后的渲染逐像素相同（该带盖到水印）
+2505964    C1 图注=22 (图15/表7) 产出=22 (图15/表7) 差额=0  C2 最小非白= 4.84% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-04-p8.png=9.42% fig-01-p4.png=4.99% fig-14-p19.png=1.01%  <- 待人工确认 ['fig-04-p8.png', 'fig-01-p4.png', 'fig-14-p19.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2507817    C1 图注=34 (图21/表13) 产出=32 (图20/表12) 差额=2  C2 最小非白= 5.31% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-12-p15.png=10.48% fig-13-p15.png=10.48% fig-02-p4.png=8.46%  <- 待人工确认 ['fig-12-p15.png', 'fig-13-p15.png', 'fig-02-p4.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 2 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p7 fig-03 p7 tab-01 p8 fig-04 p9 fig-05 p9 tab-02 p10 fig-06 p10 fig-07 p11 tab-03 p11 tab-04 p11 fig-08 p12 tab-07 p12 tab-08 p13 fig-10 p13 fig-11 p15 tab-09 p15 fig-12 p15 fig-13 p16 tab-10 p16 tab-11 p16 fig-14 p17 tab-12 p18 fig-15 p18 fig-16 p19 tab-13 p19 fig-17 p21 fig-18 p21 tab-14 p22 fig-20 p22 tab-15 p23 fig-21 p23 fig-22 p24 fig-23；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p7.png fig-04-p8.png fig-05-p9.png fig-06-p10.png fig-07-p10.png fig-08-p11.png fig-10-p13.png fig-12-p15.png fig-13-p15.png fig-14-p16.png fig-15-p18.png fig-16-p18.png fig-17-p19.png fig-18-p21.png fig-20-p22.png fig-21-p23.png fig-22-p23.png fig-23-p24.png tab-01-p7.png tab-02-p9.png tab-03-p11.png tab-04-p11.png tab-07-p12.png tab-08-p12.png tab-09-p15.png tab-10-p16.png tab-11-p16.png tab-12-p17.png tab-13-p19.png tab-14-p21.png
+             未产出：p13 fig-11: 定不出内容带（上侧紧邻即正文段落行；下侧紧邻即正文段落行）｜图注 'Figure 11 Countries with significant flu'
+             未产出：p22 tab-15: 定不出内容带（上侧带高只有 13.3pt < MIN_BAND=20.0pt；下侧带高只有 1.6pt < MIN_BAND=20.0pt）｜图注 'Table 15 2024 Scores vs 2028 Scores'
+2510006    C1 图注=37 (图26/表11) 产出=37 (图26/表11) 差额=0  C2 最小非白= 5.34% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-20-p18.png=18.67% fig-03-p9.png=7.83% fig-01-p4.png=2.92%  <- 待人工确认 ['fig-20-p18.png', 'fig-03-p9.png', 'fig-01-p4.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2510185    C1 图注=29 (图15/表14) 产出=28 (图14/表14) 差额=1  C2 最小非白= 5.66% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-05-p9.png=15.53% fig-01-p3.png=7.80% fig-04-p7.png=5.59%  <- 待人工确认 ['fig-05-p9.png', 'fig-01-p3.png', 'fig-04-p7.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 1 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p5 tab-01 p5 fig-03 p6 fig-03 p7 fig-04 p8 tab-02 p8 tab-03 p9 fig-05 p9 tab-04 p9 tab-05 p10 fig-06 p10 tab-06 p11 fig-07 p12 tab-07 p13 tab-08 p13 fig-08 p14 tab-09 p15 fig-09 p15 fig-10 p16 fig-11 p16 fig-11 p17 tab-10 p18 tab-11 p18 tab-12 p19 tab-13 p20 tab-14 p22 fig-12 p23 fig-13；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p6.png fig-04-p7.png fig-05-p9.png fig-06-p10.png fig-07-p11.png fig-08-p13.png fig-09-p15.png fig-10-p15.png fig-11-p16-2.png fig-11-p16.png fig-12-p22.png fig-13-p23.png tab-01-p5.png tab-02-p8.png tab-03-p8.png tab-04-p9.png tab-05-p9.png tab-06-p10.png tab-07-p12.png tab-08-p13.png tab-09-p14.png tab-10-p17.png tab-11-p18.png tab-12-p18.png tab-13-p19.png tab-14-p20.png
+             未产出：p5 fig-3: 定不出内容带（上侧紧邻即正文段落行；下侧无实物）｜图注 'Figure 3.'
+2510862    C1 图注=20 (图18/表2) 产出=20 (图18/表2) 差额=0  C2 最小非白= 7.26% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p4.png=5.56% fig-10-p14.png=4.98% fig-12-p16.png=3.85%  <- 待人工确认 ['fig-01-p4.png', 'fig-10-p14.png', 'fig-12-p16.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2513314    C1 图注=15 (图6/表9) 产出=14 (图5/表9) 差额=1  C2 最小非白= 8.57% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p3.png=44.44% fig-05-p16.png=2.40% fig-06-p18.png=2.06%  <- 待人工确认 ['fig-01-p3.png', 'fig-05-p16.png', 'fig-06-p18.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 1 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p5 tab-01 p6 fig-03 p10 tab-02 p11 fig-04 p11 tab-03 p13 tab-04 p15 tab-05 p15 tab-06 p16 fig-05 p18 fig-06 p19 tab-07 p20 tab-08 p20 tab-09；产出清单 = fig-01-p3.png fig-03-p6.png fig-04-p11.png fig-05-p16.png fig-06-p18.png tab-01-p5.png tab-02-p10.png tab-03-p11.png tab-04-p13.png tab-05-p15.png tab-06-p15.png tab-07-p19.png tab-08-p20.png tab-09-p20.png
+             未产出：p4 fig-2: 定不出内容带（下侧带宽塌成 0.0pt（< 1.0pt，裁不出内容）；上侧带高只有 12.0pt < MIN_BAND=20.0pt）｜图注 'Figure 2: Our workflow.'
+2514362    C1 图注=30 (图25/表5) 产出=30 (图25/表5) 差额=0  C2 最小非白= 6.69% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: tab-02-p9.png=11.59% fig-10-p12.png=7.81% fig-11-p12.png=7.81%  <- 待人工确认 ['tab-02-p9.png', 'fig-10-p12.png', 'fig-11-p12.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2514461    C1 图注=28 (图21/表7) 产出=28 (图21/表7) 差额=0  C2 最小非白= 4.60% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-03-p10.png=4.12% fig-09-p14.png=1.23% fig-10-p14.png=1.23%  <- 待人工确认 ['fig-03-p10.png', 'fig-09-p14.png', 'fig-10-p14.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p8.png 与置空后的渲染逐像素相同（该带盖到水印）
+2515235    C1 图注=17 (图12/表5) 产出=15 (图12/表3) 差额=2  C2 最小非白= 7.79% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-03-p6.png=19.05% fig-02-p4.png=15.91% fig-06-p13.png=7.40%  <- 待人工确认 ['fig-03-p6.png', 'fig-02-p4.png', 'fig-06-p13.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 2 条，逐条登记：图注清单（独立数）= p2 tab-02 p2 tab-03 p3 fig-01 p4 fig-02 p6 fig-03 p7 fig-04 p8 tab-01 p8 tab-02 p9 fig-05 p12 tab-03 p13 fig-06 p14 fig-07 p15 fig-08 p20 fig-09 p22 fig-10 p23 fig-11 p24 fig-12；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p6.png fig-04-p7.png fig-05-p9.png fig-06-p13.png fig-07-p14.png fig-08-p15.png fig-09-p20.png fig-10-p22.png fig-11-p23.png fig-12-p24.png tab-01-p8.png tab-02-p8.png tab-03-p12.png
+             未产出：p2 tab-2: 定不出内容带（下侧紧邻即正文段落行；上侧紧邻即正文段落行）｜图注 'Table 2: Summary of Constant country cha'
+             未产出：p2 tab-3: 定不出内容带（下侧带高只有 15.8pt < MIN_BAND=20.0pt；上侧紧邻即正文段落行）｜图注 'Table 3: Predictive results and accuracy'
+2516178    C1 图注=22 (图14/表8) 产出=21 (图14/表7) 差额=1  C2 最小非白= 7.60% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p3.png=17.76% fig-09-p16.png=8.92% fig-11-p17.png=4.22%  <- 待人工确认 ['fig-01-p3.png', 'fig-09-p16.png', 'fig-11-p17.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 1 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p5 tab-01 p8 fig-03 p9 fig-04 p10 fig-05 p11 fig-06 p12 fig-07 p13 tab-03 p14 fig-08 p14 tab-04 p15 tab-05 p15 tab-06 p16 tab-07 p16 fig-09 p17 fig-10 p17 fig-11 p19 fig-12 p20 tab-08 p21 tab-09 p23 fig-13 p24 fig-14；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p8.png fig-04-p9.png fig-05-p10.png fig-06-p11.png fig-07-p12.png fig-08-p14.png fig-09-p16.png fig-10-p17.png fig-11-p17.png fig-12-p19.png fig-13-p23.png fig-14-p24.png tab-01-p5.png tab-03-p13.png tab-05-p15.png tab-06-p15.png tab-07-p16.png tab-08-p20.png tab-09-p21.png
+             未产出：p14 tab-4: 定不出内容带（上侧带高只有 13.3pt < MIN_BAND=20.0pt；下侧无实物）｜图注 'Table 4 Comparison of Prediction Interva'
+2516695    C1 图注=35 (图24/表11) 产出=35 (图24/表11) 差额=0  C2 最小非白= 4.90% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p3.png=23.04% fig-17-p21.png=14.14% fig-18-p21.png=14.14%  <- 待人工确认 ['fig-01-p3.png', 'fig-17-p21.png', 'fig-18-p21.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2517690    C1 图注=28 (图16/表12) 产出=27 (图16/表11) 差额=1  C2 最小非白= 6.78% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-08-p11.png=1.62% fig-16-p23.png=0.63% tab-04-p10.png=0.35%  <- 待人工确认 ['fig-08-p11.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 1 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p5 tab-01 p6 tab-02 p7 fig-03 p8 fig-04 p8 fig-06 p9 tab-03 p10 tab-04 p10 fig-07 p11 tab-05 p11 fig-08 p12 fig-09 p13 tab-06 p14 fig-10 p14 fig-11 p16 tab-07 p17 fig-12 p17 fig-13 p18 tab-08 p19 tab-09 p19 fig-14 p20 tab-10 p20 tab-11 p22 fig-15 p23 tab-12 p23 fig-16 p24 fig-17；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p7.png fig-04-p8.png fig-06-p8.png fig-07-p10.png fig-08-p11.png fig-09-p12.png fig-10-p14.png fig-11-p14.png fig-12-p17.png fig-13-p17.png fig-14-p19.png fig-15-p22.png fig-16-p23.png fig-17-p24.png tab-01-p5.png tab-02-p6.png tab-03-p9.png tab-04-p10.png tab-05-p11.png tab-06-p13.png tab-08-p18.png tab-09-p19.png tab-10-p20.png tab-11-p20.png tab-12-p23.png
+             未产出：p16 tab-7: 定不出内容带（下侧带高只有 0.1pt < MIN_BAND=20.0pt；上侧带高只有 13.3pt < MIN_BAND=20.0pt）｜图注 'Table 7:Correlation between sports and m'
+2521556    C1 图注=26 (图23/表3) 产出=26 (图23/表3) 差额=0  C2 最小非白= 7.26% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-15-p16.png=20.24% fig-06-p10.png=10.16% fig-07-p10.png=10.16%  <- 待人工确认 ['fig-15-p16.png', 'fig-06-p10.png', 'fig-07-p10.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2522820    C1 图注=24 (图6/表18) 产出=24 (图6/表18) 差额=0  C2 最小非白= 6.89% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p7.png=7.55% fig-04-p13.png=4.89% fig-03-p13.png=1.34%  <- 待人工确认 ['fig-01-p7.png', 'fig-04-p13.png', 'fig-03-p13.png']
+           C4 置空来源（A/B 差分）= 已验证：tab-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2524070    C1 图注=25 (图13/表12) 产出=24 (图13/表11) 差额=1  C2 最小非白= 4.89% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p3.png=18.35% fig-05-p12.png=11.82% fig-13-p23.png=5.00%  <- 待人工确认 ['fig-01-p3.png', 'fig-05-p12.png', 'fig-13-p23.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 1 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p5 tab-01 p6 tab-02 p7 fig-03 p12 fig-04 p12 fig-05 p13 fig-06 p13 tab-03 p14 tab-04 p15 tab-05 p15 fig-07 p16 fig-08 p16 fig-09 p17 tab-06 p17 fig-10 p19 tab-07 p19 tab-08 p21 tab-09 p21 tab-10 p22 tab-11 p22 fig-11 p22 fig-12 p23 tab-12 p23 fig-13；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p7.png fig-04-p12.png fig-05-p12.png fig-06-p13.png fig-07-p15.png fig-08-p16.png fig-09-p16.png fig-10-p17.png fig-11-p22.png fig-12-p22.png fig-13-p23.png tab-02-p6.png tab-03-p13.png tab-04-p14.png tab-05-p15.png tab-06-p17.png tab-07-p19.png tab-08-p19.png tab-09-p21.png tab-10-p21.png tab-11-p22.png tab-12-p23.png
+             未产出：p5 tab-1: 定不出内容带（上侧带高只有 0.0pt < MIN_BAND=20.0pt；下侧带高只有 17.2pt < MIN_BAND=20.0pt）｜图注 'Table 1: List of Symbols'
+2504188    C1 图注=19 (图16/表3) 产出=16 (图13/表3) 差额=3  C2 最小非白= 8.82% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-03-p6.png=21.32% fig-06-p12.png=20.14% fig-02-p4.png=11.90%  <- 待人工确认 ['fig-03-p6.png', 'fig-06-p12.png', 'fig-02-p4.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 3 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p5 tab-01 p6 fig-03 p7 fig-04 p8 tab-02 p9 fig-05 p12 fig-06 p12 fig-07 p13 fig-08 p13 fig-09 p15 fig-10 p17 tab-03 p17 fig-11 p18 fig-12 p21 fig-13 p22 fig-14 p23 fig-15 p23 fig-16；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p6.png fig-04-p7.png fig-05-p9.png fig-06-p12.png fig-07-p12.png fig-08-p13.png fig-09-p13.png fig-11-p17.png fig-12-p18.png fig-13-p21.png fig-15-p23.png tab-01-p5.png tab-02-p8.png tab-03-p17.png
+             未产出：p15 fig-10: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 212.5pt 外 > 第一跳上限 48.3pt））｜图注 'Figure 10: Public transport network map'
+             未产出：p22 fig-14: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 130.3pt 外 > 第一跳上限 48.3pt））｜图注 'Figure 14: Traffic accidents and congest'
+             未产出：p23 fig-16: 定不出内容带（上侧够不着（最近实物在 163.3pt 外 > 第一跳上限 48.3pt）；下侧无实物）｜图注 'Figure 16: Sensitivity analysis of d'
+2507692    C1 图注=30 (图29/表1) 产出=30 (图29/表1) 差额=0  C2 最小非白=10.49% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-04-p9.png=15.49% fig-01-p3.png=8.64% fig-26-p20.png=5.68%  <- 待人工确认 ['fig-04-p9.png', 'fig-01-p3.png', 'fig-26-p20.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2516219    C1 图注=18 (图14/表4) 产出=18 (图14/表4) 差额=0  C2 最小非白=13.68% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-01-p3.png=22.60% fig-09-p19.png=12.17% fig-08-p18.png=8.77%  <- 待人工确认 ['fig-01-p3.png', 'fig-09-p19.png', 'fig-08-p18.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2519935    C1 图注=31 (图26/表5) 产出=30 (图25/表5) 差额=1  C2 最小非白= 6.62% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-25-p23.png=27.60% fig-21-p20.png=21.63% fig-03-p5.png=20.91%  <- 待人工确认 ['fig-25-p23.png', 'fig-21-p20.png', 'fig-03-p5.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 1 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p4 tab-01 p5 fig-03 p5 tab-02 p5 tab-03 p6 fig-04 p6 tab-04 p7 fig-05 p9 fig-06 p9 fig-07 p10 fig-08 p11 fig-09 p11 fig-10 p12 fig-11 p12 fig-10 p13 tab-05 p14 fig-12 p15 fig-13 p15 fig-14 p16 fig-15 p16 fig-16 p17 fig-17 p18 fig-18 p19 fig-19 p19 fig-20 p20 fig-21 p21 fig-22 p21 fig-23 p22 fig-24 p23 fig-25；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p5.png fig-04-p6.png fig-05-p7.png fig-06-p9.png fig-07-p9.png fig-08-p10.png fig-09-p11.png fig-10-p11.png fig-11-p12.png fig-12-p14.png fig-13-p15.png fig-14-p15.png fig-15-p16.png fig-16-p16.png fig-17-p17.png fig-18-p18.png fig-19-p19.png fig-20-p19.png fig-21-p20.png fig-22-p21.png fig-23-p21.png fig-24-p22.png fig-25-p23.png tab-01-p4.png tab-02-p5.png tab-03-p5.png tab-04-p6.png tab-05-p13.png
+             未产出：p12 fig-10: 定不出内容带（下侧紧邻即正文段落行；上侧紧邻即正文段落行）｜图注 'Figure 10. This suggests that, following'
+2502355    C1 图注=22 (图16/表6) 产出=14 (图9/表5) 差额=8  C2 最小非白= 6.30% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-02-p4.png=3.02% fig-09-p14.png=0.38% fig-15-p23.png=0.14%  <- 待人工确认 ['fig-02-p4.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 8 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p5 tab-01 p6 fig-03 p7 fig-04 p8 fig-05 p9 fig-06 p11 fig-07 p13 fig-08 p14 fig-09 p16 tab-02 p16 tab-03 p17 fig-10 p17 tab-04 p19 fig-11 p19 tab-05 p19 fig-12 p20 fig-13 p21 fig-14 p21 tab-06 p23 fig-15 p24 fig-16；产出清单 = fig-01-p3.png fig-02-p4.png fig-03-p6.png fig-09-p14.png fig-11-p19.png fig-12-p19.png fig-13-p20.png fig-14-p21.png fig-15-p23.png tab-01-p5.png tab-02-p16.png tab-04-p17.png tab-05-p19.png tab-06-p21.png
+             未产出：p7 fig-4: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 210.4pt 外 > 第一跳上限 48.0pt））｜图注 'Figure 4: Food Chain Model Results'
+             未产出：p8 fig-5: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 201.2pt 外 > 第一跳上限 48.3pt））｜图注 'Figure 5: Food Web Model'
+             未产出：p9 fig-6: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 209.0pt 外 > 第一跳上限 48.6pt））｜图注 'Figure 6: Food Web Model Results'
+             未产出：p11 fig-7: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 325.7pt 外 > 第一跳上限 48.6pt））｜图注 'Figure 7: (a) Without Human Intervention'
+             未产出：p13 fig-8: 定不出内容带（上侧带高只有 15.2pt < MIN_BAND=20.0pt；下侧带高只有 16.4pt < MIN_BAND=20.0pt）｜图注 'Figure 8: (a) The average temperature da'
+             未产出：p16 tab-3: 定不出内容带（上侧带高只有 16.2pt < MIN_BAND=20.0pt；下侧无实物）｜图注 'Table 3: The result of food web after in'
+             未产出：p17 fig-10: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 213.9pt 外 > 第一跳上限 48.6pt））｜图注 'Figure 10: food web after introducing ne'
+             未产出：p24 fig-16: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 215.0pt 外 > 第一跳上限 48.6pt））｜图注 'Figure 16: Bifurcation diagrams of the s'
+2508861    C1 图注=22 (图19/表3) 产出=20 (图17/表3) 差额=2  C2 最小非白=12.79% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-05-p7.png=3.99% fig-06-p8.png=2.25% fig-17-p18.png=0.97%  <- 待人工确认 ['fig-05-p7.png', 'fig-06-p8.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-02-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 2 条，逐条登记：图注清单（独立数）= p3 fig-01 p4 fig-02 p5 fig-03 p6 tab-01 p6 fig-04 p7 fig-05 p8 fig-06 p10 fig-07 p11 tab-02 p12 fig-08 p12 fig-09 p13 fig-10 p13 fig-11 p14 fig-12 p16 fig-13 p16 fig-14 p16 fig-15 p16 fig-16 p18 fig-17 p18 fig-18 p21 tab-03 p22 fig-19；产出清单 = fig-02-p4.png fig-03-p5.png fig-04-p6.png fig-05-p7.png fig-06-p8.png fig-07-p10.png fig-08-p12.png fig-09-p12.png fig-10-p13.png fig-11-p13.png fig-13-p16.png fig-14-p16.png fig-15-p16.png fig-16-p16.png fig-17-p18.png fig-18-p18.png fig-19-p22.png tab-01-p6.png tab-02-p11.png tab-03-p21.png
+             未产出：p3 fig-1: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 195.6pt 外 > 第一跳上限 48.6pt））｜图注 'Figure 1: Conversion of Forest Ecology t'
+             未产出：p14 fig-12: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 179.0pt 外 > 第一跳上限 48.6pt））｜图注 'Figure 12: Predicted Results and Model E'
+2515136    C1 图注=20 (图16/表4) 产出=20 (图16/表4) 差额=0  C2 最小非白= 5.02% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-12-p19.png=9.29% fig-11-p17.png=8.84% fig-03-p7.png=4.64%  <- 待人工确认 ['fig-12-p19.png', 'fig-11-p17.png', 'fig-03-p7.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2517273    C1 图注=15 (图15/表0) 产出=13 (图13/表0) 差额=2  C2 最小非白= 6.11% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-10-p21.png=8.28% fig-14-p23.png=4.22% fig-15-p23.png=4.22%  <- 待人工确认 ['fig-10-p21.png', 'fig-14-p23.png', 'fig-15-p23.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-03-p17.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 2 条，逐条登记：图注清单（独立数）= p3 fig-01 p5 fig-02 p17 fig-03 p17 fig-04 p18 fig-05 p19 fig-06 p20 fig-07 p21 fig-08 p21 fig-09 p21 fig-10 p22 fig-12 p22 fig-13 p23 fig-14 p23 fig-15 p24 fig-11；产出清单 = fig-03-p17.png fig-04-p17.png fig-05-p18.png fig-06-p19.png fig-07-p20.png fig-08-p21.png fig-09-p21.png fig-10-p21.png fig-11-p24.png fig-12-p22.png fig-13-p22.png fig-14-p23.png fig-15-p23.png
+             未产出：p3 fig-1: 定不出内容带（下侧紧邻即正文段落行；上侧够不着（最近实物在 218.3pt 外 > 第一跳上限 48.3pt））｜图注 'Figure 1: Map of the Border Between Fore'
+             未产出：p5 fig-2: 定不出内容带（上侧够不着（最近实物在 337.4pt 外 > 第一跳上限 48.3pt）；下侧无实物）｜图注 'Figure 2: Our Work'
+2504223    C1 图注=17 (图13/表4) 产出=17 (图13/表4) 差额=0  C2 最小非白= 6.07% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-08-p15.png=12.08% fig-01-p4.png=5.78% fig-13-p22.png=1.42%  <- 待人工确认 ['fig-08-p15.png', 'fig-01-p4.png', 'fig-13-p22.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p4.png 与置空后的渲染逐像素相同（该带盖到水印）
+2507789    C1 图注=1  (图1/表0) 产出=0  (图0/表0) 差额=1  C2 最小非白=  nan% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: 
+           C4 置空来源（A/B 差分）= 未验证：未比较任何带（tried=0：本篇没有定得出带且已产出的图注）→ 未验证
+           C1 差额 1 条，逐条登记：图注清单（独立数）= p11 fig-02；产出清单 = （无）
+             未产出：p11 fig-2: 定不出内容带（上侧带高只有 13.3pt < MIN_BAND=20.0pt；下侧够不着（最近实物在 273.5pt 外 > 第一跳上限 39.9pt））｜图注 'Figure 2: Generating and Restricting Rel'
+2513705    C1 图注=18 (图11/表7) 产出=18 (图11/表7) 差额=0  C2 最小非白= 6.48% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-08-p14.png=8.37% fig-01-p3.png=5.07% fig-05-p9.png=4.23%  <- 待人工确认 ['fig-08-p14.png', 'fig-01-p3.png', 'fig-05-p9.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+2517199    C1 图注=15 (图15/表0) 产出=14 (图14/表0) 差额=1  C2 最小非白= 7.46% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-09-p14.png=25.11% fig-11-p19.png=17.50% fig-13-p21.png=13.31%  <- 待人工确认 ['fig-09-p14.png', 'fig-11-p19.png', 'fig-13-p21.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+           C1 差额 1 条，逐条登记：图注清单（独立数）= p3 fig-01 p5 fig-02 p7 fig-03 p8 fig-04 p9 fig-05 p11 fig-06 p12 fig-07 p14 fig-08 p14 fig-09 p17 fig-10 p18 fig-05 p19 fig-11 p19 fig-12 p21 fig-13 p22 fig-14；产出清单 = fig-01-p3.png fig-02-p5.png fig-03-p7.png fig-04-p8.png fig-05-p9.png fig-06-p11.png fig-07-p12.png fig-08-p14.png fig-09-p14.png fig-10-p17.png fig-11-p19.png fig-12-p19.png fig-13-p21.png fig-14-p22.png
+             未产出：p18 fig-5: 定不出内容带（上侧紧邻即正文段落行；下侧紧邻即正文段落行）｜图注 'Figure 5.'
+2521039    C1 图注=22 (图17/表5) 产出=22 (图17/表5) 差额=0  C2 最小非白= 4.15% 空图=无 C3 图注文件=齐 C4 水印对象=1 strip=1 残留流长>0=无
+           C4 代理（仅筛选器·逐份偏红 top3）: fig-15-p20.png=14.36% fig-06-p8.png=10.28% fig-05-p7.png=7.68%  <- 待人工确认 ['fig-15-p20.png', 'fig-06-p8.png', 'fig-05-p7.png']
+           C4 置空来源（A/B 差分）= 已验证：fig-01-p3.png 与置空后的渲染逐像素相同（该带盖到水印）
+========================================================================
+C2/C3 前置条件：整批产出 908 张（非 0，两条判据有东西可验）
+C1 合计：图注 935 条（图 682 / 表 253）· 产出 908 张（图 662 / 表 246）· 合计差额 27· 有差额的份数 14
+C1 差额登记（**复述，不参与判定**）：extract_all 自述登记 27 条 / 合计差额 27 条。这一行**不是判据**——判定由逐份的 `len(skipped) == diff` 做（复核 2026-09-24 指出：原写法「不等 → FAIL」把自己说成了执行点，而它既不 append 进 bad、也不改返回值；逐份那条在数学上已蕴含本条，故它只是同义反复，只会给「靠子串读报告」的人一个假信号）
+C1 差额占比：27/935 = 2.89% （上界 10%，实测定稿值 2.89%）
+C1 登记串「原因具体」（页码+编号+侧别+一个量出的数值/定点原因，且明写的不等式必须自洽）：本次 27 条登记里不合规 **0** 条（可核形状 = `SKIP_RECORD_RX` / `SKIP_SIDE_RX` / `SKIP_SIGNAL_RX` / `MIN_BAND_CLAIM_RX`；不合规即 FAIL——只判条数的旧口径抓不住这种退化）
+C2 非白像素阈值 0.50%（灰度 < 245 计非白）· 本次最小 2.32%（2500836/fig-14-p16.png）· 空图 0 张
+C3 缺 .caption.txt 的图 0 张
+C4 结构化（机制）：strip 找到的水印对象流必须全部为空 · 本次 43 份里 **水印对象=0** 的有 0 份（覆盖指标：=0 **不等于干净**，只等于「本脚本没找到水印对象」）
+C4 结构化（机制）覆盖指标：`水印对象 == strip` **按构造恒真、不构成判据**（`strip_in_memory` 的返回值按定义就是 `len(find_watermark_xrefs(doc))`）；两处谓词分叉的份数 = **0**（分叉即 FAIL，见 tripwire）
+C4 置空来源（产出图）：A/B 差分证明产出 PNG 来自置空后的渲染 · **已验证 42 份 / 未验证 1 份**（未验证 = 该带盖不到水印 / 无带可试 / 与两个参照都不同，差分无区分力；**既不并进通过、也不硬失败该篇**）
+C4 置空来源 未验证占比：1/43 = 2.33% （上界 10%，实测定稿值 2.33%）
+C4 像素代理（**仅筛选器，不参与 ok**）：偏红 >= 1% 的样件 118 张，已逐份列出待人工确认
+  ⚠ 本项**只是可核代理指标**：偏红残余可能来自照片本身的暖色（石质/木质），**不是水印**；目视结论须由人工给出。
+C1/C2/C3/C4（机器可核）本批判定: True
+  覆盖数：C1 图注 935 条 / 产出 908 张（**逐份**比对）· C2/C3 **逐张**（908 张）· C4 机制层 **逐份**（43 份）· C4 来源层 **已验证 42/43，未验证 1**（上界 10%）· C4 像素代理**只是筛选器**（118 张待人工），不构成结论
+========================================================================
+C4 人工目视闸门（**只能由人工写入，本脚本只读**）
+tests/papers/reports/c4-visual-confirm.txt 逐字存档：
+人工目视确认（Task 4 · C4 闸门）
+日期：2026-09-24
+目视人：用户（本人）
+转录：本文件由 AI 依用户的口述结论落盘——**AI 未、也不能看图**；
+      结论的所有权归目视人，措辞力求不增不减。
+
+## 受检样件
+
+`tests/papers/reports/c4-*.png` 共 **6 张**（Task 4 送检样件，`4330eb5` 引入）：
+  c4-2500836-fig-18-p19.png   c4-2504218-fig-04-p7.png   c4-2513314-fig-01-p3.png
+  c4-2516695-fig-01-p3.png    c4-2517199-fig-09-p14.png  c4-2519935-fig-25-p23.png
+
+这 6 张是全库**偏红像素占比最高**的一批（23.04%–44.44%，见 `c4-proxy-evidence.txt`），
+即机器筛选出的最可疑样件。
+
+## 结论
+
+**6 张送检样件均无水印**（无红色「校苑数模公众号」字样）。
+
+**一处必须写明的区分**：同一目录下的 `a4-2500836-with-wm.png` **确实带水印**，
+但它是 **Task 2 的对照图**（`e3f6f45` 引入），与本次 C4 闸门**无关**——
+它按设计**就要**带水印，与 `a4-2500836-no-wm.png` 同页同参数、只差 `strip_in_memory` 一步，
+用「处理前/处理后」的成对呈现来证明置空那一步真的起作用。
+它的目视结论早已记在 `wm-visual-confirm.txt`（2026-09-23）。
+
+用户原话：「a4-2500836-with-wm.png 仍有水印，其他图片都没有」
+—— 即该目录 **8 张**图里，7 张干净，唯一带水印的那张是**刻意保留的对照**。
+
+## 本闸门的效力边界（不得被读大）
+
+- 本结论只覆盖**这 6 张送检样件**，**不是**对全部 908 张产出图的普查。
+  908 张里只有 118 张（偏红 ≥1%）被列为「待人工确认」；本次目视的是其中偏红最高的 6 张。
+- 本结论**不**声称「图表抽取的内容框对了」——那需要一个能看图的独立参照，本轮没有（见
+  `task-4-report.md` §6 / `c-mutation-evidence.txt` 的「本轮未能证明的东西」）。
+- 本文件**不由** `verify_c.py` 生成：该脚本每次运行都会重写 `c-report.txt`，
+  结论若只写在报告里，任何一次重跑都会把它抹掉。脚本改为**读**本文件并逐字抄进报告，
+  缺了则判本闸门 FAIL——这样这份证据既不会被重跑覆盖，也不会被静默忽略。
+  （刻意不由本脚本生成——本报告每次重跑都会被重写）
+  本行**不并入 RESULT**：RESULT 只覆盖机器可核判据。理由见本文件 docstring（Step 4 要求全量跑在人工介入前即得 RESULT: PASS；把人工项并进去会让那一行在人工写入前恒为 FAIL，与恒真的判据同罪）。机读值 visual_ok=True
+发布放行: 已放行（人工目视已判定，逐字存档见上）
+
+写入：tests/papers/reports/c-report.txt
+  本文件是**全量跑的放行证据**（入库）——前半句由本次运行的落点自证；全量侧另有镜像落点守卫（`limit <= 0` 而落点不是本文件时，写前复核会把它改写回本文件并判 FAIL）。限样本跑的落点**按设计**是 tests/papers/reports-limited/ 下的另一份文件——**后半句是关于别的运行的承诺，本次运行不检查它**：它由限样本侧的守卫与写前复核保证，强度止于「**决策点**被改坏就判 FAIL 并改写落点；**整个绕开调用点**（M-L2 的形状）则限样本跑确实会写进放行证据本体、只判 FAIL 而不改写」，不是「物理上写不进来」。
+
+RESULT: PASS
