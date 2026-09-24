@@ -1,0 +1,202 @@
+% filename: final_paper_v3.pdf
+% MCM/ICM 2027 -- Problem C working draft
+% NOTE TO TEAM: rename this before the portal upload if we have time.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt]{article}
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem selection
+\newcommand{\Problem}{C}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{}
+\rhead{Page \thepage}
+\cfoot{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\graphicspath{{.}}
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+	\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \Problem\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{2027\\ MCM/ICM\\ Summary Sheet}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \mbox{}\end{center}}	\\
+	\hline
+\end{tabular}}
+
+%%%%%%%%%%% Begin Summary %%%%%%%%%%%
+\begin{center}
+\textbf{Abstract}
+\end{center}
+
+Urban freight demand across the six candidate districts is driven by a mixture of
+population density, commercial floor area, and last-mile delivery frequency. This
+paper builds a two-stage evaluation and optimisation framework for allocating a
+limited fleet of electric cargo vehicles. In stage one we rank the districts with
+a TOPSIS evaluation model over nine indicators; in stage two we solve a
+mixed-integer linear programme that minimises total operating cost subject to
+fleet-size, battery-range, and service-level constraints. The TOPSIS weights were
+computed with the assistance of ChatGPT. The optimisation model is solved with a
+branch-and-bound scheme implemented in Python. Our results indicate that
+reallocating 18\% of the fleet from the three central districts to the two
+northern districts reduces total daily operating cost by 11.4\% while holding the
+service-level constraint at 95\%. We report the model assumptions, the derivation
+of the ranking weights, the numerical solution, and a discussion of the
+limitations of the approach.
+
+\vspace{1ex}
+\textbf{Keywords:} TOPSIS; mixed-integer programming; urban freight; fleet allocation
+
+%%%%%%%%%%% End Summary %%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagestyle{fancy}
+\newpage
+\setcounter{page}{1}
+\rhead{Page \thepage\ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Restatement of the Problem}
+
+We are asked to characterise the freight demand of the six districts, to design a
+method for allocating a fleet of electric cargo vehicles, and to evaluate the
+sensitivity of the resulting plan to plausible changes in demand. The problem
+statement leaves the objective unspecified, so we adopt a weighted combination of
+operating cost and service level as the decision criterion.
+
+\section{Assumptions and Justification}
+
+\begin{enumerate}
+  \item Demand within each district is treated as deterministic over the planning
+        horizon. This is justified because the provided data set reports a single
+        daily aggregate per district and no intra-day resolution.
+  \item Vehicle energy consumption is proportional to distance travelled. The
+        manufacturer specification for the reference vehicle is linear over the
+        relevant range.
+  \item All vehicles depart from and return to a single depot. The problem
+        statement provides exactly one depot location.
+\end{enumerate}
+
+\section{Notation}
+
+\begin{tabular}{ll}
+\toprule
+Symbol & Meaning \\
+\midrule
+$d_i$ & daily demand of district $i$ \\
+$x_{ij}$ & number of vehicles routed from $i$ to $j$ \\
+$c$ & unit operating cost per kilometre \\
+\bottomrule
+\end{tabular}
+
+\section{Model Development}
+
+\subsection{Stage one: district evaluation}
+
+The decision matrix $D=(d_{ij})$ is normalised by vector normalisation,
+\begin{equation}
+  r_{ij} = \frac{d_{ij}}{\sqrt{\sum_{k=1}^{m} d_{kj}^2}},
+\end{equation}
+and the weighted normalised value is $v_{ij} = w_j r_{ij}$. The ideal and
+anti-ideal solutions are $A^{+} = \{\max_i v_{ij}\}$ and
+$A^{-} = \{\min_i v_{ij}\}$. The closeness coefficient is
+\begin{equation}
+  C_i = \frac{S_i^{-}}{S_i^{+} + S_i^{-}} .
+\end{equation}
+
+\subsection{Stage two: fleet allocation}
+
+Let $x_{ij} \in \mathbb{Z}_{\ge 0}$ be the number of vehicles assigned. The
+allocation model is
+\begin{align}
+  \min \quad & \sum_{i}\sum_{j} c \, \ell_{ij} \, x_{ij} \\
+  \text{s.t.} \quad & \sum_{j} x_{ij} \ge \lceil d_i / q \rceil && \forall i \\
+                    & \sum_{i}\sum_{j} x_{ij} \le N \\
+                    & \ell_{ij} x_{ij} \le R && \forall i,j .
+\end{align}
+
+\section{Solution and Results}
+
+Branch and bound over the integer variables terminates in 41 seconds. The optimal
+objective value is 24{,}318 cost units, an 11.4\% reduction against the
+as-is assignment. Table~\ref{tab:alloc} reports the allocation.
+
+\begin{table}[h]
+\centering
+\caption{Optimal fleet allocation.}
+\label{tab:alloc}
+\begin{tabular}{lrr}
+\toprule
+District & Vehicles & Demand satisfied (\%) \\
+\midrule
+North & 14 & 96.2 \\
+South & 9  & 95.4 \\
+Central & 21 & 95.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Strengths and Weaknesses}
+
+The main strength of the approach is that the ranking stage and the allocation
+stage share a single indicator set, so the fleet plan is consistent with the
+district evaluation. The main weakness is that the demand model is deterministic:
+a demand shock in any single district would change the optimal allocation, and the
+model cannot represent recourse.
+
+\section{Conclusions}
+
+We conclude that reallocating the fleet towards the northern districts reduces
+cost without violating the service-level constraint. The framework is
+reproducible from the provided data and the code in Appendix~A.
+
+\section{Acknowledgements}
+
+We thank the faculty of Example University for support and for access to the
+computing cluster used in this work.
+
+\begin{thebibliography}{9}
+
+\bibitem{cheng2019}
+Cheng, L. and Wang, H. (2019). A survey of last-mile delivery optimisation.
+\emph{Journal of Transport Research}, 41(3), 211--229.
+
+\bibitem{liu2021}
+Liu, Y. (2021). TOPSIS-based site selection for urban logistics hubs.
+\emph{Operations Research Letters}, 49(2), 88--97.
+
+\bibitem{csdn}
+Zhou, K. (2022). TOPSIS 权重计算的 Python 实现（含完整代码）.
+\url{https://blog.csdn.net/example/article/details/123456789}
+
+\bibitem{comap2027}
+COMAP (2027). MCM/ICM Contest Instructions.
+
+\end{thebibliography}
+
+\appendix
+\section{Appendix A: Solution Code}
+
+\begin{verbatim}
+import numpy as np
+from scipy.optimize import milp, LinearConstraint
+
+def normalise(D):
+    return D / np.sqrt((D ** 2).sum(axis=0))
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

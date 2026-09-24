@@ -1,0 +1,16 @@
+# M6 语料流水线：以下产物可由 `python -m tools.papers.cli all` 确定性重生成，
+# 且体积大（实测 43 篇约 302 MB，全量约 1.4 GB），故不入库。
+# 入库的是抽取出的文本、索引与判据证据。
+corpus/papers/figures/
+corpus/papers/formulas/
+build/
+
+# Python 字节码缓存：tools/papers 成为包后必然生成，属构建产物，不入库。
+__pycache__/
+
+# 限样本跑（`python tests/papers/verify_b.py --limit N`，变异演示用）的报告落点。
+# **必须与放行证据分文件**：`tests/papers/reports/b-report.txt` 是 43 份全量跑的
+# 放行证据，限样本跑覆写过它一次（43 份的结论被 5 份的替掉，git status 上只是一处
+# 「修改」），修复见 tests/papers/verify_b.py 的 docstring。
+# 不入库的理由：限样本跑每次的样本口径都可能不同，进 git 只制造噪声 diff。
+tests/papers/reports-limited/

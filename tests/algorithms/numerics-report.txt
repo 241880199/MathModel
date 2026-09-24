@@ -1,0 +1,11 @@
+PASS	N1 Floyd 全矩阵 vs MATLAB distances(G)
+PASS	N2 Floyd 首行 vs 手算教科书值
+PASS	N3 Dijkf 单源 vs 手算教科书值
+PASS	N4 Floyd 与 Dijkf 交叉一致
+PASS	N5 Huffman 最优带权路径长度 [1 2 3 4 5] = 33
+PASS	N6 ahp.m 权向量 vs 独立求主特征向量
+PASS	N7 grShortPath 非对角项 vs MATLAB distances
+PASS	N8 grMinSpanTree 总权 vs MATLAB minspantree
+ERROR	N9 grMaxFlows 最大流 vs MATLAB maxflow	LINPROG(f,A,b,Aeq,beq,LB,UB,X0,OPTIONS) 不接受 X0。请改用 LINPROG(f,A,b,Aeq,beq,LB,UB,OPTIONS)。
+ERROR	N10 grTravSale vs 穷举全排列最优	未定义与 'double' 类型的输入参数相对应的函数 'MIQP'。
+# RESULT pass=8 fail=0 skip=2

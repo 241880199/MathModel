@@ -1,0 +1,8 @@
+PASS	I1 GM(2,1) dsolve 解 vs 特征根闭式解
+PASS	I2 Verhulst dsolve 解 vs Logistic 闭式解
+PASS	I3 优势分析关联矩阵 vs 独立重算
+PASS	I4 一元二次回归 polyfit vs 正规方程
+PASS	I5 二维最近邻插值 interp2 vs 独立查表
+PASS	I6 变量聚类 凝聚距离向量长度自洽
+PASS	I7 模糊聚类 传递闭包已收敛(R2∘R2 = R2)
+# RESULT pass=7 fail=0 skip=0

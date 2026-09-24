@@ -1,0 +1,6 @@
+PASS	H1 模糊矩阵 max-min 合成 vs 手算
+PASS	H2 灰色关联度 vs 独立重算
+PASS	H3 投资模型 可行性 + 独立重解目标值
+PASS	H4 BFS 各点层数 vs MATLAB distances
+PASS	H5 sglsortexamine 的 CI/RI vs 手算
+# RESULT pass=5 fail=0 skip=0

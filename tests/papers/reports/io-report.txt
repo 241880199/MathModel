@@ -1,0 +1,16 @@
+ORIGIN=corpus/历届优秀论文 exists=True
+stable_id('2025美赛O奖论文','A',1) = 'P2025-A-01'
+parse_stable_id('P2025-A-01') = ('2025', 'A', 1)
+stable_id(题号='AB') 抛 ValueError
+stable_id(题号='') 抛 ValueError
+problem_of('corpus/历届优秀论文/2025美赛O奖论文/A/2500836.pdf') = 'A'
+problem_of(深层路径) = 'A'
+md_path   = corpus/papers/md/2025美赛O奖论文/A/2500836.md
+figures   = corpus/papers/figures/2025美赛O奖论文/A/2500836
+formulas  = corpus/papers/formulas/2025美赛O奖论文/A/2500836
+sha256_tree: 43 份；两次调用一致=True
+sha256_tree(不存在的合集名) 抛 FileNotFoundError
+sha256_tree(无 PDF 的合集) 抛 ValueError
+write_bytes_checked roundtrip identical=True
+
+RESULT: PASS

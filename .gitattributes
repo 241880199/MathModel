@@ -1,0 +1,28 @@
+# 归档的第三方源码要逐字节保真，禁止任何换行转换。
+#
+# 起因见 corpus/algorithms/PROVENANCE.md §5.1：core.autocrlf 把检出内容写成
+# CRLF，后续的文本模式写入又翻了一次换行，叠加成 \r\r\n，让 883 个文件在
+# MATLAB 里报"语法错误"——我一度误判为上游代码的问题。
+# `-text` 让 git 对这批文件既不规范化也不转换，存什么取什么。
+corpus/algorithms/src/**     -text
+corpus/algorithms/*.txt      -text
+corpus/papers/**             -text
+
+# 官方原题语料：其中的 `*_Data.csv` 是**文本文件**，core.autocrlf 会改写其行尾。
+# 本项目明令不得依赖 git 的二进制自动检测（通则 9 的 \r\r\n 事故即此形态），
+# 故整目录一律 `-text`——存什么取什么。PDF/zip/xlsx 本是二进制，一并纳入免误判。
+corpus/官方原题/**           -text
+
+# 获奖论文语料（201 份 / 1.7 GB，已入库）：2026-09-24 实测**其中 10 份 PDF 的前 8KB 不含 NUL**
+# —— git 的二进制判定只看前 8KB，这 10 份按该规则会被判成**文本**，而本仓 core.autocrlf=true
+# 会对文本做行尾转换。逐份比对 blob 与工作树，这 10 份**当前逐字节相同**（隐患未实现）；
+# 且 tests/papers/reports/origin-sha256-2025.txt 的 43 条与工作树 0 条不符。
+# 但"没被改写"当时依赖的正是 git 的自动判定——通则 9 明令不得依赖它，故在此固化：
+# 存什么取什么。对已入库的 blob 无任何影响（它们本就是原样存储）。
+corpus/历届优秀论文/**       -text
+
+# 判据证据也必须逐字节保真：证据一旦被 git 归一化，入库的那份就不再是
+# 跑出来的那份，"报告与运行结果一致"这句话当场失去依据。
+# 校验脚本按 LF + write_bytes 落盘，本条规则让 blob 与工作树同一串字节。
+tests/papers/reports/**      -text
+tests/papers/recon/**        -text
