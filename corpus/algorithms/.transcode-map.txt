@@ -1,0 +1,883 @@
+AHP层次分析法\CalculationRI.m	gb18030
+AHP层次分析法\ahp.m	gb18030
+AHP层次分析法\ahp_common.m	gb18030
+AHP层次分析法\ahp_usage.m	gb18030
+AHP层次分析法\main.m	gb18030
+AHP层次分析法\sglsortexamine.m	gb18030
+AHP层次分析法\test1.m	gb18030
+AHP层次分析法\tolsortvec.m	gb18030
+CellularAutomata元胞向量机\初等元胞自动机\basic_CA.m	gb18030
+CellularAutomata元胞向量机\森林火灾\foreset_fire.m	gb18030
+CellularAutomata元胞向量机\渗流集群\main.m	gb18030
+CellularAutomata元胞向量机\生命游戏\game_of_life.m	gb18030
+CellularAutomata元胞向量机\生命游戏\main.m	gb18030
+FuzzyMathematicalModel模糊数学模型\多层次模糊综合评价\main.m	gb18030
+FuzzyMathematicalModel模糊数学模型\多目标模糊综合评价\main.m	gb18030
+FuzzyMathematicalModel模糊数学模型\多目标模糊综合评价\muti_objective_fuzzy_analysis.m	gb18030
+FuzzyMathematicalModel模糊数学模型\模糊聚类\Riemann_closeness.m	gb18030
+FuzzyMathematicalModel模糊数学模型\模糊聚类\caculate_SSE.m	gb18030
+FuzzyMathematicalModel模糊数学模型\模糊聚类\fuzzy_cluster_analysis.m	gb18030
+FuzzyMathematicalModel模糊数学模型\模糊聚类\fuzzy_matrix_compund.m	gb18030
+FuzzyMathematicalModel模糊数学模型\模糊聚类\fuzzy_pattern_recognition.m	gb18030
+FuzzyMathematicalModel模糊数学模型\模糊聚类\main.m	gb18030
+FuzzyMathematicalModel模糊数学模型\模糊聚类\maximun.m	gb18030
+FuzzyMathematicalModel模糊数学模型\模糊聚类\minimun.m	gb18030
+GoalProgramming(目标规划、多元分析与插值的相关例子)\fun.m	gb18030
+GoalProgramming(目标规划、多元分析与插值的相关例子)\main.m	gb18030
+GoalProgramming(目标规划、多元分析与插值的相关例子)\prediction.m	gb18030
+GraphTheory(图论)\detailed\Euler图和Hamilton图\Fleuf1.m	gb18030
+GraphTheory(图论)\detailed\Euler图和Hamilton图\glf.m	gb18030
+GraphTheory(图论)\detailed\Euler图和Hamilton图\readme.txt	gb18030
+GraphTheory(图论)\detailed\匹配问题\matgraf.m	gb18030
+GraphTheory(图论)\detailed\匹配问题\readme.txt	gb18030
+GraphTheory(图论)\detailed\图的染色\colorcodf.m	gb18030
+GraphTheory(图论)\detailed\图的染色\edgecodf.m	gb18030
+GraphTheory(图论)\detailed\图的染色\graphcodf.m	gb18030
+GraphTheory(图论)\detailed\图的染色\graphdiscodf.m	gb18030
+GraphTheory(图论)\detailed\图的染色\graphunicodf.m	gb18030
+GraphTheory(图论)\detailed\图的染色\readme.txt	gb18030
+GraphTheory(图论)\detailed\最小费用流\BGf.m	gb18030
+GraphTheory(图论)\detailed\最短路\Dijkf.m	gb18030
+GraphTheory(图论)\detailed\最短路\Floyd.m	gb18030
+GraphTheory(图论)\detailed\最短路\cn2shortf.m	gb18030
+GraphTheory(图论)\detailed\最短路\efpathf.m	gb18030
+GraphTheory(图论)\detailed\最短路\n2shortf.m	gb18030
+GraphTheory(图论)\detailed\最短路\p_pathf.m	gb18030
+GraphTheory(图论)\detailed\最短路\readme.txt	gb18030
+GraphTheory(图论)\detailed\最短路\shorp2f.m	gb18030
+GraphTheory(图论)\detailed\最短路\shortdf.m	gb18030
+GraphTheory(图论)\detailed\树\BFS.m	gb18030
+GraphTheory(图论)\detailed\树\DFS.m	gb18030
+GraphTheory(图论)\detailed\树\Huffman.m	gb18030
+GraphTheory(图论)\detailed\树\inoutgraf.m	gb18030
+GraphTheory(图论)\detailed\树\readme.txt	gb18030
+GraphTheory(图论)\detailed\树\treedgraf.m	gb18030
+GraphTheory(图论)\detailed\树\treegraf.m	gb18030
+GraphTheory(图论)\detailed\网络流\boundnetf.m	gb18030
+GraphTheory(图论)\detailed\网络流\fofuf.m	gb18030
+GraphTheory(图论)\detailed\网络流\readme.txt	gb18030
+GraphTheory(图论)\detailed\网络流\restrf.m	gb18030
+GraphTheory(图论)\detailed\连通图\centgraf.m	gb18030
+GraphTheory(图论)\detailed\连通图\concom.m	gb18030
+GraphTheory(图论)\detailed\连通图\readme.txt	gb18030
+GraphTheory(图论)\detailed\连通图\ucengraf.m	gb18030
+GreySystem灰色系统\GM_1_1.m	gb18030
+GreySystem灰色系统\GM_1_1_full_procession.m	gb18030
+GreySystem灰色系统\GM_2_1.m	gb18030
+GreySystem灰色系统\GM_Verhulst.m	gb18030
+GreySystem灰色系统\GM_full.m	gb18030
+GreySystem灰色系统\association_analysis.m	gb18030
+GreySystem灰色系统\strength_analysis.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\10_cities_TSP\distance.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\10_cities_TSP\main.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\10_cities_TSP\myplot.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\10_cities_TSP\pathfare.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\10_cities_TSP\swap.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\TSP(SA)\README.txt	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\TSP(SA)\fpdfprinter.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\simulated_annealing.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例1 BP神经网络的数据分类-语音特征信号分类\BP.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例1 BP神经网络的数据分类-语音特征信号分类\BPDLX.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例10 离散Hopfield神经网络的分类——高校科研能力评价\chapter10.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例10 离散Hopfield神经网络的分类——高校科研能力评价\stdlib.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例10 离散Hopfield神经网络的分类——高校科研能力评价\test.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例11 连续Hopfield神经网络的优化-旅行商问题优化计算\diff_u.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例11 连续Hopfield神经网络的优化-旅行商问题优化计算\energy.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例11 连续Hopfield神经网络的优化-旅行商问题优化计算\main.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例12 SVM神经网络的数据分类预测-葡萄酒种类识别\chapter12.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例13 SVM神经网络中的参数优化---提升分类器性能\chapter13_GA.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例13 SVM神经网络中的参数优化---提升分类器性能\chapter13_GridSearch.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例13 SVM神经网络中的参数优化---提升分类器性能\chapter13_PSO.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例14 SVM神经网络的回归预测分析---上证开盘指数预测\chapter14.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例15 SVM神经网络的信息粒化时序回归预测\FIG_D.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例15 SVM神经网络的信息粒化时序回归预测\chapter15.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例16 单层竞争神经网络的数据分类—患者癌症发病预测\chapter16.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例17 SOM神经网络的数据分类--柴油机故障诊断\addon.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例17 SOM神经网络的数据分类--柴油机故障诊断\chapter17.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例17 SOM神经网络的数据分类--柴油机故障诊断\运行说明.txt	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例18 Elman神经网络的数据预测—电力负荷预测模型研究\chapter18.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例19 概率神经网络的分类预测-基于PNN变压器故障诊断\chapter19.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例2 BP神经网络的非线性系统建模-非线性函数拟合\BP.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例2 BP神经网络的非线性系统建模-非线性函数拟合\BP_Hidden.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例20 神经网络变量筛选—基于BP的神经网络变量筛选\chapter20.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例21 LVQ神经网络的分类——乳腺肿瘤诊断\chapter21_bp.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例21 LVQ神经网络的分类——乳腺肿瘤诊断\chapter21_lvq.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例21 LVQ神经网络的分类——乳腺肿瘤诊断\crossvalidation_lvq.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例22 LVQ神经网络的预测——人脸朝向识别\chapter22_bp.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例22 LVQ神经网络的预测——人脸朝向识别\chapter22_lvq.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例22 LVQ神经网络的预测——人脸朝向识别\chapter_svm.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例22 LVQ神经网络的预测——人脸朝向识别\crossvalind_lvq.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例22 LVQ神经网络的预测——人脸朝向识别\feature_extraction.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例22 LVQ神经网络的预测——人脸朝向识别\lvq1_train.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例22 LVQ神经网络的预测——人脸朝向识别\lvq2_train.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例22 LVQ神经网络的预测——人脸朝向识别\test.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例23 小波神经网络的时间序列预测-短时交通流量预测\mymorlet.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例23 小波神经网络的时间序列预测-短时交通流量预测\wavenn.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例24 模糊神经网络的预测算法-嘉陵江水质评价\FuzzyNet.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例25 广义神经网络的聚类算法-网络入侵聚类\FCMGRNN.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例26 粒子群算法的寻优算法-非线性函数极值寻优\PSO.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例26 粒子群算法的寻优算法-非线性函数极值寻优\PSOMutation.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例26 粒子群算法的寻优算法-非线性函数极值寻优\fun.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例27 遗传算法的优化计算——建模自变量降维\de_code.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例27 遗传算法的优化计算——建模自变量降维\gadecod.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例27 遗传算法的优化计算——建模自变量降维\main.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例28 灰色神经网络的预测算法—订单需求预测\Greynet.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例29 kohonen网络的聚类算法—网络入侵聚类\Kohonen.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例29 kohonen网络的聚类算法—网络入侵聚类\SKohonen.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\BP.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\Code.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\Cross.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\Decode.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\Genetic.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\Mutation.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\Select.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\fun.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例3 遗传算法优化BP神经网络-非线性函数拟合\test.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例30 神经网络GUI的实现--基于GUI的神经网络拟合\案例30 神经网络GUI的实现--基于GUI的神经网络拟合.txt	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例4 神经网络遗传算法函数极值寻优-非线性函数极值\BP.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例4 神经网络遗传算法函数极值寻优-非线性函数极值\Code.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例4 神经网络遗传算法函数极值寻优-非线性函数极值\Cross.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例4 神经网络遗传算法函数极值寻优-非线性函数极值\Genetic.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例4 神经网络遗传算法函数极值寻优-非线性函数极值\Mutation.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例4 神经网络遗传算法函数极值寻优-非线性函数极值\Select.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例4 神经网络遗传算法函数极值寻优-非线性函数极值\fun.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例4 神经网络遗传算法函数极值寻优-非线性函数极值\test.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例5 基于BP_Adaboost的强分类器设计-公司财务预警建模\Bp_Ada_Fore.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例5 基于BP_Adaboost的强分类器设计-公司财务预警建模\Bp_Ada_Sort.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例6 PID神经元网络解耦控制算法_多变量系统控制\MPID.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例6 PID神经元网络解耦控制算法_多变量系统控制\MPIDCS.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例6 PID神经元网络解耦控制算法_多变量系统控制\MPIDDLX.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例6 PID神经元网络解耦控制算法_多变量系统控制\draw.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例6 PID神经元网络解耦控制算法_多变量系统控制\fun.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例6 PID神经元网络解耦控制算法_多变量系统控制\pso.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例7 RBF网络的回归-非线性函数回归的实现\chapter7_1.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例7 RBF网络的回归-非线性函数回归的实现\chapter7_2.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例7 RBF网络的回归-非线性函数回归的实现\运行提示.txt	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例8 GRNN的数据预测-基于广义回归神经网络货运量预测\chapter8.1.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例8 GRNN的数据预测-基于广义回归神经网络货运量预测\chapter8.2.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例8 GRNN的数据预测-基于广义回归神经网络货运量预测\运行提示.txt	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例9 离散Hopfield神经网络的联想记忆—数字识别\chapter9.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\神经网络算法\MATLAB神经网络30个案例分析\案例9 离散Hopfield神经网络的联想记忆—数字识别\waiji.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\TSP(GA)\README.txt	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\TSP(GA)\fpdfprinter.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\genetic_algorithms.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\求解函数最小值\f.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\求解函数最小值\find_function_min.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\cro.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\ft.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\ga.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\main.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\mut.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\n2to10.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\objf.m	gb18030
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\sel.m	gb18030
+IntegerProgramming（线性规划、整数规划等内容的使用案例）\assgin_integer_prog.m	gb18030
+IntegerProgramming（线性规划、整数规划等内容的使用案例）\example_1.m	gb18030
+IntegerProgramming（线性规划、整数规划等内容的使用案例）\monte_carro.m	gb18030
+Interpolation（目标规划、多元分析与插值的相关例子）\interp_1D.m	gb18030
+Interpolation（目标规划、多元分析与插值的相关例子）\interp_2D.m	gb18030
+Interpolation（目标规划、多元分析与插值的相关例子）\interp_2D_compare.m	gb18030
+Interpolation（目标规划、多元分析与插值的相关例子）\interp_grid.m	gb18030
+LinearProgramming（添加了线性规划、整数规划等内容的使用案例）\invest_model.m	gb18030
+MATLAB智能算法30个案例分析\chapter1 谢菲尔德大学的matlab遗传算法工具箱\example1.m	gb18030
+MATLAB智能算法30个案例分析\chapter1 谢菲尔德大学的matlab遗传算法工具箱\example2.m	gb18030
+MATLAB智能算法30个案例分析\chapter10 基于粒子群算法的多目标搜索算法\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter11 基于多层编码遗传算法的车间调度算法\aberranceJm.m	gb18030
+MATLAB智能算法30个案例分析\chapter11 基于多层编码遗传算法的车间调度算法\across.m	gb18030
+MATLAB智能算法30个案例分析\chapter11 基于多层编码遗传算法的车间调度算法\cal.m	gb18030
+MATLAB智能算法30个案例分析\chapter11 基于多层编码遗传算法的车间调度算法\calP.m	gb18030
+MATLAB智能算法30个案例分析\chapter11 基于多层编码遗传算法的车间调度算法\caltime.m	gb18030
+MATLAB智能算法30个案例分析\chapter11 基于多层编码遗传算法的车间调度算法\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\Cross.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\Mutation.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\Select.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\bestselect.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\concentration.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\draw.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\excellence.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\fitness.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\incorporate.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\popinit.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\similar.m	gb18030
+MATLAB智能算法30个案例分析\chapter12 免疫优化算法在物流配送中心选址中的应用\test.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample1\PSO0.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample1\PSO1.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample1\PSO2.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample1\PSO3.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample1\PSO4.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample1\fun.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample1\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample2-Rastrgrin\PSO.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample2-Rastrgrin\fun.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample3-Griewankan\PSO.m	gb18030
+MATLAB智能算法30个案例分析\chapter13 粒子群算法的寻优算法\sample3-Griewankan\fun.m	gb18030
+MATLAB智能算法30个案例分析\chapter14 基于粒子群算法的PID控制器优化设计\源程序\GA_run.m	gb18030
+MATLAB智能算法30个案例分析\chapter14 基于粒子群算法的PID控制器优化设计\源程序\PSO.m	gb18030
+MATLAB智能算法30个案例分析\chapter15 基于混合粒子群算法的TSP搜索算法\fitness.m	gb18030
+MATLAB智能算法30个案例分析\chapter15 基于混合粒子群算法的TSP搜索算法\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter16 基于动态粒子群算法的动态环境寻优算法\DF1function.m	gb18030
+MATLAB智能算法30个案例分析\chapter16 基于动态粒子群算法的动态环境寻优算法\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter17 基于PSO工具箱的函数寻优算法\testfunctions\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example1\AF_dist.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example1\AF_follow.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example1\AF_init.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example1\AF_prey.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example1\AF_swarm.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example1\dist.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example1\example1.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example2\AF_dist.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example2\AF_follow.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example2\AF_init.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example2\AF_prey.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example2\AF_swarm.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example2\dist.m	gb18030
+MATLAB智能算法30个案例分析\chapter18 基于鱼群算法的函数寻优算法\example2\example2.m	gb18030
+MATLAB智能算法30个案例分析\chapter19 基于模拟退火算法的TSP算法\Distanse.m	gb18030
+MATLAB智能算法30个案例分析\chapter19 基于模拟退火算法的TSP算法\DrawPath.m	gb18030
+MATLAB智能算法30个案例分析\chapter19 基于模拟退火算法的TSP算法\Metropolis.m	gb18030
+MATLAB智能算法30个案例分析\chapter19 基于模拟退火算法的TSP算法\NewAnswer.m	gb18030
+MATLAB智能算法30个案例分析\chapter19 基于模拟退火算法的TSP算法\OutputPath.m	gb18030
+MATLAB智能算法30个案例分析\chapter19 基于模拟退火算法的TSP算法\PathLength.m	gb18030
+MATLAB智能算法30个案例分析\chapter19 基于模拟退火算法的TSP算法\SA_TSP.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1\Code.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1\Cross.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1\Genetic.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1\Mutation.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1\Select.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1\test.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1非线性\Code.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1非线性\Cross.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1非线性\Mutation.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1非线性\Select.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1非线性\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例1非线性\test.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2\Code.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2\Cross.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2\Genetic.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2\Mutation.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2\Select.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2\test.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2非线性\Code.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2非线性\Cross.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2非线性\Genetic.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2非线性\Mutation.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2非线性\Select.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例2非线性\test.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3\Code.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3\Cross.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3\Genetic.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3\Mutation.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3\Select.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3\test.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3非线性\Code.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3非线性\Cross.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3非线性\Genetic.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3非线性\Mutation.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3非线性\Select.m	gb18030
+MATLAB智能算法30个案例分析\chapter2 基于遗传算法和非线性规划的函数寻优算法\案例3非线性\test.m	gb18030
+MATLAB智能算法30个案例分析\chapter20 基于遗传模拟退火算法的聚类算法\FCMfun.m	gb18030
+MATLAB智能算法30个案例分析\chapter20 基于遗传模拟退火算法的聚类算法\FCMpure.m	gb18030
+MATLAB智能算法30个案例分析\chapter20 基于遗传模拟退火算法的聚类算法\GAFCM.m	gb18030
+MATLAB智能算法30个案例分析\chapter20 基于遗传模拟退火算法的聚类算法\ObjFun.m	gb18030
+MATLAB智能算法30个案例分析\chapter20 基于遗传模拟退火算法的聚类算法\SAGAFcmMain.m	gb18030
+MATLAB智能算法30个案例分析\chapter20 基于遗传模拟退火算法的聚类算法\initFCM.m	gb18030
+MATLAB智能算法30个案例分析\chapter20 基于遗传模拟退火算法的聚类算法\iterateFCM.m	gb18030
+MATLAB智能算法30个案例分析\chapter22 蚁群算法的优化计算——旅行商问题（TSP）优化\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter23 基于蚁群算法的二维路径规划算法\DijkstraPlan.m	gb18030
+MATLAB智能算法30个案例分析\chapter23 基于蚁群算法的二维路径规划算法\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter24 基于蚁群算法的三维路径规划算法\CacuFit.m	gb18030
+MATLAB智能算法30个案例分析\chapter24 基于蚁群算法的三维路径规划算法\CacuQfz.m	gb18030
+MATLAB智能算法30个案例分析\chapter24 基于蚁群算法的三维路径规划算法\czfz.m	gb18030
+MATLAB智能算法30个案例分析\chapter24 基于蚁群算法的三维路径规划算法\data.m	gb18030
+MATLAB智能算法30个案例分析\chapter24 基于蚁群算法的三维路径规划算法\data1.m	gb18030
+MATLAB智能算法30个案例分析\chapter24 基于蚁群算法的三维路径规划算法\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter24 基于蚁群算法的三维路径规划算法\searchpath.m	gb18030
+MATLAB智能算法30个案例分析\chapter25 有导师学习神经网络的回归拟合——基于近红外光谱的汽油辛烷值预测\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter26 有导师学习神经网络的分类——￥尾花种类识别\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter27 无导师学习神经网络的分类——矿井突水水源判别\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter28 支持向量机的分类——基于乳腺组织电阻抗特性的乳腺癌诊断\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter29 支持向量机的回归拟合——混凝土抗压强度预测\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter3 基于遗传算法的BP神经网络优化算法\BPfun.m	gb18030
+MATLAB智能算法30个案例分析\chapter3 基于遗传算法的BP神经网络优化算法\callbackfun.m	gb18030
+MATLAB智能算法30个案例分析\chapter30 极限学习机的回归拟合及分类——对比实验研究\main.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Distanse.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\DrawPath.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Fitness.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\GABPMain.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\GA_TSP.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\InitPop.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Mutate.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Objfun.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\OutputPath.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\PathLength.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Recombin.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Reins.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Reverse.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Select.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\Sus.m	gb18030
+MATLAB智能算法30个案例分析\chapter4 基于遗传算法的TSP算法\test.m	gb18030
+MATLAB智能算法30个案例分析\chapter5 基于遗传算法的LQR控制器优化设计\GA_LQR_run.m	gb18030
+MATLAB智能算法30个案例分析\chapter6 遗传算法工具箱详解及应用\GA_demo_run.m	gb18030
+MATLAB智能算法30个案例分析\chapter7 多种群遗传算法的函数优化算法\EliteInduvidual.m	gb18030
+MATLAB智能算法30个案例分析\chapter7 多种群遗传算法的函数优化算法\MPGA.m	gb18030
+MATLAB智能算法30个案例分析\chapter7 多种群遗传算法的函数优化算法\ObjectFunction.m	gb18030
+MATLAB智能算法30个案例分析\chapter7 多种群遗传算法的函数优化算法\SGA.m	gb18030
+MATLAB智能算法30个案例分析\chapter7 多种群遗传算法的函数优化算法\danyuan.m	gb18030
+MATLAB智能算法30个案例分析\chapter7 多种群遗传算法的函数优化算法\immigrant.m	gb18030
+MATLAB智能算法30个案例分析\chapter8 基于量子遗传算法的函数寻优算法\FitnessFunction.m	gb18030
+MATLAB智能算法30个案例分析\chapter8 基于量子遗传算法的函数寻优算法\InitPop.m	gb18030
+MATLAB智能算法30个案例分析\chapter8 基于量子遗传算法的函数寻优算法\Objfunction.m	gb18030
+MATLAB智能算法30个案例分析\chapter8 基于量子遗传算法的函数寻优算法\Qgate.m	gb18030
+MATLAB智能算法30个案例分析\chapter8 基于量子遗传算法的函数寻优算法\QuantumMain.m	gb18030
+MATLAB智能算法30个案例分析\chapter8 基于量子遗传算法的函数寻优算法\bin2decFun.m	gb18030
+MATLAB智能算法30个案例分析\chapter8 基于量子遗传算法的函数寻优算法\collapse.m	gb18030
+MultivariateAnalysis（目标规划、多元分析与插值的相关例子）\主成分分析\PCA.m	gb18030
+MultivariateAnalysis（目标规划、多元分析与插值的相关例子）\聚类分析\main.m	gb18030
+MultivariateAnalysis（目标规划、多元分析与插值的相关例子）\聚类分析\system_cluster.m	gb18030
+MultivariateAnalysis（目标规划、多元分析与插值的相关例子）\聚类分析\var_cluster.m	gb18030
+NeuralNetwork神经网络工具箱的调用案例\af_classify_BP.m	gb18030
+NeuralNetwork神经网络工具箱的调用案例\af_classify_LVQ.m	gb18030
+NonLinearProgramming非线性规划\fun1.m	gb18030
+NonLinearProgramming非线性规划\fun2.m	gb18030
+NonLinearProgramming非线性规划\non_linear_prog.m	gb18030
+RegressionAnalysis回归分析\func.m	gb18030
+RegressionAnalysis回归分析\linear_regression.m	gb18030
+RegressionAnalysis回归分析\muti_indeterminate_2_degree_poly.m	gb18030
+RegressionAnalysis回归分析\one_indeterminate_poly.m	gb18030
+RegressionAnalysis回归分析\stepwise_regression.m	gb18030
+RegressionAnalysis回归分析\unlinear_regression.m	gb18030
+TimeSeries时间序列函数\指数平滑法\second_exponential_smoothing.m	gb18030
+TimeSeries时间序列函数\指数平滑法\single_exponential _smoothing.m	gb18030
+TimeSeries时间序列函数\指数平滑法\third_exponential_smoothing.m	gb18030
+TimeSeries时间序列函数\移动平均法\simple_moving_average.m	gb18030
+TimeSeries时间序列函数\移动平均法\trend_moving_average.m	gb18030
+TimeSeries时间序列函数\移动平均法\weighting_moving_average.m	gb18030
+TimeSeries时间序列函数\自适应滤波法\main.m	gb18030
+TimeSeries时间序列函数\趋势外推预测法\compertz_curve.m	gb18030
+TimeSeries时间序列函数\趋势外推预测法\logistic_curve.m	gb18030
+TimeSeries时间序列函数\趋势外推预测法\modified_exponential_curve.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter10\Readme.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter10\chapter10.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter10\stdlib.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter10\test.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter11\Readme.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter11\diff_u.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter11\energy.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter11\main.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter12\chapter12.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter13\chapter13.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter14\chapter14.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter15\FIG_D.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter15\chapter15.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter15\说明.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter16\chapter16.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter17\addon.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter17\chapter17.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter17\运行说明.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter18\chapter18.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter19\chapter19.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter1\BPDLX.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter1\chapter1_1.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter20\chapter20.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter21\Readme.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter21\chapter21_bp.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter21\chapter21_lvq.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter21\crossvalidation_lvq.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\Readme.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\chapter22_bp.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\chapter22_lvq.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\chapter_svm.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\crossvalind_lvq.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\feature_extraction.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\lvq1_train.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\lvq2_train.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter22\test.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter23\mymorlet.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter23\wavenn.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter24\FuzzyNet.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter25\FCMGRNN.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter26\PSO.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter26\PSOMutation.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter26\fun.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter27\Readme.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter27\de_code.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter27\gadecod.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter27\main.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter28\Greynet.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter29\Kohonen.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter29\SKohonen.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter2\BP_Hidden.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter2\chapter2_1.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\Code.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\Cross.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\Decode.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\Genetic.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\Mutation.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\PSO.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\Select.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\fun.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter3\test.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter4\BP.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter4\Code.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter4\Cross.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter4\Genetic.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter4\Mutation.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter4\Select.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter4\fun.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter4\test.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter5\Bp_Ada_Fore.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter5\Bp_Ada_Sort.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter6\MPID.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter6\MPIDCS.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter6\MPIDDLX.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter6\draw.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter6\fun.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter6\pso.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter7\chapter7_1.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter7\chapter7_2.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter7\运行提示.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter8\chapter8_1.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter8\chapter8_2.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter8\运行提示.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter9\Readme.txt	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter9\chapter9.m	gb18030
+《MATLAB 神经网络30个案例分析》源程序 数据\chapter9\waiji.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\Code_Huffman.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\DCT1D.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\DCT2D.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\DCT_Measure.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\FFT1D.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\SortOE.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\Yucebianma.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\Yucejiema.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\binCode.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\chap10_10.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\chap10_2.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\chap10_3.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\chap10_5.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\chap10_7.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\chap10_8.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap10\chap10_9.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_1.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_10.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_11.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_12.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_13.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_14.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_15.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_16.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_17.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_2.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_3.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_4.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_5.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_6.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_7.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_8.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\chap11_9.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\gaborfilter.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap11\zxcor.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_1.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_10.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_11.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_12.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_13.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_14.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_15.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_16.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_17.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_18.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_19.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_2.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_3.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_4.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_5.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_6.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_7.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_8.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\chap13_9.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap13\myfus_FUN.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_1.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_10.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_11.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_12.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_2.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_3.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_4.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_5.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_6.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_7.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_8.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap14\M语言\chap14_9.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\Gabor_hy.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\RLfilter.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\bp.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\bptest.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\bptrain.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_1.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_10.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_11.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_12.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_2.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_3.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_4.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_6.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_7.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_8.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\chap15_9.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\face_detection.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\headata.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\projdata.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap15\refine_face_detection.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\average.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_01.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_02.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_03.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_04.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_05.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_06.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_07.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_08.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_09.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_10.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_11.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_12.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_13.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_14.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_15.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_16.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_17.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_18.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_19.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_20.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_21.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_22.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_23.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_24.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_25.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_26.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_27.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_28.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_29.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_30.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_31.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_32.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_33.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_34.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_35.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_36.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_37.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_38.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_40.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_41.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_43.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_44.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_45.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_46.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_47.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_48.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap2\chap2_49.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_1.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_10.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_11.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_12.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_13.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_14.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_15.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_16.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_17.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_18.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_19.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_2.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_20.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_21.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_22.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_23.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_3.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_4.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_5.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_6.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_7.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_8.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap3\chap3_9.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\Denoise.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\Untitled.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_01.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_02.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_03.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_04.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_05.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_06.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_07.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_08.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_10.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_11.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_12.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_13.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_14.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_15.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_16.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_17.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_18.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_19.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_20.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_21.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_22.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_23.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_24.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_25.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_26.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_27.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_28.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_29.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_30.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\chap4_9.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\mirror.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\move.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\move1.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap4\transp.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap9\SEASON.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap9\chap9_01.m	gb18030
+《MATLAB图像处理》源文件\本书源文件\chap9\chap9_02.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第10章 随机神经网络\example10_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第10章 随机神经网络\sa_func.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第10章 随机神经网络\sa_tsp.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第10章 随机神经网络\tsp_len.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第10章 随机神经网络\tsp_new_path.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第11章 用GUI设计神经网络\fit_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第11章 用GUI设计神经网络\pr_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第11章 用GUI设计神经网络\som_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\BP神经网络实现图像压缩\block_divide.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\BP神经网络实现图像压缩\bp_imageCompress.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\BP神经网络实现图像压缩\bp_imageRecon.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\BP神经网络实现图像压缩\re_divide.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\Elman网络预测上证股市开盘价\elm_stockpredict.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\Elman网络预测上证股市开盘价\elman_stock.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\基于BP网络的个人信贷信用评估\credit_class.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\基于概率神经网络的手写体数字识别\digital_rec.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\基于概率神经网络的手写体数字识别\getFeature.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\基于概率神经网络的手写体数字识别\getFeature1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\基于概率神经网络的手写体数字识别\getPicData.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\基于概率神经网络的柴油机故障诊断\diagnose.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\基于自组织特征映射网络的亚洲足球水平聚类\football.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第13章 神经网络应用实例\径向基网络预测地下水位\rbf_underwater.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter2_3_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter2_3_2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter2_3_3.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter2_3_4\for_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter2_3_4\if_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter2_3_4\swich_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter2_3_4\while_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter_2_3_5\comment_example.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter_2_3_5\m_file.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第2章 MATLAB快速入门\code\chapter_2_3_5\use_d_func.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\example4_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\example4_2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\example4_3.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\example4_4.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\example4_5.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\example4_6_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\example4_6_2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\example4_7.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\perception_fcn.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\perception_hand.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\perception_hand_un.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第4章 单层感知器\code\readme.txt	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\and_hand.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\and_linearlayer.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\and_linearlayer_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\and_pinv.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\example5_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\example5_2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\example5_3.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\example5_4.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\example5_5.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\example5_6.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\example5_7.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\xor_linearlayer.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第5章 线性神经网络\code\xor_madaline.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\divide.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\example6_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\example6_2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\example6_3.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\example6_4.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\example6_5.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\example6_7.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\example6_8.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\getdata.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\main_batch.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\main_newff.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\main_seral.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第6章 BP神经网络\code\main_xor.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\compare_rbf_grnn.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\curve_filt_hand_buid.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\curve_filt_hand_sim.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\curve_filt_newrb_build.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\curve_filt_newrb_sim.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\curve_filter_analysis.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_10.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_11.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_12.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_3.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_4.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_5.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_6.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_8.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\example7_9.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\grnn_net.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\grnn_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\pnn_net.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\pnn_test.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\pnn_test2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\xor_hand.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第7章 径向基函数网络\xor_newrbe.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_11.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_12.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_13.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_14.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_5.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_6.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_7.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_8.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\example8_9.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\m_compet.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\mycompet.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\mycompet2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第8章 自组织竞争神经网络\mykohonen.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\elman_stockTest.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\elman_stockTrain.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\example9_1.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\example9_2.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\example9_3.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\example9_4.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\example9_5.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\example9_6.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\hopfield_hand.m	gb18030
+《MATLAB神经网络原理与实例精解》随书附带源程序\第9章 反馈神经网络\hopfield_newhop.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_01.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_02.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_03.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_04.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_05.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_06.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_07.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_08.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_09.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_10.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\example02_trycatch.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\hanoi.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\mat_add.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\print_matrix.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH02\summation.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH03\plotxy.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH03\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH03\standard_axes.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH05\SpecialMatrix.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH05\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH05\sym_poly.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH06\BreakPoint.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH06\FunContinuity.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH06\IntermediateTheorem.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH06\limit_definition.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH06\logn.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH06\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Asymptote.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Cauchy.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Concavity.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Curvature.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\DerivativeDefinition.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Evolute_Draw.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Extremum.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Judgment.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\LHospital.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Lagrange.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Monotonicity.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\Rolle.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\RootInterval.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\bisect.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\bisect_demo.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\diff_ctr.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\diff_para.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\newton.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\newton_demo.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\poly_str.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\realfunvalue.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH07\taylor_diff.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\ArcLength.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\ComplexQuad.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\CrossPoint.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\Gauss_demo.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\Gauss_legendre.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\GraphicArea.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\InterpolatoryQuad.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\SolidVolume.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\int_geo.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\quad_inf.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH08\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\AlternatingSeries.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\CalculatePI.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\CircleArea.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\ConvergenceRadius.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\LimitSeries.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\PositiveIermSeries.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\fseries.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\fseriesquadl.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\fseriessym.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH09\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH10\Cramer.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH10\Equ_iter.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH10\Gauss.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH10\LU_Equ.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH10\LinearEqs.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH10\Newtons.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH10\TriuEqu.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH10\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\Direction_Cosine.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\Distance.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\LineConvert.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\PlaneAngle.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\PlaneEquation.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\Revsurf.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\cylinder1.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\drawvec.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\projection.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\quadric.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH11\surface_para.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\Direction_Cosine.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\DirectionalDerivative.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\Extremum2.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\Least_square.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\PartialDerivative.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\TangentNormPlane.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\TangentPlaneNormLine.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\max_min.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\mtaylor.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH12\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH13\ArcCurveInt.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH13\CoordinateCurveInt.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH13\dbldefinition.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH13\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\Classical_RK4.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\Classical_RK4s.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\Explicit_Euler.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\HomogenDE.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\ReduceDE1.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\SeparableVarsDE.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\lineshoot.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\nlshoot.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH14\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH15\FrequencyTable.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH15\Laplace_Define.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH15\dft.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH15\fouriern.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH15\reshapefile.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH15\rsolve.m	gb18030
+《基于MATLAB的高等数学问题求解》 随书附带源程序\CH15\ztrans_define.m	gb18030
