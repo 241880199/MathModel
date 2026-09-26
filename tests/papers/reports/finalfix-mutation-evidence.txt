@@ -1,0 +1,303 @@
+终审修复轮（2026-09-26）新增判据 / 新增纪律的变异与负例证据
+==============================================================================
+复现：`PYTHONDONTWRITEBYTECODE=1 python tests/papers/recon/finalfix-mutation-driver.py`
+落点：`tests/papers/reports/finalfix-mutation-evidence.txt`（入库判据证据；变异体与临时文件在 gitignored 的 `build/finalfix`）
+
+## FX-1 · 限样本跑把落点算成放行证据本体（`--limit 1`）
+------------------------------------------------------------------------------
+  变动：`tests/papers/verify_io.py` 的落点决策行 → 直接返回放行证据本体 `tests/papers/reports/io-report.txt`
+  锚点原文：`    out, guard_msg = report.resolve_report(KIND, args.limit)`
+  跑前放行证据 sha256 = b61fe7ae7fd19147297fa1db9233c214e4b986f11cbf77e3a8aae5cb2f694bb1
+  变异体退出码 = 1
+    ① 写前复核判 FAIL = True
+    ② 放行证据 sha 自检判 FAIL = False
+    ③ 本文件被写坏（sha 变了） = True
+    注（登记）：② 在本脚本的结构下**恒为 False**——`post` 在 `flush` 之前测，本脚本自己的覆写它测不到（`verify_c.py` 先 flush 再测，那一份能看到）。本次实测判红靠的是 ① 与退出码。
+  跑后放行证据 sha256 = 311aa455e1fb311581adc25a64105adc566a9e239b5b914991798d15dd6b8265（已被变异体写坏 ⇒ 已还原）
+  还原后 sha256 = b61fe7ae7fd19147297fa1db9233c214e4b986f11cbf77e3a8aae5cb2f694bb1 · 与跑前相同 = True
+  变异体保留的 stdout（**逐字**）：
+    ORIGIN=corpus/历届优秀论文 exists=True
+    stable_id('2025美赛O奖论文','A',1) = 'P2025-A-01'
+    parse_stable_id('P2025-A-01') = ('2025', 'A', 1)
+    stable_id(题号='AB') 抛 ValueError
+    stable_id(题号='') 抛 ValueError
+    problem_of('corpus/历届优秀论文/2025美赛O奖论文/A/2500836.pdf') = 'A'
+    problem_of(深层路径) = 'A'
+    md_path   = corpus/papers/md/2025美赛O奖论文/A/2500836.md
+    figures   = corpus/papers/figures/2025美赛O奖论文/A/2500836
+    formulas  = corpus/papers/formulas/2025美赛O奖论文/A/2500836
+    sha256_tree: 43 份；两次调用一致=True
+    sha256_tree(不存在的合集名) 抛 FileNotFoundError
+    sha256_tree(无 PDF 的合集) 抛 ValueError
+    write_bytes_checked roundtrip identical=True
+    落点守卫 FAIL（写前复核）：限样本跑（--limit 1）的写入目标就是放行证据 tests/papers/reports/io-report.txt——resolve_report 的守卫在调用点被绕过了。判 FAIL。
+    
+    写入：tests/papers/reports/io-report.txt
+      本文件是**限样本落点**（--limit 1）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/io-report.txt，只有全量跑会写它。
+    
+    放行证据完整性自检（只对限样本跑做）· tests/papers/reports/io-report.txt
+      本次跑前 sha256 = b61fe7ae7fd19147297fa1db9233c214e4b986f11cbf77e3a8aae5cb2f694bb1
+      本次跑后 sha256 = b61fe7ae7fd19147297fa1db9233c214e4b986f11cbf77e3a8aae5cb2f694bb1
+      两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+    
+    RESULT: FAIL (LIMITED 样本数未能确定（checks 未跑到取样处；--limit 1）；非放行依据)
+  FX-1 判定：红（符合期望）
+
+## FX-2 · 限样本跑把落点算成放行证据本体（`--limit 1`）
+------------------------------------------------------------------------------
+  变动：`tests/papers/verify_wm.py` 的落点决策行 → 直接返回放行证据本体 `tests/papers/reports/wm-report.txt`
+  锚点原文：`    out, guard_msg = report.resolve_report(KIND, args.limit)`
+  跑前放行证据 sha256 = 6d46b1e15b2a9d3d94cd9b0782ee209d2a9303b125ceb49b937296fd2b7553c0
+  变异体退出码 = 1
+    ① 写前复核判 FAIL = True
+    ② 放行证据 sha 自检判 FAIL = False
+    ③ 本文件被写坏（sha 变了） = True
+    注（登记）：② 在本脚本的结构下**恒为 False**——`post` 在 `flush` 之前测，本脚本自己的覆写它测不到（`verify_c.py` 先 flush 再测，那一份能看到）。本次实测判红靠的是 ① 与退出码。
+  跑后放行证据 sha256 = b4951b54fd6233d68b9c9375803ff1773b79dd2340fa0e7477e6bf102022d869（已被变异体写坏 ⇒ 已还原）
+  还原后 sha256 = 6d46b1e15b2a9d3d94cd9b0782ee209d2a9303b125ceb49b937296fd2b7553c0 · 与跑前相同 = True
+  变异体保留的 stdout（**逐字**）：
+    水印模块校验（返工 1：结构性机制，无字体启发式）
+    ========================================================================
+    1. 缺陷存档：字体启发式 vs 结构性机制
+    ------------------------------------------------------------------------
+    1a. 样本 5 份（取自 tests/papers/recon/watermark-scan.json，按 wm_texts+合集 分组取路径序首个，不硬编码路径）
+      [2023年美赛O奖论文 / 校苑数模]
+          corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2300336.pdf
+          recon ground truth = 有水印，wm_texts=['校苑数模']
+          裸 get_text       命中 = ['校苑数模']
+          字体启发式后       命中 = ['校苑数模']
+          置空 XObject 流后  命中 = 无
+          strip_in_memory 返回 = 1；被移除 span 的字体/字号 = KaiTi 76.5 ×400
+          本脚本的 span 抽取与模块 spans() 逐字一致（全文档，置空前）= True
+      [2024年美赛O奖论文 / 校苑数模]
+          corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2400996.pdf
+          recon ground truth = 有水印，wm_texts=['校苑数模']
+          裸 get_text       命中 = ['校苑数模']
+          字体启发式后       命中 = ['校苑数模']
+          置空 XObject 流后  命中 = 无
+          strip_in_memory 返回 = 1；被移除 span 的字体/字号 = KaiTi 74.4 ×192
+          本脚本的 span 抽取与模块 spans() 逐字一致（全文档，置空前）= True
+      [2025美赛O奖论文 / 校苑数模公众号]
+          corpus/历届优秀论文/2025美赛O奖论文/A/2500836.pdf
+          recon ground truth = 有水印，wm_texts=['校苑数模公众号']
+          裸 get_text       命中 = ['校苑数模公众号', '校苑数模']
+          字体启发式后       命中 = 无
+          置空 XObject 流后  命中 = 无
+          strip_in_memory 返回 = 1；被移除 span 的字体/字号 = MicrosoftYaHei 72.0 ×25
+          本脚本的 span 抽取与模块 spans() 逐字一致（全文档，置空前）= True
+      [2023年美赛O奖论文 / 英伽教育]
+          corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2330610_00.pdf
+          recon ground truth = 有水印，wm_texts=['英伽教育']
+          裸 get_text       命中 = ['英伽教育']
+          字体启发式后       命中 = ['英伽教育']
+          置空 XObject 流后  命中 = 无
+          strip_in_memory 返回 = 1；被移除 span 的字体/字号 = SimHei 83.4 ×25
+          本脚本的 span 抽取与模块 spans() 逐字一致（全文档，置空前）= True
+      [2022年美赛特等奖原版论文集 / 无水印对照]
+          corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2200289.pdf
+          recon ground truth = 无水印（对照件）
+          裸 get_text       命中 = 无
+          字体启发式后       命中 = 无
+          置空 XObject 流后  命中 = 无
+          strip_in_memory 返回 = 0；被移除 span 的字体/字号 = （无）
+          本脚本的 span 抽取与模块 spans() 逐字一致（全文档，置空前）= True
+    
+    1b. 全语料覆盖（201 份；每份前 4 页，与 recon 的 wm_font_probe.py 同口径）
+          有水印 120 份 / 无水印 81 份；打开失败 0 份
+          字体启发式（已废弃） 覆盖 = 43/120
+          结构性（置空流）     覆盖 = 120/120
+          对照件被结构性误伤（span 有增删 / strip 返回非 0）= 0 / 0 份
+          对照件被字体启发式误删 span 的份数 = 0（启发式的问题在漏，不在误伤）
+          被移除片段含非水印文本的份数 = 0；置空后凭空多出 span 的份数 = 0
+          MuPDF 告警 12 行，逐行如下（本模块不自造告警：不走渲染、不落盘；以下均为 fitz 打开这批语料 PDF 时记下的）：
+            ×3   ... repeated 2 times...  ← MuPDF 的重复折叠计数行
+            ×2   repaired broken tree structure in outline
+            ×2   bogus font ascent/descent values (3117 / -2464)
+            ×1   invalid link destination
+            ×1   ... repeated 80 times...  ← MuPDF 的重复折叠计数行
+            ×1   premature end of data in flate filter
+            ×1   bogus font ascent/descent values (0 / -207)
+            ×1   bogus font ascent/descent values (3116 / -2463)
+      判据失败条件：
+        * 结构性覆盖不再是 100%——某份水印件的水印不是带标记的 XObject（换批次/重新导出）时当场红，而不是让它静默带着水印流下去；
+        * 字体启发式的覆盖追平了结构性机制——说明有人按字体补了启发式，本模块「不依赖字体」这个前提已被推翻，需要重新裁决而不是默默通过；
+        * 打开失败 > 0，或对照件出现 span 增删 / strip 返回非 0——标记被改松（例如只匹配 /PieceInfo）会命中正常内容流。
+    
+      样本分组（按 recon 的 wm_texts）：水印件 4 份 / 对照件 1 份
+    
+    2. A2 置空水印流后，WM_WORDS 零命中
+    ------------------------------------------------------------------------
+      [2023年美赛O奖论文 / 校苑数模] 置空后命中 = 无
+      [2024年美赛O奖论文 / 校苑数模] 置空后命中 = 无
+      [2025美赛O奖论文 / 校苑数模公众号] 置空后命中 = 无
+      [2023年美赛O奖论文 / 英伽教育] 置空后命中 = 无
+      [2022年美赛特等奖原版论文集 / 无水印对照] 置空后命中 = 无  ← 对照件，本来就无水印字
+      判据失败条件：若置空没有真正去掉水印（标记匹配失配、水印改成非 XObject 形态、或 doc 被换成了清洗前的另一份），水印字会留在文本里。
+    
+    3. A3（关键）置空前后逐 span 做多重集差，移除的必须**全是水印片段**
+    ------------------------------------------------------------------------
+      [2023年美赛O奖论文 / 校苑数模]
+          span 4664 → 4264；移除 7 种 / 400 次；多出 0 次
+          移除的片段 = 数模、校、校苑、校苑数、校苑数模、模、苑数模
+          其中不是 WM_WORDS 子串的 = 无
+      [2024年美赛O奖论文 / 校苑数模]
+          span 4986 → 4794；移除 4 种 / 192 次；多出 0 次
+          移除的片段 = 校苑数、校苑数模、模、苑数模
+          其中不是 WM_WORDS 子串的 = 无
+      [2025美赛O奖论文 / 校苑数模公众号]
+          span 1196 → 1171；移除 1 种 / 25 次；多出 0 次
+          移除的片段 = 校苑数模公众号
+          其中不是 WM_WORDS 子串的 = 无
+      [2023年美赛O奖论文 / 英伽教育]
+          span 5347 → 5322；移除 1 种 / 25 次；多出 0 次
+          移除的片段 = 英伽教育
+          其中不是 WM_WORDS 子串的 = 无
+      [2022年美赛特等奖原版论文集 / 无水印对照]
+          span 4494 → 4494；移除 0 种 / 0 次；多出 0 次
+          移除的片段 = （无）
+          其中不是 WM_WORDS 子串的 = 无
+      判据失败条件：只要有一个被移除的 span 不是 WM_WORDS 里某串的子串（例如正文段落、图题、公式），就 FAIL 并打印肇事 span。真实触发路径：把 _WM_MARK 放宽成只匹配 /PieceInfo——实测全语料有 14 份只有 /PieceInfo 没有 /Watermark，它们的正常内容流会被置空。
+      已知边界（不声称更强的东西）：这是**必要**条件，不是充分条件。正文里若恰好有与 WM_WORDS 同字符的孤立 span（例如正文单独出现一个「校」字），规则会放行它。本语料的实测差集里没有这种误伤（全语料前 4 页 0 例、样本全文档 0 例），但不能因此说它不可能。
+    
+    4. 无水印对照件必须分毫未动
+    ------------------------------------------------------------------------
+      [2022年美赛特等奖原版论文集 / 无水印对照] recon 记录 wm_texts 为空；find_watermark_xrefs = []；strip_in_memory = 0；span 4494 → 4494；逐字节相同 = True
+      判据失败条件：对照件上 strip 返回非 0 或 span 列表有增减（标记被改松、或水印对象的标记出现在了正常内容流里）。对照集按 recon 的 wm_texts 分组，故它也覆盖反向分歧：recon 说无水印、模块却认出水印并删了内容。
+    
+    5. 水印件上 strip_in_memory 返回 0 = FAIL（不是无事发生）
+    ------------------------------------------------------------------------
+      [2023年美赛O奖论文 / 校苑数模] 已知有水印（recon 记录 wm_texts 非空）；
+          recon wm_texts = ['校苑数模']；裸文本实测命中 ['校苑数模']；find_watermark_xrefs = [557]；strip_in_memory = 1
+      [2024年美赛O奖论文 / 校苑数模] 已知有水印（recon 记录 wm_texts 非空）；
+          recon wm_texts = ['校苑数模']；裸文本实测命中 ['校苑数模']；find_watermark_xrefs = [554]；strip_in_memory = 1
+      [2025美赛O奖论文 / 校苑数模公众号] 已知有水印（recon 记录 wm_texts 非空）；
+          recon wm_texts = ['校苑数模公众号']；裸文本实测命中 ['校苑数模公众号', '校苑数模']；find_watermark_xrefs = [4873]；strip_in_memory = 1
+      [2023年美赛O奖论文 / 英伽教育] 已知有水印（recon 记录 wm_texts 非空）；
+          recon wm_texts = ['英伽教育']；裸文本实测命中 ['英伽教育']；find_watermark_xrefs = [285]；strip_in_memory = 1
+      判据失败条件：任何一份已知有水印的论文上返回 0。那说明这篇的水印形态与已知形态不同（模块的认知与 recon 的实测对不上），下游（Task 3 正文/Task 4 图表/Task 5 公式）会静默带着水印走完。具体输入：让 find_watermark_xrefs 对 4 份水印件返回 []（标记失配 / 水印不再是带标记的 XObject），本节当场红——实测见 task-2 报告「Fix round 2」。
+    
+    6. A1 原件未改动（全量基线 201 份 / 6 个合集）
+    ------------------------------------------------------------------------
+      合集（从磁盘读取，不硬编码）= ['2022年美赛特等奖原版论文集', '2023年美赛O奖论文', '2024年美赛O奖论文', '2025美赛O奖论文', 'UMAP2000-2010年美赛特等奖优秀论文集', 'UMAP2010-2019年美赛特等奖优秀论文集']
+    tests/papers/reports/origin-sha256-all.txt：基线 201 条 / 当前原件 201 份；逐条一致 = True
+    tests/papers/reports/origin-sha256-2025.txt：43 条；与全量基线的 2025 子集逐条一致 = True
+      判据失败条件：流水线里任何一次 doc.save() 写回原件、或有人手工改了语料 PDF，都会让某条哈希当场对不上。
+    
+    7. 不产出清洗版 PDF
+    ------------------------------------------------------------------------
+      corpus/papers/clean 存在 = False（应为 False）
+      判据失败条件：设计里没有这一层，它一旦出现就说明有人把置空后的 doc 落盘了。
+    
+    8. 人工目视确认
+    ------------------------------------------------------------------------
+    人工目视确认（Step 6）
+    日期：2026-09-23
+    样件：corpus/历届优秀论文/2025美赛O奖论文/A/2500836.pdf 第 3 页（含图页，0 基索引 2）
+    对比图：tests/papers/reports/a4-2500836-with-wm.png
+            tests/papers/reports/a4-2500836-no-wm.png
+            （均为 dpi=110 渲染，同一页、同一渲染参数，只差 strip_in_memory 这一步）
+    
+    with-wm：可见红色半透明「校苑数模公众号」斜向大字，同时压在正文段落与
+             Figure 1 的六张石阶／木阶照片之上——水印盖住文字也盖住图像，
+             与 recon 的结论一致：它是覆盖层，不是图像内嵌水印。
+    no-wm ：同一页完全干净。照片可见度与饱和度不变，正文无缺字，
+             图题 a. / b. / c. / d. 与 Figure 1 图注文字均完好，
+             无红色残留、无图块丢失。
+    
+    结论：watermark.strip_in_memory 的内存置空确实同时去掉了压在图片与正文上的
+          水印，且未损伤页面内容。目视结论与校验脚本第 6 项的代理指标
+          （偏红像素 1.914% → 0.410%）一致；残余的 0.410% 来自照片本身的暖色
+          （石质／木质），不是水印。
+    
+    本文件是**人工**结论，不由 verify_wm.py 生成：该脚本每次运行都会重写
+    wm-report.txt，结论若只写在报告里，任何一次重跑都会把它抹掉。脚本改为读本
+    文件并抄进报告，缺了则判 FAIL——这样这份证据既不会被重跑覆盖，也不会被
+    静默忽略。
+      （逐字存档于 tests/papers/reports/wm-visual-confirm.txt；刻意不由本脚本生成——本报告每次重跑都会被重写）
+      对比图 tests/papers/reports/a4-2500836-with-wm.png exists=True bytes=944715
+      对比图 tests/papers/reports/a4-2500836-no-wm.png exists=True bytes=927925
+      判据失败条件：存档缺失/为空、任一张对比图缺失或为空。
+    落点守卫 FAIL（写前复核）：限样本跑（--limit 1）的写入目标就是放行证据 tests/papers/reports/wm-report.txt——resolve_report 的守卫在调用点被绕过了。判 FAIL。
+    
+    写入：tests/papers/reports/wm-report.txt
+      本文件是**限样本落点**（--limit 1）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/wm-report.txt，只有全量跑会写它。
+    
+    放行证据完整性自检（只对限样本跑做）· tests/papers/reports/wm-report.txt
+      本次跑前 sha256 = 6d46b1e15b2a9d3d94cd9b0782ee209d2a9303b125ceb49b937296fd2b7553c0
+      本次跑后 sha256 = 6d46b1e15b2a9d3d94cd9b0782ee209d2a9303b125ceb49b937296fd2b7553c0
+      两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+    
+    RESULT: FAIL (LIMITED 样本数未能确定（checks 未跑到取样处；--limit 1）；非放行依据)
+  FX-2 判定：红（符合期望）
+
+## FX-3 · `CRIT_RX` 的缩进支（M-1）
+------------------------------------------------------------------------------
+    '  I2-c=FAIL'                                旧判=False 新判=True  **新收、旧不收**
+    'I2-c=FAIL'                                  旧判=True  新判=True  
+    '  I2-c=OK'                                  旧判=False 新判=False 
+    '\tD3-b=FAIL'                                旧判=False 新判=True  **新收、旧不收**
+    '  C4 人工目视闸门: FAIL（未判定）'                     旧判=False 新判=False 
+    '  发布放行: **未放行**'                            旧判=False 新判=False 
+    '  机读值 visual_ok=False'                      旧判=False 新判=False 
+    '  某判据: True'                                旧判=False 新判=False 
+  缩进的 `名=FAIL`：新判据收、旧正则不收 = True
+    对照 `b-report.txt`：自报失败 0 条
+    对照 `c-report.txt`：自报失败 0 条
+    对照 `d-report.txt`：自报失败 0 条
+    对照 `ids-report.txt`：自报失败 0 条
+    对照 `io-report.txt`：自报失败 0 条
+    对照 `map-report.txt`：自报失败 0 条
+    对照 `types-report.txt`：自报失败 0 条
+    对照 `wm-report.txt`：自报失败 0 条
+  对照合计：八份产物自报失败 **0** 条（必须为 0：新支不得产生假红）
+  口径一致性（打印进汇总的 grep 串 vs `CRIT_RX`）：
+    `b-report.txt`：CRIT_RX 命中 3 · 两条 grep 相加 3 ⇒ 一致 ✓
+    `c-report.txt`：CRIT_RX 命中 1 · 两条 grep 相加 1 ⇒ 一致 ✓
+    `d-report.txt`：CRIT_RX 命中 1 · 两条 grep 相加 1 ⇒ 一致 ✓
+    `ids-report.txt`：CRIT_RX 命中 34 · 两条 grep 相加 34 ⇒ 一致 ✓
+    `io-report.txt`：CRIT_RX 命中 0 · 两条 grep 相加 0 ⇒ 一致 ✓
+    `map-report.txt`：CRIT_RX 命中 16 · 两条 grep 相加 16 ⇒ 一致 ✓
+    `types-report.txt`：CRIT_RX 命中 10 · 两条 grep 相加 10 ⇒ 一致 ✓
+    `wm-report.txt`：CRIT_RX 命中 0 · 两条 grep 相加 0 ⇒ 一致 ✓
+  FX-3 判定：红（符合期望），且现状态 0 条假红
+
+## FX-4 · 确定性判数取「该标签下的全部行并取最严」（M-2）
+------------------------------------------------------------------------------
+  对照：真记录 `tests/papers/reports/all-determinism.txt` 判 = True（必须为 True）
+      抽取确定性**判数**（A-1：条件 ⑤ 原先只判「文件在 + 含三个词」，对确定性结论免疫——一份如实记录了非确定的记录照样含那三个词）：
+        口径：`tests/papers/reports/all-determinism.txt` 的**最后一遍**那一节（节头 `## <跑前>.json → <跑后>.json`，取**最后一个**这样的一节；节体到下一个任意 `## ` 节头为止）；取四处读数 —— `入库产物` / `md` / `figures` / `formulas`，读数 = 该标签下**每一行**里 `变了` 之后的整数（`blob 变了 **0** 份` 与 `blob 变了 0` 两种写法都取；多行时**取最严**、任一非 0 即红）；四处的每一行**都必须是 0**
+        命令（复用即复现）：`python tests/papers/verify_all.py`；只看那四行：`grep -E '变了' tests/papers/reports/all-determinism.txt | tail -4`；fail-closed：读不了 / 无节 / 某处无行 / 某行无数 ⇒ 红
+        最后一遍那一节：`## all-determinism-s2.json → all-determinism-s3.json`
+        入库产物：变了 **0** ⇒ 0 ✓　原文：`入库产物：5 份，blob 变了 **0** 份`
+        md：变了 **0** ⇒ 0 ✓　原文：`md         跑前 43 个 · 跑后 43 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同`
+        figures：变了 **0** ⇒ 0 ✓　原文：`figures    跑前 1816 个 · 跑后 1816 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同`
+        formulas：变了 **0** ⇒ 0 ✓　原文：`formulas   跑前 1564 个 · 跑后 1564 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同`
+        判据结论：四处读数全为 0 ⇒ 这一条才成立（范围与本汇总其余各条一致：**2025 试点 43 份**这条流水线）
+  变异：在真记录尾部追加一节，`formulas` 出现两行——先 `变了 0`、后 `变了 17`
+      抽取确定性**判数**（A-1：条件 ⑤ 原先只判「文件在 + 含三个词」，对确定性结论免疫——一份如实记录了非确定的记录照样含那三个词）：
+        口径：`build/finalfix/det-multiline.txt` 的**最后一遍**那一节（节头 `## <跑前>.json → <跑后>.json`，取**最后一个**这样的一节；节体到下一个任意 `## ` 节头为止）；取四处读数 —— `入库产物` / `md` / `figures` / `formulas`，读数 = 该标签下**每一行**里 `变了` 之后的整数（`blob 变了 **0** 份` 与 `blob 变了 0` 两种写法都取；多行时**取最严**、任一非 0 即红）；四处的每一行**都必须是 0**
+        命令（复用即复现）：`python tests/papers/verify_all.py`；只看那四行：`grep -E '变了' build/finalfix/det-multiline.txt | tail -4`；fail-closed：读不了 / 无节 / 某处无行 / 某行无数 ⇒ 红
+        最后一遍那一节：`## fake-a.json → fake-b.json`
+        入库产物：变了 **0** ⇒ 0 ✓　原文：`入库产物：5 份，blob 变了 **0** 份`
+        md：变了 **0** ⇒ 0 ✓　原文：`md         跑前 43 个 · 跑后 43 个 · blob 变了 0 ⇒ 逐字节相同`
+        figures：变了 **0** ⇒ 0 ✓　原文：`figures    跑前 1816 个 · 跑后 1816 个 · blob 变了 0 ⇒ 逐字节相同`
+        formulas：变了 **0** ⇒ 0 ✓　原文：`formulas   汇总（变了 0 处）`
+        formulas：变了 **17** ⇒ **非 0 ⇒ FAIL**　原文：`formulas   跑前 1564 个 · 跑后 1564 个 · 只在跑后 16 · blob 变了 17 ⇒ **有变化**`
+        ↑ `formulas` 在这一节里有 **2** 行 ⇒ 判据取**最严**（任一非 0 或取不到读数即红），不取「最先出现的那一行」
+        判据结论：**有非 0 或取不到 ⇒ 判红**（范围与本汇总其余各条一致：**2025 试点 43 份**这条流水线）
+  旧实现（`hits[0]`）在同一份输入上取到的是 `formulas   汇总（变了 0 处）` ⇒ 读数 0 ⇒ 旧判 = 绿（**fail-open**）
+  新判 = False（必须为 False：任一非 0 即红）
+  FX-4 判定：红（符合期望），真记录仍绿
+
+## FX-5 · 放行证据自身入库（M-9）
+------------------------------------------------------------------------------
+  对照：真放行证据 `tests/papers/reports/pilot-summary.txt` 判 = True（必须为 True）
+      放行证据自身入库 = True（口径：`git ls-files --error-unmatch tests/papers/reports/pilot-summary.txt`）——不入库的残余等于丢失（D9）
+  变异：`RELEASE` 指向未入库的 `tests/papers/reports-limited/pilot-summary-zz-未入库.txt` ⇒ 判 = False（必须为 False）
+      放行证据自身入库 = False（口径：`git ls-files --error-unmatch tests/papers/reports-limited/pilot-summary-zz-未入库.txt`）——不入库的残余等于丢失（D9）
+        FAIL：放行证据 `tests/papers/reports-limited/pilot-summary-zz-未入库.txt` **没入库**——换落点/改名之后新文件不受版本控制、旧文件留着上一次的 `RESULT: PASS`，两者都不红
+  FX-5 判定：红（符合期望），真放行证据仍绿
+
+==============================================================================
+合计：全部达标（每条都实测判红，且现状态无假红）
+本驱动器退出码 = 0；耗时 45.8s

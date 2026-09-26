@@ -1,0 +1,8 @@
+CellularAutomata元胞向量机\初等元胞自动机\basic_CA.m
+CellularAutomata元胞向量机\森林火灾\foreset_fire.m
+CellularAutomata元胞向量机\生命游戏\game_of_life.m
+CellularAutomata元胞向量机\生命游戏\main.m
+GreySystem灰色系统\GM_full.m
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\模拟退火算法\TSP(SA)\main.m
+HeuristicAlgorithm（补分启发式算法，包括神经网络、模拟退火、遗传算法）\遗传算法\遗传算法求解函数优化问题\ga.m
+Interpolation（目标规划、多元分析与插值的相关例子）\interp_2D.m

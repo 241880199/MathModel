@@ -1,0 +1,275 @@
+匹配度证据（Task 6b 阶段 2b）· `tools/papers/coverage.py` 的 `compute()` 输出
+==============================================================================
+本文件是**机读证据**：`corpus/papers/MODEL_MAP.md` 第四节的比值/清单与它**同源**（同一次计算），判据 `tests/papers/verify_map.py` 的 M-14/M-15 **各自解析两份文件**再对账。
+
+# ---- 汇总（键=值，判据按这些行对账）----
+参照篇=42
+参照不存在=P2025-C-17
+参照存在但没解析出来=（无）
+召回分子前=68
+召回分子后=105
+召回分母=115
+宽参照分子=76
+宽参照分母=133
+未覆盖模型条目=47
+未覆盖不收录=10
+未解释=0
+分流表收录行数=48
+收录条数=37
+精确性可定位=496
+精确性总数=496
+低置信条数=115
+分流表行数=112
+全篇片数=164
+md读回份数=43
+keywords栏被截断篇数=17
+
+# ---- 未覆盖的作者模型条目（逐条：篇 | 词形 | 处置 | 类别 | 定位符+理由）----
+未覆盖	P2025-A-05	Depth Estimation	不收	模型	kw:P2025-A-05 — 正文 p6 的完整形态是「Depth Measurement of Stairs with Monocular Depth Estimation」⇒ 通行名是 **Monocular Depth Estimation**；`Depth Estimation` 是它的**截短**，收它会让词表命中任何 `depth estimation` 短语而与作者本意（单目深度估计）不符。**登记为后选项**：将来若要收，须收 `Monocular Depth Estimation`——而那个形态不在作者的 Keywords 段里，本轮不放行。
+未覆盖	P2025-B-03	Sustainable Tourism Dynamic Model	不收	模型	kw:P2025-B-03 — **复合名（场景词 `sustainable tourism` + 通用模型名 `system dynamics`）**（正文 p1 给了展开：`Sustainable Tourism Dynamics Model (STDM)`）。**其通用模型名 `system dynamics` 已在词表**（`models.txt` `:94` = `system dynamics \| 系统动力学`），且该篇的 `models` 栏**已经**含它（`TAGS.md` 一层 `P2025-B-03 \| 2025 \| B \| …` 那行的 `models` 栏逐字含 `system dynamics`）⇒ 按 §3 的复合名规则**不收**：收它**不增加检索能力**（查 `system dynamics` 已命中该篇），却会把**场景词**写进模型轴（用户 2026-09-26 定案「场景不进模型词表」）。
+未覆盖	P2025-B-06	logistics growth model	不收	模型	kw:P2025-B-06 — **疑似笔误**：通行名是 `logistic growth model`（正文同篇只出现 `logistics growth model` 这一形态，故无法用正文证伪）。不收录的理由：收它会把笔误固化成词表词条；而正确形态 `logistic growth model` 不在作者的 Keywords 段里，按 M-11 不放行。**登记为后选项（第六优先）**。
+未覆盖	P2025-C-07	Athlete Potential Index	不收	模型	kw:P2025-C-07 — 它是**评价指标**不是方法（正文 p4 有定义块「**Athlete Potential Index(API)**」）。本表的两条推理轴是「数学任务 × 数据形态」，指标名不在轴内；且它是**该篇自建**的指标。**登记为后选项**：若将来要为「自建指标体系」建轴，再收。
+未覆盖	P2025-C-07	Event Potential Index	不收	模型	kw:P2025-C-07 — 同 `Athlete Potential Index`（自建评价指标；正文 p1「we introduce the Event Potential Index (EPI) to quantify」）。**登记为后选项**。
+未覆盖	P2025-C-10	Mixed-	不收	模型	kw:P2025-C-10 — **关键词行的断词伪影**。原文逐字：`Bayesian entropy analysis, Zero-inflated negative binomial regression, Mixed-`（md 下一行是 `effect negative binomial regression, Laplace smoothing, ...`）⇒ 原形 `Mixed-effect negative binomial regression`（正文 p1「We constructed a mixed-effect negative binomial regression model」、p6 小节标题「**Mixed-Effects Negative Binomial Model**」）。**不收**的理由同 `Doubly ro-`。**登记为后选项（第五优先）**。注：本表的宽口径行 `Mixed-effects Model`（来自另一篇）是**另一件事**，已收录。
+未覆盖	P2025-C-12	Doubly ro-	不收	模型	kw:P2025-C-12 — **关键词行的断词伪影**。原文逐字：`Keywords: Olympic Games\; Tobit regression\; Hurdle model\; Great coach effect\; Doubly ro-`（md 下一行是 `**bust estimator\; Host country effect**`）⇒ 作者原意是 **`Doubly robust estimator`**（通行因果推断方法）。**不收**的理由：收录它必须往词表塞一个**跨行拼合**出来的形态，而拼合是**推断**不是事实（本表与 M-11 要求词形逐字可定位）。**登记为后选项（第二优先）**。
+未覆盖	P2025-C-18	GRI Algo-	不收	模型	kw:P2025-C-18 — **关键词行的断词伪影**。原文逐字：`Zero-Inflated Negative Binomial Regression\; Association Rules\; GRI Algo-`（md 下一行是 `rithm\; Mixed-effects Model\; Prediction of the LA Olympics.`）⇒ 原形 `GRI Algorithm`。正文 p14「Association analysis can be conducted using various algorithms, with the GRI algorithm and the Apriori algorithm being among the most prevalent」**全篇未展开 GRI 是什么**。**不收**的理由同 `Doubly ro-`（跨行拼合 = 推断）。**登记为后选项（第三优先）**。
+未覆盖	P2025-E-03	Lunger-	不收	模型	kw:P2025-E-03 — **关键词行的断词伪影 + 笔误**。原文逐字：`Agroecosystems\; Organic agriculture\; Lotka-Volterra\; Petri-Food Web model\; Lunger-`（md 下一行是 `Kutta algorithm`）。**正文实证它是笔误**：同篇 p12 两处写作 `←Runge-Kutta Method(...)`。⇒ 作者的写法是笔误，收录会**固化笔误**；而正确形态 `Runge-Kutta` 不在作者的 Keywords 段里，按 M-11 不放行。**登记为后选项（第一优先：`Runge-Kutta` 是通行数值解法，检索价值高）**。
+未覆盖	P2025-F-05	Log-	不收	模型	kw:P2025-F-05 — **关键词行的断词伪影**。原文逐字：`Cybersecurity\; Hierarchical Interaction Scoring Regression Model\; Log-`（md 下一行是 `Enhanced Quadratic Regression Model`）⇒ 原形 `Log-Enhanced Quadratic Regression Model`（正文 p1 逐字出现该全名，且给了缩写 `(LEQR)`）。**不收**的理由同 `Doubly ro-`。**登记为后选项（第四优先）**。
+
+# ---- 未解释（分流表里没有这一片的未覆盖片；逐条）----
+（无）
+
+# ---- 收录（逐条：篇 | 词形）----
+收录	P2025-A-01	Archard
+收录	P2025-A-01	Mont Carlo method
+收录	P2025-A-02	Gaussian Distribution
+收录	P2025-A-03	Archard Law
+收录	P2025-A-03	Central Limit Theorem
+收录	P2025-A-03	Gaussian Mixture Algorithm
+收录	P2025-A-04	Archard’s theory
+收录	P2025-A-05	Archard Equation
+收录	P2025-A-05	Weathering Degree Model
+收录	P2025-B-01	CVM
+收录	P2025-B-02	Multi-objective Planning Model
+收录	P2025-B-02	Pareto
+收录	P2025-B-03	SIS model
+收录	P2025-B-04	Multi-Objective Model
+收录	P2025-B-05	Multi - objective optimization
+收录	P2025-B-05	NSGA - II
+收录	P2025-B-07	Sensitivity
+收录	P2025-C-02	Hurdle
+收录	P2025-C-05	GSRF
+收录	P2025-C-09	Posterior inference
+收录	P2025-C-11	Threshold Method
+收录	P2025-C-11	Cox
+收录	P2025-C-16	TrueSkill
+收录	P2025-C-16	Residual Analysis
+收录	P2025-C-16	LR-SCAD Model
+收录	P2025-D-01	A* and GA
+收录	P2025-D-04	Multi-layer network model
+收录	P2025-D-04	three-layer bus network model
+收录	P2025-E-01	Food web model
+收录	P2025-E-02	FATE Model
+收录	P2025-E-02	COMAP Model
+收录	P2025-E-03	Petri-Food Web model
+收录	P2025-E-04	multi-type Holling responses
+收录	P2025-F-01	VBGMM
+收录	P2025-F-01	Cox TVPH
+收录	P2025-F-03	KDMF
+收录	P2025-F-03	MIC
+
+# ---- 逐篇（制表符分隔）----
+篇	参照状态	片数	覆盖@前	未覆盖模型	其中收录	未覆盖场景	召回@前	召回@后	宽片数	宽覆盖	宽未覆盖模型
+P2025-A-01	有参照	5	2	2	2	1	2/4	4/4	5	2	2
+P2025-A-02	有参照	4	1	1	1	2	1/2	2/2	4	1	1
+P2025-A-03	有参照	4	0	3	3	1	0/3	3/3	4	0	3
+P2025-A-04	有参照	5	4	1	1	0	4/5	5/5	5	4	1
+P2025-A-05	有参照	4	0	3	2	1	0/3	2/3	5	1	3
+P2025-B-01	有参照	3	1	1	1	1	1/2	2/2	3	1	1
+P2025-B-02	有参照	4	0	2	2	2	0/2	2/2	5	0	3
+P2025-B-03	有参照	4	1	2	1	1	1/3	2/3	7	3	2
+P2025-B-04	有参照	3	1	1	1	1	1/2	2/2	3	1	1
+P2025-B-05	有参照	4	0	2	2	2	0/2	2/2	4	0	2
+P2025-B-06	有参照	4	2	1	0	1	2/3	2/3	10	2	2
+P2025-B-07	有参照	4	2	1	1	1	2/3	3/3	4	3	0
+P2025-C-01	有参照	6	5	0	0	1	5/5	5/5	6	5	0
+P2025-C-02	有参照	5	3	1	1	1	3/4	4/4	5	3	1
+P2025-C-03	有参照	1	0	0	0	1	-	-	2	1	0
+P2025-C-04	有参照	4	2	0	0	2	2/2	2/2	4	2	0
+P2025-C-05	有参照	4	2	1	1	1	2/3	3/3	4	2	1
+P2025-C-06	有参照	4	3	0	0	1	3/3	3/3	4	3	0
+P2025-C-07	有参照	4	2	2	0	0	2/4	2/4	4	2	2
+P2025-C-08	有参照	4	3	0	0	1	3/3	3/3	4	3	0
+P2025-C-09	有参照	2	0	1	1	1	0/1	1/1	4	0	4
+P2025-C-10	有参照	2	1	1	0	0	1/2	1/2	3	1	2
+P2025-C-11	有参照	8	6	2	2	0	6/8	8/8	9	7	2
+P2025-C-12	有参照	5	2	1	0	2	2/3	2/3	5	2	1
+P2025-C-13	有参照	4	4	0	0	0	4/4	4/4	4	4	0
+P2025-C-14	有参照	4	2	0	0	2	2/2	2/2	7	3	1
+P2025-C-15	有参照	4	1	0	0	3	1/1	1/1	4	1	0
+P2025-C-16	有参照	5	1	3	3	1	1/4	4/4	5	1	3
+P2025-C-17	参照不存在	0	0	0	0	0	-	-	0	0	0
+P2025-C-18	有参照	2	1	1	0	0	1/2	1/2	4	1	2
+P2025-D-01	有参照	5	2	1	1	2	2/3	3/3	5	2	1
+P2025-D-02	有参照	1	1	0	0	0	1/1	1/1	1	1	0
+P2025-D-03	有参照	3	2	0	0	1	2/2	2/2	3	2	0
+P2025-D-04	有参照	3	0	2	2	1	0/2	2/2	3	0	2
+P2025-E-01	有参照	4	2	1	1	1	2/3	3/3	4	2	1
+P2025-E-02	有参照	4	1	2	2	1	1/3	3/3	5	1	3
+P2025-E-03	有参照	5	1	2	1	2	1/3	2/3	5	1	2
+P2025-E-04	有参照	3	1	1	1	1	1/2	2/2	6	1	2
+P2025-F-01	有参照	4	2	2	2	0	2/4	4/4	4	2	2
+P2025-F-02	有参照	4	1	0	0	3	1/1	1/1	6	2	1
+P2025-F-03	有参照	6	2	2	2	2	2/4	4/4	6	2	2
+P2025-F-04	有参照	4	1	0	0	3	1/1	1/1	4	1	0
+P2025-F-05	有参照	2	0	1	0	1	0/1	0/1	2	0	1
+
+# ---- keywords 栏被截断的篇（宽口径与主体口径不等的篇）----
+截断	P2025-A-05、P2025-B-02、P2025-B-03、P2025-B-06、P2025-B-07、P2025-C-03、P2025-C-07、P2025-C-09、P2025-C-10、P2025-C-11、P2025-C-14、P2025-C-18、P2025-E-02、P2025-E-03、P2025-E-04、P2025-F-02、P2025-F-05
+
+# ---- 「覆盖」是方法族级：片含词表词、而片本身不是词表词的（逐条）----
+覆盖=松判	P2025-A-04	Bayesian framework	Bayesian
+覆盖=松判	P2025-B-01	Multi-objective nonlinear programming	nonlinear programming
+覆盖=松判	P2025-B-03	Lotka-Volterra model	Lotka-Volterra
+覆盖=松判	P2025-B-07	NSGA-II Algorithm	NSGA-II
+覆盖=松判	P2025-C-02	Bayesian Change-Point Detection	Bayesian/change-point detection
+覆盖=松判	P2025-C-04	Random Forest Model	random forest
+覆盖=松判	P2025-C-08	SHAP analysis	SHAP
+覆盖=松判	P2025-C-08	PSM-DID model	difference-in-differences/propensity score matching
+覆盖=松判	P2025-C-10	Bayesian entropy analysis	Bayesian
+覆盖=松判	P2025-C-13	Dual-stage XGBoost	XGBoost
+覆盖=松判	P2025-C-13	Non-parametric Bootstrap algorithm	bootstrap
+覆盖=松判	P2025-C-13	DID model	difference-in-differences
+覆盖=松判	P2025-C-13	SHAP model	SHAP
+覆盖=松判	P2025-C-14	dynamic Bayesian networks	Bayesian/Bayesian network
+覆盖=松判	P2025-C-14	Cox-Monte Carlo	Monte Carlo
+覆盖=松判	P2025-E-01	EWM-AHP	AHP/entropy weight method
+覆盖=松判	P2025-E-02	Lotka-Volterra Equation	Lotka-Volterra
+覆盖=松判	P2025-E-04	differential evolution optimization	differential evolution
+覆盖=松判	P2025-F-01	DID Model	difference-in-differences
+
+# ---- 精确性：不能定位的命中（逐条）----
+（无）
+
+# ---- 低置信条目（x1，逐条：篇 | 词 | 页 | 片段）----
+低置信	P2025-C-04	ARIMA	p28	velop a time series forecasting model (e.g., ARIMA, exponential smoothing) to project medal
+低置信	P2025-C-11	ARIMA	p7	methods can be employed to forecast the number of events in the 2028 Games. While ARIMA
+低置信	P2025-D-01	BP neural network	p10	BP
+低置信	P2025-C-17	Bayesian	p10	We decided to use Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC) as
+低置信	P2025-A-05	CNN	p3	machine learning, specifically CNN models [5], to train data and obtain rail wear amounts have
+低置信	P2025-C-14	CNN	p25	monthly gas field production based on the CNN - LSTM model. Energy, 260,
+低置信	P2025-C-02	Causal Inference	p2	**Change-Point Detection and Causal Inference Models**
+低置信	P2025-C-10	Causal Inference	p6	Difference-in-Differences (causal inference method)
+低置信	P2025-E-02	Food web model	p4	model, and food web model, with their respective strengths and limitations shown in Figure 2.
+低置信	P2025-E-04	Food web model	p6	Assumption2: In this food web model, we assume that sparrows and bats exclusively feed on
+低置信	P2025-A-04	Gaussian Distribution	p13	Here, (δx, δy) can be drawn from a Gaussian distribution N((x0, y0), Σ) to reflect that each footstep
+低置信	P2025-A-03	Gaussian Mixture Algorithm	p1	Keywords: Stair Wear, Archard Law, Central Limit Theorem, Gaussian Mixture Algorithm
+低置信	P2025-C-09	LSTM	p22	[3] Sepp Hochreiter and Jürgen Schmidhuber. Long short-term memory. Neural Computation,
+低置信	P2025-C-01	Markov chain	p5	memoryless characteristic of Olympic medal trends akin to Markov chains, we employ an
+低置信	P2025-C-09	Markov chain	p9	from this posterior distribution via Markov chain Monte Carlo or other approximate methods,
+低置信	P2025-A-05	Monte Carlo	p14	After considering all the above factors, we wrote a Python program using the Monte Carlo
+低置信	P2025-B-01	Monte Carlo	p17	we use the Monte Carlo Method to select 101 values at equal intervals with a step size of
+低置信	P2025-C-09	Monte Carlo	p9	from this posterior distribution via Markov chain Monte Carlo or other approximate methods,
+低置信	P2025-C-16	Monte Carlo	p13	So, how many countries are most likely to win medals in 2028? We conducted a Monte Carlo
+低置信	P2025-E-03	Petri-Food Web model	p1	Keywords: Agroecosystems\; Organic agriculture\; Lotka-Volterra\; Petri-Food Web model\; Lunger-
+低置信	P2025-B-01	Regression Analysis	p12	*Figure 6: Linear regression analysis of the population and median income in Juneau*
+低置信	P2025-C-03	Regression Analysis	p11	*Table 5: Key Metrics and Results of Regression Analysis*
+低置信	P2025-C-08	Regression Analysis	p21	*Table 2: DID regression analysis results*
+低置信	P2025-C-09	Regression Analysis	p1	Quantification, Regression Analysis, Credible Intervals
+低置信	P2025-F-01	Regression Analysis	p24	ative Infection Based on Logistic Multiple Regression Analysis in the Assess-
+低置信	P2025-F-02	Regression Analysis	p19	## 6.3.1 Panel Regression Analysis
+低置信	P2025-F-05	Regression Analysis	p12	merged into a complete analytical sample. In the regression analysis, the model treated
+低置信	P2025-A-04	Uncertainty Quantification	p19	posterior uncertainty quantification” under limited computational overhead. It aligns the simulated
+低置信	P2025-C-09	Uncertainty Quantification	p1	A key strength of this model is its robust uncertainty quantification. Each country’s
+低置信	P2025-C-14	Uncertainty Quantification	p24	Probabilistic calibration is validated by uncertainty quantification achieving 93.2%
+低置信	P2025-B-03	cluster analysis	p11	cated by the tight clustering of observed data along the model trajectories in the (NJuneau, TJuneau)
+低置信	P2025-C-01	cluster analysis	p25	autoencoder-based arithmetic optimization clustering algorithm to enhance principal
+低置信	P2025-C-11	cluster analysis	p28	models like group or cluster analysis methods to account for these dependencies.
+低置信	P2025-C-12	cluster analysis	p14	continents is more scattered, with no clear regional clustering of improvements.5.3.3：Ana-
+低置信	P2025-A-04	correlation coefficient	p3	materials after a certain amount of wear by changing the correlation coefficient, and obtain the
+低置信	P2025-B-07	correlation coefficient	p18	tion indicates the magnitude of the correlation coefficient. The closer the absolute value is to
+低置信	P2025-D-02	correlation coefficient	p16	correlation coefficient to precisely measure the strength and direction of this relationship and visualized
+低置信	P2025-A-05	cross-validation	p24	the staircase, employing cross-validation with multiple data sources to boost reliability.
+低置信	P2025-F-05	cross-validation	p26	**Cross-validation: Use multiple sources like OECD and national government**
+低置信	P2025-C-03	decision tree	p13	The Random Forest model aggregates the predictions of multiple decision trees. The final pre-
+低置信	P2025-C-05	decision tree	p8	Random forests are machine learning algorithms trained using multiple decision trees,
+低置信	P2025-C-06	decision tree	p12	of countries winning ﬁrst medals. The ensemble of decision trees helps reduce overﬁtting, and
+低置信	P2025-C-10	decision tree	p26	chine learning. In ML, entropy guides decision-making: decision trees split features to min-
+低置信	P2025-C-16	decision tree	p10	Random Forest regression[5] is an ensemble learning method that builds multiple decision trees for
+低置信	P2025-B-05	deep learning	p21	·Adopt advanced algorithms like deep learning to boost efficiency and accuracy for de-
+低置信	P2025-C-01	deep learning	p23	pact analysis with deep learning techniques to refine medal predictions. By incorporating
+低置信	P2025-C-15	deep learning	p4	deep learning in dealing with complex non-linear relationships. [3]J. Moolchandani, V. Chole,
+低置信	P2025-C-16	deep learning	p25	[6] Deepvarma: A hybrid deep learning and varma model for chemical industry index forecasting. No
+低置信	P2025-C-02	difference-in-differences	p20	methods (such as OLS, DID, and IV) and develop a parameter estimation method that eliminates
+低置信	P2025-A-04	differential equation	p14	flow rates of people going upstairs and downstairs, we can formulate a partial differential equation that
+低置信	P2025-C-04	exponential smoothing	p28	velop a time series forecasting model (e.g., ARIMA, exponential smoothing) to project medal
+低置信	P2025-B-05	factor analysis	p26	techniques, like time - series analysis for predicting tourist flow trends and factor analysis for
+低置信	P2025-C-14	factor analysis	p11	*Figure 8: Olympic Medal Risk Factor Analysis*
+低置信	P2025-D-02	factor analysis	p23	2. Inadequate Complex-Factor Analysis: Despite considering multiple factors, the study of
+低置信	P2025-F-02	factor analysis	p21	and effective." Based on Confirmatory Factor Analysis (CFA) results, the following
+低置信	P2025-A-01	feature selection	p7	**Step 2: Feature extraction**
+低置信	P2025-C-04	feature selection	p22	gesting potential issues in feature selection or
+低置信	P2025-C-13	feature selection	p9	velop a TPE-XGBoost model for optimizing XGBoost's feature selection and hyperparameter
+低置信	P2025-C-15	feature selection	p10	strong feature selection ability, low risk of over-
+低置信	P2025-D-03	fuzzy logic	p24	[4] Goguen, Joseph A. "LA Zadeh. Fuzzy sets. Information and control, vol. 8 (1965),
+低置信	P2025-C-10	genetic algorithm	p4	genetic algorithms and incorporating home advantage adjustments.
+低置信	P2025-C-01	gradient boosting	p25	region, northwest china: Research using the extreme gradient boosting (xgboost)
+低置信	P2025-C-13	gradient boosting	p25	4. Ibrahem Ahmed Osman, A., et al., Extreme gradient boosting (Xgboost) model to
+低置信	P2025-E-01	graph theory	p1	For Problem 2, a network is established using graph theory, with populations as nodes.
+低置信	P2025-C-13	hypothesis test	p18	ments, which will serve as the basis for subsequent hypothesis testing.
+低置信	P2025-F-02	integer programming	p14	established an integer programming model:
+低置信	P2025-A-02	linear regression	p4	Linear Regression
+低置信	P2025-C-12	linear regression	p9	This leads to truncation issues in traditional regression models. A simple linear regression
+低置信	P2025-C-17	linear regression	p10	issues). To predict the number of athletes for each country in 2028, we used a simple linear regression. Finally,
+低置信	P2025-F-03	linear regression	p19	Subsequently, step - by - step linear regression analysis was conducted using Factor 1, Factor
+低置信	P2025-B-03	logistic regression	p9	teraction with the glacier environment. According to Verhulst’s logistic model [3], population growth
+低置信	P2025-C-01	logistic regression	p11	or defining a binary variable for "having won a gold medal" to apply logistic regression
+低置信	P2025-C-06	logistic regression	p9	world rankings are available, we use logistic regression to assess the performance gaps
+低置信	P2025-C-18	logistic regression	p8	as a Bernoulli distribution process, which will be executed through logistic regression, as follows:
+低置信	P2025-E-04	logistic regression	p11	the ladybug predation efficiency will become saturated. We did not use a Logistic model to describe aphid
+低置信	P2025-A-01	machine learning	p22	the advanced machine learning algorithm, particle swarm optimization algorithm (PSO), which
+低置信	P2025-C-03	machine learning	p1	## Regression and Machine Learning
+低置信	P2025-C-04	machine learning	p7	3 One-hot encoding utilized to facilitate processing by machine learning models, for NOC and
+低置信	P2025-C-07	machine learning	p24	medal distribution – a socioeconomic machine learning model,” Technological Forecasting
+低置信	P2025-C-12	machine learning	p25	tribution–a socioeconomic machine learning model," Technol. Forecast. Soc. Change,
+低置信	P2025-D-02	machine learning	p25	models, exact and heuristic algorithms, and machine learning. Expert Systems with Applica-
+低置信	P2025-F-01	machine learning	p5	encoding method helps machine learning algorithms better process and understand
+低置信	P2025-F-02	machine learning	p18	cybercrime across different countries using statistical modeling, machine learning,
+低置信	P2025-F-04	machine learning	p23	Using a combination of statistical methods and advanced machine learning
+低置信	P2025-C-05	moving average	p6	predictions.The ARIMA model integrates autoregressive (AR) and moving average (MA)
+低置信	P2025-B-04	multi-objective optimization	p1	**Keywords: Multi-Objective Model, Dynamic Programming, Sustainable Tourism**
+低置信	P2025-E-04	multi-type Holling responses	p1	Keywords: differential evolution optimization, ecosystem modeling, multi-type Holling responses,
+低置信	P2025-D-02	network analysis	p23	some complex elements is incomplete. For instance, bus network analysis mainly focuses on
+低置信	P2025-C-02	neural network	p24	the summer Olympics using neural networks. Computers & Operations Research, 26(13),
+低置信	P2025-C-11	neural network	p4	Linear Regression, Random Forest, Support Vector Machines and Neural Networks. They are
+低置信	P2025-C-13	neural network	p13	When evaluating the confidence intervals of neural network models, traditional ap-
+低置信	P2025-C-14	neural network	p18	Figure 14 models the global coach - flow network using a graph neural network
+低置信	P2025-D-01	nonlinear programming	p1	nonlinear programming model with the objective of maximizing bus coverage, subject to
+低置信	P2025-B-07	nonlinear regression	p10	**2) Nonlinear regression analysis of average temperature and carbon footprint**
+低置信	P2025-C-10	principal component analysis	p26	eration (e.g., GANs, SMOTE). Feature engineering and dimensionality reduction (PCA, t-
+低置信	P2025-C-09	random forest	p22	[5] Congjun Rao, Ming Liu, Mark Goh, and Jianghui Wen. 2-stage modified random forest
+低置信	P2025-B-02	reinforcement learning	p23	Safe Urban Bus Routes for Tourism Promotion Using a Hybrid Reinforcement Learning
+低置信	P2025-C-01	reinforcement learning	p23	robust real-time data update mechanism. The use of reinforcement learning will further
+低置信	P2025-C-15	ridge regression	p4	various regression methods (such as linear regression, polynomial regression, ridge regression,
+低置信	P2025-C-14	self-organizing map	p25	deep learning algorithms used in deep neural nets: MLP SOM and DBN. Wireless
+低置信	P2025-E-01	shortest path	p18	d i j is the shortest path distance between speciesi and species j . High closeness
+低置信	P2025-C-14	spatio-temporal modeling	p1	coach effect\;spatio-temporal modeling\;economics\;Sensitivity Analysis
+低置信	P2025-C-02	stacking	p3	ensemble learning methods based on decision trees, excel at handling non-linear relationships
+低置信	P2025-C-13	stacking	p25	Alberta’s hydrothermal system using boosting-based ensemble learning incorporating Shapley
+低置信	P2025-C-16	stacking	p10	Random Forest regression[5] is an ensemble learning method that builds multiple decision trees for
+低置信	P2025-C-11	survival analysis	p17	conduct a survival analysis, treating Year as duration time and winning as the event. After
+低置信	P2025-A-04	system dynamics	p26	tion: a literature review. Vehicle System Dynamics, 47(6): 661–700, 2007.
+低置信	P2025-B-07	system dynamics	p4	➢ Regarding the modeling methods, system dynamics[4], and multi-objective optimization
+低置信	P2025-E-01	system dynamics	p3	system dynamics. Also, account for the changes on herbicides and pesticides on plants, insects,
+低置信	P2025-E-02	system dynamics	p22	fluence system dynamics, highlighting the need to focus on their interactions to optimize eco-
+低置信	P2025-C-04	time series analysis	p28	velop a time series forecasting model (e.g., ARIMA, exponential smoothing) to project medal
+低置信	P2025-C-10	time series analysis	p6	Time series analysis can capture long-term trends in a country’s performance. If the data
+低置信	P2025-C-12	time series analysis	p3	Time series forecasting, a common prediction method, uses historical medal counts to
+低置信	P2025-E-04	time series analysis	p8	However, for this modeling task, the traditional soil network model cannot perform time series analysis,
+低置信	P2025-F-01	time series analysis	p22	s of policy evaluation and intervention analysis and can handle different time series
+
+# ---- 累计 ----
+精确性=496/496
+召回@增长前=68/115
+召回@增长后=105/115
+召回@宽参照=76/133

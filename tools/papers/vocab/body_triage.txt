@@ -1,0 +1,142 @@
+# 正文扫描的**逐条处置**表（Task 6b 阶段 2b 收口轮 · 2026-09-26）· **机读**
+#
+# **它是什么**：`tests/papers/recon/coverage-recon.txt` §4 那一路「补扫正文」的**机械大写缩写
+# 扫描**里、**跨篇复用**的 token 的**逐条处置**。收口前的状态是「扫了但一条都不收」；
+# controller 2026-09-26 裁决把它做成**真交付物** ⇒ 28（口径见下）这个规模可以**逐条人工判断**，
+# 故本表给出每一条的 `处置 / 类别 / 定位符 / 理由`。
+#
+# **格式、定位符体例、判类规则与 `growth_triage.txt` 是同一套**（TAB 四栏：
+# `词形 \t 处置 \t 类别 \t 理由`），并由**同一份判据**读
+# （`tests/papers/verify_map.py` 的 M-10 / M-11 / M-12 把两张表按同一套规则判）
+# —— **口径只有一处**，不另立第二套。
+#
+# **取样口径（写死，可复核）**：`build/t6b2b_bodyscan.py` 的 4 步（逐篇 md 取全部匹配
+# `(?<![A-Za-z0-9])[A-Z][A-Z0-9]{1,5}(?![A-Za-z0-9])` 的 token → 该篇出现 ≥3 次 →
+# 去掉**现行词表命中**的 → 去掉**该篇 Authors Keywords 段里出现过的**），
+# 再取**在 ≥2 篇里各自 ≥3 次**的 ⇒ **跨篇复用**。
+#
+# **★ 口径实测与上一轮登记的 28 不一致（如实登记，以实测为准）**：
+# `coverage-recon.txt` §4 登记的是「全篇 token 种类 638 · 词表命中 183 · ≥1 次 455 ·
+# ≥3 次 241 · 跨篇复用 **28**」。收口轮把**同一个脚本、同一口径**重跑，
+# 实测是 **969 / 29 / 933 / 286 / 73**（脚本把四个数都打在 stdout 上）。
+# 两件事因此必须写明白：
+#   ① 那四个数**本表复核不出来**（642 组数字对不上；`build/` 里也没有那次跑的日志）；
+#   ② **28 是 73 的真子集**（28 条**全部**在 73 里，多出来的 45 条恰好是
+#      `MSE/RMSE/MAE/MAPE/R2/AIC/BIC/AUC/ROC/CI/SD/RF/AR/OLS/USA/CHN/...` 这一族
+#      统计量与国别码）。⇒ 本表**按实测口径处置全部 73 条**（28 条自然在表内），
+#      不按 28 条处置——只做 28 条会留下 45 条没处置的同类 token。
+#
+# **本表为什么一条都不 `收录`（写死，不是绕过 M-12）**：本路 73 条里**没有一条**同时满足
+# 「是方法/算法的**名字**」**且**「它的通用名/展开**不在**词表」。逐条核过，两类都不是：
+#   * 方法名缩写（`MA` · `AR` · `RF` · `OLS`）——**其通用名已在词表**（`moving average` /
+#     `ARIMA` / `random forest` / `linear regression`…），且**该篇的 `models` 栏已经命中**
+#     它（逐条写在理由里）⇒ 按 §3 复合名规则的同一条精神「不增加检索能力」**不收**；
+#   * 其余（国别码、赛事机构、数据集名、物理量/符号、指标/统计量、文档标号）——**不是方法**。
+# **代价与去处**：正文里出现、而**既不在词表、作者也没写进 Keywords** 的**新**方法名，
+# 本表同样不去猜（§4 的死角照旧具名登记）。**要收它们需要先做的事**：① 先定「正文里的
+# 缩写算不算可定位」（本表的 `body:` 模式就是那一套）；② `收录` 会**触发
+# `TAGS.md` / `INDEX.md` / `MODEL_MAP.md` / 三份放行证据的全链路重出**（`models.txt` 一长，
+# 指针与桶表都变），那是**另一个授权面**，不在本次收口里 —— 这条写在这里，免得下一个人
+# 以为「不收」是因为判不出来。
+#
+# ---------------------------------------------------------------------------
+# §1 定位符（本表新增第三个模式；前两个见 `growth_triage.txt` §2）
+# ---------------------------------------------------------------------------
+#
+#   * `body:<稳定 ID>@p<页>` —— 词形在该篇 md 的**第 <页> 页**里逐字出现
+#                              （词边界口径 `(?<![A-Za-z0-9])…(?![A-Za-z0-9])`）。
+#     页号取该篇 md 的 `<!-- page N -->` 锚（与 `TAGS.md` 二层的页号同一套）。
+#     **理由里附带的那句「正文该页逐字」是从机械扫描的完整输出里取的原样**——
+#     判据 M-11 会自己去读那份 md 复核「该词形确实出现在该页」。
+#
+# ---------------------------------------------------------------------------
+# §2 本表的三条判类规则（写死；判据按这一节判，不按措辞猜）
+# ---------------------------------------------------------------------------
+#
+#   1. **按 genus 判，不按枚举判**：§3 的 `场景` 原始定义是「**非方法**的语义词」，
+#      后面的枚举（领域/地点/赛事/政策语境/研究对象/物理量/概念框架/任务名）是**举例**。
+#      本表据此把 **机构名 / 期刊名 / 数据集名** 也归入 `场景`。
+#      **登记这处枚举缺口**：§3 的枚举里没写这三类 ⇒ 若下一个人认为它们该单立一类，
+#      改 §3 与本表（判据侧不用改：M-10 只判「`场景` ⇒ `不收`」这条约束）。
+#   2. **`收录` 的条件**（与 §3 的复合名规则同一条精神）：必须同时满足「是方法/算法的名字」
+#      **且**「它的通用名/展开**不在**词表」**且**「该篇词表侧确实零命中」。本表 **0 条**满足。
+#   3. **`待定` 的两种含义**（都在理由里写明是哪一种）：① **判不了**（缺口径或缺展开式：
+#      `TPE` 同形异义、`FR` 读不出所属短语）；② **判得出「不可收」而分类轴里没有它的位置**
+#      （`II`/`III`/`IV` 是论文自己的编号）——第 ② 种**不是「没见过」**，是**分类轴的缺口**。
+#
+# ---------------------------------------------------------------------------
+# §3 逐条（**73 行 = 不收 68 · 待定 5 · 收录 0**）
+# ---------------------------------------------------------------------------
+II	待定	无法归类	body:P2025-A-04@p1 — **论文自身的编号**（该篇的 `Model II` 这类标号），**不是词形**——本语料里它由「模型/步骤的序号」刷出（`Model I/II/III`、`Problem III`、`Stage IV`），没有一次是方法名。**实质结论是不可收**，但 §3 的分类轴里没有「标号」这一类（`无法归类` 现成的用法是**断行残片**，与「编号」同族），而 M-10 的约束又把 `无法归类` 压到 `待定` 一态 ⇒ **本表如实写成 `待定`，并把这处分类轴缺口登记在本表 §3**。（正文该页逐字：「## Several models are established: Model I: Hybrid Wear Model; Model II: Wear-」）
+NOC	不收	场景	body:P2025-C-01@p11 — **非方法的语义词（赛事语境）**：`NOC` = National Olympic Committee 的**国别代码**（该篇 2500759 p11 的表格列名逐字「NOC」）⇒ **不收**。（正文该页逐字：「NOC」）
+USA	不收	场景	body:P2025-C-01@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「USA」）
+CI	不收	模型	body:P2025-C-01@p11 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：置信区间（该篇 2500759 p11 逐字「*Table 2: Predicted Medal Counts & CI for Top 20 Countries at 2028 Olympics*」、另一篇 2513314 逐字「(95% CI: 136–156)」） ⇒ **不收**。（正文该页逐字：「*Table 2: Predicted Medal Counts & CI for Top 20 Countries at 2028 Olympics*」）
+CHN	不收	场景	body:P2025-C-01@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「CHN」）
+GDP	不收	场景	body:P2025-C-06@p1 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：经济量（2510006 p1 逐字「considering factors like GDP. We found a strong positive」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「on improving their chances, considering factors like GDP. We found a strong positive」）
+MSE	不收	模型	body:P2025-C-01@p22 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：均方误差（2500759 p22 逐字「the MSE of the test set was 6.83, and the RMSE was 2.61」） ⇒ **不收**。（正文该页逐字：「the MSE of the test set was 6.83, and the RMSE was 2.61. Although these values were」）
+GCI	不收	模型	body:P2025-F-01@p1 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：全球网络安全指数（2513705 p26 逐字「Global Cybersecurity Index (GCI), which ranks countries based on their cybersecurity com-」） ⇒ **不收**。（正文该页逐字：「areas with low GCI scores. Then, a VBGMM model is established to cluster countries」）
+III	待定	无法归类	body:P2025-B-02@p1 — **论文自身的编号**（该篇的 `Sub-model III` 这类标号），**不是词形**——本语料里它由「模型/步骤的序号」刷出（`Model I/II/III`、`Problem III`、`Stage IV`），没有一次是方法名。**实质结论是不可收**，但 §3 的分类轴里没有「标号」这一类（`无法归类` 现成的用法是**断行残片**，与「编号」同族），而 M-10 的约束又把 `无法归类` 压到 `待定` 一态 ⇒ **本表如实写成 `待定`，并把这处分类轴缺口登记在本表 §3**。（正文该页逐字：「In Sub-model III, environmental benefit is the third optimization objective.」）
+JPN	不收	场景	body:P2025-C-01@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「JPN」）
+R2	不收	模型	body:P2025-A-04@p5 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：判定系数（2513314 p10 逐字「higher values for 𝑅2 and Adjusted 𝑅2 indicate a」；另一篇 2504218 p5 的 `R2` 是 ℝ² 的排版形态） ⇒ **不收**。（正文该页逐字：「concise mathematical form. Suppose the stair plane coordinates are given by (x, y) ∈Ω⊂R2, and let z」）
+RF	不收	模型	body:P2025-C-03@p1 — `RF` = Random Forest（该篇 2503389 p1 逐字「probabilities of 88.09% (LR) and 94.12% (RF)」）。**词表里已有 `random forest` 词条**，该篇的 `models` 栏**已命中**它 ⇒ 同一条精神**不收**。（正文该页逐字：「Olympic medal, with probabilities of 88.09% (LR) and 94.12% (RF). This prediction is further」）
+RMSE	不收	模型	body:P2025-C-01@p9 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：均方根误差（2500759 p9 逐字「The hyperparameter tuning of the predictive models employed RMSE as the evalua-」） ⇒ **不收**。（正文该页逐字：「The hyperparameter tuning of the predictive models employed RMSE as the evalua-」）
+USD	不收	场景	body:P2025-B-02@p1 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：货币单位（2502617 p1 逐字「the economic measure of the municipal weighted total benefit is 10 million USD」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「the economic measure of the municipal weighted total benefit is 10 million USD, while the net」）
+AUS	不收	场景	body:P2025-C-01@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「AUS」）
+GBR	不收	场景	body:P2025-C-04@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「GBR」）
+ROC	不收	模型	body:P2025-C-04@p11 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：ROC 曲线（2507817 p15 逐字「AUC: is the area under the ROC curve and is used to measure the overall performance」） ⇒ **不收**。（正文该页逐字：「example, we analyze the performance of sensitivity and its influencing factors based on ROC」）
+VCDB	不收	场景	body:P2025-F-02@p15 — **非方法的语义词（数据集名）**：`VCDB` = Verizon Data Breach Investigations 数据集（2507789 p15 逐字「According to VCDB data, countries like Russia,」）⇒ **不收**。同 `ITU` 那行：枚举缺口登记在本表 §3。（正文该页逐字：「vulnerability to cyber attacks. According to VCDB data, countries like Russia,」）
+VERIS	不收	场景	body:P2025-F-02@p6 — **非方法的语义词（数据标准/数据集名）**：`VERIS`（2507789 p6 逐字「We utilized data similar to the VERIS database, which provides」）⇒ **不收**。同 `ITU` 那行：枚举缺口登记在本表 §3。（正文该页逐字：「are for cybercrime. We utilized data similar to the VERIS database, which provides」）
+AI	不收	场景	body:P2025-B-05@p2 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：技术领域/文书标题（2505199 p2 逐字「## AI Use Report」、2509557 p26 逐字「## Report on Use of AI」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「## AI Use Report .................................................................................................... 26」）
+AR	不收	模型	body:P2025-C-06@p27 — `AR` = AutoRegressive（该篇 2510006 p27 逐字「it suggests an AR (AutoRegressive) model component」）。**通用名已在词表**（`ARIMA` = autoregressive integrated moving average、`SARIMA`），该篇的 `models` 栏已同时命中 `ARIMA` 与 `moving average` ⇒ 同一条精神**不收**。（正文该页逐字：「close to zero), it suggests an AR (AutoRegressive) model component.」）
+COVID	不收	场景	body:P2025-C-10@p24 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：事件/领域（2514362 p24 逐字「emergencies such as the COVID-19 pandemic, political boycotts, and large-scale bans on」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「emergencies such as the COVID-19 pandemic, political boycotts, and large-scale bans on」）
+E0	不收	场景	body:P2025-B-01@p6 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：基线阈值/初始值（2503268 p15 逐字「the rate of increase and E0 serving as a baseline threshold」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「E0」）
+GER	不收	场景	body:P2025-C-04@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「GER」）
+H0	不收	场景	body:P2025-A-03@p5 — **非方法的语义词**：该篇 2500759 p12 逐字「H0 : θj = 1」= **零假设**（统计概念，非方法）；另一篇（2517273）里是除草剂施用强度的符号。该篇 `models` 栏已含 `hypothesis test`（`models.txt` 词条，含 `significance test`）⇒ 概念那一侧已被词表覆盖 ⇒ **不收**。（正文该页逐字：「H0」）
+IOC	不收	场景	body:P2025-C-05@p1 — **非方法的语义词（赛事语境/机构）**：`IOC` = International Olympic Committee（2516178 p4 逐字「The International Olympic Committee (IOC) has the responsibility and」）⇒ **不收**。（正文该页逐字：「Finally, we offer original insights for the IOC regarding the host effect and the impact of」）
+ITU	不收	场景	body:P2025-F-02@p4 — **非方法的语义词（机构名）**：`ITU` = International Telecommunication Union（2507789 p4 逐字「organizations like the International Telecommunication Union (ITU) have played a」）⇒ **不收**。**登记这处枚举缺口**：§3 的 `场景` 枚举里没写「机构名」，本表按 genus（非方法）判入 `场景`（见本表 §3）。（正文该页逐字：「organizations like the International Telecommunication Union (ITU) have played a」）
+KOR	不收	场景	body:P2025-C-01@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「KOR」）
+MAE	不收	模型	body:P2025-C-01@p1 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：平均绝对误差（2507817 p10 逐字「(R2), Mean Absolute Error (MAE), Root Mean Square Error (RMSE) of this model are」） ⇒ **不收**。（正文该页逐字：「decline. The model has a low MAE and MAPE, exhibiting a high accuracy and strong ro-」）
+MAPE	不收	模型	body:P2025-C-01@p1 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：平均绝对百分比误差（2500759 p1 逐字「The model has a low MAE and MAPE」） ⇒ **不收**。（正文该页逐字：「decline. The model has a low MAE and MAPE, exhibiting a high accuracy and strong ro-」）
+N0	不收	场景	body:P2025-A-05@p5 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：基线噪声水平（2503268 p15 逐字「We calculate noise levels as the sum of a baseline noise level (N0) and a power-law term」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「N0」）
+NED	不收	场景	body:P2025-C-04@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「NED」）
+OLS	不收	模型	body:P2025-C-02@p1 — `OLS` = Ordinary Least Squares——**是通行方法名**，但**该篇的词表侧已经命中同一件事**，三篇逐篇可验：P2025-C-02（2501869）该行逐字「bias of the traditional OLS method… 2SLS significantly outperforms OLS」而该篇 `models` 栏含 `two-stage least squares`；P2025-C-13（2516178）该篇 `models` 栏含 `linear regression` / `logistic regression`；P2025-F-03（2513705）该篇 `models` 栏含 `Regression Analysis` / `linear regression`（`OLS Regression Analysis` 那一串里已被命中）⇒ **不增加检索能力** ⇒ **不收**。（正文该页逐字：「bias of the traditional OLS method. Model validation shows that 2SLS significantly outperforms」）
+SD	不收	模型	body:P2025-C-02@p6 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：标准差（2516695 p12 的 `National Dependence (SD)` 是一个自建指标名、2502355 p9 是公式里的下标——两处都是非方法） ⇒ **不收**。（正文该页逐字：「SD」）
+US	不收	场景	body:P2025-C-08@p18 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「By analysing the shap values of each US sport to its medal count, it was found that」）
+X2	不收	场景	body:P2025-E-04@p8 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：回归自变量符号（同上那一行；2521039 p5 的表格单元同族） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「k2+X2 −d1 + e1 X」）
+Z1	不收	场景	body:P2025-A-02@p9 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：物理量（峰位；2501567 p9 逐字「the definition of Z1 (1st peak) and Z3 (2nd peak)」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「which allowed for the definition of Z1 (1st peak) and Z3 (2nd peak) (Figure 4). Z1 occurs」）
+Z2	不收	场景	body:P2025-A-02@p9 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：物理量（峰位；2501567 p9 逐字「Between Z1 and Z2, the minimum Z2 was also measured」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「off. Between Z1 and Z2, the minimum Z2 was also measured, representing unloading」）
+Z3	不收	场景	body:P2025-A-02@p9 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：物理量（峰位；同上那一行） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「which allowed for the definition of Z1 (1st peak) and Z3 (2nd peak) (Figure 4). Z1 occurs」）
+A2	不收	场景	body:P2025-B-02@p6 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：符号/表格标号（2517273 p10 的公式片段、2502617 p6 的表格单元） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「A2」）
+AADT	不收	场景	body:P2025-D-03@p7 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：交通量物理量 Annual Average Daily Traffic（2516219 p7 逐字「For numerical data, like AADT and AAWDT in MDOT_SHA_Annual_Average_」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「For numerical data, like AADT and AAWDT in MDOT_SHA_Annual_Average_」）
+AAWDT	不收	场景	body:P2025-D-03@p7 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：交通量物理量 Annual Average Weekday Traffic（同上那一行） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「AAWDT.csv」）
+AIC	不收	模型	body:P2025-C-06@p12 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：赤池信息准则（2522820 p10 逐字「We decided to use Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC) as」） ⇒ **不收**。（正文该页逐字：「AIC criterion. The AIC is calculated as AIC = 2K −2 ln(L), where K is the number of」）
+AUC	不收	模型	body:P2025-C-04@p12 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：ROC 曲线下面积（2505964 p12 逐字「with AUC values reaching 0.974 and 0.983」） ⇒ **不收**。（正文该页逐字：「particularly close to the top left corner, with AUC values reaching 0.974 and 0.983, respectively.」）
+BIC	不收	模型	body:P2025-A-02@p16 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：贝叶斯信息准则（2501567 p16 逐字「**value of k, we will use Bayesian Information Criterion (BIC):**」） ⇒ **不收**。（正文该页逐字：「**value of k, we will use Bayesian Information Criterion (BIC):**」）
+BRA	不收	场景	body:P2025-C-01@p11 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「BRA」）
+BRT	不收	场景	body:P2025-D-03@p1 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：交通方式 Bus Rapid Transit（2516219 p1 逐字「simulates Bus Rapid Transit (BRT) in-」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「accessibility equity using Gini coefficients and simulates Bus Rapid Transit (BRT) in-」）
+CBJ	不收	场景	body:P2025-B-04@p6 — **非方法的语义词（机构名）**：`CBJ` = 数据来源机构（该篇 2504448 p6 逐字「is collected from the CBJ Tourism Survey 2023, which」、2509557 p15 逐字「CBJ Cruise Impacts 2023 Report[6]」）⇒ **不收**。同 `ITU` 那行：枚举缺口登记在本表 §3。（正文该页逐字：「ative attitudes of residents, is collected from the CBJ Tourism Survey 2023, which」）
+CE	不收	场景	body:P2025-B-03@p1 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：碳足迹缩放系数（2503268 p15 逐字「ϑCE and NC control the sensitivity and baseline.」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「and carbon footprint scaling (ϑCE) showed low sensitivities, at 0.017 and -34.5 . These results highlight」）
+CO2	不收	场景	body:P2025-B-02@p6 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：物理量（2502617 p6 逐字「Virtual Costs Corresponding to a Unit of CO2 Emissions」；2516219 p13 逐字「[kg CO2/day]」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「Virtual Costs Corresponding to a Unit of CO2 Emissions」）
+EE	不收	场景	body:P2025-B-06@p12 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：生态学量 Ecotrophic Efficiency（2502355 p16 逐字「Ecotrophic Efficiency ( EE ) to assess the rationality of our parameter selections」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「x −β0(1 + ζEE)」）
+F1	不收	模型	body:P2025-C-04@p14 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：F1 分数（2505964 p14 逐字「culating the Accuracy and F1-score」） ⇒ **不收**。（正文该页逐字：「culating the Accuracy and F1-score. For successfully trained projects that did not regress, we」）
+FR	待定	无法归类	body:P2025-B-07@p6 — **读了正文也说不清它指什么**：该篇（2517929）里 `FR` 是表格里的**裸标号**（p6/p10），另一篇（2519935）里是路名 `RAMP 5 FR`（Frontage Road）的一段 ⇒ 两处都不是词形。**缺什么才能判**：需要逐篇读到它的展开/所属短语（本表一行承载不了两个含义）；若只按 `great` 那行的先例（残片按所属短语判）硬判，应为 `场景`+`不收`，但那一先例当时判的是**能看出所属短语**的残片，这两处看不出。（正文该页逐字：「FR」）
+FRA	不收	场景	body:P2025-C-06@p23 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「FRA」）
+G2	不收	场景	body:P2025-D-04@p7 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：图/集合的标号（2519935 p7 逐字「G = G1 ∪G1 ∪G2 ∪· · · ∪Gk」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「G = G1 ∪G1 ∪G2 ∪· · · ∪Gk」）
+I0	不收	场景	body:P2025-B-06@p15 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：初始强度（2517273 p13 逐字「The intensity of insecticide application is I0 and it is used to suppress the growth of the pest population.」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「I0」）
+IEEE	不收	场景	body:P2025-C-11@p26 — **非方法的语义词（机构/期刊名）**：`IEEE` 出现在参考文献的期刊/会议名里（2514461 p26 逐字「2022 IEEE 8th International Conference on」）⇒ **不收**。同 `ITU` 那行：枚举缺口登记在本表 §3。（正文该页逐字：「Algorithms for Predicting Olympic Medal," 2022 IEEE 8th International Conference on」）
+IV	待定	无法归类	body:P2025-C-11@p1 — **论文自身的编号**（该篇的 `Model IV` 这类标号），**不是词形**——本语料里它由「模型/步骤的序号」刷出（`Model I/II/III`、`Problem III`、`Stage IV`），没有一次是方法名。**实质结论是不可收**，但 §3 的分类轴里没有「标号」这一类（`无法归类` 现成的用法是**断行残片**，与「编号」同族），而 M-10 的约束又把 `无法归类` 压到 `待定` 一态 ⇒ **本表如实写成 `待定`，并把这处分类轴缺口登记在本表 §3**。（正文该页逐字：「In Model IV, we addressed the Great Coach Effect (GCE). We developed a Threshold Method, filtering first-」）
+LA	不收	场景	body:P2025-C-09@p2 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「**Task 1: Predicting Medals of 2028 LA Olympics**」）
+MA	不收	模型	body:P2025-C-06@p27 — `MA` = Moving Average（该篇 2510006 p27 逐字「it suggests a MA (Moving Average) model component」）。**词表里已有 `moving average` 词条**（`models.txt` `:18`），该篇的 `models` 栏也**已命中**它 ⇒ 按 §3 复合名规则的同一条精神「通用名已在词表 ⇒ 不增加检索能力」**不收**。（正文该页逐字：「zero), it suggests a MA (Moving Average) model component. PACF:」）
+NB	不收	场景	body:P2025-C-10@p6 — **非方法的语义词**（两篇里都不是方法名）：2514362 p6 逐字「Expected medal count, Yit ∼NB(µit, α)」= 负二项分布记号（该篇 `models` 栏**已命中 `zero-inflated`(ZINB)**）；2514461 p9 逐字「gold, silver and bronze medal counts NG, NS and NB」= 铜牌数的**符号**（与 `NG`/`NS` 同族的角标）⇒ **不收**。（正文该页逐字：「Expected medal count, Yit ∼NB(µit, α)」）
+PI	不收	模型	body:P2025-A-05@p19 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：指数名（2511565 p19 逐字「the following three chemical weathering indices—WI, PI, and LOI—exhibit」；2516695 p12 的 `Project Advantage Index (PI)` 是自建指数） ⇒ **不收**。（正文该页逐字：「search has shown that the following three chemical weathering indices—WI, PI, and LOI—exhibit」）
+RCA	不收	模型	body:P2025-C-02@p1 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：显示性比较优势指数（2522820 p16 逐字「Revealed Comparative Advantage (RCA) Index」） ⇒ **不收**。（正文该页逐字：「ative Advantage Index RCA and incorporate heterogeneity factors such as the discrete size of」）
+RS	不收	场景	body:P2025-A-03@p5 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：论文自定义的函数记号（2501909 p18 逐字「RS(d1,d2) = D1(x,y)∑」；另一篇 2517929 p6/p13 是裸表格单元） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「RS(d1,d2)」）
+S0	不收	场景	body:P2025-B-01@p6 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：初始状态量（2501687 p6、2509557 p15 的表格单元里是符号） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「S0」）
+SE	不收	模型	body:P2025-C-05@p12 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：标准误（2522820 p5 逐字「SE( ˆβi)」、2507817 p12 逐字「SE y  is the standard」） ⇒ **不收**。（正文该页逐字：「SE y」）
+SS	不收	场景	body:P2025-B-06@p12 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：参数符号（2517273 p12 逐字「δSS represents the natural mortality rate of sparrows」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「(1 + ξSS)」）
+T0	不收	场景	body:P2025-A-05@p5 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：归一化项/初始时刻（2503268 p14 逐字「Normalization term T0/P ensures that income growth」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「T0」）
+TPE	待定	无法归类	body:P2025-C-11@p1 — **同形异义**：该篇（2516178）里 `TPE-XGBoost` 的 `TPE` = **Tree-structured Parzen Estimator**（通行调参方法）；另一篇（2514461）里 `TPE` = **Chinese Taipei** 的赛事代码。**缺什么才能判**：本表是**词形级**（一行一个词形），承载不了「同形异义」；要么先定一条「按篇拆行」的口径，要么走「只收可定位的展开式」那一路——而展开式 `Tree-structured Parzen Estimator` 不在作者的 Keywords 段里，按 M-11 不放行。（正文该页逐字：「and teams, we measured GCE influence on every sport. We chose USA, CHN and TPE for analysis, and identified」）
+UK	不收	场景	body:P2025-C-03@p1 — **非方法的语义词（国别/地区码）**：本语料里它是赛事数据里的国家/城市代码（表格列、国家缩写、城市名），一次都不是方法名 ⇒ **不收**（同 `Juneau`/`Baltimore` 那两行的先例：地点进检索标签那一轴）。（正文该页逐字：「including Keiko Kageyama (China, Artistic Swimming), Dave Brailsford (UK, Cycling), and」）
+WMAE	不收	模型	body:P2025-C-01@p7 — **它是「名字」但**不是方法**（评价指标/统计量/准则）：本表的两条推理轴是「数学任务 × 数据形态」，指标与统计量不在轴内——沿用 `Athlete Potential Index` 那一行的先例（`growth_triage.txt` 行 105：同一判法）。依据：加权平均绝对误差（2500759 p7 逐字「We employed WMAE_Gold and WMAE_Total」） ⇒ **不收**。（正文该页逐字：「allowed for early stopping (patience). We employed WMAE_Gold and WMAE_Total」）
+X1	不收	场景	body:P2025-F-01@p10 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：回归自变量符号（2504223 p10 逐字「β1 −6.684 × X1 + 2.593 × X2 −11.348 × X3 −6.405 × X4」） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「= β1 −6.684 × X1 + 2.593 × X2 −11.348 × X3 −6.405 × X4」）
+X3	不收	场景	body:P2025-F-01@p10 — **非方法的语义词**（§3 的 `场景` 就是按这个 genus 定义的：领域/地点/赛事/研究对象/物理量/符号……）：回归自变量符号（同上那一行） ⇒ **不收**（它只作检索标签那一轴，不进模型轴）。（正文该页逐字：「= β1 −6.684 × X1 + 2.593 × X2 −11.348 × X3 −6.405 × X4」）

@@ -1,0 +1,6 @@
+PASS	L1 加权移动平均 vs 手算
+PASS	L2 趋势移动平均 at/bt vs 手算
+PASS	L3 自适应滤波 权向量是否等于"恰好一轮"的更新结果
+PASS	L4 目标规划 解可行且达到目标
+PASS	L5 多目标模糊综合评价 b = A·r 且 r 每列归一
+# RESULT pass=5 fail=0 skip=0

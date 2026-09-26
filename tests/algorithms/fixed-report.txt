@@ -1,0 +1,16 @@
+PASS	F1a AHP 一致阵权重 = [4 2 1]/7
+PASS	F1b AHP 一致阵 lambda = 3
+PASS	F1c AHP 一致阵 CR = 0
+PASS	F1d AHP 特征值法 vs 方根法（互校）
+PASS	F1e AHP 方根法 vs 和积法（互校）
+PASS	F1f AHP 拒绝非互反矩阵（应报错）
+PASS	F2a 一次平滑 一步预报 = 12.5
+PASS	F2b 一次平滑 拟合值 [_,10,11]
+PASS	F3a 修正指数 往返拟合 max|误差|≈0
+PASS	F3b 修正指数 复原 K=200
+PASS	F3c Compertz 往返拟合 max|误差|≈0
+PASS	F3d Logistic 往返拟合 max|误差|≈0
+PASS	F4a 模糊评价 M4 = [.4 .6]
+PASS	F4b 模糊评价 M1 = [.5 .5]
+PASS	F4c 模糊评价 综合得分 = 3.4
+# RESULT pass=15 fail=0

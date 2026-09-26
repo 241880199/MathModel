@@ -1,0 +1,40 @@
+`cli all` 的抽取确定性实测（D6）· 逐文件 blob 对账
+==============================================================================
+口径：指纹 = `git hash-object`（不是裸 sha256：本仓 `core.autocrlf=true`）；
+对账的是**全量**、不是抽样——`corpus/papers/{md,figures,formulas}` 下的每一个文件
++ 五份入库产物（INDEX/TAGS/PROVENANCE/MODEL_MAP/PROBLEM_TYPES）。
+
+命令（可复现）：
+  python tests/papers/recon/all-determinism-scan.py snapshot <n>.json   # 每步之间夹一次 `cli all`
+  python -m tools.papers.cli all
+  python tests/papers/recon/all-determinism-scan.py compare <out.txt> <n1>.json <n2>.json [...]
+
+样本：43 份 md（全量）· 43 份原件（`cli all` 的输入全集；份数是**当场从磁盘数出来的**，不是手抄的）
+
+**为什么有两遍**：第一遍的「跑前」是**混合来源的残留状态**——本轮开工前本机已经跑过 `--limit 3` / `--limit 17` 两次限样本 `cli all`（17 份 A/B/C 题被
+重写过），故它与当前代码的输出是否一致**不能**单独用来断定确定性。
+第二遍的两侧**都**由同一次全套 `cli all` 产出，它才是确定性的直判。
+
+## all-determinism-before.json → all-determinism-s2.json
+  入库产物：5 份，blob 变了 **0** 份
+  md         跑前 43 个 · 跑后 43 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同
+  figures    跑前 1816 个 · 跑后 1816 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同
+  formulas   跑前 1548 个 · 跑后 1564 个 · 只在跑前 0 · 只在跑后 16 · blob 变了 3 ⇒ **有变化**
+     只在跑后（跑前没有）：['corpus/papers/formulas/2025美赛O奖论文/D/2507692/eq-13-p16.context', 'corpus/papers/formulas/2025美赛O奖论文/D/2507692/eq-13-p16.png', 'corpus/papers/formulas/2025美赛O奖论文/E/2508861/eq-06-p9.context', 'corpus/papers/formulas/2025美赛O奖论文/E/2508861/eq-06-p9.png', 'corpus/papers/formulas/2025美赛O奖论文/F/2504223/eq-20-p16.context', 'corpus/papers/formulas/2025美赛O奖论文/F/2504223/eq-20-p16.png']
+     blob 变了：corpus/papers/formulas/2025美赛O奖论文/E/2508861/eq-05-p8.context　556bae7360a7579537cf0e5c79475a9dac137cbc → feeea8e115a167db9cdb5938ef74f3ffc038282e
+     blob 变了：corpus/papers/formulas/2025美赛O奖论文/F/2504223/eq-19-p16.context　bf43377db8fa8ecfcfe3a378ee8dea3f49b924c0 → 63b8f58d576d3e5648f86085124aa59ebe7d4181
+     blob 变了：corpus/papers/formulas/2025美赛O奖论文/F/2517199/eq-03-p8.png　eb69df12d0a01fc570a9af5faef5ecb9344d35d7 → 0822223dd9128d13cded2b3a9df915aed9e19504
+  formulas 受影响的篇（4 篇）：D/2507692 · E/2508861 · F/2504223 · F/2517199
+## all-determinism-s2.json → all-determinism-s3.json
+  入库产物：5 份，blob 变了 **0** 份
+  md         跑前 43 个 · 跑后 43 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同
+  figures    跑前 1816 个 · 跑后 1816 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同
+  formulas   跑前 1564 个 · 跑后 1564 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同
+
+
+## 结论（三个问题分开答，**不合并**）
+  问 1「**当前代码**在同一输入状态下能否逐字节复现」——直判 = 最后一遍对账（all-determinism-s2.json → all-determinism-s3.json）：**逐字节相同 ✓**
+  问 2「跑前那份**残留状态**是不是当前代码的产物」——对账 = 第一遍（all-determinism-before.json → all-determinism-s2.json）：**有差异（见上逐条与受影响篇）**
+      有差异**不等于**流水线非确定性：当前代码对同一输入两次跑出同一串字节（问 1 已判），故差异只能来自**跑前状态的来源**——它不是 `cli all` 的产物（`tools/papers/cli.py` 由 Task 7 新建，本机此前从未跑过 `cli all`），而是出自更早的别的路径。**本探针不声称知道那是哪一条路径**（要另一份实验）。
+  问 3「**入库产物**（INDEX/TAGS/PROVENANCE/MODEL_MAP/PROBLEM_TYPES）会不会被重跑改动」——各遍的 blob 变化数：0 / 0（这个数在各节首行**逐份具名**给出，此处只是汇总）
+  本探针的退出码 = 1（= 各遍结果的合取；问 2 有差异时它也会是 1，**不要**把那个 1 读成「流水线不确定」——读上面三个问题各自的答案）

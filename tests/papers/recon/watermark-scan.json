@@ -1,0 +1,9086 @@
+[
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\A\\2200289.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2741,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\A\\2207343.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2880,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\A\\2209466.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3775,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\A\\2209812.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3381,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\A\\2210307.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3234,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\A\\2212245.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3211,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\A\\2216547.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2829,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\B\\2200084.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2825,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\B\\2202748.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3047,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\B\\2207864.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 8,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 4,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3466,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\B\\2211922.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 4022,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\B\\2213970.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3571,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\B\\2228168.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3288,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2200401.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3352,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2200688.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 5,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3671,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2203120.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2919,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2204883.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2937,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2208834.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 6,
+    "n_img": 5,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3206,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2212336.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 4,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3373,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2218743.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3501,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2218931.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3175,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2224507.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 4277,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\C\\2229059.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2742,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\D\\2208928.pdf",
+  "ok": true,
+  "pages": 22,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2903,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\D\\2215444.pdf",
+  "ok": true,
+  "pages": 22,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3319,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\D\\2218897.pdf",
+  "ok": true,
+  "pages": 23,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3129,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\D\\2224178.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 37,
+    "n_big": 2
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3178,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2202171.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3739,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2202666.pdf",
+  "ok": true,
+  "pages": 21,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3157,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2202838.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3319,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2203489.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3186,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2209336.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2786,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2216618.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2878,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2218144.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3914,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2220714.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2943,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2223269.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2598,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\E\\2223495.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3387,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\F\\2204803.pdf",
+  "ok": true,
+  "pages": 23,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2446,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\F\\2208238.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2949,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\F\\2209952.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2949,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\F\\2211240.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3175,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\F\\2218577.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3343,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\F\\2220722.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 3634,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2022年美赛特等奖原版论文集\\F\\2224021.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 2880,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\A\\2300336.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3055,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\A\\2300661.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3373,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\A\\2303950.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3470,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\A\\2309229.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3828,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\A\\2316994.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3179,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\A\\2321860.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 15,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3127,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\A\\2322687.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3920,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\B\\2300136.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 4110,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\B\\2315379.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 4067,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\B\\2318300.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3835,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2300348.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3161,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2301192.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3201,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2307166.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3602,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2307946.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2873,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2309397.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2991,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2310767.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 4,
+    "n_big": 4
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3372,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2311035.pdf",
+  "ok": true,
+  "pages": 23,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 5,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2598,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2311717.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3693,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2314151.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 3,
+    "n_big": 3
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3385,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2318036.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3729,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2318982.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3596,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\C\\2322645.pdf",
+  "ok": true,
+  "pages": 22,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2746,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\D\\2300229.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2974,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\D\\2303967.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3271,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\D\\2304962.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3278,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\E\\2301428.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3372,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\E\\2305598.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2638,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\E\\2307336.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3049,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\E\\2308000.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 9,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3611,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\E\\2312411.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 4,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3976,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\E\\2314354.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3544,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\E\\2314817.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3659,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\E\\2320131.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3209,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\F\\2305794.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3451,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\F\\2311258.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3259,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\F\\2311517.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3701,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023年美国大学生数学建模竞赛（常规赛）O奖论文\\F\\2315018.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 3,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3563,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023美赛春季赛O奖论文\\2330610_00.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "英伽教育"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 4,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 3,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2534,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023美赛春季赛O奖论文\\2330610_23.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "英伽教育"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 4,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 3,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2534,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023美赛春季赛O奖论文\\2330646_08.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "英伽教育"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 3,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3275,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023美赛春季赛O奖论文\\2330760_15.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "英伽教育"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 3,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3173,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2023年美赛O奖论文\\2023美赛春季赛O奖论文\\2332142_00.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "英伽教育"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3419,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛A题O奖论文\\2400996.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3362,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛A题O奖论文\\2405424.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3584,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛A题O奖论文\\2407093.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 8,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3163,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛A题O奖论文\\2424371.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3018,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛A题O奖论文\\2425397.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 4118,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛B题O奖论文\\2407038.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3715,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛B题O奖论文\\2411570.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2976,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛B题O奖论文\\2419984.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2962,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛B题O奖论文\\2425792.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3279,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2401298.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2674,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2401445.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3102,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2401919.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 6,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3815,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2403774.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 2,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3405,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2406176.pdf",
+  "ok": true,
+  "pages": 28,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3556,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2406324.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 1452,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2409404.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 7,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3891,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2409961.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 14,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3084,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2410482.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 4,
+    "n_big": 4
+   },
+   {
+    "page": 5,
+    "n_img": 4,
+    "n_big": 4
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2503,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2418251.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2976,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛C题O奖论文\\2425454.pdf",
+  "ok": true,
+  "pages": 31,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3253,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛D题O奖论文\\2417004.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 3,
+    "n_big": 3
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3088,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛D题O奖论文\\2417831.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3336,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛D题O奖论文\\2419588.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2093,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛D题O奖论文\\2429211.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3382,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛E题O奖论文\\2400860.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3308,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛E题O奖论文\\2401102.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3123,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛E题O奖论文\\2407414.pdf",
+  "ok": true,
+  "pages": 28,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3530,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛E题O奖论文\\2410578.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2892,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛E题O奖论文\\2410889.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3609,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛E题O奖论文\\2413552.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3415,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛F题O奖论文\\2409949.pdf",
+  "ok": true,
+  "pages": 22,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2754,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛F题O奖论文\\2413565.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 19,
+    "n_big": 5
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 4598,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛F题O奖论文\\2417340.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2668,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛F题O奖论文\\2422054.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 1991,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2024年美赛O奖论文\\2024年美赛F题O奖论文\\2426941.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模"
+  ],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3480,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\A\\2500836.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 6,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 3,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 4077,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\A\\2501567.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2766,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\A\\2501909.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3434,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\A\\2504218.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2802,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\A\\2511565.pdf",
+  "ok": true,
+  "pages": 31,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2979,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\B\\2501687.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2884,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\B\\2502617.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3036,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\B\\2503268.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3951,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\B\\2504448.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3249,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\B\\2505199.pdf",
+  "ok": true,
+  "pages": 28,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3369,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\B\\2509557.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3010,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\B\\2517929.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3101,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2500759.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2609,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2501869.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3681,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2503389.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3325,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2505964.pdf",
+  "ok": true,
+  "pages": 31,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2313,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2507817.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3377,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2510006.pdf",
+  "ok": true,
+  "pages": 29,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2551,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2510185.pdf",
+  "ok": true,
+  "pages": 24,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 32,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 20,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3222,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2510862.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2973,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2513314.pdf",
+  "ok": true,
+  "pages": 22,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3598,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2514362.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 3,
+    "n_big": 3
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 3,
+    "n_big": 3
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3473,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2514461.pdf",
+  "ok": true,
+  "pages": 30,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 4773,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2515235.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3353,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2516178.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3403,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2516695.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 24,
+    "n_big": 12
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 3,
+    "n_big": 3
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2792,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2517690.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3126,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2521556.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3685,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2522820.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 4585,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\C\\2524070.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3247,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\D\\2504188.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3034,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\D\\2507692.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3090,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\D\\2516219.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 2,
+    "n_big": 2
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3127,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\D\\2519935.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3491,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\E\\2502355.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3581,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\E\\2508861.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3089,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\E\\2515136.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3117,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\E\\2517273.pdf",
+  "ok": true,
+  "pages": 26,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 4044,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\F\\2504223.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 2,
+    "n_big": 2
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3676,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\F\\2507789.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 7,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2898,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\F\\2513705.pdf",
+  "ok": true,
+  "pages": 33,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2776,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\F\\2517199.pdf",
+  "ok": true,
+  "pages": 25,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 2732,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\2025美赛O奖论文\\F\\2521039.pdf",
+  "ok": true,
+  "pages": 27,
+  "needs_pass": 0,
+  "n_wm": 1,
+  "wm_texts": [
+   "校苑数模公众号"
+  ],
+  "wm_red": true,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": true,
+  "text_len_p1": 3180,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2000.2.pdf",
+  "ok": true,
+  "pages": 96,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2000.3.pdf",
+  "ok": true,
+  "pages": 234,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2001.2.pdf",
+  "ok": true,
+  "pages": 96,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2001.3.pdf",
+  "ok": true,
+  "pages": 164,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2002.2.pdf",
+  "ok": true,
+  "pages": 94,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2002.3.pdf",
+  "ok": true,
+  "pages": 192,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2003.2.pdf",
+  "ok": true,
+  "pages": 108,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2003.3.pdf",
+  "ok": true,
+  "pages": 200,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2004.2.pdf",
+  "ok": true,
+  "pages": 96,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2004.3.pdf",
+  "ok": true,
+  "pages": 176,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2005.2.pdf",
+  "ok": true,
+  "pages": 96,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2005.3.pdf",
+  "ok": true,
+  "pages": 221,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2006.2.pdf",
+  "ok": true,
+  "pages": 96,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2006.3.pdf",
+  "ok": true,
+  "pages": 237,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2007.2.pdf",
+  "ok": true,
+  "pages": 96,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2007.3.pdf",
+  "ok": true,
+  "pages": 304,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2008.2.pdf",
+  "ok": true,
+  "pages": 95,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2008.3.pdf",
+  "ok": true,
+  "pages": 213,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2009.2.pdf",
+  "ok": true,
+  "pages": 94,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2009.3.pdf",
+  "ok": true,
+  "pages": 234,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2010.2.pdf",
+  "ok": true,
+  "pages": 96,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2000-2010年美赛特等奖优秀论文集\\UMAP-2010.3.pdf",
+  "ok": true,
+  "pages": 98,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 0,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2011-MCM-ICM.pdf",
+  "ok": true,
+  "pages": 95,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2011-MCM.pdf",
+  "ok": true,
+  "pages": 95,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2012-ICM.pdf",
+  "ok": true,
+  "pages": 127,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2012-MCM.pdf",
+  "ok": true,
+  "pages": 95,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2013-MCM-ICM.pdf",
+  "ok": true,
+  "pages": 169,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2014-MCM-ICM.pdf",
+  "ok": true,
+  "pages": 190,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2015-ICM.pdf",
+  "ok": true,
+  "pages": 104,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2015-MCM.pdf",
+  "ok": true,
+  "pages": 93,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2016-ICM.pdf",
+  "ok": true,
+  "pages": 142,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2016-MCM.pdf",
+  "ok": true,
+  "pages": 102,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 2,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 5,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 63,
+  "is_scanned": true
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2017-ICM.pdf",
+  "ok": true,
+  "pages": 150,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 1265,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2017-MCM.pdf",
+  "ok": true,
+  "pages": 116,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 1,
+    "n_big": 1
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 1272,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2018-ICM.pdf",
+  "ok": true,
+  "pages": 148,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 1501,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2018-MCM.pdf",
+  "ok": true,
+  "pages": 116,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 1501,
+  "is_scanned": false
+ },
+ {
+  "file": "corpus\\历届优秀论文\\UMAP2010-2019年美赛特等奖优秀论文集\\UMAP-2019-ICM.pdf",
+  "ok": true,
+  "pages": 176,
+  "needs_pass": 0,
+  "n_wm": 0,
+  "wm_texts": [],
+  "wm_red": false,
+  "pages_img": [
+   {
+    "page": 1,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 2,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 3,
+    "n_img": 1,
+    "n_big": 1
+   },
+   {
+    "page": 4,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 5,
+    "n_img": 0,
+    "n_big": 0
+   },
+   {
+    "page": 6,
+    "n_img": 0,
+    "n_big": 0
+   }
+  ],
+  "text_has_wm": false,
+  "text_len_p1": 1375,
+  "is_scanned": false
+ }
+]

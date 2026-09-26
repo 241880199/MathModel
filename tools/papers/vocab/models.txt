@@ -1,0 +1,229 @@
+# 受控词表 · 模型与算法（Task 6 阶段 5）
+#
+# 格式：**一行一个词条**，写法是
+#
+#     规范词 | 变体 | 变体 | …
+#
+#   * 第一个字段是**规范词**（canonical），索引里一律显示它；
+#   * 其余字段是**变体**（缩写、别名、中文名），匹配时**任一命中即算该词条命中**；
+#   * 以 `#` 开头的行是注释，空行忽略；
+#   * **文件是可追加的**（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）——
+#     追加只需在**对应八大类**下再加一行；Task 6b 拿到「词表增长候选清单」后按此格式补。
+#
+# 匹配口径（`tools/papers/vocab.py`）：**词边界**——变体两侧不得紧邻 ASCII 字母/数字
+# （`(?<![A-Za-z0-9])…(?![A-Za-z0-9])`，大小写不敏感）。实测依据：
+# 不加词边界时 `logistic` 命中 `logistics`、`SEM` 命中 22 篇（词边界下 2 篇）、
+# `SHAP` 22→4、`DID` 27→23、`BP` 4→2、`SIR` 7→2、`PCA` 7→6、`ARIMA` 7→6、`PSO` 5→4、
+# `SARIMA` 2→0。逐词两口径对照见 `tests/papers/recon/ids-recon.txt` §4c。
+#
+# 词条来源三处（任务书 Step 0 第 4 条）：
+#   1. `corpus/algorithms/INDEX.md` 的**八大类**（评价/预测/优化/机理/仿真/统计/网络与图论/机器学习）
+#      ——本节的分节标题与主要词条取自它；
+#   2. **作者自写 Keywords 行**（2025 合集 42/43 份有，逐份见 recon §4b）里属模型/算法的那些；
+#   3. 论文正文（只收八大类里确有对应实现、且 2025 语料里出现过的名字）。
+#
+# **语料是英文**（2025 合集 43 份全文为英文）⇒ 规范词与变体都收**英文原形**，
+# 中文名一律作为**别名变体**收在同一行——它们是给**将来中文语料**用的，在本试点上
+# 多为零命中，**逐词零命中登记见 `tests/papers/reports/ids-report.txt`**
+# （不因为「算得出来」就把它们藏起来）。
+
+# ---- 1. 评价类 evaluation ------------------------------------------------
+AHP | analytic hierarchy process | 层次分析法 | 层次分析
+TOPSIS | technique for order preference by similarity to ideal solution | 逼近理想解排序法
+fuzzy comprehensive evaluation | fuzzy comprehensive assessment | 模糊综合评价 | 模糊综合评判
+entropy weight method | entropy method | EWM | 熵权法 | 熵值法
+grey relational analysis | grey correlation analysis | grey relational grade | GRA | 灰色关联分析 | 灰色关联度
+principal component analysis | principal components analysis | PCA | 主成分分析
+
+# ---- 2. 预测类 prediction ------------------------------------------------
+grey prediction | grey model | grey forecasting | GM(1,1) | GM (1,1) | 灰色预测 | 灰色模型
+ARIMA | autoregressive integrated moving average | 差分自回归移动平均
+SARIMA | SARIMAX | seasonal ARIMA
+exponential smoothing | 指数平滑
+moving average | 移动平均
+linear regression | 线性回归
+ridge regression | 岭回归
+lasso | LASSO | lasso regression | 套索回归
+stepwise regression | 逐步回归
+nonlinear regression | 非线性回归
+time series analysis | time series | 时间序列
+XGBoost | extreme gradient boosting
+random forest | random forests | 随机森林
+gradient boosting | GBDT | LightGBM | CatBoost | 梯度提升
+decision tree | decision trees | 决策树
+neural network | neural networks | 神经网络
+BP neural network | back propagation | back-propagation | BP | 反向传播
+LSTM | long short-term memory | 长短期记忆网络
+RNN | recurrent neural network | recurrent neural networks
+CNN | convolutional neural network | convolutional neural networks | 卷积神经网络
+SVR | support vector regression
+SVM | support vector machine | support vector machines | 支持向量机
+k-nearest neighbor | KNN | k-NN
+
+# ---- 3. 优化类 optimization ----------------------------------------------
+linear programming | linear program | LP | 线性规划
+integer programming | integer program | 整数规划
+nonlinear programming | nonlinear program | 非线性规划
+multi-objective optimization | multi-objective programming | multiobjective optimization | 多目标优化 | Multi - objective optimization | Multi-Objective Model | Multi-objective Planning Model
+goal programming | 目标规划
+dynamic programming | 动态规划
+genetic algorithm | genetic algorithms | 遗传算法
+simulated annealing | 模拟退火
+particle swarm optimization | particle swarm | PSO | 粒子群算法 | 粒子群优化
+differential evolution | 差分进化
+NSGA-II | NSGA II | non-dominated sorting genetic algorithm | NSGA - II
+ant colony optimization | ant colony algorithm | ACO | 蚁群算法
+tabu search | 禁忌搜索
+queueing theory | queuing theory | queueing model | queuing model | 排队论
+# **裸 `A*` 刻意不收**（实测依据）：md 里 `*Figure 14: Scenario A*` 这种**斜体标记**与算法名
+# `A*` 在 token 层同形，裸词边界（哪怕再并上 `*`）分不开——实测 `2508861` 的图注被误命中。
+# 故只收带后缀的形式：`2504188` 的 `A* and GA` 与 `A* algorithm` 仍命中。
+A-star | A star algorithm | A* algorithm
+integer linear programming | mixed-integer programming | MIP | MILP
+
+# ---- 4. 机理类 mechanism -------------------------------------------------
+differential equation | differential equations | 微分方程
+partial differential equation | partial differential equations | PDE | 偏微分方程
+ordinary differential equation | ordinary differential equations | ODE | 常微分方程
+finite difference | finite difference method | 有限差分
+finite element | finite element method | FEM | 有限元
+Navier-Stokes | Navier Stokes | Navier–Stokes | 纳维-斯托克斯方程
+SIR model | SIR | susceptible-infected-recovered
+SEIR model | SEIR | susceptible-exposed-infected-recovered
+Lotka-Volterra | Lotka Volterra | predator-prey | 洛特卡-沃尔泰拉模型
+system dynamics | 系统动力学
+compartment model | compartmental model | 仓室模型
+reaction-diffusion | reaction diffusion
+
+# ---- 5. 仿真类 simulation ------------------------------------------------
+Monte Carlo | Monte-Carlo | Monte Carlo simulation | Monte Carlo method | 蒙特卡洛 | 蒙特卡罗 | Mont Carlo method
+Markov chain Monte Carlo | MCMC
+cellular automata | cellular automaton | 元胞自动机
+agent-based model | agent-based simulation | agent based model | ABM | 多智能体仿真
+Markov chain | Markov chains | Markov | 马尔可夫链
+
+# ---- 6. 统计类 statistics ------------------------------------------------
+Bayesian | Bayes | Bayesian inference | 贝叶斯
+Bayesian network | Bayesian networks | dynamic Bayesian network | DBN
+cluster analysis | clustering | clustering analysis | 聚类分析
+K-means | kmeans | KMeans
+hierarchical clustering | 层次聚类
+factor analysis | 因子分析
+discriminant analysis | 判别分析
+hypothesis test | hypothesis testing | significance test | 假设检验
+analysis of variance | ANOVA | 方差分析
+regression discontinuity | regression discontinuity design | RDD | 断点回归
+difference-in-differences | difference in differences | DID | 双重差分
+propensity score matching | PSM | 倾向得分匹配
+structural equation modeling | structural equation model | SEM | 结构方程模型
+Tobit | Tobit regression | 托比特回归
+logistic regression | logit model | logistic model | 逻辑回归
+probit | probit regression | probit model
+hurdle model | 障碍模型 | Hurdle
+zero-inflated | zero-inflated negative binomial | ZINB
+two-stage least squares | 2SLS | 两阶段最小二乘
+correlation coefficient | Pearson correlation | Spearman correlation | 相关系数
+Shannon entropy | information entropy | 信息熵
+Mann-Kendall | Mann Kendall
+Cox proportional hazards | Cox model | Cox regression | Cox | Cox TVPH
+association rules | Apriori | 关联规则
+cross-validation | cross validation | 交叉验证
+bootstrap | bootstrapping | 自助法
+stacking | stacking ensemble | ensemble learning | 集成学习
+SHAP | Shapley additive explanations | Shapley value
+sensitivity analysis | sensitivity analyses | 敏感性分析 | Sensitivity
+survival analysis | 生存分析
+
+# ---- 7. 网络与图论 network -----------------------------------------------
+graph theory | 图论
+shortest path | shortest-path | Dijkstra | Floyd | 最短路
+minimum spanning tree | 最小生成树
+maximum flow | max flow | min cut | 最大流 | 最小割
+network flow | 网络流
+traveling salesman problem | travelling salesman problem | TSP | 旅行商问题
+bipartite matching | 二分匹配
+PERT | critical path method | 计划评审
+centrality | betweenness centrality | 中心性
+Petri net | Petri nets |  Petri网
+network analysis | complex network | 网络分析
+Wardrop | user equilibrium | 用户均衡
+
+# ---- 8. 机器学习 ml ------------------------------------------------------
+machine learning | 机器学习
+deep learning | 深度学习
+reinforcement learning | 强化学习
+naive Bayes | 朴素贝叶斯
+self-organizing map | self-organizing feature map | SOM
+Hopfield network | Hopfield
+radial basis function | RBF
+isolation forest | 孤立森林
+feature selection | feature extraction | 特征选择
+fuzzy logic | fuzzy set | fuzzy sets | 模糊逻辑 | 模糊集
+change-point detection | change point detection | 变点检测
+
+# ==== 9. 阶段 2b 词表增长（Task 6b 阶段 2b）=================================
+#
+# **来源**：`tools/papers/vocab/growth_triage.txt` 与 `body_triage.txt`（两张机读分流表）里
+# `处置=收录` 的词形。
+#
+# **口径与理由的唯一权威**：`tests/papers/verify_map.py` 的 **M-12 消息**（「逐字」集合差的口径、
+# 「大小写算词形的一部分」、以及「为什么不能用 `casefold`」都写在那里）。
+# **本文件不重述口径**——同一句话写两处，就有一处会忘了改。
+# **本文件也不写「本次新增了多少个词形」**：那个数随编辑过期，要就当场跑判据（M-12 会算出来并打印）。
+#
+# **本节这些 `#` 行不进词表**：`load()`（`tools/papers/vocab.py`）跳过空行与 `#` 开头的行
+# （文件头已写明），故下面这一大段注释不产生任何词条。
+#
+# **本段刻意只写作者用过的**形态：`L-BFGS-B algorithm` 就不附带 `L-BFGS-B`、`Pareto` 就不附带
+# `Pareto-optimal`——那些形态**不在**作者的关键词里。
+#
+# **为什么另起第九节而不是插进上面八节**：插入要改既有行的邻域，改错了会静默改变既有词条的
+# 字段数（`load()` 只按 `|` 切、不报错）；另起一节把「本轮新增」与「Task 6 的既有词表」在
+# **字节层**分开，任何对既有行的改动都会在 diff 里直接可见。
+#
+# 分节标题下面只是**归类摆放**（`load()` 不看顺序），不参与任何判据。
+
+# ---- 9.1 评价 / 统计 / 计量（对应 1、6 类）-------------------------------
+CVM
+Central Limit Theorem
+Gaussian Distribution
+Gaussian Mixture Algorithm
+MIC
+Mixed-effects Model
+Posterior inference
+Residual Analysis
+Credible Intervals
+Laplace smoothing
+Regression Analysis
+Uncertainty Quantification
+spatio-temporal modeling
+Causal Inference
+Threshold Method
+LR-SCAD Model
+
+# ---- 9.2 优化（对应 3 类）------------------------------------------------
+Pareto | Pareto Optimization
+Convex Reformulation
+L-BFGS-B algorithm
+SLSQP
+COMAP Model
+A* and GA
+
+# ---- 9.3 机理 / 仿真（对应 4、5 类）--------------------------------------
+Archard Law | Archard | Archard Equation | Archard’s theory
+FATE Model
+Food web model
+SIS model
+multi-type Holling responses
+Weathering Degree Model
+
+# ---- 9.4 网络与图论（对应 7 类）------------------------------------------
+Multi-layer network model
+three-layer bus network model
+Petri-Food Web model
+
+# ---- 9.5 预测 / 机器学习（对应 2、8 类）----------------------------------
+TrueSkill
+GSRF
+KDMF
+VBGMM

@@ -1,0 +1,130 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MCM/ICM SUMMARY SHEET -- page 1 of the submission.
+%%
+%% Baseline: the corrected copy of the official COMAP summary-sheet template
+%% (mcm-latex-format, assets/mcm-2027-summary.tex).  Only the summary body and
+%% the two placeholder macros were replaced; the official layout, the
+%% \thispagestyle{empty}, the \vspace*{-16ex}, the \setcounter{page}{1} and the
+%% stray trailing \end are kept as in the official original.
+%%
+%% 25-page budget: the Summary Sheet, table of contents, body, references,
+%% notes, appendices and code ALL count toward the 25-page limit.  The only
+%% section that does not count is "Report on Use of AI" (which must be placed
+%% after the 25 pages).
+%%
+%% This file is kept ASCII-only on purpose, so that it stays as
+%% encoding-neutral as the official original.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MCM/ICM LaTeX Template %%
+%% 2027 MCM/ICM           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Replace ABCDEF in the next line with your chosen problem
+% and replace 1111111 with your Team Control Number
+\newcommand{\Problem}{A}
+\newcommand{\Team}{2401056}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath} % must come after amsXXX
+
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\lhead{Team \Team}
+\rhead{}
+\cfoot{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Put your graphic files in the same directory as your main document
+\graphicspath{{.}}
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+	\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \textcolor{red}{\Problem}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{2027\\ MCM/ICM\\ Summary Sheet}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \textcolor{red}{\Team}\end{center}}	\\
+	\hline
+\end{tabular}}
+%%%%%%%%%%% Begin Summary %%%%%%%%%%%
+% PASTE YOUR SUMMARY HERE -- it must fit on this one page
+\begin{center}
+\textbf{\large Stair Wear: Traces of History}
+\end{center}
+
+Archaeologists can read a stairwell's past from the shape of its wear. We model a step as a
+rasterized surface whose measured wear-depth matrix $D_{\text{measure}}(x,y)$ is the only field
+data required; it is obtained non-destructively by a small team using a straightedge, a profile
+gauge and a camera. Two coupled models convert that matrix into the answers below.
+
+The \textbf{Wear Volume Model} ties wear to use: $d(x,y)=T\,N_d\,D(x,y)\,G\,k_m$, where $T$ is
+the age, $N_d$ the daily footfall, $D(x,y)$ the wear distribution, $G$ the population-weighted
+walking load $Wg$ ($W$ built from WHO age-and-sex group weights) and $k_m=Kd/H$ the Archard wear
+coefficient, with hardness decaying as $H(t)=H_0e^{-pt}$ under weathering. Inverting this law
+gives the age from the footfall or the footfall from the age. The \textbf{Wear Distribution
+Model} ties the shape of the wear to behaviour: $D(x,y)=D_XD_Y$, with the marginals fitted to the
+measured matrix by the Gauss-mixture algorithm we wrote, $D_X\sim\sum_iw_i\mathcal{N}(\mu_i,\sigma_i)$
+for the lateral direction and
+$D_Y\sim w_{\text{up}}\mathcal{N}(\mu_{\text{up}},\sigma_{\text{up}})+w_{\text{down}}\mathcal{N}(\mu_{\text{down}},\sigma_{\text{down}})$
+for the walking direction. The number of $X$-components counts how many people walked abreast;
+the two $Y$-components separate uphill from downhill traffic.
+
+\textbf{Task 1 (wear patterns).} Run on a measured matrix from an ancient Edinburgh sandstone
+step, the model answers all three questions.
+
+\begin{itemize}
+\setlength{\itemsep}{1pt}
+\item \textbf{Frequency of use:} $N_d=261$ people per day; equivalently, at 260 people per day the
+step was built 36,492 days ago, about one century.
+\item \textbf{Favoured direction:} both directions were used, with uphill dominant, in the ratio
+3:2 of upward to downward walkers. The fitted contact points, 0.08 m uphill and 0.15 m downhill
+from the tread edge, reproduce the gait result that the uphill impact falls nearer the edge.
+\item \textbf{Simultaneous users:} three people abreast. The lateral marginal resolves into three
+components with means 0.30 m, 1.10 m and 1.76 m; the centre lane carries the largest weight and
+the smallest spread.
+\end{itemize}
+
+\textbf{Task 2 (further questions).} Our paper casts each of the five questions as a testable
+index: (i) consistency of the wear with the available records, by the log-ratio index $P_A$
+between the measured and the information-implied matrix; (ii) the age of the stairwell and its
+reliability, by discarding steps more than 5\% younger than the oldest and reporting an interval
+$CI$ at $\alpha=0.05$; (iii) repairs or renovations, by a step-age correlation threshold
+$R_{SA}<0.95$, or independently by a Brinell hardness test $H_{\text{test}}$ combined with a
+KL-type step-similarity test $|R_S|>0.05$; (iv) provenance of the material, by matching the model
+hardness against the time-averaged hardness of the presumed source and accepting it when
+$\eta<0.05$; (v) use on a typical day, by fitting the daily number of walkers
+$Q=(2-P_0)\times1000$ against the fitted spread $\sigma$ of the lateral marginal. \textbf{The
+numerical work for (i)--(v) has not been carried out, so we mark those five results as missing;
+no value is quoted for them here, and none is guessed.}
+
+\textbf{Sensitivity and robustness.} Doubling the weathering rate from $p=0.0025$ to
+$p=0.005$ per year shortens the time to wear saturation by 64.2\%: below about four centuries the
+model is insensitive to $p$, above that it is strongly sensitive. Simulations under different
+regional climates and footfall regimes leave the qualitative conclusions unchanged. Every input
+is measurable non-destructively, so the model can be run on site.
+%%%%%%%%%%% End Summary %%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTE: this file holds the summary sheet ONLY, so it compiles to exactly one
+% page (the local self-check caliber for the summary sheet).  In the assembled
+% paper the body starts right here, with the official template's own trailer:
+% \clearpage, \pagestyle{fancy}, the optional \tableofcontents, \newpage,
+% \setcounter{page}{1} and \rhead{Page \thepage\ }.  Those are omitted in this
+% single-page artifact only; they must be restored in the full paper, where
+% they make the body restart at page 1.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+\end

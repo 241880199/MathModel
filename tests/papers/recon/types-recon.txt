@@ -1,0 +1,438 @@
+Task 6b Step 0 侦察取数（`tests/papers/recon/types-recon-scan.py` 的输出，逐字原文）
+==============================================================================
+本文件是**取数记录**，不是放行证据。判据脚本 `verify_types.py` 的参照由它给出。
+
+## 0. 语料与产物基本盘
+  题面 PDF **67** 份（`corpus/官方原题/` 下 rglob *.pdf，命名约定 `<年>_[MC]CM_Problem_<字母>.pdf`）
+  逐年题号：{2016: 'ABCDEF', 2017: 'ABCDEF', 2018: 'ABCDEF', 2019: 'ABCDEF', 2020: 'ABCDEF', 2021: 'ABCDEF', 2022: 'ABCDEF', 2023: 'ABCDEFZ', 2024: 'ABCDEF', 2025: 'ABCDEF', 2026: 'ABCDEF'}
+  标注草案：**67** 条（`tests/papers/recon/PROBLEM_TYPES-draft.md`）
+  分类法：`tools/papers/vocab/problem_types.txt` L1 10 条 · L2 43 条
+  抽取口径：`pdftotext -enc UTF-8 <pdf> -`（poppler；不加 `-layout`），行尾归一成 LF、分页符归一成 LF
+
+## 1. 题面里的官方题型标签（**不声称「官方没有标签」**）
+  本脚本**没有**逐份打开题面去提取 COMAP 的题型标签：任务书把这一项写成「官方有就用、
+  没有就依题面自建」，且明写「不做也可以」。**已查范围**只有一处：`corpus/官方原题/PROVENANCE.md`
+  与 67 份文件的文件头（这一步查过）；**未查**的是「题面正文里有没有一个叫得上名的题型栏」——
+  没查的事**不写结论**（教训 4.5：「我没找到」≠「它不存在」）。
+  ⇒ 分类法**依题面自建**，条目与定义见 `tools/papers/vocab/problem_types.txt`。
+
+## 2. 抽取探针逐份（「读不出」的阈值从这两个量来）
+  探针一 = 抽取文本里的**非空白行数**；探针二 = 原件内容流里 `BT|Tj|TJ` 的个数。
+  阈值（写在 `verify_types.py` 模块头）：行数 < **4** **且** 操作符 < **50** ⇒ 判「件里没有文本层」。
+
+   年 题  行数   字符   文本操作符  填充路径
+  2016 A     5    1498       164        4
+  2016 B     6    2183       380        5
+  2016 C     9    3102       452       16
+  2016 D    27    5199      1036       62
+  2016 E    20    5544       650       40
+  2016 F    23    8164      1020      102
+  2017 A     9    2777       102       33
+  2017 B     6    2621       356       29
+  2017 C   637   10794      7912       60
+  2017 D    26    7032       988      101
+  2017 E    30    4120       402       31
+  2017 F    28   10489      1380      162
+  2018 A     8    3000       496       14
+  2018 B   197   10378      2453     1943
+  2018 C    14    3777       672       11
+  2018 D    14    7059      1084       33
+  2018 E    15    4037       546       26
+  2018 F    17    8326       778      114
+  2019 A    11    3379       408       13
+  2019 B   188   10804      2536      785
+  2019 C    29    6805      1144       97
+  2019 D    17    5061       884       24
+  2019 E    24    5138       820       17
+  2019 F    18    7051      1254       30
+  2020 A     2      25         4     3922  ← 读不出
+  2020 B    13    2794       590        1
+  2020 C    39    6441       750       19
+  2020 D    25    6970       910       26
+  2020 E    21    4947       818       14
+  2020 F    35   15359      1364       53
+  2021 A    38    9290       667        1
+  2021 B    30    6437       948       49
+  2021 C    26    6820       248       15
+  2021 D    49   12105      2282      208
+  2021 E    20    4587       704       25
+  2021 F    20    4139       628       15
+  2022 A    18    6136       319       62
+  2022 B    20    6471       307       70
+  2022 C    20    3020       322       16
+  2022 D    24    8172       446       71
+  2022 E    19    6421       566       91
+  2022 F    18    4872       339       48
+  2023 A    14    3029       172        0
+  2023 B    12    3062       267       15
+  2023 C    21    6870       586       68
+  2023 D    14    3761       161       34
+  2023 E    17    4621       304        0
+  2023 F    17    4962       236        2
+  2023 Z     8    2587       152       20
+  2024 A    41    8957       698      110
+  2024 B    39    9697       743      149
+  2024 C   115   18159      1935      699
+  2024 D    46   12585       822      210
+  2024 E    42   11562      1038      167
+  2024 F    46   10100       800      125
+  2025 A    22    5655       249       59
+  2025 B    17    6177       443       59
+  2025 C    71    9031       736      233
+  2025 D    41   12531       862      132
+  2025 E    31    9302       494      127
+  2025 F    15    6824       332       59
+  2026 A    16    5847       314       77
+  2026 B    19    6584       664       99
+  2026 C   102   11530      1192      522
+  2026 D    27   11245       567      217
+  2026 E    22    8346       548       83
+  2026 F    14    5541       206       77
+
+  **实测空档**（行数）：最低 2（2020 A）、次低 5（2016 A）——阈值 4 落在 2 与 5 之间
+  **实测空档**（操作符）：最低 4（2020 A）、次低 102（2017 A）——阈值 50 落在 4 与 102 之间
+
+## 3. 归一化口径：宽松 vs 严，逐条差额与归因
+  宽松口径（T2 用的那条）：行尾归一 → 去项目符号 → 空白折叠 → 引号折叠 → 大小写折叠；
+  引文侧另去 `*`/反引号（**那是草案自己加的强调标记**）。
+  严口径：只做行尾归一 + 空白折叠 + 大小写折叠。
+
+  引文段（行内单元格）**330** 段 · 拆 `…` 后 **341** 条片段
+  宽松口径命中 **341/341**（口径本身就是判据 T2 的口径，失败为 0）
+  严口径命中 **306/341**，差额 **35** 条，归因分布：{'还要折引号': 31, '还要去项目符号': 3, '只需去强调标记': 1}
+
+  逐条差额（**严口径定不到的，与为什么**）：
+    [还要折引号] 2016 B · 1.3 情景与概率预测："be able to explore a variety of important 'What if?' scenarios"
+    [还要折引号] 2016 C · 1.2 回归/相关预测："based on each candidate school's demonstrated potential for effective use of private fundi"
+    [还要折引号] 2016 D · 1.3 情景与概率预测："Use your model to predict the communication networks' relationships and capacities around "
+    [还要折引号] 2016 D · 5.3 因果/政策评估：'model how public interest and opinion can be changed through information networks in today'
+    [还要折引号] 2016 D · 2.1 指标体系构建："Determine how information value, people's initial opinion and bias, form of the message or"
+    [还要折引号] 2017 D · 5.4 不确定性与敏感性："Consider how cultural differences may impact the way in which passenger's process through "
+    [还要折引号] 2018 C · 2.4 方案比较："Determine which of the four states appeared to have the 'best' profile for use of cleaner,"
+    [还要折引号] 2018 E · 2.1 指标体系构建："Develop a model that determines a country's fragility and simultaneously measures the impa"
+    [还要折引号] 2018 F · 9.3 风险与效用："Develop a price point for protecting one's privacy and PI in various applications."
+    [还要折引号] 2020 C · 10.1 文本特征与情感抽取："Are specific quality descriptors of text-based reviews such as 'enthusiastic', 'disappoint"
+    [还要折引号] 2020 C · 1.1 时序外推：'Identify and discuss time-based measures and patterns within each data set that might sugg'
+    [还要折引号] 2021 D · 8.1 网络结构与重要性："Develop parameters that capture 'music influence' in this network."
+    [还要折引号] 2021 D · 5.3 因果/政策评估："Do the 'influencers' actually affect the music created by the followers?"
+    [还要折引号] 2021 F · 2.1 指标体系构建：'develop and validate a model or suite of models that allow you to assess the health of any'
+    [还要折引号] 2021 F · 2.5 分级/阈值划定："identify a healthy and sustainable state for a given nation's higher education system"
+    [还要折引号] 2022 A · 3.1 连续/非线性：'Develop a model that can be applied to any type of rider that determines the relationship '
+    [还要去项目符号] 2023 D · 8.1 网络结构与重要性：'Create a network of the relationships between the 17 SDGs. Use the individual SDGs, as wel'
+    [还要折引号] 2023 D · 8.3 传播与级联：'Discuss the impact of technological advances, global pandemics, climate change, regional w'
+    [还要折引号] 2023 Z · 9.1 多准则决策："Your task is to make recommendations in support of the ICMG's work."
+    [还要折引号] 2024 C · 5.1 差异显著性检验："A tennis coach is skeptical that 'momentum' plays any role in the match. Instead, he postu"
+    [还要折引号] 2024 D · 3.3 多目标/权衡：'Determination of the optimal water levels of the five Great Lakes at any time of the year,'
+    [只需去强调标记] 2024 F · 1.3 情景与概率预测：'How likely is the project to reach the expected goal? Also, based on a contextualized sens'
+    [还要去项目符号] 2025 A · 6.1 由观测反推参数/历史：'Your model should provide some basic predictions **given the patterns of wear** on a parti'
+    [还要去项目符号] 2025 A · 6.1 由观测反推参数/历史：'? How many people used the stairs simultaneously?'
+    [还要折引号] 2025 C · 5.2 回归系数与效应量："Examine the data for evidence of changes that might be due to a **'great coach' effect**. "
+    [还要折引号] 2025 D · 8.2 流量分配/路由：" you should **build a network model**(s) for some part or element of Baltimore's"
+    [还要折引号] 2025 D · 2.3 排序规则/权重设计："**recommending ways to improve** Baltimore's transportation network"
+    [还要折引号] 2025 D · 9.1 多准则决策："All of Baltimore's transportation plans affect **multiple stakeholders with differing pers"
+    [还要折引号] 2026 B · 2.4 方案比较："You will need to compare the Modern-Day Space Elevator System's three Galactic Harbours to"
+    [还要折引号] 2026 B · 3.2 离散/组合："a. using the Space Elevator System's three Galactic Harbor's alone, b. traditional rocket "
+    [还要折引号] 2026 B · 3.3 多目标/权衡："Discuss the impact on the Earth's environment for achieving the 100,000-person Moon Colony"
+    [还要折引号] 2026 C · 9.4 机制/规则设计：'Propose another system using fan votes and judge scores each week that you believe is more'
+    [还要折引号] 2026 D · 3.2 离散/组合：'develop a strategy to acquire players for next season using the standard practice for your'
+    [还要折引号] 2026 D · 9.4 机制/规则设计："Use your model to decide how your team's strategy should change from your initial strategy"
+    [还要折引号] 2026 E · 6.2 逆向设计："design a retrofit for Sungrove University's Academic Hall North that optimizes heating and"
+
+## 4. 分类法 vs 词表（T3 的距离）
+  词表：**115** 个词条 / **367** 个变体
+  分类法条目：L1 10 · L2 43；标注里实际用到的不同标签名 51
+  **相等（同义反复）0 条**：无
+  **含子串但不等（报告量）34 条**，逐条：
+    分类法 '1 预测' 的 '预测' ⊂词表 'grey prediction'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'ARIMA'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'Tobit'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'lasso'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'linear regression'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'logistic regression'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'nonlinear regression'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'regression discontinuity'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'ridge regression'
+    分类法 '1.2 回归/相关预测' 的 '回归' ⊂词表 'stepwise regression'
+    分类法 '3 优化' 的 '优化' ⊂词表 'multi-objective optimization'
+    分类法 '3 优化' 的 '优化' ⊂词表 'particle swarm optimization'
+    分类法 '3.1 连续/非线性' 的 '非线性' ⊂词表 'nonlinear programming'
+    分类法 '3.1 连续/非线性' 的 '非线性' ⊂词表 'nonlinear regression'
+    分类法 '3.3 多目标/权衡' 的 '多目标' ⊂词表 'multi-objective optimization'
+    分类法 '5.5 关联/相关模式' 的 '关联' ⊂词表 'association rules'
+    分类法 '5.5 关联/相关模式' 的 '关联' ⊂词表 'grey relational analysis'
+    标注 '1 预测' 的 '预测' ⊂词表 'grey prediction'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'ARIMA'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'Tobit'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'lasso'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'linear regression'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'logistic regression'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'nonlinear regression'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'regression discontinuity'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'ridge regression'
+    标注 '1.2 回归/相关预测' 的 '回归' ⊂词表 'stepwise regression'
+    标注 '3 优化' 的 '优化' ⊂词表 'multi-objective optimization'
+    标注 '3 优化' 的 '优化' ⊂词表 'particle swarm optimization'
+    标注 '3.1 连续/非线性' 的 '非线性' ⊂词表 'nonlinear programming'
+    标注 '3.1 连续/非线性' 的 '非线性' ⊂词表 'nonlinear regression'
+    标注 '3.3 多目标/权衡' 的 '多目标' ⊂词表 'multi-objective optimization'
+    标注 '5.5 关联/相关模式' 的 '关联' ⊂词表 'association rules'
+    标注 '5.5 关联/相关模式' 的 '关联' ⊂词表 'grey relational analysis'
+
+## 5. 标注草案的规模与分布
+  标注 **67** 条（标定 66 · 读不出 1）
+  标签 **316** 个（去重 41 个 L2）；每题标签数 最少 0 / 最多 7
+  标记分布：{'核心': 249, '附带': 67}
+  数据形态分布：{'混合': 19, '无数据(纯机理/假设)': 18, '空间/地理': 10, '面板': 7, '截面': 4, '文本/文献': 3, '时序': 3, '网络': 2, '': 1}
+  零命中的分类法条目：['1.4 组合预测', '10.2 主题与语义归类']
+
+  L2 使用分布（按题数降序）：
+     27  1.3 情景与概率预测
+     21  3.3 多目标/权衡
+     21  2.1 指标体系构建
+     20  2.4 方案比较
+     20  9.4 机制/规则设计
+     19  5.4 不确定性与敏感性
+     14  3.4 动态与随机
+     13  4.1 物理/化学机理建模
+     11  5.3 因果/政策评估
+     10  3.5 调度与配置
+     10  2.5 分级/阈值划定
+      9  8.3 传播与级联
+      9  9.1 多准则决策
+      9  4.2 生态/生物动力学
+      8  9.3 风险与效用
+      8  2.3 排序规则/权重设计
+      7  3.1 连续/非线性
+      7  1.2 回归/相关预测
+      7  3.6 选址与布局
+      7  4.6 反馈结构与动态演化
+      6  8.2 流量分配/路由
+      5  3.2 离散/组合
+      5  6.1 由观测反推参数/历史
+      5  1.1 时序外推
+      5  7.1 监督分类/识别
+      4  8.1 网络结构与重要性
+      3  6.2 逆向设计
+      3  4.5 离散事件
+      3  5.1 差异显著性检验
+      3  8.4 连通性与鲁棒性
+      3  7.2 无监督聚类/分段
+      3  5.2 回归系数与效应量
+      2  4.3 随机仿真/概率模拟
+      2  7.3 降维与特征
+      1  4.4 局部规则演化/个体交互仿真
+      1  9.2 博弈与策略
+      1  10.1 文本特征与情感抽取
+      1  5.5 关联/相关模式
+      1  2.2 多指标综合评价
+      1  6.3 状态估计/数据同化
+      1  1.5 零膨胀/受限计数预测
+
+  逐题（标签数 / 引文段数 / 数据形态 / 场景）：
+    2016 A  labels= 3 spans= 3 [标定] 无数据(纯机理/假设)  场景=日常生活 / 传热
+    2016 B  labels= 5 spans= 5 [标定] 无数据(纯机理/假设)  场景=航天 / 商业投资
+    2016 C  labels= 5 spans= 5 [标定] 截面           场景=教育 / 慈善投资
+    2016 D  labels= 5 spans= 5 [标定] 混合           场景=传媒 / 社会史
+    2016 E  labels= 5 spans= 5 [标定] 混合           场景=水资源 / 公共政策
+    2016 F  labels= 7 spans= 7 [标定] 混合           场景=难民 / 国际政策
+    2017 A  labels= 5 spans= 5 [标定] 无数据(纯机理/假设)  场景=水利 / 基础设施
+    2017 B  labels= 4 spans= 4 [标定] 无数据(纯机理/假设)  场景=交通 / 道路工程
+    2017 C  labels= 4 spans= 4 [标定] 空间/地理        场景=交通 / 公共政策
+    2017 D  labels= 4 spans= 4 [标定] 截面           场景=航空 / 公共安全
+    2017 E  labels= 4 spans= 4 [标定] 混合           场景=城市规划 / 公共政策
+    2017 F  labels= 6 spans= 6 [标定] 截面           场景=社会制度 / 航天移民
+    2018 A  labels= 4 spans= 5 [标定] 无数据(纯机理/假设)  场景=通信 / 海洋
+    2018 B  labels= 5 spans= 5 [标定] 截面           场景=语言 / 企业选址
+    2018 C  labels= 4 spans= 4 [标定] 面板           场景=能源 / 州际政策
+    2018 D  labels= 5 spans= 5 [标定] 空间/地理        场景=能源 / 交通基础设施
+    2018 E  labels= 5 spans= 5 [标定] 面板           场景=气候 / 国家安全
+    2018 F  labels= 6 spans= 6 [标定] 无数据(纯机理/假设)  场景=隐私 / 公共政策
+    2019 A  labels= 3 spans= 4 [标定] 无数据(纯机理/假设)  场景=奇幻 / 生态
+    2019 B  labels= 4 spans= 4 [标定] 空间/地理        场景=应急物流 / 航空
+    2019 C  labels= 5 spans= 5 [标定] 面板           场景=公共卫生 / 执法
+    2019 D  labels= 5 spans= 5 [标定] 空间/地理        场景=公共安全 / 文旅
+    2019 E  labels= 5 spans= 5 [标定] 空间/地理        场景=环境经济 / 土地规划
+    2019 F  labels= 4 spans= 4 [标定] 文本/文献        场景=金融 / 货币政策
+    2020 A  labels= 0 spans= 0 [读不出] —            场景=—
+    2020 B  labels= 4 spans= 4 [标定] 无数据(纯机理/假设)  场景=海滩 / 休闲
+    2020 C  labels= 5 spans= 5 [标定] 混合           场景=电子商务 / 市场营销
+    2020 D  labels= 4 spans= 4 [标定] 网络           场景=体育 / 团队科学
+    2020 E  labels= 6 spans= 6 [标定] 混合           场景=环境 / 公共政策
+    2020 F  labels= 5 spans= 6 [标定] 文本/文献        场景=气候 / 国际法
+    2021 A  labels= 4 spans= 4 [标定] 混合           场景=生态 / 微生物
+    2021 B  labels= 5 spans= 5 [标定] 空间/地理        场景=应急通信 / 消防
+    2021 C  labels= 6 spans= 6 [标定] 混合           场景=入侵物种 / 农业监管
+    2021 D  labels= 6 spans= 6 [标定] 混合           场景=音乐 / 文化
+    2021 E  labels= 5 spans= 5 [标定] 混合           场景=农业 / 公共政策
+    2021 F  labels= 5 spans= 5 [标定] 面板           场景=高等教育 / 公共政策
+    2022 A  labels= 5 spans= 5 [标定] 无数据(纯机理/假设)  场景=体育 / 最优控制
+    2022 B  labels= 6 spans= 6 [标定] 无数据(纯机理/假设)  场景=水资源 / 能源
+    2022 C  labels= 5 spans= 5 [标定] 时序           场景=金融 / 投资
+    2022 D  labels= 6 spans= 6 [标定] 无数据(纯机理/假设)  场景=港口物流 / 企业管理
+    2022 E  labels= 5 spans= 5 [标定] 混合           场景=林业 / 气候
+    2022 F  labels= 5 spans= 5 [标定] 混合           场景=航天 / 国际治理
+    2023 A  labels= 4 spans= 4 [标定] 无数据(纯机理/假设)  场景=生态 / 农业
+    2023 B  labels= 6 spans= 6 [标定] 空间/地理        场景=野生动物保护 / 地方治理
+    2023 C  labels= 6 spans= 6 [标定] 时序           场景=游戏 / 统计学
+    2023 D  labels= 4 spans= 4 [标定] 文本/文献        场景=国际发展 / 公共政策
+    2023 E  labels= 5 spans= 5 [标定] 空间/地理        场景=城市环境 / 生态保护
+    2023 F  labels= 5 spans= 5 [标定] 混合           场景=宏观经济 / 气候政策
+    2023 Z  labels= 4 spans= 4 [标定] 无数据(纯机理/假设)  场景=体育治理 / 公共政策
+    2024 A  labels= 4 spans= 4 [标定] 无数据(纯机理/假设)  场景=生态 / 渔业
+    2024 B  labels= 6 spans= 6 [标定] 空间/地理        场景=海洋搜救 / 旅游安全
+    2024 C  labels= 5 spans= 5 [标定] 时序           场景=体育 / 统计学
+    2024 D  labels= 5 spans= 5 [标定] 混合           场景=水资源 / 基础设施
+    2024 E  labels= 5 spans= 5 [标定] 混合           场景=保险 / 气候适应
+    2024 F  labels= 5 spans= 5 [标定] 混合           场景=生态保护 / 刑事政策
+    2025 A  labels= 3 spans= 4 [标定] 无数据(纯机理/假设)  场景=考古 / 材料 / 人因
+    2025 B  labels= 4 spans= 6 [标定] 无数据(纯机理/假设)  场景=旅游 / 公共政策
+    2025 C  labels= 4 spans= 5 [标定] 面板           场景=体育
+    2025 D  labels= 4 spans= 6 [标定] 网络           场景=城市交通 / 基础设施
+    2025 E  labels= 4 spans= 6 [标定] 无数据(纯机理/假设)  场景=农业 / 生态
+    2025 F  labels= 3 spans= 5 [标定] 混合           场景=网络安全 / 公共政策
+    2026 A  labels= 5 spans= 6 [标定] 混合           场景=消费电子 / 能源
+    2026 B  labels= 5 spans= 5 [标定] 无数据(纯机理/假设)  场景=航天 / 工程物流
+    2026 C  labels= 6 spans= 6 [标定] 面板           场景=电视娱乐 / 投票制度
+    2026 D  labels= 6 spans= 6 [标定] 面板           场景=职业体育 / 企业管理
+    2026 E  labels= 5 spans= 5 [标定] 空间/地理        场景=建筑节能 / 能源
+    2026 F  labels= 4 spans= 4 [标定] 混合           场景=教育政策 / 技术冲击
+
+## 6. 两处具名边界（实测）
+  ① `2020 MCM Problem A`：状态 `读不出`；抽取文本 2 行 / 25 字符；内容流文本操作符 4 个、填充路径 3922 条
+     → 正文是**矢量路径**画的（`Microsoft: Print To PDF`），不是排的；两个独立抽取器（pdftotext / fitz）都只得 25 / 22 个字符。**不标标签、不写抽象、不猜题意。**
+  ② `2023 ICM Problem Z`：**算第 67 道并标注**（4 个标签）；题面是 COMAP 自发布的完整件（有 Requirement 段、有 25 页提交规则、页脚 ©2023 COMAP）。
+     它在「11 年 × 6 题」口径下是**附加题**；**不声称**它在当年赛制里的地位（超已查范围）。
+
+## 7. 与 2025 样板的偏离（逐条，供用户裁决）
+  | 1 | 字段名用 **`场景`**（样板正文那一行写的是 `领域`） | 用户在 2026-09-26 把这条轴定案改名为「场景」（任务书 §一 第 6 条），样板的**约定**段也写「场景（原'领域'轴）」，只有正文的字段名没跟着改。两处只能取一个，取定案。 |
+  | 2 | **`4.6 系统动力学/反馈结构` → `4.6 反馈结构与动态演化`** | T3：`系统动力学` 是 `models.txt` 的词条（`system dynamics`）。**标签名带模型名 = 配对退化成同义反复**。**这是样板里唯一一处必须改的分类法名字，请用户确认**（改名的替代方案是删掉词表里 `系统动力学` 那个变体，但那会动 Task 6 的放行产物链，本任务无权）。 |
+  | 3 | `4.1 物理/化学机理(ODE/PDE)` → `4.1 物理/化学机理建模` | T3：`ODE`/`PDE` 是词表变体（词表 86/87 行）。 |
+  | 4 | `4.3 随机仿真/蒙特卡洛` → `4.3 随机仿真/概率模拟`；`4.4 元胞自动机/多智能体` → `4.4 局部规则演化/个体交互仿真`；`5.1 假设检验/显著性` → `5.1 差异显著性检验`；`8.1 结构与中心性` → `8.1 网络结构与重要性`；`8.2 网络流/路由` → `8.2 流量分配/路由` | 同上，全部是 T3 逼出来的改名。撞车的那个词逐个写在 `problem_types.txt` 的条目注释里。 |
+  | 5 | 表格第一列里写 **`核心`/`附带` 标记**（`` `核心` **L1 · L2** ``） | 样板**正文的表**没有标记列（标记只在「去掉上限后的重扫结果」那张附表里出现），而约定第 2 条要求**每条**都标。不写进表就无法机读，T4/T5 都要判它。 |
+  | 6 | **2025 F 的一处引文订正** | 样板写的是 `identify parts of a policy or law that are particularly effective (or ineffective)`，题面原文是 `… (or particularly ineffective)`。**T2 实测把这处抓出来了**（少一个 `particularly`）。按约定第 3 条「英文原句，可复核」订正为原文。 |
+  | 7 | 2020 A 一题**无标题、无标签、无抽象** | 该件**没有文本层**，给不出可定位的支撑句（见「例外登记 ①」）。 |
+  | 8 | 2021 C 一题**不写标题** | 该件的抽取把**标题与正文首句排在同一行**（`2021 MCM Problem C: Confirming the Buzz about Hornets In September 2019, a colony of …`），抽取口径下**切不出**标题。按「不猜、不目视」的纪律，这一行**留空**并在此登记。 |
+  | 9 | 样板正文里的 **「论文侧（… Key words）」预览行本轮不抄** | 那一行是**阶段 2 的配对材料**（样板约定第 7 条自己写着「配对预览」）。而且本轮的 66 道题里**只有 2025 有论文产物**（`corpus/papers/` 只覆盖 2025 那 43 份），抄进来会造成「别人也验过」的**不对称假象**。 |
+  | 10 | 样板 2025 C 把**两个标签写在一格**（`1.2 回归/相关预测（含 1.5 零膨胀/受限计数预测）`），本草案**拆成两行** | T4 要求**每个标签逐字命中**分类法；一行两标签无法判，且会让「标签数」这种统计量失真。 |
+  | 11 | 样板 2025 D/F 的 `数据形态` 是 `网络 + 官方提供的车流量附件`、`面板/截面 + 政策文本` 这类**组合写法**，本草案**归一成单个枚举值**、把组合信息移进括号 | T4 判「本行第一个词必须命中受控枚举」；`面板/截面` 这种写法既不是枚举值、也无法判。2025 A/B/C/E 的样板写法（`无数据（…）`）则**原样保留**，只把枚举值补全为 `无数据(纯机理/假设)`。 |
+
+## ★ 编者按：Task 6b 阶段 1 的已知残余（2026-09-26，实现者追加）
+  **本节不是脚本 stdout，是登记**（体例照 `ids-recon.txt` 的编者按）。上面是逐字取数，
+  本节把「这一轮**没做到**什么」写进入库区——**不得只写在 `.superpowers/sdd/`**
+  （那个目录 gitignore，按本项目规矩放那里等于丢失）。
+
+  * **RT1**（「引文可定位」不是「两条独立证据交叉验证」）：**T2 只有「一份证据」**：题面文本只有一份权威抽取口径
+    → 独立性靠另两条：① 两套归一化（宽松/严）互相夹住；② **T8** 用另写的解析器与 `taxonomy` 逐字段互校。**不声称**这是两条独立证据。
+  * **RT2**（参照范围）：**T6 的双边等式只能对 2025 成立**（`TAGS.md` 只覆盖 2025 的 43 篇）
+    → 已写进 T6 的结论行；扩语料前不得把它读成「所有年份都对上了」。
+  * **RT3**（语料边界）：**`2020 MCM Problem A` 无法标注**（题面无文本层）⇒ **65/66 道年度题**有实质标注
+    → T5-b 独立重算并登记；**不猜题意**。用户若要求 66 题全标，只能换一份**有文本层**的 2020 A 原件——**本任务无权改 `corpus/官方原题/`**。
+  * **RT4**（判据覆盖缺口）：**T5 的「只有 `附带` 时须给理由」这一支在本语料上零触发**
+    → 变异 M4 证明的是 **T5 首条**（每题 ≥1 `核心`）会红；**「零 `核心` 的题 + 缺理由」那一支仍未被语料或变异证实**。
+  * **RT5**（分类法覆盖）：**分类法有 2 条零命中条目**（`1.4 组合预测`、`10.2 主题与语义归类`）
+    → 逐条登记在 `problem_types.txt` 末尾，判据每次重算并与登记对账。**这是语料事实，不是判据失效**。
+  * **RT6**（判断/证据分离）：**`title` 不参与任何判据**（只在 T8 里做两套解析的互校）
+    → 2021 C **留空**（抽取切不出标题）、2020 A 无标题，均已登记在草案的偏离表第 7/8 行。
+  * **RT7**（判据口径）：**T3 判「相等」不判「包含」**
+    → 34 条「标签名 ⊂ 词表词」的近邻逐条列出但**不判红**。理由：包含会把 `1 预测 ⊂ 灰色预测` 这类**正确命名**判成违规。用户若要收紧，需先决定改分类法还是改词表。
+  * **RT8**（**本任务最大的边界**）：**标注本身是「判断」**：67 题的标签是逐题读题面后做的分类
+    → 判据只能保证：标签 ∈ 受控集合、引文**逐字可定位**、覆盖**双边等式**、每题 ≥1 `核心`、抽象互异；**证明不了**「这个标签是这道题的正确题型」。这正是阶段 1 要**交用户过目**的原因。
+  * **RT9**（范围）：**阶段 2 的产物一件没做**（配对表 / `TAGS.md` 的 `problem_type` 栏 / 匹配度判据 / 词表增长）
+    → 用户点名的「题型 → 模型/算法 配对」**还没有交付**；任务书写明阶段 2 等用户过目后再派。
+
+  **阶段 1 的放行结论**（可复现）：全量 `python tests/papers/verify_types.py` → `RESULT: PASS`、
+  T1–T8 全 OK；入库证据 `tests/papers/reports/types-report.txt` 的 blob =
+  `6ff16ac1dcb5ad8bb35a1a03f1f6ae237604b0ec`
+  （**跑 `--limit 3` 后逐字不变**）。12 条变异 + 一次对照见
+  `tests/papers/reports/types-mutation-evidence.txt`。
+  * **RT10**（**路径变更（本节其余各行仍写「草案」的那些说法不受影响）**）：**标注于 2026-09-26 由草案转正**（`git mv` → `corpus/papers/PROBLEM_TYPES.md`）
+    → 转正**只动两处**：标题去掉「草案」、文件头补一段定位说明；**正文语义一字未改**（转正前的 blob 见下面的「转正记录」）。`taxonomy.DRAFT_PATH` 随之改名 `ANNOTATIONS_PATH`、**不留旧名别名**（留两个名字就会有人用错那个）。本脚本的两处路径引用同步改到新落点——**这是「删一个符号的影响面不止 import 它的代码」（`docs/mcm-suite-lessons.md` §4.7）**。
+  * **RT11**（**越界但正当**的一处改动登记；修复轮 2026-09-26 追加，衔接 RT10）：`tests/papers/recon/types-recon-scan.py`
+    的**第 51 行**（`T.DRAFT_PATH` → `T.ANNOTATIONS_PATH`）与**第 214 行**（字面路径改为
+    `corpus/papers/PROBLEM_TYPES.md`）在本轮被改，**它不在任务书的授权清单里**。
+    （行号口径：任务书写的是 `:44`/`:213`，**实测**是 51/214——行号会随文件变化，
+    复核请用**锚点字符串**而不是行号。）
+    → **判为正当**，三条实测理由：
+      ① `taxonomy.DRAFT_PATH` 已按要求改名且**不留别名** ⇒ 该脚本原样跑必 `AttributeError`
+         （实测：`hasattr(taxonomy, 'DRAFT_PATH') = False`；读它得
+         `AttributeError: module 'tools.papers.taxonomy' has no attribute 'DRAFT_PATH'`）；
+      ② 改的**只有路径引用**：取数口径、判据、输出体例一字未动；
+      ③ 它是**取数记录脚本**、**不参与任何判据**（`verify_types.py` / `verify_ids.py` 都不读它，
+         也不读它写出的 `types-recon.txt`）⇒ 这处改动**动不了任何放行结论**。
+    → **根因如实登记：这是任务书（controller）的疏漏，不是实施者擅自扩大范围。**
+      改名任务只写了「把 `DRAFT_PATH` 改名」这一件事，**没有列消费者清单**；
+      `docs/mcm-suite-lessons.md` §4.7「删一个符号的影响面不止 import 它的代码」说的正是它。
+    → **一条已知债（实测，必须同读）**：入库的 `types-recon.txt` 是**该脚本生成的**
+      （脚本第 317 行 `target.write_bytes(...)`），而**它与当场重跑的输出不等**：
+      ① 第 8 行仍是旧措辞（`标注草案：**67** 条（tests/papers/recon/PROBLEM_TYPES-draft.md）`），
+      脚本现行输出已是 `标注：**67** 条（corpus/papers/PROBLEM_TYPES.md）`；
+      ② 它比脚本的输出**多两处手插的内容**（逐字实测见下面的「订正」）。
+      **本 RT11 只活在入库的本文里**，**没有同步进脚本的 RT 列表**——任务书只点名了本文。
+      **故：重跑该脚本会丢掉本 RT11。** 这条债**在本轮之前就已存在**（不是本轮造成的），
+      此处只如实登记，**不做未授权的「顺手修」**。
+
+    → **订正（2026-09-26，Task 6b 阶段 2b 产物 0 的 Minor 1；实测，不是照抄）**：
+      上面那句原文写「本 RT11（**以及本节 RT1–RT10、转正记录**）」，**括号里那半句不成立**。
+      把生成器 `tests/papers/recon/types-recon-scan.py` **原样重跑**（只把落点常量换成
+      `build/types-recon-rerun.txt`，其余一字不改；探针 `build/probe_rerun_recon.py`）：
+
+        $ PYTHONDONTWRITEBYTECODE=1 python build/probe_rerun_recon.py
+        入库 `tests/papers/recon/types-recon.txt`   **401** 行
+        重跑 `build/types-recon-rerun.txt`          **372** 行
+
+      **★ 那两个数是「写下那一刻」的实测值，落地同一刻就开始过期**（本文件自己也会长）：
+      **引它时以当场实测为准**。**收口轮起，本节不再写这类数字**——**本文件的行数在写入它的
+      那一刻就变**（上面这段「订正」自己就把本文件加长了；本文件每被编辑一次，入库那一个数
+      就跟着变），**任何写下来的实测值落地即过期**（收口轮复核实测的第一个值就已与写下的不符）。
+      **要这个数就当场量**：
+
+        $ wc -l < tests/papers/recon/types-recon.txt     # 入库文件当场行数
+        $ wc -l < build/types-recon-rerun.txt            # 重跑输出（先跑探针生成）
+        （净差 = 上面两值之差，同样当场量，本节不再写它的数字）
+
+      计数口径 = `len(text.split("\n"))`，与探针一致；它 = 上面 `wc -l` 的**值 + 1**
+      （文件以换行结尾）——**口径不同差 1，别拿两个数互相咬**。
+      **上面探针输出里那三个数（`401` / `372` / `29`）原样保留**（它们是**当时**的登记）。
+
+      逐行比对（`difflib.SequenceMatcher`，`autojunk=False`）**只有两处差异**：
+        ① 第 8 行处的**措辞**（1 行；第 8 行在文件头部，不随本文件变长而漂）：入库是
+           `标注草案：**67** 条（tests/papers/recon/PROBLEM_TYPES-draft.md）`，
+           现行脚本输出是 `标注：**67** 条（corpus/papers/PROBLEM_TYPES.md）`；
+        ② 两段**手插内容**——「阶段 1 的放行结论」段与**本 RT11 全条**——**在重跑输出里
+           根本没有**。
+      （这两处的**行号区间**同样是「写下那一刻」的量：本文件一长，区间就漂 ⇒ **按内容认，
+      不按行号认**；要数就 `wc -l` 当场量。）
+      **其余各行逐字相同**——**RT1–RT10 与「转正记录」全在生成器的输出里**
+      （实测各 RT 在文献里的出现次数 in-tree/rerun：RT2–RT9 各 1/1、RT10 3/1、
+      转正记录 3/2；差额全部来自本 RT11 自己的正文里那两处提及）。
+      **⇒ 重跑会丢的只有「本 RT11 + 那段手插的放行结论」，不是 RT1–RT10。**
+      **失败场景**：下一个人信了原来那半句，以为重跑会毁掉 RT1–RT10，从而做出错误取舍
+      （例如为了保住它们而拒绝重跑、或反过来把整节当消耗品）。
+
+  **阶段 1 的放行结论**（可复现）：全量 `python tests/papers/verify_types.py` → `RESULT: PASS`、
+  T1–T8 全 OK；入库证据 `tests/papers/reports/types-report.txt` 的 blob =
+  `6ff16ac1dcb5ad8bb35a1a03f1f6ae237604b0ec`
+  （**跑 `--limit 3` 后逐字不变**）。12 条变异 + 一次对照见
+  `tests/papers/reports/types-mutation-evidence.txt`。
+
+### 转正记录（2026-09-26，Task 6b 阶段 2a）
+
+  命令与逐字输出（**实测，不是回忆**）：
+
+    $ git rev-parse 9a1689d:tests/papers/recon/PROBLEM_TYPES-draft.md
+    2b4b4a2708734756fb7c157034c530f7bf683e5e
+
+    $ git hash-object corpus/papers/PROBLEM_TYPES.md      # 转正（含头部订正）之后
+    0444937409cc4949dd446a1b3cc6609a8ee7b798
+
+  **读法**：转正前的草案 blob = `2b4b4a2708734756fb7c157034c530f7bf683e5e`（= 转正当天工作树上该文件的 blob，`git mv` **原样搬运**、没有经过任何转换）；转正后 = `0444937409cc4949dd446a1b3cc6609a8ee7b798`（差异**只**来自标题行与头部那一段定位说明）。
+  **转正日期**：2026-09-26（用户当日过闸门：「继续」+ 本轮解冻裁决）。
+  **为什么必须把它钉在这里**：转正后 `recon/PROBLEM_TYPES-draft.md` 这个路径就不存在了，「阶段 1 用户过目时那份东西长什么样」若不记 blob 就再也找不回来。
+
+  **转正后的回归（R-1）**：全量 `python tests/papers/verify_types.py` 在新路径下重跑 →
+  `RESULT: PASS`、T1–T8 全 OK（**判据口径一个字未放宽**，只改了路径常量）。
+  **★ 上面「阶段 1 的放行结论」那段记的 blob 与转正后重跑的**逐字节相同**（仍是
+  `6ff16ac1…`）——**原因**：那两处路径只活在 `verify_types.py` 的模块 docstring 与常量里，
+  **不进任何消息文本**，故重跑产物与转正前同字节。这条是**实测**的
+  （转正后重跑 `git hash-object tests/papers/reports/types-report.txt` 仍得
+  `6ff16ac1dcb5ad8bb35a1a03f1f6ae237604b0ec`），**不是推断**。

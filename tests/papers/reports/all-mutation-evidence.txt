@@ -1,0 +1,318 @@
+`verify_all.py` 的新增判据：变异与负例证据（Task 7 · D4/D5/D9）
+==============================================================================
+口径：每条**新增判据**要么有源码变异（改坏被测对象 → 跑 → 看红），
+要么（被测对象是**已冻结**的子脚本、不得改动时）有负例探针；
+两种**都在条目里标明**，不混为一谈（教训 4.2：只写「我认为它会失败」不算数）。
+
+复现命令：
+  PYTHONDONTWRITEBYTECODE=1 python tests/papers/recon/all-mutation-driver.py \
+      tests/papers/reports/all-mutation-evidence.txt
+
+开工时清掉的 `__pycache__`：无（第九例：`.pyc` 失效只看源文件 mtime 的整数秒 + 字节数，「改坏→跑→还原」可能命中同一秒；本驱动器全程 `PYTHONDONTWRITEBYTECODE=1`、探针一律新进程、每条变异后核对还原 blob）
+`verify_all.py` 开工 blob = a3ce3575793afd492dff8a17ff446fea44d66a5c
+`verify_all.py` 开工 sha256 = 58484a4c7c6d96e94c0ac2f6216d7aa086137b945a2f67bd180ab00c9c9e2a9e
+
+------------------------------------------------------------------------------
+[1/17] M-D1　（源码变异）
+  是什么：把 `derive_stages()` 改回**计划的六项快照**（`verify_io/wm/b/c/d/ids`）——这正是 D1 要防的失效形态
+  探针（变异在位）逐字输出：
+    DERIVED=verify_io.py verify_wm.py verify_b.py verify_c.py verify_d.py verify_ids.py
+    STAGES_OK=False
+    TEXT=  派生命令（复用即复现）：`sorted(Path('tests/papers').glob('verify_*.py'))` 减去本文件自身（`verify_all.py`，否则递归） ||   派生到 **6** 个：verify_io.py verify_wm.py verify_b.py verify_c.py verify_d.py verify_ids.py ||   FAIL：`verify_types.py` **不在派生清单里**——Task 6b 的判据会被漏在放行评估之外，而汇总照样写「可放行」，那是**假放行**（D1） ||   FAIL：`verify_map.py` **不在派生清单里**——Task 6b 的判据会被漏在放行评估之外，而汇总照样写「可放行」，那是**假放行**（D1）
+  ⇒ **红 = True**（要求：会红）
+  探针（还原后 / 喂真文件）逐字输出：
+    DERIVED=verify_b.py verify_c.py verify_d.py verify_ids.py verify_io.py verify_map.py verify_types.py verify_wm.py
+    STAGES_OK=True
+    TEXT=  派生命令（复用即复现）：`sorted(Path('tests/papers').glob('verify_*.py'))` 减去本文件自身（`verify_all.py`，否则递归） ||   派生到 **8** 个：verify_b.py verify_c.py verify_d.py verify_ids.py verify_io.py verify_map.py verify_types.py verify_wm.py ||   Task 6b 的判据脚本在清单里：`verify_types.py` ✓ ||   Task 6b 的判据脚本在清单里：`verify_map.py` ✓
+  ⇒ **还原后绿 = True**（要求：回到绿）
+  判定：通过　·　红 = `check_stages` 判 FAIL 且**具名说出来少了谁**；绿 = 派生清单里含 6b 的两个脚本
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[2/17] M-D4F　（源码变异）
+  是什么：把落点函数的**限样本分支**改坏（`limit > 0` 也返回放行证据）——正向守卫
+  探针（变异在位）逐字输出：
+    OUT_REL=tests/papers/reports-limited/pilot-summary-落点守卫触发.txt
+    RELEASE_REL=tests/papers/reports/pilot-summary.txt
+    GUARD_FIRED=True
+    CROSS_OK=False
+    MSG=落点守卫 FAIL：限样本跑（--limit 3）算出的落点与放行证据 tests/papers/reports/pilot-summary.txt 重合——落点函数被改坏了。已改写到不入库目录，放行证据未被本次运行触碰。
+  ⇒ **红 = True**（要求：会红）
+  探针（还原后 / 喂真文件）逐字输出：
+    OUT_REL=tests/papers/reports-limited/pilot-summary-limited-3.txt
+    RELEASE_REL=tests/papers/reports/pilot-summary.txt
+    GUARD_FIRED=False
+    CROSS_OK=True
+    MSG=<空>
+  ⇒ **还原后绿 = True**（要求：回到绿）
+  判定：通过　·　红 = 守卫触发、落点被**改写走**（不是放行证据）、且与 `report.py` 的分支对账不一致；绿 = 落在限样本落点、对账一致
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[3/17] M-D4R　（源码变异）
+  是什么：把落点函数的**全量分支**改坏（`limit <= 0` 也返回限样本落点）——镜像守卫
+  探针（变异在位）逐字输出：
+    OUT_REL=tests/papers/reports/pilot-summary.txt
+    RELEASE_REL=tests/papers/reports/pilot-summary.txt
+    GUARD_FIRED=True
+    CROSS_OK=False
+    MSG=落点守卫 FAIL：全量跑（limit=0）算出的落点是 tests/papers/reports-limited/pilot-summary-limited-0.txt，**不是**放行证据 tests/papers/reports/pilot-summary.txt——落点函数的全量分支被改坏了（这条是「限样本不得覆写放行证据」那条的镜像）。已把落点改写回放行证据（全量跑必须拥有这份证据，否则它会停在上一次的状态冒充本次结论），判 FAIL。
+  ⇒ **红 = True**（要求：会红）
+  探针（还原后 / 喂真文件）逐字输出：
+    OUT_REL=tests/papers/reports/pilot-summary.txt
+    RELEASE_REL=tests/papers/reports/pilot-summary.txt
+    GUARD_FIRED=False
+    CROSS_OK=True
+    MSG=<空>
+  ⇒ **还原后绿 = True**（要求：回到绿）
+  判定：通过　·　红 = 守卫触发、**改写出的是放行证据**（不许把上一次的结论留在原地）、且分支对账不一致
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[4/17] N-D4B　（负例探针（不改源码））
+  是什么：模拟**调用点被绕开**：直接把 `RELEASE` / 限样本落点交给写前复核
+  探针（变异在位）逐字输出：
+    A_OUT=tests/papers/reports/pilot-summary.txt
+    A_GUARD_FIRED=True
+    A_MSG=落点守卫 FAIL（写前复核）：限样本跑（--limit 3）的写入目标就是放行证据 tests/papers/reports/pilot-summary.txt——resolve_summary 的守卫在调用点被绕过了。判 FAIL。
+    B_OUT=tests/papers/reports/pilot-summary.txt
+    B_RELEASE_REL=tests/papers/reports/pilot-summary.txt
+    B_GUARD_FIRED=True
+    B_MSG=落点守卫 FAIL（写前复核）：全量跑（limit=0）算出的写入目标是 tests/papers/reports-limited/pilot-summary-limited-0.txt，**不是**放行证据 tests/papers/reports/pilot-summary.txt——落点判据被改坏或在调用点被绕过了。已把落点改写回放行证据，判 FAIL。
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　正向（限样本写放行证据）：**只判 FAIL、不改写**；镜像（全量写别处）：判 FAIL **并改写回**放行证据。字面强度与 `report.py` 的 docstring 对齐——守卫保证的是「决策点被改坏」这一层，**不是**「物理上写不进去」
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[5/17] M-D5a　（源码变异（被测对象是临时子脚本））
+  是什么：临时子脚本**退出 0 却打印 `RESULT: FAIL`**——D5 ③ 的矛盾即红；同时验证派生清单**真的会把它从磁盘捡进来**
+  探针（变异在位）逐字输出：
+    OK=False
+    DERIVED_HAS_MUTANT=True
+    TEXT= || · `verify_zzmutant.py`　支持 --limit：否　退出码 0 ||   stdout 的 RESULT 行（**逐字**）：`RESULT: FAIL` ||   FAIL：退出码 0 却写着 `RESULT: FAIL`——**退出码与它自己的 RESULT 行矛盾**（判据说了话而结论不听，正是本项目假绿家族的形态） ||   FAIL：放行证据 `tests/papers/reports/zzmutant-report.txt` 不存在——这个脚本本轮没有留下任何入库产物，汇总不得据它的 stdout 给结论
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 汇总结论不听子脚本的自称，且**具名**指出退出码与 RESULT 行矛盾
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[6/17] M-D5b　（源码变异（被测对象是临时子脚本））
+  是什么：临时子脚本**退出 3 却打印 `RESULT: PASS`**——反方向的矛盾
+  探针（变异在位）逐字输出：
+    OK=False
+    DERIVED_HAS_MUTANT=True
+    TEXT= || · `verify_zzmutant.py`　支持 --limit：否　退出码 3 ||   stdout 的 RESULT 行（**逐字**）：`RESULT: PASS` ||   FAIL：退出码 3 却写着 `RESULT: PASS`——同上，矛盾即红 ||   退出码非 0 ⇒ 该阶段未通过（RESULT 行照抄如上） ||   FAIL：放行证据 `tests/papers/reports/zzmutant-report.txt` 不存在——这个脚本本轮没有留下任何入库产物，汇总不得据它的 stdout 给结论
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 与 M-D5a 同一条判据的反方向
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[7/17] N-EV　（负例探针（不改源码））
+  是什么：产物侧判据的两种形态：证据文件「**不是本次跑写的**」与「**根本不存在**」
+  探针（变异在位）逐字输出：
+    FRESH_OK=False
+    FRESH_TEXT=  产物 `tests/papers/reports/io-report.txt`：存在 ✓ · 本次运行内重写 = False（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True ||     FAIL：这份放行证据**不是本次跑写出来的**——「上一次的 RESULT: PASS 留在库里冒充本次结论」正是本项目栽过六次的形态 ||   产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓ ||   产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算） ||   判据行计数（口径：`grep -cE '^[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)$' tests/papers/reports/io-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/io-report.txt`，两式相加）：**0**（本脚本的报告两种形态都不用，计数不适用）
+    MISSING_OK=False
+    MISSING_TEXT=  FAIL：放行证据 `tests/papers/reports/nope-report.txt` 不存在——这个脚本本轮没有留下任何入库产物，汇总不得据它的 stdout 给结论
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　两种形态**分开报**（教训：参照不存在 vs 存在但没解析出来，不得混同）
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[8/17] N-DET　（负例探针（不改源码）· A-1 的加严）
+  是什么：确定性**判数**：喂一份「某次 `cli all` 真的非确定、实施者如实落盘」的假记录（真记录尾巴上追加一遍，`formulas` 那行 `blob 变了 17`，其余三处 0）
+  负例用的假产物（写进 `build/`，gitignored，用完即删）：build/fake-determinism-变了17.txt
+  探针（变异在位）逐字输出：
+    OLD_OK=True
+    NEW_OK=False
+    NEW_TEXT=  抽取确定性**判数**（A-1：条件 ⑤ 原先只判「文件在 + 含三个词」，对确定性结论免疫——一份如实记录了非确定的记录照样含那三个词）： ||     口径：`build/fake-determinism-变了17.txt` 的**最后一遍**那一节（节头 `## <跑前>.json → <跑后>.json`，取**最后一个**这样的一节；节体到下一个任意 `## ` 节头为止）；取四处读数 —— `入库产物` / `md` / `figures` / `formulas`，读数 = 该行 `变了` 之后的整数（`blob 变了 **0** 份` 与 `blob 变了 0` 两种写法都取）；四处**都必须是 0** ||     命令（复用即复现）：`python tests/papers/verify_all.py`；只看那四行：`grep -E '变了' build/fake-determinism-变了17.txt | tail -4`；fail-closed：读不了 / 无节 / 某处无行 / 某行无数 ⇒ 红 ||     最后一遍那一节：`## build/all-determinism-s9.json → build/all-determinism-s10.json` ||     入库产物：变了 **0** ⇒ 0 ✓　原文：`入库产物：5 份，blob 变了 **0** 份` ||     md：变了 **0** ⇒ 0 ✓　原文：`md         跑前 43 个 · 跑后 43 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同` ||     figures：变了 **0** ⇒ 0 ✓　原文：`figures    跑前 1816 个 · 跑后 1816 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同` ||     formulas：变了 **17** ⇒ **非 0 ⇒ FAIL**　原文：`formulas   跑前 1564 个 · 跑后 1581 个 · 只在跑前 0 · 只在跑后 17 · blob 变了 17 ⇒ **有变化**` ||     判据结论：**有非 0 或取不到 ⇒ 判红**（范围与本汇总其余各条一致：**2025 试点 43 份**这条流水线）
+  ⇒ **红 = True**（要求：会红）
+  探针（还原后 / 喂真文件）逐字输出：
+    OLD_OK=True
+    NEW_OK=True
+    NEW_TEXT=  抽取确定性**判数**（A-1：条件 ⑤ 原先只判「文件在 + 含三个词」，对确定性结论免疫——一份如实记录了非确定的记录照样含那三个词）： ||     口径：`tests/papers/reports/all-determinism.txt` 的**最后一遍**那一节（节头 `## <跑前>.json → <跑后>.json`，取**最后一个**这样的一节；节体到下一个任意 `## ` 节头为止）；取四处读数 —— `入库产物` / `md` / `figures` / `formulas`，读数 = 该行 `变了` 之后的整数（`blob 变了 **0** 份` 与 `blob 变了 0` 两种写法都取）；四处**都必须是 0** ||     命令（复用即复现）：`python tests/papers/verify_all.py`；只看那四行：`grep -E '变了' tests/papers/reports/all-determinism.txt | tail -4`；fail-closed：读不了 / 无节 / 某处无行 / 某行无数 ⇒ 红 ||     最后一遍那一节：`## all-determinism-s2.json → all-determinism-s3.json` ||     入库产物：变了 **0** ⇒ 0 ✓　原文：`入库产物：5 份，blob 变了 **0** 份` ||     md：变了 **0** ⇒ 0 ✓　原文：`md         跑前 43 个 · 跑后 43 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同` ||     figures：变了 **0** ⇒ 0 ✓　原文：`figures    跑前 1816 个 · 跑后 1816 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同` ||     formulas：变了 **0** ⇒ 0 ✓　原文：`formulas   跑前 1564 个 · 跑后 1564 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同` ||     判据结论：四处读数全为 0 ⇒ 这一条才成立（范围与本汇总其余各条一致：**2025 试点 43 份**这条流水线）
+  ⇒ **还原后绿 = True**（要求：回到绿）
+  判定：通过　·　红 = **旧判据没拦住**（`OLD_OK=True`：那三个词对它免疫——这正是加这条的理由）而新判据拦住了、且**具名说哪一处非 0**；绿 = 同一探针喂**真**记录时两条都通过（排除「判据恒红」）
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[9/17] N-EV-FALSE　（负例探针（不改源码）· A-2 的加严）
+  是什么：产物里出现机器可读的 `…: False`（判据行自报失败），而行尾仍写 `RESULT: PASS`——`verify_d.py` 若某处写了 FAIL 行却漏了 `ok = False`，产物就是这个形状；b/c/d 三份产物用的正是这个形态（实测 b 3 / c 1 / d 1 条）
+  负例用的假产物（写进 `build/`，gitignored，用完即删）：build/fake-ev-自报False.txt
+  探针（变异在位）逐字输出：
+    EV_OK=False
+    EV_TEXT=  产物 `build/fake-ev-自报False.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True ||   产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓ ||   产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算） ||     FAIL：产物内有**自报失败**的判据行 1 条（口径：`grep -cE '^[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)$' build/fake-ev-自报False.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' build/fake-ev-自报False.txt` 命中且状态为 FAIL/False）：['D1/D2/D3（机器可核）本批判定: False'] ||   判据行计数（口径：`grep -cE '^[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)$' build/fake-ev-自报False.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' build/fake-ev-自报False.txt`，两式相加）：**1**
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 新的一支命中且**具名**列出那条判据行；同时断言另两条判据（裸 RESULT、绝对路径痕迹）**没**命中 ⇒ 红**归因于**这一支，不是别的判据顺带判红
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[10/17] N-EV-SUFFIX　（负例探针（不改源码）· 复审点名的入库红证据）
+  是什么：放行证据末行带**样本口径后缀**（`RESULT: PASS (LIMITED --limit 3)`）——限样本跑写的结论不得冒充放行依据
+  负例用的假产物（写进 `build/`，gitignored，用完即删）：build/fake-ev-带后缀.txt
+  探针（变异在位）逐字输出：
+    EV_OK=False
+    EV_TEXT=  产物 `build/fake-ev-带后缀.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True ||   产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓ ||   产物里的 RESULT 行：`RESULT: PASS (LIMITED --limit 3)` ⇒ FAIL ||     FAIL：入库放行证据的末行不是裸的 `RESULT: PASS`——它要么是红的，要么是限样本跑写的（两种都不构成放行依据） ||   判据行计数（口径：`grep -cE '^[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)$' build/fake-ev-带后缀.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' build/fake-ev-带后缀.txt`，两式相加）：**1**
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 「末行不是裸的 `RESULT: PASS`」那条命中；`自报失败`那条**不**命中（那条假产物里只有 `…: True`）⇒ 归因隔离
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[11/17] N-EV-ABSPATH　（负例探针（不改源码）· A-4 的加严）
+  是什么：子脚本产物里出现**机器相关绝对路径**——`verify_io.py` / `verify_wm.py` 用 `traceback.format_exc()`，崩溃那一次就是这个形状，而它们**自己一个都不扫**
+  负例用的假产物（写进 `build/`，gitignored，用完即删）：build/fake-ev-绝对路径.txt
+  探针（变异在位）逐字输出：
+    EV_OK=False
+    EV_TEXT=  产物 `build/fake-ev-绝对路径.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True ||   产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：<abs-path> ||     FAIL：入库产物里出现机器相关绝对路径痕迹 '<abs-path>'——违反「报告只带仓库相对路径」 ||   产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算） ||   判据行计数（口径：`grep -cE '^[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)$' build/fake-ev-绝对路径.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' build/fake-ev-绝对路径.txt`，两式相加）：**0**（本脚本的报告两种形态都不用，计数不适用）
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 从**外面**补的那道扫描命中，且路径在报告里被 `report.scrub` 消毒成 `<abs-path>`（入库证据里不留机器相关绝对路径）
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[12/17] N-A1-THREE　（负例探针（不改源码）· 复审点名的入库红证据）
+  是什么：A1 的**三类差异**（改动 / 缺失 / 新增）：原件与语料不得改动 ⇒ 拿真实哈希表当底，人工造出三类各一条，写进 `build/` 再让基线指向它（哈希键在探针内归一到 `/` 分隔——见探针里那段注释：`\` 形态会被`report.ABSPATH_TRACE` 的 UNC 那一支读成绝对路径痕迹，那会让**这份入库证据自身**多出一条像绝对路径的串）
+  探针（变异在位）逐字输出：
+    A1_OK=False
+    A1_TEXT=  基线：`build/fake-origin-baseline.txt` 43 条（1 个合集）· `build/fake-origin-baseline.txt` 43 条 ||   基线里的合集：2025美赛O奖论文 ||   A1（全语料）：基线 43 份 / 现在 43 份 · 改动 ['2025美赛O奖论文/A/2500836.pdf'] · 缺失 ['2025美赛O奖论文/ZZ/9999999/不存在.pdf'] · 新增 ['2025美赛O奖论文/A/2501567.pdf'] ||   FAIL：试点基线的键没被全语料基线覆盖：['2025美赛O奖论文/ZZ/9999999/不存在.pdf'] ||   A1 结论：**原件被改动**
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 判 FAIL **且三类各自具名**（不是一句「原件被改动」了事）；绿态就是全量跑里那一条（实测 A1 结论 = 原件一字未动）
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[13/17] N-EMPTY　（负例探针（不改源码）· D1 的回归守卫）
+  是什么：判据集**派生为空**（把 `HERE` 指到一个空目录）——「零依据地报绿」正是本项目栽过六次的形态
+  探针（变异在位）逐字输出：
+    STAGES=[]
+    EMPTY_OK=False
+    EMPTY_TEXT=  派生命令（复用即复现）：`sorted(Path('tests/papers').glob('verify_*.py'))` 减去本文件自身（`verify_all.py`，否则递归） ||   FAIL：派生结果**为空**——一个判据脚本都没有。「零依据地报绿」正是本项目栽过六次的形态，这里按 fail-closed 处理
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 返回空清单**且**判 FAIL（两种情况分开报：清单空 vs 清单缺 6b 的两个）
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[14/17] N-6B　（负例探针（不改源码）· 6b 交付的存在性守卫）
+  是什么：`check_6b` 的存在性分支：把 `SIX_B` 指向一个不存在的交付
+  探针（变异在位）逐字输出：
+    SIXB_OK=False
+    SIXB_TEXT=  Task 6b 的三样交付**不在计划的六项阶段里**，它们的判据脚本是 `verify_types.py`（题型标注）与 `verify_map.py`（配对表 + 两张分流表）： ||   FAIL：`corpus/papers/根本不存在.md` 不存在——假交付 ||   判据落点：`verify_types.py` → `tests/papers/reports/types-report.txt`；`verify_map.py` → `tests/papers/reports/map-report.txt`
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 判 FAIL **且具名是哪个交付**（不是一句「6b 不齐」了事）
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[15/17] N-BASE　（负例探针（不改源码）· 复审点名的入库红证据）
+  是什么：`read_baseline` 的两条 raise：**坏行**（摘要不是 64 位）与**空表**（两份空表相等会让「原件未改动」凭空成立）
+  负例用的假产物（写进 `build/`，gitignored，用完即删）：build/fake-baseline-摘要长度不对.txt build/fake-baseline-空表.txt
+  探针（变异在位）逐字输出：
+    BASE_LEN=ValueError: build/fake-baseline-摘要长度不对.txt 里有一行摘要长度不是 64：'0000000000  corpus/x.pdf
+    BASE_EMPTY=ValueError: build/fake-baseline-空表.txt 是空表——两份空表相等会让「原件未改动」凭空成立（本项目栽过）
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 两条都**抛 `ValueError`**（不是返回空表、也不是别的异常）；`A1` 的上游由 `checks()` 的 `except (OSError, ValueError, KeyError)` 接住判红
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[16/17] N-REC　（负例探针（不改源码）· 复审点名的入库红证据）
+  是什么：`check_record` 的四条 fail 分支：记录**不存在** / **没入库** / **缺约定的短语** / 记录里**含样本口径后缀**
+  负例用的假产物（写进 `build/`，gitignored，用完即删）：build/fake-record-缺短语.txt build/fake-record-含样本口径后缀.txt
+  探针（变异在位）逐字输出：
+    REC_MISSING=False
+    REC_SHORT=False
+    REC_LIMITED=False
+    REC_UNTRACKED=False
+    REC_TEXT=  FAIL：`build/根本没有这份记录.txt` 不存在——x ||   `build/fake-record-缺短语.txt`　x ||     git 跟踪 = True（口径：`git ls-files --error-unmatch build/fake-record-缺短语.txt`）——不入库的残余等于丢失（D9） ||     含 `绝不出现的短语` = False ||     含 `43 份` = True（份数是**当场从磁盘数出来的**，不是手抄的） ||     出现 `LIMITED` 0 处（限样本跑的记录不得当放行依据） ||   `build/fake-record-含样本口径后缀.txt`　x ||     git 跟踪 = True（口径：`git ls-files --error-unmatch build/fake-record-含样本口径后缀.txt`）——不入库的残余等于丢失（D9） ||     含 `耗时` = True ||     含 `43 份` = True（份数是**当场从磁盘数出来的**，不是手抄的） ||     出现 `LIMITED` 1 处（限样本跑的记录不得当放行依据） ||   `tests/papers/reports/cli-timing.txt`　x ||     git 跟踪 = False（口径：`git ls-files --error-unmatch tests/papers/reports/cli-timing.txt`）——不入库的残余等于丢失（D9） ||     FAIL：这份记录**没入库** ||     含 `耗时` = True ||     含 `s/份` = True ||     含 `43 份` = True（份数是**当场从磁盘数出来的**，不是手抄的） ||     出现 `LIMITED` 0 处（限样本跑的记录不得当放行依据）
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 四条各自判 FAIL **且各自具名**（缺短语那条打印的是「含 `短语` = False」，后缀那条打印的是「出现 `LIMITED` N 处」——不混成一句「记录不合格」）
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+------------------------------------------------------------------------------
+[17/17] N-UTF8　（源码变异（被测对象是临时子脚本））
+  是什么：临时子脚本**吐出非 UTF-8 字节**——`decode()` 那一条：解不出来时**不吞、不替换**，直接判红（`errors='replace'` 会把「逐字转抄」变成「转抄一串替换符」，那比红更坏）
+  探针（变异在位）逐字输出：
+    OK=False
+    DERIVED_HAS_MUTANT=True
+    TEXT= || · `verify_zzmutant.py`　支持 --limit：否　退出码 0 ||   FAIL：子进程输出不是合法 UTF-8（'utf-8' codec can't decode byte 0xff in position 7: invalid start byte）——「逐字转抄」无法成立 ||   FAIL：stdout 里没有 `RESULT:` 行——汇总不得替它给结论（fail-closed） ||   FAIL：放行证据 `tests/papers/reports/zzmutant-report.txt` 不存在——这个脚本本轮没有留下任何入库产物，汇总不得据它的 stdout 给结论
+  ⇒ **红 = True**（要求：会红）
+  判定：通过　·　红 = 解码那一条**具名**报出，且派生清单真的把它从磁盘捡了进来；这一跑同时会打印另外两条 FAIL（没有 `RESULT:` 行、产物不存在），本条只断言解码那一条
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+  临时子脚本 `verify_zzmutant.py` 已删 = True
+  负例假产物已删 = True
+
+==============================================================================
+阶段 2：端到端限样本跑（**干净版**）——`python tests/papers/verify_all.py --limit 1`
+  退出码 = 0（**限样本跑可以退 0**：退出码只表示「这套判据在这套样本口径下全绿」，防误读靠的是落点与 RESULT 行的样本口径后缀，不是退出码——同 `report.py` 的既有设计。本条不拿退出码当判据）
+  落点守卫字样出现 = False（干净版**不许**出现）
+  逐字末尾 22 行：
+      2022年美赛特等奖原版论文集：PDF 44 份 · `problem_of` 取不到题号 **0** 份
+      2023年美赛O奖论文：PDF 42 份 · `problem_of` 取不到题号 **5** 份
+      2024年美赛O奖论文：PDF 35 份 · `problem_of` 取不到题号 **35** 份
+      2025美赛O奖论文：PDF 43 份 · `problem_of` 取不到题号 **0** 份
+      UMAP2000-2010年美赛特等奖优秀论文集：PDF 22 份 · `problem_of` 取不到题号 **22** 份
+      UMAP2010-2019年美赛特等奖优秀论文集：PDF 15 份 · `problem_of` 取不到题号 **15** 份
+      合计 PDF **201** 份 · 取不到题号 **77** 份 · 取得到 **124** 份（口径：本函数当场对磁盘逐份调 `io.problem_of`）
+      **结论：扩到全量 201 份的前置条件未满足**——`problem_of` 在 77 份上取不到题号（未定义口径），索引在这 77 份上跑不起来。本条**不判 FAIL**（它不是本轮范围的判据），但它**不因本汇总的 PASS 而消失**：Task 9 扩语料前必须先定题号口径（R6）。
+    
+    ==============================================================================
+    判据集规模（**派生值**，不是手抄）：8 个脚本
+    当前状态：**可放行**（范围：2025美赛O奖论文 试点 43 份）；「可放行全量 201 份」另见【6】，R6 未决项不因本行而消失
+    
+    写入：tests/papers/reports-limited/pilot-summary-limited-1.txt
+      本文件是**限样本跑**（--limit 1）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/pilot-summary.txt，只有全量跑会写它。
+    
+    放行证据完整性自检（只对限样本跑做）· tests/papers/reports/pilot-summary.txt
+      本次跑前 sha256 = cfa506fde9916c653ab8d33f3e64ec8fe5f20e7b6394d7211737c448aa11e26d
+      本次跑后 sha256 = cfa506fde9916c653ab8d33f3e64ec8fe5f20e7b6394d7211737c448aa11e26d
+      两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+    
+    RESULT: PASS (LIMITED --limit 1；样本口径由各子脚本自己决定，逐条见【2】；非放行依据)
+  放行证据 `tests/papers/reports/pilot-summary.txt` 跑前/跑后 sha256：
+    cfa506fde9916c653ab8d33f3e64ec8fe5f20e7b6394d7211737c448aa11e26d
+    cfa506fde9916c653ab8d33f3e64ec8fe5f20e7b6394d7211737c448aa11e26d　⇒ **相同 ✓**（限样本跑没碰放行证据）
+  限样本落点 `tests/papers/reports-limited/pilot-summary-limited-1.txt` 存在 = True
+
+阶段 3：端到端限样本跑（**`M-D4F` 变异在位**）——落点守卫必须红、且放行证据仍未被触碰
+  退出码 = 1（必须非 0）
+  落点守卫字样出现 = True（变异在位**必须**出现）
+  末行含 `RESULT: FAIL` = True
+  逐字末尾 22 行：
+      2024年美赛O奖论文：PDF 35 份 · `problem_of` 取不到题号 **35** 份
+      2025美赛O奖论文：PDF 43 份 · `problem_of` 取不到题号 **0** 份
+      UMAP2000-2010年美赛特等奖优秀论文集：PDF 22 份 · `problem_of` 取不到题号 **22** 份
+      UMAP2010-2019年美赛特等奖优秀论文集：PDF 15 份 · `problem_of` 取不到题号 **15** 份
+      合计 PDF **201** 份 · 取不到题号 **77** 份 · 取得到 **124** 份（口径：本函数当场对磁盘逐份调 `io.problem_of`）
+      **结论：扩到全量 201 份的前置条件未满足**——`problem_of` 在 77 份上取不到题号（未定义口径），索引在这 77 份上跑不起来。本条**不判 FAIL**（它不是本轮范围的判据），但它**不因本汇总的 PASS 而消失**：Task 9 扩语料前必须先定题号口径（R6）。
+    
+    ==============================================================================
+    判据集规模（**派生值**，不是手抄）：8 个脚本
+    当前状态：**未放行**；「可放行全量 201 份」另见【6】，R6 未决项不因本行而消失
+    
+    写入：tests/papers/reports-limited/pilot-summary-落点守卫触发.txt
+      本文件是**限样本跑**（--limit 1）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/pilot-summary.txt，只有全量跑会写它。
+    
+    放行证据完整性自检（只对限样本跑做）· tests/papers/reports/pilot-summary.txt
+      本次跑前 sha256 = cfa506fde9916c653ab8d33f3e64ec8fe5f20e7b6394d7211737c448aa11e26d
+      本次跑后 sha256 = cfa506fde9916c653ab8d33f3e64ec8fe5f20e7b6394d7211737c448aa11e26d
+      两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+    
+    RESULT: FAIL (LIMITED --limit 1；样本口径由各子脚本自己决定，逐条见【2】；非放行依据)
+    
+    [stderr] 
+  放行证据跑后 sha256 = cfa506fde9916c653ab8d33f3e64ec8fe5f20e7b6394d7211737c448aa11e26d ⇒ **与阶段 2 跑后相同 ✓**
+  还原核对：blob = a3ce3575793afd492dff8a17ff446fea44d66a5c（开工 a3ce3575793afd492dff8a17ff446fea44d66a5c）⇒ 一致 ✓
+
+==============================================================================
+总体：全部达标

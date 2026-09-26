@@ -1,0 +1,259 @@
+# 受控词表的「增长分流」表（Task 6b 阶段 2b）· **机读**
+#
+# 格式（**TAB 分隔四栏**，一行一条；`#` 注释与空行忽略）：
+#
+#     词形 \t 处置 \t 类别 \t 理由
+#
+#   * `处置` ∈ {收录, 不收, 待定}
+#   * `类别` ∈ {模型, 场景, 无法归类}
+#   * `理由` **必须以定位符开头**（见 §2），后接理由正文。**理由不得为空。**
+#
+# 判据侧（`tests/papers/verify_map.py` 的 M-10 / M-11 / M-12）读本文件的方式：
+#
+#   M-10：**本表的行集合 ⊇ 独立重算的候选集合**，且每个候选的处置合法、理由非空。
+#   M-11：每一行的**定位符成立**（逐条见 §2）。
+#   M-12：**「词形相等」的口径与「为什么不能用 `casefold`」，唯一权威在判据消息里**
+#         （`tests/papers/verify_map.py` 的 M-12 消息）；**本表只指过去**——不重述口径，
+#         也不写「本次收录了多少个词形」（那个数随编辑过期，要就当场跑判据）。
+#
+# ---------------------------------------------------------------------------
+# §1 两个来源、以及为什么有两个（**口径实测，不是选择**）
+# ---------------------------------------------------------------------------
+#
+# **来源 A（窄口径 · 85 条）**：`TAGS.md` 的 `keywords` 栏里、被**基线词表**覆盖不到的词形。
+#   口径**逐字复刻** `tests/papers/verify_ids.py` 的 I13（拆法 `[;,；，、|/]`、strip `*_ `、
+#   长度 2..40、覆盖判据 = 词边界口径的「任一变体在片内命中」）。
+#   实测：从 `TAGS.md` 独立重算得 **85** 条。
+#
+#   **那 85 条在哪、怎么复核**（**别照抄一个会变的数**）：85 是**重算的产物**，它的落点是
+#   `tests/papers/reports/ids-report.txt` —— 而那份报告由生成器重跑，**词表一长它就变**
+#   （现行的那份是 **48** 条，blob `9059586f0f57d6c24c1519df0b47255935362edc`）。
+#   ⇒ **要复核 85 条那一版**，取**历史 blob** `339178077ed9648eab459c8b0693b61e860be791`
+#   （2b 的开工基准；`git cat-file blob 339178077e…`），并与本表的 **85** 条 `kw:` 行比。
+#   复核口径：**逐条逐字（含顺序）**——实测该 blob 的 85 条候选与本表 85 条 `kw:` 行
+#   **逐字、连顺序都相同**。
+#
+# **来源 B（宽口径 · 27 条）**：同上，但参照侧取**作者 Keywords 段的续行**。
+#   **为什么必须补这一路（实测）**：`keywords` 栏是**行内截取**——`V_KEYWORDS` 的
+#   `(.*?)[*_ \t]*$` 在 `re.M` 下只吃到**行尾**，而本语料里有 **17 篇**的作者 Keywords 段
+#   **跨行**（逐篇实测见 `tests/papers/recon/coverage-recon.txt` §2）。
+#   例：`P2025-C-12`（2515235）的 md 里是
+#     `Keywords: Olympic Games; Tobit regression; Hurdle model; Great coach effect; Doubly ro-`
+#     `**bust estimator; Host country effect**`
+#   ⇒ `keywords` 栏只到 `Doubly ro-`，**`bust estimator; Host country effect` 整段不在栏里**。
+#   这两路的并集 = 本表的 **112** 行（85 + 27，无重复）。
+#
+# **本表不做的两件事（边界，必须同读）**：
+#   ① **不做语义推断**：判「这个词是不是模型名」用的是**词形本身 + 正文里可定位的整行**，
+#      不是「看起来像」。凡是判不了的，处置写 `待定` 并**写明缺什么**。
+#   ② **不收「只有正文里有、而作者的 Keywords 段里没有」的词形**：那一路的机械扫描
+#      （大写缩写 ≥3 次）实测**噪声压过信号**（213 个单篇缩写里 `A0`/`X3`/`CO2`/`UK`/`TPE`
+#      与方法名同列），逐条人工判定会产出**判断**而不是事实。该路的完整输出与定位指针登记在
+#      `tests/papers/recon/coverage-recon.txt` §4（**只登记、不收录**）。
+#
+# ---------------------------------------------------------------------------
+# §2 定位符（`理由` 的第一个字段，空格前）
+# ---------------------------------------------------------------------------
+#
+#   * `kw:<稳定 ID>`    —— 词形在该篇 **`TAGS.md` 的 `keywords` 栏**里可定位
+#                          （`taxonomy.normalize_for_locate` 口径的**空白归一化子串命中**）。
+#   * `kwseg:<稳定 ID>` —— 词形在该篇 **md 的 `Keywords` 段**里可定位。
+#                          段的切法（写死）：从 `V_KEYWORDS` 命中行的 `group(1)` 起，
+#                          逐行并入**后续行**，直到遇到：空行 / `<!-- page` / `#{1,6} ` /
+#                          `^\d+(\.\d+)*\s` / 又一处 keywords 行 / `Problem Chosen` / `Team Control`；
+#                          并入时**行与行之间只留一个空格**（不补也不删字符）。
+#                          ⇒ 断词（连字符行尾）在两路下分别得到 `Doubly ro- bust estimator`
+#                          这种形态（**带空格**），本表的词形就按这个形态写，不替作者改字。
+#
+# **为什么要有第二个定位符**（**与任务书的出入，如实登记**）：任务书 §一 产物 2 写的口径是
+# 「分流表里的每个词形**必须能在某篇论文的 `keywords` 栏里逐字找到**」。实测发现 `keywords`
+# 栏对 **17 篇有截断**（§1），若只留第一个定位符，就会把**作者确实写了**的词形判成「编造的」
+# ——那正是 M-11 要抓的**反向**误报。故加第二个定位模式，并**同时收紧**：每一行都要
+# **指名到「哪一篇」**（任务书原口径只要求在 42 篇 keywords 栏的并集里能搜到，不要求指名）。
+#
+# ---------------------------------------------------------------------------
+# §3 `类别` / `处置` 的定义（判据按这一节判，不按措辞猜）
+# ---------------------------------------------------------------------------
+#
+#   * `模型`     = **模型 / 算法 / 方法 / 数学结构**的名字（不论通行还是作者自建）。
+#   * `场景`     = **非方法**的语义词：领域 / 地点 / 赛事 / 政策语境 / 研究对象 / 物理量 /
+#                  概念框架 / 任务名。（用户 2026-09-26 定案：「场景不进模型词表」。）
+#   * `无法归类` = 既不是方法名、也不属上面那一类（断行残片、自造词、无法判定）。
+#
+#   **约束（判据 M-10 逐条判）**：`场景` ⇒ 处置**必须**是 `不收`；
+#                             `无法归类` ⇒ 处置**必须**是 `待定` 且理由写明缺什么。
+#                             `模型` ⇒ 三种处置都可能。
+#
+#   **`收录` 判据（写死，实施者按它逐条判）**：`类别=模型` **且** 该词形**可用作
+#   「这道题用了什么方法」的检索键**（即：它是名字，不是一句描述；不是只在某一篇里成立的
+#   自造缩写所指的**别的**东西）。
+#   ——这条判据的代价与边界：它**允许**收录作者自建的名字（用户 2026-09-26：
+#   「新遇到的模型/算法可以加入语料库」），但**不收**「描述性短语」（如
+#   `Exponential decay weight design.`——它描述的是一种做法，不是一个名字）。
+#
+#   **复合名（场景词 + 通用模型名）怎么判（规则，controller 2026-09-26 裁决）**：
+#     * **复合名**（**场景词 + 通用模型名**）——若**其通用模型名已在词表** ⇒ **不收**。
+#       理由：查那个通用模型名**已经命中该篇**（逐篇可在 `TAGS.md` 的 `models` 栏里验），
+#       收它**不增加检索能力**（是同一份事实的第二个落点），却会把**场景词**写进模型轴
+#       ——与上面「场景不进模型词表」的定案直接抵触。
+#     * **例外**：作者**自命名的专有**模型名、且**其通用模型名不在词表** ⇒ 按「模型」**收录**。
+#     * 判「是不是复合名」看**后半是不是一个具体的通用模型名**（如 `system dynamics`、
+#       `graph theory`），不是看它带没带 `model` 这个泛称（`Weathering Degree Model` 的
+#       「Model」不是模型名，它是作者给自建模型起的名字 ⇒ 走**例外**分支）。
+#   **这不是新精神**：本表已有两行在用它的精神 —— `dynamic feedback loops`（B-06：该篇实际
+#   用的 `system dynamics` 已在词表）与 `network`（E-01：该篇实际用的 `graph theory` /
+#   `network analysis` 已在词表）。收口轮（2026-09-26）**逐行核过全表 112 行**并按这条规则
+#   重判了一遍：**实测计数见 §5**（复合名 1 行、机械候选 16 行、按「已覆盖 ⇒ 不收」精神判的
+#   3 行、**同类不同判 0 处**）。
+#
+# ---------------------------------------------------------------------------
+# §4 词形（逐条）
+# ---------------------------------------------------------------------------
+Cybercrime	不收	场景	kw:P2025-F-02 — 领域/主题（网络犯罪），不是方法。用户 2026-09-26 定案「场景不进模型词表」；`scenario` 只作检索标签（标注文件那一轴）。
+Stair Wear	不收	场景	kw:P2025-A-02 — 研究对象（台阶磨损），不是方法。
+Sustainable Tourism	不收	场景	kw:P2025-B-02 — 领域（可持续旅游），不是方法。
+Medal Prediction	不收	场景	kw:P2025-C-02 — **任务名**（预测奖牌数），不是方法名；「要预测」这件事已由 `PROBLEM_TYPES.md` 的题型轴承担（1.2 回归/相关预测）。
+Olympic medal prediction	不收	场景	kw:P2025-C-03 — 同 `Medal Prediction`。
+Olympics	不收	场景	kw:P2025-C-04 — 赛事名。
+Sustainable tourism	不收	场景	kw:P2025-B-01 — 同 `Sustainable Tourism`。
+A* and GA	收录	模型	kw:P2025-D-01 — A* 搜索 + 遗传算法的组合（正文 p1「We used a method combining A* and GA to」、p11「Algorithm 1 A* and GA」）。**裸 `A*` 刻意不收**的口径见 `models.txt` 的注释（md 斜体标记与算法名同形）；本条是作者**整串写出**的形态，不触发那个歧义。
+Accessibility	不收	场景	kw:P2025-D-01 — 主题（可达性），不是方法。
+Agroecosystems	不收	场景	kw:P2025-E-03 — 研究对象（农业生态系统）。
+Archard	收录	模型	kw:P2025-A-01 — Archard 磨损定律（正文 p1「based on Archard's Law」、p6「Wear coefficients (also called Archard’s constant)」）。与下面三条并入**同一条词条**（规范词 `Archard Law`）。
+Archard Equation	收录	模型	kw:P2025-A-05 — 同上词条的变体（正文 p2「Model I: Daily foot traffic model based on the Archard equation」）。
+Archard Law	收录	模型	kw:P2025-A-03 — 同上词条，**本条作规范词**。
+Archard’s theory	收录	模型	kw:P2025-A-04 — 同上词条的变体（正文 p1「Sub-model i, grounded in Archard’s theory and PDEs」）。
+Athlete Potential Index	不收	模型	kw:P2025-C-07 — 它是**评价指标**不是方法（正文 p4 有定义块「**Athlete Potential Index(API)**」）。本表的两条推理轴是「数学任务 × 数据形态」，指标名不在轴内；且它是**该篇自建**的指标。**登记为后选项**：若将来要为「自建指标体系」建轴，再收。
+Baltimore	不收	场景	kw:P2025-D-04 — 地点。
+COMAP Model	收录	模型	kw:P2025-E-02 — 作者自建的最优化模型（正文 p21「Definition 2: The COMAP model is defined as a concave model, ensuring strong duality」）。按用户「新遇到的模型/算法可以加入语料库」收录。
+CVM	收录	模型	kw:P2025-B-01 — Contingent Valuation Method（条件价值评估法；正文 p1「gramming Model based on Contingent Valuation Method(CVM) and Particle Swarm」）。**只收作者写出的 `CVM` 这一形态**：展开式 `Contingent Valuation Method` 不在作者的 Keywords 段里，按 M-11 的定位口径不放行（见 §4 末的「后选项」）。
+Central Limit Theorem	收录	模型	kw:P2025-A-03 — 中心极限定理（数学结构；正文 p9「According to the Central Limit Theorem, when the」）。
+Cox	收录	模型	kw:P2025-C-11 — 并入**既有**词条 `Cox proportional hazards`（正文 p1「We employed the Cox Proportional Hazard Model」）。新增的只是 `Cox` 这个变体形态。
+Cox TVPH	收录	模型	kw:P2025-F-01 — Cox 时变比例风险（time-varying proportional hazards），并入上面那条既有词条。
+Cybersecurity	不收	场景	kw:P2025-F-05 — 领域。
+Cybersecurity Policy	不收	场景	kw:P2025-F-02 — 政策语境。
+Depth Estimation	不收	模型	kw:P2025-A-05 — 正文 p6 的完整形态是「Depth Measurement of Stairs with Monocular Depth Estimation」⇒ 通行名是 **Monocular Depth Estimation**；`Depth Estimation` 是它的**截短**，收它会让词表命中任何 `depth estimation` 短语而与作者本意（单目深度估计）不符。**登记为后选项**：将来若要收，须收 `Monocular Depth Estimation`——而那个形态不在作者的 Keywords 段里，本轮不放行。
+Doubly ro-	不收	模型	kw:P2025-C-12 — **关键词行的断词伪影**。原文逐字：`Keywords: Olympic Games; Tobit regression; Hurdle model; Great coach effect; Doubly ro-`（md 下一行是 `**bust estimator; Host country effect**`）⇒ 作者原意是 **`Doubly robust estimator`**（通行因果推断方法）。**不收**的理由：收录它必须往词表塞一个**跨行拼合**出来的形态，而拼合是**推断**不是事实（本表与 M-11 要求词形逐字可定位）。**登记为后选项（第二优先）**。
+Eco-Agriculture	不收	场景	kw:P2025-E-02 — 领域（生态农业；正文 p1 是标题「Symphony of Eco-Agriculture:」）。
+Event Potential Index	不收	模型	kw:P2025-C-07 — 同 `Athlete Potential Index`（自建评价指标；正文 p1「we introduce the Event Potential Index (EPI) to quantify」）。**登记为后选项**。
+FATE Model	收录	模型	kw:P2025-E-02 — 作者自建模型（正文 p10「In summary, the FATE model integrates these equations to simulate the coupled dynamics」）。
+Fatigue Damage	不收	场景	kw:P2025-A-02 — 物理量/机理现象（疲劳损伤），不是方法名。
+Five Elements Theory	不收	场景	kw:P2025-F-02 — 概念框架（五行学说，正文 p2 有小节「5.1 Introduction of Five Elements Theory」），**不是数学方法**。
+Food web model	收录	模型	kw:P2025-E-01 — 食物网模型（正文 p5「food web model that incorporates decomposers and soil components」）。
+GRI Algo-	不收	模型	kw:P2025-C-18 — **关键词行的断词伪影**。原文逐字：`Zero-Inflated Negative Binomial Regression; Association Rules; GRI Algo-`（md 下一行是 `rithm; Mixed-effects Model; Prediction of the LA Olympics.`）⇒ 原形 `GRI Algorithm`。正文 p14「Association analysis can be conducted using various algorithms, with the GRI algorithm and the Apriori algorithm being among the most prevalent」**全篇未展开 GRI 是什么**。**不收**的理由同 `Doubly ro-`（跨行拼合 = 推断）。**登记为后选项（第三优先）**。
+GSRF	收录	模型	kw:P2025-C-05 — 作者自建缩写，正文 p1 给了展开：「we developed a Grid-Search Random Forest (GSRF) prediction model」。
+Gaussian Distribution	收录	模型	kw:P2025-A-02 — 正态分布（数学结构；正文 p13「step on the stair follows 2-dimensional jointly Gaussian distribution」）。
+Gaussian Mixture Algorithm	收录	模型	kw:P2025-A-03 — 高斯混合算法（正文 p1 用它做磨损分布的边缘分布）。
+Great Coach Effect	不收	场景	kw:P2025-C-16 — 主题变量（「名帅效应」），不是方法。
+Great coach effect	不收	场景	kw:P2025-C-12 — 同上（作者的大小写变体）。
+Hurdle	收录	模型	kw:P2025-C-02 — 并入**既有**词条 `hurdle model`（正文 p1「this paper proposes a Hurdle-Tobit fusion model framework」）。
+Juneau	不收	场景	kw:P2025-B-05 — 地点。
+KDMF	收录	模型	kw:P2025-F-03 — 作者自建模型（正文 p1「the KDMF model, consisting of three sub-models, to achieve this goal」，p4「Our work mainly includes developing the KDMF model」）。
+LR-SCAD Model	收录	模型	kw:P2025-C-16 — 作者自建模型（正文 p18「the LR-SCAD model[7].」；p18 另有「The goal of the LR-SCAD model is to select key independent variables that affect the medal count」）。**登记为一处不确定**：通行名是 `SCAD`（惩罚回归），作者用的是自造缩写。
+Log-	不收	模型	kw:P2025-F-05 — **关键词行的断词伪影**。原文逐字：`Cybersecurity; Hierarchical Interaction Scoring Regression Model; Log-`（md 下一行是 `Enhanced Quadratic Regression Model`）⇒ 原形 `Log-Enhanced Quadratic Regression Model`（正文 p1 逐字出现该全名，且给了缩写 `(LEQR)`）。**不收**的理由同 `Doubly ro-`。**登记为后选项（第四优先）**。
+Lunger-	不收	模型	kw:P2025-E-03 — **关键词行的断词伪影 + 笔误**。原文逐字：`Agroecosystems; Organic agriculture; Lotka-Volterra; Petri-Food Web model; Lunger-`（md 下一行是 `Kutta algorithm`）。**正文实证它是笔误**：同篇 p12 两处写作 `←Runge-Kutta Method(...)`。⇒ 作者的写法是笔误，收录会**固化笔误**；而正确形态 `Runge-Kutta` 不在作者的 Keywords 段里，按 M-11 不放行。**登记为后选项（第一优先：`Runge-Kutta` 是通行数值解法，检索价值高）**。
+MIC	收录	模型	kw:P2025-F-03 — 最大信息系数（正文 p1 给了展开：「we used the Maximal Information Coefficient (MIC) method and factor analysis」）。**只收 `MIC` 这一形态**（展开式不在 Keywords 段里）。
+Management Measures	不收	场景	kw:P2025-B-02 — 措施/政策语境。
+Medal predictions	不收	场景	kw:P2025-C-08 — 同 `Medal Prediction`。
+Mixed-	不收	模型	kw:P2025-C-10 — **关键词行的断词伪影**。原文逐字：`Bayesian entropy analysis, Zero-inflated negative binomial regression, Mixed-`（md 下一行是 `effect negative binomial regression, Laplace smoothing, ...`）⇒ 原形 `Mixed-effect negative binomial regression`（正文 p1「We constructed a mixed-effect negative binomial regression model」、p6 小节标题「**Mixed-Effects Negative Binomial Model**」）。**不收**的理由同 `Doubly ro-`。**登记为后选项（第五优先）**。注：本表的宽口径行 `Mixed-effects Model`（来自另一篇）是**另一件事**，已收录。
+Mont Carlo method	收录	模型	kw:P2025-A-01 — 并入**既有**词条 `Monte Carlo`（作者把 Monte 拼成 Mont）。
+Multi - objective optimization	收录	模型	kw:P2025-B-05 — 并入**既有**词条 `multi-objective optimization`（连字符两侧带空格的写法变体）。
+Multi-Objective Model	收录	模型	kw:P2025-B-04 — 并入同一个既有词条。
+Multi-layer network model	收录	模型	kw:P2025-D-04 — 多层网络结构（作者命名；正文 p1「The proposed multi-layer network model exhibited strong robustness and stability」）。**本条作规范词**（展开形态 `multilayer network` 不在作者的 Keywords 段里，按 M-11 不放行）。
+Multi-objective Planning Model	收录	模型	kw:P2025-B-02 — 并入 `multi-objective optimization` 那条既有词条。
+NSGA - II	收录	模型	kw:P2025-B-05 — 并入**既有**词条 `NSGA-II`（连字符两侧带空格的写法变体）。
+Olympic	不收	场景	kw:P2025-C-05 — 赛事名。
+Olympic Games	不收	场景	kw:P2025-C-12 — 赛事名。
+Olympic Medal Predic-	不收	场景	kw:P2025-C-06 — 赛事名 + **关键词行的断词伪影**（原形 `Olympic Medal Prediction`）。两类理由都指向不收，无需后选项（`PROBLEM_TYPES.md` 已承担「预测」这一轴）。
+Organic agriculture	不收	场景	kw:P2025-E-03 — 领域/生产方式。
+Overtourism	不收	场景	kw:P2025-B-03 — 主题（过度旅游）。
+Pareto	收录	模型	kw:P2025-B-02 — Pareto 最优（多目标优化的解概念；正文 p1「we determine the global Pareto-optimal solution」）。**本条作规范词**，`Pareto Optimization`（宽口径行）作它的变体。
+Petri-Food Web model	收录	模型	kw:P2025-E-03 — 作者自建的复合模型（Petri 网 × 食物网）。**登记为一处不确定**：它是该篇自建的名字，跨题复用价值待观察。
+Policy	不收	场景	kw:P2025-F-03 — 政策语境。
+Policy effectiveness	不收	场景	kw:P2025-F-04 — 政策语境。
+Posterior inference	收录	模型	kw:P2025-C-09 — 贝叶斯后验推断（通行步骤名；正文 p1「based posterior inference provides 95% credible intervals」）。
+Prediction Model	不收	场景	kw:P2025-C-01 — **任务名**（「预测模型」），不是具体方法；「要预测」已由题型轴承担。
+Residual Analysis	收录	模型	kw:P2025-C-16 — 残差分析（通行方法名；正文 p1「we performed residual analysis to find evidence of how coaches influence athletes’」）。
+SIS model	收录	模型	kw:P2025-B-03 — SIS 传染病模型（正文 p1「SIS model, we developed the Sustainable Tourism Dynamics Model (STDM)」）。既有词表有 `SIR`/`SEIR` 而无 `SIS`。
+Sensitivity	收录	模型	kw:P2025-B-07 — 并入**既有**词条 `sensitivity analysis`（作者在 Keywords 里的截短写法；正文 p18 有小节「6 Sensitivity Analysis」）。**登记为口径边界**：`Sensitivity` 是裸词，收录后任何 `Sensitivity` 字样都会命中该词条（实测影响面见 `coverage-recon.txt` §5）。
+Stakeholder	不收	场景	kw:P2025-D-01 — 主题（利益相关者）。
+Sustainable Tourism Dynamic Model	不收	模型	kw:P2025-B-03 — **复合名（场景词 `sustainable tourism` + 通用模型名 `system dynamics`）**（正文 p1 给了展开：`Sustainable Tourism Dynamics Model (STDM)`）。**其通用模型名 `system dynamics` 已在词表**（`models.txt` `:94` = `system dynamics | 系统动力学`），且该篇的 `models` 栏**已经**含它（`TAGS.md` 一层 `P2025-B-03 | 2025 | B | …` 那行的 `models` 栏逐字含 `system dynamics`）⇒ 按 §3 的复合名规则**不收**：收它**不增加检索能力**（查 `system dynamics` 已命中该篇），却会把**场景词**写进模型轴（用户 2026-09-26 定案「场景不进模型词表」）。
+Threshold Method	收录	模型	kw:P2025-C-11 — 作者自建方法（正文 p1「We developed a Threshold Method, filtering first-」、p19 小节标题「**Threshold Method**」）。
+Traffic Flow Optimization	不收	场景	kw:P2025-D-03 — **任务名**（交通流优化），不是具体方法。
+TrueSkill	收录	模型	kw:P2025-C-16 — TrueSkill 贝叶斯排序（正文 p1「the TrueSkill model is used to evaluate a country’s performance」、p2 小节「TrueSkill Sports Performance Evaluation Model」）。
+Uncertainty	不收	场景	kw:P2025-C-09 — 主题词。
+VBGMM	收录	模型	kw:P2025-F-01 — 变分贝叶斯高斯混合模型（正文 p7「a VBGMM model is established to cluster countries」「VBGMM is good at processing high-dimensional data」）。
+Wear depth	不收	场景	kw:P2025-A-01 — 物理量。
+Weathering Degree Model	收录	模型	kw:P2025-A-05 — 作者自建模型（正文 p21「Using weathering degree model, the construction age t0 can then be estimated using:」、p22「Weathering Degree Models respectively」）。
+dynamic feedback loops	不收	场景	kw:P2025-B-06 — **结构描述**（动态反馈回路），不是命名的方法；该篇实际用的方法 `system dynamics` **已在词表里**。
+ecosystem modeling	不收	场景	kw:P2025-E-04 — 领域/任务。
+great	不收	场景	kw:P2025-C-14 — **关键词行的断行残片**：该行以 `...Cox-Monte Carlo;great` 结束，下一行是 `coach effect;spatio-temporal modeling;...` ⇒ 它属于 `great coach effect`（**场景**，见本表 `great coach effect` 行）。残片本身不构成词形；类别按它所属的完整短语判。
+logistics growth model	不收	模型	kw:P2025-B-06 — **疑似笔误**：通行名是 `logistic growth model`（正文同篇只出现 `logistics growth model` 这一形态，故无法用正文证伪）。不收录的理由：收它会把笔误固化成词表词条；而正确形态 `logistic growth model` 不在作者的 Keywords 段里，按 M-11 不放行。**登记为后选项（第六优先）**。
+medal prediction	不收	场景	kw:P2025-C-15 — 同 `Medal Prediction`。
+multi-type Holling responses	收录	模型	kw:P2025-E-04 — Holling 功能反应（生态动力学通行概念；正文 p4「among which Lotka-Volterra model and Holling model are more prominent」，p1 逐条列出 Holling Type I–IV）。
+network	不收	场景	kw:P2025-E-01 — 太泛（研究对象）；该篇实际用的 `graph theory` / `network analysis` 已在词表里。
+three-layer bus network model	收录	模型	kw:P2025-D-04 — 作者自建模型（正文 p2「Three-layer Bus Network Model (TBN)」、p13 小节标题「## Three-layer Bus Network Model (TBN)」）。
+“great coach” effect	不收	场景	kw:P2025-C-15 — 主题变量（带弯引号的写法）。
+Causal Inference	收录	模型	kwseg:P2025-F-02 — 因果推断（通行方法论名；正文 p1「Causal Inference; Network Analysis」）。来源 B（Keywords 段续行）。
+Convex Reformulation	收录	模型	kwseg:P2025-E-02 — 凸重构（通行优化手段；正文 p1「by using the Convex Reformulation Method to trade-off the ecological benefits (biodiversity」）。来源 B。
+Credible Intervals	收录	模型	kwseg:P2025-C-09 — 可信区间（贝叶斯统计结构；正文 p1「provides 95% credible intervals」）。来源 B。
+Exponential decay weight design.	不收	模型	kwseg:P2025-C-10 — **描述性短语**（带句点），不是名字（正文 p6「Exponential decay weight for historical data (default λ = 0.6)」——它描述的是一种权重构造做法）。按 §3 的收录判据（必须是名字）不收。
+GRI Algo- rithm	不收	模型	kwseg:P2025-C-18 — **跨行拼合伪影**（见窄口径 `GRI Algo-` 行）。`Algo-` 与 `rithm` 之间是**行断开**、不是空格，拼合出来的形态是推断。
+Intervention Strategies	不收	场景	kwseg:P2025-B-03 — 措施/策略。
+L-BFGS-B algorithm	收录	模型	kwseg:P2025-B-06 — 通行数值优化算法（正文 p1「Using the L-BFGS-B algorithm, we de-」、p16「constraints (L-BFGS-B) algorithm」）。来源 B。
+Laplace smoothing	收录	模型	kwseg:P2025-C-10 — 通行平滑方法（正文 p1「By introducing the Laplace smoothing technique to recon-」）。来源 B。
+Log- Enhanced Quadratic Regression Model	不收	模型	kwseg:P2025-F-05 — **跨行拼合伪影**（见窄口径 `Log-` 行）。真正的形态是 `Log-Enhanced Quadratic Regression Model`（正文 p1 逐字），而拼合出来的 `Log- Enhanced ...` 带一个**作者没写的空格**。
+Lunger- Kutta algorithm	不收	模型	kwseg:P2025-E-03 — **跨行拼合伪影 + 笔误**（见窄口径 `Lunger-` 行）。
+Mixed-effects Model	收录	模型	kwseg:P2025-C-18 — 通行统计模型名（正文 p25「Mixed-effects models are highly effective for assessing significant differ-」）。来源 B。**与窄口径的 `Mixed-` 不是同一件事**：本行来自另一篇（2524070）的续行，形态完整。
+Pareto Optimization	收录	模型	kwseg:P2025-B-02 — 并入新增词条 `Pareto`（正文 p1 标题「## Overload Alarm: Pareto Optimization of the」）。来源 B。
+Prediction of the LA Olympics.	不收	场景	kwseg:P2025-C-18 — **任务/场景短语**（带句点），不是方法名。
+Regression Analysis	收录	模型	kwseg:P2025-C-09 — 通行方法名。来源 B。**登记为口径边界**：`Regression Analysis` 是较宽的词，收录后命中面会变广（实测影响面见 `coverage-recon.txt` §5）。
+SLSQP	收录	模型	kwseg:P2025-B-02 — 通行数值优化算法（Sequential Least Squares Programming；正文 p1「Using the SLSQP method, we determine the global Pareto-optimal solution」）。来源 B。
+Uncertainty Quantification	收录	模型	kwseg:P2025-C-09 — 通行方法名（不确定性量化）。来源 B。
+dynamic regulation	不收	场景	kwseg:P2025-B-06 — 主题（动态调控）。
+economic balance	不收	场景	kwseg:P2025-B-06 — 主题。
+economics	不收	场景	kwseg:P2025-C-14 — 领域。
+environmental protection	不收	场景	kwseg:P2025-B-06 — 主题。
+great coach effect	不收	场景	kwseg:P2025-C-14 — 主题变量。
+parameter optimization.	不收	模型	kwseg:P2025-E-04 — **描述性短语**（带句点），不是名字（正文里是「参数寻优」这件事）。
+regenerative agriculture	不收	场景	kwseg:P2025-E-04 — 领域。
+social welfare	不收	场景	kwseg:P2025-B-06 — 主题。
+spatio-temporal modeling	收录	模型	kwseg:P2025-C-14 — 通行建模方法名（时空建模）。来源 B。
+species reintroduction	不收	场景	kwseg:P2025-E-04 — 主题（物种再引入）。
+sustainable tourism	不收	场景	kwseg:P2025-B-06 — 领域。
+
+# ---------------------------------------------------------------------------
+# §5 复合名普查（2026-09-26 收口轮；**逐行核过全表 112 行**，计数在这里）
+# ---------------------------------------------------------------------------
+#
+# **查什么**：§3 那条「复合名（场景词 + 通用模型名）」规则**有没有在表内被一致执行**。
+# 起因是复审员指出：`dynamic feedback loops`（B-06）与 `network`（E-01）**已经在用它的精神**
+# （「该篇实际用的方法已在词表 ⇒ 不收」），只有 `Sustainable Tourism Dynamic Model` 那行没照它写。
+#
+# **机械筛查的口径（可复核）**：对每一行的词形 R，看它是否**含本表另一行判 `场景` 的词形 S**
+# （`casefold` 子串、S 长度 ≥4）——这是「场景词 + 别的东西」的机械形态。**实测 16 行命中**。
+# 这 16 行逐行看过之后：
+#
+#   * **真复合名 = 1 行**：`Sustainable Tourism Dynamic Model`（场景词 `sustainable tourism`
+#     + 通用模型名 `system dynamics`；后者**已在词表**且 P2025-B-03 的 `models` 栏已含它）
+#     ⇒ 按规则 `不收`（本轮已把该行的理由改成这条规则，见 §4）。
+#   * **12 行是场景短语互相包含**（`Olympics` · `Olympic medal prediction` · `Olympic Games` ·
+#     `Olympic Medal Predic-` · `Medal predictions` · `Prediction of the LA Olympics.` ·
+#     `Cybersecurity Policy` · `Policy effectiveness` · `Great Coach Effect` ·
+#     `Great coach effect` · `great coach effect` · `“great coach” effect`）：整串仍是**场景**，
+#     **不涉及模型轴** ⇒ 与本规则无关（12 行全部 `不收`，与「`场景` ⇒ 必须 `不收`」一致）。
+#   * **3 行是机械误命中**（`Multi-layer network model` · `three-layer bus network model` ·
+#     `Uncertainty Quantification`）：命中的子串（`network` / `Uncertainty`）**在这一行里是
+#     名字的一部分、不是场景词**。前两行是**作者自命名**、通用形态（`multilayer network` /
+#     `bus network model`）**不在词表** ⇒ 走**例外**分支 `收录`；`Uncertainty Quantification`
+#     整串是通行方法名 ⇒ `收录`。三条都按规则判得出原处置。
+#   * 用「**该篇实际用的方法已在词表 ⇒ 不收**」这条精神判的行 = **3** 行
+#     （`dynamic feedback loops` · `network` · `Sustainable Tourism Dynamic Model`）。
+#
+# **同类不同判 = 0 处**（除上面那 1 行已改正的，其余 111 行按同一规则判都得出原处置）。
+#
+# **相邻形态 1 处（规则未覆盖，如实登记、本轮不改处置）**：`Petri-Food Web model`（E-03）是
+# **模型名 × 模型名**的复合（`Petri net` 与 `Food web model` 都在词表里），**不是**「场景词 +
+# 通用模型名」⇒ 本规则不覆盖它。按「不增加检索能力」的字面逻辑它会落到 `不收`，但那样要
+# **动词表**（它是 `收录` 行）并改写召回数 ⇒ 超出本次收口的授权面。**处置保持 `收录`**，
+# 它的理由里已经登记了「作者自建的复合模型 + 跨题复用价值待观察」这处不确定。

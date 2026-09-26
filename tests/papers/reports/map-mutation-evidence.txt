@@ -1,0 +1,3068 @@
+# Task 6b 阶段 2a · 变异证据：`problem_type` 栏（I10-a…g）与配对表（M-1…M-8）的每一条变异都真的会红
+
+日期：2026-09-26　·　被测实现：`tools/papers/index.py`（生成器）、`tools/papers/model_map.py`；被测产物：`corpus/papers/MODEL_MAP.md`、`corpus/papers/TAGS.md`　·　判据脚本：`tests/papers/verify_ids.py`、`tests/papers/verify_map.py`。
+
+**驱动器**：`build/map_mutdrive.py`（`build/` 是 git 忽略的暂存区，驱动器本身不入库；它写出的本文件入库）。
+**命令**：`python build/map_mutdrive.py` → 内部逐条跑判据脚本（每条自己的 `--limit` 口径写在它那一节里）。**对照（变体 0）两个脚本各跑一次**。
+
+## 证据块的取法（**这一句必须成立**）
+
+每条变异下面是判据脚本的 **stdout 全文**，**不截尾**（差额明细很长，但「登记差额必须逐条看得见」是不可截项）。**只滤掉两类行**：`^MuPDF error` 开头的（MuPDF 的 C 层噪声，**实测走 stdout**、不是 stderr）与空行。其余一字不动。
+
+每条变异下面还有**驱动器的断言结果**（不是『我认为它会红』）：`EXIT != 0` 且输出含 `RESULT: FAIL` 且该条的判据 FAIL 标记**逐字出现**；对照必须 `EXIT == 0`、含 `RESULT: PASS`、且**不含**任何 `=FAIL`。
+
+## 覆盖边界（**这条也要如实说**）
+
+本轮 **20** 条变异覆盖：`problem_type` 栏的七条判据（`I10`+`I10-a` V13 · `I10-b` V7 · `I10-c` V8a · `I10-d` V8b · `I10-e` V6 · `I10-f` V14 · `I10-g` V15）与配对表的全部判据（`M-1` V9/V10 · `M-1-b` V12 · `M-2` V11 · `M-3` V1/V2 · `M-4` V3 · `M-5` V4 · `M-6` V5a/V5b · `M-7` V17（产物侧）· `M-8` V16（生成器侧））。
+
+**未覆盖**（登记在这里而不是假装没有）：
+
+* `I10-h` / `I10-i`（`亮点` 全空与头部标级、奖项注记）**沿用 Task 6 的判据内容、编号顺延**，本轮**没有为它们新增变异**——它们在 Task 6 的变异集里同样未被单独变异（那两条是「范围声明」型判据，改坏它需要先改 `_write_index` 的整段）。
+* `M-7` **有**两条独立的红路：`V1`（删掉一个对 ⇒ 桶的对数与指针条数不符）与 `V17`（手工改末列的篇数 ⇒ 那一列与指针里数出来的不等）。`M-8` 由 `V1`…`V17` 里所有**产物侧**手工改动一并证红（字节与生成器重跑的不等），`V16` 反过来证明**生成器侧**的错误由 `M-8` 兜。
+* **本轮的靶子分层要读准**：判据读**入库产物**，`M-8` 比**产物 vs 生成器重跑**。故「产物被改」红 M-3…M-7、「生成器算错」红 M-8——两侧各有一条变异。
+
+## ★ 本轮实测踩到的一个「验证层自己假绿」新形态：**陈旧字节码**（已修，留档）
+
+**现象**：驱动器跑到第二轮时，**对照跑（变体 0）自己红了**——`verify_map.py` 的 `M-8=FAIL`（`model_map.build()` 重跑出来的产物与入库产物不等，且差值恰好是桶表末列篇数的**两倍**）。
+
+**根因**：上一轮里有一条变异把 `model_map.py` 的 `cnt[m] = cnt.get(m, 0) + 1` 改成 `+ 2`（**字节数完全相同**），跑完又按原始字节还原。而 CPython 的 `.pyc` 失效判据是「源文件 **mtime（整数秒）** + 字节数」——两次动作落在**同一秒**且字节数不变 ⇒ **还原之后的进程仍然加载那一版被改坏的字节码**。
+
+**为什么这条要紧**：它是本项目「验证层自己假绿」家族的**新一例**——不是恒真、而是**陈旧**；受害的是「我改回来了」这个动作本身：磁盘上确实改回来了，**跑起来的那份不是**。
+
+**修法（本文件已实现）**：① 每次跑判据前清掉仓库内的 `__pycache__`（`purge_pycache()`，逐条记录清理了什么）；② 子进程一律带 `PYTHONDONTWRITEBYTECODE=1`，**根本不再写 `.pyc`**。
+
+**对已入库的放行证据的影响（如实交代）**：入库的 `ids-report.txt` / `map-report.txt` / `TAGS.md` / `MODEL_MAP.md` 都用**清空 `__pycache__` 之后的干净全量跑**重出并逐字节比对过（见 `recon/map-recon.txt` §9 的 blob 表）——**陈旧字节码不会让判据假绿**，它只会让「本该绿的那一跑」红（`M-8` 会当场说出来），故它的实际代价是**误导与返工**，而不是「没验出来」。
+
+## 对照（变体 0）· `tests/papers/verify_ids.py --limit 3`
+
+* 退出码 = 0（要求 0）
+* 含 `RESULT: PASS` = True（要求 True）
+* 不含任何 `=FAIL` 标记 = True（要求 True；实际命中 []）
+* **对照通过 = True**
+
+对照跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 5/43 份**（--limit 3 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2501687 2522820
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+I1=OK
+    PROVENANCE 双射表 5 行 · 磁盘样本 5 份 · 重复 ID 无 · 重复词干 无 · 解析失败 无
+    只在磁盘不在表 无 · 只在表不在磁盘 无（**两边都要空**：单边为空只是缺，不是双射）
+    **「往返恒真」那一版已被换掉**：`parse∘stable_id` 只要两边用同一个合集名就恒真（计划草稿的三条判据无一能失败）。这里的判据是**双射**：ID↔词干两向单值互逆、且并集 == 磁盘 PDF 集合（用磁盘与 `problem_of` 独立数出来的）。
+I1-b=OK
+    逐篇重算的稳定 ID 与产物不等：无（重算 = 按磁盘字典序 + 逐题号到达顺序，**不是**把 ID 拆开再拼回去）
+I1-c=OK
+    「年」与词干前两位的一致性：覆盖 5/5 份（只对 7 位数字词干起作用，覆盖不到的数量已写明）；不一致 无
+I2=OK
+    n_entries=5 == 唯一 ID=5 == TAGS 一层行数=5 == INDEX 表行数=5 == PROVENANCE 行数=5 == 磁盘 PDF（样本）=5 == md 文件（样本）=5
+    **双边等式，不是单边下界**（约束 5）：每一对都得相等，任一处漏一篇都会红。
+    **产物落点**：`IndexResult` 报告的 index/tags/prov 三路径 == 本脚本读的三份 = True——判据读的必须是**这一次**写出来的那一份。
+I2-b=OK
+    TAGS 二层篇数 5 + 三层篇数 0 = 5（**必须 == 5**）；二层 ∩ 三层 = 空；两层并集 == 一层 ID 集 = True（**每篇恰好进一层、且没有一篇落在两层之外**）
+I3=OK
+    逐份**逐字逐条**相等：合计 **211** 条 == md `## ` 行（样本内）；差额 0 条、未解释 0 条
+    `sections` 取 **md `## ` 标题行逐字**（`;` 连接、去 `## ` 前缀）：本语料把「号」与「题」常分两行排（实测「只有编号」574 条 + 「编号带题」494 条 = 1068 条），本任务**不做号/题合并那一类推断**（那是把推断写进事实栏）。
+I4=OK
+    逐篇与「标题行」口径重算值**逐栏相等**（样本 5 份）
+    **口径不是全文子串**：全文口径下 Contents 42/43、Assumptions 43/43、Notation 40/43、Sensitivity 38/43——前四列近乎恒真。`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有（`docs/mcm-suite-lessons.md` §4.1）。
+I4-c=OK
+    **零区分力登记**（一边占比 > 90%）：['has_contents', 'has_assumptions']
+    TAGS 头部的登记行：* **零区分力登记**（一边占比 > 90%）：has_contents=5/5 · has_assumptions=5/5 —— 这几栏在本语料上**区分力低**，**不因为它们算得出来就当判据用**。逐栏分布见 `tests/papers/reports/ids-report.txt`。
+    **为什么要有这条**：近乎恒真的栏不是判据；留着它就必须**写明它零区分力**，否则下一个人会拿它当证据（`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有，见 `docs/mcm-suite-lessons.md` §4.1）。
+    **判据形状要是「登记行具名的集合 == 自己算出的集合」**：写成「文件里出现过 `has_contents` 这个词」是**恒真**的——那个名字本身就在一层字段序里。
+I5=OK
+    逐篇与 md 重算值相等；**无该行留空**的格数 1 == 独立重算的 1（样本 5 份）
+    三种口径命中数（样本 5）：**宽口径**（带 `re.M` + 允许行首 md 标记）4 · 计划草稿正则**加** `re.M` 2 · 计划草稿正则**不加** `re.M` 0
+    **口径偏离要说清**：任务书 §六 第 8 条给的是「带 `re.M` → 27/43」。本判据用的是**更宽的**口径：43 份里 14 份写成 `**Keywords: …**`、1 份写成 `## Keywords: …`，只认裸行的正则**看不见它们**——照抄 27/43 会把 15 份**确实有** Keywords 行的论文登记成「无该行」，那是**假陈述**（约束 8）。实测 0 / 27 / 42（逐份原文见 `recon/ids-recon.txt` §4b）；**全批唯一真的没有 Keywords 行的是 `2522820`**。
+I6=OK
+    逐篇与放行证据**逐数相等**（样本 5 份）：`n_figures`/`n_tables` 读 `tests/papers/reports/c-report.txt` 的 `C1 图注=N (图F/表T)`、`n_equations` 读 `tests/papers/reports/d-report.txt` 的 `检出=N`——**不重算**
+    **语义**：这是**图注/编号条数**，**不是**产出 PNG 张数（C1 里 产出=908 而 图注=935）。自己重算的口径实测得 **597/212**，与 C1 的 **682/253** 逐份 11 篇不等——所以这一栏必须**读回**（spec §6「同一份事实不在两处各算一次」）。
+    **「不适用」的两种情形分开了**：放行证据文件不存在 → `index.read_release_*` **抛错**；证据里没有这一篇 → 也**抛错**（这里是硬失败，不记「不适用」）。**没有任何一条路径**把「阶段 4 没跑过」记成「这篇真没有公式」。
+  放行证据解析（报告量）：c-report 逐篇行 43 条 · d-report 逐篇行 43 条 · 样本内缺登记 无 / 无
+I6-b=OK
+    **双边等式**：产物 `n_pages` == **原件** `page_count`（逐篇，样本 5 份）——原件是这一栏**唯一的权威**（不存在「别处已经算过一次」的产物，故不违反 spec §6）
+    **第二条独立路径**（同一条 `add` 里）：逐篇 md 的 `<!-- page N -->` **锚条数** == 原件 `page_count`（一条数 md 的锚、一条开原件数页）
+    **为什么这一栏原先没有判据**：老版本把这两句**算出来的布尔只 `lines.append` 打印**——既不并进 `ok`、也不比产物的 `n_pages` 栏（比的是 `ref` 的 md 锚数 vs PDF 页数，**从不碰产物**）。一句 fail-open 的打印被当成了「`n_pages` 的独立参照」（本项目「判据在什么都没验的情况下报绿」家族的形态）。现在两句都在条件里。
+    **I7 的页码判据不能替代它**：I7 的两边**都从 md 数页**，md 页锚缺失时两边同时得 `p0` → **绿着过**；只有这一条拿**原件**当参照。
+I7=OK
+    指针逐条可定位：**30** 条（词 + md 文件 + 页码 + 片段）
+    每条都满足（**六条都查**）：①二层小标题的 `md:` 指针 == 该篇真实的 md 仓库相对路径 ②片段是该篇 md 的**一整行逐字** ③该行**含该词**（词边界下）④页码 == 该行在 md 里自己的页（由 `<!-- page N -->` 锚数出）⑤`xN` == 本脚本**独立重算**的出现次数 ⑥是该词的**首次出现**
+    **不是「全文偏移」**：计划草稿的指针是「该词在全文文本中的字符位置」——那个位置在**任何入库产物里都不可定位**（md 是重排产物、没有稳定偏移），「可据此复核」是**假陈述**。现在指针是**整行逐字**，`grep -F` 就能核。
+    **强度边界**：它验证的是「指针指得回 md 的那一行」，**不是**「这一行里的词就是这篇论文的模型」。后者是判断，不在本任务范围（词表命中的语义边界写在 TAGS 头部）。
+I7-b=OK
+    三层（零命中篇）0 == 独立重算的零命中篇数 0；二层 5 == 样本 − 零命中 = 5
+I8=OK
+    逐篇 `产物题号` vs `论文自报题号`（摘要页 `Problem Chosen` 一类）：**一致 5 份 · 不符 0 份 · 未验证 0 份**
+    **三态逐态真报**（**「没有该栏」≠「有但读不出」≠「读出来与目录不符」**）：没有该栏 0 份  · 有但读不出 0 份  · 不符 0 份
+    **为什么要拆三态**：`v_problem` 对「没有该栏」与「有栏但读不出」**同样返回 `None`**，原先两态**混进同一个计数**、再由判据**印死「没有该栏 0 份」**——那个 0 在当前语料下恰好为真（侦察侧 `ids-recon-scan.py` 确实分了三态），但**判据自己不测** ⇒ 语料一变这行就静默说谎（约束 4 + 约束 8）。现在 `n_none`/`n_unreadable` 由 `v_problem_field_present(text)` 当场分开。
+    **「有栏但读不出」= 硬失败**（判断与理由）：约束 4 要求「参照**存在**但没解析出来」判硬失败，「参照**不存在**」才是不适用。栏位在而读不出 ⇒ 解析口径**系统性失效**（不是「这篇格式特别」）——它原先与「没有该栏」共享同一个 10% 上界，等于**用上界把一个解析 bug 洗成「未验证」**。当前语料实测 0 份，故这条升级**不改变本次结论**、只把口径收严。
+    **这条不是形式**：一篇被错放进目录的论文会**静默毒化**整条「题型 → 模型」配对链（Task 6b 的配对以 `(origin, problem)` 为地基），而计划草稿对它**没有任何判据**。
+I8-b=OK
+    「未验证」占比 0/5 = 0.00%（上界 10%）——三态里的**前两态**（「没有该栏」0 + 「有栏读不出」0）；**「未验证」是「通过」与「失败」之间唯一诚实的位置**（沿用 C4 的裁决），但它**必须有上界**，否则整列「读不出」也能绿。
+    **口径比原先更严**：「有栏读不出」已由 I8 单独判**硬失败**，这里**仍**把它计入占比（上界覆盖的集合不缩小）——两处都不放宽。
+I8-c=OK
+    队号三向一致：**INDEX 栏 == 文件名词干 == 论文自报队号**；自报读不出的 0 份 （无）
+I9=OK
+    `PROVENANCE.md` 双射表 5 行 · 唯一 ID 5 · 唯一词干 5（**两向单值 ⇒ 互逆**）
+    **六列逐列落地**（不等 无）：`年月` == 稳定 ID 的年份、`原件` == 磁盘上的原件相对路径、`md` == 磁盘上该篇 md 的仓库相对路径（前两列此前**入库却无判据**——`年月` 与 `md` 被解析时直接丢掉）。
+    为什么必须有这张表：稳定 ID **内容无关**（按到达顺序生成）⇒ `ID → 原件` 推不出来。INDEX 的「队号」栏是给人看的定位列，本表是可判的那一份。
+I10=OK
+    栏位齐全：INDEX 表头 11 栏 + TAGS 一层原有 10 栏；**INDEX 表头继续不得出现 `原题类型`**（那一栏只在 TAGS 里）；**`problem_type` 在 TAGS 字段序的末尾**（解冻时点名的位置约束）。
+    **解冻不丢保护**：旧绊线抓的「留空占位列」由 I10-b 承接（逐行非空 + 占位串集合），「表头不得出现该栏」在 INDEX 一侧原样保留。
+I10-a=OK
+    `problem_type` 在 TAGS 一层字段序里 = True（字段序共 16 栏）
+    **与 I10 的末尾断言不是同一条**：a 判「在不在」，I10 判「在不在**末尾**」——把整栏删掉两条都红，但把它挪到中间时**只有 I10 红**（a 是它的必要不充分条件）。
+I10-b=OK
+    **5 行逐行非空、且不属占位串集合** ['', '-', 'N/A', '待定', 'TODO', '?']（本判据就是旧绊线的保护：**空占位列照样红**）
+    **为什么这条必须留着**：Task 6 的旧 I10 抓的正是「留空占位列」这类假绿——绊线到期（6b 就是要这一栏）时**保护不许跟着走**。
+I10-c=OK
+    **同一 `problem` 字母的所有行取值逐字相同**：3 个题号，每个题号覆盖 [3, 1, 1] 篇
+    题型是**题**的属性、不是**篇**的属性——同题的不同论文必须写出同一个题型串。
+I10-d=OK
+    出现的题号字母 **3** 个 · **互异取值 3** 个（纯结构断言，**不读标注文件**）
+    限样本跑只断言「字母数 == 互异取值数」：本次样本覆盖题号 ['A', 'B', 'C']，**不是** 6 个——故 `== 6` 这条留给全量跑
+I10-e=OK
+    **跨文件双边等式**：每个题号字母的取值解析出的 `(L1,L2)` 集合 == `corpus/papers/PROBLEM_TYPES.md` 里该题那一节的标签集合（**`核心` 与 `附带` 两种标记的标签全含**）——本次比对了 **3** 个题号
+    **期望值是本脚本自己解析标注文件得到的**（`v_annotation_labels`，正则与 `taxonomy` 的各写一份）——**绝不调 `index` 的映射函数**。两边共用代码就会让这条退化成「函数跟自己对答案」（本项目第七例的 D1 就是这样来的）；**变异 6（让 index 写 `problem_type` 时丢掉 `附带` 标签）实测本判据红**，证明它非恒真。
+    **边界（必须同读）**：它验证的是「**产物那一栏 == 标注文件那一节**」，**不是**「这个题型标得对」——后者是判断，属人工标注（`verify_types.py` T1–T8 只保证引文可定位、标签合法等结构性事实）。
+I10-f=OK
+    取值里出现的 **10** 个标签名（`L1 · L2`）：两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个变体的归一化集合）
+    这是 `verify_types.py` T3 的**移植**：题型侧与模型侧必须**不相交**——否则「题型 → 模型/算法」的配对就变成同义反复（`ARIMA` 这样的词一旦进了题型栏，配对就什么都没说）。
+I10-g=OK
+    **覆盖边界可机读、且为等式**：* **标注覆盖边界（机读）**：标注题数=67 · 有论文的题=3 · 未配对的题=64 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 F、2019 A、2
+    `标注题数 = 有论文的题 + 未配对的题`（67 = 3 + 64），且**逐题具名清单**与「标注里有、而本次产物无论文」的独立重算集合**逐题对得上**
+    为什么这条必要：`corpus/官方原题/` 有 2016–2026 共 67 题，而本合集只有 2025 的论文（**标注里有、产物里没有**的题是 61 道）。「没写出来」与「没有这回事」不是一回事——把边界**印成可判的一行**，下一个人就不必猜本表覆盖到哪里。
+I10-h=OK
+    「亮点」栏非空的行：无（**本轮一律留空**——没有可指回原文的依据就不填推测）；头部有 `[社区]` 标级与「给不出就留空」的说明 = True
+    **这一条的强度边界（必须与它同读）**：它验证的是「**没有被填进推测性内容**」与「**头部有标级声明**」，**证明不了**这 43 篇没有亮点。它是**范围声明**、**不构成**任何「已覆盖」的声称。
+    **编号说明**：本条与下一条在原文件里叫 `I10-b` / `I10-c`；解冻后 **a–g 七个子条**用的是小写字母序，故这两条顺延为 `I10-h` / `I10-i`（**判据内容一字未改**，只改编号）。
+I10-i=OK
+    两个 .md 的文件头都有**奖项注记**（合集内统一 = O 奖）= True；**两个 .md 都不得再设「奖项」栏**（用户 2026-09-26 定案）= True
+   fail-closed 探针：合集名 '2025美赛O奖论文（不存在的名字）' → 抛 FileNotFoundError: 合集目录不存在：<repo>\corpus\历届优秀论文\2025美赛O奖论文（不存在的名字）（拒绝用空表冒充「该合集没有论文」）
+I11=OK
+    合集名不存在时 `index.build` **抛错**（不是返回空表静默 PASS）
+    探针的落点被**强制**指到 tests/papers/reports-limited/ids-products-probe（不入库目录）——否则「守卫被删掉」的那一版会把入库的三份产物**覆写成 0 条**（探针自己变成破坏者，那是本项目栽过的形态）。
+    **这就是任务书点名的那个活陷阱**：`Path.rglob` 对不存在的目录**静默返回空**，而磁盘上是 `2023年美赛O奖论文`（带「年」）、别处写作 `2023美赛O奖论文`。
+I12=OK
+    ① 两个 UMAP 合集名不以 4 位数字开头 → `io.stable_id` **抛 `ValueError`**（涉 37 份）：断言通过
+    ② **跨合集撞号**：`stable_id('2023美赛O奖论文','A',1)` = **P2023-A-01** = `stable_id('2023年美赛O奖论文','A',1)` = **P2023-A-01**——少一个「年」字，ID 完全相同；而 `io.ORIGIN/'2023美赛O奖论文'` 的 `is_dir() = False`（盘上是带「年」的）
+    **这两条是具名边界、不是缺陷**：判据把它们**断言成行为**，而不是假装它们不存在（计划草稿的「往返一致」判据对撞号**零区分力**）。
+    ③ **本次侦察新查出来的第三条边界**：`io.problem_of` 在别的合集上抛错——`2024年美赛O奖论文/2024年美赛A题O奖论文/` 把题号写进目录名（35/35 抛错）、2023 春季赛子目录（5/42）、两个 UMAP（37/37）；故本索引**只对「题号是独立目录层」的合集成立**，别的合集 `build` 抛错是**按设计**。逐份实测见 `recon/ids-recon.txt` §5。
+I13=OK
+    词表 **115** 词条、**367** 变体；规范词唯一、格式为 `规范词 | 变体…`（**一行一条、可追加**）
+    **零命中词条 93 个**（口径 = 在**本次样本 5 份**上一篇都不命中；限样本跑时它只是「这批上零命中」，不是全语料结论）：
+        零命中 'AHP'
+        零命中 'TOPSIS'
+        零命中 'fuzzy comprehensive evaluation'
+        零命中 'entropy weight method'
+        零命中 'grey relational analysis'
+        零命中 'principal component analysis'
+        零命中 'grey prediction'
+        零命中 'SARIMA'
+        零命中 'exponential smoothing'
+        零命中 'ridge regression'
+        零命中 'lasso'
+        零命中 'stepwise regression'
+        零命中 'nonlinear regression'
+        零命中 'XGBoost'
+        零命中 'random forest'
+        零命中 'gradient boosting'
+        零命中 'decision tree'
+        零命中 'neural network'
+        零命中 'BP neural network'
+        零命中 'LSTM'
+        零命中 'RNN'
+        零命中 'CNN'
+        零命中 'SVR'
+        零命中 'SVM'
+        零命中 'k-nearest neighbor'
+        零命中 'linear programming'
+        零命中 'integer programming'
+        零命中 'multi-objective optimization'
+        零命中 'goal programming'
+        零命中 'dynamic programming'
+        零命中 'genetic algorithm'
+        零命中 'simulated annealing'
+        零命中 'differential evolution'
+        零命中 'NSGA-II'
+        零命中 'ant colony optimization'
+        零命中 'tabu search'
+        零命中 'queueing theory'
+        零命中 'A-star'
+        零命中 'integer linear programming'
+        零命中 'ordinary differential equation'
+        零命中 'finite element'
+        零命中 'SIR model'
+        零命中 'SEIR model'
+        零命中 'Lotka-Volterra'
+        零命中 'system dynamics'
+        零命中 'compartment model'
+        零命中 'reaction-diffusion'
+        零命中 'Markov chain Monte Carlo'
+        零命中 'cellular automata'
+        零命中 'agent-based model'
+        零命中 'Markov chain'
+        零命中 'Bayesian network'
+        零命中 'K-means'
+        零命中 'hierarchical clustering'
+        零命中 'factor analysis'
+        零命中 'discriminant analysis'
+        零命中 'analysis of variance'
+        零命中 'regression discontinuity'
+        零命中 'difference-in-differences'
+        零命中 'propensity score matching'
+        零命中 'structural equation modeling'
+        零命中 'zero-inflated'
+        零命中 'two-stage least squares'
+        零命中 'Shannon entropy'
+        零命中 'Mann-Kendall'
+        零命中 'Cox proportional hazards'
+        零命中 'association rules'
+        零命中 'cross-validation'
+        零命中 'bootstrap'
+        零命中 'stacking'
+        零命中 'SHAP'
+        零命中 'survival analysis'
+        零命中 'graph theory'
+        零命中 'shortest path'
+        零命中 'minimum spanning tree'
+        零命中 'maximum flow'
+        零命中 'network flow'
+        零命中 'traveling salesman problem'
+        零命中 'bipartite matching'
+        零命中 'PERT'
+        零命中 'centrality'
+        零命中 'Petri net'
+        零命中 'network analysis'
+        零命中 'Wardrop'
+        零命中 'deep learning'
+        零命中 'reinforcement learning'
+        零命中 'naive Bayes'
+        零命中 'self-organizing map'
+        零命中 'Hopfield network'
+        零命中 'radial basis function'
+        零命中 'isolation forest'
+        零命中 'fuzzy logic'
+        零命中 'change-point detection'
+    **词表增长候选（给 Task 6b）**：作者 Keywords 里出现、而词表**覆盖不到**的词形 **11** 个，逐条（附出现篇数）：
+    **具名范围边界（必须与上面这份清单同读）**：候选来源**只取作者自写的 Keywords 行**（`;`/`,`/`、` 拆词），**未扫正文**——任务书 §一 的「论文里出现但词表没有」（含**未命中片段**）这一路**本任务只交付了 Keywords 行这一半**。选窄口径的理由：Keywords 行里的词能**逐条指回一行原文**、可复核；扫正文要先自造一套「什么算一个模型名」的抽取启发式，那是**判断**不是事实，且产出无从验证。**代价**：正文里出现而作者没写进 Keywords 的模型**不在本清单里**。
+        候选 'Stair Wear'（2 篇）
+        候选 'Archard'（1 篇）
+        候选 'Archard Law'（1 篇）
+        候选 'CVM'（1 篇）
+        候选 'Central Limit Theorem'（1 篇）
+        候选 'Fatigue Damage'（1 篇）
+        候选 'Gaussian Distribution'（1 篇）
+        候选 'Gaussian Mixture Algorithm'（1 篇）
+        候选 'Mont Carlo method'（1 篇）
+        候选 'Sustainable tourism'（1 篇）
+        候选 'Wear depth'（1 篇）
+I13-b=OK
+    **真验**（不是打印一句声称）：临时词表先写 **1** 条 → `vocab.load` → **追加 1 条** → **同一进程内**再 `vocab.load`
+    实测 首读 **1** 条 / 追加后 **2** 条（要求 **1 / 2**）⇒ `vocab.load` **不缓存**，「追加即生效」成立。临时文件写在系统临时目录、跑完即删（**不入库、报告里不出现其路径**）。
+    **为什么非要真验**：`vocab.load` 一旦缓存（`lru_cache` 一类），「追加了却没生效」就是**静默形态**——而「词表开放、可追加」是本任务对用户的承诺（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）。原先这条是 `add(..., True, …)`：**恒真**、却计入「全部判据 OK」。变异证据：给 `vocab.load` 加 `lru_cache` 后本判据红（`ids-mutation-evidence.txt` 的 M14）。
+    零命中与候选**都不藏**：零命中词条本身是「这批论文没用这些方法」这个语料事实（不是判据失效），候选清单是 Task 6b 的增长输入。
+  词表命中篇数 top8（报告量）：Monte Carlo 3 · sensitivity analysis 3 · linear regression 3 · particle swarm optimization 2 · Bayesian 2 · differential equation 1 · partial differential equation 1 · finite difference 1
+  一层 models 指针条数合计（样本）：30
+  md 页锚 vs 原件 `page_count` 的交叉核对**已从「打印」升为判据**（I6-b）：原先它算出来的布尔只 `lines.append`、且**从不碰产物的 `n_pages` 栏**——一句 fail-open 的打印。逐篇差额（若有）见 `I6-b=FAIL` 的登记行。
+入库产物完整性自检（限样本跑）：`corpus/papers/` 三份 .md 的 sha256 跑前跑后相同 = True（False → 本次限样本跑碰到了入库产物，判 FAIL）
+    corpus/papers/INDEX.md：跑前 dc8fee7bab892347… · 跑后 dc8fee7bab892347…
+    corpus/papers/TAGS.md：跑前 48475b03a5ddf074… · 跑后 48475b03a5ddf074…
+    corpus/papers/PROVENANCE.md：跑前 874987522bd67ad3… · 跑后 874987522bd67ad3…
+==============================================================================
+判据汇总：全部通过（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/ids-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: PASS (LIMITED 样本 5/43 份 = 前 3 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+## 对照（变体 0）· `tests/papers/verify_map.py --limit 3`
+
+* 退出码 = 0（要求 0）
+* 含 `RESULT: PASS` = True（要求 True）
+* 不含任何 `=FAIL` 标记 = True（要求 True；实际命中 []）
+* **对照通过 = True**
+
+对照跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = 3262f2c6eee7…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=OK
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = True（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：全部通过（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: PASS (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+## V1：**从配对表删一个 `(篇, 模型)` 对**（`Navier-Stokes` × `P2025-A-01`，它在 3 个桶里各出现一次，**三处全删**才算真的丢了这一对——只删一处会被去重救回来）
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/MODEL_MAP.md`：行尾 LF　·　正则 `(?m)^- Navier-Stokes; P2025-A-01; .*\n`　·　锚点命中 **3** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `3262f2c6eee7d490…` → `b36db0367fc2393f…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-3=FAIL']（**要求 ⊇ ['M-3=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334035 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = b36db0367fc2…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=FAIL
+    **两向互相包含**：配对表 **427** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：[('P2025-A-01', 'Navier-Stokes')]（合计 1）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1641 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=FAIL
+    桶 8：(模型,篇) 对 32 ≠ 指针条数 31
+    桶 8：模型列 {'Monte Carlo': 4, 'sensitivity analysis': 4, 'Bayesian': 3, 'correlation coefficient': 2, 'differential equation': 2, 'hypothesis test': 2, 'machine learning': 2, 'partial differential equation': 2, 'particle swarm optimization': 2, 'CNN': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Navier-Stokes': 1, 'cross-validation': 1, 'feature selection': 1, 'finite difference': 1, 'linear regression': 1, 'system dynamics': 1} ≠ 指针里数出来的 {'Bayesian': 3, 'CNN': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Monte Carlo': 4, 'correlation coefficient': 2, 'cross-validation': 1, 'differential equation': 2, 'feature selection': 1, 'finite difference': 1, 'hypothesis test': 2, 'linear regression': 1, 'machine learning': 2, 'partial differential equation': 2, 'particle swarm optimization': 2, 'sensitivity analysis': 4, 'system dynamics': 1}
+    桶 13：(模型,篇) 对 72 ≠ 指针条数 71
+    桶 13：模型列 {'sensitivity analysis': 11, 'Monte Carlo': 5, 'system dynamics': 4, 'Bayesian': 3, 'correlation coefficient': 3, 'differential equation': 3, 'hypothesis test': 3, 'multi-objective optimization': 3, 'particle swarm optimization': 3, 'AHP': 2, 'NSGA-II': 2, 'genetic algorithm': 2, 'linear regression': 2, 'logistic regression': 2, 'machine learning': 2, 'nonlinear regression': 2, 'partial differential equation': 2, 'ARIMA': 1, 'CNN': 1, 'Lotka-Volterra': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Navier-Stokes': 1, 'cluster analysis': 1, 'cross-validation': 1, 'deep learning': 1, 'dynamic programming': 1, 'entropy weight method': 1, 'factor analysis': 1, 'feature selection': 1, 'finite difference': 1, 'nonlinear programming': 1, 'ordinary differential equation': 1, 'reinforcement learning': 1, 'structural equation modeling': 1} ≠ 指针里数出来的 {'AHP': 2, 'ARIMA': 1, 'Bayesian': 3, 'CNN': 1, 'Lotka-Volterra': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Monte Carlo': 5, 'NSGA-II': 2, 'cluster analysis': 1, 'correlation coefficient': 3, 'cross-validation': 1, 'deep learning': 1, 'differential equation': 3, 'dynamic programming': 1, 'entropy weight method': 1, 'factor analysis': 1, 'feature selection': 1, 'finite difference': 1, 'genetic algorithm': 2, 'hypothesis test': 3, 'linear regression': 2, 'logistic regression': 2, 'machine learning': 2, 'multi-objective optimization': 3, 'nonlinear programming': 1, 'nonlinear regression': 2, 'ordinary differential equation': 1, 'partial differential equation': 2, 'particle swarm optimization': 3, 'reinforcement learning': 1, 'sensitivity analysis': 11, 'structural equation modeling': 1, 'system dynamics': 4}
+    桶 14：(模型,篇) 对 32 ≠ 指针条数 31
+    桶 14：模型列 {'Monte Carlo': 4, 'sensitivity analysis': 4, 'Bayesian': 3, 'correlation coefficient': 2, 'differential equation': 2, 'hypothesis test': 2, 'machine learning': 2, 'partial differential equation': 2, 'particle swarm optimization': 2, 'CNN': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Navier-Stokes': 1, 'cross-validation': 1, 'feature selection': 1, 'finite difference': 1, 'linear regression': 1, 'system dynamics': 1} ≠ 指针里数出来的 {'Bayesian': 3, 'CNN': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Monte Carlo': 4, 'correlation coefficient': 2, 'cross-validation': 1, 'differential equation': 2, 'feature selection': 1, 'finite difference': 1, 'hypothesis test': 2, 'linear regression': 1, 'machine learning': 2, 'partial differential equation': 2, 'particle swarm optimization': 2, 'sensitivity analysis': 4, 'system dynamics': 1}
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334035 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 427 · 指针行 1641 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/MODEL_MAP.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V2：**往配对表塞一个 `TAGS.md` 里没有的模型**（另一向：发明）——`(篇, 模型)` 对集合**两向**都必须相等
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/MODEL_MAP.md`：行尾 LF　·　正则 `(?m)^- Monte Carlo; P2025-A-02; `　·　锚点命中 **3** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `3262f2c6eee7d490…` → `50bf61bf5bf89f5e…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-3=FAIL']（**要求 ⊇ ['M-3=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334605 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = 50bf61bf5bf8…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=FAIL
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：[('P2025-A-02', '幻影模型XYZ')]（合计 1）
+    只在 TAGS（**丢失**）：[('P2025-A-02', 'Monte Carlo')]（合计 1）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=FAIL
+    桶 8：('P2025-A-02', '幻影模型XYZ') 在 TAGS 二层没有对应指针（幻影）
+    桶 13：('P2025-A-02', '幻影模型XYZ') 在 TAGS 二层没有对应指针（幻影）
+    桶 14：('P2025-A-02', '幻影模型XYZ') 在 TAGS 二层没有对应指针（幻影）
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=FAIL
+    桶 8：模型列 {'Monte Carlo': 4, 'sensitivity analysis': 4, 'Bayesian': 3, 'correlation coefficient': 2, 'differential equation': 2, 'hypothesis test': 2, 'machine learning': 2, 'partial differential equation': 2, 'particle swarm optimization': 2, 'CNN': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Navier-Stokes': 1, 'cross-validation': 1, 'feature selection': 1, 'finite difference': 1, 'linear regression': 1, 'system dynamics': 1} ≠ 指针里数出来的 {'Bayesian': 3, 'CNN': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Monte Carlo': 3, '幻影模型XYZ': 1, 'Navier-Stokes': 1, 'correlation coefficient': 2, 'cross-validation': 1, 'differential equation': 2, 'feature selection': 1, 'finite difference': 1, 'hypothesis test': 2, 'linear regression': 1, 'machine learning': 2, 'partial differential equation': 2, 'particle swarm optimization': 2, 'sensitivity analysis': 4, 'system dynamics': 1}
+    桶 13：模型列 {'sensitivity analysis': 11, 'Monte Carlo': 5, 'system dynamics': 4, 'Bayesian': 3, 'correlation coefficient': 3, 'differential equation': 3, 'hypothesis test': 3, 'multi-objective optimization': 3, 'particle swarm optimization': 3, 'AHP': 2, 'NSGA-II': 2, 'genetic algorithm': 2, 'linear regression': 2, 'logistic regression': 2, 'machine learning': 2, 'nonlinear regression': 2, 'partial differential equation': 2, 'ARIMA': 1, 'CNN': 1, 'Lotka-Volterra': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Navier-Stokes': 1, 'cluster analysis': 1, 'cross-validation': 1, 'deep learning': 1, 'dynamic programming': 1, 'entropy weight method': 1, 'factor analysis': 1, 'feature selection': 1, 'finite difference': 1, 'nonlinear programming': 1, 'ordinary differential equation': 1, 'reinforcement learning': 1, 'structural equation modeling': 1} ≠ 指针里数出来的 {'AHP': 2, 'ARIMA': 1, 'Bayesian': 3, 'CNN': 1, 'Lotka-Volterra': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Monte Carlo': 4, '幻影模型XYZ': 1, 'NSGA-II': 2, 'Navier-Stokes': 1, 'cluster analysis': 1, 'correlation coefficient': 3, 'cross-validation': 1, 'deep learning': 1, 'differential equation': 3, 'dynamic programming': 1, 'entropy weight method': 1, 'factor analysis': 1, 'feature selection': 1, 'finite difference': 1, 'genetic algorithm': 2, 'hypothesis test': 3, 'linear regression': 2, 'logistic regression': 2, 'machine learning': 2, 'multi-objective optimization': 3, 'nonlinear programming': 1, 'nonlinear regression': 2, 'ordinary differential equation': 1, 'partial differential equation': 2, 'particle swarm optimization': 3, 'reinforcement learning': 1, 'sensitivity analysis': 11, 'structural equation modeling': 1, 'system dynamics': 4}
+    桶 14：模型列 {'Monte Carlo': 4, 'sensitivity analysis': 4, 'Bayesian': 3, 'correlation coefficient': 2, 'differential equation': 2, 'hypothesis test': 2, 'machine learning': 2, 'partial differential equation': 2, 'particle swarm optimization': 2, 'CNN': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Navier-Stokes': 1, 'cross-validation': 1, 'feature selection': 1, 'finite difference': 1, 'linear regression': 1, 'system dynamics': 1} ≠ 指针里数出来的 {'Bayesian': 3, 'CNN': 1, 'Markov chain': 1, 'Markov chain Monte Carlo': 1, 'Monte Carlo': 3, '幻影模型XYZ': 1, 'Navier-Stokes': 1, 'correlation coefficient': 2, 'cross-validation': 1, 'differential equation': 2, 'feature selection': 1, 'finite difference': 1, 'hypothesis test': 2, 'linear regression': 1, 'machine learning': 2, 'partial differential equation': 2, 'particle swarm optimization': 2, 'sensitivity analysis': 4, 'system dynamics': 1}
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334605 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/MODEL_MAP.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V3：**把指针的页码改错一位**（`p1` → `p9`）——指针必须与 `TAGS.md` 二层逐字相同，且片段所在的页要等于指针的页
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/MODEL_MAP.md`：行尾 LF　·　正则 `(?m)^- Monte Carlo; P2025-A-01; p1; `　·　锚点命中 **3** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `3262f2c6eee7d490…` → `1237ae769009e455…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-4=FAIL']（**要求 ⊇ ['M-4=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = 1237ae769009…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=FAIL
+    桶 8：('P2025-A-01', 'Monte Carlo') 的指针与 TAGS 二层不等——配对表 (corpus/papers/md/2025美赛O奖论文/A/2500836.md, p9) vs TAGS (corpus/papers/md/2025美赛O奖论文/A/2500836.md, p1)
+    桶 13：('P2025-A-01', 'Monte Carlo') 的指针与 TAGS 二层不等——配对表 (corpus/papers/md/2025美赛O奖论文/A/2500836.md, p9) vs TAGS (corpus/papers/md/2025美赛O奖论文/A/2500836.md, p1)
+    桶 14：('P2025-A-01', 'Monte Carlo') 的指针与 TAGS 二层不等——配对表 (corpus/papers/md/2025美赛O奖论文/A/2500836.md, p9) vs TAGS (corpus/papers/md/2025美赛O奖论文/A/2500836.md, p1)
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/MODEL_MAP.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V4：**把一个桶的 `(L1,L2)` 改成 `ARIMA`**（`models.txt` 里的词）——桶的两条轴必须取自受控分类法/受控枚举，否则「题型 → 模型」的检索键就是自由文本
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/MODEL_MAP.md`：行尾 LF　·　正则 `(?m)^\| 1 \| 1 预测 · 1\.2 回归/相关预测 \|`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `3262f2c6eee7d490…` → `cf53db598f3c104d…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-5=FAIL']（**要求 ⊇ ['M-5=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334563 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = cf53db598f3c…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=FAIL
+    桶 1：`(L1,L2)` 列 'ARIMA' 不含 ` · `
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334563 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/MODEL_MAP.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V5a：**把边界声明改成「覆盖 2025–2026」**——本表实际只覆盖 2025 六题（其余 61 题有题型、无配对）；「看起来更满」不是配对，是编造
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/MODEL_MAP.md`：行尾 LF　·　正则 `覆盖年份=2025 ·`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `3262f2c6eee7d490…` → `7080c347b27138cc…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-6=FAIL']（**要求 ⊇ ['M-6=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334598 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = 7080c347b271…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=FAIL
+    覆盖年份='2025/2026' ≠ 独立重算的 '2025'——「覆盖 2025」与「覆盖 2025/2026」不是同一条声明
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334598 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/MODEL_MAP.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V5b：**把未配对题数写少一道**（61 → 60）——边界必须是**等式**：有论文的题 + 未配对的题 == 标注题数，且逐题具名清单两边对得上
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/MODEL_MAP.md`：行尾 LF　·　正则 `未配对的题=61 ·`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `3262f2c6eee7d490…` → `b2ce013f86f1497e…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-6=FAIL']（**要求 ⊇ ['M-6=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = b2ce013f86f1…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=FAIL
+    未配对的题=60 ≠ 67 − 6 = 61（**双边等式**：有论文的题 + 未配对的题 == 标注题数）
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/MODEL_MAP.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V11：**把逐题表的论文数改错**（题 A 与题 F 的 `论文数：5` 都改成 `6`：合计 45 ≠ 43）——逐题论文数之和必须 == TAGS 一层行数 == 43
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/MODEL_MAP.md`：行尾 LF　·　正则 `(?m)^- 论文数：5(?=\r?\n)`　·　锚点命中 **2** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `3262f2c6eee7d490…` → `a0bb27b96006062d…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-2=FAIL']（**要求 ⊇ ['M-2=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = a0bb27b96006…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=FAIL
+    逐题论文数之和 45 ≠ TAGS 一层行数 43
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/MODEL_MAP.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V16：**让生成器把桶表末列的「篇数」算成两倍**（生成器侧）。期望红的是 **`M-8`**：判据读的是**入库产物**（未变），而 `M-8` 拿生成器重跑出来的字节与它比 ⇒ 生成器算错**跑不掉**。**这一条同时说清了 M-7 的边界**：M-7 判的是**产物里**那一列与指针自洽，生成器侧的错误由 M-8 兜（V17 补上产物侧那一半）
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `tools/papers/model_map.py`：行尾 LF　·　正则 `\ \ \ \ \ \ \ \ for\ m,\ _s\ in\ pairs:\
+\ \ \ \ \ \ \ \ \ \`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `79a0cf489b5f4333…` → `a32ff01b0c158242…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-8=FAIL']（**要求 ⊇ ['M-8=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = 3262f2c6eee7…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* 还原 `tools/papers/model_map.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V17：**手工把产物里桶表末列的「Lotka-Volterra（3 篇）」改成 2 篇**（产物侧）——末列是同一批指针的**汇总**，逐词必须与指针里数出来的篇数相等；**没有这条判据时**，这一列只要不动字节一致性就没人查（生成器算错由 M-8 兜，产物被改由本条兜）
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/MODEL_MAP.md`：行尾 LF　·　正则 `Lotka-Volterra（3 篇）`　·　锚点命中 **3** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `3262f2c6eee7d490…` → `5d3d1e8724be8040…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-7=FAIL']（**要求 ⊇ ['M-7=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = 5d3d1e8724be…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=FAIL
+    桶 9：模型列 {'sensitivity analysis': 4, 'Lotka-Volterra': 2, 'differential equation': 3, 'system dynamics': 3, 'entropy weight method': 2, 'logistic regression': 2, 'AHP': 1, 'Petri net': 1, 'Shannon entropy': 1, 'centrality': 1, 'differential evolution': 1, 'fuzzy comprehensive evaluation': 1, 'graph theory': 1, 'multi-objective optimization': 1, 'nonlinear programming': 1, 'partial differential equation': 1, 'shortest path': 1, 'time series analysis': 1} ≠ 指针里数出来的 {'AHP': 1, 'Lotka-Volterra': 3, 'Petri net': 1, 'Shannon entropy': 1, 'centrality': 1, 'differential equation': 3, 'differential evolution': 1, 'entropy weight method': 2, 'fuzzy comprehensive evaluation': 1, 'graph theory': 1, 'logistic regression': 2, 'multi-objective optimization': 1, 'nonlinear programming': 1, 'partial differential equation': 1, 'sensitivity analysis': 4, 'shortest path': 1, 'system dynamics': 3, 'time series analysis': 1}
+    桶 18：模型列 {'sensitivity analysis': 4, 'Lotka-Volterra': 2, 'differential equation': 3, 'system dynamics': 3, 'entropy weight method': 2, 'logistic regression': 2, 'AHP': 1, 'Petri net': 1, 'Shannon entropy': 1, 'centrality': 1, 'differential evolution': 1, 'fuzzy comprehensive evaluation': 1, 'graph theory': 1, 'multi-objective optimization': 1, 'nonlinear programming': 1, 'partial differential equation': 1, 'shortest path': 1, 'time series analysis': 1} ≠ 指针里数出来的 {'AHP': 1, 'Lotka-Volterra': 3, 'Petri net': 1, 'Shannon entropy': 1, 'centrality': 1, 'differential equation': 3, 'differential evolution': 1, 'entropy weight method': 2, 'fuzzy comprehensive evaluation': 1, 'graph theory': 1, 'logistic regression': 2, 'multi-objective optimization': 1, 'nonlinear programming': 1, 'partial differential equation': 1, 'sensitivity analysis': 4, 'shortest path': 1, 'system dynamics': 3, 'time series analysis': 1}
+M-8=FAIL
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = False（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/MODEL_MAP.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V9：**改动 `INDEX.md` 一个字节**——解冻面是**双边**的：`INDEX.md`/`PROVENANCE.md` 必须与开工基准逐字节相同（改 `problem_type` 栏不该动它们）
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/INDEX.md`：行尾 LF　·　正则 `\Z`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `7d49a18f9de015b3…` → `70114a4c1e87d7e5…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-1=FAIL']（**要求 ⊇ ['M-1=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=FAIL
+    corpus/papers/INDEX.md：blob 70114a4c1e87… ≠ 开工基准 7d49a18f9de0…（**这一份本该逐字节不变**——改 `problem_type` 栏不该动它）
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=OK
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = True（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/INDEX.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V10：**把 `TAGS.md` 退回开工基准那一版**（`git cat-file` 取 9a1689daa68824f10c69a505f60b0b933a35c5bd 的 blob 原始字节）——另一向：解冻后它**本该变了**，没变说明解冻没落地。**锚点必须是开工基准那个提交、不能用 `HEAD`**：本驱动器跑的时点 `HEAD` 可能已经包含新 `TAGS.md`（第一版就是这么失败的：取回来的字节与工作树相同 ⇒ 未施加 ⇒ 期望的 FAIL 不出现，驱动器如实判它「未通过」——**fail-closed 生效**）
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：`--limit 3`
+* 文件 `corpus/papers/TAGS.md`：行尾 LF　·　整文件替换为 `9a1689daa68824f10c69a505f60b0b933a35c5bd:corpus/papers/TAGS.md` 的 blob（`git cat-file` 字节级取回，已用 `rev-parse` 校验）　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `7cf0bb5a40022941…` → `b2e1c8d50ccaca99…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-1=FAIL']（**要求 ⊇ ['M-1=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注（`--limit 3`：**不缩样本**，只改报告落点并跳过 M-1-b）
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=FAIL
+    corpus/papers/TAGS.md：blob 与开工基准**相同**（b2e1c8d50cca…）——解冻后它本该多一栏 `problem_type`，没变说明解冻没落地
+  M-1-b 本次**未跑**（`--limit` 不重建产物；重放性由全量跑证明）
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=OK
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = True（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/map-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/map-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/map-report.txt
+  本次跑前 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  本次跑后 sha256 = 5d9378f21013e13dc8f2075a3ab4c26b6dd42b854c8132c99efd07557e6ff41e
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED --limit 3；**本脚本不取样**：M-1…M-8 全量口径，`--limit` 只改报告落点并跳过 M-1-b；非放行依据)
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+
+* 还原 `corpus/papers/TAGS.md`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V12：**让 `index.build` 写出的 `n_pages` 与原件差 1**，然后跑**全量** `verify_map.py`——`M-1-b`（重放性：重跑到不入库目录的产物必须与入库的逐字节相同）**只在全量跑里执行**；本条同时证明「判据不许碰入库产物」：重跑落在 `reports-limited/`，入库三份只读
+
+* 判据脚本：`tests/papers/verify_map.py`　·　口径：**全量**（无 `--limit`）
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `_esc\(r\.stable_id\),\ _esc\(r\.year\),\ _esc\(r\.problem\),`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `bb5da5a90c0455a3…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['M-1-b=FAIL']（**要求 ⊇ ['M-1-b=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+题型 → 模型/算法 配对表判据（M-1…M-8）· Task 6b 阶段 2a
+配对表判据 M-1…M-8 · 全量 43 篇 / 67 题标注
+  产物：`corpus/papers/MODEL_MAP.md`（334593 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 428 条指针
+==============================================================================
+M-1=OK
+    **两边都判**：`INDEX.md` / `PROVENANCE.md` 的 blob 与开工基准**逐字节相同**（2/2）；`TAGS.md` **变了**（b2e1c8d50cca… → 7cf0bb5a4002…）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
+    **另：三份探针产物本次实测**——`corpus/papers/MODEL_MAP.md` 的 blob = 3262f2c6eee7…、变更 ['corpus/papers/TAGS.md']；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。
+M-1-b=FAIL
+    TAGS.md: 重跑 ba0e2a43339f… ≠ 入库 7cf0bb5a4002…
+M-2=OK
+    题数 **6** == TAGS 一层出现过的 `(年, 题号)` 数 **6** == **6**；逐题论文数之和 **43** == TAGS 一层行数 **43**
+    逐题：2025 A 5篇 · 2025 B 7篇 · 2025 C 18篇 · 2025 D 4篇 · 2025 E 4篇 · 2025 F 5篇
+    **双边等式，不是下界**：多一题、少一题、多算一篇都会红。
+M-3=OK
+    **两向互相包含**：配对表 **428** 对 · TAGS 二层 **428** 对（去重后）
+    只在配对表（**发明**）：无（合计 0）
+    只在 TAGS（**丢失**）：无（合计 0）
+    **这一条是核心判据**：两侧分别是「题型侧的产物」与「Task 6 的二层指针」，**两份文件、两份解析器**。若 `model_map.py` 自己再去 md 里抽一遍模型，两侧同源 ⇒ 本判据退化成恒真（本项目第七例）。变异 M-V1（删一个对）与 M-V2（塞一个 TAGS 里没有的模型）实测各红一向。
+M-4=OK
+    **逐条落地**：1644 条指针，每条都（已读 `43` 份 md）① 与 TAGS 二层的 `(md 文件, 页码, 片段)` **逐字相等**；② 片段是该 md 的**一整行**；③ 该行所在的页 == 指针的页
+    **两个方向都判**：① 与 TAGS 不等 ⇒ 配对表自己编了指针；② 片段在 md 里定位不到 ⇒ 指针悬空。md 是 **Task 3 的产物**（不由本任务生成），是这一条的独立参照。
+    **为什么片段必须是整行**：`TAGS.md` 二层的契约就是「md 整行逐字」——片段只截前 30 字也能在 md 里 `grep` 到，但那样「指针错一位」就查不出来了。
+M-5=OK
+    **19** 个桶：`(L1,L2)` 两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个）；`data_regime` 逐桶 ∈ 受控枚举（8 个值）；标记列合法；桶表与逐桶指针小节的编号集合**一致**
+    **为什么判「不相等」而不是「不包含」**：包含会把 `1 预测 ⊂ 灰色预测` 这类正确命名判成违规；本判据要拦的是「**标签名就是模型名**」——那一定表现为相等。
+    **受控集合这一条守的是「轴」**：桶的两条轴必须都取自**受控枚举/分类法**，否则「题型 → 模型」的检索键就是自由文本，跨题不可比（用户要的匹配度也就无从谈起）。
+M-6=OK
+    **边界是等式**：> 覆盖边界：标注题数=67 · 有论文的题=6 · 未配对的题=61 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 
+    `有论文的题 + 未配对的题 == 标注题数`（6 + 61 == 67），且**逐题具名清单**与「标注里有、而 TAGS 一层没有」的独立重算集合**逐题对得上**（61 道）
+    **为什么必须具名+构成等式**：本表的覆盖面只有 2025 六题，其余 61 题**有题型、无配对**。写成「覆盖 2016–2026」或把 61 写成 60 都会红——「看起来更满」不是配对，是编造。
+M-7=OK
+    **无幻影**：配对表里出现的稳定 ID **43** 个，全部 ∈ TAGS 一层的 43 个；每个桶的**来源题列 / 论文数 / 对数**与它自己的逐桶指针**两向相等**；每个来源题在 TAGS 一层里都有论文
+    第三节低置信条目 **96** 条（口径 `x1`）逐条都在 TAGS 二层里、页与次数都对得上；零命中篇：本表 0 篇 == TAGS 第三层 0 篇
+    **为什么这条是 fail-closed**：`MODEL_MAP` 是**派生**产物——它出现的任何 ID、任何来源题都必须能追回 `TAGS.md`；追不回去就是幻影（本项目「证据里不成立的语料断言」家族的形态）。
+M-8=OK
+    `model_map.build()` 重跑到不入库目录（`tests/papers/reports-limited/map-products`）→ 与入库产物**逐字节相同** = True（334593 B）
+    落点断言：`ModelMapResult.map_path` == 本判据写的那个目录 = True（**「写一处、读另一处」会让判据对着别的文件下结论**——`verify_ids.py` 的 I2 就是这么防的）
+    自报量 `n_papers` = 43（与 TAGS 一层的 43 对照）· `n_problems` = 6 · `n_buckets` = 19 · `n_pairs` = 428
+    **这一条抓两类事**：① 入库的那份是不是**生成器产出的**（手工订正会当场红——而 2b 会重跑这个生成器，手工订正会被冲掉、不订正又对不上）；② 生成器是不是确定的（同输入同字节）。
+  桶数 19 · (模型,篇) 对 428 · 指针行 1644 · md 读回 43 份 · TAGS 三层零命中 0 篇
+  覆盖：2025 A–F 共 6 题 / 43 篇；未配对 61 题（见覆盖边界行）
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports/map-report.txt
+  本文件是**全量跑的放行证据**（入库）；限样本跑的落点**按设计**是 tests/papers/reports-limited/ 下的另一份文件。
+RESULT: FAIL
+```
+
+* **本条按设计改了入库文件**（那正是它要证明的判据的靶子）；下面按**原始字节**还原（跑前不存在的就删掉）并断言 blob 复原：
+* 还原 `tests/papers/reports/map-report.txt`：blob 与跑前相同 = True（跑前 `16dc94f0faf481e5…`）
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V6：**让 `index.py` 写 `problem_type` 时丢掉 `附带` 标签**——**这一条专证 I10-e 非恒真**：若 I10-e 的期望值也来自 `index` 的映射函数（两边同一段代码），丢掉 `附带` 就查不出来。**必须 `--limit 32`**（`附带` 只在题 D/E，见文件头取样口径）
+
+* 判据脚本：`tests/papers/verify_ids.py`　·　口径：`--limit 32`
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `out\[\(str\(a\.year\),\ a\.problem\)\]\ =\ \[f"\{l1\}\ ·\ \{`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `639493c514fbc822…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['I10-e=FAIL']（**要求 ⊇ ['I10-e=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 32/43 份**（--limit 32 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2504218 2511565 2501687 2502617 2503268 2504448 2505199 2509557 2517929 2500759 2501869 2503389 2505964 2507817 2510006 2510185 2510862 2513314 2514362 2514461 2515235 2516178 2516695 2517690 2521556 2522820 2524070 2504188 2507692
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+I1=OK
+    PROVENANCE 双射表 32 行 · 磁盘样本 32 份 · 重复 ID 无 · 重复词干 无 · 解析失败 无
+    只在磁盘不在表 无 · 只在表不在磁盘 无（**两边都要空**：单边为空只是缺，不是双射）
+    **「往返恒真」那一版已被换掉**：`parse∘stable_id` 只要两边用同一个合集名就恒真（计划草稿的三条判据无一能失败）。这里的判据是**双射**：ID↔词干两向单值互逆、且并集 == 磁盘 PDF 集合（用磁盘与 `problem_of` 独立数出来的）。
+I1-b=OK
+    逐篇重算的稳定 ID 与产物不等：无（重算 = 按磁盘字典序 + 逐题号到达顺序，**不是**把 ID 拆开再拼回去）
+I1-c=OK
+    「年」与词干前两位的一致性：覆盖 32/32 份（只对 7 位数字词干起作用，覆盖不到的数量已写明）；不一致 无
+I2=OK
+    n_entries=32 == 唯一 ID=32 == TAGS 一层行数=32 == INDEX 表行数=32 == PROVENANCE 行数=32 == 磁盘 PDF（样本）=32 == md 文件（样本）=32
+    **双边等式，不是单边下界**（约束 5）：每一对都得相等，任一处漏一篇都会红。
+    **产物落点**：`IndexResult` 报告的 index/tags/prov 三路径 == 本脚本读的三份 = True——判据读的必须是**这一次**写出来的那一份。
+I2-b=OK
+    TAGS 二层篇数 32 + 三层篇数 0 = 32（**必须 == 32**）；二层 ∩ 三层 = 空；两层并集 == 一层 ID 集 = True（**每篇恰好进一层、且没有一篇落在两层之外**）
+I3=OK
+    逐份**逐字逐条**相等：合计 **1736** 条 == md `## ` 行（样本内）；差额 0 条、未解释 0 条
+    `sections` 取 **md `## ` 标题行逐字**（`;` 连接、去 `## ` 前缀）：本语料把「号」与「题」常分两行排（实测「只有编号」574 条 + 「编号带题」494 条 = 1068 条），本任务**不做号/题合并那一类推断**（那是把推断写进事实栏）。
+I4=OK
+    逐篇与「标题行」口径重算值**逐栏相等**（样本 32 份）
+    **口径不是全文子串**：全文口径下 Contents 42/43、Assumptions 43/43、Notation 40/43、Sensitivity 38/43——前四列近乎恒真。`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有（`docs/mcm-suite-lessons.md` §4.1）。
+I4-c=OK
+    **零区分力登记**（一边占比 > 90%）：['has_contents', 'has_assumptions', 'has_notations']
+    TAGS 头部的登记行：* **零区分力登记**（一边占比 > 90%）：has_contents=32/32 · has_assumptions=31/32 · has_notations=29/32 —— 这几栏在本语料上**区分力低**，**不因为它们算得出来就当判据用**。逐栏分布见 `tests/papers/reports/ids
+    **为什么要有这条**：近乎恒真的栏不是判据；留着它就必须**写明它零区分力**，否则下一个人会拿它当证据（`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有，见 `docs/mcm-suite-lessons.md` §4.1）。
+    **判据形状要是「登记行具名的集合 == 自己算出的集合」**：写成「文件里出现过 `has_contents` 这个词」是**恒真**的——那个名字本身就在一层字段序里。
+I5=OK
+    逐篇与 md 重算值相等；**无该行留空**的格数 1 == 独立重算的 1（样本 32 份）
+    三种口径命中数（样本 32）：**宽口径**（带 `re.M` + 允许行首 md 标记）31 · 计划草稿正则**加** `re.M` 22 · 计划草稿正则**不加** `re.M` 0
+    **口径偏离要说清**：任务书 §六 第 8 条给的是「带 `re.M` → 27/43」。本判据用的是**更宽的**口径：43 份里 14 份写成 `**Keywords: …**`、1 份写成 `## Keywords: …`，只认裸行的正则**看不见它们**——照抄 27/43 会把 15 份**确实有** Keywords 行的论文登记成「无该行」，那是**假陈述**（约束 8）。实测 0 / 27 / 42（逐份原文见 `recon/ids-recon.txt` §4b）；**全批唯一真的没有 Keywords 行的是 `2522820`**。
+I6=OK
+    逐篇与放行证据**逐数相等**（样本 32 份）：`n_figures`/`n_tables` 读 `tests/papers/reports/c-report.txt` 的 `C1 图注=N (图F/表T)`、`n_equations` 读 `tests/papers/reports/d-report.txt` 的 `检出=N`——**不重算**
+    **语义**：这是**图注/编号条数**，**不是**产出 PNG 张数（C1 里 产出=908 而 图注=935）。自己重算的口径实测得 **597/212**，与 C1 的 **682/253** 逐份 11 篇不等——所以这一栏必须**读回**（spec §6「同一份事实不在两处各算一次」）。
+    **「不适用」的两种情形分开了**：放行证据文件不存在 → `index.read_release_*` **抛错**；证据里没有这一篇 → 也**抛错**（这里是硬失败，不记「不适用」）。**没有任何一条路径**把「阶段 4 没跑过」记成「这篇真没有公式」。
+  放行证据解析（报告量）：c-report 逐篇行 43 条 · d-report 逐篇行 43 条 · 样本内缺登记 无 / 无
+I6-b=OK
+    **双边等式**：产物 `n_pages` == **原件** `page_count`（逐篇，样本 32 份）——原件是这一栏**唯一的权威**（不存在「别处已经算过一次」的产物，故不违反 spec §6）
+    **第二条独立路径**（同一条 `add` 里）：逐篇 md 的 `<!-- page N -->` **锚条数** == 原件 `page_count`（一条数 md 的锚、一条开原件数页）
+    **为什么这一栏原先没有判据**：老版本把这两句**算出来的布尔只 `lines.append` 打印**——既不并进 `ok`、也不比产物的 `n_pages` 栏（比的是 `ref` 的 md 锚数 vs PDF 页数，**从不碰产物**）。一句 fail-open 的打印被当成了「`n_pages` 的独立参照」（本项目「判据在什么都没验的情况下报绿」家族的形态）。现在两句都在条件里。
+    **I7 的页码判据不能替代它**：I7 的两边**都从 md 数页**，md 页锚缺失时两边同时得 `p0` → **绿着过**；只有这一条拿**原件**当参照。
+I7=OK
+    指针逐条可定位：**347** 条（词 + md 文件 + 页码 + 片段）
+    每条都满足（**六条都查**）：①二层小标题的 `md:` 指针 == 该篇真实的 md 仓库相对路径 ②片段是该篇 md 的**一整行逐字** ③该行**含该词**（词边界下）④页码 == 该行在 md 里自己的页（由 `<!-- page N -->` 锚数出）⑤`xN` == 本脚本**独立重算**的出现次数 ⑥是该词的**首次出现**
+    **不是「全文偏移」**：计划草稿的指针是「该词在全文文本中的字符位置」——那个位置在**任何入库产物里都不可定位**（md 是重排产物、没有稳定偏移），「可据此复核」是**假陈述**。现在指针是**整行逐字**，`grep -F` 就能核。
+    **强度边界**：它验证的是「指针指得回 md 的那一行」，**不是**「这一行里的词就是这篇论文的模型」。后者是判断，不在本任务范围（词表命中的语义边界写在 TAGS 头部）。
+I7-b=OK
+    三层（零命中篇）0 == 独立重算的零命中篇数 0；二层 32 == 样本 − 零命中 = 32
+I8=OK
+    逐篇 `产物题号` vs `论文自报题号`（摘要页 `Problem Chosen` 一类）：**一致 32 份 · 不符 0 份 · 未验证 0 份**
+    **三态逐态真报**（**「没有该栏」≠「有但读不出」≠「读出来与目录不符」**）：没有该栏 0 份  · 有但读不出 0 份  · 不符 0 份
+    **为什么要拆三态**：`v_problem` 对「没有该栏」与「有栏但读不出」**同样返回 `None`**，原先两态**混进同一个计数**、再由判据**印死「没有该栏 0 份」**——那个 0 在当前语料下恰好为真（侦察侧 `ids-recon-scan.py` 确实分了三态），但**判据自己不测** ⇒ 语料一变这行就静默说谎（约束 4 + 约束 8）。现在 `n_none`/`n_unreadable` 由 `v_problem_field_present(text)` 当场分开。
+    **「有栏但读不出」= 硬失败**（判断与理由）：约束 4 要求「参照**存在**但没解析出来」判硬失败，「参照**不存在**」才是不适用。栏位在而读不出 ⇒ 解析口径**系统性失效**（不是「这篇格式特别」）——它原先与「没有该栏」共享同一个 10% 上界，等于**用上界把一个解析 bug 洗成「未验证」**。当前语料实测 0 份，故这条升级**不改变本次结论**、只把口径收严。
+    **这条不是形式**：一篇被错放进目录的论文会**静默毒化**整条「题型 → 模型」配对链（Task 6b 的配对以 `(origin, problem)` 为地基），而计划草稿对它**没有任何判据**。
+I8-b=OK
+    「未验证」占比 0/32 = 0.00%（上界 10%）——三态里的**前两态**（「没有该栏」0 + 「有栏读不出」0）；**「未验证」是「通过」与「失败」之间唯一诚实的位置**（沿用 C4 的裁决），但它**必须有上界**，否则整列「读不出」也能绿。
+    **口径比原先更严**：「有栏读不出」已由 I8 单独判**硬失败**，这里**仍**把它计入占比（上界覆盖的集合不缩小）——两处都不放宽。
+I8-c=OK
+    队号三向一致：**INDEX 栏 == 文件名词干 == 论文自报队号**；自报读不出的 0 份 （无）
+I9=OK
+    `PROVENANCE.md` 双射表 32 行 · 唯一 ID 32 · 唯一词干 32（**两向单值 ⇒ 互逆**）
+    **六列逐列落地**（不等 无）：`年月` == 稳定 ID 的年份、`原件` == 磁盘上的原件相对路径、`md` == 磁盘上该篇 md 的仓库相对路径（前两列此前**入库却无判据**——`年月` 与 `md` 被解析时直接丢掉）。
+    为什么必须有这张表：稳定 ID **内容无关**（按到达顺序生成）⇒ `ID → 原件` 推不出来。INDEX 的「队号」栏是给人看的定位列，本表是可判的那一份。
+I10=OK
+    栏位齐全：INDEX 表头 11 栏 + TAGS 一层原有 10 栏；**INDEX 表头继续不得出现 `原题类型`**（那一栏只在 TAGS 里）；**`problem_type` 在 TAGS 字段序的末尾**（解冻时点名的位置约束）。
+    **解冻不丢保护**：旧绊线抓的「留空占位列」由 I10-b 承接（逐行非空 + 占位串集合），「表头不得出现该栏」在 INDEX 一侧原样保留。
+I10-a=OK
+    `problem_type` 在 TAGS 一层字段序里 = True（字段序共 16 栏）
+    **与 I10 的末尾断言不是同一条**：a 判「在不在」，I10 判「在不在**末尾**」——把整栏删掉两条都红，但把它挪到中间时**只有 I10 红**（a 是它的必要不充分条件）。
+I10-b=OK
+    **32 行逐行非空、且不属占位串集合** ['', '-', 'N/A', '待定', 'TODO', '?']（本判据就是旧绊线的保护：**空占位列照样红**）
+    **为什么这条必须留着**：Task 6 的旧 I10 抓的正是「留空占位列」这类假绿——绊线到期（6b 就是要这一栏）时**保护不许跟着走**。
+I10-c=OK
+    **同一 `problem` 字母的所有行取值逐字相同**：4 个题号，每个题号覆盖 [5, 7, 18, 2] 篇
+    题型是**题**的属性、不是**篇**的属性——同题的不同论文必须写出同一个题型串。
+I10-d=OK
+    出现的题号字母 **4** 个 · **互异取值 4** 个（纯结构断言，**不读标注文件**）
+    限样本跑只断言「字母数 == 互异取值数」：本次样本覆盖题号 ['A', 'B', 'C', 'D']，**不是** 6 个——故 `== 6` 这条留给全量跑
+I10-e=FAIL
+    2025 D：产物 `2 评价与排序 · 2.3 排序规则/权重设计；8 网络与图 · 8.2 流量分配/路由；9 决策与博弈 · 9.1 多准则决策` vs 标注 `2 评价与排序 · 2.3 排序规则/权重设计；3 优化 · 3.5 调度与配置；8 网络与图 · 8.2 流量分配/路由；9 决策与博弈 · 9.1 多准则决策`（只在产物 无 · 只在标注 ['3 优化 · 3.5 调度与配置']）
+I10-f=OK
+    取值里出现的 **13** 个标签名（`L1 · L2`）：两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个变体的归一化集合）
+    这是 `verify_types.py` T3 的**移植**：题型侧与模型侧必须**不相交**——否则「题型 → 模型/算法」的配对就变成同义反复（`ARIMA` 这样的词一旦进了题型栏，配对就什么都没说）。
+I10-g=OK
+    **覆盖边界可机读、且为等式**：* **标注覆盖边界（机读）**：标注题数=67 · 有论文的题=4 · 未配对的题=63 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 F、2019 A、2
+    `标注题数 = 有论文的题 + 未配对的题`（67 = 4 + 63），且**逐题具名清单**与「标注里有、而本次产物无论文」的独立重算集合**逐题对得上**
+    为什么这条必要：`corpus/官方原题/` 有 2016–2026 共 67 题，而本合集只有 2025 的论文（**标注里有、产物里没有**的题是 61 道）。「没写出来」与「没有这回事」不是一回事——把边界**印成可判的一行**，下一个人就不必猜本表覆盖到哪里。
+I10-h=OK
+    「亮点」栏非空的行：无（**本轮一律留空**——没有可指回原文的依据就不填推测）；头部有 `[社区]` 标级与「给不出就留空」的说明 = True
+    **这一条的强度边界（必须与它同读）**：它验证的是「**没有被填进推测性内容**」与「**头部有标级声明**」，**证明不了**这 43 篇没有亮点。它是**范围声明**、**不构成**任何「已覆盖」的声称。
+    **编号说明**：本条与下一条在原文件里叫 `I10-b` / `I10-c`；解冻后 **a–g 七个子条**用的是小写字母序，故这两条顺延为 `I10-h` / `I10-i`（**判据内容一字未改**，只改编号）。
+I10-i=OK
+    两个 .md 的文件头都有**奖项注记**（合集内统一 = O 奖）= True；**两个 .md 都不得再设「奖项」栏**（用户 2026-09-26 定案）= True
+   fail-closed 探针：合集名 '2025美赛O奖论文（不存在的名字）' → 抛 FileNotFoundError: 合集目录不存在：<repo>\corpus\历届优秀论文\2025美赛O奖论文（不存在的名字）（拒绝用空表冒充「该合集没有论文」）
+I11=OK
+    合集名不存在时 `index.build` **抛错**（不是返回空表静默 PASS）
+    探针的落点被**强制**指到 tests/papers/reports-limited/ids-products-probe（不入库目录）——否则「守卫被删掉」的那一版会把入库的三份产物**覆写成 0 条**（探针自己变成破坏者，那是本项目栽过的形态）。
+    **这就是任务书点名的那个活陷阱**：`Path.rglob` 对不存在的目录**静默返回空**，而磁盘上是 `2023年美赛O奖论文`（带「年」）、别处写作 `2023美赛O奖论文`。
+I12=OK
+    ① 两个 UMAP 合集名不以 4 位数字开头 → `io.stable_id` **抛 `ValueError`**（涉 37 份）：断言通过
+    ② **跨合集撞号**：`stable_id('2023美赛O奖论文','A',1)` = **P2023-A-01** = `stable_id('2023年美赛O奖论文','A',1)` = **P2023-A-01**——少一个「年」字，ID 完全相同；而 `io.ORIGIN/'2023美赛O奖论文'` 的 `is_dir() = False`（盘上是带「年」的）
+    **这两条是具名边界、不是缺陷**：判据把它们**断言成行为**，而不是假装它们不存在（计划草稿的「往返一致」判据对撞号**零区分力**）。
+    ③ **本次侦察新查出来的第三条边界**：`io.problem_of` 在别的合集上抛错——`2024年美赛O奖论文/2024年美赛A题O奖论文/` 把题号写进目录名（35/35 抛错）、2023 春季赛子目录（5/42）、两个 UMAP（37/37）；故本索引**只对「题号是独立目录层」的合集成立**，别的合集 `build` 抛错是**按设计**。逐份实测见 `recon/ids-recon.txt` §5。
+I13=OK
+    词表 **115** 词条、**367** 变体；规范词唯一、格式为 `规范词 | 变体…`（**一行一条、可追加**）
+    **零命中词条 32 个**（口径 = 在**本次样本 32 份**上一篇都不命中；限样本跑时它只是「这批上零命中」，不是全语料结论）：
+        零命中 'TOPSIS'
+        零命中 'fuzzy comprehensive evaluation'
+        零命中 'stepwise regression'
+        零命中 'k-nearest neighbor'
+        零命中 'linear programming'
+        零命中 'integer programming'
+        零命中 'goal programming'
+        零命中 'simulated annealing'
+        零命中 'differential evolution'
+        零命中 'ant colony optimization'
+        零命中 'tabu search'
+        零命中 'integer linear programming'
+        零命中 'finite element'
+        零命中 'SIR model'
+        零命中 'SEIR model'
+        零命中 'compartment model'
+        零命中 'reaction-diffusion'
+        零命中 'cellular automata'
+        零命中 'agent-based model'
+        零命中 'hierarchical clustering'
+        零命中 'discriminant analysis'
+        零命中 'maximum flow'
+        零命中 'network flow'
+        零命中 'traveling salesman problem'
+        零命中 'bipartite matching'
+        零命中 'PERT'
+        零命中 'Petri net'
+        零命中 'Wardrop'
+        零命中 'naive Bayes'
+        零命中 'Hopfield network'
+        零命中 'radial basis function'
+        零命中 'fuzzy logic'
+    **词表增长候选（给 Task 6b）**：作者 Keywords 里出现、而词表**覆盖不到**的词形 **59** 个，逐条（附出现篇数）：
+    **具名范围边界（必须与上面这份清单同读）**：候选来源**只取作者自写的 Keywords 行**（`;`/`,`/`、` 拆词），**未扫正文**——任务书 §一 的「论文里出现但词表没有」（含**未命中片段**）这一路**本任务只交付了 Keywords 行这一半**。选窄口径的理由：Keywords 行里的词能**逐条指回一行原文**、可复核；扫正文要先自造一套「什么算一个模型名」的抽取启发式，那是**判断**不是事实，且产出无从验证。**代价**：正文里出现而作者没写进 Keywords 的模型**不在本清单里**。
+        候选 'Stair Wear'（3 篇）
+        候选 'Sustainable Tourism'（3 篇）
+        候选 'Medal Prediction'（2 篇）
+        候选 'Olympic medal prediction'（2 篇）
+        候选 'Olympics'（2 篇）
+        候选 'Sustainable tourism'（2 篇）
+        候选 'A* and GA'（1 篇）
+        候选 'Accessibility'（1 篇）
+        候选 'Archard'（1 篇）
+        候选 'Archard Equation'（1 篇）
+        候选 'Archard Law'（1 篇）
+        候选 'Archard’s theory'（1 篇）
+        候选 'Athlete Potential Index'（1 篇）
+        候选 'CVM'（1 篇）
+        候选 'Central Limit Theorem'（1 篇）
+        候选 'Cox'（1 篇）
+        候选 'Depth Estimation'（1 篇）
+        候选 'Doubly ro-'（1 篇）
+        候选 'Event Potential Index'（1 篇）
+        候选 'Fatigue Damage'（1 篇）
+        候选 'GRI Algo-'（1 篇）
+        候选 'GSRF'（1 篇）
+        候选 'Gaussian Distribution'（1 篇）
+        候选 'Gaussian Mixture Algorithm'（1 篇）
+        候选 'Great Coach Effect'（1 篇）
+        候选 'Great coach effect'（1 篇）
+        候选 'Hurdle'（1 篇）
+        候选 'Juneau'（1 篇）
+        候选 'LR-SCAD Model'（1 篇）
+        候选 'Management Measures'（1 篇）
+        候选 'Medal predictions'（1 篇）
+        候选 'Mixed-'（1 篇）
+        候选 'Mont Carlo method'（1 篇）
+        候选 'Multi - objective optimization'（1 篇）
+        候选 'Multi-Objective Model'（1 篇）
+        候选 'Multi-objective Planning Model'（1 篇）
+        候选 'NSGA - II'（1 篇）
+        候选 'Olympic'（1 篇）
+        候选 'Olympic Games'（1 篇）
+        候选 'Olympic Medal Predic-'（1 篇）
+        候选 'Overtourism'（1 篇）
+        候选 'Pareto'（1 篇）
+        候选 'Posterior inference'（1 篇）
+        候选 'Prediction Model'（1 篇）
+        候选 'Residual Analysis'（1 篇）
+        候选 'SIS model'（1 篇）
+        候选 'Sensitivity'（1 篇）
+        候选 'Stakeholder'（1 篇）
+        候选 'Sustainable Tourism Dynamic Model'（1 篇）
+        候选 'Threshold Method'（1 篇）
+        候选 'TrueSkill'（1 篇）
+        候选 'Uncertainty'（1 篇）
+        候选 'Wear depth'（1 篇）
+        候选 'Weathering Degree Model'（1 篇）
+        候选 'dynamic feedback loops'（1 篇）
+        候选 'great'（1 篇）
+        候选 'logistics growth model'（1 篇）
+        候选 'medal prediction'（1 篇）
+        候选 '“great coach” effect'（1 篇）
+I13-b=OK
+    **真验**（不是打印一句声称）：临时词表先写 **1** 条 → `vocab.load` → **追加 1 条** → **同一进程内**再 `vocab.load`
+    实测 首读 **1** 条 / 追加后 **2** 条（要求 **1 / 2**）⇒ `vocab.load` **不缓存**，「追加即生效」成立。临时文件写在系统临时目录、跑完即删（**不入库、报告里不出现其路径**）。
+    **为什么非要真验**：`vocab.load` 一旦缓存（`lru_cache` 一类），「追加了却没生效」就是**静默形态**——而「词表开放、可追加」是本任务对用户的承诺（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）。原先这条是 `add(..., True, …)`：**恒真**、却计入「全部判据 OK」。变异证据：给 `vocab.load` 加 `lru_cache` 后本判据红（`ids-mutation-evidence.txt` 的 M14）。
+    零命中与候选**都不藏**：零命中词条本身是「这批论文没用这些方法」这个语料事实（不是判据失效），候选清单是 Task 6b 的增长输入。
+  词表命中篇数 top8（报告量）：sensitivity analysis 29 · machine learning 17 · Monte Carlo 14 · linear regression 13 · random forest 13 · Bayesian 12 · logistic regression 12 · time series analysis 12
+  一层 models 指针条数合计（样本）：347
+  md 页锚 vs 原件 `page_count` 的交叉核对**已从「打印」升为判据**（I6-b）：原先它算出来的布尔只 `lines.append`、且**从不碰产物的 `n_pages` 栏**——一句 fail-open 的打印。逐篇差额（若有）见 `I6-b=FAIL` 的登记行。
+入库产物完整性自检（限样本跑）：`corpus/papers/` 三份 .md 的 sha256 跑前跑后相同 = True（False → 本次限样本跑碰到了入库产物，判 FAIL）
+    corpus/papers/INDEX.md：跑前 dc8fee7bab892347… · 跑后 dc8fee7bab892347…
+    corpus/papers/TAGS.md：跑前 48475b03a5ddf074… · 跑后 48475b03a5ddf074…
+    corpus/papers/PROVENANCE.md：跑前 874987522bd67ad3… · 跑后 874987522bd67ad3…
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/ids-report-limited-32.txt
+  本文件是**限样本跑**（--limit 32 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED 样本 32/43 份 = 前 32 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V7：**把某一行的 `problem_type` 清空**（落成 `-` 占位）——**这一条专证旧绊线的保护还在**：Task 6 的旧 I10 抓的就是「留空占位列」这类假绿
+
+* 判据脚本：`tests/papers/verify_ids.py`　·　口径：`--limit 3`
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `ptype\ =\ LIST_SEP\.join\(_esc\(x\)\ for\ x\ in\ types\[\(r\`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `2839626677fd78bf…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['I10-b=FAIL', 'I10-c=FAIL', 'I10-e=FAIL', 'I10-f=FAIL']（**要求 ⊇ ['I10-b=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 5/43 份**（--limit 3 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2501687 2522820
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+I1=OK
+    PROVENANCE 双射表 5 行 · 磁盘样本 5 份 · 重复 ID 无 · 重复词干 无 · 解析失败 无
+    只在磁盘不在表 无 · 只在表不在磁盘 无（**两边都要空**：单边为空只是缺，不是双射）
+    **「往返恒真」那一版已被换掉**：`parse∘stable_id` 只要两边用同一个合集名就恒真（计划草稿的三条判据无一能失败）。这里的判据是**双射**：ID↔词干两向单值互逆、且并集 == 磁盘 PDF 集合（用磁盘与 `problem_of` 独立数出来的）。
+I1-b=OK
+    逐篇重算的稳定 ID 与产物不等：无（重算 = 按磁盘字典序 + 逐题号到达顺序，**不是**把 ID 拆开再拼回去）
+I1-c=OK
+    「年」与词干前两位的一致性：覆盖 5/5 份（只对 7 位数字词干起作用，覆盖不到的数量已写明）；不一致 无
+I2=OK
+    n_entries=5 == 唯一 ID=5 == TAGS 一层行数=5 == INDEX 表行数=5 == PROVENANCE 行数=5 == 磁盘 PDF（样本）=5 == md 文件（样本）=5
+    **双边等式，不是单边下界**（约束 5）：每一对都得相等，任一处漏一篇都会红。
+    **产物落点**：`IndexResult` 报告的 index/tags/prov 三路径 == 本脚本读的三份 = True——判据读的必须是**这一次**写出来的那一份。
+I2-b=OK
+    TAGS 二层篇数 5 + 三层篇数 0 = 5（**必须 == 5**）；二层 ∩ 三层 = 空；两层并集 == 一层 ID 集 = True（**每篇恰好进一层、且没有一篇落在两层之外**）
+I3=OK
+    逐份**逐字逐条**相等：合计 **211** 条 == md `## ` 行（样本内）；差额 0 条、未解释 0 条
+    `sections` 取 **md `## ` 标题行逐字**（`;` 连接、去 `## ` 前缀）：本语料把「号」与「题」常分两行排（实测「只有编号」574 条 + 「编号带题」494 条 = 1068 条），本任务**不做号/题合并那一类推断**（那是把推断写进事实栏）。
+I4=OK
+    逐篇与「标题行」口径重算值**逐栏相等**（样本 5 份）
+    **口径不是全文子串**：全文口径下 Contents 42/43、Assumptions 43/43、Notation 40/43、Sensitivity 38/43——前四列近乎恒真。`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有（`docs/mcm-suite-lessons.md` §4.1）。
+I4-c=OK
+    **零区分力登记**（一边占比 > 90%）：['has_contents', 'has_assumptions']
+    TAGS 头部的登记行：* **零区分力登记**（一边占比 > 90%）：has_contents=5/5 · has_assumptions=5/5 —— 这几栏在本语料上**区分力低**，**不因为它们算得出来就当判据用**。逐栏分布见 `tests/papers/reports/ids-report.txt`。
+    **为什么要有这条**：近乎恒真的栏不是判据；留着它就必须**写明它零区分力**，否则下一个人会拿它当证据（`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有，见 `docs/mcm-suite-lessons.md` §4.1）。
+    **判据形状要是「登记行具名的集合 == 自己算出的集合」**：写成「文件里出现过 `has_contents` 这个词」是**恒真**的——那个名字本身就在一层字段序里。
+I5=OK
+    逐篇与 md 重算值相等；**无该行留空**的格数 1 == 独立重算的 1（样本 5 份）
+    三种口径命中数（样本 5）：**宽口径**（带 `re.M` + 允许行首 md 标记）4 · 计划草稿正则**加** `re.M` 2 · 计划草稿正则**不加** `re.M` 0
+    **口径偏离要说清**：任务书 §六 第 8 条给的是「带 `re.M` → 27/43」。本判据用的是**更宽的**口径：43 份里 14 份写成 `**Keywords: …**`、1 份写成 `## Keywords: …`，只认裸行的正则**看不见它们**——照抄 27/43 会把 15 份**确实有** Keywords 行的论文登记成「无该行」，那是**假陈述**（约束 8）。实测 0 / 27 / 42（逐份原文见 `recon/ids-recon.txt` §4b）；**全批唯一真的没有 Keywords 行的是 `2522820`**。
+I6=OK
+    逐篇与放行证据**逐数相等**（样本 5 份）：`n_figures`/`n_tables` 读 `tests/papers/reports/c-report.txt` 的 `C1 图注=N (图F/表T)`、`n_equations` 读 `tests/papers/reports/d-report.txt` 的 `检出=N`——**不重算**
+    **语义**：这是**图注/编号条数**，**不是**产出 PNG 张数（C1 里 产出=908 而 图注=935）。自己重算的口径实测得 **597/212**，与 C1 的 **682/253** 逐份 11 篇不等——所以这一栏必须**读回**（spec §6「同一份事实不在两处各算一次」）。
+    **「不适用」的两种情形分开了**：放行证据文件不存在 → `index.read_release_*` **抛错**；证据里没有这一篇 → 也**抛错**（这里是硬失败，不记「不适用」）。**没有任何一条路径**把「阶段 4 没跑过」记成「这篇真没有公式」。
+  放行证据解析（报告量）：c-report 逐篇行 43 条 · d-report 逐篇行 43 条 · 样本内缺登记 无 / 无
+I6-b=OK
+    **双边等式**：产物 `n_pages` == **原件** `page_count`（逐篇，样本 5 份）——原件是这一栏**唯一的权威**（不存在「别处已经算过一次」的产物，故不违反 spec §6）
+    **第二条独立路径**（同一条 `add` 里）：逐篇 md 的 `<!-- page N -->` **锚条数** == 原件 `page_count`（一条数 md 的锚、一条开原件数页）
+    **为什么这一栏原先没有判据**：老版本把这两句**算出来的布尔只 `lines.append` 打印**——既不并进 `ok`、也不比产物的 `n_pages` 栏（比的是 `ref` 的 md 锚数 vs PDF 页数，**从不碰产物**）。一句 fail-open 的打印被当成了「`n_pages` 的独立参照」（本项目「判据在什么都没验的情况下报绿」家族的形态）。现在两句都在条件里。
+    **I7 的页码判据不能替代它**：I7 的两边**都从 md 数页**，md 页锚缺失时两边同时得 `p0` → **绿着过**；只有这一条拿**原件**当参照。
+I7=OK
+    指针逐条可定位：**30** 条（词 + md 文件 + 页码 + 片段）
+    每条都满足（**六条都查**）：①二层小标题的 `md:` 指针 == 该篇真实的 md 仓库相对路径 ②片段是该篇 md 的**一整行逐字** ③该行**含该词**（词边界下）④页码 == 该行在 md 里自己的页（由 `<!-- page N -->` 锚数出）⑤`xN` == 本脚本**独立重算**的出现次数 ⑥是该词的**首次出现**
+    **不是「全文偏移」**：计划草稿的指针是「该词在全文文本中的字符位置」——那个位置在**任何入库产物里都不可定位**（md 是重排产物、没有稳定偏移），「可据此复核」是**假陈述**。现在指针是**整行逐字**，`grep -F` 就能核。
+    **强度边界**：它验证的是「指针指得回 md 的那一行」，**不是**「这一行里的词就是这篇论文的模型」。后者是判断，不在本任务范围（词表命中的语义边界写在 TAGS 头部）。
+I7-b=OK
+    三层（零命中篇）0 == 独立重算的零命中篇数 0；二层 5 == 样本 − 零命中 = 5
+I8=OK
+    逐篇 `产物题号` vs `论文自报题号`（摘要页 `Problem Chosen` 一类）：**一致 5 份 · 不符 0 份 · 未验证 0 份**
+    **三态逐态真报**（**「没有该栏」≠「有但读不出」≠「读出来与目录不符」**）：没有该栏 0 份  · 有但读不出 0 份  · 不符 0 份
+    **为什么要拆三态**：`v_problem` 对「没有该栏」与「有栏但读不出」**同样返回 `None`**，原先两态**混进同一个计数**、再由判据**印死「没有该栏 0 份」**——那个 0 在当前语料下恰好为真（侦察侧 `ids-recon-scan.py` 确实分了三态），但**判据自己不测** ⇒ 语料一变这行就静默说谎（约束 4 + 约束 8）。现在 `n_none`/`n_unreadable` 由 `v_problem_field_present(text)` 当场分开。
+    **「有栏但读不出」= 硬失败**（判断与理由）：约束 4 要求「参照**存在**但没解析出来」判硬失败，「参照**不存在**」才是不适用。栏位在而读不出 ⇒ 解析口径**系统性失效**（不是「这篇格式特别」）——它原先与「没有该栏」共享同一个 10% 上界，等于**用上界把一个解析 bug 洗成「未验证」**。当前语料实测 0 份，故这条升级**不改变本次结论**、只把口径收严。
+    **这条不是形式**：一篇被错放进目录的论文会**静默毒化**整条「题型 → 模型」配对链（Task 6b 的配对以 `(origin, problem)` 为地基），而计划草稿对它**没有任何判据**。
+I8-b=OK
+    「未验证」占比 0/5 = 0.00%（上界 10%）——三态里的**前两态**（「没有该栏」0 + 「有栏读不出」0）；**「未验证」是「通过」与「失败」之间唯一诚实的位置**（沿用 C4 的裁决），但它**必须有上界**，否则整列「读不出」也能绿。
+    **口径比原先更严**：「有栏读不出」已由 I8 单独判**硬失败**，这里**仍**把它计入占比（上界覆盖的集合不缩小）——两处都不放宽。
+I8-c=OK
+    队号三向一致：**INDEX 栏 == 文件名词干 == 论文自报队号**；自报读不出的 0 份 （无）
+I9=OK
+    `PROVENANCE.md` 双射表 5 行 · 唯一 ID 5 · 唯一词干 5（**两向单值 ⇒ 互逆**）
+    **六列逐列落地**（不等 无）：`年月` == 稳定 ID 的年份、`原件` == 磁盘上的原件相对路径、`md` == 磁盘上该篇 md 的仓库相对路径（前两列此前**入库却无判据**——`年月` 与 `md` 被解析时直接丢掉）。
+    为什么必须有这张表：稳定 ID **内容无关**（按到达顺序生成）⇒ `ID → 原件` 推不出来。INDEX 的「队号」栏是给人看的定位列，本表是可判的那一份。
+I10=OK
+    栏位齐全：INDEX 表头 11 栏 + TAGS 一层原有 10 栏；**INDEX 表头继续不得出现 `原题类型`**（那一栏只在 TAGS 里）；**`problem_type` 在 TAGS 字段序的末尾**（解冻时点名的位置约束）。
+    **解冻不丢保护**：旧绊线抓的「留空占位列」由 I10-b 承接（逐行非空 + 占位串集合），「表头不得出现该栏」在 INDEX 一侧原样保留。
+I10-a=OK
+    `problem_type` 在 TAGS 一层字段序里 = True（字段序共 16 栏）
+    **与 I10 的末尾断言不是同一条**：a 判「在不在」，I10 判「在不在**末尾**」——把整栏删掉两条都红，但把它挪到中间时**只有 I10 红**（a 是它的必要不充分条件）。
+I10-b=FAIL
+    P2025-A-01：取值 '-'
+    **5 行逐行非空、且不属占位串集合** ['', '-', 'N/A', '待定', 'TODO', '?']（本判据就是旧绊线的保护：**空占位列照样红**）
+    **为什么这条必须留着**：Task 6 的旧 I10 抓的正是「留空占位列」这类假绿——绊线到期（6b 就是要这一栏）时**保护不许跟着走**。
+I10-c=FAIL
+    题 A：2 种取值 ['-', '6 反演与参数估计 · 6.1 由观测反推参数/历史;4 机理建模与仿真 · 4.1 物理/化学机理建模;5 统计推断与因果 · 5.4 不确定性与敏感性']（['P2025-A-01', 'P2025-A-02', 'P2025-A-03']）
+I10-d=OK
+    出现的题号字母 **3** 个 · **互异取值 3** 个（纯结构断言，**不读标注文件**）
+    限样本跑只断言「字母数 == 互异取值数」：本次样本覆盖题号 ['A', 'B', 'C']，**不是** 6 个——故 `== 6` 这条留给全量跑
+I10-e=FAIL
+    2025 A：产物 `-` vs 标注 `4 机理建模与仿真 · 4.1 物理/化学机理建模；5 统计推断与因果 · 5.4 不确定性与敏感性；6 反演与参数估计 · 6.1 由观测反推参数/历史`（只在产物 ['-'] · 只在标注 ['4 机理建模与仿真 · 4.1 物理/化学机理建模', '5 统计推断与因果 · 5.4 不确定性与敏感性', '6 反演与参数估计 · 6.1 由观测反推参数/历史']）
+I10-f=FAIL
+    '-' 不含 ` · `（应为 `L1 名 · L2 名`）
+I10-g=OK
+    **覆盖边界可机读、且为等式**：* **标注覆盖边界（机读）**：标注题数=67 · 有论文的题=3 · 未配对的题=64 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 F、2019 A、2
+    `标注题数 = 有论文的题 + 未配对的题`（67 = 3 + 64），且**逐题具名清单**与「标注里有、而本次产物无论文」的独立重算集合**逐题对得上**
+    为什么这条必要：`corpus/官方原题/` 有 2016–2026 共 67 题，而本合集只有 2025 的论文（**标注里有、产物里没有**的题是 61 道）。「没写出来」与「没有这回事」不是一回事——把边界**印成可判的一行**，下一个人就不必猜本表覆盖到哪里。
+I10-h=OK
+    「亮点」栏非空的行：无（**本轮一律留空**——没有可指回原文的依据就不填推测）；头部有 `[社区]` 标级与「给不出就留空」的说明 = True
+    **这一条的强度边界（必须与它同读）**：它验证的是「**没有被填进推测性内容**」与「**头部有标级声明**」，**证明不了**这 43 篇没有亮点。它是**范围声明**、**不构成**任何「已覆盖」的声称。
+    **编号说明**：本条与下一条在原文件里叫 `I10-b` / `I10-c`；解冻后 **a–g 七个子条**用的是小写字母序，故这两条顺延为 `I10-h` / `I10-i`（**判据内容一字未改**，只改编号）。
+I10-i=OK
+    两个 .md 的文件头都有**奖项注记**（合集内统一 = O 奖）= True；**两个 .md 都不得再设「奖项」栏**（用户 2026-09-26 定案）= True
+   fail-closed 探针：合集名 '2025美赛O奖论文（不存在的名字）' → 抛 FileNotFoundError: 合集目录不存在：<repo>\corpus\历届优秀论文\2025美赛O奖论文（不存在的名字）（拒绝用空表冒充「该合集没有论文」）
+I11=OK
+    合集名不存在时 `index.build` **抛错**（不是返回空表静默 PASS）
+    探针的落点被**强制**指到 tests/papers/reports-limited/ids-products-probe（不入库目录）——否则「守卫被删掉」的那一版会把入库的三份产物**覆写成 0 条**（探针自己变成破坏者，那是本项目栽过的形态）。
+    **这就是任务书点名的那个活陷阱**：`Path.rglob` 对不存在的目录**静默返回空**，而磁盘上是 `2023年美赛O奖论文`（带「年」）、别处写作 `2023美赛O奖论文`。
+I12=OK
+    ① 两个 UMAP 合集名不以 4 位数字开头 → `io.stable_id` **抛 `ValueError`**（涉 37 份）：断言通过
+    ② **跨合集撞号**：`stable_id('2023美赛O奖论文','A',1)` = **P2023-A-01** = `stable_id('2023年美赛O奖论文','A',1)` = **P2023-A-01**——少一个「年」字，ID 完全相同；而 `io.ORIGIN/'2023美赛O奖论文'` 的 `is_dir() = False`（盘上是带「年」的）
+    **这两条是具名边界、不是缺陷**：判据把它们**断言成行为**，而不是假装它们不存在（计划草稿的「往返一致」判据对撞号**零区分力**）。
+    ③ **本次侦察新查出来的第三条边界**：`io.problem_of` 在别的合集上抛错——`2024年美赛O奖论文/2024年美赛A题O奖论文/` 把题号写进目录名（35/35 抛错）、2023 春季赛子目录（5/42）、两个 UMAP（37/37）；故本索引**只对「题号是独立目录层」的合集成立**，别的合集 `build` 抛错是**按设计**。逐份实测见 `recon/ids-recon.txt` §5。
+I13=OK
+    词表 **115** 词条、**367** 变体；规范词唯一、格式为 `规范词 | 变体…`（**一行一条、可追加**）
+    **零命中词条 93 个**（口径 = 在**本次样本 5 份**上一篇都不命中；限样本跑时它只是「这批上零命中」，不是全语料结论）：
+        零命中 'AHP'
+        零命中 'TOPSIS'
+        零命中 'fuzzy comprehensive evaluation'
+        零命中 'entropy weight method'
+        零命中 'grey relational analysis'
+        零命中 'principal component analysis'
+        零命中 'grey prediction'
+        零命中 'SARIMA'
+        零命中 'exponential smoothing'
+        零命中 'ridge regression'
+        零命中 'lasso'
+        零命中 'stepwise regression'
+        零命中 'nonlinear regression'
+        零命中 'XGBoost'
+        零命中 'random forest'
+        零命中 'gradient boosting'
+        零命中 'decision tree'
+        零命中 'neural network'
+        零命中 'BP neural network'
+        零命中 'LSTM'
+        零命中 'RNN'
+        零命中 'CNN'
+        零命中 'SVR'
+        零命中 'SVM'
+        零命中 'k-nearest neighbor'
+        零命中 'linear programming'
+        零命中 'integer programming'
+        零命中 'multi-objective optimization'
+        零命中 'goal programming'
+        零命中 'dynamic programming'
+        零命中 'genetic algorithm'
+        零命中 'simulated annealing'
+        零命中 'differential evolution'
+        零命中 'NSGA-II'
+        零命中 'ant colony optimization'
+        零命中 'tabu search'
+        零命中 'queueing theory'
+        零命中 'A-star'
+        零命中 'integer linear programming'
+        零命中 'ordinary differential equation'
+        零命中 'finite element'
+        零命中 'SIR model'
+        零命中 'SEIR model'
+        零命中 'Lotka-Volterra'
+        零命中 'system dynamics'
+        零命中 'compartment model'
+        零命中 'reaction-diffusion'
+        零命中 'Markov chain Monte Carlo'
+        零命中 'cellular automata'
+        零命中 'agent-based model'
+        零命中 'Markov chain'
+        零命中 'Bayesian network'
+        零命中 'K-means'
+        零命中 'hierarchical clustering'
+        零命中 'factor analysis'
+        零命中 'discriminant analysis'
+        零命中 'analysis of variance'
+        零命中 'regression discontinuity'
+        零命中 'difference-in-differences'
+        零命中 'propensity score matching'
+        零命中 'structural equation modeling'
+        零命中 'zero-inflated'
+        零命中 'two-stage least squares'
+        零命中 'Shannon entropy'
+        零命中 'Mann-Kendall'
+        零命中 'Cox proportional hazards'
+        零命中 'association rules'
+        零命中 'cross-validation'
+        零命中 'bootstrap'
+        零命中 'stacking'
+        零命中 'SHAP'
+        零命中 'survival analysis'
+        零命中 'graph theory'
+        零命中 'shortest path'
+        零命中 'minimum spanning tree'
+        零命中 'maximum flow'
+        零命中 'network flow'
+        零命中 'traveling salesman problem'
+        零命中 'bipartite matching'
+        零命中 'PERT'
+        零命中 'centrality'
+        零命中 'Petri net'
+        零命中 'network analysis'
+        零命中 'Wardrop'
+        零命中 'deep learning'
+        零命中 'reinforcement learning'
+        零命中 'naive Bayes'
+        零命中 'self-organizing map'
+        零命中 'Hopfield network'
+        零命中 'radial basis function'
+        零命中 'isolation forest'
+        零命中 'fuzzy logic'
+        零命中 'change-point detection'
+    **词表增长候选（给 Task 6b）**：作者 Keywords 里出现、而词表**覆盖不到**的词形 **11** 个，逐条（附出现篇数）：
+    **具名范围边界（必须与上面这份清单同读）**：候选来源**只取作者自写的 Keywords 行**（`;`/`,`/`、` 拆词），**未扫正文**——任务书 §一 的「论文里出现但词表没有」（含**未命中片段**）这一路**本任务只交付了 Keywords 行这一半**。选窄口径的理由：Keywords 行里的词能**逐条指回一行原文**、可复核；扫正文要先自造一套「什么算一个模型名」的抽取启发式，那是**判断**不是事实，且产出无从验证。**代价**：正文里出现而作者没写进 Keywords 的模型**不在本清单里**。
+        候选 'Stair Wear'（2 篇）
+        候选 'Archard'（1 篇）
+        候选 'Archard Law'（1 篇）
+        候选 'CVM'（1 篇）
+        候选 'Central Limit Theorem'（1 篇）
+        候选 'Fatigue Damage'（1 篇）
+        候选 'Gaussian Distribution'（1 篇）
+        候选 'Gaussian Mixture Algorithm'（1 篇）
+        候选 'Mont Carlo method'（1 篇）
+        候选 'Sustainable tourism'（1 篇）
+        候选 'Wear depth'（1 篇）
+I13-b=OK
+    **真验**（不是打印一句声称）：临时词表先写 **1** 条 → `vocab.load` → **追加 1 条** → **同一进程内**再 `vocab.load`
+    实测 首读 **1** 条 / 追加后 **2** 条（要求 **1 / 2**）⇒ `vocab.load` **不缓存**，「追加即生效」成立。临时文件写在系统临时目录、跑完即删（**不入库、报告里不出现其路径**）。
+    **为什么非要真验**：`vocab.load` 一旦缓存（`lru_cache` 一类），「追加了却没生效」就是**静默形态**——而「词表开放、可追加」是本任务对用户的承诺（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）。原先这条是 `add(..., True, …)`：**恒真**、却计入「全部判据 OK」。变异证据：给 `vocab.load` 加 `lru_cache` 后本判据红（`ids-mutation-evidence.txt` 的 M14）。
+    零命中与候选**都不藏**：零命中词条本身是「这批论文没用这些方法」这个语料事实（不是判据失效），候选清单是 Task 6b 的增长输入。
+  词表命中篇数 top8（报告量）：Monte Carlo 3 · sensitivity analysis 3 · linear regression 3 · particle swarm optimization 2 · Bayesian 2 · differential equation 1 · partial differential equation 1 · finite difference 1
+  一层 models 指针条数合计（样本）：30
+  md 页锚 vs 原件 `page_count` 的交叉核对**已从「打印」升为判据**（I6-b）：原先它算出来的布尔只 `lines.append`、且**从不碰产物的 `n_pages` 栏**——一句 fail-open 的打印。逐篇差额（若有）见 `I6-b=FAIL` 的登记行。
+入库产物完整性自检（限样本跑）：`corpus/papers/` 三份 .md 的 sha256 跑前跑后相同 = True（False → 本次限样本跑碰到了入库产物，判 FAIL）
+    corpus/papers/INDEX.md：跑前 dc8fee7bab892347… · 跑后 dc8fee7bab892347…
+    corpus/papers/TAGS.md：跑前 48475b03a5ddf074… · 跑后 48475b03a5ddf074…
+    corpus/papers/PROVENANCE.md：跑前 874987522bd67ad3… · 跑后 874987522bd67ad3…
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/ids-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED 样本 5/43 份 = 前 3 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V8a：**让同一题号字母的六篇里有一篇取值不同**——题型是**题**的属性、不是篇的属性
+
+* 判据脚本：`tests/papers/verify_ids.py`　·　口径：`--limit 3`
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `ptype\ =\ LIST_SEP\.join\(_esc\(x\)\ for\ x\ in\ types\[\(r\`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `441b950935c6b575…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['I10-c=FAIL', 'I10-e=FAIL']（**要求 ⊇ ['I10-c=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 5/43 份**（--limit 3 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2501687 2522820
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+I1=OK
+    PROVENANCE 双射表 5 行 · 磁盘样本 5 份 · 重复 ID 无 · 重复词干 无 · 解析失败 无
+    只在磁盘不在表 无 · 只在表不在磁盘 无（**两边都要空**：单边为空只是缺，不是双射）
+    **「往返恒真」那一版已被换掉**：`parse∘stable_id` 只要两边用同一个合集名就恒真（计划草稿的三条判据无一能失败）。这里的判据是**双射**：ID↔词干两向单值互逆、且并集 == 磁盘 PDF 集合（用磁盘与 `problem_of` 独立数出来的）。
+I1-b=OK
+    逐篇重算的稳定 ID 与产物不等：无（重算 = 按磁盘字典序 + 逐题号到达顺序，**不是**把 ID 拆开再拼回去）
+I1-c=OK
+    「年」与词干前两位的一致性：覆盖 5/5 份（只对 7 位数字词干起作用，覆盖不到的数量已写明）；不一致 无
+I2=OK
+    n_entries=5 == 唯一 ID=5 == TAGS 一层行数=5 == INDEX 表行数=5 == PROVENANCE 行数=5 == 磁盘 PDF（样本）=5 == md 文件（样本）=5
+    **双边等式，不是单边下界**（约束 5）：每一对都得相等，任一处漏一篇都会红。
+    **产物落点**：`IndexResult` 报告的 index/tags/prov 三路径 == 本脚本读的三份 = True——判据读的必须是**这一次**写出来的那一份。
+I2-b=OK
+    TAGS 二层篇数 5 + 三层篇数 0 = 5（**必须 == 5**）；二层 ∩ 三层 = 空；两层并集 == 一层 ID 集 = True（**每篇恰好进一层、且没有一篇落在两层之外**）
+I3=OK
+    逐份**逐字逐条**相等：合计 **211** 条 == md `## ` 行（样本内）；差额 0 条、未解释 0 条
+    `sections` 取 **md `## ` 标题行逐字**（`;` 连接、去 `## ` 前缀）：本语料把「号」与「题」常分两行排（实测「只有编号」574 条 + 「编号带题」494 条 = 1068 条），本任务**不做号/题合并那一类推断**（那是把推断写进事实栏）。
+I4=OK
+    逐篇与「标题行」口径重算值**逐栏相等**（样本 5 份）
+    **口径不是全文子串**：全文口径下 Contents 42/43、Assumptions 43/43、Notation 40/43、Sensitivity 38/43——前四列近乎恒真。`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有（`docs/mcm-suite-lessons.md` §4.1）。
+I4-c=OK
+    **零区分力登记**（一边占比 > 90%）：['has_contents', 'has_assumptions']
+    TAGS 头部的登记行：* **零区分力登记**（一边占比 > 90%）：has_contents=5/5 · has_assumptions=5/5 —— 这几栏在本语料上**区分力低**，**不因为它们算得出来就当判据用**。逐栏分布见 `tests/papers/reports/ids-report.txt`。
+    **为什么要有这条**：近乎恒真的栏不是判据；留着它就必须**写明它零区分力**，否则下一个人会拿它当证据（`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有，见 `docs/mcm-suite-lessons.md` §4.1）。
+    **判据形状要是「登记行具名的集合 == 自己算出的集合」**：写成「文件里出现过 `has_contents` 这个词」是**恒真**的——那个名字本身就在一层字段序里。
+I5=OK
+    逐篇与 md 重算值相等；**无该行留空**的格数 1 == 独立重算的 1（样本 5 份）
+    三种口径命中数（样本 5）：**宽口径**（带 `re.M` + 允许行首 md 标记）4 · 计划草稿正则**加** `re.M` 2 · 计划草稿正则**不加** `re.M` 0
+    **口径偏离要说清**：任务书 §六 第 8 条给的是「带 `re.M` → 27/43」。本判据用的是**更宽的**口径：43 份里 14 份写成 `**Keywords: …**`、1 份写成 `## Keywords: …`，只认裸行的正则**看不见它们**——照抄 27/43 会把 15 份**确实有** Keywords 行的论文登记成「无该行」，那是**假陈述**（约束 8）。实测 0 / 27 / 42（逐份原文见 `recon/ids-recon.txt` §4b）；**全批唯一真的没有 Keywords 行的是 `2522820`**。
+I6=OK
+    逐篇与放行证据**逐数相等**（样本 5 份）：`n_figures`/`n_tables` 读 `tests/papers/reports/c-report.txt` 的 `C1 图注=N (图F/表T)`、`n_equations` 读 `tests/papers/reports/d-report.txt` 的 `检出=N`——**不重算**
+    **语义**：这是**图注/编号条数**，**不是**产出 PNG 张数（C1 里 产出=908 而 图注=935）。自己重算的口径实测得 **597/212**，与 C1 的 **682/253** 逐份 11 篇不等——所以这一栏必须**读回**（spec §6「同一份事实不在两处各算一次」）。
+    **「不适用」的两种情形分开了**：放行证据文件不存在 → `index.read_release_*` **抛错**；证据里没有这一篇 → 也**抛错**（这里是硬失败，不记「不适用」）。**没有任何一条路径**把「阶段 4 没跑过」记成「这篇真没有公式」。
+  放行证据解析（报告量）：c-report 逐篇行 43 条 · d-report 逐篇行 43 条 · 样本内缺登记 无 / 无
+I6-b=OK
+    **双边等式**：产物 `n_pages` == **原件** `page_count`（逐篇，样本 5 份）——原件是这一栏**唯一的权威**（不存在「别处已经算过一次」的产物，故不违反 spec §6）
+    **第二条独立路径**（同一条 `add` 里）：逐篇 md 的 `<!-- page N -->` **锚条数** == 原件 `page_count`（一条数 md 的锚、一条开原件数页）
+    **为什么这一栏原先没有判据**：老版本把这两句**算出来的布尔只 `lines.append` 打印**——既不并进 `ok`、也不比产物的 `n_pages` 栏（比的是 `ref` 的 md 锚数 vs PDF 页数，**从不碰产物**）。一句 fail-open 的打印被当成了「`n_pages` 的独立参照」（本项目「判据在什么都没验的情况下报绿」家族的形态）。现在两句都在条件里。
+    **I7 的页码判据不能替代它**：I7 的两边**都从 md 数页**，md 页锚缺失时两边同时得 `p0` → **绿着过**；只有这一条拿**原件**当参照。
+I7=OK
+    指针逐条可定位：**30** 条（词 + md 文件 + 页码 + 片段）
+    每条都满足（**六条都查**）：①二层小标题的 `md:` 指针 == 该篇真实的 md 仓库相对路径 ②片段是该篇 md 的**一整行逐字** ③该行**含该词**（词边界下）④页码 == 该行在 md 里自己的页（由 `<!-- page N -->` 锚数出）⑤`xN` == 本脚本**独立重算**的出现次数 ⑥是该词的**首次出现**
+    **不是「全文偏移」**：计划草稿的指针是「该词在全文文本中的字符位置」——那个位置在**任何入库产物里都不可定位**（md 是重排产物、没有稳定偏移），「可据此复核」是**假陈述**。现在指针是**整行逐字**，`grep -F` 就能核。
+    **强度边界**：它验证的是「指针指得回 md 的那一行」，**不是**「这一行里的词就是这篇论文的模型」。后者是判断，不在本任务范围（词表命中的语义边界写在 TAGS 头部）。
+I7-b=OK
+    三层（零命中篇）0 == 独立重算的零命中篇数 0；二层 5 == 样本 − 零命中 = 5
+I8=OK
+    逐篇 `产物题号` vs `论文自报题号`（摘要页 `Problem Chosen` 一类）：**一致 5 份 · 不符 0 份 · 未验证 0 份**
+    **三态逐态真报**（**「没有该栏」≠「有但读不出」≠「读出来与目录不符」**）：没有该栏 0 份  · 有但读不出 0 份  · 不符 0 份
+    **为什么要拆三态**：`v_problem` 对「没有该栏」与「有栏但读不出」**同样返回 `None`**，原先两态**混进同一个计数**、再由判据**印死「没有该栏 0 份」**——那个 0 在当前语料下恰好为真（侦察侧 `ids-recon-scan.py` 确实分了三态），但**判据自己不测** ⇒ 语料一变这行就静默说谎（约束 4 + 约束 8）。现在 `n_none`/`n_unreadable` 由 `v_problem_field_present(text)` 当场分开。
+    **「有栏但读不出」= 硬失败**（判断与理由）：约束 4 要求「参照**存在**但没解析出来」判硬失败，「参照**不存在**」才是不适用。栏位在而读不出 ⇒ 解析口径**系统性失效**（不是「这篇格式特别」）——它原先与「没有该栏」共享同一个 10% 上界，等于**用上界把一个解析 bug 洗成「未验证」**。当前语料实测 0 份，故这条升级**不改变本次结论**、只把口径收严。
+    **这条不是形式**：一篇被错放进目录的论文会**静默毒化**整条「题型 → 模型」配对链（Task 6b 的配对以 `(origin, problem)` 为地基），而计划草稿对它**没有任何判据**。
+I8-b=OK
+    「未验证」占比 0/5 = 0.00%（上界 10%）——三态里的**前两态**（「没有该栏」0 + 「有栏读不出」0）；**「未验证」是「通过」与「失败」之间唯一诚实的位置**（沿用 C4 的裁决），但它**必须有上界**，否则整列「读不出」也能绿。
+    **口径比原先更严**：「有栏读不出」已由 I8 单独判**硬失败**，这里**仍**把它计入占比（上界覆盖的集合不缩小）——两处都不放宽。
+I8-c=OK
+    队号三向一致：**INDEX 栏 == 文件名词干 == 论文自报队号**；自报读不出的 0 份 （无）
+I9=OK
+    `PROVENANCE.md` 双射表 5 行 · 唯一 ID 5 · 唯一词干 5（**两向单值 ⇒ 互逆**）
+    **六列逐列落地**（不等 无）：`年月` == 稳定 ID 的年份、`原件` == 磁盘上的原件相对路径、`md` == 磁盘上该篇 md 的仓库相对路径（前两列此前**入库却无判据**——`年月` 与 `md` 被解析时直接丢掉）。
+    为什么必须有这张表：稳定 ID **内容无关**（按到达顺序生成）⇒ `ID → 原件` 推不出来。INDEX 的「队号」栏是给人看的定位列，本表是可判的那一份。
+I10=OK
+    栏位齐全：INDEX 表头 11 栏 + TAGS 一层原有 10 栏；**INDEX 表头继续不得出现 `原题类型`**（那一栏只在 TAGS 里）；**`problem_type` 在 TAGS 字段序的末尾**（解冻时点名的位置约束）。
+    **解冻不丢保护**：旧绊线抓的「留空占位列」由 I10-b 承接（逐行非空 + 占位串集合），「表头不得出现该栏」在 INDEX 一侧原样保留。
+I10-a=OK
+    `problem_type` 在 TAGS 一层字段序里 = True（字段序共 16 栏）
+    **与 I10 的末尾断言不是同一条**：a 判「在不在」，I10 判「在不在**末尾**」——把整栏删掉两条都红，但把它挪到中间时**只有 I10 红**（a 是它的必要不充分条件）。
+I10-b=OK
+    **5 行逐行非空、且不属占位串集合** ['', '-', 'N/A', '待定', 'TODO', '?']（本判据就是旧绊线的保护：**空占位列照样红**）
+    **为什么这条必须留着**：Task 6 的旧 I10 抓的正是「留空占位列」这类假绿——绊线到期（6b 就是要这一栏）时**保护不许跟着走**。
+I10-c=FAIL
+    题 A：2 种取值 ['1 预测 · 1.2 回归/相关预测', '6 反演与参数估计 · 6.1 由观测反推参数/历史;4 机理建模与仿真 · 4.1 物理/化学机理建模;5 统计推断与因果 · 5.4 不确定性与敏感性']（['P2025-A-01', 'P2025-A-02', 'P2025-A-03']）
+I10-d=OK
+    出现的题号字母 **3** 个 · **互异取值 3** 个（纯结构断言，**不读标注文件**）
+    限样本跑只断言「字母数 == 互异取值数」：本次样本覆盖题号 ['A', 'B', 'C']，**不是** 6 个——故 `== 6` 这条留给全量跑
+I10-e=FAIL
+    2025 A：产物 `1 预测 · 1.2 回归/相关预测` vs 标注 `4 机理建模与仿真 · 4.1 物理/化学机理建模；5 统计推断与因果 · 5.4 不确定性与敏感性；6 反演与参数估计 · 6.1 由观测反推参数/历史`（只在产物 ['1 预测 · 1.2 回归/相关预测'] · 只在标注 ['4 机理建模与仿真 · 4.1 物理/化学机理建模', '5 统计推断与因果 · 5.4 不确定性与敏感性', '6 反演与参数估计 · 6.1 由观测反推参数/历史']）
+I10-f=OK
+    取值里出现的 **10** 个标签名（`L1 · L2`）：两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个变体的归一化集合）
+    这是 `verify_types.py` T3 的**移植**：题型侧与模型侧必须**不相交**——否则「题型 → 模型/算法」的配对就变成同义反复（`ARIMA` 这样的词一旦进了题型栏，配对就什么都没说）。
+I10-g=OK
+    **覆盖边界可机读、且为等式**：* **标注覆盖边界（机读）**：标注题数=67 · 有论文的题=3 · 未配对的题=64 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 F、2019 A、2
+    `标注题数 = 有论文的题 + 未配对的题`（67 = 3 + 64），且**逐题具名清单**与「标注里有、而本次产物无论文」的独立重算集合**逐题对得上**
+    为什么这条必要：`corpus/官方原题/` 有 2016–2026 共 67 题，而本合集只有 2025 的论文（**标注里有、产物里没有**的题是 61 道）。「没写出来」与「没有这回事」不是一回事——把边界**印成可判的一行**，下一个人就不必猜本表覆盖到哪里。
+I10-h=OK
+    「亮点」栏非空的行：无（**本轮一律留空**——没有可指回原文的依据就不填推测）；头部有 `[社区]` 标级与「给不出就留空」的说明 = True
+    **这一条的强度边界（必须与它同读）**：它验证的是「**没有被填进推测性内容**」与「**头部有标级声明**」，**证明不了**这 43 篇没有亮点。它是**范围声明**、**不构成**任何「已覆盖」的声称。
+    **编号说明**：本条与下一条在原文件里叫 `I10-b` / `I10-c`；解冻后 **a–g 七个子条**用的是小写字母序，故这两条顺延为 `I10-h` / `I10-i`（**判据内容一字未改**，只改编号）。
+I10-i=OK
+    两个 .md 的文件头都有**奖项注记**（合集内统一 = O 奖）= True；**两个 .md 都不得再设「奖项」栏**（用户 2026-09-26 定案）= True
+   fail-closed 探针：合集名 '2025美赛O奖论文（不存在的名字）' → 抛 FileNotFoundError: 合集目录不存在：<repo>\corpus\历届优秀论文\2025美赛O奖论文（不存在的名字）（拒绝用空表冒充「该合集没有论文」）
+I11=OK
+    合集名不存在时 `index.build` **抛错**（不是返回空表静默 PASS）
+    探针的落点被**强制**指到 tests/papers/reports-limited/ids-products-probe（不入库目录）——否则「守卫被删掉」的那一版会把入库的三份产物**覆写成 0 条**（探针自己变成破坏者，那是本项目栽过的形态）。
+    **这就是任务书点名的那个活陷阱**：`Path.rglob` 对不存在的目录**静默返回空**，而磁盘上是 `2023年美赛O奖论文`（带「年」）、别处写作 `2023美赛O奖论文`。
+I12=OK
+    ① 两个 UMAP 合集名不以 4 位数字开头 → `io.stable_id` **抛 `ValueError`**（涉 37 份）：断言通过
+    ② **跨合集撞号**：`stable_id('2023美赛O奖论文','A',1)` = **P2023-A-01** = `stable_id('2023年美赛O奖论文','A',1)` = **P2023-A-01**——少一个「年」字，ID 完全相同；而 `io.ORIGIN/'2023美赛O奖论文'` 的 `is_dir() = False`（盘上是带「年」的）
+    **这两条是具名边界、不是缺陷**：判据把它们**断言成行为**，而不是假装它们不存在（计划草稿的「往返一致」判据对撞号**零区分力**）。
+    ③ **本次侦察新查出来的第三条边界**：`io.problem_of` 在别的合集上抛错——`2024年美赛O奖论文/2024年美赛A题O奖论文/` 把题号写进目录名（35/35 抛错）、2023 春季赛子目录（5/42）、两个 UMAP（37/37）；故本索引**只对「题号是独立目录层」的合集成立**，别的合集 `build` 抛错是**按设计**。逐份实测见 `recon/ids-recon.txt` §5。
+I13=OK
+    词表 **115** 词条、**367** 变体；规范词唯一、格式为 `规范词 | 变体…`（**一行一条、可追加**）
+    **零命中词条 93 个**（口径 = 在**本次样本 5 份**上一篇都不命中；限样本跑时它只是「这批上零命中」，不是全语料结论）：
+        零命中 'AHP'
+        零命中 'TOPSIS'
+        零命中 'fuzzy comprehensive evaluation'
+        零命中 'entropy weight method'
+        零命中 'grey relational analysis'
+        零命中 'principal component analysis'
+        零命中 'grey prediction'
+        零命中 'SARIMA'
+        零命中 'exponential smoothing'
+        零命中 'ridge regression'
+        零命中 'lasso'
+        零命中 'stepwise regression'
+        零命中 'nonlinear regression'
+        零命中 'XGBoost'
+        零命中 'random forest'
+        零命中 'gradient boosting'
+        零命中 'decision tree'
+        零命中 'neural network'
+        零命中 'BP neural network'
+        零命中 'LSTM'
+        零命中 'RNN'
+        零命中 'CNN'
+        零命中 'SVR'
+        零命中 'SVM'
+        零命中 'k-nearest neighbor'
+        零命中 'linear programming'
+        零命中 'integer programming'
+        零命中 'multi-objective optimization'
+        零命中 'goal programming'
+        零命中 'dynamic programming'
+        零命中 'genetic algorithm'
+        零命中 'simulated annealing'
+        零命中 'differential evolution'
+        零命中 'NSGA-II'
+        零命中 'ant colony optimization'
+        零命中 'tabu search'
+        零命中 'queueing theory'
+        零命中 'A-star'
+        零命中 'integer linear programming'
+        零命中 'ordinary differential equation'
+        零命中 'finite element'
+        零命中 'SIR model'
+        零命中 'SEIR model'
+        零命中 'Lotka-Volterra'
+        零命中 'system dynamics'
+        零命中 'compartment model'
+        零命中 'reaction-diffusion'
+        零命中 'Markov chain Monte Carlo'
+        零命中 'cellular automata'
+        零命中 'agent-based model'
+        零命中 'Markov chain'
+        零命中 'Bayesian network'
+        零命中 'K-means'
+        零命中 'hierarchical clustering'
+        零命中 'factor analysis'
+        零命中 'discriminant analysis'
+        零命中 'analysis of variance'
+        零命中 'regression discontinuity'
+        零命中 'difference-in-differences'
+        零命中 'propensity score matching'
+        零命中 'structural equation modeling'
+        零命中 'zero-inflated'
+        零命中 'two-stage least squares'
+        零命中 'Shannon entropy'
+        零命中 'Mann-Kendall'
+        零命中 'Cox proportional hazards'
+        零命中 'association rules'
+        零命中 'cross-validation'
+        零命中 'bootstrap'
+        零命中 'stacking'
+        零命中 'SHAP'
+        零命中 'survival analysis'
+        零命中 'graph theory'
+        零命中 'shortest path'
+        零命中 'minimum spanning tree'
+        零命中 'maximum flow'
+        零命中 'network flow'
+        零命中 'traveling salesman problem'
+        零命中 'bipartite matching'
+        零命中 'PERT'
+        零命中 'centrality'
+        零命中 'Petri net'
+        零命中 'network analysis'
+        零命中 'Wardrop'
+        零命中 'deep learning'
+        零命中 'reinforcement learning'
+        零命中 'naive Bayes'
+        零命中 'self-organizing map'
+        零命中 'Hopfield network'
+        零命中 'radial basis function'
+        零命中 'isolation forest'
+        零命中 'fuzzy logic'
+        零命中 'change-point detection'
+    **词表增长候选（给 Task 6b）**：作者 Keywords 里出现、而词表**覆盖不到**的词形 **11** 个，逐条（附出现篇数）：
+    **具名范围边界（必须与上面这份清单同读）**：候选来源**只取作者自写的 Keywords 行**（`;`/`,`/`、` 拆词），**未扫正文**——任务书 §一 的「论文里出现但词表没有」（含**未命中片段**）这一路**本任务只交付了 Keywords 行这一半**。选窄口径的理由：Keywords 行里的词能**逐条指回一行原文**、可复核；扫正文要先自造一套「什么算一个模型名」的抽取启发式，那是**判断**不是事实，且产出无从验证。**代价**：正文里出现而作者没写进 Keywords 的模型**不在本清单里**。
+        候选 'Stair Wear'（2 篇）
+        候选 'Archard'（1 篇）
+        候选 'Archard Law'（1 篇）
+        候选 'CVM'（1 篇）
+        候选 'Central Limit Theorem'（1 篇）
+        候选 'Fatigue Damage'（1 篇）
+        候选 'Gaussian Distribution'（1 篇）
+        候选 'Gaussian Mixture Algorithm'（1 篇）
+        候选 'Mont Carlo method'（1 篇）
+        候选 'Sustainable tourism'（1 篇）
+        候选 'Wear depth'（1 篇）
+I13-b=OK
+    **真验**（不是打印一句声称）：临时词表先写 **1** 条 → `vocab.load` → **追加 1 条** → **同一进程内**再 `vocab.load`
+    实测 首读 **1** 条 / 追加后 **2** 条（要求 **1 / 2**）⇒ `vocab.load` **不缓存**，「追加即生效」成立。临时文件写在系统临时目录、跑完即删（**不入库、报告里不出现其路径**）。
+    **为什么非要真验**：`vocab.load` 一旦缓存（`lru_cache` 一类），「追加了却没生效」就是**静默形态**——而「词表开放、可追加」是本任务对用户的承诺（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）。原先这条是 `add(..., True, …)`：**恒真**、却计入「全部判据 OK」。变异证据：给 `vocab.load` 加 `lru_cache` 后本判据红（`ids-mutation-evidence.txt` 的 M14）。
+    零命中与候选**都不藏**：零命中词条本身是「这批论文没用这些方法」这个语料事实（不是判据失效），候选清单是 Task 6b 的增长输入。
+  词表命中篇数 top8（报告量）：Monte Carlo 3 · sensitivity analysis 3 · linear regression 3 · particle swarm optimization 2 · Bayesian 2 · differential equation 1 · partial differential equation 1 · finite difference 1
+  一层 models 指针条数合计（样本）：30
+  md 页锚 vs 原件 `page_count` 的交叉核对**已从「打印」升为判据**（I6-b）：原先它算出来的布尔只 `lines.append`、且**从不碰产物的 `n_pages` 栏**——一句 fail-open 的打印。逐篇差额（若有）见 `I6-b=FAIL` 的登记行。
+入库产物完整性自检（限样本跑）：`corpus/papers/` 三份 .md 的 sha256 跑前跑后相同 = True（False → 本次限样本跑碰到了入库产物，判 FAIL）
+    corpus/papers/INDEX.md：跑前 dc8fee7bab892347… · 跑后 dc8fee7bab892347…
+    corpus/papers/TAGS.md：跑前 48475b03a5ddf074… · 跑后 48475b03a5ddf074…
+    corpus/papers/PROVENANCE.md：跑前 874987522bd67ad3… · 跑后 874987522bd67ad3…
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/ids-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED 样本 5/43 份 = 前 3 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V8b：**让六个题号的取值全相同**——「6 个字母 ⇒ 6 个互异取值」是纯结构断言（不读标注文件）
+
+* 判据脚本：`tests/papers/verify_ids.py`　·　口径：`--limit 3`
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `ptype\ =\ LIST_SEP\.join\(_esc\(x\)\ for\ x\ in\ types\[\(r\`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `7d3532556611d993…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['I10-d=FAIL', 'I10-e=FAIL']（**要求 ⊇ ['I10-d=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 5/43 份**（--limit 3 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2501687 2522820
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+I1=OK
+    PROVENANCE 双射表 5 行 · 磁盘样本 5 份 · 重复 ID 无 · 重复词干 无 · 解析失败 无
+    只在磁盘不在表 无 · 只在表不在磁盘 无（**两边都要空**：单边为空只是缺，不是双射）
+    **「往返恒真」那一版已被换掉**：`parse∘stable_id` 只要两边用同一个合集名就恒真（计划草稿的三条判据无一能失败）。这里的判据是**双射**：ID↔词干两向单值互逆、且并集 == 磁盘 PDF 集合（用磁盘与 `problem_of` 独立数出来的）。
+I1-b=OK
+    逐篇重算的稳定 ID 与产物不等：无（重算 = 按磁盘字典序 + 逐题号到达顺序，**不是**把 ID 拆开再拼回去）
+I1-c=OK
+    「年」与词干前两位的一致性：覆盖 5/5 份（只对 7 位数字词干起作用，覆盖不到的数量已写明）；不一致 无
+I2=OK
+    n_entries=5 == 唯一 ID=5 == TAGS 一层行数=5 == INDEX 表行数=5 == PROVENANCE 行数=5 == 磁盘 PDF（样本）=5 == md 文件（样本）=5
+    **双边等式，不是单边下界**（约束 5）：每一对都得相等，任一处漏一篇都会红。
+    **产物落点**：`IndexResult` 报告的 index/tags/prov 三路径 == 本脚本读的三份 = True——判据读的必须是**这一次**写出来的那一份。
+I2-b=OK
+    TAGS 二层篇数 5 + 三层篇数 0 = 5（**必须 == 5**）；二层 ∩ 三层 = 空；两层并集 == 一层 ID 集 = True（**每篇恰好进一层、且没有一篇落在两层之外**）
+I3=OK
+    逐份**逐字逐条**相等：合计 **211** 条 == md `## ` 行（样本内）；差额 0 条、未解释 0 条
+    `sections` 取 **md `## ` 标题行逐字**（`;` 连接、去 `## ` 前缀）：本语料把「号」与「题」常分两行排（实测「只有编号」574 条 + 「编号带题」494 条 = 1068 条），本任务**不做号/题合并那一类推断**（那是把推断写进事实栏）。
+I4=OK
+    逐篇与「标题行」口径重算值**逐栏相等**（样本 5 份）
+    **口径不是全文子串**：全文口径下 Contents 42/43、Assumptions 43/43、Notation 40/43、Sensitivity 38/43——前四列近乎恒真。`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有（`docs/mcm-suite-lessons.md` §4.1）。
+I4-c=OK
+    **零区分力登记**（一边占比 > 90%）：['has_contents', 'has_assumptions']
+    TAGS 头部的登记行：* **零区分力登记**（一边占比 > 90%）：has_contents=5/5 · has_assumptions=5/5 —— 这几栏在本语料上**区分力低**，**不因为它们算得出来就当判据用**。逐栏分布见 `tests/papers/reports/ids-report.txt`。
+    **为什么要有这条**：近乎恒真的栏不是判据；留着它就必须**写明它零区分力**，否则下一个人会拿它当证据（`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有，见 `docs/mcm-suite-lessons.md` §4.1）。
+    **判据形状要是「登记行具名的集合 == 自己算出的集合」**：写成「文件里出现过 `has_contents` 这个词」是**恒真**的——那个名字本身就在一层字段序里。
+I5=OK
+    逐篇与 md 重算值相等；**无该行留空**的格数 1 == 独立重算的 1（样本 5 份）
+    三种口径命中数（样本 5）：**宽口径**（带 `re.M` + 允许行首 md 标记）4 · 计划草稿正则**加** `re.M` 2 · 计划草稿正则**不加** `re.M` 0
+    **口径偏离要说清**：任务书 §六 第 8 条给的是「带 `re.M` → 27/43」。本判据用的是**更宽的**口径：43 份里 14 份写成 `**Keywords: …**`、1 份写成 `## Keywords: …`，只认裸行的正则**看不见它们**——照抄 27/43 会把 15 份**确实有** Keywords 行的论文登记成「无该行」，那是**假陈述**（约束 8）。实测 0 / 27 / 42（逐份原文见 `recon/ids-recon.txt` §4b）；**全批唯一真的没有 Keywords 行的是 `2522820`**。
+I6=OK
+    逐篇与放行证据**逐数相等**（样本 5 份）：`n_figures`/`n_tables` 读 `tests/papers/reports/c-report.txt` 的 `C1 图注=N (图F/表T)`、`n_equations` 读 `tests/papers/reports/d-report.txt` 的 `检出=N`——**不重算**
+    **语义**：这是**图注/编号条数**，**不是**产出 PNG 张数（C1 里 产出=908 而 图注=935）。自己重算的口径实测得 **597/212**，与 C1 的 **682/253** 逐份 11 篇不等——所以这一栏必须**读回**（spec §6「同一份事实不在两处各算一次」）。
+    **「不适用」的两种情形分开了**：放行证据文件不存在 → `index.read_release_*` **抛错**；证据里没有这一篇 → 也**抛错**（这里是硬失败，不记「不适用」）。**没有任何一条路径**把「阶段 4 没跑过」记成「这篇真没有公式」。
+  放行证据解析（报告量）：c-report 逐篇行 43 条 · d-report 逐篇行 43 条 · 样本内缺登记 无 / 无
+I6-b=OK
+    **双边等式**：产物 `n_pages` == **原件** `page_count`（逐篇，样本 5 份）——原件是这一栏**唯一的权威**（不存在「别处已经算过一次」的产物，故不违反 spec §6）
+    **第二条独立路径**（同一条 `add` 里）：逐篇 md 的 `<!-- page N -->` **锚条数** == 原件 `page_count`（一条数 md 的锚、一条开原件数页）
+    **为什么这一栏原先没有判据**：老版本把这两句**算出来的布尔只 `lines.append` 打印**——既不并进 `ok`、也不比产物的 `n_pages` 栏（比的是 `ref` 的 md 锚数 vs PDF 页数，**从不碰产物**）。一句 fail-open 的打印被当成了「`n_pages` 的独立参照」（本项目「判据在什么都没验的情况下报绿」家族的形态）。现在两句都在条件里。
+    **I7 的页码判据不能替代它**：I7 的两边**都从 md 数页**，md 页锚缺失时两边同时得 `p0` → **绿着过**；只有这一条拿**原件**当参照。
+I7=OK
+    指针逐条可定位：**30** 条（词 + md 文件 + 页码 + 片段）
+    每条都满足（**六条都查**）：①二层小标题的 `md:` 指针 == 该篇真实的 md 仓库相对路径 ②片段是该篇 md 的**一整行逐字** ③该行**含该词**（词边界下）④页码 == 该行在 md 里自己的页（由 `<!-- page N -->` 锚数出）⑤`xN` == 本脚本**独立重算**的出现次数 ⑥是该词的**首次出现**
+    **不是「全文偏移」**：计划草稿的指针是「该词在全文文本中的字符位置」——那个位置在**任何入库产物里都不可定位**（md 是重排产物、没有稳定偏移），「可据此复核」是**假陈述**。现在指针是**整行逐字**，`grep -F` 就能核。
+    **强度边界**：它验证的是「指针指得回 md 的那一行」，**不是**「这一行里的词就是这篇论文的模型」。后者是判断，不在本任务范围（词表命中的语义边界写在 TAGS 头部）。
+I7-b=OK
+    三层（零命中篇）0 == 独立重算的零命中篇数 0；二层 5 == 样本 − 零命中 = 5
+I8=OK
+    逐篇 `产物题号` vs `论文自报题号`（摘要页 `Problem Chosen` 一类）：**一致 5 份 · 不符 0 份 · 未验证 0 份**
+    **三态逐态真报**（**「没有该栏」≠「有但读不出」≠「读出来与目录不符」**）：没有该栏 0 份  · 有但读不出 0 份  · 不符 0 份
+    **为什么要拆三态**：`v_problem` 对「没有该栏」与「有栏但读不出」**同样返回 `None`**，原先两态**混进同一个计数**、再由判据**印死「没有该栏 0 份」**——那个 0 在当前语料下恰好为真（侦察侧 `ids-recon-scan.py` 确实分了三态），但**判据自己不测** ⇒ 语料一变这行就静默说谎（约束 4 + 约束 8）。现在 `n_none`/`n_unreadable` 由 `v_problem_field_present(text)` 当场分开。
+    **「有栏但读不出」= 硬失败**（判断与理由）：约束 4 要求「参照**存在**但没解析出来」判硬失败，「参照**不存在**」才是不适用。栏位在而读不出 ⇒ 解析口径**系统性失效**（不是「这篇格式特别」）——它原先与「没有该栏」共享同一个 10% 上界，等于**用上界把一个解析 bug 洗成「未验证」**。当前语料实测 0 份，故这条升级**不改变本次结论**、只把口径收严。
+    **这条不是形式**：一篇被错放进目录的论文会**静默毒化**整条「题型 → 模型」配对链（Task 6b 的配对以 `(origin, problem)` 为地基），而计划草稿对它**没有任何判据**。
+I8-b=OK
+    「未验证」占比 0/5 = 0.00%（上界 10%）——三态里的**前两态**（「没有该栏」0 + 「有栏读不出」0）；**「未验证」是「通过」与「失败」之间唯一诚实的位置**（沿用 C4 的裁决），但它**必须有上界**，否则整列「读不出」也能绿。
+    **口径比原先更严**：「有栏读不出」已由 I8 单独判**硬失败**，这里**仍**把它计入占比（上界覆盖的集合不缩小）——两处都不放宽。
+I8-c=OK
+    队号三向一致：**INDEX 栏 == 文件名词干 == 论文自报队号**；自报读不出的 0 份 （无）
+I9=OK
+    `PROVENANCE.md` 双射表 5 行 · 唯一 ID 5 · 唯一词干 5（**两向单值 ⇒ 互逆**）
+    **六列逐列落地**（不等 无）：`年月` == 稳定 ID 的年份、`原件` == 磁盘上的原件相对路径、`md` == 磁盘上该篇 md 的仓库相对路径（前两列此前**入库却无判据**——`年月` 与 `md` 被解析时直接丢掉）。
+    为什么必须有这张表：稳定 ID **内容无关**（按到达顺序生成）⇒ `ID → 原件` 推不出来。INDEX 的「队号」栏是给人看的定位列，本表是可判的那一份。
+I10=OK
+    栏位齐全：INDEX 表头 11 栏 + TAGS 一层原有 10 栏；**INDEX 表头继续不得出现 `原题类型`**（那一栏只在 TAGS 里）；**`problem_type` 在 TAGS 字段序的末尾**（解冻时点名的位置约束）。
+    **解冻不丢保护**：旧绊线抓的「留空占位列」由 I10-b 承接（逐行非空 + 占位串集合），「表头不得出现该栏」在 INDEX 一侧原样保留。
+I10-a=OK
+    `problem_type` 在 TAGS 一层字段序里 = True（字段序共 16 栏）
+    **与 I10 的末尾断言不是同一条**：a 判「在不在」，I10 判「在不在**末尾**」——把整栏删掉两条都红，但把它挪到中间时**只有 I10 红**（a 是它的必要不充分条件）。
+I10-b=OK
+    **5 行逐行非空、且不属占位串集合** ['', '-', 'N/A', '待定', 'TODO', '?']（本判据就是旧绊线的保护：**空占位列照样红**）
+    **为什么这条必须留着**：Task 6 的旧 I10 抓的正是「留空占位列」这类假绿——绊线到期（6b 就是要这一栏）时**保护不许跟着走**。
+I10-c=OK
+    **同一 `problem` 字母的所有行取值逐字相同**：3 个题号，每个题号覆盖 [3, 1, 1] 篇
+    题型是**题**的属性、不是**篇**的属性——同题的不同论文必须写出同一个题型串。
+I10-d=FAIL
+    出现的题号字母 **3** 个 · **互异取值 1** 个（纯结构断言，**不读标注文件**）
+    限样本跑只断言「字母数 == 互异取值数」：本次样本覆盖题号 ['A', 'B', 'C']，**不是** 6 个——故 `== 6` 这条留给全量跑
+I10-e=FAIL
+    2025 A：产物 `1 预测 · 1.2 回归/相关预测` vs 标注 `4 机理建模与仿真 · 4.1 物理/化学机理建模；5 统计推断与因果 · 5.4 不确定性与敏感性；6 反演与参数估计 · 6.1 由观测反推参数/历史`（只在产物 ['1 预测 · 1.2 回归/相关预测'] · 只在标注 ['4 机理建模与仿真 · 4.1 物理/化学机理建模', '5 统计推断与因果 · 5.4 不确定性与敏感性', '6 反演与参数估计 · 6.1 由观测反推参数/历史']）
+    2025 B：产物 `1 预测 · 1.2 回归/相关预测` vs 标注 `1 预测 · 1.3 情景与概率预测；3 优化 · 3.3 多目标/权衡；4 机理建模与仿真 · 4.6 反馈结构与动态演化；5 统计推断与因果 · 5.4 不确定性与敏感性`（只在产物 ['1 预测 · 1.2 回归/相关预测'] · 只在标注 ['1 预测 · 1.3 情景与概率预测', '3 优化 · 3.3 多目标/权衡', '4 机理建模与仿真 · 4.6 反馈结构与动态演化', '5 统计推断与因果 · 5.4 不确定性与敏感性']）
+    2025 C：产物 `1 预测 · 1.2 回归/相关预测` vs 标注 `1 预测 · 1.2 回归/相关预测；1 预测 · 1.5 零膨胀/受限计数预测；5 统计推断与因果 · 5.2 回归系数与效应量；7 分类与聚类 · 7.1 监督分类/识别`（只在产物 无 · 只在标注 ['1 预测 · 1.5 零膨胀/受限计数预测', '5 统计推断与因果 · 5.2 回归系数与效应量', '7 分类与聚类 · 7.1 监督分类/识别']）
+I10-f=OK
+    取值里出现的 **1** 个标签名（`L1 · L2`）：两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个变体的归一化集合）
+    这是 `verify_types.py` T3 的**移植**：题型侧与模型侧必须**不相交**——否则「题型 → 模型/算法」的配对就变成同义反复（`ARIMA` 这样的词一旦进了题型栏，配对就什么都没说）。
+I10-g=OK
+    **覆盖边界可机读、且为等式**：* **标注覆盖边界（机读）**：标注题数=67 · 有论文的题=3 · 未配对的题=64 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 F、2019 A、2
+    `标注题数 = 有论文的题 + 未配对的题`（67 = 3 + 64），且**逐题具名清单**与「标注里有、而本次产物无论文」的独立重算集合**逐题对得上**
+    为什么这条必要：`corpus/官方原题/` 有 2016–2026 共 67 题，而本合集只有 2025 的论文（**标注里有、产物里没有**的题是 61 道）。「没写出来」与「没有这回事」不是一回事——把边界**印成可判的一行**，下一个人就不必猜本表覆盖到哪里。
+I10-h=OK
+    「亮点」栏非空的行：无（**本轮一律留空**——没有可指回原文的依据就不填推测）；头部有 `[社区]` 标级与「给不出就留空」的说明 = True
+    **这一条的强度边界（必须与它同读）**：它验证的是「**没有被填进推测性内容**」与「**头部有标级声明**」，**证明不了**这 43 篇没有亮点。它是**范围声明**、**不构成**任何「已覆盖」的声称。
+    **编号说明**：本条与下一条在原文件里叫 `I10-b` / `I10-c`；解冻后 **a–g 七个子条**用的是小写字母序，故这两条顺延为 `I10-h` / `I10-i`（**判据内容一字未改**，只改编号）。
+I10-i=OK
+    两个 .md 的文件头都有**奖项注记**（合集内统一 = O 奖）= True；**两个 .md 都不得再设「奖项」栏**（用户 2026-09-26 定案）= True
+   fail-closed 探针：合集名 '2025美赛O奖论文（不存在的名字）' → 抛 FileNotFoundError: 合集目录不存在：<repo>\corpus\历届优秀论文\2025美赛O奖论文（不存在的名字）（拒绝用空表冒充「该合集没有论文」）
+I11=OK
+    合集名不存在时 `index.build` **抛错**（不是返回空表静默 PASS）
+    探针的落点被**强制**指到 tests/papers/reports-limited/ids-products-probe（不入库目录）——否则「守卫被删掉」的那一版会把入库的三份产物**覆写成 0 条**（探针自己变成破坏者，那是本项目栽过的形态）。
+    **这就是任务书点名的那个活陷阱**：`Path.rglob` 对不存在的目录**静默返回空**，而磁盘上是 `2023年美赛O奖论文`（带「年」）、别处写作 `2023美赛O奖论文`。
+I12=OK
+    ① 两个 UMAP 合集名不以 4 位数字开头 → `io.stable_id` **抛 `ValueError`**（涉 37 份）：断言通过
+    ② **跨合集撞号**：`stable_id('2023美赛O奖论文','A',1)` = **P2023-A-01** = `stable_id('2023年美赛O奖论文','A',1)` = **P2023-A-01**——少一个「年」字，ID 完全相同；而 `io.ORIGIN/'2023美赛O奖论文'` 的 `is_dir() = False`（盘上是带「年」的）
+    **这两条是具名边界、不是缺陷**：判据把它们**断言成行为**，而不是假装它们不存在（计划草稿的「往返一致」判据对撞号**零区分力**）。
+    ③ **本次侦察新查出来的第三条边界**：`io.problem_of` 在别的合集上抛错——`2024年美赛O奖论文/2024年美赛A题O奖论文/` 把题号写进目录名（35/35 抛错）、2023 春季赛子目录（5/42）、两个 UMAP（37/37）；故本索引**只对「题号是独立目录层」的合集成立**，别的合集 `build` 抛错是**按设计**。逐份实测见 `recon/ids-recon.txt` §5。
+I13=OK
+    词表 **115** 词条、**367** 变体；规范词唯一、格式为 `规范词 | 变体…`（**一行一条、可追加**）
+    **零命中词条 93 个**（口径 = 在**本次样本 5 份**上一篇都不命中；限样本跑时它只是「这批上零命中」，不是全语料结论）：
+        零命中 'AHP'
+        零命中 'TOPSIS'
+        零命中 'fuzzy comprehensive evaluation'
+        零命中 'entropy weight method'
+        零命中 'grey relational analysis'
+        零命中 'principal component analysis'
+        零命中 'grey prediction'
+        零命中 'SARIMA'
+        零命中 'exponential smoothing'
+        零命中 'ridge regression'
+        零命中 'lasso'
+        零命中 'stepwise regression'
+        零命中 'nonlinear regression'
+        零命中 'XGBoost'
+        零命中 'random forest'
+        零命中 'gradient boosting'
+        零命中 'decision tree'
+        零命中 'neural network'
+        零命中 'BP neural network'
+        零命中 'LSTM'
+        零命中 'RNN'
+        零命中 'CNN'
+        零命中 'SVR'
+        零命中 'SVM'
+        零命中 'k-nearest neighbor'
+        零命中 'linear programming'
+        零命中 'integer programming'
+        零命中 'multi-objective optimization'
+        零命中 'goal programming'
+        零命中 'dynamic programming'
+        零命中 'genetic algorithm'
+        零命中 'simulated annealing'
+        零命中 'differential evolution'
+        零命中 'NSGA-II'
+        零命中 'ant colony optimization'
+        零命中 'tabu search'
+        零命中 'queueing theory'
+        零命中 'A-star'
+        零命中 'integer linear programming'
+        零命中 'ordinary differential equation'
+        零命中 'finite element'
+        零命中 'SIR model'
+        零命中 'SEIR model'
+        零命中 'Lotka-Volterra'
+        零命中 'system dynamics'
+        零命中 'compartment model'
+        零命中 'reaction-diffusion'
+        零命中 'Markov chain Monte Carlo'
+        零命中 'cellular automata'
+        零命中 'agent-based model'
+        零命中 'Markov chain'
+        零命中 'Bayesian network'
+        零命中 'K-means'
+        零命中 'hierarchical clustering'
+        零命中 'factor analysis'
+        零命中 'discriminant analysis'
+        零命中 'analysis of variance'
+        零命中 'regression discontinuity'
+        零命中 'difference-in-differences'
+        零命中 'propensity score matching'
+        零命中 'structural equation modeling'
+        零命中 'zero-inflated'
+        零命中 'two-stage least squares'
+        零命中 'Shannon entropy'
+        零命中 'Mann-Kendall'
+        零命中 'Cox proportional hazards'
+        零命中 'association rules'
+        零命中 'cross-validation'
+        零命中 'bootstrap'
+        零命中 'stacking'
+        零命中 'SHAP'
+        零命中 'survival analysis'
+        零命中 'graph theory'
+        零命中 'shortest path'
+        零命中 'minimum spanning tree'
+        零命中 'maximum flow'
+        零命中 'network flow'
+        零命中 'traveling salesman problem'
+        零命中 'bipartite matching'
+        零命中 'PERT'
+        零命中 'centrality'
+        零命中 'Petri net'
+        零命中 'network analysis'
+        零命中 'Wardrop'
+        零命中 'deep learning'
+        零命中 'reinforcement learning'
+        零命中 'naive Bayes'
+        零命中 'self-organizing map'
+        零命中 'Hopfield network'
+        零命中 'radial basis function'
+        零命中 'isolation forest'
+        零命中 'fuzzy logic'
+        零命中 'change-point detection'
+    **词表增长候选（给 Task 6b）**：作者 Keywords 里出现、而词表**覆盖不到**的词形 **11** 个，逐条（附出现篇数）：
+    **具名范围边界（必须与上面这份清单同读）**：候选来源**只取作者自写的 Keywords 行**（`;`/`,`/`、` 拆词），**未扫正文**——任务书 §一 的「论文里出现但词表没有」（含**未命中片段**）这一路**本任务只交付了 Keywords 行这一半**。选窄口径的理由：Keywords 行里的词能**逐条指回一行原文**、可复核；扫正文要先自造一套「什么算一个模型名」的抽取启发式，那是**判断**不是事实，且产出无从验证。**代价**：正文里出现而作者没写进 Keywords 的模型**不在本清单里**。
+        候选 'Stair Wear'（2 篇）
+        候选 'Archard'（1 篇）
+        候选 'Archard Law'（1 篇）
+        候选 'CVM'（1 篇）
+        候选 'Central Limit Theorem'（1 篇）
+        候选 'Fatigue Damage'（1 篇）
+        候选 'Gaussian Distribution'（1 篇）
+        候选 'Gaussian Mixture Algorithm'（1 篇）
+        候选 'Mont Carlo method'（1 篇）
+        候选 'Sustainable tourism'（1 篇）
+        候选 'Wear depth'（1 篇）
+I13-b=OK
+    **真验**（不是打印一句声称）：临时词表先写 **1** 条 → `vocab.load` → **追加 1 条** → **同一进程内**再 `vocab.load`
+    实测 首读 **1** 条 / 追加后 **2** 条（要求 **1 / 2**）⇒ `vocab.load` **不缓存**，「追加即生效」成立。临时文件写在系统临时目录、跑完即删（**不入库、报告里不出现其路径**）。
+    **为什么非要真验**：`vocab.load` 一旦缓存（`lru_cache` 一类），「追加了却没生效」就是**静默形态**——而「词表开放、可追加」是本任务对用户的承诺（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）。原先这条是 `add(..., True, …)`：**恒真**、却计入「全部判据 OK」。变异证据：给 `vocab.load` 加 `lru_cache` 后本判据红（`ids-mutation-evidence.txt` 的 M14）。
+    零命中与候选**都不藏**：零命中词条本身是「这批论文没用这些方法」这个语料事实（不是判据失效），候选清单是 Task 6b 的增长输入。
+  词表命中篇数 top8（报告量）：Monte Carlo 3 · sensitivity analysis 3 · linear regression 3 · particle swarm optimization 2 · Bayesian 2 · differential equation 1 · partial differential equation 1 · finite difference 1
+  一层 models 指针条数合计（样本）：30
+  md 页锚 vs 原件 `page_count` 的交叉核对**已从「打印」升为判据**（I6-b）：原先它算出来的布尔只 `lines.append`、且**从不碰产物的 `n_pages` 栏**——一句 fail-open 的打印。逐篇差额（若有）见 `I6-b=FAIL` 的登记行。
+入库产物完整性自检（限样本跑）：`corpus/papers/` 三份 .md 的 sha256 跑前跑后相同 = True（False → 本次限样本跑碰到了入库产物，判 FAIL）
+    corpus/papers/INDEX.md：跑前 dc8fee7bab892347… · 跑后 dc8fee7bab892347…
+    corpus/papers/TAGS.md：跑前 48475b03a5ddf074… · 跑后 48475b03a5ddf074…
+    corpus/papers/PROVENANCE.md：跑前 874987522bd67ad3… · 跑后 874987522bd67ad3…
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/ids-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED 样本 5/43 份 = 前 3 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V13：**把 `problem_type` 从 `TAGS_FIELDS` 里删掉**——a 判「在不在」、I10 判「在不在末尾」，两条必须同时红（这一版等于把解冻**撤了**）
+
+* 判据脚本：`tests/papers/verify_ids.py`　·　口径：`--limit 3`
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `\ \ \ \ \+\ \("problem_type",\)`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `e72fa8b1bf2b6d72…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['I10-a=FAIL', 'I10=FAIL', 'I10-b=FAIL', 'I10-d=FAIL', 'I10-e=FAIL']（**要求 ⊇ ['I10-a=FAIL', 'I10=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 5/43 份**（--limit 3 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2501687 2522820
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+I1=OK
+    PROVENANCE 双射表 5 行 · 磁盘样本 5 份 · 重复 ID 无 · 重复词干 无 · 解析失败 无
+    只在磁盘不在表 无 · 只在表不在磁盘 无（**两边都要空**：单边为空只是缺，不是双射）
+    **「往返恒真」那一版已被换掉**：`parse∘stable_id` 只要两边用同一个合集名就恒真（计划草稿的三条判据无一能失败）。这里的判据是**双射**：ID↔词干两向单值互逆、且并集 == 磁盘 PDF 集合（用磁盘与 `problem_of` 独立数出来的）。
+I1-b=OK
+    逐篇重算的稳定 ID 与产物不等：无（重算 = 按磁盘字典序 + 逐题号到达顺序，**不是**把 ID 拆开再拼回去）
+I1-c=OK
+    「年」与词干前两位的一致性：覆盖 5/5 份（只对 7 位数字词干起作用，覆盖不到的数量已写明）；不一致 无
+I2=OK
+    n_entries=5 == 唯一 ID=5 == TAGS 一层行数=5 == INDEX 表行数=5 == PROVENANCE 行数=5 == 磁盘 PDF（样本）=5 == md 文件（样本）=5
+    **双边等式，不是单边下界**（约束 5）：每一对都得相等，任一处漏一篇都会红。
+    **产物落点**：`IndexResult` 报告的 index/tags/prov 三路径 == 本脚本读的三份 = True——判据读的必须是**这一次**写出来的那一份。
+I2-b=OK
+    TAGS 二层篇数 5 + 三层篇数 0 = 5（**必须 == 5**）；二层 ∩ 三层 = 空；两层并集 == 一层 ID 集 = True（**每篇恰好进一层、且没有一篇落在两层之外**）
+I3=OK
+    逐份**逐字逐条**相等：合计 **211** 条 == md `## ` 行（样本内）；差额 0 条、未解释 0 条
+    `sections` 取 **md `## ` 标题行逐字**（`;` 连接、去 `## ` 前缀）：本语料把「号」与「题」常分两行排（实测「只有编号」574 条 + 「编号带题」494 条 = 1068 条），本任务**不做号/题合并那一类推断**（那是把推断写进事实栏）。
+I4=OK
+    逐篇与「标题行」口径重算值**逐栏相等**（样本 5 份）
+    **口径不是全文子串**：全文口径下 Contents 42/43、Assumptions 43/43、Notation 40/43、Sensitivity 38/43——前四列近乎恒真。`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有（`docs/mcm-suite-lessons.md` §4.1）。
+I4-c=OK
+    **零区分力登记**（一边占比 > 90%）：['has_contents', 'has_assumptions']
+    TAGS 头部的登记行：* **零区分力登记**（一边占比 > 90%）：has_contents=5/5 · has_assumptions=5/5 —— 这几栏在本语料上**区分力低**，**不因为它们算得出来就当判据用**。逐栏分布见 `tests/papers/reports/ids-report.txt`。
+    **为什么要有这条**：近乎恒真的栏不是判据；留着它就必须**写明它零区分力**，否则下一个人会拿它当证据（`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有，见 `docs/mcm-suite-lessons.md` §4.1）。
+    **判据形状要是「登记行具名的集合 == 自己算出的集合」**：写成「文件里出现过 `has_contents` 这个词」是**恒真**的——那个名字本身就在一层字段序里。
+I5=OK
+    逐篇与 md 重算值相等；**无该行留空**的格数 1 == 独立重算的 1（样本 5 份）
+    三种口径命中数（样本 5）：**宽口径**（带 `re.M` + 允许行首 md 标记）4 · 计划草稿正则**加** `re.M` 2 · 计划草稿正则**不加** `re.M` 0
+    **口径偏离要说清**：任务书 §六 第 8 条给的是「带 `re.M` → 27/43」。本判据用的是**更宽的**口径：43 份里 14 份写成 `**Keywords: …**`、1 份写成 `## Keywords: …`，只认裸行的正则**看不见它们**——照抄 27/43 会把 15 份**确实有** Keywords 行的论文登记成「无该行」，那是**假陈述**（约束 8）。实测 0 / 27 / 42（逐份原文见 `recon/ids-recon.txt` §4b）；**全批唯一真的没有 Keywords 行的是 `2522820`**。
+I6=OK
+    逐篇与放行证据**逐数相等**（样本 5 份）：`n_figures`/`n_tables` 读 `tests/papers/reports/c-report.txt` 的 `C1 图注=N (图F/表T)`、`n_equations` 读 `tests/papers/reports/d-report.txt` 的 `检出=N`——**不重算**
+    **语义**：这是**图注/编号条数**，**不是**产出 PNG 张数（C1 里 产出=908 而 图注=935）。自己重算的口径实测得 **597/212**，与 C1 的 **682/253** 逐份 11 篇不等——所以这一栏必须**读回**（spec §6「同一份事实不在两处各算一次」）。
+    **「不适用」的两种情形分开了**：放行证据文件不存在 → `index.read_release_*` **抛错**；证据里没有这一篇 → 也**抛错**（这里是硬失败，不记「不适用」）。**没有任何一条路径**把「阶段 4 没跑过」记成「这篇真没有公式」。
+  放行证据解析（报告量）：c-report 逐篇行 43 条 · d-report 逐篇行 43 条 · 样本内缺登记 无 / 无
+I6-b=OK
+    **双边等式**：产物 `n_pages` == **原件** `page_count`（逐篇，样本 5 份）——原件是这一栏**唯一的权威**（不存在「别处已经算过一次」的产物，故不违反 spec §6）
+    **第二条独立路径**（同一条 `add` 里）：逐篇 md 的 `<!-- page N -->` **锚条数** == 原件 `page_count`（一条数 md 的锚、一条开原件数页）
+    **为什么这一栏原先没有判据**：老版本把这两句**算出来的布尔只 `lines.append` 打印**——既不并进 `ok`、也不比产物的 `n_pages` 栏（比的是 `ref` 的 md 锚数 vs PDF 页数，**从不碰产物**）。一句 fail-open 的打印被当成了「`n_pages` 的独立参照」（本项目「判据在什么都没验的情况下报绿」家族的形态）。现在两句都在条件里。
+    **I7 的页码判据不能替代它**：I7 的两边**都从 md 数页**，md 页锚缺失时两边同时得 `p0` → **绿着过**；只有这一条拿**原件**当参照。
+I7=OK
+    指针逐条可定位：**30** 条（词 + md 文件 + 页码 + 片段）
+    每条都满足（**六条都查**）：①二层小标题的 `md:` 指针 == 该篇真实的 md 仓库相对路径 ②片段是该篇 md 的**一整行逐字** ③该行**含该词**（词边界下）④页码 == 该行在 md 里自己的页（由 `<!-- page N -->` 锚数出）⑤`xN` == 本脚本**独立重算**的出现次数 ⑥是该词的**首次出现**
+    **不是「全文偏移」**：计划草稿的指针是「该词在全文文本中的字符位置」——那个位置在**任何入库产物里都不可定位**（md 是重排产物、没有稳定偏移），「可据此复核」是**假陈述**。现在指针是**整行逐字**，`grep -F` 就能核。
+    **强度边界**：它验证的是「指针指得回 md 的那一行」，**不是**「这一行里的词就是这篇论文的模型」。后者是判断，不在本任务范围（词表命中的语义边界写在 TAGS 头部）。
+I7-b=OK
+    三层（零命中篇）0 == 独立重算的零命中篇数 0；二层 5 == 样本 − 零命中 = 5
+I8=OK
+    逐篇 `产物题号` vs `论文自报题号`（摘要页 `Problem Chosen` 一类）：**一致 5 份 · 不符 0 份 · 未验证 0 份**
+    **三态逐态真报**（**「没有该栏」≠「有但读不出」≠「读出来与目录不符」**）：没有该栏 0 份  · 有但读不出 0 份  · 不符 0 份
+    **为什么要拆三态**：`v_problem` 对「没有该栏」与「有栏但读不出」**同样返回 `None`**，原先两态**混进同一个计数**、再由判据**印死「没有该栏 0 份」**——那个 0 在当前语料下恰好为真（侦察侧 `ids-recon-scan.py` 确实分了三态），但**判据自己不测** ⇒ 语料一变这行就静默说谎（约束 4 + 约束 8）。现在 `n_none`/`n_unreadable` 由 `v_problem_field_present(text)` 当场分开。
+    **「有栏但读不出」= 硬失败**（判断与理由）：约束 4 要求「参照**存在**但没解析出来」判硬失败，「参照**不存在**」才是不适用。栏位在而读不出 ⇒ 解析口径**系统性失效**（不是「这篇格式特别」）——它原先与「没有该栏」共享同一个 10% 上界，等于**用上界把一个解析 bug 洗成「未验证」**。当前语料实测 0 份，故这条升级**不改变本次结论**、只把口径收严。
+    **这条不是形式**：一篇被错放进目录的论文会**静默毒化**整条「题型 → 模型」配对链（Task 6b 的配对以 `(origin, problem)` 为地基），而计划草稿对它**没有任何判据**。
+I8-b=OK
+    「未验证」占比 0/5 = 0.00%（上界 10%）——三态里的**前两态**（「没有该栏」0 + 「有栏读不出」0）；**「未验证」是「通过」与「失败」之间唯一诚实的位置**（沿用 C4 的裁决），但它**必须有上界**，否则整列「读不出」也能绿。
+    **口径比原先更严**：「有栏读不出」已由 I8 单独判**硬失败**，这里**仍**把它计入占比（上界覆盖的集合不缩小）——两处都不放宽。
+I8-c=OK
+    队号三向一致：**INDEX 栏 == 文件名词干 == 论文自报队号**；自报读不出的 0 份 （无）
+I9=OK
+    `PROVENANCE.md` 双射表 5 行 · 唯一 ID 5 · 唯一词干 5（**两向单值 ⇒ 互逆**）
+    **六列逐列落地**（不等 无）：`年月` == 稳定 ID 的年份、`原件` == 磁盘上的原件相对路径、`md` == 磁盘上该篇 md 的仓库相对路径（前两列此前**入库却无判据**——`年月` 与 `md` 被解析时直接丢掉）。
+    为什么必须有这张表：稳定 ID **内容无关**（按到达顺序生成）⇒ `ID → 原件` 推不出来。INDEX 的「队号」栏是给人看的定位列，本表是可判的那一份。
+I10=FAIL
+    TAGS 字段序的**末尾**不是 `problem_type`（实测末尾 = ['keywords']）——加在末尾才能保证已有字段的位置一个都不变
+I10-a=FAIL
+    `problem_type` 在 TAGS 一层字段序里 = False（字段序共 15 栏）
+    **与 I10 的末尾断言不是同一条**：a 判「在不在」，I10 判「在不在**末尾**」——把整栏删掉两条都红，但把它挪到中间时**只有 I10 红**（a 是它的必要不充分条件）。
+I10-b=FAIL
+    P2025-A-01：取值 ''
+    P2025-A-02：取值 ''
+    P2025-A-03：取值 ''
+    P2025-B-01：取值 ''
+    P2025-C-01：取值 ''
+    **5 行逐行非空、且不属占位串集合** ['', '-', 'N/A', '待定', 'TODO', '?']（本判据就是旧绊线的保护：**空占位列照样红**）
+    **为什么这条必须留着**：Task 6 的旧 I10 抓的正是「留空占位列」这类假绿——绊线到期（6b 就是要这一栏）时**保护不许跟着走**。
+I10-c=OK
+    **同一 `problem` 字母的所有行取值逐字相同**：3 个题号，每个题号覆盖 [3, 1, 1] 篇
+    题型是**题**的属性、不是**篇**的属性——同题的不同论文必须写出同一个题型串。
+I10-d=FAIL
+    出现的题号字母 **3** 个 · **互异取值 1** 个（纯结构断言，**不读标注文件**）
+    限样本跑只断言「字母数 == 互异取值数」：本次样本覆盖题号 ['A', 'B', 'C']，**不是** 6 个——故 `== 6` 这条留给全量跑
+I10-e=FAIL
+    2025 A：产物 `` vs 标注 `4 机理建模与仿真 · 4.1 物理/化学机理建模；5 统计推断与因果 · 5.4 不确定性与敏感性；6 反演与参数估计 · 6.1 由观测反推参数/历史`（只在产物 无 · 只在标注 ['4 机理建模与仿真 · 4.1 物理/化学机理建模', '5 统计推断与因果 · 5.4 不确定性与敏感性', '6 反演与参数估计 · 6.1 由观测反推参数/历史']）
+    2025 B：产物 `` vs 标注 `1 预测 · 1.3 情景与概率预测；3 优化 · 3.3 多目标/权衡；4 机理建模与仿真 · 4.6 反馈结构与动态演化；5 统计推断与因果 · 5.4 不确定性与敏感性`（只在产物 无 · 只在标注 ['1 预测 · 1.3 情景与概率预测', '3 优化 · 3.3 多目标/权衡', '4 机理建模与仿真 · 4.6 反馈结构与动态演化', '5 统计推断与因果 · 5.4 不确定性与敏感性']）
+    2025 C：产物 `` vs 标注 `1 预测 · 1.2 回归/相关预测；1 预测 · 1.5 零膨胀/受限计数预测；5 统计推断与因果 · 5.2 回归系数与效应量；7 分类与聚类 · 7.1 监督分类/识别`（只在产物 无 · 只在标注 ['1 预测 · 1.2 回归/相关预测', '1 预测 · 1.5 零膨胀/受限计数预测', '5 统计推断与因果 · 5.2 回归系数与效应量', '7 分类与聚类 · 7.1 监督分类/识别']）
+I10-f=OK
+    取值里出现的 **0** 个标签名（`L1 · L2`）：两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个变体的归一化集合）
+    这是 `verify_types.py` T3 的**移植**：题型侧与模型侧必须**不相交**——否则「题型 → 模型/算法」的配对就变成同义反复（`ARIMA` 这样的词一旦进了题型栏，配对就什么都没说）。
+I10-g=OK
+    **覆盖边界可机读、且为等式**：* **标注覆盖边界（机读）**：标注题数=67 · 有论文的题=3 · 未配对的题=64 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 F、2019 A、2
+    `标注题数 = 有论文的题 + 未配对的题`（67 = 3 + 64），且**逐题具名清单**与「标注里有、而本次产物无论文」的独立重算集合**逐题对得上**
+    为什么这条必要：`corpus/官方原题/` 有 2016–2026 共 67 题，而本合集只有 2025 的论文（**标注里有、产物里没有**的题是 61 道）。「没写出来」与「没有这回事」不是一回事——把边界**印成可判的一行**，下一个人就不必猜本表覆盖到哪里。
+I10-h=OK
+    「亮点」栏非空的行：无（**本轮一律留空**——没有可指回原文的依据就不填推测）；头部有 `[社区]` 标级与「给不出就留空」的说明 = True
+    **这一条的强度边界（必须与它同读）**：它验证的是「**没有被填进推测性内容**」与「**头部有标级声明**」，**证明不了**这 43 篇没有亮点。它是**范围声明**、**不构成**任何「已覆盖」的声称。
+    **编号说明**：本条与下一条在原文件里叫 `I10-b` / `I10-c`；解冻后 **a–g 七个子条**用的是小写字母序，故这两条顺延为 `I10-h` / `I10-i`（**判据内容一字未改**，只改编号）。
+I10-i=OK
+    两个 .md 的文件头都有**奖项注记**（合集内统一 = O 奖）= True；**两个 .md 都不得再设「奖项」栏**（用户 2026-09-26 定案）= True
+   fail-closed 探针：合集名 '2025美赛O奖论文（不存在的名字）' → 抛 FileNotFoundError: 合集目录不存在：<repo>\corpus\历届优秀论文\2025美赛O奖论文（不存在的名字）（拒绝用空表冒充「该合集没有论文」）
+I11=OK
+    合集名不存在时 `index.build` **抛错**（不是返回空表静默 PASS）
+    探针的落点被**强制**指到 tests/papers/reports-limited/ids-products-probe（不入库目录）——否则「守卫被删掉」的那一版会把入库的三份产物**覆写成 0 条**（探针自己变成破坏者，那是本项目栽过的形态）。
+    **这就是任务书点名的那个活陷阱**：`Path.rglob` 对不存在的目录**静默返回空**，而磁盘上是 `2023年美赛O奖论文`（带「年」）、别处写作 `2023美赛O奖论文`。
+I12=OK
+    ① 两个 UMAP 合集名不以 4 位数字开头 → `io.stable_id` **抛 `ValueError`**（涉 37 份）：断言通过
+    ② **跨合集撞号**：`stable_id('2023美赛O奖论文','A',1)` = **P2023-A-01** = `stable_id('2023年美赛O奖论文','A',1)` = **P2023-A-01**——少一个「年」字，ID 完全相同；而 `io.ORIGIN/'2023美赛O奖论文'` 的 `is_dir() = False`（盘上是带「年」的）
+    **这两条是具名边界、不是缺陷**：判据把它们**断言成行为**，而不是假装它们不存在（计划草稿的「往返一致」判据对撞号**零区分力**）。
+    ③ **本次侦察新查出来的第三条边界**：`io.problem_of` 在别的合集上抛错——`2024年美赛O奖论文/2024年美赛A题O奖论文/` 把题号写进目录名（35/35 抛错）、2023 春季赛子目录（5/42）、两个 UMAP（37/37）；故本索引**只对「题号是独立目录层」的合集成立**，别的合集 `build` 抛错是**按设计**。逐份实测见 `recon/ids-recon.txt` §5。
+I13=OK
+    词表 **115** 词条、**367** 变体；规范词唯一、格式为 `规范词 | 变体…`（**一行一条、可追加**）
+    **零命中词条 93 个**（口径 = 在**本次样本 5 份**上一篇都不命中；限样本跑时它只是「这批上零命中」，不是全语料结论）：
+        零命中 'AHP'
+        零命中 'TOPSIS'
+        零命中 'fuzzy comprehensive evaluation'
+        零命中 'entropy weight method'
+        零命中 'grey relational analysis'
+        零命中 'principal component analysis'
+        零命中 'grey prediction'
+        零命中 'SARIMA'
+        零命中 'exponential smoothing'
+        零命中 'ridge regression'
+        零命中 'lasso'
+        零命中 'stepwise regression'
+        零命中 'nonlinear regression'
+        零命中 'XGBoost'
+        零命中 'random forest'
+        零命中 'gradient boosting'
+        零命中 'decision tree'
+        零命中 'neural network'
+        零命中 'BP neural network'
+        零命中 'LSTM'
+        零命中 'RNN'
+        零命中 'CNN'
+        零命中 'SVR'
+        零命中 'SVM'
+        零命中 'k-nearest neighbor'
+        零命中 'linear programming'
+        零命中 'integer programming'
+        零命中 'multi-objective optimization'
+        零命中 'goal programming'
+        零命中 'dynamic programming'
+        零命中 'genetic algorithm'
+        零命中 'simulated annealing'
+        零命中 'differential evolution'
+        零命中 'NSGA-II'
+        零命中 'ant colony optimization'
+        零命中 'tabu search'
+        零命中 'queueing theory'
+        零命中 'A-star'
+        零命中 'integer linear programming'
+        零命中 'ordinary differential equation'
+        零命中 'finite element'
+        零命中 'SIR model'
+        零命中 'SEIR model'
+        零命中 'Lotka-Volterra'
+        零命中 'system dynamics'
+        零命中 'compartment model'
+        零命中 'reaction-diffusion'
+        零命中 'Markov chain Monte Carlo'
+        零命中 'cellular automata'
+        零命中 'agent-based model'
+        零命中 'Markov chain'
+        零命中 'Bayesian network'
+        零命中 'K-means'
+        零命中 'hierarchical clustering'
+        零命中 'factor analysis'
+        零命中 'discriminant analysis'
+        零命中 'analysis of variance'
+        零命中 'regression discontinuity'
+        零命中 'difference-in-differences'
+        零命中 'propensity score matching'
+        零命中 'structural equation modeling'
+        零命中 'zero-inflated'
+        零命中 'two-stage least squares'
+        零命中 'Shannon entropy'
+        零命中 'Mann-Kendall'
+        零命中 'Cox proportional hazards'
+        零命中 'association rules'
+        零命中 'cross-validation'
+        零命中 'bootstrap'
+        零命中 'stacking'
+        零命中 'SHAP'
+        零命中 'survival analysis'
+        零命中 'graph theory'
+        零命中 'shortest path'
+        零命中 'minimum spanning tree'
+        零命中 'maximum flow'
+        零命中 'network flow'
+        零命中 'traveling salesman problem'
+        零命中 'bipartite matching'
+        零命中 'PERT'
+        零命中 'centrality'
+        零命中 'Petri net'
+        零命中 'network analysis'
+        零命中 'Wardrop'
+        零命中 'deep learning'
+        零命中 'reinforcement learning'
+        零命中 'naive Bayes'
+        零命中 'self-organizing map'
+        零命中 'Hopfield network'
+        零命中 'radial basis function'
+        零命中 'isolation forest'
+        零命中 'fuzzy logic'
+        零命中 'change-point detection'
+    **词表增长候选（给 Task 6b）**：作者 Keywords 里出现、而词表**覆盖不到**的词形 **11** 个，逐条（附出现篇数）：
+    **具名范围边界（必须与上面这份清单同读）**：候选来源**只取作者自写的 Keywords 行**（`;`/`,`/`、` 拆词），**未扫正文**——任务书 §一 的「论文里出现但词表没有」（含**未命中片段**）这一路**本任务只交付了 Keywords 行这一半**。选窄口径的理由：Keywords 行里的词能**逐条指回一行原文**、可复核；扫正文要先自造一套「什么算一个模型名」的抽取启发式，那是**判断**不是事实，且产出无从验证。**代价**：正文里出现而作者没写进 Keywords 的模型**不在本清单里**。
+        候选 'Stair Wear'（2 篇）
+        候选 'Archard'（1 篇）
+        候选 'Archard Law'（1 篇）
+        候选 'CVM'（1 篇）
+        候选 'Central Limit Theorem'（1 篇）
+        候选 'Fatigue Damage'（1 篇）
+        候选 'Gaussian Distribution'（1 篇）
+        候选 'Gaussian Mixture Algorithm'（1 篇）
+        候选 'Mont Carlo method'（1 篇）
+        候选 'Sustainable tourism'（1 篇）
+        候选 'Wear depth'（1 篇）
+I13-b=OK
+    **真验**（不是打印一句声称）：临时词表先写 **1** 条 → `vocab.load` → **追加 1 条** → **同一进程内**再 `vocab.load`
+    实测 首读 **1** 条 / 追加后 **2** 条（要求 **1 / 2**）⇒ `vocab.load` **不缓存**，「追加即生效」成立。临时文件写在系统临时目录、跑完即删（**不入库、报告里不出现其路径**）。
+    **为什么非要真验**：`vocab.load` 一旦缓存（`lru_cache` 一类），「追加了却没生效」就是**静默形态**——而「词表开放、可追加」是本任务对用户的承诺（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）。原先这条是 `add(..., True, …)`：**恒真**、却计入「全部判据 OK」。变异证据：给 `vocab.load` 加 `lru_cache` 后本判据红（`ids-mutation-evidence.txt` 的 M14）。
+    零命中与候选**都不藏**：零命中词条本身是「这批论文没用这些方法」这个语料事实（不是判据失效），候选清单是 Task 6b 的增长输入。
+  词表命中篇数 top8（报告量）：Monte Carlo 3 · sensitivity analysis 3 · linear regression 3 · particle swarm optimization 2 · Bayesian 2 · differential equation 1 · partial differential equation 1 · finite difference 1
+  一层 models 指针条数合计（样本）：30
+  md 页锚 vs 原件 `page_count` 的交叉核对**已从「打印」升为判据**（I6-b）：原先它算出来的布尔只 `lines.append`、且**从不碰产物的 `n_pages` 栏**——一句 fail-open 的打印。逐篇差额（若有）见 `I6-b=FAIL` 的登记行。
+入库产物完整性自检（限样本跑）：`corpus/papers/` 三份 .md 的 sha256 跑前跑后相同 = True（False → 本次限样本跑碰到了入库产物，判 FAIL）
+    corpus/papers/INDEX.md：跑前 dc8fee7bab892347… · 跑后 dc8fee7bab892347…
+    corpus/papers/TAGS.md：跑前 48475b03a5ddf074… · 跑后 48475b03a5ddf074…
+    corpus/papers/PROVENANCE.md：跑前 874987522bd67ad3… · 跑后 874987522bd67ad3…
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/ids-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED 样本 5/43 份 = 前 3 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V14：**往题型栏塞一个词表里的模型名**（`ARIMA`）——题型侧与模型侧必须不相交；否则「题型 → 模型」的配对退化成同义反复
+
+* 判据脚本：`tests/papers/verify_ids.py`　·　口径：`--limit 3`
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `out\[\(str\(a\.year\),\ a\.problem\)\]\ =\ \[f"\{l1\}\ ·\ \{`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `10de17a7b2dac6a7…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['I10-f=FAIL', 'I10-e=FAIL']（**要求 ⊇ ['I10-f=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 5/43 份**（--limit 3 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2501687 2522820
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+I1=OK
+    PROVENANCE 双射表 5 行 · 磁盘样本 5 份 · 重复 ID 无 · 重复词干 无 · 解析失败 无
+    只在磁盘不在表 无 · 只在表不在磁盘 无（**两边都要空**：单边为空只是缺，不是双射）
+    **「往返恒真」那一版已被换掉**：`parse∘stable_id` 只要两边用同一个合集名就恒真（计划草稿的三条判据无一能失败）。这里的判据是**双射**：ID↔词干两向单值互逆、且并集 == 磁盘 PDF 集合（用磁盘与 `problem_of` 独立数出来的）。
+I1-b=OK
+    逐篇重算的稳定 ID 与产物不等：无（重算 = 按磁盘字典序 + 逐题号到达顺序，**不是**把 ID 拆开再拼回去）
+I1-c=OK
+    「年」与词干前两位的一致性：覆盖 5/5 份（只对 7 位数字词干起作用，覆盖不到的数量已写明）；不一致 无
+I2=OK
+    n_entries=5 == 唯一 ID=5 == TAGS 一层行数=5 == INDEX 表行数=5 == PROVENANCE 行数=5 == 磁盘 PDF（样本）=5 == md 文件（样本）=5
+    **双边等式，不是单边下界**（约束 5）：每一对都得相等，任一处漏一篇都会红。
+    **产物落点**：`IndexResult` 报告的 index/tags/prov 三路径 == 本脚本读的三份 = True——判据读的必须是**这一次**写出来的那一份。
+I2-b=OK
+    TAGS 二层篇数 5 + 三层篇数 0 = 5（**必须 == 5**）；二层 ∩ 三层 = 空；两层并集 == 一层 ID 集 = True（**每篇恰好进一层、且没有一篇落在两层之外**）
+I3=OK
+    逐份**逐字逐条**相等：合计 **211** 条 == md `## ` 行（样本内）；差额 0 条、未解释 0 条
+    `sections` 取 **md `## ` 标题行逐字**（`;` 连接、去 `## ` 前缀）：本语料把「号」与「题」常分两行排（实测「只有编号」574 条 + 「编号带题」494 条 = 1068 条），本任务**不做号/题合并那一类推断**（那是把推断写进事实栏）。
+I4=OK
+    逐篇与「标题行」口径重算值**逐栏相等**（样本 5 份）
+    **口径不是全文子串**：全文口径下 Contents 42/43、Assumptions 43/43、Notation 40/43、Sensitivity 38/43——前四列近乎恒真。`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有（`docs/mcm-suite-lessons.md` §4.1）。
+I4-c=OK
+    **零区分力登记**（一边占比 > 90%）：['has_contents', 'has_assumptions']
+    TAGS 头部的登记行：* **零区分力登记**（一边占比 > 90%）：has_contents=5/5 · has_assumptions=5/5 —— 这几栏在本语料上**区分力低**，**不因为它们算得出来就当判据用**。逐栏分布见 `tests/papers/reports/ids-report.txt`。
+    **为什么要有这条**：近乎恒真的栏不是判据；留着它就必须**写明它零区分力**，否则下一个人会拿它当证据（`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有，见 `docs/mcm-suite-lessons.md` §4.1）。
+    **判据形状要是「登记行具名的集合 == 自己算出的集合」**：写成「文件里出现过 `has_contents` 这个词」是**恒真**的——那个名字本身就在一层字段序里。
+I5=OK
+    逐篇与 md 重算值相等；**无该行留空**的格数 1 == 独立重算的 1（样本 5 份）
+    三种口径命中数（样本 5）：**宽口径**（带 `re.M` + 允许行首 md 标记）4 · 计划草稿正则**加** `re.M` 2 · 计划草稿正则**不加** `re.M` 0
+    **口径偏离要说清**：任务书 §六 第 8 条给的是「带 `re.M` → 27/43」。本判据用的是**更宽的**口径：43 份里 14 份写成 `**Keywords: …**`、1 份写成 `## Keywords: …`，只认裸行的正则**看不见它们**——照抄 27/43 会把 15 份**确实有** Keywords 行的论文登记成「无该行」，那是**假陈述**（约束 8）。实测 0 / 27 / 42（逐份原文见 `recon/ids-recon.txt` §4b）；**全批唯一真的没有 Keywords 行的是 `2522820`**。
+I6=OK
+    逐篇与放行证据**逐数相等**（样本 5 份）：`n_figures`/`n_tables` 读 `tests/papers/reports/c-report.txt` 的 `C1 图注=N (图F/表T)`、`n_equations` 读 `tests/papers/reports/d-report.txt` 的 `检出=N`——**不重算**
+    **语义**：这是**图注/编号条数**，**不是**产出 PNG 张数（C1 里 产出=908 而 图注=935）。自己重算的口径实测得 **597/212**，与 C1 的 **682/253** 逐份 11 篇不等——所以这一栏必须**读回**（spec §6「同一份事实不在两处各算一次」）。
+    **「不适用」的两种情形分开了**：放行证据文件不存在 → `index.read_release_*` **抛错**；证据里没有这一篇 → 也**抛错**（这里是硬失败，不记「不适用」）。**没有任何一条路径**把「阶段 4 没跑过」记成「这篇真没有公式」。
+  放行证据解析（报告量）：c-report 逐篇行 43 条 · d-report 逐篇行 43 条 · 样本内缺登记 无 / 无
+I6-b=OK
+    **双边等式**：产物 `n_pages` == **原件** `page_count`（逐篇，样本 5 份）——原件是这一栏**唯一的权威**（不存在「别处已经算过一次」的产物，故不违反 spec §6）
+    **第二条独立路径**（同一条 `add` 里）：逐篇 md 的 `<!-- page N -->` **锚条数** == 原件 `page_count`（一条数 md 的锚、一条开原件数页）
+    **为什么这一栏原先没有判据**：老版本把这两句**算出来的布尔只 `lines.append` 打印**——既不并进 `ok`、也不比产物的 `n_pages` 栏（比的是 `ref` 的 md 锚数 vs PDF 页数，**从不碰产物**）。一句 fail-open 的打印被当成了「`n_pages` 的独立参照」（本项目「判据在什么都没验的情况下报绿」家族的形态）。现在两句都在条件里。
+    **I7 的页码判据不能替代它**：I7 的两边**都从 md 数页**，md 页锚缺失时两边同时得 `p0` → **绿着过**；只有这一条拿**原件**当参照。
+I7=OK
+    指针逐条可定位：**30** 条（词 + md 文件 + 页码 + 片段）
+    每条都满足（**六条都查**）：①二层小标题的 `md:` 指针 == 该篇真实的 md 仓库相对路径 ②片段是该篇 md 的**一整行逐字** ③该行**含该词**（词边界下）④页码 == 该行在 md 里自己的页（由 `<!-- page N -->` 锚数出）⑤`xN` == 本脚本**独立重算**的出现次数 ⑥是该词的**首次出现**
+    **不是「全文偏移」**：计划草稿的指针是「该词在全文文本中的字符位置」——那个位置在**任何入库产物里都不可定位**（md 是重排产物、没有稳定偏移），「可据此复核」是**假陈述**。现在指针是**整行逐字**，`grep -F` 就能核。
+    **强度边界**：它验证的是「指针指得回 md 的那一行」，**不是**「这一行里的词就是这篇论文的模型」。后者是判断，不在本任务范围（词表命中的语义边界写在 TAGS 头部）。
+I7-b=OK
+    三层（零命中篇）0 == 独立重算的零命中篇数 0；二层 5 == 样本 − 零命中 = 5
+I8=OK
+    逐篇 `产物题号` vs `论文自报题号`（摘要页 `Problem Chosen` 一类）：**一致 5 份 · 不符 0 份 · 未验证 0 份**
+    **三态逐态真报**（**「没有该栏」≠「有但读不出」≠「读出来与目录不符」**）：没有该栏 0 份  · 有但读不出 0 份  · 不符 0 份
+    **为什么要拆三态**：`v_problem` 对「没有该栏」与「有栏但读不出」**同样返回 `None`**，原先两态**混进同一个计数**、再由判据**印死「没有该栏 0 份」**——那个 0 在当前语料下恰好为真（侦察侧 `ids-recon-scan.py` 确实分了三态），但**判据自己不测** ⇒ 语料一变这行就静默说谎（约束 4 + 约束 8）。现在 `n_none`/`n_unreadable` 由 `v_problem_field_present(text)` 当场分开。
+    **「有栏但读不出」= 硬失败**（判断与理由）：约束 4 要求「参照**存在**但没解析出来」判硬失败，「参照**不存在**」才是不适用。栏位在而读不出 ⇒ 解析口径**系统性失效**（不是「这篇格式特别」）——它原先与「没有该栏」共享同一个 10% 上界，等于**用上界把一个解析 bug 洗成「未验证」**。当前语料实测 0 份，故这条升级**不改变本次结论**、只把口径收严。
+    **这条不是形式**：一篇被错放进目录的论文会**静默毒化**整条「题型 → 模型」配对链（Task 6b 的配对以 `(origin, problem)` 为地基），而计划草稿对它**没有任何判据**。
+I8-b=OK
+    「未验证」占比 0/5 = 0.00%（上界 10%）——三态里的**前两态**（「没有该栏」0 + 「有栏读不出」0）；**「未验证」是「通过」与「失败」之间唯一诚实的位置**（沿用 C4 的裁决），但它**必须有上界**，否则整列「读不出」也能绿。
+    **口径比原先更严**：「有栏读不出」已由 I8 单独判**硬失败**，这里**仍**把它计入占比（上界覆盖的集合不缩小）——两处都不放宽。
+I8-c=OK
+    队号三向一致：**INDEX 栏 == 文件名词干 == 论文自报队号**；自报读不出的 0 份 （无）
+I9=OK
+    `PROVENANCE.md` 双射表 5 行 · 唯一 ID 5 · 唯一词干 5（**两向单值 ⇒ 互逆**）
+    **六列逐列落地**（不等 无）：`年月` == 稳定 ID 的年份、`原件` == 磁盘上的原件相对路径、`md` == 磁盘上该篇 md 的仓库相对路径（前两列此前**入库却无判据**——`年月` 与 `md` 被解析时直接丢掉）。
+    为什么必须有这张表：稳定 ID **内容无关**（按到达顺序生成）⇒ `ID → 原件` 推不出来。INDEX 的「队号」栏是给人看的定位列，本表是可判的那一份。
+I10=OK
+    栏位齐全：INDEX 表头 11 栏 + TAGS 一层原有 10 栏；**INDEX 表头继续不得出现 `原题类型`**（那一栏只在 TAGS 里）；**`problem_type` 在 TAGS 字段序的末尾**（解冻时点名的位置约束）。
+    **解冻不丢保护**：旧绊线抓的「留空占位列」由 I10-b 承接（逐行非空 + 占位串集合），「表头不得出现该栏」在 INDEX 一侧原样保留。
+I10-a=OK
+    `problem_type` 在 TAGS 一层字段序里 = True（字段序共 16 栏）
+    **与 I10 的末尾断言不是同一条**：a 判「在不在」，I10 判「在不在**末尾**」——把整栏删掉两条都红，但把它挪到中间时**只有 I10 红**（a 是它的必要不充分条件）。
+I10-b=OK
+    **5 行逐行非空、且不属占位串集合** ['', '-', 'N/A', '待定', 'TODO', '?']（本判据就是旧绊线的保护：**空占位列照样红**）
+    **为什么这条必须留着**：Task 6 的旧 I10 抓的正是「留空占位列」这类假绿——绊线到期（6b 就是要这一栏）时**保护不许跟着走**。
+I10-c=OK
+    **同一 `problem` 字母的所有行取值逐字相同**：3 个题号，每个题号覆盖 [3, 1, 1] 篇
+    题型是**题**的属性、不是**篇**的属性——同题的不同论文必须写出同一个题型串。
+I10-d=OK
+    出现的题号字母 **3** 个 · **互异取值 3** 个（纯结构断言，**不读标注文件**）
+    限样本跑只断言「字母数 == 互异取值数」：本次样本覆盖题号 ['A', 'B', 'C']，**不是** 6 个——故 `== 6` 这条留给全量跑
+I10-e=FAIL
+    2025 A：产物 `4 机理建模与仿真 · 4.1 物理/化学机理建模；5 统计推断与因果 · 5.4 不确定性与敏感性；6 反演与参数估计 · 6.1 由观测反推参数/历史；ARIMA` vs 标注 `4 机理建模与仿真 · 4.1 物理/化学机理建模；5 统计推断与因果 · 5.4 不确定性与敏感性；6 反演与参数估计 · 6.1 由观测反推参数/历史`（只在产物 ['ARIMA'] · 只在标注 无）
+    2025 B：产物 `1 预测 · 1.3 情景与概率预测；3 优化 · 3.3 多目标/权衡；4 机理建模与仿真 · 4.6 反馈结构与动态演化；5 统计推断与因果 · 5.4 不确定性与敏感性；ARIMA` vs 标注 `1 预测 · 1.3 情景与概率预测；3 优化 · 3.3 多目标/权衡；4 机理建模与仿真 · 4.6 反馈结构与动态演化；5 统计推断与因果 · 5.4 不确定性与敏感性`（只在产物 ['ARIMA'] · 只在标注 无）
+    2025 C：产物 `1 预测 · 1.2 回归/相关预测；1 预测 · 1.5 零膨胀/受限计数预测；5 统计推断与因果 · 5.2 回归系数与效应量；7 分类与聚类 · 7.1 监督分类/识别；ARIMA` vs 标注 `1 预测 · 1.2 回归/相关预测；1 预测 · 1.5 零膨胀/受限计数预测；5 统计推断与因果 · 5.2 回归系数与效应量；7 分类与聚类 · 7.1 监督分类/识别`（只在产物 ['ARIMA'] · 只在标注 无）
+I10-f=FAIL
+    'ARIMA' 不含 ` · `（应为 `L1 名 · L2 名`）
+I10-g=OK
+    **覆盖边界可机读、且为等式**：* **标注覆盖边界（机读）**：标注题数=67 · 有论文的题=3 · 未配对的题=64 · 覆盖年份=2025 · 未配对逐题=2016 A、2016 B、2016 C、2016 D、2016 E、2016 F、2017 A、2017 B、2017 C、2017 D、2017 E、2017 F、2018 A、2018 B、2018 C、2018 D、2018 E、2018 F、2019 A、2
+    `标注题数 = 有论文的题 + 未配对的题`（67 = 3 + 64），且**逐题具名清单**与「标注里有、而本次产物无论文」的独立重算集合**逐题对得上**
+    为什么这条必要：`corpus/官方原题/` 有 2016–2026 共 67 题，而本合集只有 2025 的论文（**标注里有、产物里没有**的题是 61 道）。「没写出来」与「没有这回事」不是一回事——把边界**印成可判的一行**，下一个人就不必猜本表覆盖到哪里。
+I10-h=OK
+    「亮点」栏非空的行：无（**本轮一律留空**——没有可指回原文的依据就不填推测）；头部有 `[社区]` 标级与「给不出就留空」的说明 = True
+    **这一条的强度边界（必须与它同读）**：它验证的是「**没有被填进推测性内容**」与「**头部有标级声明**」，**证明不了**这 43 篇没有亮点。它是**范围声明**、**不构成**任何「已覆盖」的声称。
+    **编号说明**：本条与下一条在原文件里叫 `I10-b` / `I10-c`；解冻后 **a–g 七个子条**用的是小写字母序，故这两条顺延为 `I10-h` / `I10-i`（**判据内容一字未改**，只改编号）。
+I10-i=OK
+    两个 .md 的文件头都有**奖项注记**（合集内统一 = O 奖）= True；**两个 .md 都不得再设「奖项」栏**（用户 2026-09-26 定案）= True
+   fail-closed 探针：合集名 '2025美赛O奖论文（不存在的名字）' → 抛 FileNotFoundError: 合集目录不存在：<repo>\corpus\历届优秀论文\2025美赛O奖论文（不存在的名字）（拒绝用空表冒充「该合集没有论文」）
+I11=OK
+    合集名不存在时 `index.build` **抛错**（不是返回空表静默 PASS）
+    探针的落点被**强制**指到 tests/papers/reports-limited/ids-products-probe（不入库目录）——否则「守卫被删掉」的那一版会把入库的三份产物**覆写成 0 条**（探针自己变成破坏者，那是本项目栽过的形态）。
+    **这就是任务书点名的那个活陷阱**：`Path.rglob` 对不存在的目录**静默返回空**，而磁盘上是 `2023年美赛O奖论文`（带「年」）、别处写作 `2023美赛O奖论文`。
+I12=OK
+    ① 两个 UMAP 合集名不以 4 位数字开头 → `io.stable_id` **抛 `ValueError`**（涉 37 份）：断言通过
+    ② **跨合集撞号**：`stable_id('2023美赛O奖论文','A',1)` = **P2023-A-01** = `stable_id('2023年美赛O奖论文','A',1)` = **P2023-A-01**——少一个「年」字，ID 完全相同；而 `io.ORIGIN/'2023美赛O奖论文'` 的 `is_dir() = False`（盘上是带「年」的）
+    **这两条是具名边界、不是缺陷**：判据把它们**断言成行为**，而不是假装它们不存在（计划草稿的「往返一致」判据对撞号**零区分力**）。
+    ③ **本次侦察新查出来的第三条边界**：`io.problem_of` 在别的合集上抛错——`2024年美赛O奖论文/2024年美赛A题O奖论文/` 把题号写进目录名（35/35 抛错）、2023 春季赛子目录（5/42）、两个 UMAP（37/37）；故本索引**只对「题号是独立目录层」的合集成立**，别的合集 `build` 抛错是**按设计**。逐份实测见 `recon/ids-recon.txt` §5。
+I13=OK
+    词表 **115** 词条、**367** 变体；规范词唯一、格式为 `规范词 | 变体…`（**一行一条、可追加**）
+    **零命中词条 93 个**（口径 = 在**本次样本 5 份**上一篇都不命中；限样本跑时它只是「这批上零命中」，不是全语料结论）：
+        零命中 'AHP'
+        零命中 'TOPSIS'
+        零命中 'fuzzy comprehensive evaluation'
+        零命中 'entropy weight method'
+        零命中 'grey relational analysis'
+        零命中 'principal component analysis'
+        零命中 'grey prediction'
+        零命中 'SARIMA'
+        零命中 'exponential smoothing'
+        零命中 'ridge regression'
+        零命中 'lasso'
+        零命中 'stepwise regression'
+        零命中 'nonlinear regression'
+        零命中 'XGBoost'
+        零命中 'random forest'
+        零命中 'gradient boosting'
+        零命中 'decision tree'
+        零命中 'neural network'
+        零命中 'BP neural network'
+        零命中 'LSTM'
+        零命中 'RNN'
+        零命中 'CNN'
+        零命中 'SVR'
+        零命中 'SVM'
+        零命中 'k-nearest neighbor'
+        零命中 'linear programming'
+        零命中 'integer programming'
+        零命中 'multi-objective optimization'
+        零命中 'goal programming'
+        零命中 'dynamic programming'
+        零命中 'genetic algorithm'
+        零命中 'simulated annealing'
+        零命中 'differential evolution'
+        零命中 'NSGA-II'
+        零命中 'ant colony optimization'
+        零命中 'tabu search'
+        零命中 'queueing theory'
+        零命中 'A-star'
+        零命中 'integer linear programming'
+        零命中 'ordinary differential equation'
+        零命中 'finite element'
+        零命中 'SIR model'
+        零命中 'SEIR model'
+        零命中 'Lotka-Volterra'
+        零命中 'system dynamics'
+        零命中 'compartment model'
+        零命中 'reaction-diffusion'
+        零命中 'Markov chain Monte Carlo'
+        零命中 'cellular automata'
+        零命中 'agent-based model'
+        零命中 'Markov chain'
+        零命中 'Bayesian network'
+        零命中 'K-means'
+        零命中 'hierarchical clustering'
+        零命中 'factor analysis'
+        零命中 'discriminant analysis'
+        零命中 'analysis of variance'
+        零命中 'regression discontinuity'
+        零命中 'difference-in-differences'
+        零命中 'propensity score matching'
+        零命中 'structural equation modeling'
+        零命中 'zero-inflated'
+        零命中 'two-stage least squares'
+        零命中 'Shannon entropy'
+        零命中 'Mann-Kendall'
+        零命中 'Cox proportional hazards'
+        零命中 'association rules'
+        零命中 'cross-validation'
+        零命中 'bootstrap'
+        零命中 'stacking'
+        零命中 'SHAP'
+        零命中 'survival analysis'
+        零命中 'graph theory'
+        零命中 'shortest path'
+        零命中 'minimum spanning tree'
+        零命中 'maximum flow'
+        零命中 'network flow'
+        零命中 'traveling salesman problem'
+        零命中 'bipartite matching'
+        零命中 'PERT'
+        零命中 'centrality'
+        零命中 'Petri net'
+        零命中 'network analysis'
+        零命中 'Wardrop'
+        零命中 'deep learning'
+        零命中 'reinforcement learning'
+        零命中 'naive Bayes'
+        零命中 'self-organizing map'
+        零命中 'Hopfield network'
+        零命中 'radial basis function'
+        零命中 'isolation forest'
+        零命中 'fuzzy logic'
+        零命中 'change-point detection'
+    **词表增长候选（给 Task 6b）**：作者 Keywords 里出现、而词表**覆盖不到**的词形 **11** 个，逐条（附出现篇数）：
+    **具名范围边界（必须与上面这份清单同读）**：候选来源**只取作者自写的 Keywords 行**（`;`/`,`/`、` 拆词），**未扫正文**——任务书 §一 的「论文里出现但词表没有」（含**未命中片段**）这一路**本任务只交付了 Keywords 行这一半**。选窄口径的理由：Keywords 行里的词能**逐条指回一行原文**、可复核；扫正文要先自造一套「什么算一个模型名」的抽取启发式，那是**判断**不是事实，且产出无从验证。**代价**：正文里出现而作者没写进 Keywords 的模型**不在本清单里**。
+        候选 'Stair Wear'（2 篇）
+        候选 'Archard'（1 篇）
+        候选 'Archard Law'（1 篇）
+        候选 'CVM'（1 篇）
+        候选 'Central Limit Theorem'（1 篇）
+        候选 'Fatigue Damage'（1 篇）
+        候选 'Gaussian Distribution'（1 篇）
+        候选 'Gaussian Mixture Algorithm'（1 篇）
+        候选 'Mont Carlo method'（1 篇）
+        候选 'Sustainable tourism'（1 篇）
+        候选 'Wear depth'（1 篇）
+I13-b=OK
+    **真验**（不是打印一句声称）：临时词表先写 **1** 条 → `vocab.load` → **追加 1 条** → **同一进程内**再 `vocab.load`
+    实测 首读 **1** 条 / 追加后 **2** 条（要求 **1 / 2**）⇒ `vocab.load` **不缓存**，「追加即生效」成立。临时文件写在系统临时目录、跑完即删（**不入库、报告里不出现其路径**）。
+    **为什么非要真验**：`vocab.load` 一旦缓存（`lru_cache` 一类），「追加了却没生效」就是**静默形态**——而「词表开放、可追加」是本任务对用户的承诺（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）。原先这条是 `add(..., True, …)`：**恒真**、却计入「全部判据 OK」。变异证据：给 `vocab.load` 加 `lru_cache` 后本判据红（`ids-mutation-evidence.txt` 的 M14）。
+    零命中与候选**都不藏**：零命中词条本身是「这批论文没用这些方法」这个语料事实（不是判据失效），候选清单是 Task 6b 的增长输入。
+  词表命中篇数 top8（报告量）：Monte Carlo 3 · sensitivity analysis 3 · linear regression 3 · particle swarm optimization 2 · Bayesian 2 · differential equation 1 · partial differential equation 1 · finite difference 1
+  一层 models 指针条数合计（样本）：30
+  md 页锚 vs 原件 `page_count` 的交叉核对**已从「打印」升为判据**（I6-b）：原先它算出来的布尔只 `lines.append`、且**从不碰产物的 `n_pages` 栏**——一句 fail-open 的打印。逐篇差额（若有）见 `I6-b=FAIL` 的登记行。
+入库产物完整性自检（限样本跑）：`corpus/papers/` 三份 .md 的 sha256 跑前跑后相同 = True（False → 本次限样本跑碰到了入库产物，判 FAIL）
+    corpus/papers/INDEX.md：跑前 dc8fee7bab892347… · 跑后 dc8fee7bab892347…
+    corpus/papers/TAGS.md：跑前 48475b03a5ddf074… · 跑后 48475b03a5ddf074…
+    corpus/papers/PROVENANCE.md：跑前 874987522bd67ad3… · 跑后 874987522bd67ad3…
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/ids-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED 样本 5/43 份 = 前 3 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V18：**让标注文件「查不到」题 A**（生成器侧的 fail-closed 守卫）——`_write_tags` 必须**当场抛错并指名是哪一篇**，**不许写空串占位**。**这一条证的是守卫本身**（不是 I10-b）：V7 证「判据抓得住留空」，V18 证「生成器根本不让它留空」
+
+* 判据脚本：`tests/papers/verify_ids.py`　·　口径：`--limit 3`
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `out\[\(str\(a\.year\),\ a\.problem\)\]\ =\ \[f"\{l1\}\ ·\ \{`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `6f89908824954a8a…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['`problem_type` 读不回标注']（**要求 ⊇ ['`problem_type` 读不回标注']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 5/43 份**（--limit 3 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2501687 2522820
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+校验过程中抛出异常：
+Traceback (most recent call last):
+  File "tests/papers/verify_ids.py", line 1295, in main
+  File "tests/papers/verify_ids.py", line 399, in checks
+  File "tools/papers/index.py", line 491, in build
+  File "tools/papers/index.py", line 598, in _write_tags
+KeyError: '`problem_type` 读不回标注：P2025-A-01（2025 题 A）、P2025-A-02（2025 题 A）、P2025-A-03（2025 题 A）——「标注里没有这道题」与「这道题的标注状态是『读不出』（无标签）」都会落到这里，两种情形都**拒绝写空串/占位串**（空占位列会被判成绿）。标注文件的落点：corpus/papers/PROBLEM_TYPES.md'
+写入：tests/papers/reports-limited/ids-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED 样本 5/43 份 = 前 3 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## V15：**把覆盖边界声明里的「未配对的题」写少一道**——覆盖边界必须可机读**且为等式**（标注题数 = 有论文的题 + 未配对的题，逐题具名清单两边对得上）
+
+* 判据脚本：`tests/papers/verify_ids.py`　·　口径：`--limit 3`
+* 文件 `tools/papers/index.py`：行尾 LF　·　正则 `f"未配对的题=\{len\(uncovered\)\}\ ·\ 覆盖年份="`　·　锚点命中 **1** 次（要求 ≥1）
+* 已施加 = True（要求 True）；blob `9d7418ee61654d3d…` → `a25400427c8e76b7…`（必须不同）
+
+* 退出码 = 1（要求非 0）
+* 含 `RESULT: FAIL` = True（要求 True）
+* 逐字命中的标记 = ['I10-g=FAIL']（**要求 ⊇ ['I10-g=FAIL']**；缺 无）——期望标记在前、其余判据 FAIL 标记随后
+* **本条变异通过 = True**
+
+变异跑的输出（逐字全文，取法见文件头）：
+
+```
+索引与稳定 ID 判据（I1–I13）
+索引判据 I1–I13 · **限样本 5/43 份**（--limit 3 + 见证集 2522820/2501687）
+  取样：2500836 2501567 2501909 2501687 2522820
+  ! 这是**限样本跑**，不是放行依据；放行证据是 tests/papers/reports/ids-report.txt。产物写到 tests/papers/reports-limited/ids-products（**不入库**），入库的三份产物本次**只读、不写**。
+==============================================================================
+I1=OK
+    PROVENANCE 双射表 5 行 · 磁盘样本 5 份 · 重复 ID 无 · 重复词干 无 · 解析失败 无
+    只在磁盘不在表 无 · 只在表不在磁盘 无（**两边都要空**：单边为空只是缺，不是双射）
+    **「往返恒真」那一版已被换掉**：`parse∘stable_id` 只要两边用同一个合集名就恒真（计划草稿的三条判据无一能失败）。这里的判据是**双射**：ID↔词干两向单值互逆、且并集 == 磁盘 PDF 集合（用磁盘与 `problem_of` 独立数出来的）。
+I1-b=OK
+    逐篇重算的稳定 ID 与产物不等：无（重算 = 按磁盘字典序 + 逐题号到达顺序，**不是**把 ID 拆开再拼回去）
+I1-c=OK
+    「年」与词干前两位的一致性：覆盖 5/5 份（只对 7 位数字词干起作用，覆盖不到的数量已写明）；不一致 无
+I2=OK
+    n_entries=5 == 唯一 ID=5 == TAGS 一层行数=5 == INDEX 表行数=5 == PROVENANCE 行数=5 == 磁盘 PDF（样本）=5 == md 文件（样本）=5
+    **双边等式，不是单边下界**（约束 5）：每一对都得相等，任一处漏一篇都会红。
+    **产物落点**：`IndexResult` 报告的 index/tags/prov 三路径 == 本脚本读的三份 = True——判据读的必须是**这一次**写出来的那一份。
+I2-b=OK
+    TAGS 二层篇数 5 + 三层篇数 0 = 5（**必须 == 5**）；二层 ∩ 三层 = 空；两层并集 == 一层 ID 集 = True（**每篇恰好进一层、且没有一篇落在两层之外**）
+I3=OK
+    逐份**逐字逐条**相等：合计 **211** 条 == md `## ` 行（样本内）；差额 0 条、未解释 0 条
+    `sections` 取 **md `## ` 标题行逐字**（`;` 连接、去 `## ` 前缀）：本语料把「号」与「题」常分两行排（实测「只有编号」574 条 + 「编号带题」494 条 = 1068 条），本任务**不做号/题合并那一类推断**（那是把推断写进事实栏）。
+I4=OK
+    逐篇与「标题行」口径重算值**逐栏相等**（样本 5 份）
+    **口径不是全文子串**：全文口径下 Contents 42/43、Assumptions 43/43、Notation 40/43、Sensitivity 38/43——前四列近乎恒真。`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有（`docs/mcm-suite-lessons.md` §4.1）。
+I4-c=OK
+    **零区分力登记**（一边占比 > 90%）：['has_contents', 'has_assumptions']
+    TAGS 头部的登记行：* **零区分力登记**（一边占比 > 90%）：has_contents=5/5 · has_assumptions=5/5 —— 这几栏在本语料上**区分力低**，**不因为它们算得出来就当判据用**。逐栏分布见 `tests/papers/reports/ids-report.txt`。
+    **为什么要有这条**：近乎恒真的栏不是判据；留着它就必须**写明它零区分力**，否则下一个人会拿它当证据（`b-report.txt` 曾据全文口径写下「30 份论文没有 Contents 页」而实测 42/43 都有，见 `docs/mcm-suite-lessons.md` §4.1）。
+    **判据形状要是「登记行具名的集合 == 自己算出的集合」**：写成「文件里出现过 `has_contents` 这个词」是**恒真**的——那个名字本身就在一层字段序里。
+I5=OK
+    逐篇与 md 重算值相等；**无该行留空**的格数 1 == 独立重算的 1（样本 5 份）
+    三种口径命中数（样本 5）：**宽口径**（带 `re.M` + 允许行首 md 标记）4 · 计划草稿正则**加** `re.M` 2 · 计划草稿正则**不加** `re.M` 0
+    **口径偏离要说清**：任务书 §六 第 8 条给的是「带 `re.M` → 27/43」。本判据用的是**更宽的**口径：43 份里 14 份写成 `**Keywords: …**`、1 份写成 `## Keywords: …`，只认裸行的正则**看不见它们**——照抄 27/43 会把 15 份**确实有** Keywords 行的论文登记成「无该行」，那是**假陈述**（约束 8）。实测 0 / 27 / 42（逐份原文见 `recon/ids-recon.txt` §4b）；**全批唯一真的没有 Keywords 行的是 `2522820`**。
+I6=OK
+    逐篇与放行证据**逐数相等**（样本 5 份）：`n_figures`/`n_tables` 读 `tests/papers/reports/c-report.txt` 的 `C1 图注=N (图F/表T)`、`n_equations` 读 `tests/papers/reports/d-report.txt` 的 `检出=N`——**不重算**
+    **语义**：这是**图注/编号条数**，**不是**产出 PNG 张数（C1 里 产出=908 而 图注=935）。自己重算的口径实测得 **597/212**，与 C1 的 **682/253** 逐份 11 篇不等——所以这一栏必须**读回**（spec §6「同一份事实不在两处各算一次」）。
+    **「不适用」的两种情形分开了**：放行证据文件不存在 → `index.read_release_*` **抛错**；证据里没有这一篇 → 也**抛错**（这里是硬失败，不记「不适用」）。**没有任何一条路径**把「阶段 4 没跑过」记成「这篇真没有公式」。
+  放行证据解析（报告量）：c-report 逐篇行 43 条 · d-report 逐篇行 43 条 · 样本内缺登记 无 / 无
+I6-b=OK
+    **双边等式**：产物 `n_pages` == **原件** `page_count`（逐篇，样本 5 份）——原件是这一栏**唯一的权威**（不存在「别处已经算过一次」的产物，故不违反 spec §6）
+    **第二条独立路径**（同一条 `add` 里）：逐篇 md 的 `<!-- page N -->` **锚条数** == 原件 `page_count`（一条数 md 的锚、一条开原件数页）
+    **为什么这一栏原先没有判据**：老版本把这两句**算出来的布尔只 `lines.append` 打印**——既不并进 `ok`、也不比产物的 `n_pages` 栏（比的是 `ref` 的 md 锚数 vs PDF 页数，**从不碰产物**）。一句 fail-open 的打印被当成了「`n_pages` 的独立参照」（本项目「判据在什么都没验的情况下报绿」家族的形态）。现在两句都在条件里。
+    **I7 的页码判据不能替代它**：I7 的两边**都从 md 数页**，md 页锚缺失时两边同时得 `p0` → **绿着过**；只有这一条拿**原件**当参照。
+I7=OK
+    指针逐条可定位：**30** 条（词 + md 文件 + 页码 + 片段）
+    每条都满足（**六条都查**）：①二层小标题的 `md:` 指针 == 该篇真实的 md 仓库相对路径 ②片段是该篇 md 的**一整行逐字** ③该行**含该词**（词边界下）④页码 == 该行在 md 里自己的页（由 `<!-- page N -->` 锚数出）⑤`xN` == 本脚本**独立重算**的出现次数 ⑥是该词的**首次出现**
+    **不是「全文偏移」**：计划草稿的指针是「该词在全文文本中的字符位置」——那个位置在**任何入库产物里都不可定位**（md 是重排产物、没有稳定偏移），「可据此复核」是**假陈述**。现在指针是**整行逐字**，`grep -F` 就能核。
+    **强度边界**：它验证的是「指针指得回 md 的那一行」，**不是**「这一行里的词就是这篇论文的模型」。后者是判断，不在本任务范围（词表命中的语义边界写在 TAGS 头部）。
+I7-b=OK
+    三层（零命中篇）0 == 独立重算的零命中篇数 0；二层 5 == 样本 − 零命中 = 5
+I8=OK
+    逐篇 `产物题号` vs `论文自报题号`（摘要页 `Problem Chosen` 一类）：**一致 5 份 · 不符 0 份 · 未验证 0 份**
+    **三态逐态真报**（**「没有该栏」≠「有但读不出」≠「读出来与目录不符」**）：没有该栏 0 份  · 有但读不出 0 份  · 不符 0 份
+    **为什么要拆三态**：`v_problem` 对「没有该栏」与「有栏但读不出」**同样返回 `None`**，原先两态**混进同一个计数**、再由判据**印死「没有该栏 0 份」**——那个 0 在当前语料下恰好为真（侦察侧 `ids-recon-scan.py` 确实分了三态），但**判据自己不测** ⇒ 语料一变这行就静默说谎（约束 4 + 约束 8）。现在 `n_none`/`n_unreadable` 由 `v_problem_field_present(text)` 当场分开。
+    **「有栏但读不出」= 硬失败**（判断与理由）：约束 4 要求「参照**存在**但没解析出来」判硬失败，「参照**不存在**」才是不适用。栏位在而读不出 ⇒ 解析口径**系统性失效**（不是「这篇格式特别」）——它原先与「没有该栏」共享同一个 10% 上界，等于**用上界把一个解析 bug 洗成「未验证」**。当前语料实测 0 份，故这条升级**不改变本次结论**、只把口径收严。
+    **这条不是形式**：一篇被错放进目录的论文会**静默毒化**整条「题型 → 模型」配对链（Task 6b 的配对以 `(origin, problem)` 为地基），而计划草稿对它**没有任何判据**。
+I8-b=OK
+    「未验证」占比 0/5 = 0.00%（上界 10%）——三态里的**前两态**（「没有该栏」0 + 「有栏读不出」0）；**「未验证」是「通过」与「失败」之间唯一诚实的位置**（沿用 C4 的裁决），但它**必须有上界**，否则整列「读不出」也能绿。
+    **口径比原先更严**：「有栏读不出」已由 I8 单独判**硬失败**，这里**仍**把它计入占比（上界覆盖的集合不缩小）——两处都不放宽。
+I8-c=OK
+    队号三向一致：**INDEX 栏 == 文件名词干 == 论文自报队号**；自报读不出的 0 份 （无）
+I9=OK
+    `PROVENANCE.md` 双射表 5 行 · 唯一 ID 5 · 唯一词干 5（**两向单值 ⇒ 互逆**）
+    **六列逐列落地**（不等 无）：`年月` == 稳定 ID 的年份、`原件` == 磁盘上的原件相对路径、`md` == 磁盘上该篇 md 的仓库相对路径（前两列此前**入库却无判据**——`年月` 与 `md` 被解析时直接丢掉）。
+    为什么必须有这张表：稳定 ID **内容无关**（按到达顺序生成）⇒ `ID → 原件` 推不出来。INDEX 的「队号」栏是给人看的定位列，本表是可判的那一份。
+I10=OK
+    栏位齐全：INDEX 表头 11 栏 + TAGS 一层原有 10 栏；**INDEX 表头继续不得出现 `原题类型`**（那一栏只在 TAGS 里）；**`problem_type` 在 TAGS 字段序的末尾**（解冻时点名的位置约束）。
+    **解冻不丢保护**：旧绊线抓的「留空占位列」由 I10-b 承接（逐行非空 + 占位串集合），「表头不得出现该栏」在 INDEX 一侧原样保留。
+I10-a=OK
+    `problem_type` 在 TAGS 一层字段序里 = True（字段序共 16 栏）
+    **与 I10 的末尾断言不是同一条**：a 判「在不在」，I10 判「在不在**末尾**」——把整栏删掉两条都红，但把它挪到中间时**只有 I10 红**（a 是它的必要不充分条件）。
+I10-b=OK
+    **5 行逐行非空、且不属占位串集合** ['', '-', 'N/A', '待定', 'TODO', '?']（本判据就是旧绊线的保护：**空占位列照样红**）
+    **为什么这条必须留着**：Task 6 的旧 I10 抓的正是「留空占位列」这类假绿——绊线到期（6b 就是要这一栏）时**保护不许跟着走**。
+I10-c=OK
+    **同一 `problem` 字母的所有行取值逐字相同**：3 个题号，每个题号覆盖 [3, 1, 1] 篇
+    题型是**题**的属性、不是**篇**的属性——同题的不同论文必须写出同一个题型串。
+I10-d=OK
+    出现的题号字母 **3** 个 · **互异取值 3** 个（纯结构断言，**不读标注文件**）
+    限样本跑只断言「字母数 == 互异取值数」：本次样本覆盖题号 ['A', 'B', 'C']，**不是** 6 个——故 `== 6` 这条留给全量跑
+I10-e=OK
+    **跨文件双边等式**：每个题号字母的取值解析出的 `(L1,L2)` 集合 == `corpus/papers/PROBLEM_TYPES.md` 里该题那一节的标签集合（**`核心` 与 `附带` 两种标记的标签全含**）——本次比对了 **3** 个题号
+    **期望值是本脚本自己解析标注文件得到的**（`v_annotation_labels`，正则与 `taxonomy` 的各写一份）——**绝不调 `index` 的映射函数**。两边共用代码就会让这条退化成「函数跟自己对答案」（本项目第七例的 D1 就是这样来的）；**变异 6（让 index 写 `problem_type` 时丢掉 `附带` 标签）实测本判据红**，证明它非恒真。
+    **边界（必须同读）**：它验证的是「**产物那一栏 == 标注文件那一节**」，**不是**「这个题型标得对」——后者是判断，属人工标注（`verify_types.py` T1–T8 只保证引文可定位、标签合法等结构性事实）。
+I10-f=OK
+    取值里出现的 **10** 个标签名（`L1 · L2`）：两半都逐字命中 `tools/papers/vocab/problem_types.txt`（53 个条目），整名与成分**都不与词表变体相等**（364 个变体的归一化集合）
+    这是 `verify_types.py` T3 的**移植**：题型侧与模型侧必须**不相交**——否则「题型 → 模型/算法」的配对就变成同义反复（`ARIMA` 这样的词一旦进了题型栏，配对就什么都没说）。
+I10-g=FAIL
+    未配对的题=63 ≠ 标注题数 − 有论文的题 = 67 − 3 = 64（**双边等式**）
+I10-h=OK
+    「亮点」栏非空的行：无（**本轮一律留空**——没有可指回原文的依据就不填推测）；头部有 `[社区]` 标级与「给不出就留空」的说明 = True
+    **这一条的强度边界（必须与它同读）**：它验证的是「**没有被填进推测性内容**」与「**头部有标级声明**」，**证明不了**这 43 篇没有亮点。它是**范围声明**、**不构成**任何「已覆盖」的声称。
+    **编号说明**：本条与下一条在原文件里叫 `I10-b` / `I10-c`；解冻后 **a–g 七个子条**用的是小写字母序，故这两条顺延为 `I10-h` / `I10-i`（**判据内容一字未改**，只改编号）。
+I10-i=OK
+    两个 .md 的文件头都有**奖项注记**（合集内统一 = O 奖）= True；**两个 .md 都不得再设「奖项」栏**（用户 2026-09-26 定案）= True
+   fail-closed 探针：合集名 '2025美赛O奖论文（不存在的名字）' → 抛 FileNotFoundError: 合集目录不存在：<repo>\corpus\历届优秀论文\2025美赛O奖论文（不存在的名字）（拒绝用空表冒充「该合集没有论文」）
+I11=OK
+    合集名不存在时 `index.build` **抛错**（不是返回空表静默 PASS）
+    探针的落点被**强制**指到 tests/papers/reports-limited/ids-products-probe（不入库目录）——否则「守卫被删掉」的那一版会把入库的三份产物**覆写成 0 条**（探针自己变成破坏者，那是本项目栽过的形态）。
+    **这就是任务书点名的那个活陷阱**：`Path.rglob` 对不存在的目录**静默返回空**，而磁盘上是 `2023年美赛O奖论文`（带「年」）、别处写作 `2023美赛O奖论文`。
+I12=OK
+    ① 两个 UMAP 合集名不以 4 位数字开头 → `io.stable_id` **抛 `ValueError`**（涉 37 份）：断言通过
+    ② **跨合集撞号**：`stable_id('2023美赛O奖论文','A',1)` = **P2023-A-01** = `stable_id('2023年美赛O奖论文','A',1)` = **P2023-A-01**——少一个「年」字，ID 完全相同；而 `io.ORIGIN/'2023美赛O奖论文'` 的 `is_dir() = False`（盘上是带「年」的）
+    **这两条是具名边界、不是缺陷**：判据把它们**断言成行为**，而不是假装它们不存在（计划草稿的「往返一致」判据对撞号**零区分力**）。
+    ③ **本次侦察新查出来的第三条边界**：`io.problem_of` 在别的合集上抛错——`2024年美赛O奖论文/2024年美赛A题O奖论文/` 把题号写进目录名（35/35 抛错）、2023 春季赛子目录（5/42）、两个 UMAP（37/37）；故本索引**只对「题号是独立目录层」的合集成立**，别的合集 `build` 抛错是**按设计**。逐份实测见 `recon/ids-recon.txt` §5。
+I13=OK
+    词表 **115** 词条、**367** 变体；规范词唯一、格式为 `规范词 | 变体…`（**一行一条、可追加**）
+    **零命中词条 93 个**（口径 = 在**本次样本 5 份**上一篇都不命中；限样本跑时它只是「这批上零命中」，不是全语料结论）：
+        零命中 'AHP'
+        零命中 'TOPSIS'
+        零命中 'fuzzy comprehensive evaluation'
+        零命中 'entropy weight method'
+        零命中 'grey relational analysis'
+        零命中 'principal component analysis'
+        零命中 'grey prediction'
+        零命中 'SARIMA'
+        零命中 'exponential smoothing'
+        零命中 'ridge regression'
+        零命中 'lasso'
+        零命中 'stepwise regression'
+        零命中 'nonlinear regression'
+        零命中 'XGBoost'
+        零命中 'random forest'
+        零命中 'gradient boosting'
+        零命中 'decision tree'
+        零命中 'neural network'
+        零命中 'BP neural network'
+        零命中 'LSTM'
+        零命中 'RNN'
+        零命中 'CNN'
+        零命中 'SVR'
+        零命中 'SVM'
+        零命中 'k-nearest neighbor'
+        零命中 'linear programming'
+        零命中 'integer programming'
+        零命中 'multi-objective optimization'
+        零命中 'goal programming'
+        零命中 'dynamic programming'
+        零命中 'genetic algorithm'
+        零命中 'simulated annealing'
+        零命中 'differential evolution'
+        零命中 'NSGA-II'
+        零命中 'ant colony optimization'
+        零命中 'tabu search'
+        零命中 'queueing theory'
+        零命中 'A-star'
+        零命中 'integer linear programming'
+        零命中 'ordinary differential equation'
+        零命中 'finite element'
+        零命中 'SIR model'
+        零命中 'SEIR model'
+        零命中 'Lotka-Volterra'
+        零命中 'system dynamics'
+        零命中 'compartment model'
+        零命中 'reaction-diffusion'
+        零命中 'Markov chain Monte Carlo'
+        零命中 'cellular automata'
+        零命中 'agent-based model'
+        零命中 'Markov chain'
+        零命中 'Bayesian network'
+        零命中 'K-means'
+        零命中 'hierarchical clustering'
+        零命中 'factor analysis'
+        零命中 'discriminant analysis'
+        零命中 'analysis of variance'
+        零命中 'regression discontinuity'
+        零命中 'difference-in-differences'
+        零命中 'propensity score matching'
+        零命中 'structural equation modeling'
+        零命中 'zero-inflated'
+        零命中 'two-stage least squares'
+        零命中 'Shannon entropy'
+        零命中 'Mann-Kendall'
+        零命中 'Cox proportional hazards'
+        零命中 'association rules'
+        零命中 'cross-validation'
+        零命中 'bootstrap'
+        零命中 'stacking'
+        零命中 'SHAP'
+        零命中 'survival analysis'
+        零命中 'graph theory'
+        零命中 'shortest path'
+        零命中 'minimum spanning tree'
+        零命中 'maximum flow'
+        零命中 'network flow'
+        零命中 'traveling salesman problem'
+        零命中 'bipartite matching'
+        零命中 'PERT'
+        零命中 'centrality'
+        零命中 'Petri net'
+        零命中 'network analysis'
+        零命中 'Wardrop'
+        零命中 'deep learning'
+        零命中 'reinforcement learning'
+        零命中 'naive Bayes'
+        零命中 'self-organizing map'
+        零命中 'Hopfield network'
+        零命中 'radial basis function'
+        零命中 'isolation forest'
+        零命中 'fuzzy logic'
+        零命中 'change-point detection'
+    **词表增长候选（给 Task 6b）**：作者 Keywords 里出现、而词表**覆盖不到**的词形 **11** 个，逐条（附出现篇数）：
+    **具名范围边界（必须与上面这份清单同读）**：候选来源**只取作者自写的 Keywords 行**（`;`/`,`/`、` 拆词），**未扫正文**——任务书 §一 的「论文里出现但词表没有」（含**未命中片段**）这一路**本任务只交付了 Keywords 行这一半**。选窄口径的理由：Keywords 行里的词能**逐条指回一行原文**、可复核；扫正文要先自造一套「什么算一个模型名」的抽取启发式，那是**判断**不是事实，且产出无从验证。**代价**：正文里出现而作者没写进 Keywords 的模型**不在本清单里**。
+        候选 'Stair Wear'（2 篇）
+        候选 'Archard'（1 篇）
+        候选 'Archard Law'（1 篇）
+        候选 'CVM'（1 篇）
+        候选 'Central Limit Theorem'（1 篇）
+        候选 'Fatigue Damage'（1 篇）
+        候选 'Gaussian Distribution'（1 篇）
+        候选 'Gaussian Mixture Algorithm'（1 篇）
+        候选 'Mont Carlo method'（1 篇）
+        候选 'Sustainable tourism'（1 篇）
+        候选 'Wear depth'（1 篇）
+I13-b=OK
+    **真验**（不是打印一句声称）：临时词表先写 **1** 条 → `vocab.load` → **追加 1 条** → **同一进程内**再 `vocab.load`
+    实测 首读 **1** 条 / 追加后 **2** 条（要求 **1 / 2**）⇒ `vocab.load` **不缓存**，「追加即生效」成立。临时文件写在系统临时目录、跑完即删（**不入库、报告里不出现其路径**）。
+    **为什么非要真验**：`vocab.load` 一旦缓存（`lru_cache` 一类），「追加了却没生效」就是**静默形态**——而「词表开放、可追加」是本任务对用户的承诺（用户 2026-09-26：「新遇到的模型/算法可以加入语料库」）。原先这条是 `add(..., True, …)`：**恒真**、却计入「全部判据 OK」。变异证据：给 `vocab.load` 加 `lru_cache` 后本判据红（`ids-mutation-evidence.txt` 的 M14）。
+    零命中与候选**都不藏**：零命中词条本身是「这批论文没用这些方法」这个语料事实（不是判据失效），候选清单是 Task 6b 的增长输入。
+  词表命中篇数 top8（报告量）：Monte Carlo 3 · sensitivity analysis 3 · linear regression 3 · particle swarm optimization 2 · Bayesian 2 · differential equation 1 · partial differential equation 1 · finite difference 1
+  一层 models 指针条数合计（样本）：30
+  md 页锚 vs 原件 `page_count` 的交叉核对**已从「打印」升为判据**（I6-b）：原先它算出来的布尔只 `lines.append`、且**从不碰产物的 `n_pages` 栏**——一句 fail-open 的打印。逐篇差额（若有）见 `I6-b=FAIL` 的登记行。
+入库产物完整性自检（限样本跑）：`corpus/papers/` 三份 .md 的 sha256 跑前跑后相同 = True（False → 本次限样本跑碰到了入库产物，判 FAIL）
+    corpus/papers/INDEX.md：跑前 dc8fee7bab892347… · 跑后 dc8fee7bab892347…
+    corpus/papers/TAGS.md：跑前 48475b03a5ddf074… · 跑后 48475b03a5ddf074…
+    corpus/papers/PROVENANCE.md：跑前 874987522bd67ad3… · 跑后 874987522bd67ad3…
+==============================================================================
+判据汇总：**有 FAIL**（所有差额逐条具名登记见上，**未解释为 0**）
+写入：tests/papers/reports-limited/ids-report-limited-3.txt
+  本文件是**限样本跑**（--limit 3 + 见证集 2522820/2501687）的报告，**不入库、不是放行依据**；放行证据是 tests/papers/reports/ids-report.txt，只有全量跑会写它。
+放行证据完整性自检（只对限样本跑做）· tests/papers/reports/ids-report.txt
+  本次跑前 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  本次跑后 sha256 = 11c3b3afdac33c331191c01f75c37172775bfb9d7a4fb3c3d3cf6b686aec1144
+  两次相同 = True（False → 本次限样本跑碰到了全量放行证据，判 FAIL）
+RESULT: FAIL (LIMITED 样本 5/43 份 = 前 3 份 + 见证集 2522820/2501687；非放行依据)
+```
+
+* 还原 `tools/papers/index.py`：sha256 与施加前相同 = True　·　`git hash-object` blob 相同 = True（两条都要 True；只看 blob 会被行尾过滤糊过去。**同一文件的多次改动只还原一次、用最早那份原始字节**）
+
+## 驱动器断言
+
+* V1: 通过
+* V2: 通过
+* V3: 通过
+* V4: 通过
+* V5a: 通过
+* V5b: 通过
+* V11: 通过
+* V16: 通过
+* V17: 通过
+* V9: 通过
+* V10: 通过
+* V12: 通过
+* V6: 通过
+* V7: 通过
+* V8a: 通过
+* V8b: 通过
+* V13: 通过
+* V14: 通过
+* V18: 通过
+* V15: 通过
+
+### 收尾断言 ①：被改文件必须回到**开工基准**（逐字节 + blob 双轨）
+
+* `corpus/papers/MODEL_MAP.md`：与开工基准逐字节相同 = True　·　blob 相同 = True（基准 blob = `3262f2c6eee7d490…`，现为 `3262f2c6eee7d490…`）
+* `tools/papers/model_map.py`：与开工基准逐字节相同 = True　·　blob 相同 = True（基准 blob = `79a0cf489b5f4333…`，现为 `79a0cf489b5f4333…`）
+* `corpus/papers/INDEX.md`：与开工基准逐字节相同 = True　·　blob 相同 = True（基准 blob = `7d49a18f9de015b3…`，现为 `7d49a18f9de015b3…`）
+* `corpus/papers/TAGS.md`：与开工基准逐字节相同 = True　·　blob 相同 = True（基准 blob = `7cf0bb5a40022941…`，现为 `7cf0bb5a40022941…`）
+* `tools/papers/index.py`：与开工基准逐字节相同 = True　·　blob 相同 = True（基准 blob = `9d7418ee61654d3d…`，现为 `9d7418ee61654d3d…`）
+
+### 收尾断言 ②：入库产物与放行证据的 blob 全程复原
+
+* `corpus/papers/INDEX.md`：blob 跑前跑后相同 = True（跑前 `7d49a18f9de015b3…` · 跑后 `7d49a18f9de015b3…`）
+* `corpus/papers/TAGS.md`：blob 跑前跑后相同 = True（跑前 `7cf0bb5a40022941…` · 跑后 `7cf0bb5a40022941…`）
+* `corpus/papers/PROVENANCE.md`：blob 跑前跑后相同 = True（跑前 `85484c4d233a6183…` · 跑后 `85484c4d233a6183…`）
+* `corpus/papers/MODEL_MAP.md`：blob 跑前跑后相同 = True（跑前 `3262f2c6eee7d490…` · 跑后 `3262f2c6eee7d490…`）
+* `tests/papers/reports/ids-report.txt`：blob 跑前跑后相同 = True（跑前 `339178077ed9648e…` · 跑后 `339178077ed9648e…`）
+* `tests/papers/reports/map-report.txt`：blob 跑前跑后相同 = True（跑前 `16dc94f0faf481e5…` · 跑后 `16dc94f0faf481e5…`）
+
+**驱动器断言全部通过**（两个对照跑都绿 · 每条被改文件逐字节还原 · 全体回到开工基准 · 入库产物与放行证据的 blob 全程复原）。
+
+
+==============================================================================
+## ★ 编者按（2026-09-26 收口轮补入，**只增不改**：本文件正文证据块一个字节没动）
+
+**为什么要加这一段**：本文件是 2a 的变异证据，**原文里没有任何指针、也没有落款**，读的人
+无从知道它覆盖的是哪一版判据；而**同一阶段的两份证据（本文件与
+`tests/papers/reports/map-mutation-evidence-2b.txt`）的处理方式不对称**，这件事必须写在明处。
+
+1. **本文件记的是 2a 时期那 8 条判据的形态**（`M-1` · `M-1-b` · `M-2` · `M-3` · `M-4` ·
+   `M-5` · `M-6` · `M-7` · `M-8`）—— 即**去重改形状之前**的产物与判据。
+2. **它不覆盖现行的 16 条判据**（`M-1`…`M-16`）。本文件第 **16** 行那句「配对表的**全部判据**
+   （… `M-3` V1/V2 …）」是**当时**的覆盖面声明，**对现行 16 条过期且为假**；而且它引的
+   `M-3` **在现行脚本里没有对应的行**（现行为 `M-13`，见第 4 条）。
+3. **现行覆盖看 `tests/papers/reports/map-mutation-evidence-2b.txt` 的封面表**：那张表列的是
+   「变异编号 ↔ 期望打红的判据」，**由驱动器从它自己的变异清单生成**（于是不可能漂移）。
+   另：现行 `verify_map.py` 的**判据消息里不再点名变异编号**（收口轮的规矩），
+   要查「某条判据被哪几条变异证过」，**只能**看那张封面表。
+4. **旧 `M-3` 指的是「重命名前」的那个形态**：判「逐桶展开下的两向集合」。2b 去重后同一件事
+   叫 **`M-13`**（同一个集合 + **新增**「桶归属」那一半），**不留别名**；完整去向逐字登记在
+   `tests/papers/recon/map-recon.txt` §14.3。
+
+**两份证据的处理方式为什么不对称**（**这是一条登记，不是「忘了」**）：
+
+* `tests/papers/reports/ids-mutation-evidence.txt` 是**原地重出**（`ab0010a3…` →
+  `51e92129…`，收口轮起文件头还带上了清缓存记录）：`RT-M2` **明文要求**「改了 `models` 栏的
+  产出 ⇒ 必须重跑 `build/ids_mutdrive.py` 并重出该文件」，且那份文件的文件头**与现行
+  `verify_ids.py` 的标签自动对齐**（它本来就是可再生成的）。
+* **本文件没有被要求重出**，而且**重出等于毁掉 2a 的历史证据**：它的锚点全部钉在 2a 的产物
+  形状上（逐桶展开的 1646 行指针），2b 去重后**逐条重放会全部「锚点 0 次命中」**（实测登记在
+  `recon/map-recon.txt` §14.5）⇒「**保留 + 另起 2b 那份**」是唯一不丢证据的做法。
+  对应登记：`recon/map-recon.txt` §14.5（不可重放）与 §14.9（落点与规模）。
+  本节的用处是把「不对称」这件事**点在一处**，而不是让读的人自己从两份文件的名字去猜。

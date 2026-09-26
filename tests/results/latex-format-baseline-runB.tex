@@ -1,0 +1,386 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  MCM/ICM 2027 -- Paper Skeleton (COMAP-compliant, ready to write in)
+%
+%  Base       : official COMAP template  corpus/official/MCM-ICM_Summary.tex
+%  Fact basis : corpus/official/INDEX.md  (evidence-graded, do not guess rules)
+%  Engine     : pdfLaTeX / XeLaTeX / LuaLaTeX.  ALL COMMENTS ARE ASCII ON PURPOSE
+%               so the file compiles on every engine; do not paste Chinese into
+%               prose -- the report itself must be in English.
+%
+%  WHAT THIS FILE ALREADY SATISFIES
+%    [1] Summary Sheet is PDF page 1, fits on one page, 12pt, English
+%    [2] Team control number + page number appear in the header of every page
+%    [3] No student / advisor / institution / region name anywhere
+%    [4] 25-page cap covers Summary + ToC + body + References + Appendices,
+%        so every section below is inside the counted part
+%    [5] "Report on Use of AI" is placed AFTER the 25-page part and is excluded
+%        from the page count (the only section that is excluded)
+%    [6] Section order follows the official content checklist (INDEX.md sec 2.5.3)
+%
+%  HOW TO USE
+%    1. Set \Problem and \Team below.
+%    2. Replace every <...> placeholder; delete the placeholder text you replace.
+%    3. Compile, then count pages: the part before "Report on Use of AI" must
+%       be <= 25 pages.  Trim the appendix first, never the summary.
+%    4. Do NOT add a title page, an author block, a running footer, or a
+%       "Team Members" line -- each of these breaks the anonymity rule.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}            % >=12pt is a hard COMAP requirement
+
+\usepackage[letterpaper]{geometry}       % US Letter allowed; A4 also allowed
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Team identity -- the ONLY identifying information allowed in the whole file.
+% \Problem is the problem letter (MCM: A B C / ICM: D E F).
+\newcommand{\Problem}{ABC}               % <-- replace
+\newcommand{\Team}{1111111}              % <-- replace with team control number
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---------------------------- Fonts -----------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}                   % Times-like text (official template)
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath}                   % must come after amsmath
+
+% ---------------------- Layout and typography -------------------------------
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}                    % professional tables
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{siunitx}                     % numbers and units that line up
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{listings}                    % code appendix
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}         % load late; keep bookmarks off-page
+
+\sisetup{detect-all,group-separator={,}}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  captionpos=b,
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true
+}
+
+% ---------------------- Running header (every page) -------------------------
+% Hard rule: every page must carry the team control number and the page number
+% at the top of the page (instructions.html:1230).  The wording
+% "Team # 0000000, Page 6 of 25" given by COMAP is introduced by "for example",
+% so the exact string is NOT mandatory -- what is mandatory is that both
+% elements are present on every page.
+%
+% The form below is the official template's own header, unchanged.
+% If you prefer the example's exact wording, replace the two lines with:
+%     \fancyhead[L]{Team \# \Team, Page \thepage\ of 25}
+% and drop the \fancyhead[R] line.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Team \# \Team}
+\fancyhead[R]{Page \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ---------------------------- Theorems --------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% PAGE BUDGET (25 pages, hard cap) %%%%%%%%%%%%%%%%%%
+% These are planning notes, not content. A workable allocation for 25 pages:
+%   Summary Sheet ................ 1   (page 1, must fit on ONE page)
+%   Table of Contents ............ 1   (encouraged, COUNTS toward the 25)
+%   Restatement + Introduction ... 1.5
+%   Assumptions + Justifications . 1.5   <- judges look for justification, not the list
+%   Notations .................... 0.5
+%   Model Development ............ 7-9   <- the single heaviest section
+%   Results ...................... 3-4
+%   Testing (sensitivity etc.) ... 2-3
+%   Strengths and Weaknesses ..... 1     <- required, do not cut
+%   Conclusions .................. 1
+%   References ................... 1
+%   Appendices ................... 2-4   <- the buffer: cut here first
+% Never cut the Testing or Strengths/Weaknesses sections to make room -- they are
+% explicit items on the official content checklist.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% ==============================================================================
+%  PAGE 1 -- SUMMARY SHEET.  Must be the first page of the PDF and must not
+%  spill onto a second page.  Write this LAST: COMAP states judges weight the
+%  summary heavily and that a weak summary is usually the end of the paper's
+%  chances. Do not restate the problem at length and do not paste boilerplate
+%  from your Introduction.
+% ==============================================================================
+\graphicspath{{.}}                       % keep figures beside this .tex file
+\DeclareGraphicsExtensions{.pdf,.jpg,.tif,.png}
+\thispagestyle{fancy}                    % keep the header, so page 1 is numbered too
+\vspace*{-16ex}
+
+\centerline{\begin{tabular}{*3{c}}
+	\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \textcolor{red}{\Problem}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{2027\\ MCM/ICM\\ Summary Sheet}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \textcolor{red}{\Team}\end{center}}	\\
+	\hline
+\end{tabular}}
+
+%%%%%%%%%%% Begin Summary %%%%%%%%%%%
+% Delete the placeholders below and write the summary here. Target shape:
+%   - a bold lead sentence stating what you did and the headline number
+%   - one paragraph per model / stage, naming the method and saying WHY
+%   - concrete results with numbers and units, never adjectives alone
+%   - one sentence on how you tested the model
+%   - one sentence of conclusion / recommendation
+% No figures, no tables, no citations in the summary.
+
+\begin{center}
+\textbf{<One sentence: what we were asked, what we built, and the headline result>}
+\end{center}
+
+<Paragraph 1 -- the problem in your own words and why it matters, closing with a
+one-sentence statement of your overall approach.>
+
+<Paragraph 2 -- the first model: name it, say what it represents, and give the
+justification for choosing it over the obvious alternative.>
+
+<Paragraph 3 -- the second model / solution stage, including how the two stages
+connect.>
+
+<Paragraph 4 -- the results, with numbers, units, and the comparison or baseline
+they should be read against.>
+
+<Paragraph 5 -- how you validated the model: sensitivity, robustness, error
+analysis; state the range over which the conclusion holds.>
+
+<Paragraph 6 -- the conclusion and its practical implication for the
+decision-maker in the problem statement.>
+
+\vspace{1ex}
+\noindent\textbf{Keywords:} <keyword>; <keyword>; <keyword>; <keyword>
+%%%%%%%%%%% End Summary %%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagestyle{fancy}
+% ==============================================================================
+%  PAGE 2 (counted) -- TABLE OF CONTENTS.  Encouraged by COMAP and it counts
+%  toward the 25 pages.  Keep it to one page; it is generated automatically.
+% ==============================================================================
+\tableofcontents
+\newpage
+% NOTE: the official template resets the page counter here so that the body
+% starts at "Page 1" while the summary sheet is unnumbered.  We deliberately do
+% NOT reset it: the 25-page cap covers the summary sheet too, so numbering the
+% submission continuously (summary = page 1) keeps "Page N" honest against the
+% cap.  If your team prefers the official flow, add \setcounter{page}{1} here.
+
+% ==============================================================================
+%  BODY -- 25-page counted region starts here.
+%  Official content checklist (each item MUST have a home in what follows):
+%    ToC / restatement / clear statement of variables and assumptions /
+%    justification of the assumptions / analysis that motivates the model /
+%    derivation summary in the body with long algebra pushed to the appendix /
+%    model design AND how it was tested (error, sensitivity, stability) /
+%    strengths and weaknesses / conclusions with results stated explicitly /
+%    references.  All ten appear below -- keep them all.
+% ==============================================================================
+
+\section{Introduction}
+% Answers: what is the problem, why does it matter, what has been done before,
+% and what does THIS paper do that is different?
+\subsection{Background and Restatement of the Problem}
+% Restate the problem in your own words, in your own structure. Do not copy the
+% problem statement. End with the specific questions you will answer, numbered
+% or bulleted, so the reader can map results back to them.
+<...>
+
+\subsection{Literature and Data Review}
+% Cite real, checked sources with inline citations. Every borrowed figure, data
+% table, idea, or image needs a citation here AND in the References section;
+% uncited borrowed material is the most common route to a plagiarism finding.
+<...>
+
+\subsection{Our Approach}
+% One paragraph, plus a flow diagram if you have one. Say what the stages are
+% and how they feed each other.
+<...>
+
+\section{Assumptions and Justifications}
+% Official checklist item. A bare list of assumptions earns nothing: each one
+% needs a stated justification, and ideally a note on what happens if it fails.
+% Keep the ones you actually use in the model; drop the decorative ones.
+\begin{enumerate}[label=\textbf{A\arabic*.},leftmargin=*]
+  \item \textbf{<Assumption.>} <Justification -- cite data or a source where you can.>
+  \item \textbf{<Assumption.>} <Justification.>
+  \item \textbf{<Assumption.>} <Justification.>
+\end{enumerate}
+
+\section{Notations}
+% Official checklist item: a clear statement of variables. Use a table; define
+% every symbol that appears in a later equation. Keep units in a column.
+\begin{table}[H]
+\centering
+\caption{Symbols used in this paper.}
+\label{tab:notations}
+\begin{tabular}{cll}
+\toprule
+Symbol & Definition & Unit \\
+\midrule
+$<x>$  & $<$...$>$ & $<$...$>$ \\
+$<y>$  & $<$...$>$ & $<$...$>$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Model Development}
+% The heaviest section. The official checklist asks for the ANALYSIS that
+% motivates the model before the model itself -- show why this model and not
+% another. Keep long algebra out of the body: state the derivation and push the
+% steps to Appendix A. Derivation/calculation summary belongs HERE, detail in
+% the appendix.
+\subsection{Model Selection and Motivation}
+% State each candidate approach you considered and the criterion that decided
+% between them (data availability, tractability, interpretability, ...).
+<...>
+
+\subsection{<Name of your first model>}
+\begin{equation}
+  \label{eq:main}
+  <...>
+\end{equation}
+% Explain each term of Eq. (\ref{eq:main}) in words, then state how it is solved
+% (closed form, numerical scheme, solver and version).
+<...>
+
+\subsection{<Second model / stage, if any>}
+<...>
+
+\section{Results}
+% Report numbers, not impressions. Every figure and table needs a caption that
+% says what it shows and what the reader should conclude from it; refer to each
+% one from the text.
+\begin{figure}[H]
+  \centering
+  % \includegraphics[width=0.8\linewidth]{fig1}
+  \caption{<What is plotted; what the reader should take from it.>}
+  \label{fig:result1}
+\end{figure}
+
+\section{Model Testing}
+% Official checklist item, and one of the categories in COMAP's published sample
+% rubric, so it carries real weight. All three sub-parts need something in them.
+\subsection{Sensitivity Analysis}
+% Vary the parameters that matter and report the range over which your
+% conclusion survives. Give the range, not just "the result is robust".
+<...>
+
+\subsection{Stability and Robustness}
+% Re-run under a different discretisation, solver setting, or resampled data.
+<...>
+
+\subsection{Error Analysis}
+% Sources of error (measurement, model structure, numerical), their size, and
+% which direction they push the answer.
+<...>
+
+\section{Strengths and Weaknesses}
+% Official checklist item: discuss the obvious strengths AND weaknesses of your
+% model or approach. A weakness named with an honest bound reads as competence;
+% claiming there are none does not.
+\subsection{Strengths}
+<...>
+\subsection{Weaknesses and Limitations}
+<...>
+
+\section{Conclusions}
+% Official checklist item: state the conclusions AND report the results
+% explicitly. Answer, in order, each question you posed in Section 1.
+<...>
+
+% ==============================================================================
+%  REFERENCES -- counted toward the 25 pages.
+%  Cite in the text as well as here. Note that AI tools you used must ALSO be
+%  listed here (see the Report on Use of AI at the end of this file).
+% ==============================================================================
+\begin{thebibliography}{9}
+\bibitem{<key1>} <Author>. \textit{<Title>}. <Publisher / Journal>, <Year>.
+\bibitem{<key2>} <Author>. <Title>. <URL>, accessed <date>.
+\end{thebibliography}
+
+\appendix
+% ==============================================================================
+%  APPENDICES -- counted toward the 25 pages. This is the buffer: when you are
+%  over the limit, cut here before cutting Testing or Strengths/Weaknesses.
+%  Do not put the only copy of a derivation here; summarise it in the body too.
+% ==============================================================================
+\section{Derivations Omitted from the Body}
+<...>
+
+\section{Additional Tables and Figures}
+<...>
+
+\section{Code}
+% COMAP will not run your code, and non-paper files are not accepted -- but the
+% code listing here is what makes the work reproducible. Keep it short; long
+% listings eat the page budget.
+% \lstinputlisting[language=Python,caption={<model.py>}]{model.py}
+<...>
+
+% ==============================================================================
+%  REPORT ON USE OF AI -- OUTSIDE the 25-page solution.
+%  Required whenever ANY AI-assisted tool was used, which includes LLMs,
+%  generative AI, MATHEMATICS SOFTWARE, TRANSLATION SOFTWARE, and code
+%  completion. It goes after the 25 pages, in the SAME PDF file, has no page
+%  limit, and does NOT count toward the 25.
+%
+%  Two disclosures are required, not one: (a) inline citations in the body plus
+%  entries in the References section above, and (b) this section. Teams that
+%  skip (a) are the ones at risk -- undisclosed AI use is what COMAP acts on.
+%
+%  State, for each tool: name, version/date, model name where the tool has one,
+%  what it was used for, and how you verified the output. For translation-only
+%  use a single declarative sentence is enough; for tools with no discrete
+%  query (translation software, inline code completion) a sentence is also
+%  enough. For chat-style tools give the exact query and the complete output.
+% ==============================================================================
+\clearpage
+\fancyhead[R]{Page \thepage}             % outside the capped count: drop "of 25"
+\section*{Report on Use of AI}
+\addcontentsline{toc}{section}{Report on Use of AI (not counted toward the 25-page limit)}
+
+\begin{enumerate}[leftmargin=*]
+  \item <Tool name> (<version/date>, <model name if the tool has one>)
+        \begin{itemize}[nosep]
+          \item Purpose: <what it was used for -- e.g. language polishing of
+                Sections 2 and 5, or translation of the team's draft into English.>
+          \item Query: <the exact wording entered into the tool.>
+          \item Output: <the complete output returned.>
+          \item Verification: <how the team checked it -- compared against
+                <source>, recomputed independently, corrected <what>.>
+        \end{itemize}
+  \item <Tool with no discrete query, e.g. a translation tool or a code
+        completion tool> (<version/date>): <one declarative sentence stating
+        what it was used for.>
+\end{enumerate}
+
+\noindent <If no AI tool of any kind was used, say so explicitly rather than
+leaving this section out.>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

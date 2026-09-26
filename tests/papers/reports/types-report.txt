@@ -1,0 +1,126 @@
+题型标注判据（T1–T8）· 官方题面 2016–2026
+题型标注判据 T1–T8 · 全量 67 份题面
+==============================================================================
+T1=OK
+    标注 **67** 条 == 磁盘题面 PDF **67** 份 == 11 年 × 6 题 + 附加题 1 = 67（**双边等式**：`n_annotations == 实际题面文件数`）
+    只在标注不在磁盘 无 · 只在磁盘不在标注 无（**两边都要空**）
+    逐年题号：{2016: 'ABCDEF', 2017: 'ABCDEF', 2018: 'ABCDEF', 2019: 'ABCDEF', 2020: 'ABCDEF', 2021: 'ABCDEF', 2022: 'ABCDEF', 2023: 'ABCDEFZ', 2024: 'ABCDEF', 2025: 'ABCDEF', 2026: 'ABCDEF'}
+    **超出 A–F 的附加题**：{2023: ['Z']}——这就是 `2023 ICM Problem Z` 的处置：**算第 67 道并标注**（处置理由写在草案 §例外登记 ②）。
+    **每一年都必须齐 A–F**：无缺（缺一年一题就红；上界不设，因为『11 年 × 6 题』是任务书给死的口径）
+T2=OK
+    **逐条可定位**：**341** 条片段（本次检查 66 道标定题；全部 67 条标注里 66 道为标定）；行内引文段共 330 段，其中 10 段用了 `…` 省略标记（照 2025 样板的写法），拆开后共 341 条待定位片段——**定位失败 0 条**（要求 0）
+    口径（草案头部第 2 条，逐字重现在本脚本的 `v_norm`）：行尾归一 → 去项目符号 → 空白折叠 → 引号折叠 → 大小写折叠；引文侧另去 `*`/反引号（**那是草案自己加的强调标记**）
+    **严口径对照**（只做行尾归一 + 空白折叠 + 大小写折叠）：命中 306/341；差额 **35** 条逐条列在下面。差额的**归因**（各自只差一步）：**1** 条只需**去强调标记**（`*` 是**草案自己加的**字符）、**31** 条还要**折引号**（题面用的是弯引号 `’`/`“`、草案引文里写的是直引号）、**3** 条还要**去项目符号**（题面把话排成了 `•` 列举）、**0** 条落在这三步之外。注意这三类**都不是「用词不同」**：它们只动排版与字形，**改一个词**就会被 T2 抓住（变异 M1 实测）。
+    **这一步不可能让「编造的句子」命中**：它只动排版与字形，不动任何一个词。本判据的靶子是**编造的引文**（本项目栽过「证据里不成立的语料断言」）；变异 M1（把一条引文换成题面里没有的句子）实测会红。
+    **边界（必须同读）**：它验证的是「引文在**该题**题面里找得到」，**不是**「这句话支持这个标签」——后者是判断，不在本任务范围。
+        （严口径差额）2016 B · 1 预测 · 1.3 情景与概率预测："be able to explore a variety of important 'What if?' scenarios"
+        （严口径差额）2016 C · 1 预测 · 1.2 回归/相关预测："based on each candidate school's demonstrated potential for effective "
+        （严口径差额）2016 D · 1 预测 · 1.3 情景与概率预测："Use your model to predict the communication networks' relationships an"
+        （严口径差额）2016 D · 5 统计推断与因果 · 5.3 因果/政策评估：'model how public interest and opinion can be changed through informati'
+        （严口径差额）2016 D · 2 评价与排序 · 2.1 指标体系构建："Determine how information value, people's initial opinion and bias, fo"
+        （严口径差额）2017 D · 5 统计推断与因果 · 5.4 不确定性与敏感性：'Consider how cultural differences may impact the way in which passenge'
+        （严口径差额）2018 C · 2 评价与排序 · 2.4 方案比较："Determine which of the four states appeared to have the 'best' profile"
+        （严口径差额）2018 E · 2 评价与排序 · 2.1 指标体系构建："Develop a model that determines a country's fragility and simultaneous"
+        （严口径差额）2018 F · 9 决策与博弈 · 9.3 风险与效用："Develop a price point for protecting one's privacy and PI in various a"
+        （严口径差额）2020 C · 10 文本与语义处理 · 10.1 文本特征与情感抽取："Are specific quality descriptors of text-based reviews such as 'enthus"
+        （严口径差额）2020 C · 1 预测 · 1.1 时序外推：'Identify and discuss time-based measures and patterns within each data'
+        （严口径差额）2021 D · 8 网络与图 · 8.1 网络结构与重要性："Develop parameters that capture 'music influence' in this network."
+        （严口径差额）2021 D · 5 统计推断与因果 · 5.3 因果/政策评估："Do the 'influencers' actually affect the music created by the follower"
+        （严口径差额）2021 F · 2 评价与排序 · 2.1 指标体系构建：'develop and validate a model or suite of models that allow you to asse'
+        （严口径差额）2021 F · 2 评价与排序 · 2.5 分级/阈值划定："identify a healthy and sustainable state for a given nation's higher e"
+        （严口径差额）2022 A · 3 优化 · 3.1 连续/非线性：'Develop a model that can be applied to any type of rider that determin'
+        （严口径差额）2023 D · 8 网络与图 · 8.1 网络结构与重要性：'Create a network of the relationships between the 17 SDGs. Use the ind'
+        （严口径差额）2023 D · 8 网络与图 · 8.3 传播与级联：'Discuss the impact of technological advances, global pandemics, climat'
+        （严口径差额）2023 Z · 9 决策与博弈 · 9.1 多准则决策："Your task is to make recommendations in support of the ICMG's work."
+        （严口径差额）2024 C · 5 统计推断与因果 · 5.1 差异显著性检验："A tennis coach is skeptical that 'momentum' plays any role in the matc"
+        （严口径差额）2024 D · 3 优化 · 3.3 多目标/权衡：'Determination of the optimal water levels of the five Great Lakes at a'
+        （严口径差额）2024 F · 1 预测 · 1.3 情景与概率预测：'How likely is the project to reach the expected goal? Also, based on a'
+        （严口径差额）2025 A · 6 反演与参数估计 · 6.1 由观测反推参数/历史：'Your model should provide some basic predictions **given the patterns '
+        （严口径差额）2025 A · 6 反演与参数估计 · 6.1 由观测反推参数/历史：'? How many people used the stairs simultaneously?'
+        （严口径差额）2025 C · 5 统计推断与因果 · 5.2 回归系数与效应量："Examine the data for evidence of changes that might be due to a **'gre"
+        （严口径差额）2025 D · 8 网络与图 · 8.2 流量分配/路由：' you should **build a network model**(s) for some part or element of B'
+        （严口径差额）2025 D · 2 评价与排序 · 2.3 排序规则/权重设计："**recommending ways to improve** Baltimore's transportation network"
+        （严口径差额）2025 D · 9 决策与博弈 · 9.1 多准则决策："All of Baltimore's transportation plans affect **multiple stakeholders"
+        （严口径差额）2026 B · 2 评价与排序 · 2.4 方案比较："You will need to compare the Modern-Day Space Elevator System's three "
+        （严口径差额）2026 B · 3 优化 · 3.2 离散/组合："a. using the Space Elevator System's three Galactic Harbor's alone, b."
+        （严口径差额）2026 B · 3 优化 · 3.3 多目标/权衡："Discuss the impact on the Earth's environment for achieving the 100,00"
+        （严口径差额）2026 C · 9 决策与博弈 · 9.4 机制/规则设计：'Propose another system using fan votes and judge scores each week that'
+        （严口径差额）2026 D · 3 优化 · 3.2 离散/组合：'develop a strategy to acquire players for next season using the standa'
+        （严口径差额）2026 D · 9 决策与博弈 · 9.4 机制/规则设计："Use your model to decide how your team's strategy should change from y"
+        （严口径差额）2026 E · 6 反演与参数估计 · 6.2 逆向设计："design a retrofit for Sungrove University's Academic Hall North that o"
+T3=OK
+    **两处都判、都无一相等**：① 分类法的 **10 个 L1 / 43 个 L2** 条目；② 标注里**实际用到**的 **51** 个不同标签名（`used_names` 由草案重新解析得到）——对照词表 **150 个词条 / 415 个变体**（整名与按 `/`、`、`、括号拆出的成分都判）
+    判「相等」而不判「包含」的理由：包含会把 **`1 预测` ⊂ `灰色预测`** 这类**正确命名**判成违规（那是模型的专名，不是题型的名字）；而本判据要拦的**同义反复**是「**标签名就是模型名**」——那一定表现为相等。
+    **近邻（含子串但不等）34 条**，逐条列出（**不藏**）：
+    分类法条目 L1 '1 预测' 的 '预测' ⊂词表 'grey prediction'
+    分类法条目 L1 '3 优化' 的 '优化' ⊂词表 'multi-objective optimization'
+    分类法条目 L1 '3 优化' 的 '优化' ⊂词表 'particle swarm optimization'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'ARIMA'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'Tobit'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'lasso'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'linear regression'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'logistic regression'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'nonlinear regression'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'regression discontinuity'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'ridge regression'
+    分类法条目 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'stepwise regression'
+    分类法条目 L2 '3.1 连续/非线性' 的 '非线性' ⊂词表 'nonlinear programming'
+    分类法条目 L2 '3.1 连续/非线性' 的 '非线性' ⊂词表 'nonlinear regression'
+    分类法条目 L2 '3.3 多目标/权衡' 的 '多目标' ⊂词表 'multi-objective optimization'
+    分类法条目 L2 '5.5 关联/相关模式' 的 '关联' ⊂词表 'association rules'
+    分类法条目 L2 '5.5 关联/相关模式' 的 '关联' ⊂词表 'grey relational analysis'
+    标注里的标签 L1 '1 预测' 的 '预测' ⊂词表 'grey prediction'
+    标注里的标签 L1 '3 优化' 的 '优化' ⊂词表 'multi-objective optimization'
+    标注里的标签 L1 '3 优化' 的 '优化' ⊂词表 'particle swarm optimization'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'ARIMA'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'Tobit'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'lasso'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'linear regression'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'logistic regression'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'nonlinear regression'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'regression discontinuity'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'ridge regression'
+    标注里的标签 L2 '1.2 回归/相关预测' 的 '回归' ⊂词表 'stepwise regression'
+    标注里的标签 L2 '3.1 连续/非线性' 的 '非线性' ⊂词表 'nonlinear programming'
+    标注里的标签 L2 '3.1 连续/非线性' 的 '非线性' ⊂词表 'nonlinear regression'
+    标注里的标签 L2 '3.3 多目标/权衡' 的 '多目标' ⊂词表 'multi-objective optimization'
+    标注里的标签 L2 '5.5 关联/相关模式' 的 '关联' ⊂词表 'association rules'
+    标注里的标签 L2 '5.5 关联/相关模式' 的 '关联' ⊂词表 'grey relational analysis'
+T4=OK
+    标签 **316** 个（去重 41 个 L2）；**每题标签数** 最少 3 个、最多 7 个、中位 5 个（**不设上限**，用户 2026-09-26 定案）；全部逐字命中分类法、标记齐全
+    **分类法使用分布**（L2 → 题数）：{'1.3 情景与概率预测': 27, '3.3 多目标/权衡': 21, '2.1 指标体系构建': 21, '2.4 方案比较': 20, '9.4 机制/规则设计': 20, '5.4 不确定性与敏感性': 19, '3.4 动态与随机': 14, '4.1 物理/化学机理建模': 13, '5.3 因果/政策评估': 11, '3.5 调度与配置': 10, '2.5 分级/阈值划定': 10, '8.3 传播与级联': 9, '9.1 多准则决策': 9, '4.2 生态/生物动力学': 9, '9.3 风险与效用': 8, '2.3 排序规则/权重设计': 8, '3.1 连续/非线性': 7, '1.2 回归/相关预测': 7, '3.6 选址与布局': 7, '4.6 反馈结构与动态演化': 7, '8.2 流量分配/路由': 6, '3.2 离散/组合': 5, '6.1 由观测反推参数/历史': 5, '1.1 时序外推': 5, '7.1 监督分类/识别': 5, '8.1 网络结构与重要性': 4, '6.2 逆向设计': 3, '4.5 离散事件': 3, '5.1 差异显著性检验': 3, '8.4 连通性与鲁棒性': 3, '7.2 无监督聚类/分段': 3, '5.2 回归系数与效应量': 3, '4.3 随机仿真/概率模拟': 2, '7.3 降维与特征': 2, '4.4 局部规则演化/个体交互仿真': 1, '9.2 博弈与策略': 1, '10.1 文本特征与情感抽取': 1, '5.5 关联/相关模式': 1, '2.2 多指标综合评价': 1, '6.3 状态估计/数据同化': 1, '1.5 零膨胀/受限计数预测': 1}
+    **本阶段零命中的条目**（登记在分类法文件末尾，判据每次重算并与它对账）：['1.4 组合预测', '10.2 主题与语义归类']
+    数据形态分布：{'混合': 19, '无数据(纯机理/假设)': 18, '空间/地理': 10, '面板': 7, '截面': 4, '文本/文献': 3, '时序': 3, '网络': 2, '': 1}（空串那一个是 `2020 A` 的「读不出」，见 T5）
+T4-b=OK
+    **字段齐全**（66 道标定题）：`问题抽象`/`要求`/`已知`/`约束-不确定性`/`数据形态`/`场景` 逐个非空
+    「空着不写」也是一种静默——它会让下游以为「这题没有约束」而不是「没人填」。
+T5=OK
+    **每题至少一个 `核心`**：违反 无（66 道标定题，`核心` 合计 249、`附带` 合计 67）
+    **只有 `附带` 的题**：0 道，其中没给理由的 无（本语料上**这一路不触发**——它存在是为了「只能给出附带」的那种题**不许静默**）
+T5-b=OK
+    **「读不出」集合的双边等式**：草案声明 [(2020, 'A')] == 独立重算 [(2020, 'A')]（**两边都要空**）
+    两条**互相独立**的探针（阈值取在实测空档里，见模块头）：① 抽取文本的非空行数 < 4；② 内容流文本操作符 `BT|Tj|TJ` < 50。**两条同时成立**才算读不出。实测全 67 份的这一对量：最低 (2, 4)、次低 (5, 164)（差一个数量级，不是「差不多」）
+    **fail-closed 的两个方向都守**：标了「读不出」但题面其实可读（会红，见 M9）；或题面读不出却标成「标定」（草案里那道题的引文会定位失败，T2 也会红）
+    「读不出」的**处置**：不标标签、不写抽象、**不靠标题猜题意**（任务书 §四 第 7 条）。它**不摊到别的题上**：T1 的双边等式仍按 67 判，T5 首条只数「标定」的题。
+        （探针明细）2020 A：行数 2 · 操作符 4
+T6=OK
+    **读回** `corpus/papers/TAGS.md` 的一层行 **43** 行（不重算），覆盖年份 [2025]（合计 43 篇）；其中 2025 的题号分布 {'A': 5, 'B': 7, 'C': 18, 'D': 4, 'E': 4, 'F': 5}
+    **逐题对得上**：`TAGS.md` 覆盖到的每一年，标注的题号集合与它**相等**（[2025] 年全部相等）
+    **读回** `tests/papers/reports/ids-report.txt` 的 I8 结论：`I8=OK`、不符 0 份、有栏读不出 0 份——即 Task 6 已建的「**目录题号 vs 论文自报题号**」结论（43/43 一致）**仍然成立**，本判据**不复算**它。
+    **范围边界（必须同写）**：`TAGS.md` 只覆盖 **2025**（其余年份没有论文产物）⇒ 这条双边等式**只能对 2025 成立**；其余 5 个年份的题号只能靠 T1 走「磁盘题面文件」这一路。**这不是「其余年份也验过了」**。
+T7=OK
+    **66** 道标定题各有一句 `问题抽象`，**逐句去重后仍 66 条**（重复 无）
+    「读不出」的 1 道**不参与**这条（它没有抽象可写，已在 T5 单独登记）
+T8=OK
+    `taxonomy.load_annotations` 与**本脚本另写的一份解析**在 67 条 × 10 个字段上**逐字段相等**
+    **为什么要有这条**：判据若只信实现给的 dataclass，实现「解析成空表」时判据会对着空集报绿（本项目「判据在什么都没验的情况下报绿」家族的形态）。两套解析各写一份、互相夹住，实现被改窄/改宽时另一份不跟着变 ⇒ 立刻红（变异 M10 实测）。
+    另：`taxonomy.load_taxonomy()` 与 `v_load_taxonomy()` 的条目数 L1 10/10 · L2 43/43
+  抽取探针（全 67 份）：最低 `(行数, 操作符)` = (2, 4)、次低 = (5, 164)；阈值 = (4, 50)
+  标注规模：67 题 / 316 个标签 / 341 条片段（T2 样本内）
+==============================================================================
+判据汇总：全部通过（所有差额逐条具名登记见上，**未解释为 0**）
+
+写入：tests/papers/reports/types-report.txt
+  本文件是**全量跑的放行证据**（入库）；限样本跑的落点**按设计**是 tests/papers/reports-limited/ 下的另一份文件。
+
+RESULT: PASS

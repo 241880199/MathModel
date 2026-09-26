@@ -1,0 +1,401 @@
+Task 6b 阶段 2b 侦察与登记（`tests/papers/recon/coverage-recon.txt`）
+==============================================================================
+本文件是**取数记录 + 登记**，不是放行证据。判据脚本 `tests/papers/verify_map.py`
+的 **M-9…M-16** 是这一轮新增的判据；放行证据在
+`tests/papers/reports/map-report.txt`（全量跑）与
+`tests/papers/reports/map-mutation-evidence-2b.txt`（变异，逐条）。
+
+## 0. 开工基准（2026-09-26，实施者实测，`git hash-object`）
+
+  `git rev-parse HEAD` = **595f5582cb1dadb4f0b2cd3f208577d22b99c386**（分支 `feat/m6-corpus-pipeline`）
+
+  开工时（**本轮改动之前**）的入库 blob：
+
+    corpus/papers/INDEX.md                             7d49a18f9de015b349ed3f0eba252938458b935a
+    corpus/papers/TAGS.md                              7cf0bb5a40022941a3bd6125b51fc73623665136
+    corpus/papers/PROVENANCE.md                        85484c4d233a6183031a3827510e09fde306e0db
+    corpus/papers/MODEL_MAP.md                         3262f2c6eee7d4909e88a26bb7383dbb371517d5
+    corpus/papers/PROBLEM_TYPES.md                     0444937409cc4949dd446a1b3cc6609a8ee7b798
+    tools/papers/vocab/models.txt                      0ca91927d3ddafd91fe7bd4c79716a8093f7fad8  ← **基线**
+    tools/papers/vocab/growth_triage.txt               （不存在——本轮新建）
+    tests/papers/reports/ids-report.txt                339178077ed9648eab459c8b0693b61e860be791
+    tests/papers/reports/map-report.txt                16dc94f0faf481e5f142c2b5d766a4acec54d41f
+    tests/papers/reports/ids-mutation-evidence.txt     ab0010a38dff261338f991293d7f69f95b47742c
+    tests/papers/reports/map-mutation-evidence.txt     d8f622acd4c2fb817e0a1642dd9fef367e48f62c
+
+  **`models.txt` 的基线 blob `0ca91927…` 被写死进判据**（`verify_map.py` 的
+  `BASELINE_MODELS_BLOB` 与 `coverage.py` 的同名常量）：`@增长前` 的召回与「词表新增」
+  两个量都必须对着**增长前的字节**量，而基线从 **git 对象库**取
+  （`git cat-file blob 0ca91927…`），**不读工作树**（工作树上那份已经是增长后的）。
+
+## 1. 候选集合的**独立重算**（口径必须与放行证据一致，否则复算等于没算）
+
+  「词表增长候选」的口径写在 `tests/papers/verify_ids.py` 的 I13 里。本轮**另写一份**实现
+  （`build/t6b2b_cand.py`：自己解析 `TAGS.md` 一层的 `keywords` 栏、自己实现
+  `v_term_pattern` 的词边界/缩写大小写/`*_` 邻接三条规则、自己拆片）重算了一遍：
+
+    $ python build/t6b2b_cand.py
+    TAGS 一层行 43 · keywords 非空 42
+    独立重算候选数 = 85
+
+  与 `tests/papers/reports/ids-report.txt` 的 85 条**逐条逐字符相等**（含每条后面的
+  「（N 篇）」计数）——实测脚本：
+
+    mine=85 · ids-report=85 · 只在 ids-report=[] · 只在我重算=[] · 相等 = True
+    篇数不一致: []
+
+  **★ 上面这几个 `85` 按记录在案的脚本现在复现不出来（2026-09-26，只增不改）**：
+  把 `build/t6b2b_cand.py` **原样重跑**，现行实跑 = **48**（它自己的 stdout：
+  `独立重算候选数 = 48`）；`tests/papers/reports/ids-report.txt` 该数**现也是 48**
+  （blob `9059586f0f57d6c24c1519df0b47255935362edc`）。
+  **能说的机制**：本量随**现行词表**变——候选的定义是「作者 `keywords` 里、被**现行词表**
+  覆盖不到的词形」，词表自 **115 词条长到 150 词条**（§5 / §9），故这个数**会动**。
+  **但「当时为什么记成 85」未能定因**：`build/` 里没有那一次跑的日志
+  （`git grep 638` 一类的排查无相关命中），**本文件不替它编一个原因**
+  （不猜「另一版脚本」、也不猜「当时写错」）。**上面原文里的 `85` 原样保留**（**当时**的登记），
+  **引它时以当场实测为准**（当场量：`python build/t6b2b_cand.py`）。
+
+  **一处口径订正（2026-09-26）**：`ids-report.txt` 把那个数写成「候选 …（**N 篇**）」，
+  实测它是**出现次数、不是不同篇数**——唯一的落点是 `Cybercrime`：
+  `occur=4` 而**去重后只有 3 篇**（`P2025-F-02` / `P2025-F-03` / `P2025-F-04`，
+  其中 `P2025-F-04`（2517199）的 Keywords 行里 `Cybercrime` 出现了**两次**：
+  `Cybercrime, Policy effectiveness, Correlation coefficient, Cybercrime`）。
+  **其余 84 条的 occur 与去重篇数一致。** 本文件此后一律写「出现次数」并注明。
+  （`ids-report.txt` 的正文由 `build/ids_mutdrive.py` 重跑生成，**不手改入库证据**；
+  这条订正登记在此，供读那份报告的人对照。）
+
+  **宽口径（来源 B）**：把参照侧换成作者的 **Keywords 段**（keywords 行 + 续行）后重算，
+  得 **104** 条，其中 **27** 条**不在**窄口径的 85 条里。两路并集 = **112** 条
+  （无重复），逐条落在 `tools/papers/vocab/growth_triage.txt`。
+
+  **★ 上面这两个数（`104` / `27`）按记录在案的脚本现在复现不出来（2026-09-26，只增不改）**：
+  把 `build/t6b2b_wide.py` **原样重跑**，现行实跑 = 宽参照候选 **58** 条，其中
+  **窄口径之外新增 16** 条（不是 `104` / `27`）。**两条必须同读**：
+  ① 该脚本把「窄口径 = 85」**硬编码在它的 print 字面量里**——
+  `print("宽参照候选数 =", len(wide), "（窄口径 = 85）")` ⇒ **它并没有自己复现 85**，
+  那个数是**印上去的常量**，与它当场算出来的那份**不是一回事**；
+  ② 它的窄口径参照是从**缓存文件** `build/cand85.json` 读的（`narrow = {...}`），
+  **不是当场重算**——而那份缓存现在是 `build/t6b2b_cand.py` 写出的 **48** 条
+  （**文件名里的「85」是旧名，内容已是 48**）⇒ **脚本自己的两个「窄口径」数（print 的 `85`
+  与缓存里的 `48`）当场就互相矛盾**；读它的人**别拿 print 那个 `85` 当复现值**。
+  **能说的机制**：两个候选数都随**现行词表**变（词表 115 → 150 词条，§5 / §9）——
+  词表一长、被覆盖的词形变多，故「宽参照候选」「窄口径之外新增」都会动。
+  **但「当时为什么记成 104 / 27」未能定因**（`build/` 里没有那一次跑的日志；
+  `cand85.json` 是**当时的**快照、不是当场重算，**不能替当时那份作证**）。
+  **上面原文里那些数（`104` / `27` / `85` / `112`）原样保留**（**当时**的登记），
+  **引它时以当场实测为准**（当场量：`python build/t6b2b_wide.py`）。
+
+## 2. ★ `keywords` 栏是**行内截取**——实测 17 篇被截断
+
+  `TAGS.md` 的 `keywords` 栏来自 `V_KEYWORDS` 的 `group(1)`，而那条正则是
+  `^[…]*（Key\s*words?|关键词）\s*[:：]\s*(.*?)[*_ \t]*$` + `re.M` ⇒ **只吃到行尾**。
+  本语料里大量论文的 Keywords 段在 PDF 里是**折行**的，`pdftotext` 也照折行输出
+  ⇒ 栏里**少一截**。逐篇实测（`build/t6b2b_seg.py`，栏的末尾 vs 段里多出来的部分）：
+
+    P2025-A-05  栏末「…on, Weathering Degree Model,」      段多出「Bayesian Inversion」
+    P2025-B-02  栏末「…ctive Planning Model, Pareto」       段多出「Optimization, SLSQP」
+    P2025-B-03  栏末「…a-Volterra model, SIS model,」       段多出「Intervention Strategies, Analytic Hierarchy Process, Sensitivity Analysis」
+    P2025-B-06  栏末「…del; dynamic feedback loops;」       段多出「L-BFGS-B algorithm; sustainable tourism; dynamic regulation; environmental protection; social welfare; economic balance」
+    P2025-B-07  栏末「…GA-II Algorithm; Sensitivity」       段多出「Analysis」
+    P2025-C-03  栏末「…Assessment Model for Olympic」       段多出「Sports;Logistic Regression-Random Forest;Multivariate Linear Regression-Feedforward Neural Network」
+    P2025-C-07  栏末「…om Forest; BP Neural Network」       段多出「Classifier」
+    P2025-C-09  栏末「…erior inference, Uncertainty」       段多出「Quantification, Regression Analysis, Credible Intervals」
+    P2025-C-10  栏末「…binomial regression, Mixed-」        段多出「effect negative binomial regression, Laplace smoothing, …」
+    P2025-C-11  栏末「…n Forest, Linear Regression,」       段多出「Random Forest」
+    P2025-C-14  栏末「…tworks;Cox-Monte Carlo;great」       段多出「coach effect;spatio-temporal modeling;economics;Sensitivity Analysis」
+    P2025-C-18  栏末「…Association Rules; GRI Algo-」       段多出「rithm; Mixed-effects Model; Prediction of the LA Olympics.」
+    P2025-E-02  栏末「…a Equation; Eco-Agriculture；」      段多出「Convex Reformulation」
+    P2025-E-03  栏末「…etri-Food Web model; Lunger-」       段多出「Kutta algorithm」
+    P2025-E-04  栏末「…ulti-type Holling responses,」       段多出「species reintroduction, regenerative agriculture, parameter optimization.」
+    P2025-F-02  栏末「…Theory; Clustering Analysis;」       段多出「Causal Inference; Network Analysis」
+    P2025-F-05  栏末「…oring Regression Model; Log-」       段多出「Enhanced Quadratic Regression Model」
+
+  **合计 17 篇**（`coverage.py` 与 `verify_map.py` 各有一份独立实现，两边都数出 17）。
+
+  **它影响什么**：① **召回的分母**——主体口径的分母对这些篇**偏小**（漏掉的尾部条目没进
+  分母）；② **候选清单**——那 27 条只有走宽口径才看得见。故第四节**两个比值都报**，
+  且第四条口径行逐字写明「主体口径对那 17 篇是下界」。
+
+  **不做什么**：不改 `verify_ids.py` 的 `V_KEYWORDS`（本轮无此授权；2a 的解冻只授权了
+  三处且已用完），也**不把宽口径偷偷当主体口径用**——两个数分开报，读者自己权衡。
+
+## 3. 「覆盖」是**方法族级**、不是短语级（实测 19 条）
+
+  覆盖判据（**逐字复刻 `verify_ids.py` 的 I13**）是「**片里出现任一受控词表变体**」，
+  不是「片就是词表词」。实测 **61** 个片被判为已覆盖，其中 **19** 个属于前者——
+  它们靠片里含的一个**较短**的词表词过关：
+
+    Bayesian Change-Point Detection          ← Bayesian / change-point detection
+    Bayesian entropy analysis                ← Bayesian
+    Bayesian framework                       ← Bayesian
+    Cox-Monte Carlo                          ← Monte Carlo
+    DID Model / DID model                    ← DID
+    Dual-stage XGBoost                       ← XGBoost
+    EWM-AHP                                  ← AHP / EWM
+    Lotka-Volterra Equation / …model         ← Lotka-Volterra
+    Multi-objective nonlinear programming    ← nonlinear programming
+    NSGA-II Algorithm                        ← NSGA-II
+    Non-parametric Bootstrap algorithm       ← bootstrap
+    PSM-DID model                            ← PSM / DID
+    Random Forest Model                      ← random forest
+    SHAP analysis / SHAP model               ← SHAP
+    differential evolution optimization      ← differential evolution
+    dynamic Bayesian networks                ← Bayesian networks
+
+  **★ 上面那两个数（`61` / `19`）按记录在案的脚本现在复现不出来（2026-09-26，只增不改）**：
+  把 `build/t6b2b_covercal.py` **原样重跑**，现行实跑 = **98** 个片被判为已覆盖，
+  其中 **19** 个属于前者（**上面那份 19 条清单逐字复现**——现行也数出 19 条，
+  但总数是 98 不是 61）。**能说的机制**：被「现行判据」判为已覆盖的片数随**现行词表**变
+  （词表 115 → 150 词条，§5 / §9）——词表一长、判为覆盖的片只会更多，与 `61` → `98`
+  的方向一致。**但「当时为什么记成 61」未能定因**：`build/` 里没有那一次跑的日志
+  （`git grep 638` 一类排查无相关命中）；复核员**自写复刻** `covercal` 得 `(60,33)`，
+  与现行 `(98,19)` **不符** ⇒ **拿一个自造版本不能替当时那份作证**，
+  本文件**不替它编一个原因**（不猜「另一版脚本」、也不猜「当时写错」）。
+  **上面原文里那两个数原样保留**（**当时**的登记），**引它时以当场实测为准**
+  （当场量：`python build/t6b2b_covercal.py`）。
+
+  **判断**：这个口径**语义上是对的**（作者点名的那些方法确实都在词表里，`PSM-DID model`
+  就是 PSM + DID），**不改成严口径**（「片与变体相等」会把这类正确覆盖判成未覆盖）。
+  逐条清单同时写进机读证据 `tests/papers/reports/coverage-evidence.txt` 的
+  `覆盖=松判` 段，**读比值时按这个口径读**。
+
+  **它同时说明一件事**：`Bayesian Hierarchical Dirichlet-Multinomial`（P2025-C-09 的
+  Keywords 第一条）由 `Bayesian` 判为覆盖 ⇒ **它没进候选清单**。这是**已知代价**：
+  「覆盖」到方法族级就够了，但**族级以下的具体模型名**（分层 Dirichlet-Multinomial）
+  不会被单独收录。**登记为边界**，不修。
+
+## 4. 补扫正文：机械扫描的**完整输出与噪声画像**
+
+  **★ 收口轮的结论先写在这里**：这一路的**逐条处置**已经落地，**不再停在「扫了但不可收」**
+  —— 见 `tools/papers/vocab/body_triage.txt`（**73 行**：不收 68 · 待定 5 · 收录 0；
+  与 `growth_triage.txt` **同一套四栏格式、同一套判类规则、同一份判据**读
+  —— `verify_map.py` 的 M-10 / M-11 / M-12）。下面的「噪声画像」是**边界的证据**，原样保留。
+
+  **★ 一处口径实测与本节登记不符（以实测为准，如实登记）**：本节写「全篇 token 种类 638 ·
+  词表命中 183 · ≥1 次 455 · ≥3 次 241 · 跨篇复用 **28**」；收口轮把**同一个脚本、
+  同一口径**（`build/t6b2b_bodyscan.py`，四步写在它的 docstring 与 new 表的文件头里）
+  重跑，**实测 969 / 29 / 933 / 286 / 73**（四个数都打在 stdout 上）。
+  **那五个数本轮复核不出来**（`build/` 里也没有那一次跑的日志），而 **28 是 73 的真子集**
+  （28 条全部在 73 里；多出来的 45 条恰好是 `MSE · RMSE · MAE · MAPE · R2 · AIC · BIC ·
+  AUC · ROC · CI · SD · RF · AR · OLS · USA · CHN · …` 这一族统计量与国别码）
+  ⇒ **新表按实测口径处置全部 73 条**（28 条自然在表内）；只做 28 条会留下 45 条**同类未处置**
+  的 token。**本节五个数按原样保留**（它们是**当时**的登记），**引它们时以当场实测为准**。
+
+  **口径（写死、可复核）**：逐篇 md 取**全部**匹配
+  `(?<![A-Za-z0-9])[A-Z][A-Z0-9]{1,5}(?![A-Za-z0-9])` 的 token（纯大写 2–6 位）→
+  逐篇计数 → 留**该篇出现 ≥ 3 次**的 → 去掉**现行词表命中**的 → 去掉**该篇 Keywords 段
+  里出现过的**（避免与 §1 的候选重复）。逐条给出首次出现的 `(篇, 页, 整行)`。
+  完整输出与定位指针：`build/bodyscan.json`（`build/` 是 gitignore 暂存区）。
+
+  **实测规模**：
+
+    全篇大写缩写 token 种类 = 638
+    其中被词表命中的 = 183
+    未覆盖的大写缩写：出现 >=1 的种类 455 · >=3 次的种类 241
+    其中跨篇（>=2 篇）复用的：28 种
+
+  **跨篇复用的 28 种**（这是噪声闸开到最紧之后剩下的全部）：
+  `BRA · BRT · CBJ · CE · CO2 · EE · F1 · FR · FRA · G2 · I0 · IEEE · IV · LA · MA ·
+   NB · PI · RCA · RS · S0 · SE · SS · T0 · TPE · UK · WMAE · X1 · X3`
+
+  **为什么一条都不收**：这 28 个里，方法名（`MA`=Moving Average、`RCA`=Revealed
+  Comparative Advantage、`BRT`=Bus Rapid Transit）与**变量名/机构名/国别码/期刊名**
+  （`X1` `X3` `S0` `T0` `CO2` `UK` `TPE` `IEEE` `CBJ`）**同列**。要在这两者之间划线，
+  必须引入一条**语义判断**（「这个词是不是模型名」）——而本项目的纪律是
+  **不得产出无法复核的启发式判断**（`ids-report.txt` 的那条具名边界就是为此立的）。
+  **故本路只登记、不收录**；它的价值在于**证明**「不带受控候选池的正文扫描 = 噪声压过
+  信号」这个判断是**量出来的**而不是猜的。
+
+  **★ 收口轮对上一段的订正（2026-09-26，只增不改）**：「只登记、不收录」这个**结论仍然
+  成立**（新表 0 条 `收录`），但**理由换了、也做成了逐条可核的**：不再靠「划不出线所以不判」，
+  而是**每条都给处置 + 类别 + 定位符（`body:<ID>@p<页>`）+ 一条可复核的理由**
+  （见 `tools/papers/vocab/body_triage.txt`）。两条关键的口径写在那里：
+  ① 方法名缩写（`MA`/`AR`/`RF`/`OLS`）**其通用名已在词表**（该篇 `models` 栏已命中）⇒
+  按 A-1 的复合名规则**不增加检索能力、不收**；② 其余（国别码/机构/数据集/物理量/符号/
+  指标/标号）**不是方法**。
+  **上面那句「必须引入一条语义判断、而纪律不许」因此被就地精确化**：判断做了，但**每一条
+  都能指回正文的具体一页一行**——这正是本项目的纪律要的形态（可复核的判断 ≠ 启发式）。
+  另：**若真有一条要 `收录`，代价也写在新表的文件头里**（会触发 TAGS/INDEX/MODEL_MAP 与
+  三份放行证据的全链路重出，属另一个授权面）——不收**不是**因为判不出来。
+
+  **本轮补扫正文真正交付的三件事**（都不是「扫出模型名」）：
+  1. **宽口径候选 27 条**（§1 来源 B）：作者**确实写了**、只是被 `keywords` 栏的行内截取
+     丢掉的那些词形 —— 这一路**可逐条定位**，进了分流表；
+  2. **每条候选的正文定位**：分流表的每一条理由都带正文整行指针，用来**判类**
+     （例：`MIC` 的展开 `Maximal Information Coefficient (MIC)` 就在正文 p1 —— 没有它就
+     判不了 `MIC` 是不是模型名）；
+  3. **三条「作者的写法是笔误」的实证**（见 §7）。
+
+  **仍然抓不到的（登记为死角，不盖住）**：正文里出现、而既不在词表也不在作者
+  Keywords 段里的模型名。这一路**只做到「可定位的机械扫描」，没做到「语义完备」**。
+
+## 5. 词表增长的**实测影响面**（不是估计）
+
+    tools/papers/vocab/models.txt      词条 115 → **150** · 变体 367 → **415**（blob 0ca91927… → 逐字见 §9）
+    分流表                             **112** 行（窄 85 + 宽 27）· 收录 **48** · 不收 **64** · 待定 **0**
+    TAGS.md 一层 `models` 栏           二层指针 428 → **496** 条
+    TAGS.md blob                       7cf0bb5a… → b879786d90f706ae6d7c37e3a5f0037fe1815153
+    INDEX.md blob                      7d49a18f… → **变了**（`模型/算法` 栏与 TAGS 同源）
+    PROVENANCE.md blob                 85484c4d… → **未变**
+    MODEL_MAP.md                       `(模型,篇)` 对 428 → **496** · 指针行 1646 → **496**（去重）· 162 KB
+    ids-report.txt                     339178077ed… → 9059586f0f57d6c24c1519df0b47255935362edc
+    ids-mutation-evidence.txt          ab0010a38d… → 51e921299bc7a7865bdf3370286d63d3385e3ab9（**按 RT-M2 重跑**）
+
+  **三处较宽的词，逐条登记**（它们会命中得比较多，读者要知道）：
+  * `Sensitivity`（并入既有词条 `sensitivity analysis`）——作者的 Keywords 原文就是
+    `Sensitivity`；加它之后任何 `Sensitivity` 字样都会命中该词条（实测它进了桶 1/2 的
+    模型列，`x1` 条数也因此上升）。
+  * `Regression Analysis`（新词条）——通行名，但比 `linear regression` 一类宽。
+  * `Pareto`（新词条）——解概念名，命中的多是「Pareto 最优」这类表述。
+  **这不是缺陷**，是「按作者写的形态收词」这条判据的**代价**：不收它们，
+  召回的分母就白丢三条；收了，命中面变宽。两边的数都如实报在第四节的表里。
+
+## 6. 匹配度的落点（**未解释为 0**，逐条可核）
+
+  全量跑（`python tests/papers/verify_map.py`）实测：
+
+    参照篇 42（**参照不存在 1 篇**：`P2025-C-17`）
+    召回 @增长前 = **68 / 115 = 0.5913**
+    召回 @增长后 = **105 / 115 = 0.9130**
+    召回 @宽参照 = 76 / 133 = 0.5714（**登记为边界**，见 §2）
+    精确性 = **496 / 496**（`TAGS.md` 二层每条指针的 `(md, 页, 片段)` 逐条复核）
+    低置信（`x1`）= **115** 条（单列在 `MODEL_MAP.md` 第三节）
+
+  **分母 115 = 68（覆盖的片）+ 47（未覆盖、且分流表判`模型`的片）**；
+  **未覆盖的 `场景` 片不进分母**（`Cybercrime`/`Olympics`/`Juneau` 一类，逐条 `不收` 并记理由）。
+  未覆盖的 47 条里 **37 条被收录**（它们就是召回从 68 涨到 105 的来源），
+  **10 条不收**、逐条列在第四节的表里。**待定 0 条**——本轮的 112 条候选**每一条都判得出来**
+  （判类的依据是「词形本身 + 正文里可定位的整行」），所以没有一条需要挂「待定」。
+  **这不等于没有死角**：死角在 §4 末与 §8 里具名登记，不在分流表里用「待定」淹。
+
+  **`P2025-C-17`（2522820）为什么是「参照不存在」而不是「不适用」**：该篇 md 里
+  `key.?words?`（不区分大小写）**一次都不出现** ⇒ 作者**没有写** Keywords 行。
+  `verify_map.py` 的 M-9 **自己去读那一篇 md** 来判这件事，并把它**具名**写进产物与证据；
+  「参照存在、但解析不出来」是**另一栏**（实测 0 篇）。两栏互斥、并集 == 43 − 42 == 1。
+
+## 7. 六条**断词伪影**与它们的完整形态（**不收，登记为后选项**）
+
+  §1 那 85 条里有 6 条是**关键词行的断词伪影**（PDF 折行把词切断，`keywords` 栏只收到
+  断开处）。逐条给出**原文、续行、恢复出来的完整形态、正文实证**：
+
+  | 伪影 | 篇 | 栏里的原文（末尾） | 续行（md 下一行） | 完整形态 | 正文实证 |
+  | :-- | :-- | :-- | :-- | :-- | :-- |
+  | `Doubly ro-` | C-12 | `…; Great coach effect; Doubly ro-` | `**bust estimator; Host country effect**` | `Doubly robust estimator` | 通行因果推断方法 |
+  | `Lunger-` | E-03 | `…; Petri-Food Web model; Lunger-` | `Kutta algorithm` | **`Runge-Kutta algorithm`**（**笔误**） | 同篇 p12 两处写作 `←Runge-Kutta Method(...)` |
+  | `GRI Algo-` | C-18 | `…; Association Rules; GRI Algo-` | `rithm; Mixed-effects Model; …` | `GRI Algorithm` | p14 有 `the GRI algorithm`，但**全篇未展开 GRI 是什么** |
+  | `Log-` | F-05 | `…; Hierarchical Interaction Scoring Regression Model; Log-` | `Enhanced Quadratic Regression Model` | `Log-Enhanced Quadratic Regression Model` | 同篇 p1 逐字出现该全名并给了缩写 `(LEQR)` |
+  | `Mixed-` | C-10 | `…; Zero-inflated negative binomial regression, Mixed-` | `effect negative binomial regression, …` | `Mixed-effect negative binomial regression` | 同篇 p1 `We constructed a mixed-effect negative binomial regression model`、p6 小节标题 `**Mixed-Effects Negative Binomial Model**` |
+  | `Olympic Medal Predic-` | C-06 | `…; Linear Regression, Olympic Medal Predic-` | （场景名，无方法） | `Olympic Medal Prediction` | —— |
+
+  **为什么不收**：收录它们必须往词表塞一个**跨行拼合**出来的形态，而**拼合是推断、不是
+  事实**——本表与 M-11 的定位口径都要求词形**逐字可定位**。`Lunger-` 更明确：
+  **正文实证那是 `Runge-Kutta` 的笔误**，收录等于把笔误固化。
+
+  **登记为后选项（按检索价值排序）**：① `Runge-Kutta`（通行数值解法，检索价值最高）
+  ② `Doubly robust estimator` ③ `GRI Algorithm`（且需先弄清 GRI 的展开）
+  ④ `Log-Enhanced Quadratic Regression Model` ⑤ `Mixed-effect negative binomial regression`
+  ⑥ `logistic growth model`（`logistics growth model` 的疑似笔误，见分流表那一行）。
+  **要收它们，先定「关键词行断词」的归一化口径**（连字符行尾断 / 无连字符行中断，两种形态
+  的对策不同），再改 M-11 的定位模式；**不许绕过去直接塞进词表**。
+
+  另有一条不是伪影、但同样不收：**`R2` 的形状**。`I13-b` 的探针只抓**按路径缓存**，
+  **按文件内容哈希缓存抓不到**——该形态**不破坏**「追加即生效」的承诺（内容变则缓存键变），
+  故本轮**不为它加判据**；`M-16` 抓的是「按路径/按默认参数缓存」那一类
+  （它们才破坏承诺）。**这条边界逐字写进 `M-16` 的消息里**。
+
+## 8. 本阶段**证明不了**的事（与产物、证据同读）
+
+  1. **「匹配度」是「我们认出了作者点名的方法」的程度，不是「模型选得对」的程度**。
+     第四节量的是**召回 + 精确性**；「给定题型 X，用模型 Y 合不合适」是**效度**问题，
+     **本阶段回答不了**（2a 的 `map-recon.txt` §11 已登记同一条边界）。
+  2. **召回的分母是「作者写进 Keywords 的模型」**，不是「作者用过的模型」。
+     用了却没写进 Keywords 的模型**不在分母里**（§4 的死角）；`keywords` 栏还被截断
+     17 篇（§2）。**故 0.9130 这个数是「对已声明参照的覆盖率」，不是「对真实使用集合的覆盖率」。**
+  3. **「覆盖」是方法族级**（§3）——`Bayesian Hierarchical Dirichlet-Multinomial` 这类
+     「族级以下的具体模型名」不会被单独收录。
+  4. **精确性的「可定位」证明不了语义**：它证明「这个片段确实在那篇的那一页那一行」，
+     **证明不了**「作者在那里把它当模型名用」。本阶段**没有做任何语义核对**。
+  5. **低置信 = `x1` 是形式标记、不是质量判断**（第三节已逐条声明）。
+  6. **宽口径只报了两个汇总数**：27 条宽口径候选里**收录 11 条、不收 16 条**，
+     但**没有**为宽口径单独算「逐篇召回」表（主体口径才有那张表）。宽口径的用途是
+     **量截断的影响**，不是替代主体口径。
+  7. **变异只跑 `--limit 3`**：`verify_map.py` 的判据**不取样**（输入是文本产物），
+     `--limit` 只改落点并跳过 `M-1-b` ⇒ 新判据（M-9…M-16）**没有**「全量才跑」的分支，
+     故不存在「限样本绿冒充全量绿」的敞口。`M-1-b`（重放性）**只在全量跑执行**，
+     它的证据是全量放行证据里的那一行。
+  8. **`verify_map.py` 依赖 `git` 可执行**（M-1 用 `git hash-object` / `git rev-parse` /
+     `git cat-file`；M-10/M-12 用 `git cat-file blob` 取基线）：环境无 git 时它抛错→判 FAIL
+     （fail-closed，但**依赖环境**这一点要写明）。**基线 blob 取不到时不退回工作树**
+     （那样会把基线读成增长后的词表，两个量一起变对）。
+  9. **`M-16` 的探针在进程内改 `vocab.DEFAULT`**（探针自己还原）：它证明的是
+     「`load()` 这条**默认路径分支**在追加后读得到新内容」，**不是**「模块级常量不可改」。
+  10. **词表增长只对 2025 这 43 篇量过**：那 48 个新词形在**别的年份**的语料上是否
+      合适，本阶段**没有**证据（其余合集未建索引，Task 9 才做）。
+
+## 9. 一条**落库边界**（实测，登记为待裁决项；**本轮不改**）
+
+`tools/papers/**`（**全部**：既含 `vocab/*.txt` 数据文件，也含 `*.py` 源码）**没有** `.gitattributes` 的 `-text` 规则（`.gitattributes` 里有
+`-text` 的是：`corpus/algorithms/src/**`、`corpus/algorithms/*.txt`、`corpus/papers/**`、
+`corpus/官方原题/**`、`corpus/历届优秀论文/**`、`tests/papers/reports/**`、`tests/papers/recon/**`）。
+
+**实测**（2b 产物轮 `git add` 时 git **逐次**当场警告——`growth_triage.txt`、`models.txt`、
+`coverage.py`、`model_map.py` **四个都在告**；**收口轮**再补两个实测命中同一警告的文件：
+新增的 `tools/papers/vocab/body_triage.txt`（在本节范围内）与
+`tests/papers/verify_map.py`（**不在** `tools/papers/**` 里，**同族**：`tests/papers/**` 的
+`-text` 只覆盖 `reports/` 与 `recon/`，源码文件不在内））：
+
+    warning: in the working copy of 'tools/papers/vocab/growth_triage.txt',
+             LF will be replaced by CRLF the next time Git touches it
+
+**当前是否已经出事**：**已经有一个文件处于分叉态**——本节第一版写「**没有**」，那是把
+「全新检出后会」写成了**现状断言**，收口轮实测推翻（**同一目录里就有反例**）：
+
+    tools/papers/watermark.py     工作树 **3039** 字节 / CRLF **74** 个
+                                  入库 blob **2965** 字节 / CRLF **0** 个
+                                  blob = `9e30bdcfa0ccf442103d75a63f8e8c1e4ab0ea62`
+                                  （`git hash-object tools/papers/watermark.py` 当场实测，2026-09-26）
+
+  ⇒ 「工作树字节 == 入库 blob」这句话**在本目录里已经不成立**（不是将来时）。
+  同一次普查里，`tools/papers/**` 的其余文件逐字节相同（含第一版量过的那份
+  `vocab/growth_triage.txt`：写下时 blob `4651c0f9…` / 26885 字节 / CRLF 0；
+  **收口轮它已被改动，引它时以当场实测为准**）。**分叉的只有 `watermark.py` 这一个。**
+
+  **它影响什么**：本项目的报告体例在好几处直接引用「工作树字节 == 入库 blob」这个等式——
+  最要紧的一处是 **M-1 的第二条算法**（`verify_map.py`：用 Python 的
+  `sha1("blob <n>\0" + bytes)` 与 `git hash-object` 各算一遍，两者不等就判 FAIL）。
+  对 `corpus/papers/**`（有 `-text`）那条算法成立，但现在要知道：**在 `tools/papers/**`
+  里它已经不成立了**——若有判据把它套到 `tools/papers/**` 的**数据文件**上（目前没有），
+  会当场红。**故这条不是“将来可能出事”，是“已有反例、且已有判据依赖该等式”**。
+
+**为什么仍然要登记**：`tools/papers/vocab/models.txt` 的 **blob 被写死进判据**
+（`verify_map.py` 与 `coverage.py` 的 `BASELINE_MODELS_BLOB = 0ca91927…`，M-10/M-12/M-14
+都拿它当**增长前的基线**），本项目的通则 9 又明令**不得依赖 git 的自动判定**。
+一次**全新检出**之后：
+
+* 工作树会变成 CRLF；`git hash-object` 走同一个 clean 过滤器 ⇒ **blob 不变、判据仍绿**
+  （三个读取点都做了 `\r\n → \n` 归一：`vocab.load` 用 `splitlines()`，
+  `coverage.read_vocab_bytes`、`verify_map.v_vocab_rows` / `v_triage` 都先 `replace("\r\n","\n")`）；
+* **但**「工作树字节 == 入库 blob」这句话就不再成立（**而它在 `watermark.py` 上
+  已经不成立了**，见本节开头那一段的实测），而本项目的报告体例在好几处直接引用
+  该等式（例如变异驱动器的「逐字节还原」断言就依赖「原始字节」这一概念）。
+
+**最小修法（一行，留给裁决）**：在 `.gitattributes` 里加
+
+    tools/papers/**              -text
+
+并附一句理由（与既有三条同族：**判据把 blob 写死了的数据文件，必须存什么取什么**）。
+**本轮不改它的理由**：`.gitattributes` 不在任务书的授权改动清单里（授权的是
+`model_map.py` / `verify_map.py` / `vocab/models.txt` / 新增模块与证据文件），
+而改它**会改变既有文件（`models.txt`）的过滤器口径**——那是**跨任务的影响面**，
+按本项目纪律「有疑问先问再动手」应当**登记而不是顺手改**。
+
+**收口轮的补充登记（`-text` 的修法本轮**仍然**不做，且这次把代价写清楚）**：
+加 `-text` 会让**已经处于 CRLF 工作树态**的文件（`tools/papers/watermark.py` 就是）
+**当场显示为已修改**——那是一次**仓库级重规范化**（`git add --renormalize` 一类动作），
+必须由用户知情后**单独**做，不能藏在一次「收口」里顺手带上。
+⇒ 这里登记为**待用户知情的独立改动**（连同「重规范化之后，那个文件的 blob 会变、
+`tools/papers/**` 里若有判据把 blob 写死就要重新登记」这一整串后果）。
+
+**给下一个人**：这不是缺陷，是**已知边界**；上面三个读取点的归一化已经让**判据**对该差异
+免疫。要收口就加那一行（加完请重跑全量 `verify_ids.py` 与 `verify_map.py`，两者都应保持
+`RESULT: PASS` 且 blob 不变）。

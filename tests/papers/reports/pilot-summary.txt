@@ -1,0 +1,157 @@
+M6 前置流水线 · 试点汇总与放行评估（Task 7）
+==============================================================================
+落点机制的分支对账：`tools/papers/report.py` 走 **放行证据** · 本脚本走 **放行证据** ⇒ 一致（对账粒度是分支，不比文件名——两边的名字按设计不同）
+
+运行口径：**全量跑**（放行证据只有全量跑会写）
+
+【0】判据集：由磁盘派生（D1）
+  派生命令（复用即复现）：`sorted(Path('tests/papers').glob('verify_*.py'))` 减去本文件自身（`verify_all.py`，否则递归）
+  派生到 **8** 个：verify_b.py verify_c.py verify_d.py verify_ids.py verify_io.py verify_map.py verify_types.py verify_wm.py
+  Task 6b 的判据脚本在清单里：`verify_types.py` ✓
+  Task 6b 的判据脚本在清单里：`verify_map.py` ✓
+
+【1】A1 原件哈希复核（流水线全程不得改动原件）
+  基线：`tests/papers/reports/origin-sha256-all.txt` 201 条（6 个合集）· `tests/papers/reports/origin-sha256-2025.txt` 43 条
+  基线里的合集：2022年美赛特等奖原版论文集 · 2023年美赛O奖论文 · 2024年美赛O奖论文 · 2025美赛O奖论文 · UMAP2000-2010年美赛特等奖优秀论文集 · UMAP2010-2019年美赛特等奖优秀论文集
+  A1（全语料）：基线 201 份 / 现在 201 份 · 改动 无 · 缺失 无 · 新增 无
+  A1（试点 2025美赛O奖论文）：基线 43 份 / 现在 43 份 · 改动 无 · 缺失 无 · 新增 无
+  A1 结论：原件一字未动（全语料）
+
+【2】逐脚本：退出码 + RESULT 行（逐字）+ 放行证据产物核对（D5）
+  **逐脚本墙钟不在本文件里**（A-3）：秒数是运行时刻的函数，写进来本文件就不可逐字节重放了。各阶段耗时见 `tests/papers/reports/all-timing.txt`（**测量记录、不是放行证据**；只由全量跑写，限样本跑碰它即判 FAIL）。
+
+· `verify_b.py`　支持 --limit：是　退出码 0
+  stdout 的 RESULT 行（**逐字**）：`RESULT: PASS`
+  产物 `tests/papers/reports/b-report.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True
+  产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓
+  产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算）
+  判据行计数（口径：`grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)[[:space:]]*$' tests/papers/reports/b-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/b-report.txt`，两式相加）：**3**　← **本行是报告量，不构成判据**：判据是上面那条「产物内有自报失败的判据行」（只对状态为 FAIL/False 的行判红）；本行既不参与 ok，也不覆盖人工目视闸门的状态行（见【5b】）
+
+· `verify_c.py`　支持 --limit：是　退出码 0
+  stdout 的 RESULT 行（**逐字**）：`RESULT: PASS`
+  产物 `tests/papers/reports/c-report.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True
+  产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓
+  产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算）
+  判据行计数（口径：`grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)[[:space:]]*$' tests/papers/reports/c-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/c-report.txt`，两式相加）：**1**　← **本行是报告量，不构成判据**：判据是上面那条「产物内有自报失败的判据行」（只对状态为 FAIL/False 的行判红）；本行既不参与 ok，也不覆盖人工目视闸门的状态行（见【5b】）
+
+· `verify_d.py`　支持 --limit：是　退出码 0
+  stdout 的 RESULT 行（**逐字**）：`RESULT: PASS`
+  产物 `tests/papers/reports/d-report.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True
+  产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓
+  产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算）
+  判据行计数（口径：`grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)[[:space:]]*$' tests/papers/reports/d-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/d-report.txt`，两式相加）：**1**　← **本行是报告量，不构成判据**：判据是上面那条「产物内有自报失败的判据行」（只对状态为 FAIL/False 的行判红）；本行既不参与 ok，也不覆盖人工目视闸门的状态行（见【5b】）
+
+· `verify_ids.py`　支持 --limit：是　退出码 0
+  stdout 的 RESULT 行（**逐字**）：`RESULT: PASS`
+  产物 `tests/papers/reports/ids-report.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True
+  产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓
+  产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算）
+  判据行计数（口径：`grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)[[:space:]]*$' tests/papers/reports/ids-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/ids-report.txt`，两式相加）：**34**　← **本行是报告量，不构成判据**：判据是上面那条「产物内有自报失败的判据行」（只对状态为 FAIL/False 的行判红）；本行既不参与 ok，也不覆盖人工目视闸门的状态行（见【5b】）
+
+· `verify_io.py`　支持 --limit：是　退出码 0
+  stdout 的 RESULT 行（**逐字**）：`RESULT: PASS`
+  产物 `tests/papers/reports/io-report.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True
+  产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓
+  产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算）
+  判据行计数（口径：`grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)[[:space:]]*$' tests/papers/reports/io-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/io-report.txt`，两式相加）：**0**（本脚本的报告两种形态都不用，计数不适用）　← **本行是报告量，不构成判据**：判据是上面那条「产物内有自报失败的判据行」（只对状态为 FAIL/False 的行判红）；本行既不参与 ok，也不覆盖人工目视闸门的状态行（见【5b】）
+
+· `verify_map.py`　支持 --limit：是　退出码 0
+  stdout 的 RESULT 行（**逐字**）：`RESULT: PASS`
+  产物 `tests/papers/reports/map-report.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True
+  产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓
+  产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算）
+  判据行计数（口径：`grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)[[:space:]]*$' tests/papers/reports/map-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/map-report.txt`，两式相加）：**16**　← **本行是报告量，不构成判据**：判据是上面那条「产物内有自报失败的判据行」（只对状态为 FAIL/False 的行判红）；本行既不参与 ok，也不覆盖人工目视闸门的状态行（见【5b】）
+
+· `verify_types.py`　支持 --limit：是　退出码 0
+  stdout 的 RESULT 行（**逐字**）：`RESULT: PASS`
+  产物 `tests/papers/reports/types-report.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True
+  产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓
+  产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算）
+  判据行计数（口径：`grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)[[:space:]]*$' tests/papers/reports/types-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/types-report.txt`，两式相加）：**10**　← **本行是报告量，不构成判据**：判据是上面那条「产物内有自报失败的判据行」（只对状态为 FAIL/False 的行判红）；本行既不参与 ok，也不覆盖人工目视闸门的状态行（见【5b】）
+
+· `verify_wm.py`　支持 --limit：是　退出码 0
+  stdout 的 RESULT 行（**逐字**）：`RESULT: PASS`
+  产物 `tests/papers/reports/wm-report.txt`：存在 ✓ · 本次运行内重写 = True（判据：**启动时刻 ≤** mtime **≤ 退出时刻**，两侧容差 1.0s 覆盖文件系统时间戳粒度；只判下界时未来时间戳也能冒充）· 上界内 = True
+  产物全文的绝对路径痕迹扫描（`report.path_audit`，口径与各子脚本自扫的那条相同）：干净 ✓
+  产物里的 RESULT 行：`RESULT: PASS` ⇒ **裸的 RESULT: PASS** ✓（带 LIMITED 后缀的一律不算）
+  判据行计数（口径：`grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9._-]*=(OK|FAIL)[[:space:]]*$' tests/papers/reports/wm-report.txt` + `grep -cE '^.*:[[:space:]]*(True|False)[[:space:]]*$' tests/papers/reports/wm-report.txt`，两式相加）：**0**（本脚本的报告两种形态都不用，计数不适用）　← **本行是报告量，不构成判据**：判据是上面那条「产物内有自报失败的判据行」（只对状态为 FAIL/False 的行判红）；本行既不参与 ok，也不覆盖人工目视闸门的状态行（见【5b】）
+
+【3】Task 6b 的产物与其判据（D7：单独一节）
+  Task 6b 的三样交付**不在计划的六项阶段里**，它们的判据脚本是 `verify_types.py`（题型标注）与 `verify_map.py`（配对表 + 两张分流表）：
+  · `corpus/papers/PROBLEM_TYPES.md`　人工撰写的题型标注本体（**不由脚本生成**）；blob `0444937409cc4949dd446a1b3cc6609a8ee7b798`（口径：`git hash-object corpus/papers/PROBLEM_TYPES.md`）
+  · `corpus/papers/MODEL_MAP.md`　题型 → 模型/算法 配对表（`model_map.build` 生成）；blob `a911d9d235c5221a67f420e10ea91a226970b8e9`（口径：`git hash-object corpus/papers/MODEL_MAP.md`）
+  · `tools/papers/vocab/growth_triage.txt`　词表增长候选的三态分流表；blob `ee10ef6f0941a44b541f02ea4c65f26f5b8a9076`（口径：`git hash-object tools/papers/vocab/growth_triage.txt`）
+  · `tools/papers/vocab/body_triage.txt`　正文扫描跨篇 token 的三态分流表（同格式）；blob `fb6a8806c7888c025deac6b885a820feffbe5006`（口径：`git hash-object tools/papers/vocab/body_triage.txt`）
+  判据落点：`verify_types.py` → `tests/papers/reports/types-report.txt`；`verify_map.py` → `tests/papers/reports/map-report.txt`
+
+【4】放行条件里的外部实测记录（由 Task 7 实施者跑完后逐字落盘）
+  这两份是**产物逐字转抄**，本脚本不重跑 `cli`（见模块 docstring）；判据见各自的核对行。
+  `tests/papers/reports/cli-timing.txt`　`cli all` 的耗时实测（末行逐字）
+    git 跟踪 = True（口径：`git ls-files --error-unmatch tests/papers/reports/cli-timing.txt`）——不入库的残余等于丢失（D9）
+    含 `耗时` = True
+    含 `s/份` = True
+    含 `43 份` = True（份数是**当场从磁盘数出来的**，不是手抄的）
+    出现 `LIMITED` 0 处（限样本跑的记录不得当放行依据）
+  `tests/papers/reports/all-determinism.txt`　抽取物（md/图表/公式）的确定性实测
+    git 跟踪 = True（口径：`git ls-files --error-unmatch tests/papers/reports/all-determinism.txt`）——不入库的残余等于丢失（D9）
+    含 `跑前` = True
+    含 `跑后` = True
+    含 `43 份` = True（份数是**当场从磁盘数出来的**，不是手抄的）
+    出现 `LIMITED` 0 处（限样本跑的记录不得当放行依据）
+  抽取确定性**判数**（A-1：条件 ⑤ 原先只判「文件在 + 含三个词」，对确定性结论免疫——一份如实记录了非确定的记录照样含那三个词）：
+    口径：`tests/papers/reports/all-determinism.txt` 的**最后一遍**那一节（节头 `## <跑前>.json → <跑后>.json`，取**最后一个**这样的一节；节体到下一个任意 `## ` 节头为止）；取四处读数 —— `入库产物` / `md` / `figures` / `formulas`，读数 = 该标签下**每一行**里 `变了` 之后的整数（`blob 变了 **0** 份` 与 `blob 变了 0` 两种写法都取；多行时**取最严**、任一非 0 即红）；四处的每一行**都必须是 0**
+    命令（复用即复现）：`python tests/papers/verify_all.py`；只看那四行：`grep -E '变了' tests/papers/reports/all-determinism.txt | tail -4`；fail-closed：读不了 / 无节 / 某处无行 / 某行无数 ⇒ 红
+    最后一遍那一节：`## all-determinism-s2.json → all-determinism-s3.json`
+    入库产物：变了 **0** ⇒ 0 ✓　原文：`入库产物：5 份，blob 变了 **0** 份`
+    md：变了 **0** ⇒ 0 ✓　原文：`md         跑前 43 个 · 跑后 43 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同`
+    figures：变了 **0** ⇒ 0 ✓　原文：`figures    跑前 1816 个 · 跑后 1816 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同`
+    formulas：变了 **0** ⇒ 0 ✓　原文：`formulas   跑前 1564 个 · 跑后 1564 个 · 只在跑前 0 · 只在跑后 0 · blob 变了 0 ⇒ 逐字节相同`
+    判据结论：四处读数全为 0 ⇒ 这一条才成立（范围与本汇总其余各条一致：**2025 试点 43 份**这条流水线）
+
+【5】放行条件表（与【0】派生出来的实际判据集对齐）
+  放行的范围：**2025美赛O奖论文 试点 43 份这条流水线**。以下每条都给证据路径。
+  ① 全部 8 个判据脚本（由磁盘派生，不是计划的六项快照）全量跑**退出码 0 且产物里是裸的 `RESULT: PASS`**
+      证据：【2】逐条；产物 = `tests/papers/reports/<名>-report.txt`
+  ② Task 6b 的判据**在**①的清单里（`verify_types.py` / `verify_map.py` 各一条回归守卫，D1）
+      证据：【0】；漏一个即红
+  ③ A1 原件哈希复核通过（全语料 201 份 + 试点 43 份与基线逐字相同）
+      证据：【1】；基线 `tests/papers/reports/origin-sha256-all.txt` / `-2025.txt`
+  ④ `cli all` 的耗时已实测并逐字落盘
+      证据：`tests/papers/reports/cli-timing.txt`（见【4】）
+  ⑤ 抽取物（md / 图表 / 公式）的确定性已实测并逐字落盘，**且最后一次对账的四处读数都为 0（判数，不是只判文件里有那几个词）**
+      证据：`tests/papers/reports/all-determinism.txt`（见【4】：文件本身的核对行 + **判数**行，口径与命令都印在那一节里）；另有两处**每次运行都判**的重放性判据：`verify_map.py` 的 M-1-b（`index.build` 重跑到不入库目录）、M-8（`model_map.build()` 重跑到不入库目录）
+  ⑥ Task 6b 的产物齐备且字形可核
+      证据：【3】
+  ⑦ 放行证据 `tests/papers/reports/pilot-summary.txt` **自身**受版本控制（D9：不入库的残余等于丢失；原先没有任何判据护栏，M-9）
+      证据：【5】；口径：`git ls-files --error-unmatch tests/papers/reports/pilot-summary.txt`
+  **不在放行范围内**：「全量 201 份」——见【6】。本表的 ① 全部 PASS **不等于** 201 份跑得起来。
+  **不在放行范围内**：**两项人工目视闸门**——见【5b】。「可放行」**不覆盖** C4 目视项。
+  放行证据自身入库 = True（口径：`git ls-files --error-unmatch tests/papers/reports/pilot-summary.txt`）——不入库的残余等于丢失（D9）
+
+【5b】两项**人工目视闸门**：**不在本汇总的判定范围内**（B-1）
+  **两项人工目视闸门（C4 的与 Task 2 的）不在本汇总的判定范围内**；其机读值见各产物。
+  为什么非写不可——**同一件事有两个力道**，只读 `RESULT` 会把两者读成一件：
+    · **Task 2** 的 `tests/papers/reports/wm-visual-confirm.txt`（在 `verify_wm.py` 第 8 节是**硬判据**）：缺了/为空 ⇒ 该脚本判 FAIL ⇒ 进 ① 的放行范围。
+    · **C4** 的 `tests/papers/reports/c4-visual-confirm.txt`（在 `verify_c.py` **不并入 RESULT**：那段闸门以 `return not bad` 收尾，**不含** `visual_ok`）——缺了 ⇒ `c-report.txt` 会写 `C4 人工目视闸门: FAIL（未判定）` 与 `发布放行: **未放行**`，**而它的 `RESULT` 行照样是 PASS**。
+  ⇒ 「本汇总可放行」**不覆盖 C4 目视项**。那两行**不受本文任何判据管辖**（`CRIT_RX` 的两支都收不到它们——口径见 `CRIT_RX` 定义处的复核命令）。
+  **报告量（不是判据）**：C4 的机读值 visual_ok = True（口径：`grep -n '机读值 visual_ok=' tests/papers/reports/c-report.txt`，由 `verify_c.py` 写进它自己的产物）；`tests/papers/reports/c4-visual-confirm.txt` 存在 = True · `tests/papers/reports/wm-visual-confirm.txt` 存在 = True
+  **本条是报告量：上面这些取值一个都不参与本汇总的 ok / 退出码**——它的作用是把「目视项现在是不是判定过」摆到读者眼前，不是替它下结论。
+
+【6】扩到全量 201 份：当场量出来的前置（R6）
+  2022年美赛特等奖原版论文集：PDF 44 份 · `problem_of` 取不到题号 **0** 份
+  2023年美赛O奖论文：PDF 42 份 · `problem_of` 取不到题号 **5** 份
+  2024年美赛O奖论文：PDF 35 份 · `problem_of` 取不到题号 **35** 份
+  2025美赛O奖论文：PDF 43 份 · `problem_of` 取不到题号 **0** 份
+  UMAP2000-2010年美赛特等奖优秀论文集：PDF 22 份 · `problem_of` 取不到题号 **22** 份
+  UMAP2010-2019年美赛特等奖优秀论文集：PDF 15 份 · `problem_of` 取不到题号 **15** 份
+  合计 PDF **201** 份 · 取不到题号 **77** 份 · 取得到 **124** 份（口径：本函数当场对磁盘逐份调 `io.problem_of`）
+  **结论：扩到全量 201 份的前置条件未满足**——`problem_of` 在 77 份上取不到题号（未定义口径），索引在这 77 份上跑不起来。本条**不判 FAIL**（它不是本轮范围的判据），但它**不因本汇总的 PASS 而消失**：Task 9 扩语料前必须先定题号口径（R6）。
+
+==============================================================================
+判据集规模（**派生值**，不是手抄）：8 个脚本
+当前状态：**可放行**（范围：2025美赛O奖论文 试点 43 份）；「可放行全量 201 份」另见【6】，R6 未决项不因本行而消失；**两项人工目视闸门不在本判定范围内**（见【5b】——「可放行」不覆盖 C4 目视项）
+
+写入：tests/papers/reports/pilot-summary.txt
+  本文件是**全量跑的放行证据**（入库）；限样本跑的落点**按设计**是 tests/papers/reports-limited/ 下的另一份文件。
+
+RESULT: PASS

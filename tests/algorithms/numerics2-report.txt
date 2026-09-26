@@ -1,0 +1,8 @@
+PASS	G1 GM(1,1) 符号解 vs 数值闭式解
+PASS	G2 简单移动平均(n=4) 循环 vs 卷积
+PASS	G3 二次指数平滑 上游 vs fixed/exponential_smoothing
+PASS	G4 指派问题 intlinprog vs matchpairs
+PASS	G5 线性回归 regress vs 正规方程 (X'X)\\(X'y)
+PASS	G6 cityblock 距离 pdist vs 手算
+PASS	G7 PCA 主成分 pcacov vs eig(cov)（取绝对值比）
+# RESULT pass=7 fail=0 skip=0

@@ -1,0 +1,141 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MCM/ICM SUMMARY SHEET -- filled in. This file contains the summary page only;
+%% no paper body follows.
+%%
+%% Baseline: .claude/skills/mcm-latex-format/assets/mcm-2027-summary.tex, which is
+%% the official COMAP template (corpus/official/MCM-ICM_Summary.tex) with a single
+%% correction -- the summary title bar year is 2027 (see corpus/official/INDEX.md
+%% section 3.1, conflict 4).
+%%
+%% Differences from that baseline, and nothing else:
+%%   1. \Problem filled in with the chosen problem (was ABCDEF).
+%%   2. \Team filled in with the team control number (was 1111111).
+%%   3. The official template's red instruction text replaced by the finished
+%%      summary. The template itself says "You may delete these instructions"
+%%      (MCM-ICM_Summary.tex:54).
+%%   4. The baseline's trailing body scaffolding (\clearpage, \pagestyle{fancy},
+%%      \newpage, \setcounter{page}{1}, \rhead{Page \thepage\ } and the
+%%      "Begin your paper here" placeholder) is omitted, because this file holds
+%%      no body: with that scaffolding present, pdfLaTeX emits a second page
+%%      carrying only the placeholder and a header. The summary page itself is
+%%      unchanged -- \thispagestyle{empty} and \vspace*{-16ex} are kept, so the
+%%      summary sheet is still unnumbered (INDEX.md section 2.2.1).
+%%   5. The baseline's comment on the \graphicspath line was moved to its own
+%%      line. Nothing else on that line changed; a trailing comment after code
+%%      is what the mechanical scanner reports as C1 (unescaped percent).
+%%
+%% Page budget, for the full submission this sheet belongs to (not for this file):
+%% the 25-page limit covers the whole submission -- Summary Sheet, Table of
+%% Contents, solution, reference list, notes and appendices all count. The only
+%% chapter that does not count is "Report on Use of AI", which must come after
+%% the 25 pages. See corpus/official/INDEX.md sections 2.1.1 and 2.1.5.
+%%
+%% This comment block is ASCII-only on purpose.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MCM/ICM LaTeX Template %%
+%% 2027 MCM/ICM           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Replace ABCDEF in the next line with your chosen problem
+% and replace 1111111 with your Team Control Number
+\newcommand{\Problem}{A}
+\newcommand{\Team}{2534567}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath} % must come after amsXXX
+
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\lhead{Team \Team}
+\rhead{}
+\cfoot{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Place your graphic files in the same directory as your main document
+\graphicspath{{.}}
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+	\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \textcolor{red}{\Problem}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{2027\\ MCM/ICM\\ Summary Sheet}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \textcolor{red}{\Team}\end{center}}	\\
+	\hline
+\end{tabular}}
+%%%%%%%%%%% Begin Summary %%%%%%%%%%%
+
+We build a Stair Wear Model (SWM) that turns a single non-destructive survey of a step
+into estimates of how often a stairwell was used, in which direction, and by how many
+people at once. The field work needs only a grid of tread-depth readings (straightedge
+and dial gauge, or one 3D photogrammetric pass), the step's angle and plan size, and the
+stone's hardness; nothing is cored, and two people with hand tools suffice.
+
+The model has two coupled halves. The \emph{Wear Volume Model},
+$d(x,y)=T\,N_d\,D(x,y)\,G\,k_m$, sums wear over the tread, so once the wear map $D(x,y)$,
+the load $G$ and the coefficient $k_m$ are known, the age $T$ and the daily traffic $N_d$
+follow one from the other. The coefficient $k_m$ follows Archard's law $k_m = K d/H$ with
+weathering-decayed hardness $H(t)=H_0 e^{-pt}$, so ageing enters the rate; $G$ is a
+population-average weight over six demographic groups times $g$, taken here as $G = 700$
+N. The \emph{Wear Distribution Model} factorises the map as $D(x,y)=D_X D_Y$ and fits
+both marginals with a Gaussian-mixture algorithm (three components across the step, two
+along it). Peak counts then read the traffic off the tread: two along-step peaks mean
+two-way traffic, and the across-step peak count is how many walked abreast.
+
+Applied to a set of ancient Edinburgh sandstone steps (2.00 m by 0.40 m), the model gives
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\topsep}{2pt}
+\item Frequency of use: $N_d = 261$ person-passes per day; equivalently, at 260 passes
+per day the tread was laid $36{,}492$ days ago, about one century.
+\item Preferred direction: the along-step marginal splits into two components with an
+upward-to-downward ratio of $3:2$, so upward traffic dominated; the fitted impact centres
+(0.08 m up, 0.15 m down) both sit near the nosing, the upward one closer, as gait theory
+predicts.
+\item People abreast: the across-step marginal carries three components at 0.30 m, 1.10 m
+and 1.76 m, so three people climbed side by side rather than single file.
+\end{itemize}
+
+Four further tests answer the second group of questions. Wear consistency with the record
+is scored by a log-ratio index $P_A$ between measured and expected wear matrices; the
+paper defines it but reports no value for this stair, so none is claimed here. Age
+reliability is a two-sided interval at $\alpha = 0.05$: of the six sandstone steps we
+dated, five fell within $5\%$ of the known age, giving $CI \in [0.359, 0.996]$. Repairs
+are detected by comparing Brinell hardness across steps, which comes out uniform at 89.45
+N/mm$^2$ ($\sigma_H = 1.8$), and by a step-to-step wear scatter $|RS| = 0.03$, below the
+$0.05$ similarity threshold; this stair was therefore neither repaired nor rebuilt.
+Provenance is tested by comparing the model's time-averaged hardness $H_t = 90.44$
+N/mm$^2$ with the literature sandstone value $H_{0At} = 93.18$ N/mm$^2$, an error of
+$3.0\%$ -- consistent with sandstone, not with marble or wood.
+
+We also calibrate a traffic-intensity curve mapping the across-step spread $\sigma_x$ onto
+the number of people in a typical day,
+$N_{\mathrm{pass}} = 0.339 e^{0.13125\sigma_x} + 0.92338$, with $R^2 = 0.9999$;
+concentrated footsteps (few people over a long period) and dispersed or multi-modal ones
+(many people in a short burst) sit at opposite ends of it. Sensitivity runs show the model
+is insensitive to the weathering rate $p$ up to about four centuries but reacts sharply
+beyond (raising $p$ from 0.0025 to 0.005 shortens the time to saturation by $64.2\%$), and
+it stays robust across four national climates, where a century of simulated wear separates
+the extremes by under $0.01\%$. Its limitations are the steady-usage assumption and the
+collapse of microclimate into one weathering constant; within those bounds the SWM gives
+archaeologists quantitative, non-destructive readings of past traffic.
+
+%%%%%%%%%%% End Summary %%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+\end

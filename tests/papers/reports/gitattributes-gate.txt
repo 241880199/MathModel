@@ -1,0 +1,244 @@
+换行符闸门证据 —— Task 1 / Step 7
+
+本文件是入库的判据证据（仓库约定：判据证据必须逐字留在 tests/papers/reports/）。
+生成方式：取证脚本一次性跑完下列命令，把命令行与合并后的 stdout+stderr 原样
+写入本文件，没有手工转述的结论——行尾转换这种事只有原始字节说了算。
+
+记号：`#` 开头是取证脚本的注释；`$` 开头是实际执行的命令，紧随其后的是它的输出。
+本文件用 LF + write_bytes 落盘，且受 .gitattributes 的 `tests/papers/reports/**  -text`
+保护，故其工作树字节与 blob 字节相同。
+
+证据分两支：探针 A 是题目指定的字节形态（含 \r\r\n），验 -text 路径下字节保真；
+探针 B 是判别性对照——同一串纯文本字节，一份走 -text、一份不走，
+只有 B 能回答「是这条规则在起作用，还是 git 恰好不动它」。
+
+========================================================================
+0. 环境
+========================================================================
+
+$ git --version
+git version 2.48.1.windows.1
+
+$ git config core.autocrlf
+true
+
+# autocrlf=true（系统级 gitconfig）正是本闸门要防的环境：默认情况下 CRLF 会在
+# 入索引时被折成 LF。
+
+========================================================================
+1. 属性闸门：受保护路径必须 text: unset
+========================================================================
+
+$ git check-attr -a corpus/papers/md/x.md corpus/papers/figures/x/y.png tests/papers/reports/io-report.txt tests/papers/reports/gitattributes-gate.txt
+corpus/papers/md/x.md: text: unset
+corpus/papers/figures/x/y.png: text: unset
+tests/papers/reports/io-report.txt: text: unset
+tests/papers/reports/gitattributes-gate.txt: text: unset
+
+# 对照：未被任何规则覆盖的路径 text 为 unspecified ——证明是规则在起作用，
+# 而不是 git 的全局默认恰好如此。
+$ git check-attr text corpus/official/x.md
+corpus/official/x.md: text: unspecified
+
+
+========================================================================
+2. 忽略闸门：可由 cli 确定性重生成的大体积派生物不入库
+========================================================================
+
+$ git check-ignore -v corpus/papers/figures/a.png corpus/papers/formulas/b.png
+.gitignore:4:corpus/papers/figures/	corpus/papers/figures/a.png
+.gitignore:5:corpus/papers/formulas/	corpus/papers/formulas/b.png
+
+# 对照：md/ 未被忽略，抽取出的文本仍要入库。
+$ git check-ignore -v corpus/papers/md/x.md
+# exit 1
+
+# exit 1 = 未命中忽略规则，即 md/ 在入库范围内。
+
+========================================================================
+3. 探针 A（题目指定形态）：-text 路径下字节原样穿过 git
+========================================================================
+
+探针 A 内容 = b'line one\r\nline two\nline three\r\r\n'
+（依次含 CRLF、LF、\r\r\n；最后一种正是 PROVENANCE §5.1 记录的叠加事故形态。）
+
+# 1) 写入工作树（write_bytes，不经任何文本层）
+$ od -An -tx1z corpus/papers/md/_gate_probe/probe_a.bin
+ 6c 69 6e 65 20 6f 6e 65 0d 0a 6c 69 6e 65 20 74  >line one..line t<
+ 77 6f 0a 6c 69 6e 65 20 74 68 72 65 65 0d 0d 0a  >wo.line three...<
+
+$ sha256sum corpus/papers/md/_gate_probe/probe_a.bin
+223a3655cfb4eb931452cc4fdc190addbeee8255e5a467d3b8c627a6e987ba62 *corpus/papers/md/_gate_probe/probe_a.bin
+
+# 2) 入索引
+$ git add -- corpus/papers/md/_gate_probe/probe_a.bin
+
+# 3) 读索引中的 blob
+$ git cat-file blob :corpus/papers/md/_gate_probe/probe_a.bin | od -An -tx1z
+ 6c 69 6e 65 20 6f 6e 65 0d 0a 6c 69 6e 65 20 74  >line one..line t<
+ 77 6f 0a 6c 69 6e 65 20 74 68 72 65 65 0d 0d 0a  >wo.line three...<
+
+$ git cat-file blob :corpus/papers/md/_gate_probe/probe_a.bin | sha256sum
+223a3655cfb4eb931452cc4fdc190addbeee8255e5a467d3b8c627a6e987ba62 *-
+
+$ git cat-file blob :corpus/papers/md/_gate_probe/probe_a.bin > build/_gate_probe/a.blob
+
+# 4) 删掉工作树副本，再从索引取回
+$ git checkout -- corpus/papers/md/_gate_probe/probe_a.bin
+
+$ od -An -tx1z corpus/papers/md/_gate_probe/probe_a.bin
+ 6c 69 6e 65 20 6f 6e 65 0d 0a 6c 69 6e 65 20 74  >line one..line t<
+ 77 6f 0a 6c 69 6e 65 20 74 68 72 65 65 0d 0d 0a  >wo.line three...<
+
+$ sha256sum corpus/papers/md/_gate_probe/probe_a.bin
+223a3655cfb4eb931452cc4fdc190addbeee8255e5a467d3b8c627a6e987ba62 *corpus/papers/md/_gate_probe/probe_a.bin
+
+# 5) 逐字节比对
+$ cmp corpus/papers/md/_gate_probe/probe_a.bin build/_gate_probe/a.blob
+# A：取回的工作树 vs blob：逐字节相同（cmp exit 0）
+
+$ cmp corpus/papers/md/_gate_probe/probe_a.bin build/_gate_probe/orig_a.bin
+# A：取回的工作树 vs 最初写入的字节：逐字节相同（cmp exit 0）
+
+# 局限（写清楚，免得这份证据被当成它证明不了的东西）：
+# 含裸 CR 的字节串会被 git 自己判为二进制——见下面这条 ls-files --eol，
+# 同内容的路径即使没有 -text 也报 i/-text，本就不会被归一化。
+# 所以探针 A 能证明的只是「闸门下的路径不改动字节」，
+# 「是不是这条规则在起作用」要靠第 4 节的判别性对照。
+$ git ls-files --eol -- corpus/papers/md/_gate_probe/probe_a.bin
+i/-text w/-text attr/-text            	corpus/papers/md/_gate_probe/probe_a.bin
+
+
+========================================================================
+4. 探针 B（判别性对照）：同一串纯文本字节，-text 与非 -text 两条路
+========================================================================
+
+探针 B 内容 = b'line one\r\nline two\nline three\n'（含 CRLF 与 LF，无裸 CR，故 git 视其为文本）
+
+# 4.1 受 -text 保护：corpus/papers/md/…
+$ git check-attr text corpus/papers/md/_gate_probe/probe_b.txt
+corpus/papers/md/_gate_probe/probe_b.txt: text: unset
+
+$ git add -- corpus/papers/md/_gate_probe/probe_b.txt
+
+$ git cat-file blob :corpus/papers/md/_gate_probe/probe_b.txt | od -An -tx1z
+ 6c 69 6e 65 20 6f 6e 65 0d 0a 6c 69 6e 65 20 74  >line one..line t<
+ 77 6f 0a 6c 69 6e 65 20 74 68 72 65 65 0a        >wo.line three.<
+
+$ git ls-files --eol -- corpus/papers/md/_gate_probe/probe_b.txt
+i/mixed w/mixed attr/-text            	corpus/papers/md/_gate_probe/probe_b.txt
+
+$ git cat-file blob :corpus/papers/md/_gate_probe/probe_b.txt > build/_gate_probe/b_keep.blob
+
+$ git checkout -- corpus/papers/md/_gate_probe/probe_b.txt
+
+$ cmp corpus/papers/md/_gate_probe/probe_b.txt build/_gate_probe/b_keep.blob
+# B(-text)：取回的工作树 vs blob：逐字节相同（cmp exit 0）
+
+$ cmp corpus/papers/md/_gate_probe/probe_b.txt build/_gate_probe/orig_b.bin
+# B(-text)：取回的工作树 vs 最初写入的字节：逐字节相同（cmp exit 0）
+
+
+# 4.2 同样的字节，放进没有任何规则覆盖的路径：
+$ git check-attr text _gate_probe_control.txt
+_gate_probe_control.txt: text: unspecified
+
+$ od -An -tx1z _gate_probe_control.txt
+ 6c 69 6e 65 20 6f 6e 65 0d 0a 6c 69 6e 65 20 74  >line one..line t<
+ 77 6f 0a 6c 69 6e 65 20 74 68 72 65 65 0a        >wo.line three.<
+
+# 入索引——注意 git 自己打出的告警行：
+$ git add -- _gate_probe_control.txt
+warning: in the working copy of '_gate_probe_control.txt', LF will be replaced by CRLF the next time Git touches it
+
+$ git cat-file blob :_gate_probe_control.txt | od -An -tx1z
+ 6c 69 6e 65 20 6f 6e 65 0a 6c 69 6e 65 20 74 77  >line one.line tw<
+ 6f 0a 6c 69 6e 65 20 74 68 72 65 65 0a           >o.line three.<
+
+$ git ls-files --eol -- _gate_probe_control.txt
+i/lf    w/mixed attr/                 	_gate_probe_control.txt
+
+$ git cat-file blob :_gate_probe_control.txt > build/_gate_probe/b_ctrl.blob
+
+$ cmp build/_gate_probe/b_ctrl.blob build/_gate_probe/orig_b.bin
+build/_gate_probe/b_ctrl.blob build/_gate_probe/orig_b.bin differ: char 9, line 1
+# B(无属性)：blob vs 最初写入的字节：有差异（cmp exit 1）
+
+$ git checkout -- _gate_probe_control.txt
+
+$ od -An -tx1z _gate_probe_control.txt
+ 6c 69 6e 65 20 6f 6e 65 0d 0a 6c 69 6e 65 20 74  >line one..line t<
+ 77 6f 0d 0a 6c 69 6e 65 20 74 68 72 65 65 0d 0a  >wo..line three..<
+
+$ cmp _gate_probe_control.txt build/_gate_probe/orig_b.bin
+_gate_probe_control.txt build/_gate_probe/orig_b.bin differ: char 19, line 2
+# B(无属性)：取回的工作树 vs 最初写入的字节：有差异（cmp exit 1）
+
+# 结论：没有 -text，CRLF 在入索引时被折成 LF；取回的工作树也不是当初写下的
+# 那串字节。第 3 节的探针同形，但路径受 -text 保护，故字节一路不变。
+# 这就是闸门在做的事。
+
+# 4.3 回头把第 3 节那句「局限」验掉：探针 A 那串字节放到无属性路径上会怎样
+$ git check-attr text _gate_probe_control_a.txt
+_gate_probe_control_a.txt: text: unspecified
+
+$ git add -- _gate_probe_control_a.txt
+
+$ git ls-files --eol -- _gate_probe_control_a.txt
+i/-text w/-text attr/                 	_gate_probe_control_a.txt
+
+$ git cat-file blob :_gate_probe_control_a.txt | od -An -tx1z
+ 6c 69 6e 65 20 6f 6e 65 0d 0a 6c 69 6e 65 20 74  >line one..line t<
+ 77 6f 0a 6c 69 6e 65 20 74 68 72 65 65 0d 0d 0a  >wo.line three...<
+
+$ git cat-file blob :_gate_probe_control_a.txt > build/_gate_probe/a_ctrl.blob
+
+$ cmp build/_gate_probe/a_ctrl.blob build/_gate_probe/orig_a.bin
+# A(无属性)：blob vs 最初写入的字节：逐字节相同（cmp exit 0）
+
+# git 判这串字节为二进制（i/-text），于是不做任何转换：即使没有闸门，它也原样入库。
+# 这就是探针 A 不能单独当判别性证据的原因——第 4.1/4.2 节才是。
+
+# 清理探针：索引与工作树都恢复原状
+$ git rm --cached -q -- corpus/papers/md/_gate_probe/probe_a.bin
+
+$ git rm --cached -q -- corpus/papers/md/_gate_probe/probe_b.txt
+
+$ git rm --cached -q -- _gate_probe_control_a.txt
+
+$ git rm --cached -q -- _gate_probe_control.txt
+
+$ ls -A corpus/papers
+
+# 空输出 = corpus/papers/ 回到取证前的状态。
+$ git status --short
+ M .gitattributes
+M  tests/papers/reports/io-report.txt
+ M tests/papers/verify_io.py
+ M tools/papers/io.py
+?? tests/papers/reports/gitattributes-gate.txt
+
+# 此时没有探针残留（只有本次修复应有的改动，新证据文件是 ?? ）。
+
+========================================================================
+5. 判据证据自身的字节保真：io-report.txt 的工作树 == blob
+========================================================================
+
+$ git add -- tests/papers/reports/io-report.txt
+
+$ git cat-file blob :tests/papers/reports/io-report.txt > build/_gate_probe/io-report.blob
+
+$ cmp tests/papers/reports/io-report.txt build/_gate_probe/io-report.blob
+# io-report.txt 工作树 vs blob：逐字节相同（cmp exit 0）
+
+$ wc -c tests/papers/reports/io-report.txt build/_gate_probe/io-report.blob
+ 737 tests/papers/reports/io-report.txt
+ 737 build/_gate_probe/io-report.blob
+1474 total
+
+# io-report.txt 自身：737 字节，CRLF 0 处，LF 16 处 —— 纯 LF，故 blob 与工作树是同一串字节。
+# （终端上看到的换行是 Windows 文本模式 stdout 的 \n→\r\n 翻译；
+#   报告文件本身不经过那一层，跑出来的就是入库的那份。）
+
+# 收尾：清掉 build/ 下的比对用副本（build/ 已忽略，本就不入库）
+# 已清理。

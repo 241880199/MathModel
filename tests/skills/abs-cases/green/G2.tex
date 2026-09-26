@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% G2 -- MCM/ICM 2027 SUMMARY SHEET (Problem C: Olympic medal tables).
+%%
+%% WHAT THIS FILE IS
+%%   The summary sheet only.  It is written on the official COMAP template, so
+%%   it compiles on its own to exactly ONE page -- the local acceptance test for
+%%   a summary sheet.  To submit, paste the block between "Begin Summary" and
+%%   "End Summary" below into the paper skeleton, in place of the template's red
+%%   sample text, so that this text is page 1 of the submitted PDF.
+%%
+%% PAGE BUDGET (25 pages)
+%%   The 25-page limit covers the Summary Sheet, table of contents, full
+%%   solution, references, notes and appendices.  The only excluded section is
+%%   the "Report on Use of AI", which must be placed after the 25 pages.
+%%
+%% THE TWO FILLED FIELDS
+%%   \Problem -- the chosen problem letter (C here), NOT the template "ABCDEF".
+%%   \Team    -- the Team Control Number.  The value below is a stand-in (no
+%%               real control number was available when this sheet was written);
+%%               replace 2400001 with the team's actual control number, in both
+%%               \Team and the submitted file name "<control number>.pdf".
+%%
+%% PAPER SIZE
+%%   The page size is not set here (the official \geometry only fixes margins);
+%%   if your compiler does not produce US Letter or A4, set it explicitly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MCM/ICM LaTeX Template %%
+%% 2027 MCM/ICM           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{left=1in,right=0.75in,top=1in,bottom=1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Replace ABCDEF in the next line with your chosen problem
+% and replace 1111111 with your Team Control Number
+\newcommand{\Problem}{C}
+\newcommand{\Team}{2400001}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath} % must come after amsXXX
+
+\usepackage[pdftex]{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\lhead{Team \Team}
+\rhead{}
+\cfoot{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Place your graphic files in the same directory as your main document
+\graphicspath{{.}}
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+\thispagestyle{empty}
+\vspace*{-16ex}
+\centerline{\begin{tabular}{*3{c}}
+	\parbox[t]{0.3\linewidth}{\begin{center}\textbf{Problem Chosen}\\ \Large \textcolor{red}{\Problem}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{2027\\ MCM/ICM\\ Summary Sheet}\end{center}}
+	& \parbox[t]{0.3\linewidth}{\begin{center}\textbf{Team Control Number}\\ \Large \textcolor{red}{\Team}\end{center}}	\\
+	\hline
+\end{tabular}}
+%%%%%%%%%%% Begin Summary %%%%%%%%%%%
+\begin{center}
+\textbf{2028 Olympic Medal Predictions Based on Random Forest Model}
+\end{center}
+
+We predict the medal table event by event instead of extrapolating national totals. From the
+1896--2024 athlete, medal-table, host-country and programme data we build a four-dimensional
+capability vector for every athlete or team entry -- past total medals, past gold medals, best
+past result, and past score per appearance, each shifted to exclude the current Games -- and
+train one random forest per sport for the probability of winning a medal and another for the
+probability of winning gold; sports with fewer than five records or a single training class fall
+back to their historical medal rate. Medals are then allocated within each event (one gold, then
+the two highest remaining probabilities) rather than summed, which prevents inflated totals.
+Both steps assume the 2024 entrant pool and the 2024 programme carry over to 2028.
+
+A 1{,}000-run Monte Carlo over the fitted probabilities gives 95\% prediction intervals. Total
+medals: USA 113--142, China 105--125, Great Britain 52--75, Australia and Italy 45--65, France
+43--63, Japan 40--58, Netherlands 31--47, Germany 29--47. Gold medals: USA 37--53, China 31--49.
+Against 2024, the United States, China and Italy are our major improvers and France, Australia
+and Germany the major decliners. Held-out discrimination is good (ROC AUC 0.974 and 0.983 on two
+folds; PR-AUC 0.926 on the best fold, 0.639 on the worst), but the calibration curve
+over-predicts above $p = 0.7$, so the intervals above are mildly optimistic.
+
+More than 60 NOCs have never won a medal. Repeated over 500 simulated Games, the same draw gives
+an expected 4.78 first-time medallists at Los Angeles 2028, with 4 to 7 new NOCs in a typical
+simulation. The strongest individual odds are Samoa (SAM) 0.41, Mali (MLI) 0.27, Guam (GUM) 0.25,
+Papua New Guinea (PNG) 0.24 and Vanuatu (VAN) 0.24.
+
+Poisson regression connects programme size to medals. For USA swimming one extra event raises the
+expected medal count by 21.1\% ($\beta_1 = 0.1912$, $p < 0.001$); the estimate survives negative
+binomial (0.2378) and zero-inflated Poisson (0.1626, lowest AIC 92.33) specifications and
+leave-one-year-out refitting (0.18--0.20, except 0.2305 without 1964). China's table tennis is
+saturated: $\beta_1 = 0.1273$ with $p = 0.59$, so extra events add nothing to an already complete
+dominance. Hosting is worth about 74.8 total medals for the USA ($p < 0.001$) and 24.7 for China
+($p = 0.055$), consistent with hosts choosing extra events in their own strengths.
+
+We split a country's winning capability ($0$--$3$ per event) into athlete and coach components.
+Lang Ping's USA women's volleyball added 2.00 and 1.33 capability levels in 2008 and 2012 (mean
+1.16), and 1.67 for China in 2016: one coach moved a team by one to two medal grades. Applying
+that model, we advise India to invest in badminton (worth 1--2 bronze medals) and field hockey,
+Sweden in swimming, and Romania in rowing.
+
+Our distinctive finding is distributional. The NOCs still without a medal cluster in Africa, the
+Pacific and Latin America, where the binding constraint is programme access rather than athlete
+quality; for those countries we recommend adding events in sports the region already contests, as
+the cheapest route to a first medal, with the odds quantified above. National committees should
+treat programme composition -- worth up to 21\% per event in a strong sport, and far more to a
+host -- as a preparation target set years in advance rather than at the Games.
+%%%%%%%%%%% End Summary %%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Everything below is the template's page-break scaffolding for the FULL paper.
+% It is commented out here so that this file compiles to exactly one page.
+% Uncomment it (or simply paste the summary block above into the paper skeleton)
+% when the summary sheet is used as page 1 of the submitted report.
+%\clearpage
+%\pagestyle{fancy}
+%\tableofcontents   % uncomment to generate a Table of Contents
+%\newpage
+%\setcounter{page}{1}
+%\rhead{Page \thepage\ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+\end
