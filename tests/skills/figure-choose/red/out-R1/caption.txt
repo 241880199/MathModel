@@ -1,0 +1,16 @@
+Figure 1. Vulnerability composition of the six districts (A-F). (a) For every
+district the land area is partitioned into three vulnerability tiers (low,
+medium, high); the three shares sum to 1.00 by construction. Low-vulnerability
+land ranges from 0.28 (D) to 0.55 (C), and the high tier is the smallest
+component everywhere, varying only between 0.15 (C) and 0.25 (B, D, E). (b) The
+same six compositions placed in the low-medium-high simplex, in which one
+district is one point, so that similarity of structure is simply proximity.
+Districts B and D (circled) are the closest pair: their Aitchison distance, the
+Euclidean distance between centred log-ratios and the standard metric for
+shares, is 0.12, smaller than for any other pair - the next closest, C-F and
+A-E, stand at 0.17, and every remaining pair lies above 0.22. The plain
+Euclidean distance between the share vectors selects the same pair first
+(0.04), so the judgement does not hinge on the choice of metric. The two
+districts are close to structurally interchangeable: each gives exactly one
+quarter of its area to the high tier and they differ by only 0.03 in how the
+rest is split between low and medium (0.31/0.44 in B against 0.28/0.47 in D).

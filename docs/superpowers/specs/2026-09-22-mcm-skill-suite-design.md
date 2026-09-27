@@ -207,9 +207,15 @@ M6 语料库     ── 供 M2/M3 检索获奖论文原文
 | `mcm-plot-matlab` | MATLAB 实现，同一套规范 | 可直接运行的 `.m` 脚本 |
 | `mcm-plot-origin` | Origin 实现，同一套规范 | 操作步骤 + 参数取值（GUI 软件，不产出脚本） |
 | `mcm-table` | 三线表、结果表、灵敏度表 | LaTeX 表格代码 |
-| `mcm-schematic` | 技术路线图 / 机理示意图 / 模型结构图 | TikZ 或 Mermaid 源码 |
+| `mcm-schematic` | 技术路线图 / 机理示意图 / 模型结构图 | **TikZ 源码**（2026-09-27 定：单一载体） |
 
 三个 `mcm-plot-*` 必须与 `mcm-figure-choose` 共用同一份规范来源，不允许各自收敛出不同视觉标准。
+
+**为什么是 TikZ 而不是 Mermaid / draw.io**（2026-09-27 定，判据 = **载体选择以“agent 能否看见产物”为准**）：
+本机已端到端实测 **`pdflatex` 编译 TikZ → `fitz`(PyMuPDF) 渲 PNG → agent 可读图**（探针 `build/m3-carrier/`，2026-09-27，由 .gitignore 忽略）；
+而 **draw.io 在本机没有可执行路径**（无桌面版 / 无 CLI；装它要走 GitHub Releases，而本机实测被限速到 5–25 KB/s 并掐断）⇒ 产物**看不见**，无法自检、无法进证据链（通则 7）；
+**Mermaid** 需另拉一份 Chromium（未实测、数百 MB），且其排版与论文（LaTeX + newtx）不同源，导出 SVG/PNG 再入 LaTeX 等于二次加工。
+⇒ 只有 TikZ 能同时满足「**agent 可验证**」与「**与论文共用同一套字体 / 字号 / 配色**」，即 M3 的核心目标“共用同一份规范”。
 
 ### M4 · 数学模型层
 

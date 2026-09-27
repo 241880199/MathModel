@@ -1,0 +1,9 @@
+idx	path	verdict	note
+1	C/2501869/fig-09-p16.png	yes	红三角/蓝方块折线主色即 C3/C0
+2	C/2516695/fig-23-p23.png	yes	堆叠柱蓝-橙-绿-红-紫 = C0..C4
+3	E/2517273/fig-10-p21.png	yes	按用量堆叠柱为 tab10 蓝橙绿红
+4	E/2517273/fig-14-p23.png	yes	分组柱蓝橙绿红
+5	E/2517273/fig-15-p23.png	yes	同上
+6	F/2517199/fig-13-p21.png	yes	蓝/橙/绿三柱 = C0/C1/C2
+-	（v1 判据的 12 张阳性）	reject	12 张里 7 张是照片：v1 判据被否，见报告 §C.6
+

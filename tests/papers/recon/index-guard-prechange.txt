@@ -1,0 +1,60 @@
+改前实测：`index.build(sample=1 篇, out_dir=io.DERIVED)` 会不会**静默覆写**入库产物
+==============================================================================
+**这一份是历史记录，不是可重跑的脚本输出**——它量的是「守卫加严**之前**」的行为，
+加严之后就再也跑不出同样的结果了（那正是它的意义）。**可复现的那一份**是
+`tests/papers/reports/index-guard-evidence.txt` 里的 **MA-0**（把守卫谓词倒回旧形态后
+当场重演，形态与下面逐字一致）。
+
+**探针**（一次性，不入库）：`build/m2_pre_probe.py`（`build/` 是 gitignore 的暂存区）。
+**命令**：`PYTHONDONTWRITEBYTECODE=1 python build/m2_pre_probe.py`（cwd = 仓库根；
+跑前已清 `__pycache__`，共清 1 个目录）。
+**时刻**：2026-09-27 本轮开工、**任何改动之前**；`git rev-parse HEAD` =
+`25fe258facac4f0e145ce7775b8c7f6369595819`，`git status --porcelain` = **空**。
+
+> **口径（本项目硬纪律）**：下面每一处「测量值 + 文件哈希」都**取自同一时刻**
+> ——同一段输出里，blob 是当场读盘算的；两处 blob 列表之间**只有一次 `build` 调用**。
+
+逐字输出（stdout）：
+
+```
+=== 改前：三份产物 blob（测量与哈希取自同一时刻：本行前读盘、本行后仍读盘）===
+  corpus/papers/INDEX.md               0d8d4970efb245ab732a4dc7c21e7838ee8d675d
+  corpus/papers/TAGS.md                b879786d90f706ae6d7c37e3a5f0037fe1815153
+  corpus/papers/PROVENANCE.md          85484c4d233a6183031a3827510e09fde306e0db
+
+=== 调用 index.build(collection='2025美赛O奖论文', sample=1 篇, out_dir=io.DERIVED) ===
+  没有抛错：n_entries=1 · index_path=<repo>/corpus/papers/INDEX.md
+
+=== 跑后：三份产物 blob（与上面同一时刻口径）===
+  corpus/papers/INDEX.md               230628f5014a65c60dde147ffc84d2725084cd4e  **变了**
+  corpus/papers/TAGS.md                25dfa9a268fa57b0621d8d1b057320f0f16c7d54  **变了**
+  corpus/papers/PROVENANCE.md          cc149e3ee5a80c2ff42887b71ec70515d0eba183  **变了**
+
+改前实测结论：抛错 = False · 有产物被覆写 = True
+```
+
+**还原**（上面那一段的代价必须收干净；`git checkout --` 从 HEAD 取字节，
+`corpus/papers/**` 有 `-text` 约定 ⇒ 逐字节复原）：
+
+```
+$ git checkout -- corpus/papers/INDEX.md corpus/papers/TAGS.md corpus/papers/PROVENANCE.md
+checkout rc=0
+$ for f in corpus/papers/INDEX.md corpus/papers/TAGS.md corpus/papers/PROVENANCE.md; do
+      printf "%-36s " "$f"; git hash-object "$f"; done
+corpus/papers/INDEX.md               0d8d4970efb245ab732a4dc7c21e7838ee8d675d
+corpus/papers/TAGS.md                b879786d90f706ae6d7c37e3a5f0037fe1815153
+corpus/papers/PROVENANCE.md          85484c4d233a6183031a3827510e09fde306e0db
+$ git status --porcelain
+（空 —— 三份产物零差异）
+```
+
+**读法**：三份 blob **逐一回到上面「改前」那一列**，`git status` 空
+⇒ 「改前确实会覆写」这个事实**已被量到**，且**没有留下残骸**。
+这一个敞口就是终审的探针踩到的那个：`sample` 给了、`out_dir` **显式**指到
+`io.DERIVED` ⇒ 旧谓词（`out_dir is None`）不触发 ⇒ 已放行的三份产物被写成 1 份版本。
+
+**与原始 stdout 的唯一一处不同（如实登记）**：探针原始输出的那一行是
+`index_path=` 后面跟**机器绝对路径**（当时打印的是 `Path` 对象）。按本项目
+「报告/证据只许带**仓库相对路径**」的硬纪律，上面已把它**消毒**成
+`<repo>/corpus/papers/INDEX.md` ——**除这一处之外逐字未动**（那两列 blob 不受影响：
+它们是当场读盘算出来的）。

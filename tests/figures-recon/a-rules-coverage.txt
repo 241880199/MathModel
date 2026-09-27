@@ -1,0 +1,16 @@
+# 规则表（顺序=优先级；正则带 \b 词界）
+#   flow-diagram   \b(flow\s?chart|flow\s?diagram|workflow|pipeline\s+diagram|process\s+diagram|framework\s+diagram|roadmap)\b
+#   schematic      \b(schematic|illustration|conceptual\s+diagram|schematic\s+diagram|architecture)\b
+#   surface-3d     \b(3\s?-?d|three[\s-]dimensional|surface\s+plot|3d\s+(surface|plot|scatter|bar))\b
+#   heatmap        \b(heat\s?map|heatmap|correlation\s+matrix|confusion\s+matrix|matrix\s+of)\b
+#   contour        \b(contour|iso[\s-]?line|level\s+curve)\b
+#   violin         \b(violin)\b
+#   box            \b(box\s?plot|boxplot|box\s+and\s+whisker|whisker)\b
+#   histogram      \b(histogram|hist\b|frequency\s+distribution)\b
+#   pie            \b(pie\s?chart|pie\b|donut\s+chart|doughnut)\b
+#   network        \b(network|graph\s+of|node[\s-]link|knowledge\s+graph|tree\s+diagram|dendrogram|sankey)\b
+#   map            \b(map|map\s+of|geograph|spatial\s+distribution|choropleth|world\s+map|heatmap\s+of\s+the\s+world)\b
+#   scatter        \b(scatter|scatterplot|scatter\s+plot|bubble\s+chart|joint\s+plot|pair\s?plot)\b
+#   bar            \b(bar\s?chart|bar\s?plot|bar\b|column\s+chart|stacked\s+bar|grouped\s+bar)\b
+#   line           \b(line\s?chart|line\s?plot|line\s+graph|curve|time\s+series|trend|trajectory|density\s+plot|plot\s+of|chart\s+of|graph\s+of|radar\s+chart|radar\s+plot|area\s+chart|roc\s+curve|qq\s+plot)\b
+#

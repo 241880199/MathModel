@@ -1,0 +1,131 @@
+### A 规则层
+图总数(图注侧) n = 662
+规则命中 = 120  规则未命中(other) = 542
+规则覆盖率 = 120/662 = 0.1813
+各类命中数: {'line': 30, 'flow-diagram': 21, 'network': 16, 'heatmap': 14, 'surface-3d': 11, 'map': 11, 'schematic': 9, 'histogram': 3, 'scatter': 3, 'violin': 1, 'bar': 1}
+
+抽查（规则命中的全部 120 张，逐张看图判读）：{'ok': 82, 'partial': 16, 'wrong': 22}
+  strict 准确率 = 82/120 = 0.6833
+  lenient(ok+partial) = 98/120 = 0.8167
+
+### 判断层（种子 20260927 随机 120 张，看缩略图判读）
+  line             27  0.225
+  bar              14  0.117
+  flow-diagram     12  0.100
+  schematic        10  0.083
+  scatter           9  0.075
+  surface-3d        8  0.067
+  network           8  0.067
+  mixed             8  0.067
+  heatmap           7  0.058
+  table             5  0.042
+  map               5  0.042
+  photo             4  0.033
+  histogram         1  0.008
+  radar             1  0.008
+  other             1  0.008
+
+规则 vs 判断（随机 120 张）：
+  判读为「可判定图型」的 101 张中，规则同类 11（一致率 0.1089）
+  判读可判定但规则给了 other（**规则漏判**）: 87 张
+     C/2507817/fig-13-p15.png  判断=line
+     D/2507692/fig-15-p15.png  判断=scatter
+     B/2504448/fig-07-p11.png  判断=line
+     A/2511565/fig-12-p17.png  判断=surface-3d
+     B/2501687/fig-03-p7.png  判断=schematic
+     C/2517690/fig-02-p4.png  判断=flow-diagram
+     C/2515235/fig-08-p15.png  判断=heatmap
+     B/2503268/fig-05-p12.png  判断=bar
+     C/2514362/fig-02-p5.png  判断=flow-diagram
+     A/2511565/fig-11-p17.png  判断=line
+     C/2501869/fig-03-p7.png  判断=scatter
+     A/2500836/fig-08-p10.png  判断=line
+     B/2505199/fig-04-p8.png  判断=line
+     C/2514461/fig-18-p23.png  判断=scatter
+     D/2519935/fig-25-p23.png  判断=schematic
+     F/2513705/fig-10-p21.png  判断=line
+     A/2500836/fig-13-p15.png  判断=line
+     D/2516219/fig-03-p5.png  判断=flow-diagram
+     B/2509557/fig-02-p5.png  判断=flow-diagram
+     D/2519935/fig-07-p9.png  判断=network
+     A/2511565/fig-10-p16.png  判断=surface-3d
+     C/2510185/fig-10-p15.png  判断=bar
+     C/2503389/fig-11-p20.png  判断=line
+     B/2503268/fig-11-p21.png  判断=bar
+     C/2521556/fig-06-p10.png  判断=heatmap
+     B/2504448/fig-04-p7.png  判断=schematic
+     A/2504218/fig-09-p15.png  判断=surface-3d
+     F/2513705/fig-07-p10.png  判断=scatter
+     A/2501909/fig-03-p6.png  判断=schematic
+     A/2501909/fig-05-p10.png  判断=line
+     B/2504448/fig-14-p18.png  判断=line
+     C/2510006/fig-12-p14.png  判断=line
+     F/2513705/fig-01-p3.png  判断=schematic
+     C/2514362/fig-08-p10.png  判断=bar
+     A/2501567/fig-08-p14.png  判断=surface-3d
+     C/2501869/fig-01-p4.png  判断=flow-diagram
+     B/2505199/fig-09-p20.png  判断=line
+     B/2505199/fig-02-p4.png  判断=flow-diagram
+     B/2505199/fig-01-p3.png  判断=bar
+     B/2503268/fig-04-p10.png  判断=scatter
+     C/2505964/fig-02-p5.png  判断=flow-diagram
+     A/2501567/fig-12-p23.png  判断=line
+     A/2501909/fig-12-p22.png  判断=line
+     B/2517929/fig-07-p12.png  判断=bar
+     F/2517199/fig-05-p9.png  判断=map
+     B/2501687/fig-11-p17.png  判断=line
+     C/2522820/fig-05-p14.png  判断=line
+     C/2513314/fig-05-p16.png  判断=line
+     F/2521039/fig-13-p18.png  判断=schematic
+     D/2519935/fig-18-p18.png  判断=map
+     B/2503268/fig-10-p20.png  判断=scatter
+     D/2516219/fig-12-p23.png  判断=surface-3d
+     C/2503389/fig-07-p13.png  判断=bar
+     C/2510006/fig-25-p22.png  判断=line
+     F/2504223/fig-05-p9.png  判断=schematic
+     C/2500759/fig-16-p21.png  判断=bar
+     C/2514461/fig-17-p23.png  判断=scatter
+     B/2509557/fig-11-p19.png  判断=heatmap
+     B/2501687/fig-04-p9.png  判断=histogram
+     B/2503268/fig-08-p18.png  判断=line
+     C/2514362/fig-25-p23.png  判断=line
+     C/2524070/fig-04-p12.png  判断=bar
+     C/2516695/fig-10-p16.png  判断=line
+     C/2524070/fig-08-p16.png  判断=network
+     A/2511565/fig-13-p21.png  判断=heatmap
+     D/2507692/fig-21-p16.png  判断=network
+     F/2517199/fig-09-p14.png  判断=bar
+     C/2521556/fig-04-p8.png  判断=map
+     D/2507692/fig-28-p22.png  判断=network
+     C/2521556/fig-08-p11.png  判断=line
+     C/2514362/fig-09-p10.png  判断=bar
+     E/2515136/fig-01-p4.png  判断=flow-diagram
+     E/2508861/fig-02-p4.png  判断=flow-diagram
+     C/2507817/fig-05-p9.png  判断=schematic
+     C/2517690/fig-04-p8.png  判断=line
+     D/2519935/fig-22-p21.png  判断=scatter
+     C/2501869/fig-05-p10.png  判断=scatter
+     B/2502617/fig-10-p17.png  判断=line
+     D/2504188/fig-02-p4.png  判断=schematic
+     C/2515235/fig-11-p23.png  判断=flow-diagram
+     C/2515235/fig-07-p14.png  判断=map
+     C/2510862/fig-02-p6.png  判断=flow-diagram
+     A/2501567/fig-11-p19.png  判断=surface-3d
+     C/2516695/fig-22-p23.png  判断=bar
+     F/2513705/fig-06-p10.png  判断=line
+     C/2521556/fig-21-p22.png  判断=line
+     C/2524070/fig-10-p17.png  判断=network
+  判读为「非图型」（照片/表/混合/其他）但规则给了图型（**规则误命中**）: 3 张
+     C/2510006/fig-07-p13.png  规则=heatmap  判断=mixed
+     E/2515136/fig-05-p10.png  规则=line  判断=mixed
+     A/2501567/fig-02-p6.png  规则=surface-3d  判断=photo
+
+判断层占比（n=120）：
+  multi_panel  61/120 = 0.508
+  three_d      11/120 = 0.092
+  pie          0/120 = 0.000
+  legend       13/120 = 0.108
+
+像素判据 vs 判断层（同一 120 张）：
+  legend_frame  一致 19/120 = 0.158  (tp=9 fp=97 fn=4 tn=10)  判据率=0.883  人判率=0.108
+  multi_panel   一致 67/120 = 0.558  (tp=60 fp=52 fn=1 tn=7)  判据率=0.933  人判率=0.508

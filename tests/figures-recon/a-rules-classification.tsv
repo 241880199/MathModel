@@ -1,0 +1,663 @@
+path	kind	class	caption	matched
+A/2500836/fig-01-p3.png	fig	other	Figure 1: Typical ancient architectural steps that have uneven wear after long-term use	
+A/2500836/fig-02-p5.png	fig	flow-diagram	Figure 2：Flowchart of our work	Flowchart
+A/2500836/fig-03-p6.png	fig	other	Figure 3: Image processing	
+A/2500836/fig-04-p7.png	fig	other	Figure 4: Step with the best processing effect	
+A/2500836/fig-05-p7.png	fig	surface-3d	Figure 5: A processed three-dimensional image	three-dimensional
+A/2500836/fig-06-p8.png	fig	surface-3d	Figure 6: 3-D Cartesian coordinate system	3-D
+A/2500836/fig-07-p9.png	fig	other	Figure 7：Image of the data fitted	
+A/2500836/fig-08-p10.png	fig	other	Figure 8: Calculation result	
+A/2500836/fig-09-p11.png	fig	other	Figure 9: Determination of travel direction preference index	
+A/2500836/fig-10-p12.png	fig	other	Figure 10: Variation in wear depth of steps of different lengths	
+A/2500836/fig-11-p13.png	fig	heatmap	Figure 11: Pedestrian Density Heatmap	Heatmap
+A/2500836/fig-12-p14.png	fig	other	Figure 12: Change in foot traffic over time	
+A/2500836/fig-13-p15.png	fig	other	Figure 13: Accumulative wear depth variation	
+A/2500836/fig-14-p16.png	fig	other	Figure 14: Variation in the service life of step	
+A/2500836/fig-15-p17.png	fig	other	Figure 15: Monte Carlo simulation images	
+A/2500836/fig-16-p18.png	fig	other	Figure 16: Wear morphology diagram [7]	
+A/2500836/fig-17-p18.png	fig	other	Figure 17: Scan results [8]	
+A/2500836/fig-18-p19.png	fig	other	Figure 18: Annual ring	
+A/2500836/fig-19-p20.png	fig	line	Figure 19： Radar chart	Radar chart
+A/2500836/fig-20-p21.png	fig	other	Figure 20：Sensitivity Analysis of Wear Depth Distribution	
+A/2500836/fig-21-p22.png	fig	other	Figure 21：Sensitivity Analysis of Continuity Equation for Simulating Walking Patterns	
+A/2500836/fig-22-p25.png	fig	other	Figure 22: Location of the Leaning Tower of Pisa and the Carrara quarry	
+A/2501567/fig-01-p3.png	fig	other	Figure 1: Ancient worn stone stair.	
+A/2501567/fig-02-p6.png	fig	surface-3d	Figure 2: 3D scan of staircase wear	3D
+A/2501567/fig-03-p8.png	fig	other	Figure 3: Relationship between g(M) and H(MPa) at varying temperatures.	
+A/2501567/fig-04-p9.png	fig	line	Figure 4: Standard GRF curve	curve
+A/2501567/fig-05-p10.png	fig	line	Figure 5: GRF curve in different directions.	curve
+A/2501567/fig-06-p11.png	fig	other	Figure 6: Worn surface scanned by LiDAR.	
+A/2501567/fig-07-p14.png	fig	other	Figure 7: The distribution of the location where feet stepping on.	
+A/2501567/fig-08-p14.png	fig	other	Figure 8: The distribution of the wear depth	
+A/2501567/fig-09-p16.png	fig	other	Figure 9: BIC score versus k when the numbers of people using the stairs simultaneously	
+A/2501567/fig-10-p17.png	fig	other	Figure 10: The Gaussian Mixture Model fitting of wear depth	
+A/2501567/fig-11-p19.png	fig	other	Figure 11: Wear progression of the staircase over time.	
+A/2501567/fig-12-p23.png	fig	other	Figure 12: Chaboche model.	
+A/2501909/fig-01-p3.png	fig	other	Figure 1: Worn stone steps	
+A/2501909/fig-02-p4.png	fig	other	Figure 2: The ﬂowchart of our work	
+A/2501909/fig-03-p6.png	fig	other	Figure 3: Rasterized diagram of the stair surface	
+A/2501909/fig-04-p10.png	fig	other	Figure 4: Force diagram of walking	
+A/2501909/fig-05-p10.png	fig	other	Figure 5: Distribution of wear in the Y-direction and the corresponding people	
+A/2501909/fig-06-p11.png	fig	other	Figure 6: Distribution of wear in the X-direction and the corresponding number of people	
+A/2501909/fig-07-p13.png	fig	flow-diagram	Figure 7: Flowchart for use by archaeological experts	Flowchart
+A/2501909/fig-08-p15.png	fig	other	Figure 8: Visualization of step wear distribution	
+A/2501909/fig-09-p20.png	fig	other	Figure 9: Simulated wear distribution of wear of different stone and wood	
+A/2501909/fig-10-p21.png	fig	other	Figure 10: Simulated wear conditions of wear of different stone and wood	
+A/2501909/fig-11-p21.png	fig	line	Figure 11: The ﬁtting curve of Q and σ	curve
+A/2501909/fig-12-p22.png	fig	other	Figure 12: Wear accumulation by material hardness H0	
+A/2501909/fig-13-p23.png	fig	other	Figure 13: Wear accumulaon by p	
+A/2501909/fig-14-p23.png	fig	other	Figure 14: Wear accumulation by country	
+A/2504218/fig-01-p3.png	fig	other	Figure 1: Worn stairs in famous ancient buildings	
+A/2504218/fig-02-p4.png	fig	other	Figure 2: Overview of this work	
+A/2504218/fig-03-p6.png	fig	surface-3d	Figure 3: 3D scanner diagram of worn stairs	3D
+A/2504218/fig-04-p7.png	fig	other	Figure 4: xxx.	
+A/2504218/fig-05-p9.png	fig	schematic	Figure 5: Illustration of step wear depth and corresponding real-world images.	Illustration
+A/2504218/fig-06-p12.png	fig	other	Figure 6: Wear patterns under different crowd densities.	
+A/2504218/fig-07-p12.png	fig	other	Figure 7: Motion diagram when up-/downstairs.	
+A/2504218/fig-08-p14.png	fig	other	Figure 8: Foot partition.	
+A/2504218/fig-09-p15.png	fig	other	Figure 9: Ascending wear evolution graph.	
+A/2504218/fig-10-p15.png	fig	other	Figure 10: Descending wear evolution graph.	
+A/2504218/fig-11-p16.png	fig	other	Figure 11: Up-/downstairs wear evolution graph.	
+A/2504218/fig-12-p17.png	fig	other	Figure 12: xxx.	
+A/2504218/fig-13-p18.png	fig	flow-diagram	Figure 13: Flowchart for Bayesian Inversion with Smooth Regularization in Stair Wear	Flowchart
+A/2504218/fig-14-p25.png	fig	other	Figure 14: Sensitivity analysis for κ and αshort.	
+A/2511565/fig-01-p4.png	fig	other	Figure 1: Our Work	
+A/2511565/fig-02-p6.png	fig	surface-3d	Figure 2: An Opensourced Highpoly Stone Old Stairs 3D Model	3D
+A/2511565/fig-03-p7.png	fig	other	Figure 3: Depth Measurement with MDE Model	
+A/2511565/fig-04-p8.png	fig	other	Figure 4: Photos of the Four Sampling Points and Four Stair Samples	
+A/2511565/fig-05-p9.png	fig	heatmap	Figure 5: Wear Depth Heatmap Samples	Heatmap
+A/2511565/fig-06-p12.png	fig	other	Figure 6: Going upstairs	
+A/2511565/fig-07-p12.png	fig	other	Figure 7: Going downstairs	
+A/2511565/fig-08-p14.png	fig	other	Figure 8: Typical Wear Patterns for Problem 2	
+A/2511565/fig-09-p15.png	fig	other	Figure 9: Stair Cases for Problem 2	
+A/2511565/fig-10-p16.png	fig	other	Figure 10: Typical Wear Patterns for Problem3	
+A/2511565/fig-11-p17.png	fig	other	Figure 11: Stair Cases for Problem 3	
+A/2511565/fig-12-p17.png	fig	other	Figure 12: Composite Wear Patterns	
+A/2511565/fig-13-p21.png	fig	other	Figure 13: Anomaly Detection in Surface Year Distribution	
+A/2511565/fig-14-p24.png	fig	other	Figure 14: The sensitivity analysis of parameters in model I	
+A/2511565/fig-15-p24.png	fig	other	Figure 15: The sensitivity analysis in model II	
+B/2501687/fig-01-p3.png	fig	map	Figure 1: Map and scenery of Juneau[1][2]	Map
+B/2501687/fig-02-p4.png	fig	other	Figure 2: Overview of our work	
+B/2501687/fig-03-p7.png	fig	other	Figure 3: Basic components of sustainable tourism	
+B/2501687/fig-04-p9.png	fig	other	Figure 4: Distribution of tourists in one year under different circumstances	
+B/2501687/fig-05-p10.png	fig	other	Figure 5: Negative influences of tourism on nature	
+B/2501687/fig-06-p12.png	fig	other	Figure 6: Linear regression analysis of the population and median income in Juneau	
+B/2501687/fig-07-p13.png	fig	other	Figure 7: ARIMA(d,p,q) analysis	
+B/2501687/fig-08-p13.png	fig	other	Figure 8: Negative influences of tourism on local residents	
+B/2501687/fig-09-p14.png	fig	other	Figure 9: Result of the survey	
+B/2501687/fig-10-p16.png	fig	other	Figure 10: Statistics of 10 iterations	
+B/2501687/fig-11-p17.png	fig	other	Figure 11: Sensitive analysis 2	
+B/2501687/fig-12-p19.png	fig	other	Figure 12: Sensitive analysis 2	
+B/2501687/fig-13-p19.png	fig	other	Figure 13: Negative influences of tourism on local residents	
+B/2501687/fig-14-p20.png	fig	other	Figure 14: Programming results of Jiuzhaigou	
+B/2502617/fig-01-p3.png	fig	other	Figure 1: Overview of Tourism Industry in Juneau, Alaska	
+B/2502617/fig-02-p5.png	fig	other	Figure 2: Our Work	
+B/2502617/fig-03-p7.png	fig	line	Figure 3: Chart of Current Income and Expenditure	Chart of
+B/2502617/fig-04-p9.png	fig	schematic	Figure 4: Economic benefits - Schematic Cost-benefit Analysis	Schematic
+B/2502617/fig-05-p11.png	fig	schematic	Figure 5: Social benefits - Schematic Social Satisfaction Analysis	Schematic
+B/2502617/fig-06-p13.png	fig	schematic	Figure 6: Environmental benefits - Schematic Minimization of Environmental Impact Analysis	Schematic
+B/2502617/fig-07-p15.png	fig	schematic	Figure 7: Schematic Pareto Optimization Solving Procedure	Schematic
+B/2502617/fig-08-p16.png	fig	heatmap	Figure 8: Tourist-Constraint Stringency Heatmap	Heatmap
+B/2502617/fig-09-p17.png	fig	other	Figure 9: Optimization Results - Juneau	
+B/2502617/fig-10-p17.png	fig	other	Figure 10: Optimization Results - Jiuzhaigou	
+B/2502617/fig-11-p18.png	fig	other	Figure 11: Changes of Total Tourists and Performance per Tourist in Jiuzhaigou	
+B/2502617/fig-12-p19.png	fig	other	Figure 12: Changes of Total benefit in Jiuzhaigou	
+B/2502617/fig-13-p20.png	fig	other	Figure 13: Sensitivity Analysis - Changes of Total Tourists and Performance per Tourist	
+B/2502617/fig-14-p20.png	fig	other	Figure 14: Sensitivity Analysis - Changes of Total benefit	
+B/2503268/fig-01-p5.png	fig	other	Figure 1: Pipeline of Our Model	
+B/2503268/fig-02-p7.png	fig	other	Figure 2: Construction Process of ELA	
+B/2503268/fig-03-p10.png	fig	schematic	Figure 3: System 3D schematic with projection	schematic
+B/2503268/fig-04-p10.png	fig	other	Figure 4: Respective projections	
+B/2503268/fig-05-p12.png	fig	other	Figure 5: Allocations	
+B/2503268/fig-06-p13.png	fig	other	Figure 6: policy impact on system	
+B/2503268/fig-07-p18.png	fig	heatmap	Figure 7: heatmap of weights	heatmap
+B/2503268/fig-08-p18.png	fig	other	Figure 8: H, N, T comparisons	
+B/2503268/fig-09-p19.png	fig	other	Figure 9: Baseline & Model Scores	
+B/2503268/fig-10-p20.png	fig	other	Figure 10: sensitivity analysis	
+B/2503268/fig-11-p21.png	fig	other	Figure 11: Top parameters by mean absolute local sensitivity with respect to Score. Error bars repre-	
+B/2503268/fig-12-p23.png	fig	other	Figure 12: (a)The current state of overtourism in Big Sur. (b) Baseline Analysis and Data Sources for	
+B/2504448/fig-01-p3.png	fig	other	Figure 1: Retreat of Mendenhall Glacier and tourism-related concerns from Juneau residents	
+B/2504448/fig-02-p4.png	fig	flow-diagram	Figure 2: Flow chart of the work	Flow chart
+B/2504448/fig-03-p7.png	fig	other	Figure 3: Pattern of tourism revenue and environmental index against tourist count	
+B/2504448/fig-04-p7.png	fig	other	Figure 4: Objectives of the model	
+B/2504448/fig-05-p8.png	fig	other	Figure 5: Tourism demand from 2019 to 2023	
+B/2504448/fig-06-p10.png	fig	other	Figure 6: Tourism revenue from 2019 to 2023	
+B/2504448/fig-07-p11.png	fig	other	Figure 7: Computation of environmental index	
+B/2504448/fig-08-p12.png	fig	other	Figure 8: Framework of the model	
+B/2504448/fig-09-p14.png	fig	other	Figure 9: Overview of the DP approach	
+B/2504448/fig-10-p15.png	fig	other	Figure 10: Visualization of model results	
+B/2504448/fig-11-p16.png	fig	other	Figure 11: Composition of government expenditures	
+B/2504448/fig-12-p17.png	fig	other	Figure 12: Output policy components vs. different average of input environmental index	
+B/2504448/fig-13-p17.png	fig	other	Figure 13: Output policy components vs. different average input of resident satisfaction	
+B/2504448/fig-14-p18.png	fig	other	Figure 14: Output policy components vs. different average input of tourist count	
+B/2504448/fig-15-p19.png	fig	other	Figure 15: Comparison of features in Miami and Juneau	
+B/2504448/fig-16-p20.png	fig	other	Figure 16: Cultural index in Miami computed by entropy weight method	
+B/2505199/fig-01-p3.png	fig	other	Figure 1: Juneau Cruise Passenger Volume, 2014-2023	
+B/2505199/fig-02-p4.png	fig	other	Figure 2: Our Work	
+B/2505199/fig-03-p7.png	fig	other	Figure 3: Overview of Optimization Objectives	
+B/2505199/fig-04-p8.png	fig	other	Figure 4: The Impact of the Upper - limit Amounts of Alcohol Sales and Consumption	
+B/2505199/fig-05-p10.png	fig	other	Figure 5: Proportion of Each Component of Tourism Revenue	
+B/2505199/fig-06-p13.png	fig	other	Figure 6: The impact of tourist quantity limits on the actual number of tourists	
+B/2505199/fig-07-p16.png	fig	flow-diagram	Figure 7: NSGA-II Algorithm Process Diagram	Process Diagram
+B/2505199/fig-08-p19.png	fig	other	Figure 8: Pareto Optimal Front Diagram for	
+B/2505199/fig-09-p20.png	fig	other	Figure 9: Single-Parameter Sensitivity Analysis for Objectives	
+B/2505199/fig-10-p20.png	fig	other	Figure 10: Multi-Parameter Sensitivity Analysis for	
+B/2505199/fig-11-p22.png	fig	other	Figure 11: Regional Promotion-Hawaii Region	
+B/2509557/fig-01-p4.png	fig	other	Figure 1: Juneau Tourism Impact Assessment	
+B/2509557/fig-02-p5.png	fig	other	Figure 2: Our Work	
+B/2509557/fig-03-p6.png	fig	other	Figure 3: Cruise Visitor Growth by Ports (2019 vs 2023)[1]	
+B/2509557/fig-04-p6.png	fig	line	Figure 4: The Fitted Curve of Dynamic Visitor Management	Curve
+B/2509557/fig-05-p7.png	fig	other	Figure 5: Overall Impact of Tourism on Households, 2002, 2006, 2021, 2022, 2023[6]	
+B/2509557/fig-06-p7.png	fig	other	Figure 6: Visitor Satisfaction Across Categories[6]	
+B/2509557/fig-07-p14.png	fig	other	Figure 7: Dynamic Feedback Loops in Sustainable Tourism Systems	
+B/2509557/fig-08-p17.png	fig	other	Figure 8: Visualization of program output results	
+B/2509557/fig-09-p18.png	fig	other	Figure 9: Tourist Volume VS Env. Investment Allocation Rate / Tax Rate	
+B/2509557/fig-10-p19.png	fig	other	Figure 10: Resident Satisfaction VS Infra. Investment Allocation Rate & Fixed Fees Per Tourist	
+B/2509557/fig-11-p19.png	fig	other	Figure 11: Env. Degradation VS Tax Rate & Env. Investment Allocation Rate	
+B/2509557/fig-13-p21.png	fig	other	Figure 13:	
+B/2509557/fig-14-p22.png	fig	other	Figure 14: Visualization of Program Output Results for Sanya	
+B/2517929/fig-01-p3.png	fig	line	Figure 1: Comparison Chart of the Ablation of Mendenhall Glacier	Chart of
+B/2517929/fig-02-p4.png	fig	other	Figure 2: Literature Review Framework	
+B/2517929/fig-03-p5.png	fig	flow-diagram	Figure 3: Flow Chart of Our Work	Flow Chart
+B/2517929/fig-04-p7.png	fig	map	Figure 4: General Situation Map of Juneau	Map
+B/2517929/fig-05-p8.png	fig	flow-diagram	Figure5: Flowchart of multi - objective programming	Flowchart
+B/2517929/fig-06-p10.png	fig	other	Figure 6 : Function fitting results	
+B/2517929/fig-07-p12.png	fig	other	Figure 7: Residents' Attitudes towards Tourism in 2023	
+B/2517929/fig-08-p16.png	fig	flow-diagram	Figure 8: NGSA II Algorithm Flowchart	Flowchart
+B/2517929/fig-09-p16.png	fig	other	Figure 9: Pareto Front	
+B/2517929/fig-10-p19.png	fig	heatmap	Figure 10: Correlation Heatmap: Devision Variables and Objective Functions	Heatmap
+B/2517929/fig-11-p20.png	fig	other	Figure 11: Function fitting results	
+B/2517929/fig-12-p21.png	fig	other	Figure 12: Result chart	
+B/2517929/fig-13-p22.png	fig	other	Figure 13: the correlation between residents' satisfaction and the number of tourists	
+C/2500759/fig-01-p4.png	fig	flow-diagram	Figure 1: The Flow Chart of Our Work	Flow Chart
+C/2500759/fig-02-p6.png	fig	other	Figure 2: PCA Bioplot	
+C/2500759/fig-03-p8.png	fig	other	Figure 3: Variations in Parameter Tuning of WMAE_Gold and WMAE_Total	
+C/2500759/fig-04-p8.png	fig	other	Figure 4: Comparison on Hidden_size	
+C/2500759/fig-05-p9.png	fig	schematic	Figure 5: Schematic of XGBoost-Bootstrap	Schematic
+C/2500759/fig-06-p10.png	fig	other	Figure 6: Top 20 Predictions for Gold and Medal Counts at 2028 Olympics	
+C/2500759/fig-07-p13.png	fig	violin	Figure 7: Violin-Raincloud Hybrid Plot	Violin
+C/2500759/fig-08-p15.png	fig	heatmap	Figure 8: Spearman Correlation Coefficient Heatmap	Heatmap
+C/2500759/fig-09-p16.png	fig	other	Figure 9: Cellular-Importance Mixed Plot	
+C/2500759/fig-10-p16.png	fig	other	Figure 10: Top 15 Sports Event Importance Score	
+C/2500759/fig-11-p17.png	fig	other	Figure 11: PC1-SHAP Mixed Plot	
+C/2500759/fig-12-p17.png	fig	other	Figure 12: 2028 U.S. Medal and Gold Medal Prediction SHAP Plot	
+C/2500759/fig-13-p17.png	fig	other	Figure 13: 2028 France Medal and Gold Medal Prediction SHAP Plot	
+C/2500759/fig-14-p20.png	fig	other	Figure 14: The Top 10 Countries by Contribution Coefficient	
+C/2500759/fig-15-p20.png	fig	other	Figure 15: Trends in Medals Acquisition in Japan from 1996 to 2016	
+C/2500759/fig-16-p21.png	fig	other	Figure 16: Scree Plot for Principal Component Selection	
+C/2500759/fig-17-p22.png	fig	other	Figure 17: R2 Values Across 10-Fold Cross-Validation	
+C/2501869/fig-01-p4.png	fig	other	Figure 1 Our Work	
+C/2501869/fig-02-p5.png	fig	other	Figure 2 Box Plots of Total Medals from 1896 to 2024 and Ray Plots of Medals for 5 Countries	
+C/2501869/fig-03-p7.png	fig	other	Figure 3 The correlation between medal counts	
+C/2501869/fig-04-p8.png	fig	heatmap	Figure 4 RCA Index Heatmap	Heatmap
+C/2501869/fig-05-p10.png	fig	other	Figure 5 Prediction Results Based on the Four Methods Compared with the Real Data	
+C/2501869/fig-06-p12.png	fig	other	Figure 6 2028 Olympic Medal Predictions Gold/Silver/Bronze Distribution by Country	
+C/2501869/fig-07-p14.png	fig	other	Figure 7 Comparison of RCA, Num_Events and Total by Country	
+C/2501869/fig-08-p15.png	fig	other	Figure 8 Top Contributing Sports to Medal Counts: the United States and Egypt"	
+C/2501869/fig-09-p16.png	fig	other	Figure 9 NAE and RCA Indices of the Host Country	
+C/2501869/fig-10-p18.png	fig	other	Figure 10 Two Types of Change-Point	
+C/2501869/fig-11-p19.png	fig	other	Figure 11 Two Types of Change-Point	
+C/2501869/fig-12-p21.png	fig	other	Figure 12 Comparison of SLS, OLS Models vs Real Data	
+C/2503389/fig-01-p6.png	fig	network	Figure 1: Sankey Diagram Representing Medal Flow Across Countries and Sports (2024	Sankey
+C/2503389/fig-02-p7.png	fig	heatmap	Figure 2: Correlation Matrix(XComp, XAth, and XHist)	Correlation Matrix
+C/2503389/fig-03-p8.png	fig	other	Figure 3: Host Boost	
+C/2503389/fig-04-p8.png	fig	network	Figure 4: Feedforward Neural Network-Model Construction	Network
+C/2503389/fig-05-p8.png	fig	other	Figure 5: Weighted Fusion Construction	
+C/2503389/fig-06-p10.png	fig	other	Figure 6: Comparative Visualization of Olympic Medal Performance	
+C/2503389/fig-07-p13.png	fig	other	Figure 7: Mean and Variance	
+C/2503389/fig-08-p13.png	fig	other	Figure 8: The number of First-	
+C/2503389/fig-09-p14.png	fig	other	Figure 9: Monte Carlo Simulation of First-Time Medal-Winning Countries	
+C/2503389/fig-10-p16.png	fig	other	Figure 10: Correlation analysis: (a) shows the impact of the number of events, while (b) high-	
+C/2503389/fig-11-p20.png	fig	other	Figure 11: Caption for Britain	
+C/2503389/fig-12-p20.png	fig	other	Figure 12: Caption for USA	
+C/2503389/fig-13-p20.png	fig	other	Figure 13: Caption for China	
+C/2503389/fig-14-p23.png	fig	other	Figure 14: Spillover Effect	
+C/2503389/fig-15-p23.png	fig	other	Figure 15: Spillover Effect	
+C/2503389/fig-16-p23.png	fig	other	Figure 16: Spillover Effect	
+C/2503389/fig-17-p23.png	fig	other	Figure 17: Spillover Effect	
+C/2503389/fig-18-p24.png	fig	other	Figure 18: Impact of His-	
+C/2503389/fig-19-p24.png	fig	other	Figure 19: Impact of Ath-	
+C/2503389/fig-20-p24.png	fig	other	Figure 20: Impact of Com-	
+C/2505964/fig-01-p4.png	fig	other	Figure 1: The Olympic Symbol	
+C/2505964/fig-02-p5.png	fig	other	Figure 2: The Whole Process of Our Work	
+C/2505964/fig-03-p7.png	fig	other	Figure 3: The process for Task 1	
+C/2505964/fig-04-p8.png	fig	other	Figure 4: The four-dimensional ability characteristics of two Chinese swimmers by 2024 (left:	
+C/2505964/fig-05-p10.png	fig	other	Figure 5: 2028 Olmpics Medal Predictions Based on RFModel	
+C/2505964/fig-06-p12.png	fig	other	Figure 6: 95% CI for Medals	
+C/2505964/fig-07-p12.png	fig	other	Figure 7: Sensitivity Analysis	
+C/2505964/fig-08-p13.png	fig	other	Figure 8: Correlation Heatmaps for 3 Disciplines	
+C/2505964/fig-09-p14.png	fig	other	Figure 9:	
+C/2505964/fig-10-p15.png	fig	other	Figure 10: Distribution of Zero-Medal Countries Achieving a Medal (500 sims)	
+C/2505964/fig-11-p16.png	fig	other	Figure 11: The countries most likely to win their first Olympic medal at the 2028 Olympics.	
+C/2505964/fig-12-p17.png	fig	other	Figure 12: The Process of Poisson Regression	
+C/2505964/fig-13-p18.png	fig	other	Figure 13: Poisson Prediction	
+C/2505964/fig-14-p19.png	fig	other	Figure 14: Elasticity Analysis	
+C/2505964/fig-15-p20.png	fig	other	Figure 15: Data Sensitivity	
+C/2507817/fig-01-p3.png	fig	other	Figure 1 Medal list of 2024 Summer Olympic Games	
+C/2507817/fig-02-p4.png	fig	other	Figure 2 Our Work	
+C/2507817/fig-03-p7.png	fig	line	Figure 3 Prediction chart of medal numbers for the United States and China	chart of
+C/2507817/fig-04-p8.png	fig	flow-diagram	Figure 4 GSRF Algorithm Flow Diagram	Flow Diagram
+C/2507817/fig-05-p9.png	fig	other	Figure 5 10 Fold Cross Validation Diagram	
+C/2507817/fig-06-p10.png	fig	line	Figure 6 Feature Importance Radar Chart	Radar Chart
+C/2507817/fig-07-p10.png	fig	line	Figure 7 Comparison Chart of Actual and Predicted Values for Some Countries in 2024	Chart of
+C/2507817/fig-08-p11.png	fig	other	Figure 8 Predicted Gold&Total Medals Table for 2028 Los Angeles Olympics	
+C/2507817/fig-10-p13.png	fig	bar	Figure 10 Error bar chart of prediction model	bar chart
+C/2507817/fig-12-p15.png	fig	line	Figure 12 ROC curve	ROC curve
+C/2507817/fig-13-p15.png	fig	other	Figure 13 Hybrid Matrix Thermodynamic Diagram	
+C/2507817/fig-14-p16.png	fig	other	Figure 14 Countries and Probability of Winning Medals	
+C/2507817/fig-15-p18.png	fig	histogram	Figure 15 Radial Histogram of Sport Importance	Histogram
+C/2507817/fig-16-p18.png	fig	other	Figure 16 Countries that won medals in only one sport	
+C/2507817/fig-17-p19.png	fig	other	Figure 17 ROU vs USA Women's Gymnastics Scores	
+C/2507817/fig-18-p21.png	fig	line	Figure 18 Cross-Validation Diagram      Figure 19 Plot of vs. Model Coefficients	Plot of
+C/2507817/fig-20-p22.png	fig	other	Figure 20 Fluctuations in the Country's Score on the Item	
+C/2507817/fig-21-p23.png	fig	other	Figure 21 Change in number of medals	
+C/2507817/fig-22-p23.png	fig	other	Figure 22 Chinese men's hurdles	
+C/2507817/fig-23-p24.png	fig	other	Figure 23 Sentivity analysis	
+C/2510006/fig-01-p4.png	fig	other	Figure 1: Our work	
+C/2510006/fig-02-p7.png	fig	other	Figure 2: Sports Distribution Classiﬁcation (K-means)	
+C/2510006/fig-03-p9.png	fig	other	Figure 3: Monte Carlo Method for Simulating New Events	
+C/2510006/fig-04-p12.png	fig	line	Figure 4: Trend chart of original data,	Trend
+C/2510006/fig-05-p12.png	fig	other	Figure 5: ADF Statistic and p-value.	
+C/2510006/fig-06-p13.png	fig	other	Figure 6:	
+C/2510006/fig-07-p13.png	fig	heatmap	Figure 7: AIC heatmap.	heatmap
+C/2510006/fig-08-p13.png	fig	other	Figure 8:	
+C/2510006/fig-09-p13.png	fig	other	Figure 9:	
+C/2510006/fig-10-p13.png	fig	other	Figure 10:	
+C/2510006/fig-11-p13.png	fig	line	Figure 11: QQ plot of	QQ plot
+C/2510006/fig-12-p14.png	fig	other	Figure 12:	
+C/2510006/fig-13-p14.png	fig	other	Figure 13: Training, testing, and 2028	
+C/2510006/fig-14-p14.png	fig	other	Figure 14: Exponential Regression Model: First Medal Country (Disintegration) 2028 95%	
+C/2510006/fig-15-p15.png	fig	other	Figure 15: Top 10 Countries Most Likely to Win Their First Medal	
+C/2510006/fig-16-p16.png	fig	other	Figure 16: Top 10 Total Medal Predic-	
+C/2510006/fig-17-p16.png	fig	other	Figure 17: Top 10 Gold Medal Predic-	
+C/2510006/fig-18-p17.png	fig	other	Figure 18:	
+C/2510006/fig-19-p17.png	fig	other	Figure 19:	
+C/2510006/fig-20-p18.png	fig	heatmap	Figure 20: Heat Map	Heat Map
+C/2510006/fig-21-p21.png	fig	other	Figure 21: Relationship between GDP and Medal counts	
+C/2510006/fig-22-p22.png	fig	other	Figure 22: 60% conﬁdence level	
+C/2510006/fig-23-p22.png	fig	other	Figure 23: 80% conﬁdence level	
+C/2510006/fig-24-p22.png	fig	other	Figure 24: 90% conﬁdence level	
+C/2510006/fig-25-p22.png	fig	other	Figure 25: 95% conﬁdence level	
+C/2510006/fig-26-p22.png	fig	other	Figure 26: 99% conﬁdence level	
+C/2510185/fig-01-p3.png	fig	other	Figure 1: From Paris 2024 to LA 2028: Medal Table Prediction	
+C/2510185/fig-02-p4.png	fig	other	Figure 2: Our Work	
+C/2510185/fig-03-p6.png	fig	other	Figure 3: Data processing	
+C/2510185/fig-04-p7.png	fig	flow-diagram	Figure 4: Flowchart for Task 1	Flowchart
+C/2510185/fig-05-p9.png	fig	heatmap	Figure 5: Correlation matrix of the characteristics of model 1	Correlation matrix
+C/2510185/fig-06-p10.png	fig	other	Figure 6: Fitted prediction curves for Linear Regression, XGBoost, and Random Forests (from top	
+C/2510185/fig-07-p11.png	fig	flow-diagram	Figure 7: Flowchart for Task 1.1	Flowchart
+C/2510185/fig-08-p13.png	fig	network	Figure 8: ROC Curve of BP Neural Network Classifier	Network
+C/2510185/fig-09-p15.png	fig	flow-diagram	Figure 9: Flowchart for Task 1.3	Flowchart
+C/2510185/fig-10-p15.png	fig	other	Figure 10: The event importance distribution of Germany	
+C/2510185/fig-11-p16-2.png	fig	other	Figure 11: Importance of Sports Events by Medal Count for Different Countries	
+C/2510185/fig-11-p16.png	fig	other	Figure 11.	
+C/2510185/fig-12-p22.png	fig	other	Figure 12: Fitting curves of different dataset	
+C/2510185/fig-13-p23.png	fig	other	Figure 13: Changes in information gain	
+C/2510862/fig-01-p4.png	fig	other	Figure 1: Structure of our paper	
+C/2510862/fig-02-p6.png	fig	other	Figure 2: Fearture Engineering	
+C/2510862/fig-03-p7.png	fig	other	Figure 3: Principle of Stacking	
+C/2510862/fig-04-p9.png	fig	other	Figure 4: Prediction for medal table in 2028	
+C/2510862/fig-05-p10.png	fig	other	Figure 5: Model evaluation results	
+C/2510862/fig-06-p11.png	fig	other	Figure 6: prediction intervals for medal counts	
+C/2510862/fig-07-p12.png	fig	other	Figure 7: Countries that have never won a medal	
+C/2510862/fig-08-p13.png	fig	other	Figure 8: Participant Trends for Non-Medal-Winning Countries (Top 28)	
+C/2510862/fig-09-p14.png	fig	other	Figure 9: Relationship Between Sports and Countries Winning First Medals	
+C/2510862/fig-10-p14.png	fig	other	Figure 10: Countries Likely to Win Their First Medal in 2028 and Probabilities	
+C/2510862/fig-11-p15.png	fig	other	Figure 11: Correlation Coefficients Between Different Sports and Medal Counts	
+C/2510862/fig-12-p16.png	fig	other	Figure 12: SHAP Calculation Process	
+C/2510862/fig-13-p17.png	fig	other	Figure 13: Top 10 SHAP Values for Different Sports in USA, CHN and AUS	
+C/2510862/fig-14-p19.png	fig	other	Figure 14: Implementation steps and formulae derivation of the PSM-DID methodology	
+C/2510862/fig-15-p20.png	fig	other	Figure 15: Distribution of Propensity Scores	
+C/2510862/fig-16-p22.png	fig	other	Figure 16: Changes in medal counts before and after Béla Károlyi’s arrival	
+C/2510862/fig-17-p22.png	fig	other	Figure 17: The steps of our implementation of K-Means	
+C/2510862/fig-18-p23.png	fig	other	Figure 18: Women’s Gymnastics Medal Counts and Participation by country	
+C/2513314/fig-01-p3.png	fig	other	Figure 1: The 2028 Summer Olympics will be held in Los Angeles, USA.	
+C/2513314/fig-03-p6.png	fig	other	Figure 3: Total Medal and Gold Medal Distribution of Olympics History.	
+C/2513314/fig-04-p11.png	fig	other	Figure 4: Predicted Medal Allocations for LA 2028. Gold bars represent gold medals and silver bars	
+C/2513314/fig-05-p16.png	fig	other	Figure 5: Predicted Medal Allocations for LA 2028 in different 𝜏2. We predicted the number of	
+C/2513314/fig-06-p18.png	fig	other	Figure 6: Predicted Medal Allocations for LA 2028 in different Medal Distributions. We predicted	
+C/2514362/fig-01-p3.png	fig	other	Figure 1: Awards of some countries in the past 11 Olympic Games	
+C/2514362/fig-02-p5.png	fig	other	Figure 2: Our Work	
+C/2514362/fig-03-p5.png	fig	other	Figure 3: Comparison of the number	
+C/2514362/fig-04-p5.png	fig	line	Figure 4: Medal Trend Analysis	Trend
+C/2514362/fig-05-p9.png	fig	other	Figure 5: Prediction vs.Actual	
+C/2514362/fig-06-p9.png	fig	other	Figure 6: Gold Medal Prediction Analysis	
+C/2514362/fig-07-p9.png	fig	other	Figure 7: The predictions for the top 15 gold medal winners and their total medal counts.	
+C/2514362/fig-08-p10.png	fig	other	Figure 8: Changes in total medals	
+C/2514362/fig-09-p10.png	fig	other	Figure 9: Changes in gold medals	
+C/2514362/fig-10-p12.png	fig	other	Figure 10: First-Time Medal Winners	
+C/2514362/fig-11-p12.png	fig	other	Figure 11: Event-Country Relationship	
+C/2514362/fig-12-p13.png	fig	other	Figure 12: Medal gain analysis	
+C/2514362/fig-13-p13.png	fig	other	Figure 13: Uncertainty of Host-NewProject	
+C/2514362/fig-14-p14.png	fig	other	Figure 14: Country ranking volatility	
+C/2514362/fig-15-p14.png	fig	other	Figure 15: Model comparison	
+C/2514362/fig-16-p15.png	fig	other	Figure 16: Parameter sensitivity	
+C/2514362/fig-17-p15.png	fig	other	Figure 17: Single Factor Elimination Analysis	
+C/2514362/fig-18-p18.png	fig	scatter	Figure 18: ∆M vs. IG scatter plot	scatter
+C/2514362/fig-19-p19.png	fig	other	Figure 19: Medal Trends	
+C/2514362/fig-20-p19.png	fig	other	Figure 20: Recommended Projects	
+C/2514362/fig-21-p21.png	fig	other	Figure 21: Sensitivity Analysis	
+C/2514362/fig-22-p22.png	fig	other	Figure 22: Event Matching Potential	
+C/2514362/fig-23-p22.png	fig	other	Figure 23: Dynamic Evolution	
+C/2514362/fig-24-p23.png	fig	other	Figure 24: The Impact of Cold War	
+C/2514362/fig-25-p23.png	fig	other	Figure 25: Impact of "Black Swan" on Brazil	
+C/2514461/fig-01-p8.png	fig	other	Figure 1:	
+C/2514461/fig-02-p8.png	fig	other	Figure 2: Event count prediction of artistic gymnastics	
+C/2514461/fig-03-p10.png	fig	other	Figure 3: The score percentage of various sports for different countries at the 2024 Olympic	
+C/2514461/fig-04-p11.png	fig	other	Figure 4: China’s Diving, Overfitting	
+C/2514461/fig-05-p11.png	fig	other	Figure 5: China’s Table Tennis, Underfitting	
+C/2514461/fig-06-p12.png	fig	flow-diagram	Figure 6: Flow chart of medal	Flow chart
+C/2514461/fig-07-p12.png	fig	other	Figure 7: Probability prediction of Chinese diving gold and	
+C/2514461/fig-08-p13.png	fig	other	Figure 8: Analysis of the advantages of the host country. The light yellow score indicates the	
+C/2514461/fig-09-p14.png	fig	other	Figure 9: Top 10 of predicted 2028 medal	
+C/2514461/fig-10-p14.png	fig	other	Figure 10: Top 10 of predicted 2028 medal	
+C/2514461/fig-11-p15.png	fig	other	Figure 11: Taking the 2024 gold medal predictions as an example, the confidence interval of	
+C/2514461/fig-12-p16.png	fig	line	Figure 12: The scores of countries with obvious upward or downward trend in the past 5	trend
+C/2514461/fig-13-p18.png	fig	other	Figure 13: The distribution of the possible number of 2028 first-time medalists	
+C/2514461/fig-14-p22.png	fig	other	Figure 14: CHN Archery S prediction	
+C/2514461/fig-15-p22.png	fig	other	Figure 15: CHN Archery S prediction	
+C/2514461/fig-16-p23.png	fig	other	Figure 16: USA Taekwondo S prediction	
+C/2514461/fig-17-p23.png	fig	other	Figure 17: USA Taekwondo S prediction	
+C/2514461/fig-18-p23.png	fig	other	Figure 18: TPE Swimming S prediction	
+C/2514461/fig-19-p23.png	fig	other	Figure 19: TPE Swimming S prediction	
+C/2514461/fig-20-p24.png	fig	other	Figure 20: Relationship between predicted score after hiring a coach and the thresholds	
+C/2514461/fig-21-p25.png	fig	other	Figure 21: Relationship between predicted score after hiring a coach and the thresholds	
+C/2515235/fig-01-p3.png	fig	other	Figure 1: Tom Cruise declares see you in LA for 2028 Olympics	
+C/2515235/fig-02-p4.png	fig	other	Figure 2: The overview of Our Work.	
+C/2515235/fig-03-p6.png	fig	other	Figure 3. Data processing steps	
+C/2515235/fig-04-p7.png	fig	other	Figure 4. Data processing steps	
+C/2515235/fig-05-p9.png	fig	other	Figure 5: The overview of TMP-OMP Model.	
+C/2515235/fig-06-p13.png	fig	other	Figure 6. 2024-2028 Medal table changes	
+C/2515235/fig-07-p14.png	fig	other	Figure 7. Number of medals won by countries in the world and progress made by coun-tries	
+C/2515235/fig-08-p15.png	fig	other	Figure 8: Pearson correlation analysis of project participation rates and SCS line graphs	
+C/2515235/fig-09-p20.png	fig	line	Figure 9: Projected line graph after getting the great coaching effect	line graph
+C/2515235/fig-10-p22.png	fig	other	Figure 10: Host effect influences trends.	
+C/2515235/fig-11-p23.png	fig	other	Figure 11．Classification of countries and recommendations.	
+C/2515235/fig-12-p24.png	fig	other	Figure 12: Sensitivity analysis results	
+C/2516178/fig-01-p3.png	fig	other	Figure 1 The handover celebration of the 2028 Los Angeles Olympics	
+C/2516178/fig-02-p4.png	fig	other	Figure 2 Overview of our work	
+C/2516178/fig-03-p8.png	fig	schematic	Figure 3 XGBoost schematic diagram	schematic
+C/2516178/fig-04-p9.png	fig	other	Figure 4 ROC curves of three models	
+C/2516178/fig-05-p10.png	fig	other	Figure 5 Model selecting, benchmarking and applying	
+C/2516178/fig-06-p11.png	fig	other	Figure 6 Visualization of 3 models’ 𝑹𝟐	
+C/2516178/fig-07-p12.png	fig	other	Figure 7 Visualization of a dual-stage XGBoost’s worklow	
+C/2516178/fig-08-p14.png	fig	other	Figure 8 Visualization of prediction interval	
+C/2516178/fig-09-p16.png	fig	other	Figure 9 Comparison of the SHAP Value Distributions of Olympic Events' Contribution to Gold	
+C/2516178/fig-10-p17.png	fig	other	Figure 10 Analysis of the SHAP-value Waterfall Plot for U.S. 2028 Olympics Silver-medal Prediction	
+C/2516178/fig-11-p17.png	fig	other	Figure 11 Analysis of the SHAP-value Waterfall Plot for U.S. 2028 Olympics Silver-medal Prediction	
+C/2516178/fig-12-p19.png	fig	other	Figure 12 Pre-coaching and post-coaching medal count comparison	
+C/2516178/fig-13-p23.png	fig	other	Figure 13 Analysis of SHAP Values of Participation Numbers and Events on Medal Winning	
+C/2516178/fig-14-p24.png	fig	other	Figure 14 Visualization of Sensitivity Analysis	
+C/2516695/fig-01-p3.png	fig	other	Figure 1: Athletes’ joy on podium, a top - honor sign	
+C/2516695/fig-02-p4.png	fig	other	Figure 2: Athletes’ joy on podium, a top - honor sign	
+C/2516695/fig-03-p6.png	fig	other	Figure 3: Data processing processes	
+C/2516695/fig-04-p6.png	fig	network	Figure 4: Static Bayesian Network Struc-	Network
+C/2516695/fig-05-p6.png	fig	other	Figure 5:	
+C/2516695/fig-06-p7.png	fig	heatmap	Figure 6: Global Coach Mobility Heatmap	Heatmap
+C/2516695/fig-07-p10.png	fig	other	Figure 7: Probability Density Function of Gold Medal Distribution for the Top Six	
+C/2516695/fig-08-p11.png	fig	other	Figure 8: Olympic Medal Risk Factor Analysis	
+C/2516695/fig-09-p14.png	fig	other	Figure 9: Medal contribution rate for U.S. events	
+C/2516695/fig-10-p16.png	fig	other	Figure 10: Gold medal	
+C/2516695/fig-11-p16.png	fig	other	Figure 11: Total medal	
+C/2516695/fig-12-p17.png	fig	histogram	Figure 12: Histogram of the placebo -	Histogram
+C/2516695/fig-13-p17.png	fig	line	Figure 13: Time - series plot of the	plot of
+C/2516695/fig-14-p18.png	fig	network	Figure 14: GNN - based analysis of the coach network	network
+C/2516695/fig-15-p20.png	fig	other	Figure 15: The box - plot shows medal increment	
+C/2516695/fig-16-p20.png	fig	scatter	Figure 16: The scatter plot shows a positive correla-	scatter
+C/2516695/fig-17-p21.png	fig	other	Figure 17:	
+C/2516695/fig-18-p21.png	fig	other	Figure 18:	
+C/2516695/fig-19-p21.png	fig	other	Figure 19:	
+C/2516695/fig-20-p22.png	fig	other	Figure 20: Visualization of parameter	
+C/2516695/fig-21-p22.png	fig	other	Figure 21: Visualization of parameter	
+C/2516695/fig-22-p23.png	fig	other	Figure 22: Global sensitivity analysis using Sobol’ indices. Stacked bars depict first-	
+C/2516695/fig-23-p23.png	fig	other	Figure 23: Dynamic stability analysis under extreme scenarios. Error bars denote 95%	
+C/2516695/fig-24-p24.png	fig	schematic	Figure 24: (a) Time window sensitivity analysis; (b) LSTM architecture trade-off; (c)	architecture
+C/2517690/fig-01-p3.png	fig	other	Figure 1: Paris 2024 Olympic Games	
+C/2517690/fig-02-p4.png	fig	other	Figure 2: Our Work Diagram	
+C/2517690/fig-03-p7.png	fig	other	Figure 3: Number of medals by country	
+C/2517690/fig-04-p8.png	fig	other	Figure 4: The number of medals in each event       Figure 5:U.S. Medal Count	
+C/2517690/fig-06-p8.png	fig	flow-diagram	Figure 6: Flowchart of part 1 of question 1	Flowchart
+C/2517690/fig-07-p10.png	fig	other	Figure 7: Random Forest mechanism diagram	
+C/2517690/fig-08-p11.png	fig	network	Figure 8:Line graph of confidence limits on the number of medals predicted	graph of
+C/2517690/fig-09-p12.png	fig	flow-diagram	Figure 9：Flowchart of part 2 of question 1	Flowchart
+C/2517690/fig-10-p14.png	fig	other	Figure 10:Analysis of factors influencing the number of medals	
+C/2517690/fig-11-p14.png	fig	line	Figure 11:Radar chart analysing levels in selected sports	Radar chart
+C/2517690/fig-12-p17.png	fig	line	Figure 12:Time series chart of the number of medals	Time series
+C/2517690/fig-13-p17.png	fig	other	Figure 13:Test Method	
+C/2517690/fig-14-p19.png	fig	other	Figure 14：Coaching contribution analysis	
+C/2517690/fig-15-p22.png	fig	other	Figure 15：N-Player Game Composition	
+C/2517690/fig-16-p23.png	fig	other	Figure 16：Comparision of test set prediction results	
+C/2517690/fig-17-p24.png	fig	line	Figure 17：Plot of the relationship between the number of decision trees and error	Plot of
+C/2521556/fig-01-p3.png	fig	other	Figure 1: New events added to the Los Angeles Olympics[1].	
+C/2521556/fig-02-p4.png	fig	other	Figure 2: Overall Structure of Our Model	
+C/2521556/fig-03-p6.png	fig	other	Figure 3: Overall Structure of Task 1	
+C/2521556/fig-04-p8.png	fig	other	Figure 4: Performance of Different Countries in Various Events	
+C/2521556/fig-05-p8.png	fig	other	Figure 5: Structure of SARIMAX-Bayesian Prediction Model	
+C/2521556/fig-06-p10.png	fig	other	Figure 6: Predicted Performance of Certain	
+C/2521556/fig-07-p10.png	fig	other	Figure 7: Predicted Standard Deviation of Cer-	
+C/2521556/fig-08-p11.png	fig	other	Figure 8: Compare Prediction Intervals With The Actual Values From 2024	
+C/2521556/fig-09-p12.png	fig	other	Figure 9: 2028 Virtual Medal Table	
+C/2521556/fig-10-p13.png	fig	other	Figure 10: Gold Difference by NOC	
+C/2521556/fig-11-p13.png	fig	other	Figure 11: Total Difference by NOC	
+C/2521556/fig-12-p15.png	fig	other	Figure 12: Identifying The Most Important Sport for Various Countries	
+C/2521556/fig-13-p15.png	fig	other	Figure 13: Proportion of Medals Won By the	
+C/2521556/fig-14-p15.png	fig	other	Figure 14: Proportion of Medals Won By The	
+C/2521556/fig-15-p16.png	fig	other	Figure 15: Overall Structure of Task 2	
+C/2521556/fig-16-p18.png	fig	other	Figure 16: Anomaly Information	
+C/2521556/fig-17-p19.png	fig	other	Figure 17: Great Coach Effect To The Country’s Overall Medal Count[8]	
+C/2521556/fig-18-p20.png	fig	other	Figure 18: Great Coach Effect on Different Sports	
+C/2521556/fig-19-p21.png	fig	other	Figure 19: predicted probabilities of winning	
+C/2521556/fig-20-p21.png	fig	other	Figure 20: predicted probabilities of winning	
+C/2521556/fig-21-p22.png	fig	other	Figure 21: USA Fencing Men’s Foil Team Evolution of Event Level and Athletes’ Experience Over	
+C/2521556/fig-22-p23.png	fig	other	Figure 22: Variation in Final Medal Prediction Accuracy with Changes	
+C/2521556/fig-23-p23.png	fig	other	Figure 23: Correlation Between Prediction Accuracy and Sample Average Number	
+C/2522820/fig-01-p7.png	fig	other	Figure 1: Predictor/Regression Analysis	
+C/2522820/fig-02-p9.png	fig	other	Figure 2: DBSCAN Cluster Results	
+C/2522820/fig-03-p13.png	fig	other	Figure 3: Black Marks: The actual total medal counts, Blue Marks: ceiling-proportion approximation, Red	
+C/2522820/fig-04-p13.png	fig	other	Figure 4: Black line: Ceiling-Proportion Approximation from Figure 3, Brown Region: The Bronze medal	
+C/2522820/fig-05-p14.png	fig	other	Figure 5: Red: Actual values given by IOC, Blue: Our Event Limitation Approximation	
+C/2522820/fig-06-p14.png	fig	other	Figure 6: Red: Actual values given by IOC, Blue: Our Event Limitation Approximation	
+C/2524070/fig-01-p3.png	fig	other	Figure 1: Total Medal Count of the Last 5 Summer Olympics – 7 Countries	
+C/2524070/fig-02-p4.png	fig	other	Figure 2: Framework of Our Work.	
+C/2524070/fig-03-p7.png	fig	other	Figure 3: Histograms of Gold and Total Medals	
+C/2524070/fig-04-p12.png	fig	other	Figure 4: Comparison of the top twenty predicted medal-winning countries in 2028 with the highest-	
+C/2524070/fig-05-p12.png	fig	other	Figure 5: Predicted Medal Distribution for Top 6 Nations at LA28.	
+C/2524070/fig-06-p13.png	fig	other	Figure 6: The top six nations poised to win the inaugural medal at the Los Angeles Olympics.	
+C/2524070/fig-07-p15.png	fig	other	Figure 7: Total Medal Count of the USA in Past Summer Olympics	
+C/2524070/fig-08-p16.png	fig	other	Figure 8: The Result of Association Rule Model(USA)	
+C/2524070/fig-09-p16.png	fig	other	Figure 9: Importance of Sports(disciplines) to Various Countries	
+C/2524070/fig-10-p17.png	fig	other	Figure 10: The Result of Association Rule Model(Host Country)	
+C/2524070/fig-11-p22.png	fig	line	Figure 11: QQ Plot and Residuals Plot for Model Diagnostics	QQ Plot
+C/2524070/fig-12-p22.png	fig	line	Figure 12: QQ Plot and Residuals Plot for Model Diagnostics(After Box-Cox Transformation)	QQ Plot
+C/2524070/fig-13-p23.png	fig	other	Figure 13: If these countries invest in great coaches, they will reap the rewards of medals.	
+D/2504188/fig-01-p3.png	fig	other	Figure 1: Background Screening	
+D/2504188/fig-02-p4.png	fig	other	Figure 2: Our Work	
+D/2504188/fig-03-p6.png	fig	network	Figure 3: Baltimore Transportation Network	Network
+D/2504188/fig-04-p7.png	fig	map	Figure 4: Transportation map	map
+D/2504188/fig-05-p9.png	fig	other	Figure 5: Metrics for measuring stakeholders	
+D/2504188/fig-06-p12.png	fig	network	Figure 6: Changes in transportation network	network
+D/2504188/fig-07-p12.png	fig	other	Figure 7: Congestion levels at different latitudes and longitudes	
+D/2504188/fig-08-p13.png	fig	other	Figure 8 Shortest path simulation	
+D/2504188/fig-09-p13.png	fig	other	Figure 9: Impact of the bridge collapse on stakeholders	
+D/2504188/fig-11-p17.png	fig	other	Figure 11: Monte Carlo simulation changes	
+D/2504188/fig-12-p18.png	fig	other	Figure 12: Radar comparison before and after improvement	
+D/2504188/fig-13-p21.png	fig	other	Figure 13: Project Optimization Process	
+D/2504188/fig-15-p23.png	fig	other	Figure 15: Software interface design	
+D/2507692/fig-01-p3.png	fig	other	Figure 1: Top View of Baltimore Transportation	
+D/2507692/fig-02-p4.png	fig	other	Figure 2: Work Flow of This Research	
+D/2507692/fig-03-p7.png	fig	network	Figure 3: The Transportation Network of Baltimore	Network
+D/2507692/fig-04-p9.png	fig	network	Figure 4: The Transportation Network of Baltimore Based on Entropy Weight Method	Network
+D/2507692/fig-05-p10.png	fig	surface-3d	Figure 5: 3D Bubble Chart Before Collapse	3D
+D/2507692/fig-06-p10.png	fig	surface-3d	Figure 6: 3D Bubble Chart After Collapse	3D
+D/2507692/fig-07-p11.png	fig	surface-3d	Figure 7: The 3D Wall Commuting Time Chart	3D
+D/2507692/fig-08-p12.png	fig	surface-3d	Figure 8: 3D Bar Chart Before Collapse	3D
+D/2507692/fig-09-p12.png	fig	surface-3d	Figure 9: 3D Bar Chart After Collapse	3D
+D/2507692/fig-10-p14.png	fig	network	Figure 10: The Bus Network	Network
+D/2507692/fig-11-p14.png	fig	other	Figure 11: The Comprehensive Ranking	
+D/2507692/fig-12-p15.png	fig	other	Figure 12: Type 0 Cluster	
+D/2507692/fig-13-p15.png	fig	other	Figure 13: Type 1 Cluster	
+D/2507692/fig-14-p15.png	fig	other	Figure 14: Type 2 Cluster	
+D/2507692/fig-15-p15.png	fig	other	Figure 15: Type 3 Cluster	
+D/2507692/fig-16-p15.png	fig	other	Figure 16: Type 4 Cluster	
+D/2507692/fig-17-p16.png	fig	other	Figure 17: Tree 0	
+D/2507692/fig-18-p16.png	fig	other	Figure 18: Tree 1	
+D/2507692/fig-19-p16.png	fig	other	Figure 19: Tree 2	
+D/2507692/fig-20-p16.png	fig	other	Figure 20: Tree 3	
+D/2507692/fig-21-p16.png	fig	other	Figure 21: Tree 4	
+D/2507692/fig-22-p17.png	fig	other	Figure 22: Comparison of Shelter in Different	
+D/2507692/fig-23-p17.png	fig	heatmap	Figure 23: The Heatmap Concerning Correla-	Heatmap
+D/2507692/fig-24-p18.png	fig	other	Figure 24: Modifications to Shelters	
+D/2507692/fig-25-p19.png	fig	surface-3d	Figure 25: 3D Area Map of Ridership at bus stop	3D
+D/2507692/fig-26-p20.png	fig	network	Figure 26: The Rail Network in Baltimore	Network
+D/2507692/fig-27-p21.png	fig	network	Figure 27: The Overlapping Network of Rail and Bus	Network
+D/2507692/fig-28-p22.png	fig	other	Figure 28: Diagram of the Current	
+D/2507692/fig-29-p22.png	fig	other	Figure 29: Diagram of the Original	
+D/2516219/fig-01-p3.png	fig	flow-diagram	Figure 1: A Roadmap to a Better City	Roadmap
+D/2516219/fig-02-p4.png	fig	other	Figure 2: Literature Review Framework	
+D/2516219/fig-03-p5-2.png	fig	flow-diagram	Figure 3: Flow Chart of Our Work	Flow Chart
+D/2516219/fig-03-p5.png	fig	other	Figure 3:	
+D/2516219/fig-04-p9.png	fig	map	Figure 4: Baltimore map and highway visualization	map
+D/2516219/fig-05-p12.png	fig	flow-diagram	Figure 5: Traffic Flow Diagram	Flow Diagram
+D/2516219/fig-06-p15.png	fig	other	Figure 6: Impact of Francis Scott Key Bridge Collapse	
+D/2516219/fig-07-p17.png	fig	other	Figure 7: Simulated bus routes, city areas and bus route maps	
+D/2516219/fig-08-p18.png	fig	other	Figure 8: Impact Analysis	
+D/2516219/fig-09-p19.png	fig	other	Figure 9: Impact of transport projects	
+D/2516219/fig-10-p20.png	fig	other	Figure 10: Sensitivity Analysis	
+D/2516219/fig-11-p21.png	fig	other	Figure 11: Quantifying residents’ well-being	
+D/2516219/fig-12-p23.png	fig	other	Figure 12: Temporal Capacity Degradation	
+D/2516219/fig-13-p23.png	fig	other	Figure 13: Posterior istributions of different	
+D/2519935/fig-01-p3.png	fig	other	Figure 1: The Collapse of Francis Scott Key Bridge	
+D/2519935/fig-02-p4.png	fig	other	Figure 2: The Framwork	
+D/2519935/fig-03-p5.png	fig	other	Figure 3: Data Preprocessing Process	
+D/2519935/fig-04-p6.png	fig	other	Figure 4: Handling Cluttered Road Information	
+D/2519935/fig-05-p7.png	fig	network	Figure 5: Layered Road Network Diagram	Network
+D/2519935/fig-06-p9.png	fig	other	Figure 6: Calculation of Influence Coefficient	
+D/2519935/fig-07-p9.png	fig	other	Figure 7: Selection of Highway Nodes	
+D/2519935/fig-08-p10.png	fig	other	Figure 8: Closeness Centrality of Nodes in G and G2	
+D/2519935/fig-09-p11.png	fig	other	Figure 9: Influence Coefficients of Various Stakeholders	
+D/2519935/fig-10-p11.png	fig	other	Figure 10: The Roads with the Greatest Impact	
+D/2519935/fig-11-p12.png	fig	other	Figure 11: Visualization of the Top 100 Affected Roads	
+D/2519935/fig-12-p14.png	fig	histogram	Figure 12: Histogram of Evaluation Indicators	Histogram
+D/2519935/fig-13-p15.png	fig	network	Figure 13: The three layers in the higher-order bus network	network
+D/2519935/fig-14-p15.png	fig	other	Figure 14: Bus routes in TBN model	
+D/2519935/fig-15-p16.png	fig	other	Figure 15: Project Analysis	
+D/2519935/fig-16-p16.png	fig	other	Figure 16: Changes in road conditions before and after project implementation	
+D/2519935/fig-17-p17.png	fig	map	Figure 17: Grid Map	Map
+D/2519935/fig-18-p18.png	fig	other	Figure 18: Subway Route	
+D/2519935/fig-19-p19.png	fig	other	Figure 19: The Impact of the Project on Residents	
+D/2519935/fig-20-p19.png	fig	other	Figure 20: Our Project	
+D/2519935/fig-21-p20.png	fig	network	Figure 21: Bus Stops and Road Network Density	Network
+D/2519935/fig-22-p21.png	fig	other	Figure 22: Multiple Fitting Results	
+D/2519935/fig-23-p21.png	fig	other	Figure 23: The Impact of Subway on Bus Stations	
+D/2519935/fig-24-p22.png	fig	other	Figure 24: Sensitivity Analysis	
+D/2519935/fig-25-p23.png	fig	other	Figure 25: Strengths and Weaknesses of Our Model	
+E/2502355/fig-01-p3.png	fig	other	Figure 1: Partial deforestation of the Amazon Rainforest	
+E/2502355/fig-02-p4.png	fig	other	Figure 2: Our work	
+E/2502355/fig-03-p6.png	fig	other	Figure 3: Solution Flow for Problem 1	
+E/2502355/fig-09-p14.png	fig	other	Figure 9: Food Web Model Considering Agricultural Cycles Results	
+E/2502355/fig-11-p19.png	fig	other	Figure 11: (a) Eigenvector centrality analysis of food web considering chemicals; (b) Ei-	
+E/2502355/fig-12-p19.png	fig	other	Figure 12: Food Web After Introducing Bats	
+E/2502355/fig-13-p20.png	fig	other	Figure 13: (a)Comparison of centrality in degrees in food web with bees; (b) Compari-	
+E/2502355/fig-14-p21.png	fig	other	Figure 14: Determination of Scheme layer D	
+E/2502355/fig-15-p23.png	fig	other	Figure 15: (a)Evaluating scores of standard layers on four benefits; (b) Evaluating ulti-	
+E/2508861/fig-02-p4.png	fig	other	Figure 2: Literature Review Chart	
+E/2508861/fig-03-p5.png	fig	flow-diagram	Figure 3: Our Work Framework Diagram	Framework Diagram
+E/2508861/fig-04-p6.png	fig	other	Figure 4: Abstracting a Quadrilateral into a Rectangle	
+E/2508861/fig-05-p7.png	fig	map	Figure 5: Map of Food Web Relationships	Map
+E/2508861/fig-06-p8.png	fig	other	Figure 6: Role of Chemicals in Food Webs	
+E/2508861/fig-07-p10.png	fig	other	Figure 7: Conversion of Bioenergy in Ecosystems	
+E/2508861/fig-08-p12.png	fig	other	Figure 8: PDE Solving Results and Related Explanations	
+E/2508861/fig-09-p12.png	fig	other	Figure 9: Full chemical usage. Changes in consumer populations (left); changes in crop	
+E/2508861/fig-10-p13.png	fig	other	Figure 10: No fertilizer usage. Changes in consumer populations (left); changes in crop	
+E/2508861/fig-11-p13.png	fig	other	Figure 11: No insecticide usage. Changes in consumer populations (left); changes in crop	
+E/2508861/fig-13-p16.png	fig	other	Figure 13: Crop Dynamics Under Different Scenarios	
+E/2508861/fig-14-p16.png	fig	other	Figure 14: Scenario A	
+E/2508861/fig-15-p16.png	fig	other	Figure 15: Scenario B	
+E/2508861/fig-16-p16.png	fig	other	Figure 16: Scenario C	
+E/2508861/fig-17-p18.png	fig	other	Figure 17: Herbicide attenuation results. In this figure, A represents changes in crop popu-	
+E/2508861/fig-18-p18.png	fig	other	Figure 18: Biodiversity Synergy Results	
+E/2508861/fig-19-p22.png	fig	other	Figure 19: Parameter Perturbation Results	
+E/2515136/fig-01-p4.png	fig	other	Figure 1: Overview of Our Work	
+E/2515136/fig-02-p6.png	fig	other	Figure 2: The Food Web	
+E/2515136/fig-03-p7.png	fig	other	Figure 3: Simulation of Petri Net Based on Stella	
+E/2515136/fig-04-p9.png	fig	other	Figure 4: Energy Changes	
+E/2515136/fig-05-p10.png	fig	line	Figure 5: Energy Curve of Each Population	Curve
+E/2515136/fig-06-p11.png	fig	other	Figure 6: Seasonal Ecosystem of North Temperate Wheat Fields	
+E/2515136/fig-07-p13.png	fig	other	Figure 7: Energy of Each Part of the Ecosystem	
+E/2515136/fig-08-p14.png	fig	other	Figure 8: The Variation of Maturity Index over Time	
+E/2515136/fig-09-p15.png	fig	other	Figure 9: Agro-Ecosystem	
+E/2515136/fig-10-p16.png	fig	other	Figure 10: Change of Bioenergy over Time	
+E/2515136/fig-11-p17.png	fig	other	Figure 11: Energy in Wheat and Weeds under Different Competition Coefficients	
+E/2515136/fig-12-p19.png	fig	other	Figure 12: Woodpeckers and Bats	
+E/2515136/fig-13-p20.png	fig	other	Figure 13: Fuzzy Comprehensive Evaluation System	
+E/2515136/fig-14-p22-2.png	fig	other	Figure 14: Indicator Affiliation Result	
+E/2515136/fig-14-p22.png	fig	other	Figure 14.	
+E/2515136/fig-15-p23.png	fig	other	Figure 15: Sensitivity Analysis	
+E/2517273/fig-03-p17.png	fig	other	Figure 3: Senescence phase	
+E/2517273/fig-04-p17.png	fig	other	Figure 4: Recovery Phase	
+E/2517273/fig-05-p18.png	fig	other	Figure 5: Growing Phase	
+E/2517273/fig-06-p19.png	fig	other	Figure 6: The Impact of Human Practices on Ecosystems	
+E/2517273/fig-07-p20.png	fig	other	Figure 7: Effects of Anthropogenic Introduction of Bats and Sparrows on Ecosystems	
+E/2517273/fig-08-p21.png	fig	line	Figure 8: Economic Performance Trajectory Analysis	Trajectory
+E/2517273/fig-09-p21.png	fig	other	Figure 9: Ecosystem Services Value Assessment	
+E/2517273/fig-10-p21.png	fig	other	Figure 10: Multi-dimensional Sustainability Performance AnalysisFigure	
+E/2517273/fig-11-p24.png	fig	other	Figure 11: Sensitivity Analysis	
+E/2517273/fig-12-p22.png	fig	other	Figure 12：Temporal Analysis of Regenerative Agriculture Transition	
+E/2517273/fig-13-p22.png	fig	other	Figure 13: Risk-Return Distribution Assessment	
+E/2517273/fig-14-p23.png	fig	other	Figure 14: Economic Efficiency Analysis	
+E/2517273/fig-15-p23.png	fig	other	Figure 15: Socioeconomic Impact Assessment	
+F/2504223/fig-01-p4.png	fig	map	Figure 1: Mind Map	Map
+F/2504223/fig-02-p6.png	fig	other	Figure 2: Number of crimes reported worldwide from 2005 to 2024	
+F/2504223/fig-03-p6.png	fig	other	Figure 3: 2024 GCI Chart	
+F/2504223/fig-04-p8.png	fig	other	Figure 4: Clustering of attacking and victim countries	
+F/2504223/fig-05-p9.png	fig	other	Figure 5: Clustering Type	
+F/2504223/fig-06-p13.png	fig	line	Figure 6: Parallel Trend Test	Trend
+F/2504223/fig-07-p14.png	fig	other	Figure 7: Placebo test	
+F/2504223/fig-08-p15.png	fig	line	Figure 8: β1Policy Effect Radar Chart	Radar Chart
+F/2504223/fig-09-p17.png	fig	line	Figure 9: Kaplan-Meier survival curve	curve
+F/2504223/fig-10-p17.png	fig	map	Figure 10: Attacking Country Forest Map	Map
+F/2504223/fig-11-p18.png	fig	map	Figure 11: Forest map of victim countries 1	map
+F/2504223/fig-12-p20.png	fig	other	Figure 12: Structural equation model diagram of the impact of cybercrime	
+F/2504223/fig-13-p22.png	fig	other	Figure 13: Sensitivity analysis	
+F/2513705/fig-01-p3.png	fig	other	Figure1 Top 10 threats in the Emerging Cybersecurity Threats 2030 published by the EU	
+F/2513705/fig-02-p7.png	fig	other	Figure2 Which countries are disproportionately high targets of cybercrimes?	
+F/2513705/fig-03-p8.png	fig	other	Figure3 Where are cybercrimes successful, and where are they thwarted?	
+F/2513705/fig-04-p8.png	fig	other	Figure4 Where are cybercrimes prosecuted?	
+F/2513705/fig-05-p9.png	fig	other	Figure5 Where are cybercrimes reported?	
+F/2513705/fig-06-p10.png	fig	other	Figure6 Elbow and Silhouette Plots for Cluster Number Selection	
+F/2513705/fig-07-p10.png	fig	other	Figure7 PCA - based 2D Visualization of Cyber - security Clustering Results	
+F/2513705/fig-08-p14.png	fig	other	Figure8 Word Clouds Representing Six Cybersecurity Policy Themes	
+F/2513705/fig-09-p20.png	fig	other	Figure9 MIC values for each variable	
+F/2513705/fig-10-p21.png	fig	other	Figure10 Relationship between β,P,DID(before) and DID(after)	
+F/2513705/fig-11-p21.png	fig	other	Figure11 Changes in MIC After Adding Noise (Belgium)	
+F/2517199/fig-01-p3.png	fig	other	Fig.1 Types of cybercrime [1]	
+F/2517199/fig-02-p5.png	fig	other	Fig.2 Our work	
+F/2517199/fig-03-p7.png	fig	other	Fig.3 Data used for later analysis	
+F/2517199/fig-04-p8.png	fig	other	Fig.4 Global distribution of cybercrime in 2014	
+F/2517199/fig-05-p9.png	fig	other	Fig.5 Relevant characteristics distribution in 2014	
+F/2517199/fig-06-p11.png	fig	other	Fig.6 Cybercrime Timeline of Some Countries	
+F/2517199/fig-07-p12.png	fig	other	Fig.7 Results of the two methods	
+F/2517199/fig-08-p14.png	fig	other	Fig.8 Crime data of the U.S.	
+F/2517199/fig-09-p14.png	fig	other	Fig.9 Outlier data of the U.S.	
+F/2517199/fig-10-p17.png	fig	other	Fig.10 Overall structure of TimeXer model [13]	
+F/2517199/fig-11-p19.png	fig	other	Fig.11 Global risk distribution	
+F/2517199/fig-12-p19.png	fig	other	Fig.12 GCI distribution	
+F/2517199/fig-13-p21.png	fig	other	Fig.13 Performance of three types of policies	
+F/2517199/fig-14-p22.png	fig	other	Fig.14 Prediction made by model	
+F/2521039/fig-01-p3.png	fig	line	Figure 1: 2022 INTERPOL Global Crime Trend Summary Report	Trend
+F/2521039/fig-02-p4.png	fig	flow-diagram	Figure 2: Flow Chart of Our Work	Flow Chart
+F/2521039/fig-03-p6.png	fig	other	Figure 3: Global Cybercrime Distribution	
+F/2521039/fig-04-p7.png	fig	map	Figure 4: Hacking word cloud map	map
+F/2521039/fig-05-p7.png	fig	other	Figure 5: Classiﬁed statistics on cybercrime	
+F/2521039/fig-06-p8.png	fig	other	Figure 6: Presentation of ﬁve types of cybercrime indicators by country	
+F/2521039/fig-07-p9.png	fig	other	Figure 7: The top ten countries by cybercrime count	
+F/2521039/fig-08-p10.png	fig	other	Figure 8: Comparison of Target Count Before and After Policy implementation	
+F/2521039/fig-09-p11.png	fig	map	Figure 9: Incident Count Over Time Map	Map
+F/2521039/fig-10-p14.png	fig	line	Figure 10: Parallel Trend Veriﬁcation	Trend
+F/2521039/fig-11-p16.png	fig	other	Figure 11: The ﬁve pillars of GCI	
+F/2521039/fig-12-p17.png	fig	other	Figure 12: Averages Scores by GCI Pillars	
+F/2521039/fig-13-p18.png	fig	other	Figure 13: U.S. Policy Measures in Response to Cybersecurity Challenges	
+F/2521039/fig-14-p19.png	fig	scatter	Figure 14: Scatter plot of national demographic data distribution	Scatter
+F/2521039/fig-15-p20.png	fig	heatmap	Figure 15: Spearman Correlation Heatmap	Heatmap
+F/2521039/fig-16-p21.png	fig	other	Figure 16: Actual vs Predicted Target Count	
+F/2521039/fig-17-p21.png	fig	other	Figure 17: Curves predicting crime counts based on factor variations	

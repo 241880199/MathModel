@@ -1,0 +1,967 @@
+==============================================================================
+tests/skills/figure-choose/ —— 产物判据检查器 Task 1 放行证据（逐字）
+==============================================================================
+
+范围：本文件只登记 Task 1 的证据（检查器 + fixtures 逐格验收 + 变异证明 + 修复轮）。
+机器：Windows 11 / Python 3.11.9 / Pillow 12.3.0 / PyMuPDF 1.27.2（版本命令见 §8.3）。
+版本：起点 commit `8c57c6b`；本文件是**口径收敛轮（Task 6 的 Important-2 涟漪）**重跑后的证据
+      （§9 登记与修复轮的差异；§2–§8.4 由**同目录**的 `gen-figure-style-baseline.py` 逐条重放命令生成，
+      §8.5 由同一脚本的 `2` 相在提交后重放）。
+      ⚠️ 旧任务书/旧报告点名的生成器 `.superpowers/sdd/m3-t1-mk-baseline.py` **从未入库**
+      （那目录被自己的 `.gitignore` 全挡），且它只能重放出**修复轮之前**那一版
+      —— 故本轮换成同目录入库的 `gen-figure-style-baseline.py`（重放式）。
+
+【对捕获输出的唯一加工】
+1) 命令一律以仓库相对路径写出（可直接粘进 bash、cwd = 仓根）；
+2) 捕获输出里的**仓根绝对路径**与**解释器前缀**剥成相对形式（本仓规定不写绝对路径）；
+3) fail-closed 那类块把 stdout 与 stderr 分栏贴出（`[stdout]` / `[stderr]`），栏内逐字。
+除这三条外**逐字未改**——每个块尾的 `[exit=..]` 就是该命令的真实退出码。
+凡标 `$TEMP` 的路径都在**系统临时目录**里（仓库之外），不入库、收工不残留。
+
+【分母口径声明 · 本文件所有演示一律 6.31 in】
+`--textwidth-in` 一律传 **6.31**，即「逐篇正文行宽 p90」的**全局中位**
+（侦察读数：tests/figures-recon/b-stats.txt `col_w_in: n=43 ... median=6.310 ...`）。
+检查器**不预设**口径——分母一律由参数传入。另一种口径（逐篇 p90 各自作分母）
+会给出不同比值，两者结论不同 ⇒ 见 §6，不自行挑一个悄悄用。
+
+【条数】expected.tsv 现为 **21** 条（修复轮 20 条；本轮新增 `caption:7 F3b PASS` 这一条口径锚，见 §9）。
+
+==============================================================================
+§1  本轮修了什么（逐条对应独立评审判定）
+==============================================================================
+
+Important-1  PDF 上 F2 直接崩 —— 修：F2 也吃 PDF（第 1 页 `get_pixmap` → `Image.frombytes`）。
+             证据：§3.5 的 PDF 对照（旧检查器 rc=1/stdout 空/UnidentifiedImageError ↔ 新检查器判词）；
+             入库样本 `ok-05.pdf` / `bad-f2-five-colors.pdf`（§3.1、§2）；变异 M7（§4）。
+Important-2  fail-closed 不完整 —— 修：8 条参照缺失路径全部并入 `fail_closed()`（rc=2、不打印判词），
+             并把 `--dpi ≤ 0` 与 `--textwidth-in ≤ 0` 同等拒绝。证据：§3.4（8 条逐条）。
+Important-3  F3a 没有「它能红」的证明 —— 修：补图注 fixture `caption:6`（缺冒号 ⇒ F3a FAIL，
+             钉进 expected.tsv）+ 变异 M8（F3a 谓词取反）。证据：§2、§4。
+R-4         `--json` 时末行不再是 `RESULT:` —— 修：JSON 挪到判词行**之前**。证据：§3.3。
+R-5         逐格验收把「崩掉的运行」记成 FAIL/OK —— 修：`rc ∉ {0,1}` 或没有 `RESULT:` 行 ⇒ 记 ERROR、
+             整轮非零退出。证据：§5（旧/新验收脚本对同一支变异体的 A/B）+ §4 的探针 P1。
+R-6         M2 缺前置断言 —— 修：补 `all(b == 'PASS' ...)`（先要求三张合格图本来是绿的）。证据：§4。
+R-7         图样本借用的图注带尾句号 ⇒ 每行都混一条无关的 `FAIL（F3c）` —— 修：换不带句号的图注。
+             证据：§3.1（图样本行里只剩各自要测的那条）。
+
+==============================================================================
+§2  gate 1：fixtures 逐格验收（expected.tsv 的每一行跑一次检查器）
+==============================================================================
+条数说明：修复轮 20 条；**本轮（F3b 口径收敛轮）再加 1 条** —— `caption:7 F3b PASS`
+          （口径锚：整条 13 词 / 正文 11 词，卡在 `CAP_MAX=12` 的分界上 ⇒ 换回整条口径即 MISMATCH，
+          见 §4 的 `M42`）。按实打印，**没有凑数**。
+
+--- gate 1 ---
+
+$ python tests/skills/figure-choose/fixtures/run-expected.py
+# checker: tests/skills/figure-choose/check-figure-style.py
+flag      sample                   crit want got
+OK        ok-01.png                F1   want=PASS got=PASS
+OK        ok-01.png                F2   want=PASS got=PASS
+OK        ok-02.png                F1   want=PASS got=PASS
+OK        ok-03.png                F2   want=PASS got=PASS
+OK        ok-04.png                F2   want=PASS got=PASS
+OK        ok-05.pdf                F1   want=PASS got=PASS
+OK        ok-05.pdf                F2   want=PASS got=PASS
+OK        bad-f1-too-narrow.png    F1   want=FAIL got=FAIL
+OK        bad-f1-too-wide.png      F1   want=FAIL got=FAIL
+OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
+OK        bad-f2-five-colors.pdf   F2   want=FAIL got=FAIL
+OK        caption:1                F3a  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3c  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3d  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:2                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:3                F3c  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:4                F3d  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:5                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:6                F3a  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:7                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
+MISMATCH 0 / 21
+[exit=0]
+
+==============================================================================
+§3  逐样本原样输出（比值、读数、判词都在这里，供复核员对账）
+==============================================================================
+
+3.1 图样本（PNG 走 `--dpi 200`，PDF 的 F1 走页盒/与 --dpi 无关）
+    图注一律 `Figure 1: A test figure caption`（**无尾句号** ⇒ F3a–F3d 全 PASS）。
+    ⇒ 下面每一行里**只有它自己要测的那条**可能是 FAIL，不再混着无关的 F3c。
+
+--- ok-01.png ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+[exit=0]
+
+--- ok-02.png ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-02.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.807（分母 6.31 in）
+PASS  F2  彩色主色数 1
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+[exit=0]
+
+--- ok-03.png ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-03.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.998（分母 6.31 in）
+PASS  F2  彩色主色数 4
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+[exit=0]
+
+--- ok-04.png ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-04.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 4
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+[exit=0]
+
+--- bad-f1-too-narrow.png ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+FAIL  F1  图宽比 0.697（分母 6.31 in）
+PASS  F2  彩色主色数 1
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: FAIL（F1）
+[exit=1]
+
+--- bad-f1-too-wide.png ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/bad-f1-too-wide.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+FAIL  F1  图宽比 1.236（分母 6.31 in）
+PASS  F2  彩色主色数 1
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: FAIL（F1）
+[exit=1]
+
+--- bad-f2-five-colors.png ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/bad-f2-five-colors.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+FAIL  F2  彩色主色数 6
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: FAIL（F2）
+[exit=1]
+
+--- ok-05.pdf ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-05.pdf --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 4
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+[exit=0]
+
+--- bad-f2-five-colors.pdf ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+FAIL  F2  彩色主色数 6
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: FAIL（F2）
+[exit=1]
+
+3.2 图注样本（借位 ok-01.png；只读 F3a–F3d）
+    `caption:6` 是本轮为 Important-3 补的：它只踩 F3a（缺冒号），其余三条全绿
+    ⇒ 「F3a 会红」由**入库样本**钉住，不是靠变异自证。
+
+--- captions.tsv 行 1 = 'Figure 1: Calibrated wear depth versus sliding distance' ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 1: Calibrated wear depth versus sliding distance" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 6（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 6 词）
+RESULT: PASS
+[exit=0]
+
+--- captions.tsv 行 2 = 'Figure 2: We show the calibrated wear depth versus sliding distance for all six groups, including the sensitivity band at the 95 percent level.' ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 2: We show the calibrated wear depth versus sliding distance for all six groups, including the sensitivity band at the 95 percent level." --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+PASS  F3a  图注以 `Figure N:` 起
+FAIL  F3b  图注词数 22 超硬上限 17
+FAIL  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 22 词）
+RESULT: FAIL（F3b,F3c）
+[exit=1]
+
+--- captions.tsv 行 3 = 'Figure 3: Model structure.' ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 3: Model structure." --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 2（上限 12，硬上限 17）
+FAIL  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 2 词）
+RESULT: FAIL（F3c）
+[exit=1]
+
+--- captions.tsv 行 4 = 'Figure 4:' ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 4:" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 0（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+FAIL  F3d  图注正文非空（正文 0 词）
+RESULT: FAIL（F3d）
+[exit=1]
+
+--- captions.tsv 行 5 = 'Figure 5: Calibrated wear depth versus sliding distance for six groups and the sensitivity band' ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 5: Calibrated wear depth versus sliding distance for six groups and the sensitivity band" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+PASS  F3a  图注以 `Figure N:` 起
+FAIL  F3b  图注词数 13（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 13 词）
+RESULT: FAIL（F3b）
+[exit=1]
+
+--- captions.tsv 行 6 = 'Figure 6 Model structure' ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 6 Model structure" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+FAIL  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: FAIL（F3a）
+[exit=1]
+
+--- captions.tsv 行 7 = 'Figure 7: Calibrated wear depth versus sliding distance for six groups and materials' ---
+    本轮新增的**口径锚**：整条 **13** 词（>12 ⇒ 整条口径 FAIL）/ 正文 **11** 词（≤12 ⇒ 正文口径 PASS）。
+    同批其余图注两个口径**同判红绿**（行 1 整条 8 / 正文 6、行 5 整条 15 / 正文 13、行 2 整条 24 / 正文 22），
+    拿它们证不了"F3b 数的到底是哪一段" ⇒ 必须有这一条，且钉进 expected.tsv（§2 的 `caption:7 F3b PASS`）。
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 7: Calibrated wear depth versus sliding distance for six groups and materials" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 11（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 11 词）
+RESULT: PASS
+[exit=0]
+
+3.3 接口面自检（R-4：`--json` 时**末行仍是** `RESULT:`）
+
+--- --json 全量输出 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-02.png --caption "Figure 1: ok" --textwidth-in 6.31 --dpi 200 --json
+PASS  F1  图宽比 0.807（分母 6.31 in）
+PASS  F2  彩色主色数 1
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 1（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 1 词）
+{"F1": true, "F2": true, "F3a": true, "F3b": true, "F3c": true, "F3d": true}
+RESULT: PASS
+[exit=0]
+
+--- 同上，只看末行（判定「末行固定为 RESULT:」这条契约） ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-02.png --caption "Figure 1: ok" --textwidth-in 6.31 --dpi 200 --json   # 贴出的是它 stdout 的末行
+[stdout 末行] RESULT: PASS
+[exit=0]
+
+下面这条验 `@file` 入参：把**整份** `captions.tsv` 当图注喂进去——验的是**能读文件**
+（词数按文件内容算出来），不是判据；正因为整个文件不是一条合法图注，F3a/F3b 必红。
+
+--- @file 入参 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption @tests/skills/figure-choose/fixtures/captions.tsv --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 3
+FAIL  F3a  图注以 `Figure N:` 起
+FAIL  F3b  图注词数 77 超硬上限 17
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 77 词）
+RESULT: FAIL（F3a,F3b）
+[exit=1]
+
+3.4 fail-closed 自检（**8 条**路径都必须 rc=2、stdout 空 ⇒ 不产生判词）
+    栏内逐字：`[stdout] （空）` 就是「没打印判词」的机器可读形式。
+
+--- PNG 未给 --dpi ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 1: T" --textwidth-in 6.31
+[stdout] （空）
+[stderr] FAIL F1: PNG 需要显式 --dpi（PNG 的 dpi 元信息不可信，见 provenance）
+[exit=2]
+
+--- --textwidth-in 0 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 1: T" --textwidth-in 0 --dpi 200
+[stdout] （空）
+[stderr] FAIL: --textwidth-in 必须为正（fail-closed）
+[exit=2]
+
+--- --dpi 0 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 1: T" --textwidth-in 6.31 --dpi 0
+[stdout] （空）
+[stderr] FAIL: --dpi 必须为正（收到 0）（fail-closed）
+[exit=2]
+
+--- --dpi -200 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 1: T" --textwidth-in 6.31 --dpi -200
+[stdout] （空）
+[stderr] FAIL: --dpi 必须为正（收到 -200）（fail-closed）
+[exit=2]
+
+--- --fig 不存在 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/nope.png --caption "Figure 1: T" --textwidth-in 6.31 --dpi 200
+[stdout] （空）
+[stderr] FAIL: 图不存在或不是普通文件 tests/skills/figure-choose/fixtures/nope.png（fail-closed）
+[exit=2]
+
+--- --fig 是目录 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures --caption "Figure 1: T" --textwidth-in 6.31 --dpi 200
+[stdout] （空）
+[stderr] FAIL: 图不存在或不是普通文件 tests/skills/figure-choose/fixtures（fail-closed）
+[exit=2]
+
+--- --fig 存在但不是图像 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/expected.tsv --caption "Figure 1: T" --textwidth-in 6.31 --dpi 200
+[stdout] （空）
+[stderr] FAIL: 读不出图 tests\skills\figure-choose\fixtures\expected.tsv（UnidentifiedImageError: cannot identify image file 'tests\\skills\\figure-choose\\fixtures\\expected.tsv'）（fail-closed）
+[exit=2]
+
+--- --caption @不存在 ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption @tests/skills/figure-choose/fixtures/nope.txt --textwidth-in 6.31 --dpi 200
+[stdout] （空）
+[stderr] FAIL: 读不出图注文件 tests\skills\figure-choose\fixtures\nope.txt（FileNotFoundError: [Errno 2] No such file or directory: 'tests\\skills\\figure-choose\\fixtures\\nope.txt'）（fail-closed）
+[exit=2]
+
+3.5 PDF 载体的 A/B（Important-1：**修复前** vs **修复后**）
+    旧检查器 = **`8c57c6b` 那一版**（修复轮之前的最后一次入库）；
+    之所以不写 `HEAD`：本文件会随 `HEAD` 前进，而这一节要的是**钉住的历史版本**。
+    同一张入库 PDF 样本、同一条命令。
+
+$ git show 8c57c6b:tests/skills/figure-choose/check-figure-style.py > "$TEMP/m3t1/old-check-figure-style.py"
+[exit=0]
+
+--- 旧检查器 × PDF ---
+
+$ python "$TEMP/m3t1/old-check-figure-style.py" --fig tests/skills/figure-choose/fixtures/ok-05.pdf --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+[stdout] （空）
+[stderr] Traceback (most recent call last):
+  File "$TEMP\m3t1\old-check-figure-style.py", line 142, in <module>
+    main()
+  File "$TEMP\m3t1\old-check-figure-style.py", line 131, in main
+    res = check(p, cap, a.textwidth_in, a.dpi)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$TEMP\m3t1\old-check-figure-style.py", line 104, in check
+    with Image.open(fig) as im:
+         ^^^^^^^^^^^^^^^
+  File "\Lib\site-packages\PIL\Image.py", line 3715, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file 'tests\\skills\\figure-choose\\fixtures\\ok-05.pdf'
+[exit=1]
+
+--- 新检查器 × 同一张 PDF ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-05.pdf --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F1  图宽比 0.951（分母 6.31 in）
+PASS  F2  彩色主色数 4
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+[exit=0]
+
+--- 坏 .pdf（内容不是 PDF） ---
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig "$TEMP/m3t1/fake.pdf" --caption "Figure 1: T" --textwidth-in 6.31 --dpi 200
+[stdout] （空）
+[stderr] FAIL: 读不出 PDF 页盒 $TEMP\m3t1\fake.pdf（FileDataError: Failed to open file '$TEMP\\m3t1\\fake.pdf'.）（fail-closed）
+[exit=2]
+
+==============================================================================
+§4  gate 2：变异驱动器（9 条判据变异 + 1 条脚本探针，一条命令全跑）
+==============================================================================
+修复轮 8 条；本轮（F3b 口径收敛轮）新增 **`M42`**（F3b 的词数口径由正文换回整条 ⇒ 口径锚
+`caption:7` 由 PASS 转 FAIL）。
+⚠️ **同一支驱动器现在共 42 条**（Task 3 的 `M9`–`M19`/`C1`/`C2`、Task 4 的 `M22`–`M28`、
+Task 5 的 `M29`–`M41` 后来都并进了这支驱动器），故下面这一段是**整份**输出 ——
+Task 1 关心的是开头那 `M1`–`M8` + `M42` 九条判据变异与探针 `P1`；`9/9` 与 `42/42` 两行都在末尾的合计里。
+
+--- gate 2 ---
+
+$ python tests/skills/figure-choose/mutate-figure-style.py
+==============================================================================
+变异驱动器 · check-figure-style.py
+==============================================================================
+原检查器 blob  7636902a868aeca105e6b75b7dc616816fce95fe
+逐格验收基线  python fixtures/run-expected.py → exit 0
+
+==============================================================================
+逐条结果
+==============================================================================
+RED-OK   M1   F1_HI 1.20 → 0.90
+         ok-01 F1 PASS→FAIL（比值 0.951 > 0.90）；ok-02 F1 PASS→PASS（0.808 ≤ 0.90，不受影响）
+RED-OK   M2   F1_LO/F1_HI 互换（区间空）
+         ok-01.png PASS→FAIL；ok-02.png PASS→FAIL；ok-03.png PASS→FAIL；bad-f1-too-narrow.png FAIL→FAIL；bad-f1-too-wide.png FAIL→FAIL
+RED-OK   M3   PNG 无 --dpi 时不再 fail-closed，改成默认 200 硬着头皮判
+         原检查器 exit=2 拒绝判（'RESULT:' 未打印；stderr 'FAIL F1: PNG 需要显式 --dpi（PNG 的 dpi 元信息不可信'）；变异体 exit=0 印出判词（'RESULT: PASS'）⇒ 守卫被拆掉
+RED-OK   M4   F2 噪声地板 0.005 → 0.0
+         ok-04 F2 PASS→FAIL（4 主色 + 0.292% 稀有彩：读数 4 → 5）；ok-02 F2 PASS→PASS；bad-f2 F2 FAIL→FAIL　NOTE/原 6 张 fixture 上此变异读数全等：ok-01.png PASS→PASS；ok-02.png PASS→PASS；ok-03.png PASS→PASS；bad-f1-too-narrow.png PASS→PASS；bad-f1-too-wide.png PASS→PASS；bad-f2-five-colors.png FAIL→FAIL
+RED-OK   M5   CAP_MAX 12 → 99（CAP_HARD 17 不动）
+         caption:5（整条 15 / 正文 13 词）F3b FAIL→PASS；NOTE/caption:2（整条 24 / 正文 22 词）F3b FAIL→FAIL（超正文硬上限 17，CAP_MAX 抬高也翻不了）
+RED-OK   M6   F3c 判定取反
+         caption:1 F3c PASS→FAIL（合格图注转红）；caption:3 F3c FAIL→PASS（句末句号转绿）
+RED-OK   M7   F2 的 PDF 栅格化分支整段删掉（退回 Image.open 读 PDF）
+         ok-05.pdf F2 原检查器 exit=0 判词 PASS；变异体 exit=2 无判词（stderr 'FAIL: 读不出图 fixtures\ok-05.pdf（UnidentifiedIm'）⇒ 该分支承重；PNG 侧 ok-01 F2 PASS→PASS（不受影响）
+RED-OK   M8   F3a 判定取反
+         caption:1 F3a PASS→FAIL（合格前缀转红）；caption:6 F3a FAIL→PASS（'Figure 6 Model structure' 缺冒号，转绿）
+RED-OK   M42  F3b 词数口径由**正文**换回**整条**（`len(body.split())` → `len(cap.split())`）
+         caption:7（整条 13 词 / 正文 11 词）F3b PASS→FAIL（口径换回整条 ⇒ 越线 1 词）；NOTE/caption:5（整条 15 / 正文 13）F3b FAIL→FAIL（两口径同判红 ⇒ 它证不了口径，故口径锚另立 caption:7）
+------------------------------------------------------------------------------
+变异探针（被打的不是判据，是验收脚本的 ERROR 分支）
+RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR 且整轮非零退出
+         干净一遍 exit=0 'MISMATCH 0 / 21'；对变异体一遍 exit=1 'MISMATCH 0 / 21  ERROR 1'（1 行 ERROR）　NOTE/同一行：原检查器 exit=1 判词 F2=FAIL；变异体 exit=2 stdout 空 ⇒ 旧版谓词会记 got=FAIL（= want ⇒ 记 OK，整轮报 MISMATCH 0 假绿）；新版记 ERROR 且 exit≠0
+
+==============================================================================
+还原自证
+==============================================================================
+  check-figure-style.py  blob  7636902a868aeca105e6b75b7dc616816fce95fe  == 变异前
+  工作树字节 == 变异前字节: True
+  fixtures/_mut/ 已清空: True
+  还原后复跑逐格验收: exit=0  MISMATCH 0 / 21
+
+==============================================================================
+规范数守卫的变异（M9–M19 + C1/C2 · 打的是 house-style.md / provenance.md，共 13 条）
+==============================================================================
+RED-OK   M9   house-style.md 里 H1 的上限 1.20 → 9.99
+         house-style.md 里 H1 的上限 1.20 → 9.99　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H1-hi=FAIL
+RED-OK   M10  house-style.md 里 H9 的词数上限 12 → 3
+         house-style.md 里 H9 的词数上限 12 → 3　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H9-wmax=FAIL、G-H9-const-max=FAIL
+RED-OK   M11  删掉 H4 那一行（主色中位那条依据）
+         删掉 H4 那一行（主色中位那条依据）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H4-med=FAIL、G-H4-zero=FAIL、G-H4-cov=FAIL
+RED-OK   M12  provenance.md 里 P-H2-a 的复跑命令把分母口径从 p90 改成 mean
+         provenance.md 里 P-H2-a 的复跑命令把分母口径从 p90 改成 mean　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 P-H2-a=FAIL
+RED-OK   M13  H4 把 662 图上的转写口径读数 51.81 改回**已被证伪的 48.79**（Critical-1 的回归位）
+         H4 把 662 图上的转写口径读数 51.81 改回**已被证伪的 48.79**（Critical-1 的回归位）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H4-n2lo=FAIL
+RED-OK   M14  H4 连续色图闸门的箱数下限 ≥100 → ≥20（退回形同虚设的那条腿）
+         H4 连续色图闸门的箱数下限 ≥100 → ≥20（退回形同虚设的那条腿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H4-gate-box=FAIL
+RED-OK   M15  H4 旧闸门在 heatmap 样本上的命中数 5/13 → 9/13（漏检证据被改坏）
+         H4 旧闸门在 heatmap 样本上的命中数 5/13 → 9/13（漏检证据被改坏）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H4-heat-old=FAIL
+RED-OK   M16  H3 的 120 抽样中位区间 2.24–2.42 → 2.14–2.42（N-5 的回归位）
+         H3 的 120 抽样中位区间 2.24–2.42 → 2.14–2.42（N-5 的回归位）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H3-s120-lo=FAIL
+RED-OK   M17  H9 的宽口径条数 578 → 572（Important-4 的回归位）
+         H9 的宽口径条数 578 → 572（Important-4 的回归位）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H9-578=FAIL
+RED-OK   M18  provenance.md P-H2-b 散文里的右尾 max 7.19 → 8.19（N-7：散文数也要守）
+         provenance.md P-H2-b 散文里的右尾 max 7.19 → 8.19（N-7：散文数也要守）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-P-H2b-max=FAIL
+RED-OK   M19  H12 的〔社区〕字号下限 ≥7 pt → ≥6 pt（N-8：社区值也不能被静默改掉）
+         H12 的〔社区〕字号下限 ≥7 pt → ≥6 pt（N-8：社区值也不能被静默改掉）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H12-minpt=FAIL
+RED-OK   C1   往 house-style.md 末尾**加一句带整数的话**（『共 37 条断言，其中 6 条为社区条目。』）
+         前置(原件) exit=0 『未入理由表 0 个』；后置(改坏) exit=1 未入理由表 1 个 ⇒ CENSUS 当场点了出来
+RED-OK   C2   把仪器实现常量 `quantize(32, MEDIANCUT)` 改成 `quantize(99, MEDIANCUT)`（上下文豁免表不能是万能兜底）
+         前置(原件) exit=0 『未入理由表 0 个』；后置(改坏) exit=1 未入理由表 1 个 ⇒ CENSUS 当场点了出来
+
+==============================================================================
+结构守卫的变异（M22–M28 · 打的是 chart-types.md，共 7 条） + 读数条探针 R1
+==============================================================================
+RED-OK   M22  chart-types.md：入口 9 由『不确定性』**改名**（九个入口少一个）
+         chart-types.md：入口 9 由『不确定性』**改名**（九个入口少一个）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S1=FAIL
+RED-OK   M23  chart-types.md：删掉入口 1 的『**备选**』那一段（四段少一段）
+         chart-types.md：删掉入口 1 的『**备选**』那一段（四段少一段）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S2=FAIL
+RED-OK   M24  chart-types.md：删掉 **radar 定义行**上的『低频』标注
+         chart-types.md：删掉 **radar 定义行**上的『低频』标注　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S3=FAIL　NOTE/任务书给的正则（**全文**扫 `radar` × `低频`）在本变异体上仍**命中** ⇒ 那个写法会漏掉这次改坏；本实现只扫 **radar 定义行** ⇒ 红
+RED-OK   M25  chart-types.md：3D 那条参照分布数 9.2% → 9.3%（与 house-style 不同值）
+         chart-types.md：3D 那条参照分布数 9.2% → 9.3%（与 house-style 不同值）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S5=FAIL
+RED-OK   M26  chart-types.md：两个小数**都**写成中文数字 ⇒ 一个实测数都抽不到（fail-closed 该红）
+         chart-types.md：两个小数**都**写成中文数字 ⇒ 一个实测数都抽不到（fail-closed 该红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S5=FAIL
+RED-OK   M27  chart-types.md：写进一个**池内但无所属**的数 `1.20`（H1 的上限，旧池子里有它）
+         chart-types.md：写进一个**池内但无所属**的数 `1.20`（H1 的上限，旧池子里有它）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S5=FAIL　NOTE/`1.20` 在**旧池子**（125 个数）里: True ⇒ 旧写法**判绿、漏掉这次改坏**；新写法：该行**没有任何 `H<n>` 引用** ⇒ 无所属 ⇒ 红（fail-closed）
+RED-OK   M28  chart-types.md：H7 那条的数 `9.2` 换成 `0.5`（H4 的地板，**池内但语义不同**）
+         chart-types.md：H7 那条的数 `9.2` 换成 `0.5`（H4 的地板，**池内但语义不同**）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S5=FAIL　NOTE/`0.5` 在**旧池子**（125 个数）里: True ⇒ 旧写法**判绿、漏掉这次改坏**；`H7` 条目的数 ['1.8', '2.1', '7.2', '9.2'] 里**没有它** ⇒ 新写法红（跨条目搬数）
+------------------------------------------------------------------------------
+RED-OK   R1   读数条 `S4`：该动的时候动、该判的时候不判
+         原件 `--only S4` exit=0 『定义行 42 · 不同名 42 · 重名 无（读数条：不参与 PASS/FAIL，重名由人看一眼）』（无 PASS/FAIL 判词）　把 `bar chart` 定义复制一份后 exit=0 『['bar chart']』⇒ 读数从 42 行涨到 43 行、重名被点出，而 **rc 仍为 0**（读数条只读不判；一个判据做不到这点）
+
+==============================================================================
+SKILL 守卫的变异（M29–M41 · 打的是 SKILL.md 的副本；M34/M41 打的是 house-style.md 的副本、M40 换 skills 根，共 13 条）
+==============================================================================
+RED-OK   M29  SKILL.md：写进一条规范数值『图宽用满 0.951×正文宽』⇒ 重述规范（`K3` 与 `K5` 都红）
+         SKILL.md：写进一条规范数值『图宽用满 0.951×正文宽』⇒ 重述规范（`K3` 与 `K5` 都红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL、K5=FAIL　NOTE/`0.951` 在 `house-style.md` 里出现: True ⇒ `K3`（现取禁止串）红；`K5`（除 `H<n>` 外每个数都要被声明为结构性计数）与禁止串表无关 —— 这个数没被声明就红（本次即红，故两条是**两道不同的闸**，不是同一条判两遍）
+RED-OK   M30  SKILL.md：指针行删掉、别处只留裸文件名 ⇒ `K2` 红（宽松谓词会漏，见 NOTE）
+         SKILL.md：指针行删掉、别处只留裸文件名 ⇒ `K2` 红（宽松谓词会漏，见 NOTE）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K2=FAIL　NOTE/任务书那条宽松谓词（路径**或**裸文件名任一即可）在本变异体上仍**命中** ⇒ 那个写法会漏掉这次改坏；本实现要求 `references/house-style.md` 这个**相对路径** ⇒ 红
+RED-OK   M31  SKILL.md：把文件撑到 151 行 ⇒ `K1` 红（短契约上限 <150）
+         SKILL.md：把文件撑到 151 行 ⇒ `K1` 红（短契约上限 <150）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K1=FAIL
+RED-OK   M32  SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）
+         SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K4=FAIL
+RED-OK   M33  SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名即错）
+         SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名即错）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K6=FAIL
+RED-OK   M35  SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红（原先整句走绿，见 Important-1）
+         SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红（原先整句走绿，见 Important-1）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL
+RED-OK   M36  SKILL.md：写进『图宽不超过一倍正文宽』⇒ `K3` 红（**单位词臂**单独在红，见 NOTE）
+         SKILL.md：写进『图宽不超过一倍正文宽』⇒ `K3` 红（**单位词臂**单独在红，见 NOTE）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同一副本上 `K3` 印出的『裸值词』= ['七', '二十', '十七', '十二', '四']（下界 ≥4）、『中文命中』= ['一倍'] ⇒ 插入串里的 `一` **不在裸值词里**（1 < 下界），这条红的是**单位词臂**（`倍` 是 `×` 的中文写法）—— 两条臂各管一段，只留一条就会漏掉这一半
+RED-OK   M37  SKILL.md：把 `4`（H4 的规范值）写进**声明行** ⇒ `K5` 红（声明行只许出现契约数）
+         SKILL.md：把 `4`（H4 的规范值）写进**声明行** ⇒ `K5` 红（声明行只许出现契约数）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K5=FAIL
+RED-OK   M38  SKILL.md：删掉「输出契约」整段 ⇒ `K7` 红（该段原先没有任何机械存在性守卫）
+         SKILL.md：删掉「输出契约」整段 ⇒ `K7` 红（该段原先没有任何机械存在性守卫）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K7=FAIL　NOTE/同一副本上 `K1`–`K6` 现跑 exit=0『RESULT: PASS』 ⇒ 这六条**一条都不红**（删掉整段不违反它们中的任何一条）—— `K7` 是这段唯一的机械守卫
+RED-OK   M39  SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（旧写法不会红）
+         SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（旧写法不会红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K4=FAIL、K5=FAIL
+RED-OK   M34  house-style.md：小数字面量与 `≤n` 全抹掉 ⇒ `K3` 抽不到禁止串 ⇒ fail-closed 红
+         前置(真件) exit=0 K3 绿；后置(副本抹掉小数与 `≤n`) exit=1 『禁止串 0 条（现取）· 命中 无 ⇒ **一条都抽不到 ⇒ fail-closed 记红** · 中文数词臂：裸值词 ['七', '二十', '十七', '十二']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无』（副本里剩下的禁止串 0 条）
+RED-OK   M40  SKILL.md：`--skills-root` 指到**真有** `mcm-plot-python` 的临时根 ⇒ `K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）
+         前置(真 skills 根) exit=0 K6 绿；后置(临时根里真有 mcm-plot-python) exit=1 『点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·标了〔拟建〕⇒**标记与事实不符**） · 标记与事实不符的 ['mcm-plot-python']』
+RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红（`SKILL.md` 那句『逐条标了验证状态』要成立）
+         前置(真件) exit=0 K8 绿；后置(副本抹掉 `H1` 的验证行) exit=1 『`### H<n>.` 条目 13 个 · 没有恰一行『**验证**：』的 ['H1（0 行）']』
+还原自证  house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 4b8eed1d5c51cdd2feaea27db719b4c4ab65815d · SKILL.md blob dca464475e6f7199c72e1bf7492296868530db3e · 原件字面仍在: True · _mut-house/ 已清空: True
+
+==============================================================================
+合计
+==============================================================================
+MUT: 9/9 红（check-figure-style.py）
+MUT: 13/13 红（house-style.md / provenance.md 的规范数守卫：11 条 `--only` + 2 条 CENSUS 全跑）
+MUT: 7/7 红（chart-types.md 的结构守卫 S1/S2/S3/S5：7 条 `--only`）
+MUT: 13/13 红（SKILL.md 的短契约守卫 K1–K8：13 条（10 条打 SKILL.md 副本 + 3 条打别的：`K3` fail-closed 臂 / `K6` 反向臂 / `K8`））
+MUT: 42/42 红（合计）
+探针 P1: 红（check-figure-style.py 的脚本探针）
+探针 R1: 红（读数条 S4 的『该动的时候动、该判的时候不判』）
+（本驱动器共 9 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 1 条读数条探针）
+[exit=0]
+
+==============================================================================
+§5  R-5 的 A/B：**「没判成」不再被记成「判成红」**
+==============================================================================
+
+做法：造一支检查器变异体，让它**只在 `bad-f2-five-colors.pdf` 那一行**静默 fail-closed
+（rc=2、stdout/stderr 全空）——那一行在 expected.tsv 里期望的正是 **FAIL**。
+然后拿**旧版验收脚本**（**`8c57c6b` 里那份**；不写 `HEAD` 的理由同 §3.5）与**新版**分别去读它。
+
+$ cp -r tests/skills/figure-choose/fixtures "$TEMP/m3t1/p1/figure-choose/"
+$ git show 8c57c6b:tests/skills/figure-choose/fixtures/run-expected.py > "$TEMP/m3t1/p1/figure-choose/fixtures/run-expected.py"
+$ # 再把上面那支「只在期望 FAIL 行 fail-closed」的变异体写到 "$TEMP/m3t1/p1/figure-choose/check-figure-style.py"
+$ #   （与驱动器 P1 用的是同一条字面替换，见 §4）
+[exit=0]
+
+--- A：旧版验收脚本（**`8c57c6b` 里那份**） ---
+
+$ python "$TEMP/m3t1/p1/figure-choose/fixtures/run-expected.py"
+flag      sample                   crit want got
+OK        ok-01.png                F1   want=PASS got=PASS
+OK        ok-01.png                F2   want=PASS got=PASS
+OK        ok-02.png                F1   want=PASS got=PASS
+OK        ok-03.png                F2   want=PASS got=PASS
+OK        ok-04.png                F2   want=PASS got=PASS
+OK        ok-05.pdf                F1   want=PASS got=PASS
+OK        ok-05.pdf                F2   want=PASS got=PASS
+OK        bad-f1-too-narrow.png    F1   want=FAIL got=FAIL
+OK        bad-f1-too-wide.png      F1   want=FAIL got=FAIL
+OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
+OK        bad-f2-five-colors.pdf   F2   want=FAIL got=FAIL
+OK        caption:1                F3a  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3c  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3d  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:2                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:3                F3c  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:4                F3d  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:5                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:6                F3a  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:7                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
+MISMATCH 0 / 21
+[exit=0]
+
+--- 同上，只看那一行（grep bad-f2-five-colors.pdf） ---
+
+$ python "$TEMP/m3t1/p1/figure-choose/fixtures/run-expected.py"   # 贴出 stdout 里含该样本的行
+[stdout 中匹配 /bad-f2-five-colors/ 的行]
+OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
+OK        bad-f2-five-colors.pdf   F2   want=FAIL got=FAIL
+[exit=0]
+
+--- B：新版验收脚本（--checker 指到同一支变异体） ---
+
+$ python tests/skills/figure-choose/fixtures/run-expected.py --checker "$TEMP/m3t1/p1/figure-choose/check-figure-style.py"
+# checker: $TEMP/m3t1/p1/figure-choose/check-figure-style.py
+flag      sample                   crit want got
+OK        ok-01.png                F1   want=PASS got=PASS
+OK        ok-01.png                F2   want=PASS got=PASS
+OK        ok-02.png                F1   want=PASS got=PASS
+OK        ok-03.png                F2   want=PASS got=PASS
+OK        ok-04.png                F2   want=PASS got=PASS
+OK        ok-05.pdf                F1   want=PASS got=PASS
+OK        ok-05.pdf                F2   want=PASS got=PASS
+OK        bad-f1-too-narrow.png    F1   want=FAIL got=FAIL
+OK        bad-f1-too-wide.png      F1   want=FAIL got=FAIL
+OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
+ERROR     bad-f2-five-colors.pdf   F2   rc=2 没产生判词（fail-closed 或崩溃）
+OK        caption:1                F3a  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3c  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3d  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:2                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:3                F3c  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:4                F3d  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:5                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:6                F3a  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:7                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
+MISMATCH 0 / 21  ERROR 1
+[exit=1]
+
+--- 同上，只看那一行与末行 ---
+
+$ python tests/skills/figure-choose/fixtures/run-expected.py --checker "$TEMP/m3t1/p1/figure-choose/check-figure-style.py"   # 贴出 stdout 里匹配 /bad-f2-five-colors|^MISMATCH/ 的行
+[stdout 中匹配 /bad-f2-five-colors|^MISMATCH/ 的行]
+OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
+ERROR     bad-f2-five-colors.pdf   F2   rc=2 没产生判词（fail-closed 或崩溃）
+MISMATCH 0 / 21  ERROR 1
+[exit=1]
+
+读法：A（旧）报 `MISMATCH 0 / 21`、**exit 0** —— 看着「全绿」，可那一行它**根本没判成**；
+      B（新）报 `MISMATCH 0 / 21  ERROR 1`、**exit 1** —— 同一行被如实记成 ERROR。
+      这正是 R-5 指出的盲区：期望 FAIL 的行 + 崩掉的运行 = 旧版的「OK」。
+
+==============================================================================
+§6  口径分叉登记（不自行挑一个悄悄用）
+==============================================================================
+
+1. **图宽比的分母**：本文件一律 6.31（全局中位口径）。侦察报告同时给过另一口径——
+   「逐篇正文行宽 p90」各自作分母：同一区间 [0.9,1.1) 的比例从 56.6% 变 59.4%
+   （见 spec Global Constraints 原文）。**两种口径结论不同**，本任务只固定用中位口径；
+   Task 3 若改用逐篇口径重算规范里的比值数，须整表换口径并写明。
+2. **F2 的仪器口径**：本检查器的 `color_count`（320×320 NEAREST 采样 + `//16` 分箱 +
+   去近灰 + 0.5% 地板）与侦察用的 `quantize(32, MEDIANCUT)` **不是同一支仪器**（见 §7 实测）。
+   ⇒ spec 里 H4 那条「实测中位 3」**不能拿本仪器读数直接复算**；Task 3 写 provenance 时
+   必须二选一并写明取的是哪支。（本任务只负责「尺子能量、能翻红」，不擅自改 spec 的数。）
+
+==============================================================================
+§7  仪器口径实测（166 张抽样 · 三支算法对照；**只读** corpus）
+==============================================================================
+
+$ python "$TEMP/m3t1/instrument.py"   # 本轮重跑，命令体见下
+[stdout]
+sample n = 166
+A 任务书原样(BICUBIC)           median=2.0 mean=4.51 zero%=32.5 <=4占比=71.1%
+B 出厂(NEAREST)              median=2.0 mean=4.34 zero%=33.1 <=4占比=72.9%
+C 侦察仪器(quantize32)         median=4.0 mean=5.45 zero%=15.7 <=4占比=57.2%
+[exit=0]
+
+命令体（逐字，cwd = 仓根）：
+
+import glob, statistics as st
+from PIL import Image
+FIGS = sorted(glob.glob('corpus/papers/figures/**/fig-*.png', recursive=True))[::4]
+print('sample n =', len(FIGS))
+def v1(p):   # A 任务书原样：默认重采样（BICUBIC）
+    im = Image.open(p).convert('RGB').resize((320, 320)); tot = 320*320; keep = {}
+    for cnt, (r, g, b) in im.getcolors(tot):
+        if max(r, g, b) - min(r, g, b) < 24: continue
+        k = (r//16, g//16, b//16); keep[k] = keep.get(k, 0) + cnt
+    return sum(1 for c in keep.values() if c/tot >= 0.005)
+def v2(p):   # B 出厂：NEAREST
+    im = Image.open(p).convert('RGB').resize((320, 320), Image.NEAREST); tot = 320*320; keep = {}
+    for cnt, (r, g, b) in im.getcolors(tot):
+        if max(r, g, b) - min(r, g, b) < 24: continue
+        k = (r//16, g//16, b//16); keep[k] = keep.get(k, 0) + cnt
+    return sum(1 for c in keep.values() if c/tot >= 0.005)
+def v6(p):   # C 侦察仪器：quantize(32, MEDIANCUT)
+    im = Image.open(p).convert('RGB').quantize(colors=32, method=Image.MEDIANCUT).convert('RGB')
+    tot = im.size[0]*im.size[1]; keep = {}
+    for cnt, (r, g, b) in im.getcolors(tot):
+        if min(r, g, b) >= 240 or max(r, g, b) <= 40: continue
+        if max(r, g, b) - min(r, g, b) <= 24: continue
+        k = (r//16, g//16, b//16); keep[k] = keep.get(k, 0) + cnt
+    return sum(1 for c in keep.values() if c/tot >= 0.005)
+for name, fn in [('A 任务书原样(BICUBIC)', v1), ('B 出厂(NEAREST)', v2), ('C 侦察仪器(quantize32)', v6)]:
+    vals = [fn(p) for p in FIGS]; zero = sum(1 for v in vals if v == 0)
+    print(f'{name:26} median={st.median(vals):.1f} mean={st.mean(vals):.2f} '
+          f'zero%={100*zero/len(vals):.1f} <=4占比={100*sum(1 for v in vals if v <= 4)/len(vals):.1f}%')
+
+⇒ A 与 B 的差 = 重采样是否造色（本检查器出厂用 B）；B 与 C 的差 = 仪器不同，见 §6-2。
+
+==============================================================================
+§8  文件身份与环境
+==============================================================================
+
+--- 8.1 提交**前**的 `git status --short`（本轮的改动尚未入库）---
+
+$ git status --short
+ M tests/skills/figure-choose/green-evidence.md
+ M tests/skills/figure-choose/green/make-evidence.py
+[exit=0]
+
+--- 8.2 blob 身份：工作树 `git hash-object`（提交后与 HEAD 逐个比对，见 §8.5）---
+
+$ git hash-object tests/skills/figure-choose/check-figure-style.py tests/skills/figure-choose/mutate-figure-style.py tests/skills/figure-choose/fixtures/make-fixtures.py tests/skills/figure-choose/fixtures/run-expected.py tests/skills/figure-choose/fixtures/expected.tsv tests/skills/figure-choose/fixtures/captions.tsv tests/skills/figure-choose/fixtures/ok-01.png tests/skills/figure-choose/fixtures/ok-02.png tests/skills/figure-choose/fixtures/ok-03.png tests/skills/figure-choose/fixtures/ok-04.png tests/skills/figure-choose/fixtures/ok-05.pdf tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png tests/skills/figure-choose/fixtures/bad-f1-too-wide.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py
+7636902a868aeca105e6b75b7dc616816fce95fe
+4b8f28e9764e0fb865f2ab6be918108a2ef9f058
+327085088b530a4b1af4339c5a9d7b1b46ff895e
+b3fd8153b5d66391106725fc20d28f47a9118bc2
+de5e3db5b4519b4940d28ed7704afb30b5e767ee
+1798824fce4640044c34c775ac39042818609a29
+25abad7f2f9e2a39c9a777378d0527326a5b7a9b
+50a94b1689eb5c6c9bb8719dc08147fffb3ed27b
+8b515f04091f763b3c5396ff54def1df4d226d26
+dfd7405ad60e7a045b6bbe54bfcd670566db3e3d
+1d72b8375f3992422db636670dd6ad2829e2e28d
+4c3aaecf4574c274f161660c06cb2426f55cc330
+a3c07123b60a10688a6a6057f1c602e0ccc8fa54
+0ea61290afa8b7f277fe557dcccd56ccaec4f669
+38d34707119ac26c001f88e910e388848aedb003
+84788a93def2ac0eda204e6d1cbb05c192d758ef
+[exit=0]
+
+（本文件自己不在此列：它由生成器最后一步写出，随后还要追加 §8.5——自我指涉的哈希只能登记在
+ §8.5 里，见那里的说明。）
+
+--- 8.3 环境 ---
+
+$ python -c "import sys, PIL, fitz; print('Python', sys.version); print('Pillow', PIL.__version__); print('PyMuPDF', fitz.__doc__)"
+Python 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+Pillow 12.3.0
+PyMuPDF PyMuPDF 1.27.2.3: Python bindings for the MuPDF 1.27.2 library.
+Python 3.11 running on win32 (64-bit).
+[exit=0]
+
+--- 8.4 落盘字节体检（LF 而非 CRLF；本目录由 .gitattributes 标 `-text`）---
+
+命令体：
+import pathlib
+for p in sorted(pathlib.Path('tests/skills/figure-choose').rglob('*')):
+    if p.is_file() and '__pycache__' not in p.parts:   # 构建产物不体检
+        b = p.read_bytes()
+        print(f'{str(p).replace(chr(92), chr(47)):62} bytes={len(b):7} CRLF={b.count(bytes([13, 10]))}')
+
+$ python -c "<上面的命令体>"
+tests/skills/figure-choose/chart-types-verify.txt              bytes=  47860 CRLF=0
+tests/skills/figure-choose/check-figure-style.py               bytes=  13526 CRLF=0
+tests/skills/figure-choose/check-house-style.py                bytes=  69694 CRLF=0
+tests/skills/figure-choose/figure-style-baseline.txt           bytes=  69957 CRLF=0
+tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png      bytes=   2523 CRLF=1
+tests/skills/figure-choose/fixtures/bad-f1-too-wide.png        bytes=   4148 CRLF=1
+tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf     bytes=   1322 CRLF=0
+tests/skills/figure-choose/fixtures/bad-f2-five-colors.png     bytes=   3083 CRLF=1
+tests/skills/figure-choose/fixtures/captions.tsv               bytes=    457 CRLF=0
+tests/skills/figure-choose/fixtures/expected.tsv               bytes=    462 CRLF=0
+tests/skills/figure-choose/fixtures/make-fixtures.py           bytes=   3886 CRLF=0
+tests/skills/figure-choose/fixtures/ok-01.png                  bytes=   3060 CRLF=1
+tests/skills/figure-choose/fixtures/ok-02.png                  bytes=   2783 CRLF=1
+tests/skills/figure-choose/fixtures/ok-03.png                  bytes=   3668 CRLF=1
+tests/skills/figure-choose/fixtures/ok-04.png                  bytes=   3090 CRLF=1
+tests/skills/figure-choose/fixtures/ok-05.pdf                  bytes=   1029 CRLF=0
+tests/skills/figure-choose/fixtures/run-expected.py            bytes=   4761 CRLF=0
+tests/skills/figure-choose/gen-chart-types-verify.py           bytes=  10493 CRLF=0
+tests/skills/figure-choose/gen-figure-style-baseline.py        bytes=  11266 CRLF=0
+tests/skills/figure-choose/gen-house-style-verify.py           bytes=   9795 CRLF=0
+tests/skills/figure-choose/gen-skill-verify.py                 bytes=  13098 CRLF=0
+tests/skills/figure-choose/green/green-self-reports.md         bytes=  20490 CRLF=0
+tests/skills/figure-choose/green/judge-green.md                bytes=  13556 CRLF=0
+tests/skills/figure-choose/green/make-evidence.py              bytes=  61267 CRLF=0
+tests/skills/figure-choose/green/out-G1/caption.txt            bytes=     79 CRLF=0
+tests/skills/figure-choose/green/out-G1/figure.pdf             bytes=  18360 CRLF=0
+tests/skills/figure-choose/green/out-G1/figure.png             bytes=  86017 CRLF=2
+tests/skills/figure-choose/green/out-G1/make_figure.py         bytes=   8163 CRLF=0
+tests/skills/figure-choose/green/out-G2/caption.txt            bytes=     68 CRLF=1
+tests/skills/figure-choose/green/out-G2/figure.pdf             bytes=  31353 CRLF=0
+tests/skills/figure-choose/green/out-G2/figure.png             bytes= 142412 CRLF=3
+tests/skills/figure-choose/green/out-G2/make_figure.py         bytes=  15210 CRLF=0
+tests/skills/figure-choose/green/out-G3/caption.txt            bytes=     85 CRLF=0
+tests/skills/figure-choose/green/out-G3/figure.pdf             bytes=  13822 CRLF=0
+tests/skills/figure-choose/green/out-G3/figure.png             bytes=  39889 CRLF=2
+tests/skills/figure-choose/green/out-G3/make_figure.py         bytes=   8523 CRLF=0
+tests/skills/figure-choose/green/README.md                     bytes=   4166 CRLF=0
+tests/skills/figure-choose/green/rescue-transcripts.py         bytes=   8418 CRLF=0
+tests/skills/figure-choose/green-evidence.md                   bytes= 102780 CRLF=1
+tests/skills/figure-choose/house-metrics.py                    bytes=  41210 CRLF=0
+tests/skills/figure-choose/house-style-verify.txt              bytes=  73502 CRLF=0
+tests/skills/figure-choose/mutate-figure-style.py              bytes=  70537 CRLF=0
+tests/skills/figure-choose/red/brief-R1.md                     bytes=   1122 CRLF=0
+tests/skills/figure-choose/red/brief-R2.md                     bytes=   2029 CRLF=0
+tests/skills/figure-choose/red/brief-R3.md                     bytes=   1230 CRLF=0
+tests/skills/figure-choose/red/f2-boxes.txt                    bytes=  16801 CRLF=0
+tests/skills/figure-choose/red/f2-diagnose.py                  bytes=   6392 CRLF=0
+tests/skills/figure-choose/red/judge.md                        bytes=   7711 CRLF=0
+tests/skills/figure-choose/red/make-briefs.py                  bytes=   5641 CRLF=0
+tests/skills/figure-choose/red/make-evidence.py                bytes=  69230 CRLF=0
+tests/skills/figure-choose/red/make-multipage-probe.py         bytes=   3914 CRLF=0
+tests/skills/figure-choose/red/make-readme.py                  bytes=   6447 CRLF=0
+tests/skills/figure-choose/red/multipage-probe.pdf             bytes=   1923 CRLF=0
+tests/skills/figure-choose/red/out-R1/caption.txt              bytes=   1215 CRLF=0
+tests/skills/figure-choose/red/out-R1/figure.pdf               bytes=  22481 CRLF=0
+tests/skills/figure-choose/red/out-R1/figure.png               bytes= 237943 CRLF=4
+tests/skills/figure-choose/red/out-R1/make_figure.py           bytes=  11823 CRLF=0
+tests/skills/figure-choose/red/out-R2/caption.txt              bytes=   1775 CRLF=0
+tests/skills/figure-choose/red/out-R2/figure.pdf               bytes=  37999 CRLF=1
+tests/skills/figure-choose/red/out-R2/figure.png               bytes= 431818 CRLF=4
+tests/skills/figure-choose/red/out-R2/make_figure.py           bytes=  10103 CRLF=0
+tests/skills/figure-choose/red/out-R3/caption.txt              bytes=   1063 CRLF=0
+tests/skills/figure-choose/red/out-R3/figure.pdf               bytes=  50533 CRLF=0
+tests/skills/figure-choose/red/out-R3/figure.png               bytes= 215690 CRLF=5
+tests/skills/figure-choose/red/out-R3/make_figure.py           bytes=  10972 CRLF=0
+tests/skills/figure-choose/red/README.md                       bytes=   9724 CRLF=0
+tests/skills/figure-choose/red/red-evidence.md                 bytes=  71888 CRLF=0
+tests/skills/figure-choose/red/rescue-transcripts.py           bytes=   8785 CRLF=0
+tests/skills/figure-choose/red/truth.py                        bytes=   2890 CRLF=0
+tests/skills/figure-choose/red/verify-reproducible.py          bytes=   3667 CRLF=0
+tests/skills/figure-choose/red/writer-self-reports.md          bytes=  30721 CRLF=0
+tests/skills/figure-choose/skill-verify.txt                    bytes=  51618 CRLF=0
+[exit=0]
+
+注：PNG/PDF 里出现的 `CRLF=1` 是**二进制内容里恰好有 0x0D0A 这两个字节**，不是行尾；
+    文本文件（.py/.tsv/.txt）一律 `CRLF=0`。
+注：上面 `figure-style-baseline.txt` 那个字节数是**生成器读到的上一版**（本文件由生成器最后一步写出，
+    不可能在写出前知道自己的最终大小）。收工时的最终大小与提交后自证见 `.superpowers/sdd/task-m3-t1-report.md`。
+
+==============================================================================
+§9  差异登记
+==============================================================================
+
+9.1 **修复轮** vs 它的上一轮（`8c57c6b`）—— 原表保留，供追溯
+
+| 项 | 上一轮 | 修复轮 | 起因 |
+| :--- | :--- | :--- | :--- |
+| expected.tsv 条数 | 16 | **20** | 钉 PDF 载体的 3 行 + 钉 F3a 的 1 行 |
+| 载体 | 只有 PNG | PNG + **PDF**（`ok-05.pdf`/`bad-f2-five-colors.pdf` 入库） | Important-1 |
+| 图样本的图注 | `Figure 1: A test figure caption.`（带句号） | 同前但**去句号** | R-7 |
+| 变异条数 | 6 | **8**（+M7 PDF 分支、+M8 F3a 取反）+ 脚本探针 P1 | Important-1/3、R-5 |
+| M3 的变异形态 | 守卫改 `if False:` | 守卫改「默认 200 硬着头皮判」 | 新版有通用兜底接住前者，证不了守卫承重（见 §4 的 M3 说明） |
+| `${FIX}/run-expected.py` | 只看判词串 | 先验 rc 与 `RESULT:` 行，再比判词；带 `--checker` | R-5 |
+| 判词行位置 | `--json` 时 JSON 在最后 | `RESULT:` **恒为末行** | R-4 |
+
+上一轮报告里登记为「未验证的分支」的 `fitz` 页盒路径，修复轮**已由入库 PDF 样本覆盖**（§3.1、§3.5）。
+
+9.2 **口径收敛轮**（本轮）vs 修复轮 —— Task 6 GREEN 对照的 Important-2 涟漪
+
+| 项 | 修复轮 | 本轮 | 起因 |
+| :--- | :--- | :--- | :--- |
+| F3b 的词数口径 | **整条**图注（`cap.split()`，含 `Figure N:` 那一段） | **正文**（`caption_body(cap).split()`，去标签后） | Task 6 的 Important-2：规范 H9 与 `house-metrics.py` 的 `cap_words_*` 一直是正文口径，检查器是另一个口径 |
+| 常量 `CAP_MAX` / `CAP_HARD` | 12 / 17 | **12 / 17（一字未动）**；`G-H9-*` 守卫同样未动 | `c8-caption.tsv`：**正文** p95=12 / max=17（含标签口径是 14 / 19）⇒ 常量本就取自正文口径 |
+| 规范侧登记 | `provenance.md` P-D-c1 / P-D-c2 / P-D-c3 记「**两口径不可互换**」 | 同一处改记「**已收敛**」；`house-style.md` H9 的「违反判据」标成「**正文**词数」 | 同上（收敛面只有这三处 + 本文件 + Task 6 的证据） |
+| expected.tsv 条数 | 20 | **21**（新增 `caption:7 F3b PASS` 口径锚） | 换口径后**没有一条既有 fixture 会翻红**（其余图注两口径同判）⇒ 不补锚就等于"口径改了但证不了" |
+| 变异条数 | 8（+ 探针 P1） | **9**（+ `M42`：口径换回整条 ⇒ `caption:7` PASS→FAIL） | 同上 |
+| RED 三份的 F3b 读数 | 203 / 285 / 177（整条） | **203 / 285 / 177（一字不变）** | RED 的图注以 `Figure 1.` 起（**句点、无冒号**）⇒ `caption_body` 切不出前缀 ⇒ 整条算正文 |
+| GREEN 三份的 F3b 读数 | 整条 **13** ⇒ FAIL（Task 6 测得） | 正文 **11** ⇒ **PASS** | 收敛的直接效果（Task 6 证据里的 13 格红 → 10 格红） |
+
+==============================================================================
+§8.5 提交**后**的自证（+ 逐文件：工作树 `git hash-object` == `HEAD:<path>`）
+==============================================================================
+
+本节在**提交之后**跑：`git status --short` 与 `git log -1` 都在**工作树干净**的那一刻采集
+（那一刻本轮的改动全部已入库、本节的旧文本也还是上一版），随后本文件被 `git commit --amend`
+并入那个提交 —— 只动本文件自己，另外 16 个文件一个字节没变 ⇒ 下面 16 条比对在 amend 后依然成立。
+⚠️ `git log -1` 打的是 **amend 之前**那个提交（写本节这件事本身就使本文件变脏）；
+amend 之后的最终 hash 登记在 `.superpowers/sdd/task-m3-t1-report.md`。
+
+$ git status --short
+（空）
+[exit=0]
+
+$ git log -1 --format='%H %s'
+1f210f26c26218dfe6d137a05cdd2141d8386bbc fix(figure-choose): F3b 词数口径收敛到规范侧（复审 Important-2）+ 判断层对照列与 6 Minor 逐条修复
+[exit=0]
+
+$ git hash-object tests/skills/figure-choose/check-figure-style.py tests/skills/figure-choose/mutate-figure-style.py tests/skills/figure-choose/fixtures/make-fixtures.py tests/skills/figure-choose/fixtures/run-expected.py tests/skills/figure-choose/fixtures/expected.tsv tests/skills/figure-choose/fixtures/captions.tsv tests/skills/figure-choose/fixtures/ok-01.png tests/skills/figure-choose/fixtures/ok-02.png tests/skills/figure-choose/fixtures/ok-03.png tests/skills/figure-choose/fixtures/ok-04.png tests/skills/figure-choose/fixtures/ok-05.pdf tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png tests/skills/figure-choose/fixtures/bad-f1-too-wide.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py    # 工作树
+7636902a868aeca105e6b75b7dc616816fce95fe
+4b8f28e9764e0fb865f2ab6be918108a2ef9f058
+327085088b530a4b1af4339c5a9d7b1b46ff895e
+b3fd8153b5d66391106725fc20d28f47a9118bc2
+de5e3db5b4519b4940d28ed7704afb30b5e767ee
+1798824fce4640044c34c775ac39042818609a29
+25abad7f2f9e2a39c9a777378d0527326a5b7a9b
+50a94b1689eb5c6c9bb8719dc08147fffb3ed27b
+8b515f04091f763b3c5396ff54def1df4d226d26
+dfd7405ad60e7a045b6bbe54bfcd670566db3e3d
+1d72b8375f3992422db636670dd6ad2829e2e28d
+4c3aaecf4574c274f161660c06cb2426f55cc330
+a3c07123b60a10688a6a6057f1c602e0ccc8fa54
+0ea61290afa8b7f277fe557dcccd56ccaec4f669
+38d34707119ac26c001f88e910e388848aedb003
+84788a93def2ac0eda204e6d1cbb05c192d758ef
+[exit=0]
+
+$ git rev-parse HEAD:tests/skills/figure-choose/check-figure-style.py HEAD:tests/skills/figure-choose/mutate-figure-style.py HEAD:tests/skills/figure-choose/fixtures/make-fixtures.py HEAD:tests/skills/figure-choose/fixtures/run-expected.py HEAD:tests/skills/figure-choose/fixtures/expected.tsv HEAD:tests/skills/figure-choose/fixtures/captions.tsv HEAD:tests/skills/figure-choose/fixtures/ok-01.png HEAD:tests/skills/figure-choose/fixtures/ok-02.png HEAD:tests/skills/figure-choose/fixtures/ok-03.png HEAD:tests/skills/figure-choose/fixtures/ok-04.png HEAD:tests/skills/figure-choose/fixtures/ok-05.pdf HEAD:tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png HEAD:tests/skills/figure-choose/fixtures/bad-f1-too-wide.png HEAD:tests/skills/figure-choose/fixtures/bad-f2-five-colors.png HEAD:tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py    # 入库 blob
+7636902a868aeca105e6b75b7dc616816fce95fe
+4b8f28e9764e0fb865f2ab6be918108a2ef9f058
+327085088b530a4b1af4339c5a9d7b1b46ff895e
+b3fd8153b5d66391106725fc20d28f47a9118bc2
+de5e3db5b4519b4940d28ed7704afb30b5e767ee
+1798824fce4640044c34c775ac39042818609a29
+25abad7f2f9e2a39c9a777378d0527326a5b7a9b
+50a94b1689eb5c6c9bb8719dc08147fffb3ed27b
+8b515f04091f763b3c5396ff54def1df4d226d26
+dfd7405ad60e7a045b6bbe54bfcd670566db3e3d
+1d72b8375f3992422db636670dd6ad2829e2e28d
+4c3aaecf4574c274f161660c06cb2426f55cc330
+a3c07123b60a10688a6a6057f1c602e0ccc8fa54
+0ea61290afa8b7f277fe557dcccd56ccaec4f669
+38d34707119ac26c001f88e910e388848aedb003
+tests/skills/figure-choose/gen-figure-style-baseline.py
+[exit=0]
+
+逐个比对：
+  tests/skills/figure-choose/check-figure-style.py               工作树=7636902a868a  HEAD=7636902a868a  相等
+  tests/skills/figure-choose/mutate-figure-style.py              工作树=4b8f28e9764e  HEAD=4b8f28e9764e  相等
+  tests/skills/figure-choose/fixtures/make-fixtures.py           工作树=327085088b53  HEAD=327085088b53  相等
+  tests/skills/figure-choose/fixtures/run-expected.py            工作树=b3fd8153b5d6  HEAD=b3fd8153b5d6  相等
+  tests/skills/figure-choose/fixtures/expected.tsv               工作树=de5e3db5b451  HEAD=de5e3db5b451  相等
+  tests/skills/figure-choose/fixtures/captions.tsv               工作树=1798824fce46  HEAD=1798824fce46  相等
+  tests/skills/figure-choose/fixtures/ok-01.png                  工作树=25abad7f2f9e  HEAD=25abad7f2f9e  相等
+  tests/skills/figure-choose/fixtures/ok-02.png                  工作树=50a94b1689eb  HEAD=50a94b1689eb  相等
+  tests/skills/figure-choose/fixtures/ok-03.png                  工作树=8b515f04091f  HEAD=8b515f04091f  相等
+  tests/skills/figure-choose/fixtures/ok-04.png                  工作树=dfd7405ad60e  HEAD=dfd7405ad60e  相等
+  tests/skills/figure-choose/fixtures/ok-05.pdf                  工作树=1d72b8375f39  HEAD=1d72b8375f39  相等
+  tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png      工作树=4c3aaecf4574  HEAD=4c3aaecf4574  相等
+  tests/skills/figure-choose/fixtures/bad-f1-too-wide.png        工作树=a3c07123b60a  HEAD=a3c07123b60a  相等
+  tests/skills/figure-choose/fixtures/bad-f2-five-colors.png     工作树=0ea61290afa8  HEAD=0ea61290afa8  相等
+  tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf     工作树=38d34707119a  HEAD=38d34707119a  相等
+  tests/skills/figure-choose/gen-figure-style-baseline.py        工作树=84788a93def2  HEAD=84788a93def2  相等
+  全部相等: True  （16/16）
+
+注：本文件自己不在此列——它由生成器最后一步写出、随后还要追加本节，
+    自我指涉的哈希无法自洽（同 §8.2 的说明）。
+

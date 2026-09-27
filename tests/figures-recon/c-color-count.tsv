@@ -1,0 +1,909 @@
+path	kind	n_sig_colors	n_tab10_hits	tab10_verdict	top_colors
+A/2500836/fig-01-p3.png	fig	9	3	tab10	#c2b1a2@0.033;#8c7d71@0.033;#dcc9b8@0.031;#684e39@0.030;#b89d86@0.028;#8a6644@0.027
+A/2500836/fig-02-p5.png	fig	4	0	not_tab10	#a9bac8@0.010;#cae4d9@0.008;#6785ba@0.008;#3f4a5a@0.008
+A/2500836/fig-03-p6.png	fig	7	2	tab10	#513d0b@0.037;#8b7131@0.032;#654f16@0.028;#7c6325@0.025;#a38641@0.022;#5e4810@0.020
+A/2500836/fig-04-p7.png	fig	32	0	not_tab10	#9d803b@0.051;#987c34@0.044;#ae8a35@0.040;#b29039@0.040;#533f09@0.035;#614b0d@0.035
+A/2500836/fig-05-p7.png	fig	5	0	not_tab10	#e20001@0.039;#17a0ea@0.030;#413989@0.020;#e40201@0.020;#8b0027@0.013
+A/2500836/fig-06-p8.png	fig	2	1	tab10_partial	#b97c83@0.007;#9c3940@0.006
+A/2500836/fig-07-p9.png	fig	9	3	tab10	#229ae5@0.017;#19bdb4@0.015;#debe2b@0.014;#80929c@0.014;#4f63c1@0.013;#95c35f@0.010
+A/2500836/fig-08-p10.png	fig	0	0	not_tab10	
+A/2500836/fig-09-p11.png	fig	0	0	not_tab10	
+A/2500836/fig-10-p12.png	fig	0	0	not_tab10	
+A/2500836/fig-11-p13.png	fig	27	4	tab10	#3f69ef@0.037;#3280ec@0.022;#a5c940@0.020;#4cc981@0.020;#0cb5c9@0.019;#c3bf2f@0.017
+A/2500836/fig-12-p14.png	fig	0	0	not_tab10	
+A/2500836/fig-13-p15.png	fig	1	0	not_tab10	#bfebd3@0.253
+A/2500836/fig-14-p16.png	fig	0	0	not_tab10	
+A/2500836/fig-15-p17.png	fig	0	0	not_tab10	
+A/2500836/fig-16-p18.png	fig	0	0	not_tab10	
+A/2500836/fig-17-p18.png	fig	0	0	not_tab10	
+A/2500836/fig-18-p19.png	fig	27	2	tab10	#b36732@0.031;#8d7e6e@0.029;#c67d42@0.028;#b9703a@0.027;#e5cea7@0.026;#d69153@0.024
+A/2500836/fig-19-p20.png	fig	0	0	not_tab10	
+A/2500836/fig-20-p21.png	fig	0	0	not_tab10	
+A/2500836/fig-21-p22.png	fig	0	0	not_tab10	
+A/2500836/fig-22-p25.png	fig	23	1	tab10_partial	#a0d0ae@0.067;#cceed4@0.049;#b1e2be@0.042;#a8d8b6@0.037;#a9dab5@0.036;#67cd97@0.032
+A/2500836/tab-01-p6.png	tab	0	0	not_tab10	
+A/2500836/tab-02-p8.png	tab	0	0	not_tab10	
+A/2500836/tab-03-p10.png	tab	0	0	not_tab10	
+A/2500836/tab-04-p11.png	tab	0	0	not_tab10	
+A/2500836/tab-05-p14.png	tab	0	0	not_tab10	
+A/2500836/tab-06-p18.png	tab	1	0	not_tab10	#b8d6ea@0.114
+A/2501567/fig-01-p3.png	fig	0	0	not_tab10	
+A/2501567/fig-02-p6.png	fig	0	0	not_tab10	
+A/2501567/fig-03-p8.png	fig	0	0	not_tab10	
+A/2501567/fig-04-p9.png	fig	0	0	not_tab10	
+A/2501567/fig-05-p10.png	fig	0	0	not_tab10	
+A/2501567/fig-06-p11.png	fig	18	1	tab10_partial	#8fcdaf@0.016;#dbefbc@0.014;#75c6a9@0.013;#671c3d@0.012;#be2849@0.012;#3c7ba7@0.012
+A/2501567/fig-07-p14.png	fig	4	0	not_tab10	#deedc3@0.009;#e3e6c1@0.007;#e8e0c0@0.007;#ecd9be@0.005
+A/2501567/fig-08-p14.png	fig	20	6	tab10	#124984@0.028;#1e5d98@0.019;#438abc@0.019;#1b5893@0.017;#18528d@0.016;#83b9d6@0.016
+A/2501567/fig-09-p16.png	fig	1	0	not_tab10	#c94547@0.005
+A/2501567/fig-10-p17.png	fig	9	0	not_tab10	#94b3b6@0.009;#9cbfbc@0.008;#97a4ba@0.008;#b3cdc8@0.008;#b8d4d0@0.007;#c7e0da@0.007
+A/2501567/fig-11-p19.png	fig	6	1	tab10_partial	#073467@0.008;#09386e@0.008;#0e427b@0.007;#1b5894@0.007;#08376b@0.007;#2a6ea7@0.006
+A/2501567/fig-12-p23.png	fig	3	0	not_tab10	#dacce6@0.018;#4a0082@0.005;#006300@0.005
+A/2501567/tab-01-p5.png	tab	0	0	not_tab10	
+A/2501567/tab-02-p7.png	tab	0	0	not_tab10	
+A/2501567/tab-03-p9.png	tab	0	0	not_tab10	
+A/2501909/fig-01-p3.png	fig	15	5	tab10	#412c21@0.041;#5d4736@0.037;#c4ae8b@0.036;#b99b73@0.036;#978268@0.036;#6c533e@0.036
+A/2501909/fig-02-p4.png	fig	12	0	not_tab10	#b06667@0.014;#688ebc@0.013;#668cbb@0.013;#c77673@0.010;#ebcfcd@0.009;#52ae7a@0.009
+A/2501909/fig-03-p6.png	fig	22	5	tab10	#c17947@0.012;#c27b47@0.012;#c07846@0.011;#cc9368@0.011;#b09c93@0.010;#633922@0.010
+A/2501909/fig-04-p10.png	fig	0	0	not_tab10	
+A/2501909/fig-05-p10.png	fig	9	1	tab10_partial	#efb897@0.016;#92b39e@0.014;#ea9c85@0.010;#809d87@0.008;#b5d8c9@0.008;#dd8160@0.008
+A/2501909/fig-06-p11.png	fig	9	0	not_tab10	#e9997f@0.012;#d97d65@0.011;#e4a9bb@0.010;#c68fa3@0.008;#b3d1c4@0.008;#e28c75@0.008
+A/2501909/fig-07-p13.png	fig	3	1	tab10_partial	#cdeb71@0.017;#d8b96f@0.016;#7f7163@0.013
+A/2501909/fig-08-p15.png	fig	11	0	not_tab10	#95cbe6@0.021;#510917@0.019;#8ccde9@0.017;#e9c2d0@0.017;#88cdea@0.017;#bec6dc@0.017
+A/2501909/fig-09-p20.png	fig	21	6	tab10	#b4dcdc@0.022;#b57a6b@0.022;#c2eaea@0.020;#bbe5e5@0.019;#7c5248@0.018;#956358@0.018
+A/2501909/fig-10-p21.png	fig	4	1	tab10_partial	#b1d5cc@0.015;#8ecdba@0.012;#efd1cb@0.011;#956f60@0.007
+A/2501909/fig-11-p21.png	fig	0	0	not_tab10	
+A/2501909/fig-12-p22.png	fig	1	0	not_tab10	#7b3595@0.011
+A/2501909/fig-13-p23.png	fig	1	0	not_tab10	#77a99a@0.015
+A/2501909/fig-14-p23.png	fig	3	2	tab10	#818c9c@0.017;#8d5168@0.013;#87b6a5@0.010
+A/2501909/tab-01-p5.png	tab	0	0	not_tab10	
+A/2501909/tab-02-p8.png	tab	0	0	not_tab10	
+A/2501909/tab-03-p12.png	tab	0	0	not_tab10	
+A/2501909/tab-04-p14.png	tab	0	0	not_tab10	
+A/2501909/tab-05-p15.png	tab	4	0	not_tab10	#91cddd@0.077;#c9e7ef@0.059;#eecece@0.055;#d99494@0.053
+A/2501909/tab-06-p15.png	tab	4	0	not_tab10	#91cddd@0.077;#c9e7ef@0.059;#eecece@0.055;#d99494@0.053
+A/2501909/tab-07-p19.png	tab	4	1	tab10_partial	#c2d59c@0.398;#a5b389@0.014;#818d68@0.011;#bacc96@0.006
+A/2501909/tab-08-p21.png	tab	0	0	not_tab10	
+A/2504218/fig-01-p3.png	fig	4	2	tab10	#675448@0.025;#6bb870@0.024;#827064@0.021;#cdba88@0.016
+A/2504218/fig-02-p4.png	fig	7	0	not_tab10	#9cd7e4@0.049;#a5aed0@0.035;#41577e@0.033;#c9e6ef@0.027;#b3c5db@0.022;#73c5d9@0.020
+A/2504218/fig-03-p6.png	fig	8	4	tab10	#5c6f7f@0.027;#4e5d6a@0.025;#546775@0.023;#ac6759@0.020;#637887@0.020;#c26b55@0.019
+A/2504218/fig-04-p7.png	fig	5	0	not_tab10	#ee685c@0.031;#ee695c@0.026;#3c9dd9@0.012;#efb8b1@0.006;#ee685d@0.005
+A/2504218/fig-05-p9.png	fig	15	1	tab10_partial	#5483ed@0.047;#85ad5b@0.040;#312255@0.026;#3b3481@0.025;#e4cc72@0.025;#4f5e9f@0.024
+A/2504218/fig-06-p12.png	fig	17	3	tab10	#e3da37@0.027;#4773ec@0.025;#30123b@0.023;#311a58@0.019;#dd3309@0.016;#4149ab@0.015
+A/2504218/fig-07-p12.png	fig	0	0	not_tab10	
+A/2504218/fig-08-p14.png	fig	4	1	tab10_partial	#becddd@0.068;#073e7f@0.040;#866aa3@0.038;#e6ccc3@0.007
+A/2504218/fig-09-p15.png	fig	12	1	tab10_partial	#4e0f5d@0.011;#39a78d@0.010;#683577@0.009;#561d67@0.009;#348492@0.009;#60286e@0.008
+A/2504218/fig-10-p15.png	fig	10	2	tab10	#1d3066@0.015;#12265e@0.013;#172a62@0.012;#152861@0.011;#38528a@0.010;#2982b8@0.008
+A/2504218/fig-11-p16.png	fig	13	1	tab10_partial	#28909a@0.010;#2e5b9a@0.009;#172b63@0.009;#4f115f@0.008;#4d0d5c@0.008;#11255e@0.007
+A/2504218/fig-12-p17.png	fig	2	0	not_tab10	#e18083@0.030;#c8dee2@0.028
+A/2504218/fig-13-p18.png	fig	0	0	not_tab10	
+A/2504218/fig-14-p25.png	fig	0	0	not_tab10	
+A/2504218/tab-01-p5.png	tab	0	0	not_tab10	
+A/2504218/tab-02-p21.png	tab	0	0	not_tab10	
+A/2511565/fig-01-p4.png	fig	12	1	tab10_partial	#bf42e3@0.024;#94d2ec@0.021;#81d5d4@0.018;#4cc253@0.017;#9acca6@0.016;#47acd7@0.013
+A/2511565/fig-02-p6.png	fig	0	0	not_tab10	
+A/2511565/fig-03-p7.png	fig	4	0	not_tab10	#e0e7ce@0.040;#da9944@0.023;#e41801@0.020;#93deb2@0.013
+A/2511565/fig-04-p8.png	fig	0	0	not_tab10	
+A/2511565/fig-05-p9.png	fig	3	1	tab10_partial	#750e13@0.015;#866240@0.012;#00009d@0.010
+A/2511565/fig-06-p12.png	fig	2	0	not_tab10	#b8dfda@0.008;#396c91@0.005
+A/2511565/fig-07-p12.png	fig	2	0	not_tab10	#b8dfda@0.008;#396c91@0.005
+A/2511565/fig-08-p14.png	fig	8	1	tab10_partial	#084285@0.053;#08488e@0.045;#08468b@0.022;#083776@0.019;#135fa6@0.018;#72a8c9@0.009
+A/2511565/fig-09-p15.png	fig	0	0	not_tab10	
+A/2511565/fig-10-p16.png	fig	11	2	tab10	#08488e@0.061;#084285@0.040;#083573@0.030;#0e59a2@0.019;#1866ac@0.015;#73b2d6@0.012
+A/2511565/fig-11-p17.png	fig	0	0	not_tab10	
+A/2511565/fig-12-p17.png	fig	9	4	tab10	#08488e@0.066;#08458a@0.034;#09529d@0.015;#3080bc@0.013;#4c98ca@0.012;#86bcdc@0.012
+A/2511565/fig-13-p21.png	fig	20	2	tab10	#440154@0.027;#356688@0.016;#287c8d@0.015;#424b70@0.015;#20958a@0.014;#24878c@0.014
+A/2511565/fig-14-p24.png	fig	2	0	not_tab10	#003366@0.105;#6699cc@0.067
+A/2511565/fig-15-p24.png	fig	0	0	not_tab10	
+A/2511565/tab-01-p5.png	tab	0	0	not_tab10	
+A/2511565/tab-02-p8.png	tab	0	0	not_tab10	
+A/2511565/tab-03-p11.png	tab	0	0	not_tab10	
+A/2511565/tab-04-p19.png	tab	0	0	not_tab10	
+B/2501687/fig-01-p3.png	fig	23	0	not_tab10	#02437c@0.050;#a5bad9@0.034;#b1d4e8@0.031;#bad1aa@0.031;#c8e6be@0.030;#d1ddee@0.029
+B/2501687/fig-02-p4.png	fig	7	0	not_tab10	#e1b248@0.076;#e2b4ef@0.068;#aacd9b@0.056;#6d328c@0.041;#a49f8a@0.020;#e2b342@0.009
+B/2501687/fig-03-p7.png	fig	12	0	not_tab10	#a9d9ec@0.017;#b7dcea@0.014;#c6c0db@0.011;#a63170@0.011;#b7a1c8@0.011;#7c9cd4@0.010
+B/2501687/fig-04-p9.png	fig	16	6	tab10	#8b69bf@0.021;#9555a4@0.020;#974f9d@0.017;#a62e70@0.017;#a03b83@0.016;#5b8bd6@0.015
+B/2501687/fig-05-p10.png	fig	13	5	tab10	#9cacbc@0.206;#c49350@0.079;#8a7354@0.067;#678adc@0.067;#9cacbe@0.021;#8a7353@0.019
+B/2501687/fig-06-p12.png	fig	3	0	not_tab10	#82a4b0@0.010;#b2c9d1@0.008;#429fca@0.008
+B/2501687/fig-07-p13.png	fig	12	3	tab10	#c5daeb@0.083;#9d9cc4@0.027;#837eba@0.025;#a9adce@0.024;#6a579f@0.021;#40186f@0.020
+B/2501687/fig-08-p13.png	fig	12	1	tab10_partial	#9dadbd@0.141;#8b7455@0.080;#c4934e@0.074;#698bd9@0.057;#9dadbb@0.032;#9dadbf@0.020
+B/2501687/fig-09-p14.png	fig	4	2	tab10	#48a7e7@0.008;#d784a9@0.008;#59b3ed@0.007;#7d92a1@0.007
+B/2501687/fig-10-p16.png	fig	10	1	tab10_partial	#4874cb@0.053;#b2c6e9@0.015;#8baad2@0.014;#b29b85@0.010;#bed3ee@0.010;#2b3444@0.010
+B/2501687/fig-11-p17.png	fig	2	1	tab10_partial	#66869a@0.015;#384b58@0.005
+B/2501687/fig-12-p19.png	fig	2	0	not_tab10	#b4a08d@0.010;#7194ac@0.007
+B/2501687/fig-13-p19.png	fig	13	0	not_tab10	#7885d3@0.067;#bb7e9d@0.066;#73bae8@0.066;#92a8e1@0.065;#3e50b4@0.056;#9d4b76@0.050
+B/2501687/fig-14-p20.png	fig	4	0	not_tab10	#8fa1ac@0.006;#aac0c9@0.005;#634b36@0.005;#a88860@0.005
+B/2501687/tab-01-p6.png	tab	0	0	not_tab10	
+B/2502617/fig-01-p3.png	fig	5	0	not_tab10	#aad3df@0.055;#93b5cf@0.039;#c9e6e0@0.027;#b0d5df@0.017;#a2c8d3@0.009
+B/2502617/fig-02-p5.png	fig	3	0	not_tab10	#b9c5e3@0.025;#bb9f7a@0.023;#eed19e@0.016
+B/2502617/fig-03-p7.png	fig	4	0	not_tab10	#68945c@0.131;#6bb392@0.060;#8db799@0.031;#c0d695@0.010
+B/2502617/fig-04-p9.png	fig	0	0	not_tab10	
+B/2502617/fig-05-p11.png	fig	0	0	not_tab10	
+B/2502617/fig-06-p13.png	fig	2	1	tab10_partial	#c8151a@0.006;#a4b6c3@0.005
+B/2502617/fig-07-p15.png	fig	0	0	not_tab10	
+B/2502617/fig-08-p16.png	fig	17	2	tab10	#084081@0.096;#d1edcb@0.028;#abdeb6@0.022;#2282b9@0.021;#c6e8c2@0.016;#3a9dc7@0.015
+B/2502617/fig-09-p17.png	fig	1	0	not_tab10	#c8dae7@0.020
+B/2502617/fig-10-p17.png	fig	1	0	not_tab10	#c8dae7@0.023
+B/2502617/fig-11-p18.png	fig	1	0	not_tab10	#6a3f3c@0.006
+B/2502617/fig-12-p19.png	fig	0	0	not_tab10	
+B/2502617/fig-13-p20.png	fig	0	0	not_tab10	
+B/2502617/fig-14-p20.png	fig	6	1	tab10_partial	#355a61@0.014;#7fa2a8@0.013;#699f94@0.010;#a4bec0@0.010;#698f8a@0.009;#95bcb8@0.006
+B/2502617/tab-01-p6.png	tab	0	0	not_tab10	
+B/2502617/tab-02-p7.png	tab	0	0	not_tab10	
+B/2502617/tab-03-p22.png	tab	1	0	not_tab10	#a6ccb7@0.112
+B/2503268/fig-01-p5.png	fig	5	0	not_tab10	#bc778c@0.060;#94aac1@0.018;#dbb5bf@0.009;#c28397@0.007;#ce9cab@0.007
+B/2503268/fig-02-p7.png	fig	2	0	not_tab10	#a6becc@0.014;#7995a1@0.011
+B/2503268/fig-03-p10.png	fig	2	0	not_tab10	#4f3a66@0.009;#bed9bf@0.005
+B/2503268/fig-04-p10.png	fig	3	0	not_tab10	#b2d8b2@0.041;#0026b2@0.020;#8f9aa8@0.005
+B/2503268/fig-05-p12.png	fig	6	0	not_tab10	#35b1b1@0.085;#33727e@0.078;#a23333@0.076;#2c6971@0.007;#255056@0.006;#972f2f@0.005
+B/2503268/fig-06-p13.png	fig	3	1	tab10_partial	#967075@0.018;#5d9cc8@0.010;#ac3e64@0.009
+B/2503268/fig-07-p18.png	fig	12	6	tab10	#b5d7e8@0.052;#67001f@0.052;#2d76b4@0.051;#3c8abe@0.051;#559ec9@0.051;#144d8a@0.051
+B/2503268/fig-08-p18.png	fig	0	0	not_tab10	
+B/2503268/fig-09-p19.png	fig	0	0	not_tab10	
+B/2503268/fig-10-p20.png	fig	0	0	not_tab10	
+B/2503268/fig-11-p21.png	fig	5	2	tab10	#a8a5c6@0.048;#b3b1cd@0.047;#9e94bc@0.023;#9483b2@0.022;#8a74a9@0.017
+B/2503268/fig-12-p23.png	fig	14	1	tab10_partial	#8fc9e3@0.048;#09242f@0.046;#deb298@0.043;#295b82@0.036;#427f94@0.032;#1b496e@0.031
+B/2503268/tab-01-p6.png	tab	0	0	not_tab10	
+B/2503268/tab-02-p7.png	tab	0	0	not_tab10	
+B/2503268/tab-03-p12.png	tab	0	0	not_tab10	
+B/2503268/tab-04-p13.png	tab	0	0	not_tab10	
+B/2503268/tab-05-p17.png	tab	0	0	not_tab10	
+B/2503268/tab-06-p17.png	tab	0	0	not_tab10	
+B/2503268/tab-07-p22.png	tab	0	0	not_tab10	
+B/2504448/fig-01-p3.png	fig	10	1	tab10_partial	#eeb448@0.025;#d2e2ed@0.024;#445b75@0.023;#759bc4@0.020;#9fb5c9@0.017;#b3c6d7@0.014
+B/2504448/fig-02-p4.png	fig	8	0	not_tab10	#69c2d7@0.129;#5e5a98@0.033;#9ab1d4@0.027;#a9cce3@0.026;#a29ec2@0.024;#343755@0.024
+B/2504448/fig-03-p7.png	fig	0	0	not_tab10	
+B/2504448/fig-04-p7.png	fig	4	2	tab10	#b4ace2@0.046;#7f6aa0@0.044;#91a1dc@0.040;#818c9c@0.006
+B/2504448/fig-05-p8.png	fig	1	0	not_tab10	#add8e6@0.168
+B/2504448/fig-06-p10.png	fig	1	0	not_tab10	#d8bfd8@0.252
+B/2504448/fig-07-p11.png	fig	3	1	tab10_partial	#6a8c73@0.009;#33105d@0.009;#6b5c8a@0.007
+B/2504448/fig-08-p12.png	fig	2	0	not_tab10	#b2a7d2@0.061;#9dc384@0.053
+B/2504448/fig-09-p14.png	fig	1	0	not_tab10	#b2a7d2@0.209
+B/2504448/fig-10-p15.png	fig	2	1	tab10_partial	#50e3c2@0.041;#808e9d@0.005
+B/2504448/fig-11-p16.png	fig	4	1	tab10_partial	#4a78a6@0.087;#67a067@0.059;#8064a2@0.049;#a7c1de@0.014
+B/2504448/fig-12-p17.png	fig	0	0	not_tab10	
+B/2504448/fig-13-p17.png	fig	0	0	not_tab10	
+B/2504448/fig-14-p18.png	fig	0	0	not_tab10	
+B/2504448/fig-15-p19.png	fig	10	0	not_tab10	#4295a5@0.083;#a1d8eb@0.052;#bedcc5@0.035;#93d4e7@0.025;#b1e4c7@0.024;#9db2c0@0.024
+B/2504448/fig-16-p20.png	fig	2	0	not_tab10	#00008a@0.009;#008000@0.006
+B/2504448/tab-01-p5.png	tab	0	0	not_tab10	
+B/2504448/tab-02-p6.png	tab	1	0	not_tab10	#d7bed7@0.320
+B/2504448/tab-03-p15.png	tab	0	0	not_tab10	
+B/2504448/tab-04-p20.png	tab	0	0	not_tab10	
+B/2504448/tab-05-p21.png	tab	0	0	not_tab10	
+B/2505199/fig-01-p3.png	fig	1	0	not_tab10	#2c5882@0.190
+B/2505199/fig-02-p4.png	fig	7	1	tab10_partial	#a2cbed@0.022;#8de1d5@0.022;#2b3856@0.019;#636c7d@0.017;#eecec7@0.014;#bcc6df@0.013
+B/2505199/fig-03-p7.png	fig	6	1	tab10_partial	#8292e6@0.022;#d4efed@0.018;#3f2144@0.013;#755a7e@0.009;#bec4e4@0.005;#8cdfda@0.005
+B/2505199/fig-04-p8.png	fig	1	0	not_tab10	#444369@0.005
+B/2505199/fig-05-p10.png	fig	7	0	not_tab10	#743de0@0.080;#5898d5@0.053;#01388e@0.042;#6b95c6@0.014;#96cade@0.011;#743de3@0.008
+B/2505199/fig-06-p13.png	fig	0	0	not_tab10	
+B/2505199/fig-07-p16.png	fig	5	2	tab10	#1e76c0@0.042;#11b3ce@0.027;#e1c6d6@0.026;#afcadc@0.022;#77c4b4@0.022
+B/2505199/fig-08-p19.png	fig	5	0	not_tab10	#37af84@0.029;#aad765@0.024;#48818b@0.024;#dedfc6@0.022;#393856@0.017
+B/2505199/fig-09-p20.png	fig	1	0	not_tab10	#d5bbbb@0.005
+B/2505199/fig-10-p20.png	fig	1	0	not_tab10	#83a098@0.030
+B/2505199/fig-11-p22.png	fig	4	0	not_tab10	#4f928c@0.028;#b6dc52@0.026;#393851@0.019;#66c46e@0.018
+B/2505199/tab-01-p5.png	tab	0	0	not_tab10	
+B/2505199/tab-02-p15.png	tab	1	0	not_tab10	#5b9bd4@0.100
+B/2509557/fig-01-p4.png	fig	2	0	not_tab10	#eaedc5@0.031;#d1d0b8@0.009
+B/2509557/fig-02-p5.png	fig	2	0	not_tab10	#92ceb5@0.062;#dda598@0.029
+B/2509557/fig-03-p6.png	fig	11	1	tab10_partial	#1c4f2f@0.027;#80bd40@0.027;#6a600f@0.026;#133d3c@0.023;#485c1a@0.023;#e0cc20@0.018
+B/2509557/fig-04-p6.png	fig	0	0	not_tab10	
+B/2509557/fig-05-p7.png	fig	4	0	not_tab10	#dd8142@0.027;#edb44a@0.026;#759ac6@0.025;#37567f@0.025
+B/2509557/fig-06-p7.png	fig	6	1	tab10_partial	#9598cb@0.017;#cf5f5c@0.016;#606ec9@0.014;#eed8cc@0.012;#eed7cb@0.012;#784f61@0.006
+B/2509557/fig-07-p14.png	fig	6	1	tab10_partial	#d3e6ec@0.021;#7fcfb5@0.019;#57c5c5@0.019;#cee2e8@0.014;#db4231@0.012;#91a7b3@0.006
+B/2509557/fig-08-p17.png	fig	1	0	not_tab10	#4f92c1@0.006
+B/2509557/fig-09-p18.png	fig	21	7	tab10	#76c9bd@0.033;#d4eeb4@0.032;#24449b@0.032;#203089@0.032;#206eb0@0.032;#42b6c4@0.031
+B/2509557/fig-10-p19.png	fig	9	2	tab10	#6bbf64@0.057;#1b9950@0.038;#addc6f@0.038;#c9e881@0.037;#155c38@0.025;#d9352b@0.021
+B/2509557/fig-11-p19.png	fig	19	3	tab10	#144379@0.025;#1967ad@0.024;#75b4d8@0.024;#b3d3e8@0.024;#2b7bba@0.024;#0b559f@0.024
+B/2509557/fig-13-p21.png	fig	7	3	tab10	#6270cc@0.068;#c33651@0.027;#aac0c4@0.017;#765258@0.016;#c49da4@0.015;#818f9c@0.013
+B/2509557/fig-14-p22.png	fig	2	0	not_tab10	#7aa4b9@0.017;#cfe4ee@0.007
+B/2509557/tab-01-p11.png	tab	0	0	not_tab10	
+B/2509557/tab-02-p15.png	tab	0	0	not_tab10	
+B/2509557/tab-03-p15.png	tab	0	0	not_tab10	
+B/2517929/fig-01-p3.png	fig	24	10	tab10	#0a222f@0.056;#4e763e@0.053;#20d3e2@0.041;#43773d@0.036;#12d2e8@0.035;#2ea3ab@0.034
+B/2517929/fig-02-p4.png	fig	7	0	not_tab10	#e36d6b@0.042;#7baae2@0.040;#5682a9@0.025;#7ca8e0@0.024;#df6e6c@0.021;#485d7b@0.015
+B/2517929/fig-03-p5.png	fig	9	1	tab10_partial	#9cb2ef@0.031;#d46e6a@0.026;#b2d8df@0.017;#7a4a54@0.016;#9baac0@0.016;#eac8b6@0.015
+B/2517929/fig-04-p7.png	fig	7	0	not_tab10	#d0ebb6@0.064;#d0ecb3@0.030;#beb7a4@0.027;#d1ecb7@0.013;#c0dad4@0.008;#d0ebba@0.007
+B/2517929/fig-05-p8.png	fig	1	0	not_tab10	#eeedce@0.005
+B/2517929/fig-06-p10.png	fig	0	0	not_tab10	
+B/2517929/fig-07-p12.png	fig	7	3	tab10	#0c606b@0.019;#1297a5@0.016;#1597a4@0.008;#9cb6ba@0.008;#0c606c@0.007;#6c7f85@0.006
+B/2517929/fig-08-p16.png	fig	15	6	tab10	#9160b6@0.026;#d5c0de@0.021;#b4e7e0@0.021;#d6bee8@0.019;#bce3de@0.013;#9f73be@0.013
+B/2517929/fig-09-p16.png	fig	3	0	not_tab10	#425277@0.026;#71a897@0.021;#b5d2a3@0.019
+B/2517929/fig-10-p19.png	fig	9	0	not_tab10	#b40426@0.045;#465cce@0.036;#eb7e63@0.029;#efcfbd@0.023;#5673df@0.022;#cdd9eb@0.022
+B/2517929/fig-11-p20.png	fig	0	0	not_tab10	
+B/2517929/fig-12-p21.png	fig	9	0	not_tab10	#d0daea@0.027;#b40426@0.024;#9bbfdf@0.023;#d88c7c@0.021;#536eca@0.018;#3f3b6e@0.015
+B/2517929/fig-13-p22.png	fig	2	1	tab10_partial	#ee822f@0.065;#4874cb@0.029
+B/2517929/tab-01-p6.png	tab	0	0	not_tab10	
+B/2517929/tab-02-p7.png	tab	0	0	not_tab10	
+B/2517929/tab-03-p12.png	tab	4	0	not_tab10	#4471c4@0.393;#b4c5e7@0.117;#9cc2e4@0.112;#bcd5ed@0.100
+C/2500759/fig-01-p4.png	fig	5	1	tab10_partial	#54678e@0.019;#879ab3@0.012;#a1b2c8@0.012;#7d8698@0.011;#424f69@0.011
+C/2500759/fig-02-p6.png	fig	4	1	tab10_partial	#7b939e@0.009;#a3cbce@0.007;#cf9560@0.006;#e6d1ae@0.005
+C/2500759/fig-03-p8.png	fig	2	0	not_tab10	#a6c278@0.111;#6b9bb5@0.090
+C/2500759/fig-04-p8.png	fig	2	0	not_tab10	#a6c278@0.141;#6b9bb5@0.114
+C/2500759/fig-05-p9.png	fig	9	1	tab10_partial	#d0d7ec@0.112;#b2e8df@0.106;#b4cde1@0.100;#87b1d7@0.099;#8397b0@0.095;#6e8191@0.008
+C/2500759/fig-06-p10.png	fig	1	0	not_tab10	#b0cce9@0.030
+C/2500759/fig-07-p13.png	fig	11	1	tab10_partial	#89acc0@0.013;#7a9eb4@0.012;#c7bbd6@0.011;#a09f85@0.010;#adc6cf@0.009;#b7d4dd@0.009
+C/2500759/fig-08-p15.png	fig	6	0	not_tab10	#4292c6@0.009;#9fc8df@0.008;#77afd2@0.008;#bbd7e9@0.007;#11223d@0.005;#1a538f@0.005
+C/2500759/fig-09-p16.png	fig	10	2	tab10	#638ec6@0.138;#333d4f@0.010;#8db6da@0.010;#bfdcec@0.009;#7b5239@0.009;#c4a98b@0.008
+C/2500759/fig-10-p16.png	fig	10	1	tab10_partial	#638ec6@0.136;#333d4f@0.010;#8db6da@0.010;#bfdcec@0.009;#7a5239@0.007;#c5a98a@0.007
+C/2500759/fig-11-p17.png	fig	0	0	not_tab10	
+C/2500759/fig-12-p17.png	fig	3	1	tab10_partial	#b0c4de@0.095;#cf0a22@0.006;#012252@0.006
+C/2500759/fig-13-p17.png	fig	3	1	tab10_partial	#b0c4de@0.087;#021f4a@0.006;#cf0a22@0.006
+C/2500759/fig-14-p20.png	fig	7	1	tab10_partial	#e6bb86@0.023;#bf732b@0.023;#a1581d@0.021;#da9f5f@0.017;#d0873e@0.015;#968778@0.013
+C/2500759/fig-15-p20.png	fig	6	1	tab10_partial	#b9d8b1@0.118;#c4772e@0.016;#965521@0.015;#da9e5c@0.012;#a28d78@0.008;#3e2614@0.007
+C/2500759/fig-16-p21.png	fig	1	0	not_tab10	#4682b4@0.138
+C/2500759/fig-17-p22.png	fig	2	1	tab10_partial	#64859e@0.007;#8d5c5d@0.006
+C/2500759/tab-01-p4.png	tab	0	0	not_tab10	
+C/2500759/tab-02-p11.png	tab	0	0	not_tab10	
+C/2500759/tab-03-p13.png	tab	0	0	not_tab10	
+C/2500759/tab-04-p19.png	tab	0	0	not_tab10	
+C/2500759/tab-05-p22.png	tab	0	0	not_tab10	
+C/2501869/fig-01-p4.png	fig	1	0	not_tab10	#566072@0.006
+C/2501869/fig-02-p5.png	fig	6	2	tab10	#96b5b9@0.009;#cd8889@0.009;#8c5255@0.008;#936d89@0.007;#6392a3@0.007;#3f6390@0.006
+C/2501869/fig-03-p7.png	fig	1	0	not_tab10	#e27d41@0.009
+C/2501869/fig-04-p8.png	fig	2	1	tab10_partial	#ba9f98@0.014;#9b6557@0.013
+C/2501869/fig-05-p10.png	fig	1	0	not_tab10	#017f03@0.007
+C/2501869/fig-06-p12.png	fig	2	0	not_tab10	#be8a58@0.008;#bd8c5a@0.008
+C/2501869/fig-07-p14.png	fig	3	0	not_tab10	#5b6d79@0.008;#749aa7@0.007;#68b76f@0.006
+C/2501869/fig-08-p15.png	fig	1	0	not_tab10	#cd8032@0.013
+C/2501869/fig-09-p16.png	fig	1	1	tab10_partial	#d62728@0.005
+C/2501869/fig-10-p18.png	fig	6	1	tab10_partial	#647292@0.015;#13169d@0.015;#393987@0.014;#a8323e@0.008;#83cc97@0.008;#b27d87@0.006
+C/2501869/fig-11-p19.png	fig	3	1	tab10_partial	#c0cfdb@0.008;#a38788@0.006;#90a2b1@0.005
+C/2501869/fig-12-p21.png	fig	3	0	not_tab10	#2ecc71@0.023;#3498db@0.021;#e74c3c@0.015
+C/2501869/tab-01-p6.png	tab	0	0	not_tab10	
+C/2501869/tab-02-p10.png	tab	0	0	not_tab10	
+C/2501869/tab-03-p11.png	tab	0	0	not_tab10	
+C/2501869/tab-04-p12.png	tab	0	0	not_tab10	
+C/2501869/tab-05-p13.png	tab	0	0	not_tab10	
+C/2501869/tab-06-p13.png	tab	0	0	not_tab10	
+C/2501869/tab-07-p14.png	tab	0	0	not_tab10	
+C/2501869/tab-08-p17.png	tab	0	0	not_tab10	
+C/2501869/tab-09-p19.png	tab	0	0	not_tab10	
+C/2501869/tab-10-p21.png	tab	0	0	not_tab10	
+C/2501869/tab-11-p22.png	tab	0	0	not_tab10	
+C/2503389/fig-01-p6.png	fig	13	1	tab10_partial	#eaaba6@0.043;#98a6c2@0.039;#2d425a@0.038;#647d9b@0.028;#899cb8@0.025;#557290@0.025
+C/2503389/fig-02-p7.png	fig	5	2	tab10	#023858@0.137;#045f95@0.092;#0d75b3@0.046;#5ea0ca@0.046;#0a73b2@0.045
+C/2503389/fig-03-p8.png	fig	4	0	not_tab10	#efe4d2@0.010;#c1a4a0@0.006;#a3b59a@0.006;#d5bbb7@0.006
+C/2503389/fig-04-p8.png	fig	0	0	not_tab10	
+C/2503389/fig-05-p8.png	fig	8	0	not_tab10	#99c9eb@0.017;#42bcea@0.015;#7f9ba7@0.010;#a9d1ed@0.010;#6cc6e9@0.009;#c6d7ed@0.009
+C/2503389/fig-06-p10.png	fig	23	7	tab10	#97c4e0@0.032;#6a50a4@0.027;#8682bd@0.027;#9896c4@0.023;#6cb0d7@0.023;#aacee4@0.022
+C/2503389/fig-07-p13.png	fig	4	0	not_tab10	#6cbc6e@0.058;#2f837f@0.049;#87ceeb@0.033;#455681@0.025
+C/2503389/fig-08-p13.png	fig	3	0	not_tab10	#6cbc6e@0.195;#2f837f@0.168;#455681@0.084
+C/2503389/fig-09-p14.png	fig	2	0	not_tab10	#a4d3ee@0.200;#91bbd3@0.006
+C/2503389/fig-10-p16.png	fig	0	0	not_tab10	
+C/2503389/fig-11-p20.png	fig	0	0	not_tab10	
+C/2503389/fig-12-p20.png	fig	0	0	not_tab10	
+C/2503389/fig-13-p20.png	fig	0	0	not_tab10	
+C/2503389/fig-14-p23.png	fig	2	1	tab10_partial	#c2d5e5@0.022;#637f98@0.009
+C/2503389/fig-15-p23.png	fig	2	1	tab10_partial	#c2d5e5@0.022;#637f98@0.009
+C/2503389/fig-16-p23.png	fig	3	0	not_tab10	#c5daeb@0.037;#c4daea@0.021;#d0dfed@0.008
+C/2503389/fig-17-p23.png	fig	3	1	tab10_partial	#708497@0.014;#c2d8e9@0.011;#b8c9d9@0.008
+C/2503389/fig-18-p24.png	fig	1	0	not_tab10	#cce5cc@0.063
+C/2503389/fig-19-p24.png	fig	1	0	not_tab10	#cce5cc@0.063
+C/2503389/fig-20-p24.png	fig	1	0	not_tab10	#cce5cc@0.063
+C/2503389/tab-01-p5.png	tab	0	0	not_tab10	
+C/2503389/tab-02-p7.png	tab	0	0	not_tab10	
+C/2503389/tab-03-p9.png	tab	0	0	not_tab10	
+C/2503389/tab-04-p11.png	tab	0	0	not_tab10	
+C/2503389/tab-05-p11.png	tab	0	0	not_tab10	
+C/2503389/tab-06-p14.png	tab	0	0	not_tab10	
+C/2503389/tab-07-p15.png	tab	0	0	not_tab10	
+C/2503389/tab-08-p16.png	tab	0	0	not_tab10	
+C/2503389/tab-09-p17.png	tab	0	0	not_tab10	
+C/2503389/tab-10-p19.png	tab	0	0	not_tab10	
+C/2503389/tab-11-p23.png	tab	0	0	not_tab10	
+C/2505964/fig-01-p4.png	fig	13	4	tab10	#828f6b@0.072;#859471@0.062;#40541b@0.053;#0c8073@0.034;#b58a52@0.028;#505e32@0.028
+C/2505964/fig-02-p5.png	fig	0	0	not_tab10	
+C/2505964/fig-03-p7.png	fig	2	0	not_tab10	#9dc3e6@0.060;#829bb7@0.010
+C/2505964/fig-04-p8.png	fig	15	2	tab10	#583ba2@0.049;#37b7e8@0.031;#251c38@0.030;#e32d33@0.021;#c3c5e2@0.019;#36b4e6@0.017
+C/2505964/fig-05-p10.png	fig	2	0	not_tab10	#87ceeb@0.082;#8acce7@0.006
+C/2505964/fig-06-p12.png	fig	1	0	not_tab10	#ebb9bb@0.005
+C/2505964/fig-07-p12.png	fig	0	0	not_tab10	
+C/2505964/fig-08-p13.png	fig	11	1	tab10_partial	#081d58@0.044;#a1dab9@0.022;#2e538e@0.018;#c8eab6@0.018;#b5e2b7@0.017;#7fcebb@0.013
+C/2505964/fig-09-p14.png	fig	12	0	not_tab10	#94c9de@0.111;#9ce29c@0.081;#c0dce7@0.009;#b1d7e7@0.009;#abe6ab@0.009;#bbebbb@0.008
+C/2505964/fig-10-p15.png	fig	2	0	not_tab10	#5799c6@0.096;#86ceeb@0.049
+C/2505964/fig-11-p16.png	fig	13	2	tab10	#d5e21a@0.082;#460a5d@0.046;#b5de2b@0.019;#e7ee79@0.013;#1f978b@0.012;#dae531@0.011
+C/2505964/fig-12-p17.png	fig	0	0	not_tab10	
+C/2505964/fig-13-p18.png	fig	0	0	not_tab10	
+C/2505964/fig-14-p19.png	fig	0	0	not_tab10	
+C/2505964/fig-15-p20.png	fig	1	0	not_tab10	#810281@0.006
+C/2505964/tab-01-p11.png	tab	0	0	not_tab10	
+C/2505964/tab-02-p14.png	tab	0	0	not_tab10	
+C/2505964/tab-03-p17.png	tab	0	0	not_tab10	
+C/2505964/tab-04-p18.png	tab	0	0	not_tab10	
+C/2505964/tab-05-p20.png	tab	0	0	not_tab10	
+C/2505964/tab-06-p21.png	tab	0	0	not_tab10	
+C/2505964/tab-07-p22.png	tab	0	0	not_tab10	
+C/2507817/fig-01-p3.png	fig	9	1	tab10_partial	#e5d4a5@0.011;#9ac0e4@0.011;#bdd7ef@0.011;#6ba4d8@0.010;#845e45@0.010;#84b3de@0.010
+C/2507817/fig-02-p4.png	fig	15	5	tab10	#3075b6@0.068;#538234@0.044;#3b5724@0.034;#c00002@0.027;#c13337@0.019;#bc0204@0.015
+C/2507817/fig-03-p7.png	fig	0	0	not_tab10	
+C/2507817/fig-04-p8.png	fig	4	0	not_tab10	#dcc3a5@0.014;#bed0e8@0.012;#bba48c@0.009;#ddd2c2@0.006
+C/2507817/fig-05-p9.png	fig	0	0	not_tab10	
+C/2507817/fig-06-p10.png	fig	0	0	not_tab10	
+C/2507817/fig-07-p10.png	fig	1	0	not_tab10	#b7dacb@0.014
+C/2507817/fig-08-p11.png	fig	3	0	not_tab10	#41beb0@0.007;#39c3ae@0.006;#32c4af@0.005
+C/2507817/fig-10-p13.png	fig	0	0	not_tab10	
+C/2507817/fig-12-p15.png	fig	6	2	tab10	#b25051@0.042;#c97d70@0.040;#e6cf9b@0.037;#502829@0.011;#e6cf9d@0.010;#80648d@0.007
+C/2507817/fig-13-p15.png	fig	6	2	tab10	#b25051@0.042;#c97d70@0.040;#e6cf9b@0.037;#502829@0.011;#e6cf9d@0.010;#80648d@0.007
+C/2507817/fig-14-p16.png	fig	4	1	tab10_partial	#9b7814@0.008;#e4b936@0.006;#a7831b@0.006;#d7ae2c@0.005
+C/2507817/fig-15-p18.png	fig	1	0	not_tab10	#0c022c@0.005
+C/2507817/fig-16-p18.png	fig	15	3	tab10	#2c4c9f@0.039;#38653a@0.035;#4e7e58@0.034;#89ac9f@0.033;#d1ebde@0.029;#699a81@0.027
+C/2507817/fig-17-p19.png	fig	1	0	not_tab10	#e2ae8c@0.010
+C/2507817/fig-18-p21.png	fig	2	0	not_tab10	#b87575@0.006;#a5bcd0@0.005
+C/2507817/fig-20-p22.png	fig	1	0	not_tab10	#8b4f21@0.006
+C/2507817/fig-21-p23.png	fig	3	1	tab10_partial	#8b7a6b@0.009;#5a4f73@0.008;#16104c@0.005
+C/2507817/fig-22-p23.png	fig	0	0	not_tab10	
+C/2507817/fig-23-p24.png	fig	1	0	not_tab10	#7384a5@0.006
+C/2507817/tab-01-p7.png	tab	0	0	not_tab10	
+C/2507817/tab-02-p9.png	tab	0	0	not_tab10	
+C/2507817/tab-03-p11.png	tab	0	0	not_tab10	
+C/2507817/tab-04-p11.png	tab	0	0	not_tab10	
+C/2507817/tab-07-p12.png	tab	0	0	not_tab10	
+C/2507817/tab-08-p12.png	tab	0	0	not_tab10	
+C/2507817/tab-09-p15.png	tab	0	0	not_tab10	
+C/2507817/tab-10-p16.png	tab	0	0	not_tab10	
+C/2507817/tab-11-p16.png	tab	5	2	tab10	#9d7b16@0.011;#e4b936@0.007;#d8af2c@0.006;#d0a82b@0.006;#aa861d@0.006
+C/2507817/tab-12-p17.png	tab	0	0	not_tab10	
+C/2507817/tab-13-p19.png	tab	0	0	not_tab10	
+C/2507817/tab-14-p21.png	tab	0	0	not_tab10	
+C/2510006/fig-01-p4.png	fig	4	1	tab10_partial	#4da5be@0.023;#866c6d@0.023;#b9dcd7@0.019;#d5bb89@0.019
+C/2510006/fig-02-p7.png	fig	0	0	not_tab10	
+C/2510006/fig-03-p9.png	fig	9	2	tab10	#dec5b1@0.019;#76443b@0.016;#d1716c@0.015;#5489ab@0.010;#ab5951@0.010;#828ed5@0.009
+C/2510006/fig-04-p12.png	fig	4	2	tab10	#b42e32@0.023;#cbdbea@0.023;#78aac8@0.018;#336fa2@0.010
+C/2510006/fig-05-p12.png	fig	4	2	tab10	#b42e32@0.023;#cbdbea@0.023;#78aac8@0.018;#336fa2@0.010
+C/2510006/fig-06-p13.png	fig	8	1	tab10_partial	#d2dbeb@0.185;#d1daeb@0.016;#aab8d5@0.013;#c3ccdf@0.012;#7d989a@0.012;#5b62d6@0.010
+C/2510006/fig-07-p13.png	fig	0	0	not_tab10	
+C/2510006/fig-08-p13.png	fig	5	0	not_tab10	#d2dbeb@0.087;#c6d0e1@0.015;#9ca1b5@0.009;#cdd6e7@0.008;#d1dbea@0.005
+C/2510006/fig-09-p13.png	fig	5	0	not_tab10	#d2dbeb@0.087;#c6d0e1@0.015;#9ca1b5@0.009;#cdd6e7@0.008;#d1dbea@0.005
+C/2510006/fig-10-p13.png	fig	3	0	not_tab10	#a6b9d8@0.038;#d2dbeb@0.025;#99aece@0.005
+C/2510006/fig-11-p13.png	fig	3	0	not_tab10	#a6b9d8@0.038;#d2dbeb@0.025;#99aece@0.005
+C/2510006/fig-12-p14.png	fig	1	0	not_tab10	#7286a7@0.005
+C/2510006/fig-13-p14.png	fig	0	0	not_tab10	
+C/2510006/fig-14-p14.png	fig	0	0	not_tab10	
+C/2510006/fig-15-p15.png	fig	1	0	not_tab10	#034973@0.158
+C/2510006/fig-16-p16.png	fig	4	1	tab10_partial	#034973@0.054;#05659f@0.049;#4d6d7d@0.009;#5d8ca8@0.007
+C/2510006/fig-17-p16.png	fig	4	1	tab10_partial	#034973@0.054;#05659f@0.049;#4d6d7d@0.009;#5d8ca8@0.007
+C/2510006/fig-18-p17.png	fig	1	0	not_tab10	#554891@0.263
+C/2510006/fig-19-p17.png	fig	1	0	not_tab10	#554891@0.263
+C/2510006/fig-20-p18.png	fig	7	0	not_tab10	#63be7b@0.081;#9ccf7e@0.027;#c0d981@0.026;#a9d27f@0.026;#dde284@0.026;#b9d781@0.026
+C/2510006/fig-21-p21.png	fig	0	0	not_tab10	
+C/2510006/fig-22-p22.png	fig	0	0	not_tab10	
+C/2510006/fig-23-p22.png	fig	0	0	not_tab10	
+C/2510006/fig-24-p22.png	fig	0	0	not_tab10	
+C/2510006/fig-25-p22.png	fig	0	0	not_tab10	
+C/2510006/fig-26-p22.png	fig	0	0	not_tab10	
+C/2510006/tab-01-p5.png	tab	0	0	not_tab10	
+C/2510006/tab-02-p10.png	tab	0	0	not_tab10	
+C/2510006/tab-03-p10.png	tab	0	0	not_tab10	
+C/2510006/tab-04-p15.png	tab	0	0	not_tab10	
+C/2510006/tab-05-p19.png	tab	0	0	not_tab10	
+C/2510006/tab-06-p20.png	tab	0	0	not_tab10	
+C/2510006/tab-07-p20.png	tab	0	0	not_tab10	
+C/2510006/tab-08-p23.png	tab	0	0	not_tab10	
+C/2510006/tab-09-p23.png	tab	0	0	not_tab10	
+C/2510006/tab-10-p24.png	tab	0	0	not_tab10	
+C/2510006/tab-11-p24.png	tab	0	0	not_tab10	
+C/2510185/fig-01-p3.png	fig	1	1	tab10_partial	#247b8d@0.055
+C/2510185/fig-02-p4.png	fig	11	2	tab10	#6388d2@0.027;#eca55b@0.025;#bfdfd2@0.022;#4999de@0.022;#a35a5c@0.020;#e3c3df@0.018
+C/2510185/fig-03-p6.png	fig	1	0	not_tab10	#bfdfd2@0.080
+C/2510185/fig-04-p7.png	fig	4	0	not_tab10	#bc8597@0.064;#bedfd2@0.064;#cf7951@0.055;#a9d18e@0.025
+C/2510185/fig-05-p9.png	fig	11	2	tab10	#c53334@0.015;#e46e56@0.014;#efcfbf@0.010;#ae1428@0.010;#cf453c@0.010;#c3d1e9@0.009
+C/2510185/fig-06-p10.png	fig	0	0	not_tab10	
+C/2510185/fig-07-p11.png	fig	7	1	tab10_partial	#5b9bd4@0.026;#a05252@0.014;#a8d18b@0.012;#cbd9e6@0.008;#37475e@0.006;#889fa3@0.006
+C/2510185/fig-08-p13.png	fig	0	0	not_tab10	
+C/2510185/fig-09-p15.png	fig	1	0	not_tab10	#bedfd2@0.053
+C/2510185/fig-10-p15.png	fig	1	0	not_tab10	#67a797@0.026
+C/2510185/fig-11-p16-2.png	fig	4	1	tab10_partial	#a6d753@0.012;#e789c3@0.011;#8d9fca@0.011;#66c2a4@0.009
+C/2510185/fig-11-p16.png	fig	4	1	tab10_partial	#a6d753@0.014;#e789c3@0.012;#8d9fca@0.012;#66c2a4@0.009
+C/2510185/fig-12-p22.png	fig	1	0	not_tab10	#6acc63@0.012
+C/2510185/fig-13-p23.png	fig	2	0	not_tab10	#a2cabf@0.006;#ed8d5a@0.005
+C/2510185/tab-01-p5.png	tab	0	0	not_tab10	
+C/2510185/tab-02-p8.png	tab	0	0	not_tab10	
+C/2510185/tab-03-p8.png	tab	0	0	not_tab10	
+C/2510185/tab-04-p9.png	tab	0	0	not_tab10	
+C/2510185/tab-05-p9.png	tab	0	0	not_tab10	
+C/2510185/tab-06-p10.png	tab	0	0	not_tab10	
+C/2510185/tab-07-p12.png	tab	0	0	not_tab10	
+C/2510185/tab-08-p13.png	tab	0	0	not_tab10	
+C/2510185/tab-09-p14.png	tab	0	0	not_tab10	
+C/2510185/tab-10-p17.png	tab	0	0	not_tab10	
+C/2510185/tab-11-p18.png	tab	0	0	not_tab10	
+C/2510185/tab-12-p18.png	tab	0	0	not_tab10	
+C/2510185/tab-13-p19.png	tab	0	0	not_tab10	
+C/2510185/tab-14-p20.png	tab	0	0	not_tab10	
+C/2510862/fig-01-p4.png	fig	6	1	tab10_partial	#a1bc96@0.027;#c5e0b3@0.027;#2e597f@0.025;#bdd7ee@0.022;#a76131@0.020;#d6b4b0@0.013
+C/2510862/fig-02-p6.png	fig	2	0	not_tab10	#b5e2e4@0.109;#83cad2@0.064
+C/2510862/fig-03-p7.png	fig	0	0	not_tab10	
+C/2510862/fig-04-p9.png	fig	8	7	tab10	#0078b6@0.011;#0ebddf@0.008;#05a2c8@0.007;#0798ca@0.006;#0383be@0.006;#05a8c9@0.005
+C/2510862/fig-05-p10.png	fig	0	0	not_tab10	
+C/2510862/fig-06-p11.png	fig	6	0	not_tab10	#022d6b@0.008;#d9010e@0.007;#002c6b@0.005;#16095f@0.005;#611018@0.005;#de0006@0.005
+C/2510862/fig-07-p12.png	fig	1	0	not_tab10	#5f3030@0.005
+C/2510862/fig-08-p13.png	fig	2	1	tab10_partial	#5068be@0.011;#47a248@0.007
+C/2510862/fig-09-p14.png	fig	2	0	not_tab10	#8893b1@0.016;#c194a6@0.008
+C/2510862/fig-10-p14.png	fig	15	9	tab10	#d0202a@0.024;#2bb34a@0.019;#1eb439@0.018;#0373c6@0.017;#1068af@0.017;#388fab@0.014
+C/2510862/fig-11-p15.png	fig	26	3	tab10	#2d718e@0.048;#8cd648@0.046;#82d44d@0.037;#e2e419@0.034;#45387f@0.033;#25838e@0.030
+C/2510862/fig-12-p16.png	fig	11	4	tab10	#046aa5@0.014;#00b4ab@0.014;#5f6b79@0.009;#a09181@0.008;#92a8b9@0.008;#8dc9e4@0.008
+C/2510862/fig-13-p17.png	fig	1	1	tab10_partial	#1f77b4@0.056
+C/2510862/fig-14-p19.png	fig	2	0	not_tab10	#b0ddef@0.149;#afe2e6@0.034
+C/2510862/fig-15-p20.png	fig	0	0	not_tab10	
+C/2510862/fig-16-p22.png	fig	1	0	not_tab10	#2020df@0.034
+C/2510862/fig-17-p22.png	fig	0	0	not_tab10	
+C/2510862/fig-18-p23.png	fig	0	0	not_tab10	
+C/2510862/tab-01-p5.png	tab	0	0	not_tab10	
+C/2510862/tab-02-p21.png	tab	0	0	not_tab10	
+C/2513314/fig-01-p3.png	fig	8	3	tab10	#663c1e@0.048;#86582c@0.042;#cb8a41@0.038;#b87233@0.033;#3a1e0d@0.033;#daa566@0.031
+C/2513314/fig-03-p6.png	fig	2	0	not_tab10	#cadee5@0.018;#ded6a0@0.006
+C/2513314/fig-04-p11.png	fig	0	0	not_tab10	
+C/2513314/fig-05-p16.png	fig	4	3	tab10	#8f3953@0.008;#8a7b5d@0.007;#8d1954@0.007;#a1415a@0.006
+C/2513314/fig-06-p18.png	fig	3	1	tab10_partial	#a44b2c@0.010;#763031@0.005;#7b4b3a@0.005
+C/2513314/tab-01-p5.png	tab	0	0	not_tab10	
+C/2513314/tab-02-p10.png	tab	0	0	not_tab10	
+C/2513314/tab-03-p11.png	tab	0	0	not_tab10	
+C/2513314/tab-04-p13.png	tab	0	0	not_tab10	
+C/2513314/tab-05-p15.png	tab	0	0	not_tab10	
+C/2513314/tab-06-p15.png	tab	0	0	not_tab10	
+C/2513314/tab-07-p19.png	tab	0	0	not_tab10	
+C/2513314/tab-08-p20.png	tab	0	0	not_tab10	
+C/2513314/tab-09-p20.png	tab	0	0	not_tab10	
+C/2514362/fig-01-p3.png	fig	6	2	tab10	#d91c18@0.011;#78afe6@0.010;#304e69@0.007;#9f7c81@0.006;#94a0af@0.005;#d3a9a8@0.005
+C/2514362/fig-02-p5.png	fig	1	0	not_tab10	#cacbe4@0.037
+C/2514362/fig-03-p5.png	fig	7	4	tab10	#6ca4d3@0.012;#5e43d1@0.010;#9383ae@0.010;#7b6bb9@0.008;#266ca9@0.007;#1c63c8@0.006
+C/2514362/fig-04-p5.png	fig	7	4	tab10	#6ca4d3@0.012;#5e43d1@0.010;#9383ae@0.010;#7b6bb9@0.008;#266ca9@0.007;#1c63c8@0.006
+C/2514362/fig-05-p9.png	fig	1	0	not_tab10	#523e59@0.005
+C/2514362/fig-06-p9.png	fig	1	0	not_tab10	#523e59@0.005
+C/2514362/fig-07-p9.png	fig	11	2	tab10	#311c8b@0.013;#2a034d@0.010;#450e38@0.008;#00007c@0.008;#d60b0e@0.008;#d08a41@0.007
+C/2514362/fig-08-p10.png	fig	2	0	not_tab10	#5f9f6e@0.088;#5876a5@0.084
+C/2514362/fig-09-p10.png	fig	2	0	not_tab10	#5f9f6e@0.088;#5876a5@0.084
+C/2514362/fig-10-p12.png	fig	8	0	not_tab10	#ecb799@0.027;#e37f61@0.020;#2a004e@0.018;#692a67@0.016;#d04451@0.015;#9e265b@0.014
+C/2514362/fig-11-p12.png	fig	8	0	not_tab10	#ecb799@0.027;#e37f61@0.020;#2a004e@0.018;#692a67@0.016;#d04451@0.015;#9e265b@0.014
+C/2514362/fig-12-p13.png	fig	1	0	not_tab10	#d1e0ed@0.048
+C/2514362/fig-13-p13.png	fig	1	0	not_tab10	#d1e0ed@0.048
+C/2514362/fig-14-p14.png	fig	6	2	tab10	#ceecb3@0.029;#1d2e83@0.029;#92d5b9@0.029;#081d58@0.029;#1f7ab5@0.029;#745858@0.007
+C/2514362/fig-15-p14.png	fig	6	2	tab10	#ceecb3@0.029;#1d2e83@0.029;#92d5b9@0.029;#081d58@0.029;#1f7ab5@0.029;#745858@0.007
+C/2514362/fig-16-p15.png	fig	7	3	tab10	#9f78b6@0.040;#414487@0.029;#7e9f6f@0.027;#d28a5a@0.019;#2a788e@0.013;#22a884@0.013
+C/2514362/fig-17-p15.png	fig	7	3	tab10	#9f78b6@0.040;#414487@0.029;#7e9f6f@0.027;#d28a5a@0.019;#2a788e@0.013;#22a884@0.013
+C/2514362/fig-18-p18.png	fig	3	0	not_tab10	#41a652@0.007;#438ebf@0.006;#839ba9@0.005
+C/2514362/fig-19-p19.png	fig	9	0	not_tab10	#2f837f@0.095;#8fc456@0.035;#3c6682@0.034;#45a778@0.033;#4b4279@0.033;#bedbd6@0.015
+C/2514362/fig-20-p19.png	fig	9	0	not_tab10	#2f837f@0.095;#8fc456@0.035;#3c6682@0.034;#45a778@0.033;#4b4279@0.033;#bedbd6@0.015
+C/2514362/fig-21-p21.png	fig	8	2	tab10	#7da9c7@0.050;#4884af@0.031;#2296c1@0.019;#253996@0.019;#2fa4c2@0.018;#1f2f87@0.018
+C/2514362/fig-22-p22.png	fig	5	1	tab10_partial	#c3e8e8@0.017;#957d7a@0.010;#c5b2a8@0.008;#573631@0.005;#5da69c@0.005
+C/2514362/fig-23-p22.png	fig	5	1	tab10_partial	#c3e8e8@0.017;#957d7a@0.010;#c5b2a8@0.008;#573631@0.005;#5da69c@0.005
+C/2514362/fig-24-p23.png	fig	2	1	tab10_partial	#2c3565@0.006;#86555d@0.005
+C/2514362/fig-25-p23.png	fig	2	1	tab10_partial	#2c3565@0.006;#86555d@0.005
+C/2514362/tab-01-p8.png	tab	0	0	not_tab10	
+C/2514362/tab-02-p9.png	tab	6	1	tab10_partial	#503734@0.024;#1e293b@0.023;#7a8c9b@0.018;#cf5b4e@0.016;#b9957b@0.009;#e8d1c2@0.007
+C/2514362/tab-03-p18.png	tab	11	1	tab10_partial	#cdc1db@0.071;#728396@0.011;#ab794d@0.010;#b7daea@0.009;#7a9ebd@0.009;#b99e7d@0.008
+C/2514362/tab-04-p19.png	tab	0	0	not_tab10	
+C/2514362/tab-05-p19.png	tab	15	3	tab10	#bdbedd@0.091;#4d7ebe@0.017;#98aacc@0.013;#401409@0.013;#1d4286@0.012;#804e46@0.011
+C/2514461/fig-01-p8.png	fig	3	1	tab10_partial	#bfd9ea@0.006;#89b1d6@0.005;#3d6fa4@0.005
+C/2514461/fig-02-p8.png	fig	0	0	not_tab10	
+C/2514461/fig-03-p10.png	fig	4	1	tab10_partial	#e51e32@0.011;#e2cf03@0.007;#e4d857@0.006;#a8837b@0.005
+C/2514461/fig-04-p11.png	fig	0	0	not_tab10	
+C/2514461/fig-05-p11.png	fig	0	0	not_tab10	
+C/2514461/fig-06-p12.png	fig	2	0	not_tab10	#64819e@0.006;#c0d2e2@0.005
+C/2514461/fig-07-p12.png	fig	2	1	tab10_partial	#937559@0.006;#c3d6e8@0.006
+C/2514461/fig-08-p13.png	fig	9	2	tab10	#6baed6@0.042;#4292c6@0.037;#c6dbef@0.035;#2171b5@0.032;#0a3069@0.026;#145496@0.023
+C/2514461/fig-09-p14.png	fig	5	1	tab10_partial	#2d588b@0.009;#0f1c4b@0.007;#b62227@0.006;#58658b@0.005;#639db6@0.005
+C/2514461/fig-10-p14.png	fig	5	1	tab10_partial	#2d588b@0.009;#0f1c4b@0.007;#b62227@0.006;#58658b@0.005;#639db6@0.005
+C/2514461/fig-11-p15.png	fig	1	0	not_tab10	#a5a6c5@0.090
+C/2514461/fig-12-p16.png	fig	2	0	not_tab10	#ad5a88@0.073;#9dc992@0.007
+C/2514461/fig-13-p18.png	fig	8	1	tab10_partial	#7995e8@0.038;#7994e9@0.029;#767fa0@0.018;#edd3b8@0.013;#7796e7@0.010;#7e93e1@0.009
+C/2514461/fig-14-p22.png	fig	0	0	not_tab10	
+C/2514461/fig-15-p22.png	fig	0	0	not_tab10	
+C/2514461/fig-16-p23.png	fig	0	0	not_tab10	
+C/2514461/fig-17-p23.png	fig	0	0	not_tab10	
+C/2514461/fig-18-p23.png	fig	0	0	not_tab10	
+C/2514461/fig-19-p23.png	fig	0	0	not_tab10	
+C/2514461/fig-20-p24.png	fig	2	0	not_tab10	#101b3f@0.008;#5d789a@0.007
+C/2514461/fig-21-p25.png	fig	10	0	not_tab10	#539ecd@0.034;#519ccc@0.033;#7db6d7@0.022;#143b6d@0.020;#9fcae1@0.018;#b6d4e9@0.016
+C/2514461/tab-01-p9.png	tab	0	0	not_tab10	
+C/2514461/tab-03-p19.png	tab	0	0	not_tab10	
+C/2514461/tab-04-p21.png	tab	0	0	not_tab10	
+C/2514461/tab-05-p21.png	tab	0	0	not_tab10	
+C/2514461/tab-06-p22-2.png	tab	0	0	not_tab10	
+C/2514461/tab-06-p22.png	tab	0	0	not_tab10	
+C/2514461/tab-07-p27.png	tab	0	0	not_tab10	
+C/2515235/fig-01-p3.png	fig	10	1	tab10_partial	#12295d@0.060;#08184b@0.047;#152f65@0.046;#36121e@0.034;#5f4844@0.033;#988372@0.029
+C/2515235/fig-02-p4.png	fig	11	1	tab10_partial	#c2ceea@0.061;#bfd6ec@0.052;#bacce2@0.036;#314152@0.027;#c4a195@0.024;#c5cdeb@0.024
+C/2515235/fig-03-p6.png	fig	11	0	not_tab10	#6e8ed3@0.038;#ec9052@0.036;#5099d9@0.027;#ef914a@0.026;#d9a175@0.022;#bd6f65@0.020
+C/2515235/fig-04-p7.png	fig	9	1	tab10_partial	#a88c96@0.018;#293392@0.017;#111534@0.013;#90afc6@0.013;#d06b67@0.011;#e6ae9f@0.011
+C/2515235/fig-05-p9.png	fig	3	1	tab10_partial	#815e3c@0.027;#d3bc99@0.022;#cf955a@0.015
+C/2515235/fig-06-p13.png	fig	6	0	not_tab10	#a01828@0.038;#711620@0.034;#d8b19e@0.029;#6a3a46@0.018;#a91424@0.014;#b02f37@0.011
+C/2515235/fig-07-p14.png	fig	9	0	not_tab10	#38a5bb@0.019;#4ab5b4@0.018;#4e8e9c@0.014;#c1a97b@0.013;#b8a986@0.012;#62a7ac@0.011
+C/2515235/fig-08-p15.png	fig	2	0	not_tab10	#e9d9c7@0.033;#b5a192@0.028
+C/2515235/fig-09-p20.png	fig	8	3	tab10	#cee9db@0.022;#ceeadb@0.018;#7b5964@0.015;#c8ead7@0.015;#59906b@0.012;#947093@0.011
+C/2515235/fig-10-p22.png	fig	6	0	not_tab10	#4ed7c5@0.026;#a89075@0.014;#b1cdb9@0.008;#61b7c5@0.006;#46dbc5@0.006;#57d2c1@0.006
+C/2515235/fig-11-p23.png	fig	0	0	not_tab10	
+C/2515235/fig-12-p24.png	fig	3	0	not_tab10	#9ccc68@0.012;#bed4a7@0.007;#86d3ea@0.006
+C/2515235/tab-01-p8.png	tab	0	0	not_tab10	
+C/2515235/tab-02-p8.png	tab	0	0	not_tab10	
+C/2515235/tab-03-p12.png	tab	0	0	not_tab10	
+C/2516178/fig-01-p3.png	fig	24	4	tab10	#62abc8@0.049;#c3dce6@0.048;#b3d2e6@0.043;#a2c5df@0.043;#accee3@0.037;#6a473b@0.036
+C/2516178/fig-02-p4.png	fig	9	1	tab10_partial	#aae7a6@0.039;#2c505d@0.030;#488ea7@0.028;#81ce8e@0.023;#bde8bf@0.017;#124353@0.017
+C/2516178/fig-03-p8.png	fig	1	0	not_tab10	#4aaade@0.007
+C/2516178/fig-04-p9.png	fig	0	0	not_tab10	
+C/2516178/fig-05-p10.png	fig	15	0	not_tab10	#73c3e9@0.014;#70c2e8@0.013;#47b1e1@0.013;#4ab2e1@0.012;#61bbe5@0.011;#56b7e3@0.011
+C/2516178/fig-06-p11.png	fig	1	0	not_tab10	#d2dfeb@0.008
+C/2516178/fig-07-p12.png	fig	12	2	tab10	#176181@0.051;#73c2e6@0.031;#5db8e3@0.029;#53aad2@0.027;#9c837d@0.020;#627a85@0.017
+C/2516178/fig-08-p14.png	fig	4	0	not_tab10	#8eb9ef@0.021;#647a9d@0.018;#abcfed@0.018;#abcbeb@0.011
+C/2516178/fig-09-p16.png	fig	5	0	not_tab10	#d98b5f@0.080;#597dbf@0.052;#9ea7b8@0.009;#daaf98@0.007;#7c8ba9@0.005
+C/2516178/fig-10-p17.png	fig	3	0	not_tab10	#e2b1c6@0.011;#aa1241@0.009;#ad6e87@0.007
+C/2516178/fig-11-p17.png	fig	4	1	tab10_partial	#48081d@0.017;#e29db8@0.012;#ddbdca@0.010;#d65984@0.007
+C/2516178/fig-12-p19.png	fig	3	0	not_tab10	#156082@0.019;#b8d3e8@0.008;#e8c0b5@0.006
+C/2516178/fig-13-p23.png	fig	4	1	tab10_partial	#3e186d@0.021;#81666d@0.018;#bfb1a5@0.017;#e3ddc6@0.008
+C/2516178/fig-14-p24.png	fig	8	3	tab10	#b34831@0.012;#7b9b80@0.010;#d69d77@0.009;#c97267@0.009;#837861@0.008;#b7543e@0.007
+C/2516178/tab-01-p5.png	tab	0	0	not_tab10	
+C/2516178/tab-03-p13.png	tab	1	0	not_tab10	#bcd5ed@0.339
+C/2516178/tab-05-p15.png	tab	1	0	not_tab10	#bcd5ed@0.248
+C/2516178/tab-06-p15.png	tab	1	0	not_tab10	#bcd5ed@0.282
+C/2516178/tab-07-p16.png	tab	2	0	not_tab10	#bcd5ed@0.205;#9eadbb@0.006
+C/2516178/tab-08-p20.png	tab	1	0	not_tab10	#bcd5ed@0.283
+C/2516178/tab-09-p21.png	tab	1	0	not_tab10	#bcd5ed@0.800
+C/2516695/fig-01-p3.png	fig	22	5	tab10	#1b1b35@0.037;#7a5c70@0.033;#dc6a61@0.032;#e9af93@0.032;#9d5d64@0.032;#73465d@0.031
+C/2516695/fig-02-p4.png	fig	10	0	not_tab10	#7493df@0.038;#e67353@0.035;#ee954f@0.030;#41a18c@0.017;#e44e3f@0.016;#562c39@0.010
+C/2516695/fig-03-p6.png	fig	7	0	not_tab10	#004e89@0.045;#2f5597@0.035;#333f50@0.032;#4472c4@0.025;#a0aeba@0.013;#d20202@0.010
+C/2516695/fig-04-p6.png	fig	6	1	tab10_partial	#bdd7ee@0.029;#6a7486@0.012;#212b3c@0.010;#8599ad@0.009;#9eb5cb@0.007;#cda49a@0.006
+C/2516695/fig-05-p6.png	fig	6	1	tab10_partial	#bdd7ee@0.029;#6a7486@0.012;#212b3c@0.010;#8599ad@0.009;#9eb5cb@0.007;#cda49a@0.006
+C/2516695/fig-06-p7.png	fig	4	0	not_tab10	#8f9fad@0.013;#a2b7c6@0.011;#d3b2ac@0.007;#aa8581@0.006
+C/2516695/fig-07-p10.png	fig	5	0	not_tab10	#d8d4ee@0.036;#b8e7e4@0.018;#767fac@0.013;#dbeabc@0.012;#6ebbc1@0.008
+C/2516695/fig-08-p11.png	fig	0	0	not_tab10	
+C/2516695/fig-09-p14.png	fig	12	4	tab10	#4090c5@0.034;#efc33b@0.031;#e85747@0.020;#7a1b26@0.019;#983227@0.014;#e3483a@0.014
+C/2516695/fig-10-p16.png	fig	3	0	not_tab10	#d0a876@0.008;#e3d5c5@0.005;#30628d@0.005
+C/2516695/fig-11-p16.png	fig	3	0	not_tab10	#d0a876@0.008;#e3d5c5@0.005;#30628d@0.005
+C/2516695/fig-12-p17.png	fig	0	0	not_tab10	
+C/2516695/fig-13-p17.png	fig	0	0	not_tab10	
+C/2516695/fig-14-p18.png	fig	6	3	tab10	#5f6981@0.019;#9c4c5a@0.014;#859fbb@0.011;#a2707c@0.010;#d9918a@0.010;#ccb1b0@0.005
+C/2516695/fig-15-p20.png	fig	16	1	tab10_partial	#789096@0.013;#97adb6@0.013;#c1945c@0.010;#354859@0.009;#a9c2af@0.009;#e1b489@0.009
+C/2516695/fig-16-p20.png	fig	16	1	tab10_partial	#789096@0.013;#97adb6@0.013;#c1945c@0.010;#354859@0.009;#a9c2af@0.009;#e1b489@0.009
+C/2516695/fig-17-p21.png	fig	14	3	tab10	#a9cfe5@0.024;#eb3c2f@0.024;#1b69a6@0.023;#8cbdd5@0.023;#5aa2ce@0.022;#4191c6@0.022
+C/2516695/fig-18-p21.png	fig	14	3	tab10	#a9cfe5@0.024;#eb3c2f@0.024;#1b69a6@0.023;#8cbdd5@0.023;#5aa2ce@0.022;#4191c6@0.022
+C/2516695/fig-19-p21.png	fig	14	3	tab10	#a9cfe5@0.024;#eb3c2f@0.024;#1b69a6@0.023;#8cbdd5@0.023;#5aa2ce@0.022;#4191c6@0.022
+C/2516695/fig-20-p22.png	fig	2	0	not_tab10	#5579b4@0.083;#de8a5b@0.074
+C/2516695/fig-21-p22.png	fig	2	0	not_tab10	#5579b4@0.083;#de8a5b@0.074
+C/2516695/fig-22-p23.png	fig	5	2	tab10	#083c7d@0.039;#0a549e@0.033;#1c6ab0@0.027;#3181bd@0.018;#4a98c9@0.015
+C/2516695/fig-23-p23.png	fig	16	9	tab10	#1f77b4@0.062;#d62728@0.023;#243d4f@0.011;#d42728@0.010;#3d0b0b@0.010;#871919@0.009
+C/2516695/fig-24-p24.png	fig	1	1	tab10_partial	#687782@0.005
+C/2516695/tab-01-p5.png	tab	0	0	not_tab10	
+C/2516695/tab-02-p6.png	tab	3	0	not_tab10	#004e89@0.108;#5180a5@0.006;#9bb9d0@0.005
+C/2516695/tab-03-p9-2.png	tab	1	0	not_tab10	#004e89@0.118
+C/2516695/tab-03-p9.png	tab	1	0	not_tab10	#004e89@0.105
+C/2516695/tab-04-p10.png	tab	5	1	tab10_partial	#004e89@0.194;#abc4d8@0.008;#32709f@0.007;#a0b4c4@0.007;#cfddeb@0.006
+C/2516695/tab-05-p10.png	tab	1	0	not_tab10	#004e89@0.065
+C/2516695/tab-06-p12.png	tab	2	0	not_tab10	#004e89@0.131;#115a90@0.007
+C/2516695/tab-07-p14.png	tab	4	0	not_tab10	#004e89@0.175;#5e8fb4@0.007;#7d9fbb@0.007;#a8b7c5@0.005
+C/2516695/tab-08-p19.png	tab	3	0	not_tab10	#004e89@0.161;#5488b0@0.008;#88acc8@0.006
+C/2516695/tab-09-p22.png	tab	2	0	not_tab10	#004e89@0.151;#10588f@0.007
+C/2516695/tab-10-p23.png	tab	3	1	tab10_partial	#004e89@0.202;#216497@0.009;#bcd0e0@0.008
+C/2517690/fig-01-p3.png	fig	14	0	not_tab10	#a8cde0@0.019;#d5c8af@0.019;#7eb0d2@0.018;#e2d5b8@0.017;#88b9d7@0.015;#96bdd5@0.013
+C/2517690/fig-02-p4.png	fig	7	2	tab10	#35a0a9@0.027;#298091@0.019;#83ebdc@0.019;#d2e18f@0.018;#29699b@0.010;#5293a3@0.009
+C/2517690/fig-03-p7.png	fig	2	0	not_tab10	#6be6c1@0.033;#3fb1e3@0.011
+C/2517690/fig-04-p8.png	fig	2	0	not_tab10	#1c618b@0.006;#66a2c6@0.005
+C/2517690/fig-06-p8.png	fig	3	0	not_tab10	#28767e@0.010;#3b858c@0.007;#9fb6b8@0.007
+C/2517690/fig-07-p10.png	fig	1	1	tab10_partial	#99bd25@0.009
+C/2517690/fig-08-p11.png	fig	3	1	tab10_partial	#e7c05a@0.011;#5bbe86@0.009;#855860@0.009
+C/2517690/fig-09-p12.png	fig	6	0	not_tab10	#76dfe9@0.007;#48d1dc@0.006;#4ddae6@0.006;#5bdce7@0.005;#47cdd8@0.005;#46cad5@0.005
+C/2517690/fig-10-p14.png	fig	2	1	tab10_partial	#35a0a9@0.045;#29699b@0.015
+C/2517690/fig-11-p14.png	fig	13	1	tab10_partial	#91bce3@0.054;#b9d5ed@0.035;#9bc2e6@0.030;#a8cbe8@0.029;#b2d1ec@0.028;#afcde9@0.023
+C/2517690/fig-12-p17.png	fig	6	1	tab10_partial	#4288b2@0.007;#74a1bc@0.006;#43687e@0.006;#8bb7d2@0.005;#adcade@0.005;#c0d5e4@0.005
+C/2517690/fig-13-p17.png	fig	2	0	not_tab10	#94d4ae@0.072;#8bbde9@0.032
+C/2517690/fig-14-p19.png	fig	0	0	not_tab10	
+C/2517690/fig-15-p22.png	fig	14	0	not_tab10	#74dfe9@0.014;#5edce7@0.013;#4ad5e1@0.013;#6cdee9@0.013;#47cdd8@0.013;#4ddae6@0.012
+C/2517690/fig-16-p23.png	fig	0	0	not_tab10	
+C/2517690/fig-17-p24.png	fig	0	0	not_tab10	
+C/2517690/tab-01-p5.png	tab	0	0	not_tab10	
+C/2517690/tab-02-p6.png	tab	0	0	not_tab10	
+C/2517690/tab-03-p9.png	tab	4	1	tab10_partial	#a3cded@0.530;#647e92@0.010;#a1cbea@0.010;#334862@0.005
+C/2517690/tab-04-p10.png	tab	7	1	tab10_partial	#b9d7ea@0.162;#84afca@0.011;#627380@0.010;#553c2d@0.010;#152c4d@0.008;#d1e3ed@0.008
+C/2517690/tab-05-p11.png	tab	6	0	not_tab10	#d0ebd9@0.057;#92d1a5@0.036;#b3dfc0@0.030;#66be7e@0.029;#d3ecdb@0.029;#c7e5d0@0.029
+C/2517690/tab-06-p13.png	tab	1	0	not_tab10	#bcd6ed@0.290
+C/2517690/tab-08-p18.png	tab	2	0	not_tab10	#a9d08e@0.266;#c5dfb4@0.214
+C/2517690/tab-09-p19.png	tab	0	0	not_tab10	
+C/2517690/tab-10-p20.png	tab	1	0	not_tab10	#b8d6ea@0.241
+C/2517690/tab-11-p20.png	tab	13	0	not_tab10	#c5e8d1@0.013;#d3eedc@0.013;#94d6ab@0.012;#6cc68b@0.012;#8bd2a3@0.011;#bbe5c9@0.011
+C/2517690/tab-12-p23.png	tab	0	0	not_tab10	
+C/2521556/fig-01-p3.png	fig	9	1	tab10_partial	#5c3533@0.008;#d8588f@0.008;#e1a186@0.008;#e28d80@0.007;#a7666f@0.007;#e86984@0.006
+C/2521556/fig-02-p4.png	fig	4	0	not_tab10	#ecb8b7@0.074;#b9d2ad@0.016;#bea5a5@0.011;#a6c3bd@0.007
+C/2521556/fig-03-p6.png	fig	4	0	not_tab10	#efd0cc@0.017;#a7b5c3@0.011;#e1c2a0@0.009;#efdec5@0.009
+C/2521556/fig-04-p8.png	fig	5	1	tab10_partial	#c6d1b7@0.093;#da3333@0.037;#c2ded5@0.020;#4b1d34@0.016;#be958e@0.005
+C/2521556/fig-05-p8.png	fig	1	0	not_tab10	#c3d6ea@0.014
+C/2521556/fig-06-p10.png	fig	12	5	tab10	#589ec8@0.016;#103a56@0.015;#8eb4d4@0.015;#b8c6dc@0.015;#2a87bb@0.014;#5d040f@0.014
+C/2521556/fig-07-p10.png	fig	12	5	tab10	#589ec8@0.016;#103a56@0.015;#8eb4d4@0.015;#b8c6dc@0.015;#2a87bb@0.014;#5d040f@0.014
+C/2521556/fig-08-p11.png	fig	1	0	not_tab10	#a5c6b2@0.008
+C/2521556/fig-09-p12.png	fig	5	0	not_tab10	#232b76@0.027;#001b52@0.027;#4e859d@0.022;#a01848@0.022;#08132e@0.017
+C/2521556/fig-10-p13.png	fig	1	0	not_tab10	#74c2e2@0.007
+C/2521556/fig-11-p13.png	fig	1	0	not_tab10	#74c2e2@0.018
+C/2521556/fig-12-p15.png	fig	21	5	tab10	#2556a3@0.022;#162a6e@0.020;#ceecc1@0.017;#89d1bd@0.016;#b9e3be@0.015;#4bb9c3@0.015
+C/2521556/fig-13-p15.png	fig	0	0	not_tab10	
+C/2521556/fig-14-p15.png	fig	0	0	not_tab10	
+C/2521556/fig-15-p16.png	fig	4	2	tab10	#75473c@0.007;#deadac@0.006;#9f6d5f@0.005;#b38886@0.005
+C/2521556/fig-16-p18.png	fig	1	0	not_tab10	#92bcd0@0.005
+C/2521556/fig-17-p19.png	fig	10	1	tab10_partial	#153c7f@0.045;#08045c@0.034;#2e6da5@0.016;#adc7d5@0.012;#586272@0.012;#5f98be@0.012
+C/2521556/fig-18-p20.png	fig	1	0	not_tab10	#8ebbbc@0.076
+C/2521556/fig-19-p21.png	fig	0	0	not_tab10	
+C/2521556/fig-20-p21.png	fig	0	0	not_tab10	
+C/2521556/fig-21-p22.png	fig	2	0	not_tab10	#c1b3a4@0.007;#e0cfbf@0.006
+C/2521556/fig-22-p23.png	fig	8	1	tab10_partial	#6bb4a6@0.024;#8193a3@0.016;#9dd875@0.014;#76cc8e@0.012;#6c788e@0.010;#4f969d@0.008
+C/2521556/fig-23-p23.png	fig	0	0	not_tab10	
+C/2521556/tab-01-p5.png	tab	0	0	not_tab10	
+C/2521556/tab-02-p10.png	tab	0	0	not_tab10	
+C/2521556/tab-03-p14.png	tab	0	0	not_tab10	
+C/2522820/fig-01-p7.png	fig	7	2	tab10	#cce5cc@0.058;#b40426@0.035;#3b4cc0@0.033;#e37a64@0.014;#89b1cb@0.007;#6f778e@0.007
+C/2522820/fig-02-p9.png	fig	1	0	not_tab10	#451866@0.005
+C/2522820/fig-03-p13.png	fig	2	0	not_tab10	#ec7570@0.006;#494462@0.005
+C/2522820/fig-04-p13.png	fig	6	1	tab10_partial	#ce9b65@0.022;#cd9b65@0.016;#958773@0.009;#cd9b64@0.007;#bca78b@0.006;#e5d587@0.005
+C/2522820/fig-05-p14.png	fig	5	1	tab10_partial	#c5a4d3@0.084;#c5a5d3@0.028;#c6a5d3@0.014;#6c34b3@0.009;#a282ad@0.006
+C/2522820/fig-06-p14.png	fig	5	1	tab10_partial	#c5a4d3@0.082;#c5a5d3@0.029;#7645b0@0.008;#c6a5d3@0.008;#a887b7@0.005
+C/2522820/tab-01-p4.png	tab	0	0	not_tab10	
+C/2522820/tab-02-p8.png	tab	0	0	not_tab10	
+C/2522820/tab-03-p10.png	tab	0	0	not_tab10	
+C/2522820/tab-04-p11.png	tab	0	0	not_tab10	
+C/2522820/tab-05-p11.png	tab	0	0	not_tab10	
+C/2522820/tab-06-p16.png	tab	0	0	not_tab10	
+C/2522820/tab-07-p16.png	tab	0	0	not_tab10	
+C/2522820/tab-08-p17.png	tab	0	0	not_tab10	
+C/2522820/tab-09-p17.png	tab	0	0	not_tab10	
+C/2522820/tab-10-p17.png	tab	0	0	not_tab10	
+C/2522820/tab-11-p17.png	tab	0	0	not_tab10	
+C/2522820/tab-12-p17.png	tab	0	0	not_tab10	
+C/2522820/tab-13-p17.png	tab	0	0	not_tab10	
+C/2522820/tab-14-p18.png	tab	0	0	not_tab10	
+C/2522820/tab-14-p19.png	tab	0	0	not_tab10	
+C/2522820/tab-16-p20.png	tab	0	0	not_tab10	
+C/2522820/tab-17-p21.png	tab	0	0	not_tab10	
+C/2522820/tab-18-p22.png	tab	0	0	not_tab10	
+C/2524070/fig-01-p3.png	fig	12	2	tab10	#c0b099@0.106;#be905c@0.080;#d8903e@0.031;#efad63@0.028;#b6d1a7@0.028;#cfddc2@0.018
+C/2524070/fig-02-p4.png	fig	4	1	tab10_partial	#c8ddef@0.031;#c5e0b4@0.023;#a1b7c4@0.014;#7c4b43@0.010
+C/2524070/fig-03-p7.png	fig	0	0	not_tab10	
+C/2524070/fig-04-p12.png	fig	2	0	not_tab10	#a1b8e1@0.017;#778fb0@0.006
+C/2524070/fig-05-p12.png	fig	2	1	tab10_partial	#d73027@0.033;#91bfdb@0.021
+C/2524070/fig-06-p13.png	fig	10	1	tab10_partial	#658fc6@0.020;#8aabd3@0.017;#b0c4da@0.016;#3c4959@0.014;#7ca0cc@0.014;#bfd3e7@0.012
+C/2524070/fig-07-p15.png	fig	2	0	not_tab10	#efe3d3@0.049;#e8ddce@0.045
+C/2524070/fig-08-p16.png	fig	0	0	not_tab10	
+C/2524070/fig-09-p16.png	fig	0	0	not_tab10	
+C/2524070/fig-10-p17.png	fig	2	1	tab10_partial	#4845c4@0.006;#7b5869@0.005
+C/2524070/fig-11-p22.png	fig	1	0	not_tab10	#8694a4@0.006
+C/2524070/fig-12-p22.png	fig	1	1	tab10_partial	#868ca0@0.007
+C/2524070/fig-13-p23.png	fig	6	1	tab10_partial	#283694@0.026;#e60808@0.019;#6aa1ca@0.019;#ec353c@0.016;#181889@0.010;#dfa97d@0.007
+C/2524070/tab-02-p6.png	tab	0	0	not_tab10	
+C/2524070/tab-03-p13.png	tab	0	0	not_tab10	
+C/2524070/tab-04-p14.png	tab	0	0	not_tab10	
+C/2524070/tab-05-p15.png	tab	0	0	not_tab10	
+C/2524070/tab-06-p17.png	tab	0	0	not_tab10	
+C/2524070/tab-07-p19.png	tab	0	0	not_tab10	
+C/2524070/tab-08-p19.png	tab	0	0	not_tab10	
+C/2524070/tab-09-p21.png	tab	0	0	not_tab10	
+C/2524070/tab-10-p21.png	tab	0	0	not_tab10	
+C/2524070/tab-11-p22.png	tab	0	0	not_tab10	
+C/2524070/tab-12-p23.png	tab	0	0	not_tab10	
+D/2504188/fig-01-p3.png	fig	12	2	tab10	#42595c@0.044;#90afd3@0.036;#476169@0.032;#54686e@0.030;#98b4d9@0.029;#9ec1e4@0.024
+D/2504188/fig-02-p4.png	fig	12	1	tab10_partial	#e975af@0.050;#5f7ae9@0.045;#abafe0@0.044;#c7d3e5@0.042;#5e8d69@0.031;#a94270@0.029
+D/2504188/fig-03-p6.png	fig	17	2	tab10	#875c27@0.026;#e4a757@0.025;#e0a637@0.024;#e49341@0.019;#db7d35@0.018;#cd9340@0.018
+D/2504188/fig-04-p7.png	fig	11	2	tab10	#395d53@0.017;#539382@0.014;#2f4941@0.013;#49766a@0.012;#71948a@0.012;#5a8176@0.012
+D/2504188/fig-05-p9.png	fig	15	1	tab10_partial	#abd4e4@0.051;#ead970@0.033;#a7bfc0@0.031;#b8dcee@0.028;#173861@0.025;#795a5a@0.025
+D/2504188/fig-06-p12.png	fig	10	0	not_tab10	#ea9951@0.019;#ed5b65@0.017;#da3457@0.016;#58d9ce@0.015;#e47375@0.011;#ec4c19@0.011
+D/2504188/fig-07-p12.png	fig	17	1	tab10_partial	#bd984c@0.020;#be5e5a@0.018;#dba43d@0.016;#cb823e@0.015;#e4c2c6@0.014;#cb8187@0.014
+D/2504188/fig-08-p13.png	fig	12	3	tab10	#e99c73@0.020;#bdaf93@0.018;#dd7260@0.018;#7e3a36@0.015;#376b4e@0.014;#9f7158@0.014
+D/2504188/fig-09-p13.png	fig	2	0	not_tab10	#9bb2c4@0.007;#46769d@0.006
+D/2504188/fig-11-p17.png	fig	9	1	tab10_partial	#5b9bd4@0.080;#4c9bd2@0.019;#cadde7@0.017;#4182e1@0.015;#20bab8@0.010;#7a7fa7@0.010
+D/2504188/fig-12-p18.png	fig	12	0	not_tab10	#39558e@0.045;#224581@0.026;#65423a@0.021;#133267@0.018;#588a8f@0.017;#c0a79b@0.016
+D/2504188/fig-13-p21.png	fig	8	4	tab10	#725a4f@0.017;#a57854@0.017;#bb9a7e@0.014;#8d7765@0.013;#816f57@0.012;#ceb7a0@0.011
+D/2504188/fig-15-p23.png	fig	15	0	not_tab10	#c1d8e8@0.048;#9adaeb@0.046;#238ae3@0.043;#afa093@0.037;#0659be@0.036;#39b1ee@0.033
+D/2504188/tab-01-p5.png	tab	0	0	not_tab10	
+D/2504188/tab-02-p8.png	tab	2	0	not_tab10	#4471c4@0.061;#8eaadb@0.008
+D/2504188/tab-03-p17.png	tab	10	1	tab10_partial	#5b9bd4@0.086;#4c9bd2@0.020;#cadde7@0.018;#4082e2@0.016;#20bab8@0.011;#797fa9@0.010
+D/2507692/fig-01-p3.png	fig	9	0	not_tab10	#aad3df@0.084;#eac5a4@0.059;#c27d85@0.048;#c4a6a5@0.033;#ebddca@0.031;#b5d3be@0.027
+D/2507692/fig-02-p4.png	fig	6	2	tab10	#718e65@0.029;#b0cabc@0.028;#bdd8eb@0.026;#365877@0.022;#a9673a@0.017;#e1c0a8@0.010
+D/2507692/fig-03-p7.png	fig	20	3	tab10	#a58c6c@0.033;#8a5c46@0.031;#90674e@0.027;#967257@0.027;#a18566@0.027;#c4c896@0.026
+D/2507692/fig-04-p9.png	fig	22	7	tab10	#b58d54@0.035;#895c46@0.033;#e6ba55@0.029;#eae175@0.028;#9e6d45@0.027;#a98152@0.027
+D/2507692/fig-05-p10.png	fig	7	0	not_tab10	#40727b@0.013;#c7e056@0.013;#e4e683@0.010;#c8e2b6@0.009;#a5d984@0.009;#7dbc97@0.008
+D/2507692/fig-06-p10.png	fig	7	0	not_tab10	#40727b@0.013;#c7e056@0.013;#e4e683@0.010;#c8e2b6@0.009;#a5d984@0.009;#7dbc97@0.008
+D/2507692/fig-07-p11.png	fig	5	0	not_tab10	#e4b2cb@0.037;#99d9bf@0.014;#c29bc4@0.009;#abc5e7@0.006;#b3cdef@0.006
+D/2507692/fig-08-p12.png	fig	4	1	tab10_partial	#7bc07b@0.020;#ca9939@0.015;#8fb890@0.007;#766b57@0.006
+D/2507692/fig-09-p12.png	fig	4	1	tab10_partial	#7bc07b@0.020;#ca9939@0.015;#8fb890@0.007;#766b57@0.006
+D/2507692/fig-10-p14.png	fig	4	0	not_tab10	#99cc49@0.014;#3c4d2b@0.013;#78904c@0.010;#bbd684@0.009
+D/2507692/fig-11-p14.png	fig	4	0	not_tab10	#99cc49@0.014;#3c4d2b@0.013;#78904c@0.010;#bbd684@0.009
+D/2507692/fig-12-p15.png	fig	8	0	not_tab10	#82c06f@0.011;#c6e276@0.010;#58ab69@0.010;#198c66@0.008;#3c9e67@0.007;#9ecb78@0.007
+D/2507692/fig-13-p15.png	fig	8	0	not_tab10	#82c06f@0.011;#c6e276@0.010;#58ab69@0.010;#198c66@0.008;#3c9e67@0.007;#9ecb78@0.007
+D/2507692/fig-14-p15.png	fig	8	0	not_tab10	#82c06f@0.011;#c6e276@0.010;#58ab69@0.010;#198c66@0.008;#3c9e67@0.007;#9ecb78@0.007
+D/2507692/fig-15-p15.png	fig	5	0	not_tab10	#daed7f@0.008;#bfde72@0.007;#47a268@0.006;#6bb66b@0.006;#82c070@0.005
+D/2507692/fig-16-p15.png	fig	5	0	not_tab10	#daed7f@0.008;#bfde72@0.007;#47a268@0.006;#6bb66b@0.006;#82c070@0.005
+D/2507692/fig-17-p16.png	fig	5	0	not_tab10	#9021a5@0.009;#e69c7b@0.006;#da747a@0.006;#b44a8e@0.005;#423067@0.005
+D/2507692/fig-18-p16.png	fig	5	0	not_tab10	#9021a5@0.009;#e69c7b@0.006;#da747a@0.006;#b44a8e@0.005;#423067@0.005
+D/2507692/fig-19-p16.png	fig	5	0	not_tab10	#9021a5@0.009;#e69c7b@0.006;#da747a@0.006;#b44a8e@0.005;#423067@0.005
+D/2507692/fig-20-p16.png	fig	1	0	not_tab10	#7b19a7@0.006
+D/2507692/fig-21-p16.png	fig	1	0	not_tab10	#7b19a7@0.006
+D/2507692/fig-22-p17.png	fig	12	3	tab10	#cac128@0.024;#3d26a8@0.023;#3e4ec2@0.022;#13beb8@0.022;#5c79df@0.012;#4160d4@0.012
+D/2507692/fig-23-p17.png	fig	12	3	tab10	#cac128@0.024;#3d26a8@0.023;#3e4ec2@0.022;#13beb8@0.022;#5c79df@0.012;#4160d4@0.012
+D/2507692/fig-24-p18.png	fig	7	2	tab10	#1e4f63@0.016;#0b9ed3@0.013;#0f394c@0.012;#2e8cae@0.009;#4a6f7e@0.009;#b9cdd7@0.006
+D/2507692/fig-25-p19.png	fig	5	0	not_tab10	#691213@0.011;#cec8ab@0.009;#060daa@0.007;#5abcc3@0.006;#ce0102@0.006
+D/2507692/fig-26-p20.png	fig	19	0	not_tab10	#7886c9@0.038;#8f97df@0.033;#6375bf@0.031;#babfed@0.031;#5669b4@0.030;#a6acdf@0.030
+D/2507692/fig-27-p21.png	fig	6	1	tab10_partial	#7bae7a@0.037;#95dcee@0.014;#aad1d6@0.011;#906e60@0.011;#b9e1e5@0.010;#80bc97@0.008
+D/2507692/fig-28-p22.png	fig	4	0	not_tab10	#e99861@0.010;#dcd1b8@0.007;#7a269b@0.007;#d16a74@0.005
+D/2507692/fig-29-p22.png	fig	4	0	not_tab10	#e99861@0.010;#dcd1b8@0.007;#7a269b@0.007;#d16a74@0.005
+D/2507692/tab-01-p5.png	tab	0	0	not_tab10	
+D/2516219/fig-01-p3.png	fig	17	2	tab10	#bae1e9@0.060;#ceae5c@0.041;#94664e@0.039;#94c8d0@0.035;#acaa7f@0.030;#e7b589@0.029
+D/2516219/fig-02-p4.png	fig	13	3	tab10	#3e73de@0.085;#8faadc@0.053;#2f5597@0.033;#148fcf@0.010;#c5d3e9@0.010;#7a89a5@0.010
+D/2516219/fig-03-p5-2.png	fig	9	3	tab10	#2f5597@0.144;#727f97@0.011;#a1afc6@0.011;#1496db@0.010;#4c6692@0.007;#325ea1@0.006
+D/2516219/fig-03-p5.png	fig	10	4	tab10	#2f5597@0.156;#738097@0.012;#a2afc6@0.012;#1497db@0.011;#4e6792@0.009;#335fa2@0.007
+D/2516219/fig-04-p9.png	fig	7	2	tab10	#0d282a@0.034;#a4cce1@0.033;#9f9584@0.030;#15302d@0.030;#203b33@0.030;#673f35@0.007
+D/2516219/fig-05-p12.png	fig	3	0	not_tab10	#d7bbde@0.009;#bf8db3@0.009;#acb2cf@0.007
+D/2516219/fig-06-p15.png	fig	6	0	not_tab10	#233557@0.012;#294473@0.009;#bc3157@0.008;#213864@0.006;#b1bdcb@0.006;#b2dcea@0.005
+D/2516219/fig-07-p17.png	fig	3	1	tab10_partial	#87a5be@0.030;#e75353@0.015;#74899c@0.014
+D/2516219/fig-08-p18.png	fig	2	2	tab10	#0173b2@0.101;#de8f05@0.082
+D/2516219/fig-09-p19.png	fig	10	0	not_tab10	#92d050@0.092;#9dc3e6@0.035;#8ecb51@0.012;#658e55@0.010;#e32b00@0.009;#7c1801@0.008
+D/2516219/fig-10-p20.png	fig	1	0	not_tab10	#a78782@0.007
+D/2516219/fig-11-p21.png	fig	2	2	tab10	#0173b2@0.120;#de8f05@0.056
+D/2516219/fig-12-p23.png	fig	6	1	tab10_partial	#c6dcec@0.032;#809b9a@0.024;#43465c@0.019;#9fc8c2@0.012;#c6dbec@0.011;#cee1ef@0.005
+D/2516219/fig-13-p23.png	fig	6	1	tab10_partial	#c6dcec@0.032;#809b9a@0.024;#43465c@0.019;#9fc8c2@0.012;#c6dbec@0.011;#cee1ef@0.005
+D/2516219/tab-01-p6.png	tab	0	0	not_tab10	
+D/2516219/tab-02-p7.png	tab	0	0	not_tab10	
+D/2516219/tab-03-p11.png	tab	0	0	not_tab10	
+D/2516219/tab-04-p18.png	tab	0	0	not_tab10	
+D/2519935/fig-01-p3.png	fig	27	3	tab10	#415b70@0.044;#9cbedd@0.041;#6c92b1@0.039;#5681a2@0.038;#556d82@0.038;#779fc0@0.036
+D/2519935/fig-02-p4.png	fig	4	0	not_tab10	#bacbea@0.116;#b5afc9@0.033;#efceb6@0.012;#bacbe9@0.005
+D/2519935/fig-03-p5.png	fig	8	1	tab10_partial	#ecc0a5@0.198;#ccb09d@0.007;#e4b99f@0.006;#9d8675@0.006;#e8d18e@0.006;#ac9883@0.006
+D/2519935/fig-04-p6.png	fig	0	0	not_tab10	
+D/2519935/fig-05-p7.png	fig	0	0	not_tab10	
+D/2519935/fig-06-p9.png	fig	3	0	not_tab10	#d2bbac@0.006;#853d0e@0.005;#eeceb8@0.005
+D/2519935/fig-07-p9.png	fig	3	0	not_tab10	#9cd8e5@0.034;#6b597a@0.012;#b5e0dc@0.007
+D/2519935/fig-08-p10.png	fig	10	2	tab10	#b9adca@0.216;#586991@0.212;#7a82a3@0.010;#606f96@0.008;#6a779a@0.007;#aba7c1@0.007
+D/2519935/fig-09-p11.png	fig	2	0	not_tab10	#7783b3@0.049;#e0bdcc@0.035
+D/2519935/fig-10-p11.png	fig	5	0	not_tab10	#dabdc9@0.029;#eeccb1@0.021;#586991@0.019;#cc9786@0.018;#d8ad9e@0.005
+D/2519935/fig-11-p12.png	fig	1	0	not_tab10	#e6c8c1@0.022
+D/2519935/fig-12-p14.png	fig	4	0	not_tab10	#b5b1d3@0.051;#bab2cd@0.008;#eecdb8@0.007;#2a2a6b@0.006
+D/2519935/fig-13-p15.png	fig	1	0	not_tab10	#473225@0.022
+D/2519935/fig-14-p15.png	fig	4	1	tab10_partial	#b8a8cf@0.046;#8a8cbf@0.034;#daa8a0@0.007;#60627d@0.007
+D/2519935/fig-15-p16.png	fig	0	0	not_tab10	
+D/2519935/fig-16-p16.png	fig	2	0	not_tab10	#4e659b@0.047;#b8a8cf@0.046
+D/2519935/fig-17-p17.png	fig	9	1	tab10_partial	#b3c6e8@0.023;#70798e@0.019;#9ccadb@0.016;#cae8dd@0.016;#1c2345@0.015;#c99976@0.014
+D/2519935/fig-18-p18.png	fig	6	1	tab10_partial	#90a5ab@0.010;#eaaa55@0.009;#5f7e8c@0.008;#64a47c@0.006;#8a4a21@0.006;#ecd5ba@0.005
+D/2519935/fig-19-p19.png	fig	11	0	not_tab10	#afb8d0@0.048;#9faac7@0.046;#a4adca@0.035;#b8bcd3@0.034;#a3aabd@0.031;#b2b9d2@0.029
+D/2519935/fig-20-p19.png	fig	3	0	not_tab10	#0071ce@0.008;#4d649b@0.008;#0eaf68@0.008
+D/2519935/fig-21-p20.png	fig	17	3	tab10	#deb8c8@0.046;#6b77aa@0.046;#9a96c3@0.044;#8488b8@0.037;#b8a9cc@0.037;#53699e@0.037
+D/2519935/fig-22-p21.png	fig	0	0	not_tab10	
+D/2519935/fig-23-p21.png	fig	25	0	not_tab10	#5e72a3@0.046;#ababc9@0.043;#838fb5@0.036;#959cbf@0.036;#7586b0@0.036;#9ca1c2@0.036
+D/2519935/fig-24-p22.png	fig	2	0	not_tab10	#4e659b@0.036;#b8a8cf@0.021
+D/2519935/fig-25-p23.png	fig	7	0	not_tab10	#eca283@0.126;#ecc0a5@0.124;#843c0c@0.011;#b17552@0.008;#8e4819@0.007;#d8b399@0.006
+D/2519935/tab-01-p4.png	tab	0	0	not_tab10	
+D/2519935/tab-02-p5.png	tab	0	0	not_tab10	
+D/2519935/tab-03-p5.png	tab	0	0	not_tab10	
+D/2519935/tab-04-p6.png	tab	0	0	not_tab10	
+D/2519935/tab-05-p13.png	tab	0	0	not_tab10	
+E/2502355/fig-01-p3.png	fig	0	0	not_tab10	
+E/2502355/fig-02-p4.png	fig	6	0	not_tab10	#e1b364@0.020;#79b1bf@0.016;#b26168@0.014;#e9cd9a@0.014;#bfe5e3@0.012;#7ac7be@0.011
+E/2502355/fig-03-p6.png	fig	5	0	not_tab10	#b3e8e0@0.027;#8ce0d1@0.024;#60b6aa@0.008;#8ae0d0@0.006;#8ce1d2@0.006
+E/2502355/fig-09-p14.png	fig	2	0	not_tab10	#6fa98c@0.011;#bfdcce@0.011
+E/2502355/fig-11-p19.png	fig	4	0	not_tab10	#34a0a4@0.034;#99d98c@0.028;#b5e48c@0.019;#d9ed92@0.019
+E/2502355/fig-12-p19.png	fig	0	0	not_tab10	
+E/2502355/fig-13-p20.png	fig	10	1	tab10_partial	#369fa3@0.018;#177ea6@0.017;#d9ee92@0.016;#98d98d@0.011;#addf97@0.009;#54b49c@0.008
+E/2502355/fig-14-p21.png	fig	8	0	not_tab10	#4ed7c5@0.081;#aceae2@0.011;#51d5c5@0.010;#6fdcca@0.009;#4cd8c5@0.009;#4fd7c2@0.008
+E/2502355/fig-15-p23.png	fig	5	0	not_tab10	#bedaef@0.030;#bfd5e9@0.008;#669a99@0.008;#a1cad0@0.007;#bad5e8@0.006
+E/2502355/tab-01-p5.png	tab	0	0	not_tab10	
+E/2502355/tab-02-p16.png	tab	0	0	not_tab10	
+E/2502355/tab-04-p17.png	tab	0	0	not_tab10	
+E/2502355/tab-05-p19.png	tab	0	0	not_tab10	
+E/2502355/tab-06-p21.png	tab	0	0	not_tab10	
+E/2508861/fig-02-p4.png	fig	0	0	not_tab10	
+E/2508861/fig-03-p5.png	fig	2	0	not_tab10	#bed1b4@0.020;#ebe9ca@0.006
+E/2508861/fig-04-p6.png	fig	11	1	tab10_partial	#2c2b69@0.035;#222452@0.022;#687f4c@0.019;#1b1c41@0.016;#232956@0.015;#2b2a56@0.012
+E/2508861/fig-05-p7.png	fig	11	1	tab10_partial	#9ab0c0@0.039;#79b9ec@0.037;#dfdea6@0.031;#867b48@0.028;#a7c29a@0.025;#a7c4e6@0.020
+E/2508861/fig-06-p8.png	fig	11	1	tab10_partial	#98c961@0.035;#9dd393@0.024;#6aae9c@0.020;#c3863d@0.020;#6d9e4d@0.017;#503536@0.015
+E/2508861/fig-07-p10.png	fig	0	0	not_tab10	
+E/2508861/fig-08-p12.png	fig	18	1	tab10_partial	#e1e494@0.031;#a1d089@0.029;#c0db8e@0.028;#63be7b@0.027;#82c786@0.026;#a5d39a@0.023
+E/2508861/fig-09-p12.png	fig	13	0	not_tab10	#68bf7b@0.031;#6cc17d@0.021;#1d223a@0.021;#9bcf87@0.020;#bed98b@0.020;#e2e8a7@0.018
+E/2508861/fig-10-p13.png	fig	12	1	tab10_partial	#9cd188@0.018;#cde09b@0.015;#63be7b@0.015;#c1d99c@0.014;#ece998@0.014;#82c782@0.014
+E/2508861/fig-11-p13.png	fig	10	0	not_tab10	#62bb79@0.020;#efeb9b@0.019;#cae095@0.019;#8fc985@0.019;#d4e295@0.019;#b5d88f@0.018
+E/2508861/fig-13-p16.png	fig	0	0	not_tab10	
+E/2508861/fig-14-p16.png	fig	1	0	not_tab10	#acd7d2@0.013
+E/2508861/fig-15-p16.png	fig	1	0	not_tab10	#acd7d2@0.013
+E/2508861/fig-16-p16.png	fig	1	0	not_tab10	#acd7d2@0.013
+E/2508861/fig-17-p18.png	fig	0	0	not_tab10	
+E/2508861/fig-18-p18.png	fig	2	0	not_tab10	#d2ada7@0.021;#8ea2c3@0.017
+E/2508861/fig-19-p22.png	fig	13	0	not_tab10	#acc2db@0.039;#afc3db@0.036;#9fb6da@0.034;#bfd1d9@0.030;#a7bfd9@0.027;#86a2c3@0.026
+E/2508861/tab-01-p6.png	tab	6	0	not_tab10	#aad18d@0.100;#6fac46@0.007;#92c173@0.007;#c0daaf@0.005;#7cb358@0.005;#cfe4c2@0.005
+E/2508861/tab-02-p11.png	tab	6	0	not_tab10	#aad18d@0.125;#6fac46@0.011;#81b65e@0.007;#d4e8ca@0.007;#c4ddb4@0.007;#78b053@0.006
+E/2508861/tab-03-p21.png	tab	7	0	not_tab10	#a8cd8f@0.011;#78b152@0.011;#95c277@0.005;#cde3bf@0.005;#c5ddb5@0.005;#92c074@0.005
+E/2515136/fig-01-p4.png	fig	3	0	not_tab10	#b6c7ea@0.073;#e2baad@0.041;#9db4e0@0.028
+E/2515136/fig-02-p6.png	fig	20	0	not_tab10	#a96910@0.025;#4082dd@0.021;#4e91ec@0.021;#b6be95@0.017;#87a36a@0.016;#92b86e@0.016
+E/2515136/fig-03-p7.png	fig	1	1	tab10_partial	#95345b@0.016
+E/2515136/fig-04-p9.png	fig	2	0	not_tab10	#b88886@0.005;#5a7eae@0.005
+E/2515136/fig-05-p10.png	fig	0	0	not_tab10	
+E/2515136/fig-06-p11.png	fig	2	0	not_tab10	#e0b15e@0.012;#c2b19c@0.006
+E/2515136/fig-07-p13.png	fig	4	3	tab10	#769fb3@0.008;#8c737a@0.008;#765657@0.007;#708298@0.007
+E/2515136/fig-08-p14.png	fig	2	0	not_tab10	#4a606d@0.008;#859ba8@0.007
+E/2515136/fig-09-p15.png	fig	6	0	not_tab10	#aaeb7e@0.086;#001c84@0.071;#52b253@0.027;#c59cc3@0.007;#d8a94d@0.007;#b0d349@0.007
+E/2515136/fig-10-p16.png	fig	0	0	not_tab10	
+E/2515136/fig-11-p17.png	fig	7	0	not_tab10	#d44655@0.025;#edb4ba@0.022;#e89aa0@0.022;#dc6773@0.021;#6d3c44@0.020;#b99391@0.012
+E/2515136/fig-12-p19.png	fig	1	0	not_tab10	#dea7a8@0.006
+E/2515136/fig-13-p20.png	fig	1	0	not_tab10	#6474b4@0.006
+E/2515136/fig-14-p22-2.png	fig	1	1	tab10_partial	#006bac@0.014
+E/2515136/fig-14-p22.png	fig	1	1	tab10_partial	#006bac@0.014
+E/2515136/fig-15-p23.png	fig	2	0	not_tab10	#9cb6bd@0.006;#5b7db2@0.005
+E/2515136/tab-01-p5.png	tab	0	0	not_tab10	
+E/2515136/tab-02-p5.png	tab	0	0	not_tab10	
+E/2515136/tab-03-p10.png	tab	0	0	not_tab10	
+E/2515136/tab-04-p14.png	tab	1	0	not_tab10	#4774ca@0.145
+E/2517273/fig-03-p17.png	fig	0	0	not_tab10	
+E/2517273/fig-04-p17.png	fig	0	0	not_tab10	
+E/2517273/fig-05-p18.png	fig	0	0	not_tab10	
+E/2517273/fig-06-p19.png	fig	0	0	not_tab10	
+E/2517273/fig-07-p20.png	fig	0	0	not_tab10	
+E/2517273/fig-08-p21.png	fig	9	2	tab10	#253a97@0.057;#081c57@0.040;#2ca1c2@0.039;#b2e1b7@0.026;#6ec7bd@0.023;#216baa@0.022
+E/2517273/fig-09-p21.png	fig	9	2	tab10	#253a97@0.057;#081c57@0.040;#2ca1c2@0.039;#b2e1b7@0.026;#6ec7bd@0.023;#216baa@0.022
+E/2517273/fig-10-p21.png	fig	10	2	tab10	#ab838e@0.042;#1f78b4@0.036;#d0a68e@0.026;#9569b8@0.025;#4f566f@0.016;#b24651@0.016
+E/2517273/fig-11-p24.png	fig	4	1	tab10_partial	#5f7b84@0.020;#93ad9e@0.017;#cfb9a4@0.009;#a78a70@0.007
+E/2517273/fig-12-p22.png	fig	4	2	tab10	#3174a1@0.012;#3a923b@0.012;#e1812d@0.011;#89a390@0.008
+E/2517273/fig-13-p22.png	fig	3	2	tab10	#3374a3@0.014;#3a923b@0.013;#e1812d@0.012
+E/2517273/fig-14-p23.png	fig	6	4	tab10	#1f78b4@0.018;#2ba02d@0.016;#d52728@0.015;#74a678@0.009;#602c2b@0.006;#598476@0.005
+E/2517273/fig-15-p23.png	fig	6	4	tab10	#1f78b4@0.018;#2ba02d@0.016;#d52728@0.015;#74a678@0.009;#602c2b@0.006;#598476@0.005
+F/2504223/fig-01-p4.png	fig	7	1	tab10_partial	#c5e0b3@0.033;#436362@0.031;#bcd7e7@0.026;#abd19b@0.025;#c5d4eb@0.021;#a56a3f@0.017
+F/2504223/fig-02-p6.png	fig	11	0	not_tab10	#90cccc@0.554;#90ccca@0.018;#8fcbca@0.015;#91cbcc@0.015;#9ccbc7@0.014;#92cdcb@0.013
+F/2504223/fig-03-p6.png	fig	17	3	tab10	#90cccc@0.551;#90ccca@0.022;#31c5d2@0.021;#91cbcc@0.017;#08a1da@0.016;#baecdd@0.015
+F/2504223/fig-04-p8.png	fig	3	0	not_tab10	#56b4e8@0.023;#aed1cd@0.011;#8cb0c6@0.005
+F/2504223/fig-05-p9.png	fig	4	0	not_tab10	#8ce0d2@0.053;#668ac8@0.008;#d0786a@0.006;#3e58a2@0.006
+F/2504223/fig-06-p13.png	fig	0	0	not_tab10	
+F/2504223/fig-07-p14.png	fig	4	0	not_tab10	#27486b@0.011;#274569@0.010;#2b486c@0.010;#29486b@0.008
+F/2504223/fig-08-p15.png	fig	7	0	not_tab10	#c2768b@0.037;#c07589@0.035;#e58e8d@0.020;#7987d6@0.019;#7382cf@0.018;#c07489@0.014
+F/2504223/fig-09-p17.png	fig	2	1	tab10_partial	#c1dbed@0.049;#2e86c1@0.005
+F/2504223/fig-10-p17.png	fig	1	0	not_tab10	#334a58@0.006
+F/2504223/fig-11-p18.png	fig	0	0	not_tab10	
+F/2504223/fig-12-p20.png	fig	1	0	not_tab10	#0b4242@0.009
+F/2504223/fig-13-p22.png	fig	3	1	tab10_partial	#eebd9d@0.011;#a17e7f@0.010;#82bda6@0.010
+F/2504223/tab-01-p5.png	tab	0	0	not_tab10	
+F/2504223/tab-02-p8.png	tab	0	0	not_tab10	
+F/2504223/tab-03-p12.png	tab	0	0	not_tab10	
+F/2504223/tab-04-p20.png	tab	0	0	not_tab10	
+F/2513705/fig-01-p3.png	fig	6	0	not_tab10	#284270@0.018;#ed766e@0.016;#5ec4ed@0.012;#e4837d@0.010;#baa19f@0.008;#99c66f@0.008
+F/2513705/fig-02-p7.png	fig	16	0	not_tab10	#5d93c2@0.037;#8dc7db@0.034;#6dabd0@0.027;#72b3d5@0.023;#4f708d@0.017;#bbdee1@0.015
+F/2513705/fig-03-p8.png	fig	17	0	not_tab10	#add194@0.027;#70ac48@0.027;#ed8543@0.023;#5bad57@0.022;#c7dbb7@0.020;#70b25f@0.020
+F/2513705/fig-04-p8.png	fig	6	0	not_tab10	#6fa6a2@0.113;#88bab5@0.021;#bdddda@0.009;#a1c9c6@0.007;#7fb1ad@0.007;#93c3bf@0.006
+F/2513705/fig-05-p9.png	fig	3	1	tab10_partial	#234689@0.022;#8285b0@0.021;#8f197d@0.019
+F/2513705/fig-06-p10.png	fig	7	1	tab10_partial	#dd8a96@0.017;#e4a7b0@0.010;#df949f@0.010;#333e50@0.009;#e8b7be@0.008;#edc9ce@0.008
+F/2513705/fig-07-p10.png	fig	10	0	not_tab10	#b5c5d8@0.021;#c7dfee@0.018;#b7cde2@0.016;#3d8a93@0.014;#c2daec@0.014;#b5c8dd@0.013
+F/2513705/fig-08-p14.png	fig	11	1	tab10_partial	#96d9d5@0.025;#68d0c9@0.022;#cb728c@0.019;#e286ca@0.019;#7b8bb3@0.017;#8ec5bb@0.015
+F/2513705/fig-09-p20.png	fig	0	0	not_tab10	
+F/2513705/fig-10-p21.png	fig	4	0	not_tab10	#bbe49b@0.215;#a0dbc6@0.173;#9bba58@0.012;#129e6d@0.009
+F/2513705/fig-11-p21.png	fig	12	2	tab10	#78c5eb@0.009;#2d6074@0.009;#25b8ef@0.008;#47bced@0.008;#19b3ee@0.008;#c9e5ed@0.007
+F/2513705/tab-01-p5-2.png	tab	0	0	not_tab10	
+F/2513705/tab-01-p5.png	tab	0	0	not_tab10	
+F/2513705/tab-02-p15.png	tab	0	0	not_tab10	
+F/2513705/tab-03-p16.png	tab	0	0	not_tab10	
+F/2513705/tab-04-p16.png	tab	0	0	not_tab10	
+F/2513705/tab-05-p17.png	tab	0	0	not_tab10	
+F/2513705/tab-06-p19.png	tab	0	0	not_tab10	
+F/2517199/fig-01-p3.png	fig	3	0	not_tab10	#800a0a@0.026;#3c2023@0.012;#84070a@0.009
+F/2517199/fig-02-p5.png	fig	1	0	not_tab10	#e1b9bb@0.015
+F/2517199/fig-03-p7.png	fig	0	0	not_tab10	
+F/2517199/fig-04-p8.png	fig	7	0	not_tab10	#a0bed1@0.020;#093673@0.015;#182436@0.012;#05316e@0.011;#6c90a8@0.009;#c0d3e0@0.009
+F/2517199/fig-05-p9.png	fig	3	0	not_tab10	#173321@0.017;#134a28@0.016;#447955@0.007
+F/2517199/fig-06-p11.png	fig	1	0	not_tab10	#e59a7c@0.005
+F/2517199/fig-07-p12.png	fig	4	2	tab10	#ae9d31@0.025;#38a9c5@0.014;#33b07a@0.011;#87596f@0.005
+F/2517199/fig-08-p14.png	fig	0	0	not_tab10	
+F/2517199/fig-09-p14.png	fig	0	0	not_tab10	
+F/2517199/fig-10-p17.png	fig	4	1	tab10_partial	#8789a2@0.017;#53aa98@0.009;#435e6f@0.008;#baa69e@0.007
+F/2517199/fig-11-p19.png	fig	0	0	not_tab10	
+F/2517199/fig-12-p19.png	fig	10	1	tab10_partial	#852904@0.017;#e55a0b@0.011;#862a04@0.011;#c74102@0.010;#b84107@0.010;#9d3303@0.008
+F/2517199/fig-13-p21.png	fig	2	2	tab10	#1f77b4@0.151;#2ca02c@0.150
+F/2517199/fig-14-p22.png	fig	1	0	not_tab10	#ef8be9@0.006
+F/2521039/fig-01-p3.png	fig	8	2	tab10	#465d70@0.020;#8fa9c2@0.020;#687f91@0.020;#7f97a8@0.019;#90c1e0@0.016;#6d7b86@0.016
+F/2521039/fig-02-p4.png	fig	4	1	tab10_partial	#5dbfc0@0.022;#6d68c5@0.022;#db705a@0.021;#cbecef@0.005
+F/2521039/fig-03-p6.png	fig	8	1	tab10_partial	#add8e6@0.046;#b38e87@0.025;#a75949@0.012;#8d0706@0.010;#b17f74@0.009;#ad6c5e@0.009
+F/2521039/fig-04-p7.png	fig	6	1	tab10_partial	#ec9a76@0.026;#3e59e0@0.014;#9fec72@0.014;#eb6ba2@0.008;#87efe3@0.008;#5e72ea@0.008
+F/2521039/fig-05-p7.png	fig	4	0	not_tab10	#00441b@0.027;#08519c@0.020;#74c476@0.015;#2e144c@0.007
+F/2521039/fig-06-p8.png	fig	11	1	tab10_partial	#b6d3ed@0.031;#6ea1ce@0.026;#ef8a46@0.024;#503834@0.022;#cde3c5@0.022;#c7dfb7@0.021
+F/2521039/fig-07-p9.png	fig	1	0	not_tab10	#4682b4@0.059
+F/2521039/fig-08-p10.png	fig	2	1	tab10_partial	#0072bd@0.042;#d95319@0.040
+F/2521039/fig-09-p11.png	fig	0	0	not_tab10	
+F/2521039/fig-10-p14.png	fig	0	0	not_tab10	
+F/2521039/fig-11-p16.png	fig	8	1	tab10_partial	#e3e8cf@0.014;#a6d1e8@0.010;#a9d6eb@0.008;#abdcee@0.007;#27abd8@0.007;#009bd8@0.007
+F/2521039/fig-12-p17.png	fig	1	0	not_tab10	#3399cc@0.041
+F/2521039/fig-13-p18.png	fig	3	0	not_tab10	#bcaf9c@0.016;#a7b789@0.016;#95aab8@0.016
+F/2521039/fig-14-p19.png	fig	1	0	not_tab10	#4f74b1@0.005
+F/2521039/fig-15-p20.png	fig	8	0	not_tab10	#b40426@0.033;#ebd2c5@0.028;#e9785d@0.016;#6d89e0@0.015;#da5a49@0.015;#7073aa@0.009
+F/2521039/fig-16-p21.png	fig	0	0	not_tab10	
+F/2521039/fig-17-p21.png	fig	0	0	not_tab10	
+F/2521039/tab-01-p5.png	tab	0	0	not_tab10	
+F/2521039/tab-02-p6.png	tab	0	0	not_tab10	
+F/2521039/tab-03-p12.png	tab	0	0	not_tab10	
+F/2521039/tab-04-p15.png	tab	0	0	not_tab10	
+F/2521039/tab-05-p15.png	tab	0	0	not_tab10	

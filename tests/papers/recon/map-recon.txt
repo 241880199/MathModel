@@ -16,9 +16,139 @@ Task 6b 阶段 2a 侦察与登记（`tests/papers/recon/map-recon.txt`）
 
     corpus/papers/INDEX.md                               7d49a18f9de015b349ed3f0eba252938458b935a
     corpus/papers/TAGS.md                                b2e1c8d50ccaca99f728382395a4607153fe5ea6
-    corpus/papers/PROVENANCE.md                          85484c4d233a6183031a3827510e09fde306e0db
+    corpus/papers/PROVENANCE.md                          228d4196045a5becd86a1805c8c50a050325f733
     tests/papers/reports/ids-report.txt                  b174d0a6bcef5881f221a05b753b9597acd47de9
     tests/papers/recon/PROBLEM_TYPES-draft.md            2b4b4a2708734756fb7c157034c530f7bf683e5e
+
+  **2026-09-27 有意重定（可用性补丁轮）——只重定 `PROVENANCE.md` 上面那一行**
+
+  理由：本轮给 `PROVENANCE.md` 加了一节「**不能推出的结论**」（终审可用性复审的定点项，
+  见 `.superpowers/sdd/task-m2-hygiene-brief.md` §1b）。三份产物都是**整文件重写**的
+  （`_write_index` / `_write_tags` / `_write_prov` 各自 `write_bytes`），所以那一节
+  **必须由生成器 `tools/papers/index.py` 产出**——手改产物会被任何一次全量跑抹掉，
+  且会被 M-1-b（重放性）当场判红。既然代码改了，该文件的**入库字节确实变了**：
+  `verify_map.py` 的 M-1 对它的那一支是**逐字节相等**，故必须重定，**不悄悄改**。
+  旧值照录（2026-09-26 开工当天登记；本轮改前复核仍相符）：
+
+    旧（2026-09-26 实测）：corpus/papers/PROVENANCE.md = 85484c4d233a6183031a3827510e09fde306e0db
+    新（2026-09-27 实测）：corpus/papers/PROVENANCE.md = 228d4196045a5becd86a1805c8c50a050325f733
+    （上面的登记行已就地改写为新值；两个值都是 `git hash-object` 在**各自那一时刻**量的）
+
+  **本轮同样改动、但"基准"故意不重定的两份，与理由**（重定范围越小越好——留旧值才有区分力）：
+
+    * `corpus/papers/INDEX.md`：本轮**也改了**（同一原因：加了「覆盖边界」一节），但
+      M-1 对它的那一支是**逐行逐栏**比对（`v_index_rows` 只收「首格匹配
+      `P\d{4}-[A-F]-\d{2,}`、恰好 11 栏」的表行），**行外散文不进比对** ⇒ 留着
+      2026-09-26 那个基准，「只差第 10 栏」这条**仍然可判**；把它一并重定则会让这一支
+      **在重定的那一刻**不可失败。**措辞要说准（2026-09-27 复审 ④-2）**：
+      **「这一支对本轮这次改动失去区分力；对其后任何改动仍有区分力」**——它只在该基准
+      被重定的那一刻不可失败，而重定基准是任务书 §1c.2 的明文要求。
+      实测支撑（同一时刻，2026-09-27 全量重跑后）：
+      `git diff -U0 -- corpus/papers/INDEX.md` = **只增 8 行、表行零改动**；
+      改前 blob `0d8d4970efb245ab732a4dc7c21e7838ee8d675d` → 改后
+      `f28336d3fb35378132cabcd339c6a3e121a4358c`。
+    * `corpus/papers/TAGS.md`：本轮**未改动**（全量重跑后 blob 与上面登记值逐字相同
+      `b879786d90f706ae6d7c37e3a5f0037fe1815153`），而 M-1 要求它"与基准**不同**"
+      ⇒ 更加不能重定它。
+
+  **本轮新增的两个块，判据覆盖实测**（2026-09-27 · **现成的可复现版** =
+  `tests/papers/recon/coverage-gap-probe.py`（入库）：它把产物换成**没有新块的字节**
+  （= `0d8d4970…` / `85484c4d…` 那两个 blob，见上；**从 git 对象库钉死取**，
+  **不依赖当时的 HEAD**）再跑三份判据的限样本跑，跑完按原始字节还回去并核 blob，
+  **还原结论并进退出码**）：
+
+    阶段 1（只拿掉 `INDEX.md` 的「覆盖边界」块）：
+      verify_ids.py   EXIT=0  RESULT: PASS (LIMITED …)   自报失败行 = 无
+      verify_map.py   EXIT=0  RESULT: PASS (LIMITED …)   自报失败行 = 无
+      verify_types.py EXIT=0  RESULT: PASS (LIMITED …)   自报失败行 = 无
+      ⇒ **全绿：这个块没有任何判据覆盖**
+
+    阶段 2（只拿掉 `PROVENANCE.md` 的「不能推出的结论」块）：
+      verify_ids.py   EXIT=0  RESULT: PASS (LIMITED …)   自报失败行 = 无
+      verify_map.py   EXIT=1  RESULT: FAIL (LIMITED …)   自报失败行 = ['M-1=FAIL']
+      verify_types.py EXIT=0  RESULT: PASS (LIMITED …)   自报失败行 = 无
+      ⇒ 红了 M-1
+
+    还原（同一时刻）：两个文件都回到 `f28336d3…` / `228d4196…`，**还原 = True**。
+
+  **强度（2026-09-27 复审 Minor-2 的收紧：别把结构性必然写成实验发现）**：上表六格里的
+  **四格绿是结构性必然**——`verify_ids --limit` 把产物写到 `tests/papers/reports-limited/
+  ids-products/`（`verify_ids.py` 的 `prod_dir`），`verify_types --limit` 只缩 T2 的样本
+  口径，**两者都不读入库产物** ⇒ 「把块拿掉」在它们眼里**根本不可见**，绿是代码路径决定的、
+  不是量出来的。三份里**只有 `verify_map` 读入库产物**（M-1 逐行比 `INDEX.md`、逐字节比
+  `PROVENANCE.md`）⇒ **真正的读数只有 `verify_map` 那一格**：阶段 1 的「全绿」= 它也没反应；
+  阶段 2 的「红了」= 它 `M-1=FAIL`。
+
+  **读法（强度要说准）**：`INDEX.md` 那个块**删掉不会有任何信号**——M-1 对 INDEX 的
+  那一支只比**行**、行外散文它看不见（这正是上面「未重定 INDEX 基准」那条的另一面）。
+  `PROVENANCE.md` 那个块**有**信号，但**不是**针对它的语义判据，而是「与基准**逐字节**
+  相等」那一支：**本轮重定基准之后**它顺带兜住「这个块被改动」（改块 == 改字节）。
+  **别把这条读成「那个块的内容被核过」**——没有任何判据核过它的内容。
+  两个块的**实质覆盖都缺**，登记在此，供后续任务决定要不要加判据（本轮**不得**改
+  `verify_{b,c,d,types,map}.py`，故只能登记）。
+
+  **原先那份一次性探针是颗雷，已删（2026-09-27 复审 Important-1）**：`build/m2_coverage_gap.py`
+  用 `git show HEAD:<path>` 取「没有块的字节」——它跑的时候 HEAD 里确实还没有那两个块，
+  **今天 HEAD 已含块** ⇒ 重跑是**空操作**，而它打印的两行「（与上面不同 = 块确实被拿掉了）」
+  是**写死的文字**、退出码仍是 0 ⇒ 谁翻到它重跑，都会得出**与本节结论相反**的结论
+  （真值：阶段 2 `M-1=FAIL`）。删除动作属本轮修复范围；替代品就是上面那份**入库**的
+  `coverage-gap-probe.py`（它把两个 blob 钉死在代码里、从 git 对象库取，故**任何时刻重跑
+  问的都是同一个问题**）。`build/` 下的普查：用 `HEAD:<path>` 当参照的**只剩 1 个脚本**
+  `build/blob_path_audit.py`——它取的是**当前** `HEAD` 的入库 blob，**按设计如此**（docstring
+  写明「用 blob 而不是工作树字节」，因为跑的时候另一个 `verify_all` 正在重写工作树），
+  **与这颗雷不同族**，不删。
+
+  **本轮实际改动面（追认时该留的话）**：**= 守卫 + 两个散文模板（`_coverage_note` /
+  `_prov_limits`）**（2026-09-27 复审 ④-1 建议把它留在库里；此前这句只活在
+  `.superpowers/sdd/task-m2-hygiene-report.md` §2.1，**入库区措辞比它弱**）。它**不**与
+  「判据不得放宽、不得改谓词」冲突：两个散文模板不是判据。
+
+  **本轮明确「只登记、不动」的三条**（2026-09-27 复审 Minor-3 / Minor-4 / Minor-8；
+  它们都是**生成器散文**，改动会连带重出产物与证据 ⇒ 已决定与**下一次合法的产物变更**
+  合并做）：① Minor-3 = `INDEX.md` 的机读行前缀写作 `覆盖边界：`，与 house 形态 `覆盖=`
+  不同族（将来若有解析器会找错地方）；② Minor-4 = `PROVENANCE.md` 里那句「见上一节末行」
+  是**悬空自指**；③ Minor-8 = `INDEX.md` 里「没有过任何抽取、判据或核对」**略强**
+  （原件确实被 A1 哈希登记并复核过）。三条的登记去处 = 本节 + `.superpowers/sdd/progress.md`
+  的终审清单。
+
+  **Minor-5（报告行号）已修，并在这里登记一个实测事实**：那份实施报告的 §0 写
+  `corpus/papers/PROVENANCE.md:18-25`，**实测那一节是 `16-24`**（`16` = 标题行、`23` = 最后
+  一条、`24` = 与下一节之间的**原有**空行；`18-25` 起点晚两行、又把下一节标题 `## 双射表`
+  算了进去）。同一份报告里其余行号引用（`corpus/papers/INDEX.md:6-13` ·
+  `tests/papers/verify_ids.py:370`/`:399` · `tests/papers/verify_map.py:366`/`:757`/`:761-770`/`:734` ·
+  `corpus/papers/MODEL_MAP.md:15-21` · `corpus/papers/TAGS.md:7-14`）**逐条核过、全对**
+  （口径 = 对每条引用跑 `sed -n '<行号>p' <文件>`，看那一行是否就是被引用的那句；
+  本轮逐条命中。行号本身会随编辑过期，故这里给出的是**核验方法**而不是「相信我」）。
+  **但那份报告本身不在库里**（实测：`git ls-files .superpowers` = **0 条**、
+  `.superpowers/sdd/.gitignore` 第 1 行是 `*`、`git log --all -- .superpowers` 无提交）⇒
+  报告里的更正**不会随提交留下**，所以这条更正的**durable 落点就是本文件**，而**唯一自证的
+  读数**是 `tests/papers/recon/coverage-gap-probe.py` 的输出（它把两个块被去掉的那些行
+  **连行号逐字打出来**，见它「前提 = 当前 = 钉死 + N 行纯插入」那一段）。
+
+
+  **本轮的两条残余（没有更好的落点，登记在此）**：
+
+    * `tests/papers/reports/all-determinism.txt`（放行条件 ⑤：`cli all` 抽取确定性的
+      「两遍直判」）本轮**未重测**——重测要 2 × `cli all` ≈ 24 分钟
+      （`tests/papers/reports/cli-timing.txt` 的实测：全量一遍 716.9s / 711.8s）。
+      本轮**改了生成器** ⇒ 严格说它上次量的是**旧内容**。不阻塞的理由：它判的**判数**
+      （四处读数必须全 0）量的是「同输入同输出」，与本次改动无关；且 M-1-b 已独立证明
+      「重跑 == 入库字节」。**复现命令照抄该文件头部**（3 次 snapshot + 2 遍 `cli all` + compare）。
+    * **M-1 的消息比事实大**（`verify_map.py` 是冻结件，本轮**不得**改，故只能登记）：
+      它把三份基准一律说成「**开工当天** `git hash-object` 实测登记」，而 `PROVENANCE`
+      那一行自 2026-09-27 起是**重定值**。真值以本节为准。另：该脚本里
+      `changed = [...]`（「谁变了」那个列表）**定义了却没有被使用**——死变量，
+      与 M-1 的绿无关（它的三条断言各自直接算），但属「自述与代码不一致」的同族。
+
+  **另**：`tools/papers/index.py` 本轮也改了（① 守卫加严 ② 上面两节的生成器一侧），
+  它不是 M-1 的参照（`v_baseline` 只被 M-1 用，且它只问 `needed` 那五条在不在），
+  故 §0 第二块那四个值**按历史值原样保留、不作重定**。index.py 自己的改前/改后：
+
+    改前（本轮开工，2026-09-27 实测）：tools/papers/index.py = 9d7418ee61654d3de2f57da9cc631b01a0ccb4af
+    改后（同轮全量重跑后实测）：      tools/papers/index.py = a3990c3099e23c36f61c82e1a41fbf468f2f3d8e
+    （变异与还原的逐字证据在 `tests/papers/reports/index-guard-evidence.txt`；
+      `tests/papers/reports/ids-mutation-evidence.txt` 的收尾断言① 另按它自己的体例
+      记录 index.py 的**现行** blob 并核还原。）
 
   **为什么用 `git hash-object` 而不是裸 `sha256sum`**：本仓 `core.autocrlf=true`，
   裸 sha256 量的是**工作树字节**，`git hash-object` 量的是**入库 blob**（会按

@@ -1,0 +1,121 @@
+pair	path	rule_class	rule_matched	verdict	note
+1	A/2500836/fig-02-p5.png	flow-diagram	Flowchart	ok	图上就是流程图（Prepare/Model/Analysis 三栏框）
+2	A/2500836/fig-05-p7.png	surface-3d	three-dimensional	partial	同一表面的两个二维色映射视图（aerial/side）+ colorbar；是 3D 表面的 2D 渲染，判 surface 可辩
+3	A/2500836/fig-06-p8.png	surface-3d	3-D	ok	三维坐标轴 + 阶梯体
+4	A/2500836/fig-11-p13.png	heatmap	Heatmap	ok	彩色栅格密度图
+5	A/2500836/fig-19-p20.png	line	Radar chart	partial	雷达图；类目表里没有 radar，被 line 兜住
+6	A/2501567/fig-02-p6.png	surface-3d	3D	ok	两个 3D 渲染的阶梯块
+7	A/2501567/fig-04-p9.png	line	curve	ok	单条带双峰折线
+8	A/2501567/fig-05-p10.png	line	curve	ok	两幅折线
+9	A/2501909/fig-07-p13.png	flow-diagram	Flowchart	ok	框图（WWM / WBM 两栏）
+10	A/2501909/fig-11-p21.png	line	curve	ok	拟合曲线 + 散点
+11	A/2504218/fig-03-p6.png	surface-3d	3D	wrong	图是激光扫描仪照片 + 扫描截图；"3D scanner diagram" 里的 3D 是设备名
+12	A/2504218/fig-05-p9.png	schematic	Illustration	partial	上排是热力图（Sparse/Dense RHS），下排是示意——多面板混合
+13	A/2504218/fig-13-p18.png	flow-diagram	Flowchart	ok	框图
+14	A/2511565/fig-02-p6.png	surface-3d	3D	partial	"3D Model" 是三维模型渲染，不是三维数据图
+15	A/2511565/fig-05-p9.png	heatmap	Heatmap	ok	三张热力图
+16	B/2501687/fig-01-p3.png	map	Map	ok	地图 + 照片，多面板
+17	B/2502617/fig-03-p7.png	line	Chart of	wrong	图是绿色圆盘/螺旋 + 标签，不是折线
+18	B/2502617/fig-04-p9.png	schematic	Schematic	wrong	图是折线/面积图（经济可行性域）；schematic 来自图注自称
+19	B/2502617/fig-05-p11.png	schematic	Schematic	wrong	同上，折线/面积图
+20	B/2502617/fig-06-p13.png	schematic	Schematic	wrong	同上，折线/面积图
+21	B/2502617/fig-07-p15.png	schematic	Schematic	wrong	图是 3 幅敏感性小图，不是示意图
+22	B/2502617/fig-08-p16.png	heatmap	Heatmap	ok	三张热力图
+23	B/2503268/fig-03-p10.png	schematic	schematic	partial	图是 3D 空间中的轨迹曲线 + 投影，更接近 surface-3d / line
+24	B/2503268/fig-07-p18.png	heatmap	heatmap	ok	权重热力图
+25	B/2504448/fig-02-p4.png	flow-diagram	Flow chart	ok	框图
+26	B/2505199/fig-07-p16.png	flow-diagram	Process Diagram	partial	图是立体圆柱流程示意（伪 3D），不是框线流程图
+27	B/2509557/fig-04-p6.png	line	Curve	ok	折线 + 散点
+28	B/2517929/fig-01-p3.png	line	Chart of	wrong	图是两张卫星照片；"Comparison Chart" 是修辞
+29	B/2517929/fig-03-p5.png	flow-diagram	Flow Chart	ok	框图
+30	B/2517929/fig-04-p7.png	map	Map	ok	地图 + 文字面板
+31	B/2517929/fig-05-p8.png	flow-diagram	Flowchart	partial	图是概念图/因果图（节点 + 箭头），不是流程框图
+32	B/2517929/fig-08-p16.png	flow-diagram	Flowchart	ok	框图
+33	B/2517929/fig-10-p19.png	heatmap	Heatmap	ok	相关热力图
+34	C/2500759/fig-01-p4.png	flow-diagram	Flow Chart	ok	流水线框图
+35	C/2500759/fig-05-p9.png	schematic	Schematic	ok	蓝色圆角框流水线；flow 与 schematic 相邻类
+36	C/2500759/fig-07-p13.png	violin	Violin	ok	小提琴图
+37	C/2500759/fig-08-p15.png	heatmap	Heatmap	wrong	图是棒棒糖/点阵图，不是热力图（图注自称 Heatmap）
+38	C/2501869/fig-04-p8.png	heatmap	Heatmap	partial	图是稀疏点阵 + colorbar，不是连续热力图
+39	C/2503389/fig-01-p6.png	network	Sankey	ok	Sankey 图
+40	C/2503389/fig-02-p7.png	heatmap	Correlation Matrix	ok	相关矩阵热力图
+41	C/2503389/fig-04-p8.png	network	Network	ok	神经网络节点-边图
+42	C/2507817/fig-03-p7.png	line	chart of	ok	4 面板折线
+43	C/2507817/fig-04-p8.png	flow-diagram	Flow Diagram	ok	带反馈环的框图
+44	C/2507817/fig-06-p10.png	line	Radar Chart	partial	雷达图；类目缺 radar
+45	C/2507817/fig-07-p10.png	line	Chart of	ok	折线 + 散点
+46	C/2507817/fig-10-p13.png	bar	bar chart	ok	误差棒 / 条形
+47	C/2507817/fig-12-p15.png	line	ROC curve	ok	ROC 曲线（+ 矩阵面板）
+48	C/2507817/fig-15-p18.png	histogram	Histogram	partial	径向玫瑰直方图，非常规直方图
+49	C/2507817/fig-18-p21.png	line	Plot of	ok	散点 + 折线
+50	C/2510006/fig-04-p12.png	line	Trend	ok	折线（含置信带）
+51	C/2510006/fig-07-p13.png	heatmap	heatmap	wrong	图注（AIC heatmap）配到的图是 ACF/PACF/QQ 面板，不是热力图
+52	C/2510006/fig-11-p13.png	line	QQ plot	ok	QQ 图
+53	C/2510006/fig-20-p18.png	heatmap	Heat Map	partial	图是相关矩阵稀疏点阵 + 直方图面板
+54	C/2510185/fig-04-p7.png	flow-diagram	Flowchart	ok	框图
+55	C/2510185/fig-05-p9.png	heatmap	Correlation matrix	ok	相关矩阵热力图
+56	C/2510185/fig-07-p11.png	flow-diagram	Flowchart	ok	框图
+57	C/2510185/fig-08-p13.png	network	Network	ok	神经网络结构图
+58	C/2510185/fig-09-p15.png	flow-diagram	Flowchart	ok	框图
+59	C/2514362/fig-04-p5.png	line	Trend	ok	折线
+60	C/2514362/fig-18-p18.png	scatter	scatter	ok	散点
+61	C/2514461/fig-06-p12.png	flow-diagram	Flow chart	ok	框图
+62	C/2514461/fig-12-p16.png	line	trend	ok	折线
+63	C/2515235/fig-09-p20.png	line	line graph	ok	折线
+64	C/2516178/fig-03-p8.png	schematic	schematic	ok	随机森林结构示意
+65	C/2516695/fig-04-p6.png	network	Network	ok	贝叶斯网络分层图
+66	C/2516695/fig-06-p7.png	heatmap	Heatmap	wrong	图是世界地图 + 气泡，不是热力图
+67	C/2516695/fig-12-p17.png	histogram	Histogram	wrong	图是带置信带的折线面板，不是直方图
+68	C/2516695/fig-13-p17.png	line	plot of	ok	时序折线
+69	C/2516695/fig-14-p18.png	network	network	ok	世界地图上的教练网络
+70	C/2516695/fig-16-p20.png	scatter	scatter	ok	箱线 + 散点云，多面板
+71	C/2516695/fig-24-p24.png	schematic	architecture	wrong	图是 3 幅曲线小图；"architecture" 只在图注里
+72	C/2517690/fig-06-p8.png	flow-diagram	Flowchart	ok	框图
+73	C/2517690/fig-08-p11.png	network	graph of	wrong	★规则缺陷："Line graph of confidence limits" 的 graph of 被 network 抢走；实为折线
+74	C/2517690/fig-09-p12.png	flow-diagram	Flowchart	partial	图是变量依赖关系图（节点 + 箭头），非流程框图
+75	C/2517690/fig-11-p14.png	line	Radar chart	partial	雷达图；类目缺 radar
+76	C/2517690/fig-12-p17.png	line	Time series	ok	时序折线
+77	C/2517690/fig-17-p24.png	line	Plot of	ok	单条下降曲线
+78	C/2524070/fig-11-p22.png	line	QQ Plot	ok	QQ + 残差面板
+79	C/2524070/fig-12-p22.png	line	QQ Plot	ok	同上
+80	D/2504188/fig-03-p6.png	network	Network	ok	交通网络图
+81	D/2504188/fig-04-p7.png	map	map	ok	交通地图
+82	D/2504188/fig-06-p12.png	network	network	partial	地理点云散点，非严格网络图
+83	D/2507692/fig-03-p7.png	network	Network	ok	路网地图
+84	D/2507692/fig-04-p9.png	network	Network	ok	加权路网图
+85	D/2507692/fig-05-p10.png	surface-3d	3D	ok	3D 气泡图
+86	D/2507692/fig-06-p10.png	surface-3d	3D	ok	3D 气泡图
+87	D/2507692/fig-07-p11.png	surface-3d	3D	ok	3D 墙图
+88	D/2507692/fig-08-p12.png	surface-3d	3D	ok	3D 柱图
+89	D/2507692/fig-09-p12.png	surface-3d	3D	ok	3D 柱图
+90	D/2507692/fig-10-p14.png	network	Network	ok	公交网络图
+91	D/2507692/fig-23-p17.png	heatmap	Heatmap	ok	热力图（+ 3D 柱面板）
+92	D/2507692/fig-25-p19.png	surface-3d	3D	ok	3D 面图
+93	D/2507692/fig-26-p20.png	network	Network	ok	轨道网络图
+94	D/2507692/fig-27-p21.png	network	Network	ok	叠加网络图
+95	D/2516219/fig-01-p3.png	flow-diagram	Roadmap	wrong	★规则缺陷："Roadmap to a Better City" 是比喻，图是两张城市地图
+96	D/2516219/fig-03-p5-2.png	flow-diagram	Flow Chart	ok	框图
+97	D/2516219/fig-04-p9.png	map	map	ok	地图 + 卫星照片
+98	D/2516219/fig-05-p12.png	flow-diagram	Flow Diagram	wrong	★规则缺陷："Traffic Flow Diagram" 的 flow 是交通流，图是 6 幅散点/流量小图
+99	D/2519935/fig-05-p7.png	network	Network	ok	分层路网示意
+100	D/2519935/fig-12-p14.png	histogram	Histogram	ok	直方图（带插图）
+101	D/2519935/fig-13-p15.png	network	network	ok	分层示意图
+102	D/2519935/fig-17-p17.png	map	Map	ok	栅格地图
+103	D/2519935/fig-21-p20.png	network	Network	partial	图是两张密度栅格热力图；network 来自图注
+104	E/2508861/fig-03-p5.png	flow-diagram	Framework Diagram	ok	框架框图
+105	E/2508861/fig-05-p7.png	map	Map	wrong	★规则缺陷："Map of Food Web Relationships" 的 map 是比喻；图是食物网生态示意
+106	E/2515136/fig-05-p10.png	line	Curve	ok	曲线
+107	E/2517273/fig-08-p21.png	line	Trajectory	ok	折线 + 热力图面板
+108	F/2504223/fig-01-p4.png	map	Map	wrong	★规则缺陷："Mind Map" 被 map 命中；图是 4 面板流程图
+109	F/2504223/fig-06-p13.png	line	Trend	ok	折线 + 误差棒
+110	F/2504223/fig-08-p15.png	line	Radar Chart	partial	雷达图
+111	F/2504223/fig-09-p17.png	line	curve	ok	生存曲线
+112	F/2504223/fig-10-p17.png	map	Map	wrong	★规则缺陷："Forest Map" 是森林图（系数表），不是地图
+113	F/2504223/fig-11-p18.png	map	map	wrong	★规则缺陷：同上，森林图
+114	F/2521039/fig-01-p3.png	line	Trend	wrong	图是 Venn 图 + 电脑边框信息图；"Crime Trend Summary Report" 是报告名
+115	F/2521039/fig-02-p4.png	flow-diagram	Flow Chart	ok	框图
+116	F/2521039/fig-04-p7.png	map	map	wrong	★规则缺陷："word cloud map" 的 map 是后缀；图是词云
+117	F/2521039/fig-09-p11.png	map	Map	wrong	★规则缺陷："Incident Count Over Time Map"；图是折线图
+118	F/2521039/fig-10-p14.png	line	Trend	ok	折线
+119	F/2521039/fig-14-p19.png	scatter	Scatter	ok	散点矩阵
+120	F/2521039/fig-15-p20.png	heatmap	Heatmap	ok	相关热力图

@@ -3,8 +3,8 @@
   产物：`corpus/papers/MODEL_MAP.md`（163255 B）· 参照：`corpus/papers/TAGS.md` 一层 43 行 / 二层 496 条指针
 ==============================================================================
 M-1=OK
-    **三份产物、两种期望**：`PROVENANCE.md` 与开工基准**逐字节相同**（85484c4d233a…）；`TAGS.md` **变了**（b2e1c8d50cca… → b879786d90f7…）；`INDEX.md` **变了但只差第 10 栏**（`模型/算法`：实测变动栏位 [9]，共 43 行）
-    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 85484c4d233a…
+    **三份产物、两种期望**：`PROVENANCE.md` 与开工基准**逐字节相同**（228d4196045a…）；`TAGS.md` **变了**（b2e1c8d50cca… → b879786d90f7…）；`INDEX.md` **变了但只差第 10 栏**（`模型/算法`：实测变动栏位 [9]，共 43 行）
+    开工基准来自 `tests/papers/recon/map-recon.txt` §0（开工当天 `git hash-object` 实测登记，HEAD = 9a1689daa68824f10c69a505f60b0b933a35c5bd）：INDEX 7d49a18f9de0… · TAGS b2e1c8d50cca… · PROVENANCE 228d4196045a…
     **`INDEX.md` 那条为什么改了形状（2a → 2b）**：2a 要求「逐字节不变」，因为那一轮只往 `TAGS.md` 加 `problem_type` 栏；2b 的词表增长**必然**改到 `INDEX.md` 的`模型/算法` 一栏（它与 `TAGS.md` 的 `models` 栏是同一份事实的两个落点）。这不是放宽：从「整份不变」改成「**逐行逐栏**比对、只许第 10 栏不同」——后者才抓得到「顺手改了别的栏」。基准的旧字节从 **git 对象库**取（`git cat-file blob`），不靠记忆。
     **同一份 fact 的第二条算法**：本判据同时用 `git hash-object` 与 Python 的 `sha1("blob <n>\0" + bytes)` 算一遍，两者必须相等——不相等就说明工作树字节与入库 blob 分叉（`core.autocrlf` 的形态）。
     **另：`corpus/papers/MODEL_MAP.md` 的 blob 本次实测** = a911d9d235c5…；`recon` 里另登记了旧 `ids-report.txt`（b174d0a6bcef…）与旧标注草案（2b4b4a270873…，转正前的来源）。

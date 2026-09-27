@@ -244,9 +244,15 @@ git worktree remove "<仓库外的目录>"
 1. ~~是否破设计文档 §8 政策「只借方法论与结构」，取第三方代码？~~ —— ✅ **已由 §E 自动回答**：
    该政策**已于 2026-09-23 作废**（现行 = 第三方素材不因许可证排除，按价值判断收录，须留 `PROVENANCE`）。
    **故本题不再是前置决策**；`sci-box` 那次的具体结论「暂不整合」仍按 `docs/sci-box-evaluation.md` 为准。
-2. 是否把 `mcm-schematic` 的输出载体从 **TikZ / Mermaid** 改为 **draw.io**？
-   （~~改的理由：用户本机无 TeX~~ —— **该理由已失效**，本机 2026-09-24 已装 TeX。**但 draw.io 另两条理由仍成立**：
-   全程**不需编译**、产出**可编辑矢量**。故这一问**仍待裁决**，只是论据换成这两条。）
+2. ~~是否把 `mcm-schematic` 的输出载体从 **TikZ / Mermaid** 改为 **draw.io**？~~
+   —— ✅ **已裁决（2026-09-27）= TikZ 单一载体**；**Mermaid 从设计里去掉**（它不是 `mcm-schematic` 的交付载体）。
+   判据 = **载体选择以“agent 能否看见产物”为准**：本机已端到端实测 `pdflatex` 编译 TikZ → `fitz`(PyMuPDF) 渲 PNG → **agent 可读图**（探针 `build/m3-carrier/`）；
+   **draw.io 在本机没有可执行路径**（无桌面版 / 无 CLI；装它要走 GitHub Releases，而本机实测被限速到 5–25 KB/s 并掐断）⇒ **产物看不见**。
+   **draw.io 那两条理由不足以翻案**：①“不需编译”的价值被“**agent 看不见产物 ⇒ 无法自检、无法进证据链**”（通则 7）抵消——后者是**判据层**的要求，前者只是**便利**；
+   ②“可编辑矢量”在 TikZ 里同样成立（源码即矢量，改的是代码），且**只有同源才能强制“共用同一份规范”**（M3 的硬约束）。
+   ⚠️ **连带失效（按通则 6 全库回扫所得）**：`docs/sci-box-evaluation.md` 里以此为据的几处需一并补注——
+   `:89`「取 draw.io 就要改这一行……改动本身我认为**是对的**」、`:103` 的“自写 SKILL.md 把 draw.io 的中文字宽模型/连接器语义下沉”落地方案、
+   `:80`/`:127` 的“与既有 TikZ/Mermaid 决策打架 / 冲突”判定。**（待用户批后再改，见台账。）**
 
 **并有接缝风险**：M3 若拆成"实现半边（提前）"与"设计规范半边（等 M6）"两半，两个半边各自收敛就会回到设计文档 M3 明令禁止的"各自不同视觉标准"。
 
@@ -255,7 +261,7 @@ git worktree remove "<仓库外的目录>"
 | 模块 | skill | 备注 |
 | :--- | :--- | :--- |
 | **M2 论文写作** | `mcm-paper-architecture`（含 25 页预算）、`mcm-abstract`、`mcm-section-writer`、`mcm-memo` | 已完成：`mcm-ai-disclosure`、`mcm-latex-format` |
-| **M3 科研图表** | `mcm-figure-choose`（语言无关的设计规范，**核心**）、`mcm-plot-python`、`mcm-plot-matlab`、`mcm-plot-origin`、`mcm-table`、`mcm-schematic` | 底层用 SciencePlots；三个 plot skill 必须共用同一份规范 |
+| **M3 科研图表** | `mcm-figure-choose`（语言无关的设计规范，**核心**）、`mcm-plot-python`、`mcm-plot-matlab`、`mcm-plot-origin`、`mcm-table`、`mcm-schematic` | 底层用 SciencePlots；三个 plot skill 必须共用同一份规范。**2026-09-27 起 M3 已开工**：`mcm-figure-choose` 前 6/7 任务已交付（详见 **§H**）；剩余 **Task 7 引用完整性检查器**（必须用假 skill 做变异——真 `mcm-plot-*` 尚未建，否则此判据恒真），**待 `mcm-plot-*` 出现时即生效** |
 | **M4 数学模型** | `mcm-model-select` + `references/` 8 个大类 | 架构已定：入口决策树 + 参考文献库。**注意**：官方把"模型选择与构建"列在建议谨慎用 AI 的一侧，入口须显式声明边界 |
 
 > **M4 的素材已就位并已验证**（2026-09-23）：`corpus/algorithms/` 归档 1,262 个算法文件 + `INDEX.md`（按 8 大类组织），已做完**实跑 + 7 批数值验证**（`tests/algorithms/`）。
@@ -453,3 +459,54 @@ git worktree remove "<仓库外的目录>"
 | 5 | 6 个 GUI 死循环脚本 | 无法无人值守，其正确性未评估 |
 
 > **动手前先读教训二.7**：实跑只能抓工程性缺陷，**算法性缺陷必须拿独立参照才现形**。加新验证时，每项都要能说清"参照是什么、它为什么独立"。
+
+
+## H. M3 图表层 —— 已开工（2026-09-27）
+
+**已完成**：`mcm-figure-choose`（M3 第一份，也是本套件第一份**可被机器复算**的规范型 skill）——
+`.claude/skills/mcm-figure-choose/`：`SKILL.md`（82 行短契约）+ `references/{house-style.md（H1–H13，规范唯一权威）, provenance.md（45 条，每数带口径与复跑命令）, chart-types.md（9 个数据关系入口 + 题型索引 + 42 个图型名）}`。
+配套机器在 `tests/skills/figure-choose/`：`check-figure-style.py`（**产物判据** F1 图宽比 / F2 彩色主色数 / F3a-d 图注形态，fail-closed）· `check-house-style.py`（**162 条守卫**）· `mutate-figure-style.py`（**42 条变异全红**）· `house-metrics.py`（95 个具名读数）。
+对照实验：**RED 基线 13 红 / 5 绿 ⇒ GREEN 0 红**（同场景、同判据、一字不改）。**逐轮任务级证据与复审结论在 `.superpowers/sdd/progress.md`（恢复图）。**
+
+**两条结构性局限（已写在规范里，下游不许当结论引用）**：
+① **H4 的连续色图闸门会把 72.81% 的图标为"条数不可引用"**——那是**闸门的性质**、不是"72.81% 的图有问题"；**H4 的证据基础因此只覆盖约 27% 语料**。
+② **判断层实际射程只有单规则**（判者提示词只逐字内嵌了饼图那条）⇒ **判者通过 ≠ 规范得到背书**。
+
+### H.1 M3 剩余
+
+| # | 事项 | 说明 |
+| :--- | :--- | :--- |
+| 1 | **Task 7 引用完整性检查器** | 每个 `mcm-plot-*` 必须指向 `house-style.md`、且**不许重述规范数值**；**必须用假 skill 做变异**（真 plot skill 未建 ⇒ 否则恒真）。**待它们出现时即生效。** |
+| 2 | **`mcm-plot-python`（建议先行）** | 本机 matplotlib 可跑 ⇒ 立刻进"**出图 → 机械层验 → agent 亲眼看图**"的回路 |
+| 3 | `mcm-plot-matlab` | 本机 R2025b `-batch` 可跑 |
+| 4 | `mcm-plot-origin` | GUI，只给操作步骤；**导出物照样能过机械层**（F1/F2 都吃 PNG/PDF） |
+| 5 | `mcm-table` | 三线表 LaTeX 代码 |
+| 6 | `mcm-schematic` | **TikZ 源码**（载体已裁决，判据 = agent 能否看见产物） |
+| 7 | **最终全分支审查 + Minor 批量清**（见 H.2） | 一次做掉 |
+
+### H.2 待批量清的 Minor（同批文件，适合一次做掉）
+
+| ID | 位置 | 一句话 |
+| :--- | :--- | :--- |
+| T2-M1 | `red/red-evidence.md:829` + `red/make-evidence.py:786` | `<<ROUND2>>` **残留占位符**（机制只接了一半；对照 `<<CAPTIONS>>` 有 replace+assert） |
+| T3-R1 | `check-house-style.py:274-275` | 推论"写不进去的新整数一律 FAIL"在**豁免窗口内不成立** ⇒ 改成"不在豁免窗口内的…" |
+| T3-R2 | `.superpowers/sdd/task-m3-t3-report.md:48`（gitignored） | **仍留假陈述**"57.2% 未能复现…48.79%"（受控文件已清、仓外件没清） |
+| T3-R3 | `house-style.md:134` | "本样本 72.81% 的图『条数不可引用』"把**闸门性质**写成了**图的属性** |
+| T4-m1/m2 | `chart-types.md` §0.2 | 补两句：参照分布数**必须与 `H<n>` 引用同行**；`S5` **只判漂/归属**、池子 = 该 H 条目里出现过的**所有**小数 |
+| T5-1 | `check-house-style.py:529` | 中文数词臂的**射程写法**与实测不符（实测边界更宽）；可选加阈值锚定臂（已验证 0 误伤） |
+| T5-2 | `check-house-style.py:620` | `_k5` docstring 说"四条"、下列的是 ①–⑤ **五条** |
+| T6-1 | `red/red-evidence.md:527/:642` | 两条**探针**的 F3b 打印词数按新口径应为 3/2（**判词仍 PASS、结论不变**，显示性过期） |
+| T6-4 | `green-evidence.md` §8 · `check-figure-style.py` D7 | **两处跨任务涟漪的说明只活在 gitignored 报告里** ⇒ 仓内补 2 行（否则复算者会以为证据件造假）——**恰好重演了本轮自己识破的毛病**（"解释留在 `.superpowers/` 就走不掉"） |
+| T6-5 | 提交 `35133ec` 的信息 | 只写了 F3b 收敛 + 判断层列 + 6 Minor，**没提** Task 1 生成器/基线重发与三份证据件重生成（`--amend` 把跨任务活并进一个提交，信息留白） |
+| T6-6 | `.superpowers/sdd/task-m3-t6-report.md` | 报告上半部分（§0/§2/§3）仍是修复前的数（3 红 / 10 格），与 §R0（0 红 / 13）并存 ⇒ 只看 §0 会拿到过期结论 |
+
+### H.3 M2 欠账
+
+- **写作纪律的去重**：`mcm-abstract` 的 **Q7/Q8/Q9/Q12 四格改成指针**（**要改已交付的冻结 skill** ⇒ 需单独走一遍流程）。
+- **`mcm-section-writer`**（薄 skill：只在"该写的时刻"被触发 + 交付那份权威纪律）。
+- 写作纪律文档**残余 R1–R12** 里仍该动的；其中 **R6：`grep -rn "mcm-writing-discipline" .claude/` = 0 ⇒ "唯一权威"至今仍只是约定**。
+
+### H.4 更早的待裁决
+
+- **Task 9 的 UMAP 题号口径 recon**（用户已裁"先 recon 定口径"）。
+- `.gitattributes` 自身不在 `-text` 规则内（全新检出一致性上仍会分叉，不影响任何判据）。

@@ -1,0 +1,14 @@
+Figure 1. Vulnerability composition of the six districts (A-F). (a) Land-area
+shares of the low, medium and high vulnerability tiers, which sum to 1.00 within
+each district; districts are ordered by decreasing low-tier share. C
+(0.55/0.30/0.15) and F (0.50/0.33/0.17) are the least vulnerable, A
+(0.42/0.35/0.23) and E (0.37/0.38/0.25) are intermediate, and B (0.31/0.44/0.25)
+and D (0.28/0.47/0.25) are the most heavily weighted towards the medium tier;
+the high tier is the smallest component in every district and spans only 0.15 to
+0.25. (b) The same data in the composition triangle, where each district is a
+single point whose three shares are read off the three axes, so that structural
+similarity is geometric proximity; B, D and E, all with a high-tier share of
+0.25, lie on one horizontal line. The red segment marks the most similar pair: B
+and D differ by 0.03 in total (total-variation distance), the smallest of all 15
+district pairs, and the next closest pairs, A-E and C-F, differ by 0.05. B and D
+are adjacent in (a) as a result of the ordering.

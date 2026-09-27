@@ -1,0 +1,121 @@
+idx	path	judge_class	multi_panel	three_d	pie	legend	note
+1	C/2507817/fig-13-p15.png	line	y	n	n	n	ROC 曲线 + 矩阵热力图
+2	D/2507692/fig-15-p15.png	scatter	y	n	n	n	4 幅散点
+3	C/2514362/fig-04-p5.png	bar	y	n	n	y	条形 + 折线并列
+4	B/2504448/fig-07-p11.png	line	y	n	n	y	两幅折线
+5	A/2511565/fig-12-p17.png	surface-3d	y	y	n	n	4 幅 3D 面
+6	B/2501687/fig-03-p7.png	schematic	n	n	n	n	分层概念三角
+7	D/2507692/fig-23-p17.png	heatmap	y	y	n	y	3D 柱 + 热力图
+8	C/2517690/fig-02-p4.png	flow-diagram	n	n	n	n	总流程图
+9	C/2515235/fig-08-p15.png	heatmap	y	n	n	n	2 热力图 + 小提琴 + 点阵
+10	B/2503268/fig-05-p12.png	bar	n	n	n	y	横向堆叠条
+11	C/2514362/fig-02-p5.png	flow-diagram	n	n	n	n	Our Work 框图
+12	A/2511565/fig-11-p17.png	line	y	n	n	n	3 幅折线
+13	C/2501869/fig-03-p7.png	scatter	y	n	n	n	6 幅散点
+14	D/2504188/fig-06-p12.png	network	n	n	n	n	彩色点云 + 示意
+15	C/2510862/fig-06-p11.png	table	n	n	n	n	表（区间表）
+16	C/2510006/fig-07-p13.png	mixed	y	n	n	n	柱 + 直方 + QQ
+17	A/2500836/fig-08-p10.png	line	n	n	n	n	单条曲线
+18	B/2505199/fig-04-p8.png	line	n	n	n	y	折线 + 置信带
+19	C/2514461/fig-18-p23.png	scatter	y	n	n	n	2 幅回归散点
+20	D/2519935/fig-25-p23.png	schematic	n	n	n	n	文字框（SWOT 式）
+21	F/2513705/fig-10-p21.png	line	n	n	n	y	面积/折线
+22	C/2503389/fig-02-p7.png	heatmap	n	n	n	n	数值相关矩阵
+23	A/2500836/fig-13-p15.png	line	n	n	n	n	曲线 + 阴影
+24	D/2516219/fig-03-p5.png	flow-diagram	n	n	n	n	框图
+25	B/2509557/fig-02-p5.png	flow-diagram	n	n	n	n	流水线框图
+26	D/2519935/fig-07-p9.png	network	y	n	n	n	地图 + 网络图
+27	A/2511565/fig-10-p16.png	surface-3d	y	y	n	n	3D 面 + 热力图
+28	C/2510185/fig-10-p15.png	bar	n	n	n	n	发散横向条
+29	C/2503389/fig-11-p20.png	line	y	n	n	n	2 幅折线
+30	C/2521556/fig-09-p12.png	table	n	n	n	n	表（奖牌预测）
+31	B/2503268/fig-11-p21.png	bar	n	n	n	n	横向条形（龙卷风）
+32	C/2521556/fig-06-p10.png	heatmap	y	n	n	n	2 幅热力图
+33	B/2504448/fig-04-p7.png	schematic	n	n	n	n	圆形图标信息图
+34	A/2504218/fig-09-p15.png	surface-3d	y	y	n	n	4 幅 3D 面
+35	F/2513705/fig-07-p10.png	scatter	n	n	n	n	聚类散点 + 密度
+36	A/2501909/fig-03-p6.png	schematic	n	n	n	n	3D 阶梯栅格示意
+37	F/2521039/fig-10-p14.png	line	n	n	n	n	平行趋势折线
+38	A/2501909/fig-05-p10.png	line	y	n	n	n	密度脊线 + 3D 场景
+39	B/2504448/fig-14-p18.png	line	n	n	n	y	多序列折线
+40	C/2510006/fig-12-p14.png	line	y	n	n	y	2 幅折线（实际/预测）
+41	F/2513705/fig-01-p3.png	schematic	n	n	n	n	环形图标信息图
+42	C/2514362/fig-08-p10.png	bar	y	n	n	n	2 幅横向条
+43	A/2501567/fig-08-p14.png	surface-3d	n	y	n	n	3D 脊线面
+44	C/2501869/fig-01-p4.png	flow-diagram	n	n	n	n	4 块框图
+45	D/2507692/fig-22-p17.png	mixed	y	y	n	n	3D 柱 + 热力图
+46	B/2505199/fig-09-p20.png	line	y	n	n	n	4 幅敏感性折线
+47	E/2517273/fig-09-p21.png	mixed	y	n	n	n	折线 + 热力图
+48	B/2505199/fig-02-p4.png	flow-diagram	n	n	n	n	框图
+49	B/2505199/fig-01-p3.png	bar	n	n	n	n	纵向柱
+50	B/2503268/fig-04-p10.png	scatter	y	n	n	n	3 幅密集散点/拟合
+51	C/2505964/fig-02-p5.png	flow-diagram	n	n	n	n	框图
+52	A/2501567/fig-12-p23.png	line	y	n	n	n	3 幅折线
+53	A/2501909/fig-12-p22.png	line	n	n	n	y	折线 + 阴影
+54	B/2517929/fig-07-p12.png	bar	n	n	n	n	堆叠横向条（Likert）
+55	D/2519935/fig-13-p15.png	schematic	y	n	n	n	三层示意
+56	F/2517199/fig-05-p9.png	map	y	n	n	n	4 幅世界地图
+57	A/2504218/fig-01-p3.png	photo	y	n	n	n	3 张照片
+58	C/2524070/fig-06-p13.png	table	n	n	n	n	表
+59	B/2501687/fig-11-p17.png	line	y	n	n	n	4 幅折线/散点拟合
+60	C/2522820/fig-05-p14.png	line	y	n	n	n	2 幅面积/直方
+61	A/2501909/fig-01-p3.png	photo	n	n	n	n	照片
+62	C/2513314/fig-05-p16.png	line	n	n	n	y	多序列折线
+63	F/2521039/fig-13-p18.png	schematic	n	n	n	n	文字块堆叠
+64	C/2503389/fig-01-p6.png	network	n	n	n	n	Sankey/冲积图
+65	D/2504188/fig-03-p6.png	network	n	n	n	y	点云网络 + 地图
+66	E/2515136/fig-05-p10.png	mixed	y	n	n	n	表 + 折线
+67	D/2519935/fig-18-p18.png	map	n	n	n	n	环形地铁线路图
+68	B/2503268/fig-10-p20.png	scatter	y	n	n	n	2 幅散点
+69	A/2501567/fig-02-p6.png	photo	y	y	n	n	2 幅 3D 阶梯渲染
+70	D/2516219/fig-12-p23.png	surface-3d	y	y	n	n	3D 散点 + 3 幅密度
+71	C/2503389/fig-07-p13.png	bar	y	n	n	n	3 幅柱
+72	C/2507817/fig-10-p13.png	bar	y	n	n	n	2 幅误差棒
+73	D/2507692/fig-09-p12.png	surface-3d	y	y	n	n	2 幅 3D 柱
+74	D/2507692/fig-08-p12.png	surface-3d	y	y	n	n	2 幅 3D 柱
+75	C/2510006/fig-25-p22.png	line	n	n	n	y	带图例折线
+76	F/2504223/fig-05-p9.png	schematic	n	n	n	n	环形图标信息图
+77	C/2500759/fig-16-p21.png	bar	n	n	n	n	降序条形
+78	C/2514461/fig-17-p23.png	scatter	y	n	n	n	2 幅散点
+79	B/2509557/fig-11-p19.png	heatmap	n	n	n	n	带数值热力图
+80	B/2501687/fig-04-p9.png	histogram	y	n	n	n	2 幅分布（KDE/填充）
+81	B/2503268/fig-08-p18.png	line	y	n	n	n	4 幅折线
+82	C/2514362/fig-25-p23.png	line	y	n	n	n	2 幅折线
+83	C/2524070/fig-04-p12.png	bar	n	n	n	n	横向排名条
+84	C/2516695/fig-10-p16.png	line	y	n	n	n	2 幅折线
+85	C/2514362/fig-14-p14.png	mixed	y	n	n	n	热力图 + 密度
+86	C/2524070/fig-08-p16.png	network	n	n	n	n	关联规则节点-边
+87	A/2511565/fig-13-p21.png	heatmap	y	n	n	n	4 幅热力图
+88	D/2507692/fig-21-p16.png	network	y	n	n	n	5 幅树状网络
+89	F/2517199/fig-09-p14.png	bar	n	n	n	n	2 根柱
+90	B/2504448/fig-01-p3.png	mixed	y	n	n	n	照片 + 横向条
+91	C/2521556/fig-04-p8.png	map	y	n	n	n	地图 + 条形 + 国旗
+92	D/2507692/fig-28-p22.png	network	y	n	n	n	2 幅网络地图
+93	C/2521556/fig-08-p11.png	line	n	n	n	n	单条折线/散点
+94	C/2514362/fig-09-p10.png	bar	y	n	n	n	2 幅横向条
+95	C/2516695/fig-03-p6.png	table	y	n	n	n	表 + 流程小图
+96	E/2515136/fig-01-p4.png	flow-diagram	n	n	n	n	框架框图
+97	E/2508861/fig-02-p4.png	flow-diagram	n	n	n	n	文献综述框图
+98	C/2507817/fig-05-p9.png	schematic	n	n	n	n	D 盒 + 训练/测试集示意
+99	C/2517690/fig-04-p8.png	line	y	n	n	n	2 幅折线
+100	D/2519935/fig-22-p21.png	scatter	n	n	n	y	散点 + 拟合线 + 图例
+101	C/2501869/fig-05-p10.png	scatter	y	n	n	n	4 幅散点
+102	B/2502617/fig-10-p17.png	line	y	n	n	n	6 幅折线/面积
+103	D/2504188/fig-02-p4.png	schematic	n	n	n	n	海报式面板
+104	C/2515235/fig-11-p23.png	flow-diagram	n	n	n	n	国家分层概念图
+105	E/2517273/fig-13-p22.png	mixed	y	n	n	n	折线 + 3 小提琴
+106	F/2504223/fig-08-p15.png	radar	n	n	n	n	雷达图
+107	A/2511565/fig-04-p8.png	photo	y	n	n	n	8 张照片
+108	C/2515235/fig-07-p14.png	map	y	n	n	n	条形 + 地图 + 地球
+109	F/2504223/fig-04-p8.png	mixed	y	n	n	n	2 散点 + 2 柱
+110	C/2510862/fig-02-p6.png	flow-diagram	n	n	n	n	特征工程树
+111	C/2516695/fig-08-p11.png	other	n	n	n	n	森林图（系数表）
+112	A/2501567/fig-11-p19.png	surface-3d	y	y	n	n	4 幅 3D 脊线
+113	C/2516695/fig-22-p23.png	bar	n	n	n	n	横向条
+114	D/2516219/fig-04-p9.png	map	y	n	n	n	点地图 + 卫星图
+115	F/2513705/fig-06-p10.png	line	y	n	n	n	2 幅折线（肘部/轮廓）
+116	C/2521556/fig-21-p22.png	line	n	n	n	n	面积图
+117	C/2524070/fig-10-p17.png	network	n	n	n	n	网络图 + 文字
+118	C/2515235/fig-06-p13.png	table	n	n	n	n	表
+119	C/2510185/fig-09-p15.png	flow-diagram	n	n	n	n	随机森林流程
+120	D/2519935/fig-21-p20.png	heatmap	y	n	n	n	2 幅密度栅格

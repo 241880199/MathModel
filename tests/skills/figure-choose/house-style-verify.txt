@@ -1,0 +1,1038 @@
+Task 3 证据 · house-style 13 条 + provenance（每数带口径与复跑命令）+ 规范数守卫
+生成者：Task 3 实施者（2026-09-27，修复轮）· 写入用 write_bytes ⇒ 本文件恒 LF · 逐字输出
+本文件由 `python tests/skills/figure-choose/gen-house-style-verify.py` 整份重生成；
+命令 cwd = 仓根。收工时的 `git status --short` 为空见报告（本文件生成于入库之前）。
+
+==============================================================================
+§0  blob 自证（git hash-object：被验对象就是即将入库的那几个文件）
+==============================================================================
+57aaefb7d53f18646dd4625bdc65aa570fed30c6  tests/skills/figure-choose/house-metrics.py
+1b8350d8335c7dc8b7d65498212c1c1fc3f886b9  tests/skills/figure-choose/check-house-style.py
+19e12afd0e6b011b7ca81edef93942d82114d931  .claude/skills/mcm-figure-choose/references/house-style.md
+c7346425c8cd39d675a8861b1ab8df700408cd69  .claude/skills/mcm-figure-choose/references/provenance.md
+4b8f28e9764e0fb865f2ab6be918108a2ef9f058  tests/skills/figure-choose/mutate-figure-style.py
+90748f6f91a1712d03a775d64b58f396397d2566  tests/skills/figure-choose/gen-house-style-verify.py
+7636902a868aeca105e6b75b7dc616816fce95fe  tests/skills/figure-choose/check-figure-style.py
+
+==============================================================================
+§1  规范数守卫（全量）：python tests/skills/figure-choose/check-house-style.py
+==============================================================================
+$ python tests/skills/figure-choose/check-house-style.py
+PASS  G-F0-papers        文档=43       实测=43        容差=0.5     样本份数
+PASS  G-F0-figs          文档=662      实测=662       容差=0.5     样本图数
+PASS  G-F0-tabs          文档=246      实测=246       容差=0.5     同批抽到的表数
+PASS  G-F0-other         文档=158      实测=158       容差=0.5     未建索引的其余合集份数
+PASS  G-F0-dpi           文档=200      实测=200       容差=0       渲染 dpi（几何仪器的构造已知量）
+PASS  G-F0-judge         文档=120      实测=120       容差=0.5     判断层抽样量
+PASS  G-F0-pages         文档=2        实测=2         容差=0.5     两页探针的页数
+PASS  G-F0-p1w           文档=6.31     实测=6.31      容差=0.02    探针 page1 宽（应=分母 6.31）
+PASS  G-F0-p1c           文档=1        实测=1         容差=0.5     探针 page1 的 F2 读数
+PASS  G-F0-p2w           文档=12.00    实测=12        容差=0.02    探针 page2 宽（应超 1.20×）
+PASS  G-F0-p2c           文档=6        实测=6         容差=0.5     探针 page2 的 F2 读数
+PASS  G-F0-p1ratio       文档=1.000    实测=1         容差=0.002   探针 page1 的 F1 比值（=1.000）
+PASS  G-F0-verdict       文档=PASS     实测=PASS      容差=0       整份探针的判词（只读 doc[0] 的证据）
+PASS  G-H1-p25b          文档=0.797    实测=0.7974    容差=0.02    比值 p25 的未舍入读数
+PASS  G-H1-maxb          文档=1.189    实测=1.1894    容差=0.02    比值 max 的未舍入读数
+PASS  G-H1-band-lo       文档=0.95     实测=0.9513    容差=0.02    默认档左端 = 中位
+PASS  G-H1-band-hi       文档=1.0      实测=1.0103    容差=0.02    默认档右端 = p75
+PASS  G-H1-lo            文档=0.80     实测=0.7974    容差=0.02    下限 = p25
+PASS  G-H1-hi            文档=1.20     实测=1.1894    容差=0.02    上限 = max
+PASS  G-H1-med           文档=0.951    实测=0.9513    容差=0.02    比值中位
+PASS  G-H1-p75           文档=1.010    实测=1.0103    容差=0.02    比值 p75
+PASS  G-H1-band          文档=74.5     实测=74.47     容差=0.2     参照分布自身的 F1 合规率（H13 的反例）
+PASS  G-H1-below         文档=25.5     实测=25.53     容差=0.2     低于下限的占比
+PASS  G-H1-above         文档=0.0      实测=0         容差=0.2     高于上限的占比
+PASS  G-H1-const-lo      文档=0.80     实测=0.8       容差=0       文档的 0.80 必须 == 出货常量 F1_LO
+PASS  G-H1-const-hi      文档=1.20     实测=1.2       容差=0       文档的 1.20 必须 == 出货常量 F1_HI
+PASS  G-H2-den           文档=6.31     实测=6.3099    容差=0.02    分母 = 43 篇 p90 的全局中位
+PASS  G-H2-den-raw       文档=6.3099   实测=6.3099    容差=0.0001  分母的未舍入值
+PASS  G-H2-fork-global   文档=56.6     实测=56.65     容差=0.2     口径分叉：全局分母
+PASS  G-H2-fork-perpaper 文档=59.4     实测=59.37     容差=0.2     口径分叉：逐篇分母
+PASS  G-H3-vert          文档=2.0      实测=1.96      容差=0.2     竖向图占比（违反判据里的说法）
+PASS  G-H3-band          文档=37.2     实测=37.16     容差=0.2     常见带 [2,3] 的样本权重
+PASS  G-H3-hrule         文档=2.6      实测=2.625     容差=0.05    图高量级 = 实测中位
+PASS  G-H3-land          文档=98.0     实测=98.04     容差=0.2     横图占比
+PASS  G-H3-below1        文档=1.96     实测=1.96      容差=0.2     竖图占比
+PASS  G-H3-aspect        文档=2.09     实测=2.0856    容差=0.02    宽高比中位
+PASS  G-H3-ge2           文档=53.5     实测=53.47     容差=0.2     宽高比 ≥2 占比
+PASS  G-H3-hmed          文档=2.63     实测=2.625     容差=0.02    图高中位
+PASS  G-H3-h25           文档=2.17     实测=2.17      容差=0.02    图高 p25
+PASS  G-H3-h75           文档=3.24     实测=3.2388    容差=0.02    图高 p75
+PASS  G-H3-a25           文档=1.59     实测=1.5904    容差=0.02    宽高比 p25
+PASS  G-H3-a75           文档=2.69     实测=2.6875    容差=0.02    宽高比 p75
+PASS  G-H3-legacy        文档=2.427    实测=2.427     容差=0.001   2.427 —— 入库证据里**唯一等于 2.427 的单张读数**（**不是**设计稿 2.42 的来源，只是巧合）
+PASS  G-H3-s120-lo       文档=2.24     实测=2.2447    容差=0.01    908 池里 120 张抽样的宽高比中位**下界**（2.42 不可复跑的证据）
+PASS  G-H3-s120-hi       文档=2.42     实测=2.4166    容差=0.01    同上**上界**（设计稿 2.42 落在这一段里）
+PASS  G-H3-908           文档=908      实测=908       容差=0.5     2.42 那次抽样的池子 = 908 张（662 图 + 246 表）
+PASS  G-H4-r1sub         文档=0.127    实测=0.127     容差=0.002   R1（离散配色）的最高落选箱——**比真热力图还高** ⇒ 这条线不区分连续/离散
+PASS  G-H4-r3sub         文档=0.081    实测=0.081     容差=0.002   R3（离散配色）的最高落选箱（同样低于新线）
+PASS  G-H4-n2pair-hi     文档=72.9     实测=72.89     容差=0.2     N-2 那一对的 72.9%（出货仪器在 166 抽样上）
+PASS  G-H4-n2pair-lo     文档=57.2     实测=57.23     容差=0.2     N-2 那一对的 57.2%——baseline §7 转写口径在 166 抽样上，**可复现**
+PASS  G-H4-n2med         文档=4.0      实测=4         容差=0.05    转写口径在 166 抽样上的主色中位（baseline 报 4.0）
+PASS  G-H4-n2zero        文档=15.66    实测=15.66     容差=0.05    转写口径在 166 抽样上的零彩占比（baseline 报 15.7）
+PASS  G-H4-n2real        文档=63.86    实测=63.86     容差=0.2     **真侦察仪器**在同一 166 抽样上的 ≤4 覆盖率（≠ 57.2% ⇒ 两者不同源）
+PASS  G-H4-n2lo          文档=51.81    实测=51.81     容差=0.2     转写口径在 **662** 图上的 ≤4 覆盖率（原记的 48.79 不实，真值在此）
+PASS  G-H4-gate-warn     文档=72.81    实测=72.81     容差=0.2     全 662 里被连续色图闸门判为『条数不可引用』的比例（依据里的自相矛盾点）
+PASS  G-H4-comp-n        文档=180      实测=180       容差=0.5     闸门补集（未被判为连续色图）张数
+PASS  G-H4-comp-med      文档=1        实测=1         容差=0.5     补集上的出货仪器主色中位（与全 662 的 2 对照）
+PASS  G-H4-comp-zero     文档=42.78    实测=42.78     容差=0.2     补集上的零彩色占比
+PASS  G-H4-comp-cov      文档=88.33    实测=88.33     容差=0.2     补集上的 ≤4 覆盖率
+PASS  G-H4-gate-box      文档=100      实测=100       容差=0       新闸门：箱数下限（== CONT_BOX_MIN）
+PASS  G-H4-gate-sub      文档=0.4      实测=0.4       容差=0       新闸门：最高落选箱下限（== CONT_SUBFLOOR_MIN_PCT）
+PASS  G-H4-gate-old-box  文档=20       实测=20        容差=0       旧闸门箱数下限（== CONT_BOX_VACUOUS_MAX，形同虚设的那条腿）
+PASS  G-H4-gate-old-sub  文档=0.3      实测=0.3       容差=0       旧闸门最高落选箱下限（== CONT_SUBFLOOR_OLD_PCT，漏真热力图的那条腿）
+PASS  G-H4-boxvac        文档=95.62    实测=95.62     容差=0.1     旧闸门箱数腿放进来的比例（形同虚设的读数）
+PASS  G-H4-boxvac-n      文档=29       实测=29        容差=0.5     旧闸门箱数腿真正挡住的张数
+PASS  G-H4-heat-den      文档=13       实测=13        容差=0.5     heatmap 图注样本量（正则 heat\s*-?\s*map）
+PASS  G-H4-heat-old      文档=5        实测=5         容差=0.5     旧闸门在 heatmap 样本上的命中数
+PASS  G-H4-cite-den      文档=9        实测=9         容差=0.5     heatmap 样本里 F2 条数 >4（会被引用）的张数
+PASS  G-H4-cite-old      文档=4        实测=4         容差=0.5     旧闸门在那批『条数会被引用』的图里的命中数（漏检证据）
+PASS  G-H4-ex1-f2        文档=24       实测=24        容差=0.5     漏检典型 #1 的 F2 条数
+PASS  G-H4-ex1-sub       文档=0.123    实测=0.123     容差=0.002   漏检典型 #1 的最高落选箱
+PASS  G-H4-ex2-f2        文档=17       实测=17        容差=0.5     漏检典型 #2 的 F2 条数
+PASS  G-H4-ex2-sub       文档=0.094    实测=0.094     容差=0.002   漏检典型 #2 的最高落选箱（< R1 的 0.127%）
+PASS  G-H4-heat-new      文档=11       实测=11        容差=0.5     新闸门在 heatmap 样本上的命中数
+PASS  G-H4-cite-new      文档=9        实测=9         容差=0.5     新闸门在『条数会被引用』的 heatmap 图上的命中数
+PASS  G-H4-gate-new      文档=72.81    实测=72.81     容差=0.2     新闸门在全 662 上的命中率
+PASS  G-H4-gate-old      文档=49.40    实测=49.4      容差=0.2     旧闸门在全 662 上的命中率
+PASS  G-H4-ratio-disc    文档=26.00    实测=26        容差=0.05    离散标定件 R1 的 箱数÷条数（比真热力图还高）
+PASS  G-H4-ratio-heat    文档=9.12     实测=9.12      容差=0.05    真热力图的同一条比值（< 离散件 ⇒ 该判据方向反了）
+PASS  G-H4-max           文档=4        实测=4         容差=0       文档的 ≤4 必须 == 出货常量 F2_MAX
+PASS  G-H4-med           文档=2        实测=2         容差=0.5     出货仪器主色中位
+PASS  G-H4-zero          文档=30.5     实测=30.51     容差=0.2     出货仪器零彩色占比
+PASS  G-H4-zeron         文档=202      实测=202       容差=0.5     零彩色张数
+PASS  G-H4-cov           文档=66.3     实测=66.31     容差=0.2     出货仪器 ≤4 覆盖率
+PASS  G-H4-covn          文档=439      实测=439       容差=0.5     ≤4 覆盖张数
+PASS  G-H4-rmed          文档=3        实测=3         容差=0.5     侦察仪器主色中位
+PASS  G-H4-rzero         文档=19.5     实测=19.49     容差=0.2     侦察仪器零彩色占比
+PASS  G-H4-rcov          文档=58.6     实测=58.61     容差=0.2     侦察仪器 ≤4 覆盖率
+PASS  G-H4-rcovn         文档=388      实测=388       容差=0.5     侦察仪器 ≤4 覆盖张数
+PASS  G-H4-ledger        文档=662      实测=662       容差=0.5     重写件 vs 入库台账逐格一致数
+PASS  G-H4-n2-n          文档=166      实测=166       容差=0.5     N-2 那一对的抽样量
+PASS  G-H4-cont-n        文档=7        实测=7         容差=0.5     连续色图的 F2 条数
+PASS  G-H4-cont-box      文档=152      实测=152       容差=0.5     连续色图的彩色箱数
+PASS  G-H4-cont-sub      文档=0.370    实测=0.37      容差=0.02    最高落选箱
+PASS  G-H4-cont-low      文档=0.689    实测=0.689     容差=0.02    入选的最低箱
+PASS  G-H4-cont-mgn      文档=0.130    实测=0.13      容差=0.02    离地板的富余
+PASS  G-H4-floor         文档=0.5      实测=0.5       容差=0.001   0.5% 地板 = f2-diagnose.py 的 FLOOR
+PASS  G-H5-strict-n      文档=6        实测=6         容差=0.5     严判据命中张数
+PASS  G-H5-eye           文档=6        实测=6         容差=0.5     人眼复核张数 = 命中张数（6/6）
+PASS  G-H5-strict        文档=0.9      实测=0.91      容差=0.02    严判据读数（下界）
+PASS  G-H5-strict-raw    文档=0.91     实测=0.91      容差=0.02    严判据读数的未舍入值
+PASS  G-H5-loose         文档=17.8     实测=17.82     容差=0.1     松判据读数（已证伪）
+PASS  G-H5-loosen        文档=118      实测=118       容差=0.5     松判据命中的张数（原被整数兜底豁免，Important-2 后必须入表）
+PASS  G-H6-pie-n         文档=0        实测=0         容差=0.5     判断层饼图张数
+PASS  G-H6-pie-pct       文档=0.0      实测=0         容差=0.2     判断层饼图占比
+PASS  G-H7-3d            文档=9.2      实测=9.17      容差=0.1     判断层 3D 读数
+PASS  G-H7-3dn           文档=11       实测=11        容差=0.5     判断层 3D 张数
+PASS  G-H7-cap           文档=2.1      实测=2.11      容差=0.1     图注口径 3D 读数
+PASS  G-H7-capn          文档=14       实测=14        容差=0.5     图注口径 3D 张数
+PASS  G-H8-mp            文档=50.8     实测=50.83     容差=0.1     判断层多面板占比
+PASS  G-H8-mp-n          文档=61       实测=61        容差=0.5     判断层多面板张数
+PASS  G-H8-pixel         文档=92.3     实测=92.3      容差=0.2     像素判据多面板读数
+PASS  G-H8-pixel-n       文档=611      实测=611       容差=0.5     像素判据多面板张数
+PASS  G-H8-agree         文档=55.8     实测=55.83     容差=0.1     两判据一致率
+PASS  G-H8-agree-n       文档=67       实测=67        容差=0.5     两判据一致张数
+PASS  G-H9-lv1           文档=12       实测=12        容差=0       两级词数：>12 = 违反（== CAP_MAX）
+PASS  G-H9-lv2           文档=17       实测=17        容差=0       两级词数：>17 = 严重违反（== CAP_HARD）
+PASS  G-H9-cutp          文档=100.0    实测=100       容差=0.1     标签可切出占比
+PASS  G-H9-cutn          文档=662      实测=662       容差=0.5     可切出条数
+PASS  G-H9-ascii         文档=86.4     实测=86.4      容差=0.2     ASCII 冒号占比
+PASS  G-H9-asciin        文档=572      实测=572       容差=0.5     ASCII 冒号条数
+PASS  G-H9-f3a           文档=86.25    实测=86.25     容差=0.2     出货 F3a 严格匹配率
+PASS  G-H9-f3an          文档=571      实测=571       容差=0.5     出货 F3a 匹配条数
+PASS  G-H9-wmed          文档=5        实测=5         容差=0.5     正文词数中位
+PASS  G-H9-w25           文档=3        实测=3         容差=0.5     正文词数 p25
+PASS  G-H9-w75           文档=7        实测=7         容差=0.5     正文词数 p75
+PASS  G-H9-wmax          文档=12       实测=12        容差=0.5     词数上限 = p95
+PASS  G-H9-whard         文档=17       实测=17        容差=0.5     词数上界 = max
+PASS  G-H9-const-max     文档=12       实测=12        容差=0       文档的 12 必须 == 出货常量 CAP_MAX
+PASS  G-H9-const-hard    文档=17       实测=17        容差=0       文档的 17 必须 == 出货常量 CAP_HARD
+PASS  G-H9-noper         文档=94.56    实测=94.56     容差=0.2     句末无句号占比
+PASS  G-H9-nopern        文档=626      实测=626       容差=0.5     句末无句号条数
+PASS  G-H9-empty         文档=17       实测=17        容差=0.5     空图注张数
+PASS  G-H9-emptyf3d      文档=15       实测=15        容差=0.5     空图注里被 F3d 抓到的张数
+PASS  G-H9-doc873        文档=87.3     实测=87.31     容差=0.2     设计稿 87.3% 的真口径 = 「ASCII 冒号**或**句点」（Important-4 修复）
+PASS  G-H9-578           文档=578      实测=578       容差=0.5     更宽口径的条数（572 冒号 + 6 句点）
+PASS  G-H9-6             文档=6        实测=6         容差=0.5     差出来的那几条 = 写成 `Figure N.` 的（正是 F3a 会抓的）
+PASS  G-H11-legend       文档=15.8     实测=15.83     容差=0.1     图例判据一致率（已证废）
+PASS  G-H11-legendn      文档=19       实测=19        容差=0.5     图例一致张数
+PASS  G-H11-grid         文档=27.3     实测=27.34     容差=0.2     网格判据读数
+PASS  G-H11-gridn        文档=181      实测=181       容差=0.5     网格判据命中张数
+PASS  G-H12-scale-lo     文档=0.8      实测=0.8       容差=0       〔社区〕字号下限 0.8×——**无实测可依**，这里只钉'文档 == 登记常量'（复审 N-8）
+PASS  G-H12-scale-hi     文档=1.0      实测=1         容差=0       〔社区〕字号上限 1.0×——同上
+PASS  G-H12-minpt        文档=7        实测=7         容差=0       〔社区〕字号下限 ≥7 pt——同上（原被整数兜底豁免，Important-2 后必须入表）
+PASS  G-H12-min          文档=1.54     实测=1.54      容差=0.02    连通域反推字号 min
+PASS  G-H12-max          文档=11.31    实测=11.31     容差=0.02    连通域反推字号 max
+PASS  G-H12-n            文档=40       实测=40        容差=0.5     d9 台账可用张数
+PASS  G-H13-band         文档=74.5     实测=74.47     容差=0.2     参照分布自身的合规率（H13 的反例）
+PASS  G-P-H2b-max        文档=7.19     实测=7.19      容差=0.01    P-H2-b 散文里的右尾 max（均值被它拉高）
+PASS  G-P-H2b-gap        文档=0.088    实测=0.0882    容差=0.001   P-H2-b 散文里的『均值 − 中位』差
+------------------------------------------------------------------------------
+结构守卫（chart-types.md 的形状；S4 是**读数条**，不参与判词——除非 chart-types.md 读不出，那时它随其余结构守卫一起记红）
+PASS  S1                 入口标题 9 个（应 9）· 缺 无 · 重名 0
+PASS  S2                 四段齐全的入口 9/9
+PASS  S3                 radar 定义行：『**radar chart**: 多个变量摊成等角轴、连成多边形 —— **低频**：获奖样本里属罕见选…』带『低频』
+READ  S4                 定义行 42 · 不同名 42 · 重名 无（读数条：不参与 PASS/FAIL，重名由人看一眼）
+PASS  S5                 小数出现 2 处（不同值 ['0.0', '9.2']）· 与所属 H 条目不同值者 无 · 无所属 `H<n>` 者 无
+------------------------------------------------------------------------------
+SKILL.md 守卫（短契约：行数 < 上界 / 指针 / 不复述规范数值（ASCII + 中文数词） / 九入口（含决策树表） / 数字声明 / 点名拟建的存否 / 五段+输出契约三件套 / 逐条验证行）
+PASS  K1                 行数 82（上限：<150）
+PASS  K2                 指针 `references/house-style.md` 出现 2 处（必须 ≥1；只写 `house-style.md` 不算）
+PASS  K3                 禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K4                 入口名缺 无（契约 9 个，全部出现）· 决策树表 9 行
+PASS  K5                 声明行 1 行（含『结构性计数』）· 声明到的数 ['9']（白名单只许 [9]，多出 无）· 入口数 9 已在声明里 · 决策树表 9 行（应 9）· 未声明的数 无
+PASS  K6                 点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（不存在·标了〔拟建〕） · 标记与事实不符的 无
+PASS  K7                 五段标题缺 无（共 5 段）· 输出契约段内三件套缺 无
+PASS  K8                 `### H<n>.` 条目 13 个 · 没有恰一行『**验证**：』的 无
+------------------------------------------------------------------------------
+provenance 复跑（命令按文档原样起子进程，cwd = 仓根）
+PASS  P-H1-a       文档=0.797 命令=0.7974 容差=0.02（h1_p25）
+PASS  P-H1-b       文档=0.951 命令=0.9513 容差=0.02（h1_med）
+PASS  P-H1-c       文档=1.189 命令=1.1894 容差=0.02（h1_max）
+PASS  P-H1-d       文档=74.47 命令=74.4700 容差=0.2（h1_band_pct）
+PASS  P-H1-e       文档=25.53 命令=25.5300 容差=0.2（h1_below_pct）
+PASS  P-H2-a       文档=6.3099 命令=6.3099 容差=0.02（h2_colw_p90_median）
+PASS  P-H2-b       文档=6.3981 命令=6.3981 容差=0.02（h2_colw_p90_mean）
+PASS  P-H2-c       文档=56.65 命令=56.6500 容差=0.2（h2_fork_global_pct）
+PASS  P-H2-d       文档=59.37 命令=59.3700 容差=0.2（h2_fork_perpaper_pct）
+PASS  P-H3-a       文档=98.04 命令=98.0400 容差=0.2（h3_land_pct）
+PASS  P-H3-b       文档=2.0856 命令=2.0856 容差=0.02（h3_aspect_med）
+PASS  P-H3-c       文档=53.47 命令=53.4700 容差=0.2（h3_ge2_pct）
+PASS  P-H3-d       文档=2.625 命令=2.6250 容差=0.02（h3_h_med）
+PASS  P-H3-e       文档=1.96 命令=1.9600 容差=0.2（h3_below1_pct）
+PASS  P-H4-a       文档=2 命令=2.0000 容差=0.5（color_median）
+PASS  P-H4-b       文档=30.51 命令=30.5100 容差=0.2（color_zero_pct）
+PASS  P-H4-c       文档=66.31 命令=66.3100 容差=0.2（color_cov4_pct）
+PASS  P-H4-d       文档=3 命令=3.0000 容差=0.5（recon_median）
+PASS  P-H4-e       文档=19.49 命令=19.4900 容差=0.2（recon_zero_pct）
+PASS  P-H4-f       文档=58.61 命令=58.6100 容差=0.2（recon_cov4_pct）
+PASS  P-H4-g       文档=57.23 命令=57.2300 容差=0.2（recon_baseline_minw_s166_cov4_pct）
+PASS  P-H4-h       文档=7 命令=7 容差=0.5（f2_r2_counted）
+PASS  P-H4-h2      文档=72.81 命令=72.8100 容差=0.2（cont_gate_pct）
+PASS  P-H5-a       文档=6 命令=6 容差=0.5（tab10_strict_n）
+PASS  P-H5-b       文档=0.91 命令=0.9100 容差=0.02（tab10_strict_pct）
+PASS  P-H5-c       文档=17.82 命令=17.8200 容差=0.1（tab10_loose_pct）
+PASS  P-C-a        文档=0 命令=0 容差=0.5（judge_pie_n）
+PASS  P-C-b1       文档=9.17 命令=9.1700 容差=0.1（judge_3d_pct）
+PASS  P-C-b2       文档=2.11 命令=2.1100 容差=0.1（caption_3d_pct）
+PASS  P-C-c1       文档=50.83 命令=50.8300 容差=0.1（judge_mp_pct）
+PASS  P-C-c2       文档=92.3 命令=92.3000 容差=0.2（pixel_mp_pct）
+PASS  P-C-c3       文档=55.83 命令=55.8300 容差=0.1（mp_agree_pct）
+PASS  P-C-d        文档=15.83 命令=15.8300 容差=0.1（legend_agree_pct）
+PASS  P-C-e        文档=27.34 命令=27.3400 容差=0.2（grid_reading_pct）
+PASS  P-D-a        文档=100.0 命令=100.0000 容差=0.1（cap_cut_pct）
+PASS  P-D-b        文档=86.4 命令=86.4000 容差=0.2（cap_ascii_colon_pct）
+PASS  P-D-c1       文档=5 命令=5.0000 容差=0.5（cap_words_med）
+PASS  P-D-c2       文档=12 命令=12.0000 容差=0.5（cap_words_p95）
+PASS  P-D-c3       文档=17 命令=17.0000 容差=0.5（cap_words_max）
+PASS  P-D-d        文档=94.56 命令=94.5600 容差=0.2（cap_noperiod_pct）
+PASS  P-D-e        文档=17 命令=17 容差=0.5（cap_empty_n）
+PASS  P-E-a1       文档=1.54 命令=1.5400 容差=0.02（font_est_pt_min）
+PASS  P-E-a2       文档=11.31 命令=11.3100 容差=0.02（font_est_pt_max）
+PASS  P-E-b        无数条目：数='无（**本条不给数**）' 命令='无——**本样本量不到*'（两者必须同时以『无』开头）
+PASS  P-F-a        文档=2 命令=2 容差=0.5（probe_pages）
+PASS  P-G-a        文档=662 命令=662 容差=0.5（cap_n）
+PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+------------------------------------------------------------------------------
+CENSUS  house-style.md 数字 323 个 · 守卫覆盖片段 148 段 · 重复读数 89 个 · 上下文豁免 48 个 · 未入理由表 0 个
+
+守卫 162 条（其中结构守卫 4 条 · SKILL 守卫 8 条） · provenance 46 条 · 总 208 条
+RESULT: PASS
+[exit=0]
+
+==============================================================================
+§2  规范数守卫：只跑报告点名的那些（H1 / H3 / H4 / H9 / H12 / P-H2-b）
+==============================================================================
+$ python tests/skills/figure-choose/check-house-style.py --only G-H1-lo G-H1-hi G-H1-med G-H4-max G-H4-med G-H4-zero G-H4-cov G-H4-n2pair-lo G-H4-n2lo G-H4-gate-pct G-H4-gate-box G-H4-heat-old G-H4-ex2-sub G-H3-s120-lo G-H3-908 G-H9-ascii G-H9-wmax G-H9-whard G-H9-doc873 G-H9-578 G-P-H2b-max G-P-H2b-gap G-H12-minpt G-H12-scale-lo
+PASS  G-H1-lo            文档=0.80     实测=0.7974    容差=0.02    下限 = p25
+PASS  G-H1-hi            文档=1.20     实测=1.1894    容差=0.02    上限 = max
+PASS  G-H1-med           文档=0.951    实测=0.9513    容差=0.02    比值中位
+PASS  G-H3-s120-lo       文档=2.24     实测=2.2447    容差=0.01    908 池里 120 张抽样的宽高比中位**下界**（2.42 不可复跑的证据）
+PASS  G-H3-908           文档=908      实测=908       容差=0.5     2.42 那次抽样的池子 = 908 张（662 图 + 246 表）
+PASS  G-H4-n2pair-lo     文档=57.2     实测=57.23     容差=0.2     N-2 那一对的 57.2%——baseline §7 转写口径在 166 抽样上，**可复现**
+PASS  G-H4-n2lo          文档=51.81    实测=51.81     容差=0.2     转写口径在 **662** 图上的 ≤4 覆盖率（原记的 48.79 不实，真值在此）
+PASS  G-H4-gate-box      文档=100      实测=100       容差=0       新闸门：箱数下限（== CONT_BOX_MIN）
+PASS  G-H4-heat-old      文档=5        实测=5         容差=0.5     旧闸门在 heatmap 样本上的命中数
+PASS  G-H4-ex2-sub       文档=0.094    实测=0.094     容差=0.002   漏检典型 #2 的最高落选箱（< R1 的 0.127%）
+PASS  G-H4-max           文档=4        实测=4         容差=0       文档的 ≤4 必须 == 出货常量 F2_MAX
+PASS  G-H4-med           文档=2        实测=2         容差=0.5     出货仪器主色中位
+PASS  G-H4-zero          文档=30.5     实测=30.51     容差=0.2     出货仪器零彩色占比
+PASS  G-H4-cov           文档=66.3     实测=66.31     容差=0.2     出货仪器 ≤4 覆盖率
+PASS  G-H9-ascii         文档=86.4     实测=86.4      容差=0.2     ASCII 冒号占比
+PASS  G-H9-wmax          文档=12       实测=12        容差=0.5     词数上限 = p95
+PASS  G-H9-whard         文档=17       实测=17        容差=0.5     词数上界 = max
+PASS  G-H9-doc873        文档=87.3     实测=87.31     容差=0.2     设计稿 87.3% 的真口径 = 「ASCII 冒号**或**句点」（Important-4 修复）
+PASS  G-H9-578           文档=578      实测=578       容差=0.5     更宽口径的条数（572 冒号 + 6 句点）
+PASS  G-H12-scale-lo     文档=0.8      实测=0.8       容差=0       〔社区〕字号下限 0.8×——**无实测可依**，这里只钉'文档 == 登记常量'（复审 N-8）
+PASS  G-H12-minpt        文档=7        实测=7         容差=0       〔社区〕字号下限 ≥7 pt——同上（原被整数兜底豁免，Important-2 后必须入表）
+PASS  G-P-H2b-max        文档=7.19     实测=7.19      容差=0.01    P-H2-b 散文里的右尾 max（均值被它拉高）
+PASS  G-P-H2b-gap        文档=0.088    实测=0.0882    容差=0.001   P-H2-b 散文里的『均值 − 中位』差
+PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+
+守卫 23 条（其中结构守卫 0 条 · SKILL 守卫 0 条） · provenance 0 条 · 总 23 条
+RESULT: PASS
+[exit=0]
+
+==============================================================================
+§3  变异驱动器（一条命令跑全部）：python tests/skills/figure-choose/mutate-figure-style.py
+==============================================================================
+$ python tests/skills/figure-choose/mutate-figure-style.py
+==============================================================================
+变异驱动器 · check-figure-style.py
+==============================================================================
+原检查器 blob  7636902a868aeca105e6b75b7dc616816fce95fe
+逐格验收基线  python fixtures/run-expected.py → exit 0
+
+==============================================================================
+逐条结果
+==============================================================================
+RED-OK   M1   F1_HI 1.20 → 0.90
+         ok-01 F1 PASS→FAIL（比值 0.951 > 0.90）；ok-02 F1 PASS→PASS（0.808 ≤ 0.90，不受影响）
+RED-OK   M2   F1_LO/F1_HI 互换（区间空）
+         ok-01.png PASS→FAIL；ok-02.png PASS→FAIL；ok-03.png PASS→FAIL；bad-f1-too-narrow.png FAIL→FAIL；bad-f1-too-wide.png FAIL→FAIL
+RED-OK   M3   PNG 无 --dpi 时不再 fail-closed，改成默认 200 硬着头皮判
+         原检查器 exit=2 拒绝判（'RESULT:' 未打印；stderr 'FAIL F1: PNG 需要显式 --dpi（PNG 的 dpi 元信息不可信'）；变异体 exit=0 印出判词（'RESULT: PASS'）⇒ 守卫被拆掉
+RED-OK   M4   F2 噪声地板 0.005 → 0.0
+         ok-04 F2 PASS→FAIL（4 主色 + 0.292% 稀有彩：读数 4 → 5）；ok-02 F2 PASS→PASS；bad-f2 F2 FAIL→FAIL　NOTE/原 6 张 fixture 上此变异读数全等：ok-01.png PASS→PASS；ok-02.png PASS→PASS；ok-03.png PASS→PASS；bad-f1-too-narrow.png PASS→PASS；bad-f1-too-wide.png PASS→PASS；bad-f2-five-colors.png FAIL→FAIL
+RED-OK   M5   CAP_MAX 12 → 99（CAP_HARD 17 不动）
+         caption:5（整条 15 / 正文 13 词）F3b FAIL→PASS；NOTE/caption:2（整条 24 / 正文 22 词）F3b FAIL→FAIL（超正文硬上限 17，CAP_MAX 抬高也翻不了）
+RED-OK   M6   F3c 判定取反
+         caption:1 F3c PASS→FAIL（合格图注转红）；caption:3 F3c FAIL→PASS（句末句号转绿）
+RED-OK   M7   F2 的 PDF 栅格化分支整段删掉（退回 Image.open 读 PDF）
+         ok-05.pdf F2 原检查器 exit=0 判词 PASS；变异体 exit=2 无判词（stderr 'FAIL: 读不出图 fixtures\ok-05.pdf（UnidentifiedIm'）⇒ 该分支承重；PNG 侧 ok-01 F2 PASS→PASS（不受影响）
+RED-OK   M8   F3a 判定取反
+         caption:1 F3a PASS→FAIL（合格前缀转红）；caption:6 F3a FAIL→PASS（'Figure 6 Model structure' 缺冒号，转绿）
+RED-OK   M42  F3b 词数口径由**正文**换回**整条**（`len(body.split())` → `len(cap.split())`）
+         caption:7（整条 13 词 / 正文 11 词）F3b PASS→FAIL（口径换回整条 ⇒ 越线 1 词）；NOTE/caption:5（整条 15 / 正文 13）F3b FAIL→FAIL（两口径同判红 ⇒ 它证不了口径，故口径锚另立 caption:7）
+------------------------------------------------------------------------------
+变异探针（被打的不是判据，是验收脚本的 ERROR 分支）
+RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR 且整轮非零退出
+         干净一遍 exit=0 'MISMATCH 0 / 21'；对变异体一遍 exit=1 'MISMATCH 0 / 21  ERROR 1'（1 行 ERROR）　NOTE/同一行：原检查器 exit=1 判词 F2=FAIL；变异体 exit=2 stdout 空 ⇒ 旧版谓词会记 got=FAIL（= want ⇒ 记 OK，整轮报 MISMATCH 0 假绿）；新版记 ERROR 且 exit≠0
+
+==============================================================================
+还原自证
+==============================================================================
+  check-figure-style.py  blob  7636902a868aeca105e6b75b7dc616816fce95fe  == 变异前
+  工作树字节 == 变异前字节: True
+  fixtures/_mut/ 已清空: True
+  还原后复跑逐格验收: exit=0  MISMATCH 0 / 21
+
+==============================================================================
+规范数守卫的变异（M9–M19 + C1/C2 · 打的是 house-style.md / provenance.md，共 13 条）
+==============================================================================
+RED-OK   M9   house-style.md 里 H1 的上限 1.20 → 9.99
+         house-style.md 里 H1 的上限 1.20 → 9.99　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H1-hi=FAIL
+RED-OK   M10  house-style.md 里 H9 的词数上限 12 → 3
+         house-style.md 里 H9 的词数上限 12 → 3　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H9-wmax=FAIL、G-H9-const-max=FAIL
+RED-OK   M11  删掉 H4 那一行（主色中位那条依据）
+         删掉 H4 那一行（主色中位那条依据）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H4-med=FAIL、G-H4-zero=FAIL、G-H4-cov=FAIL
+RED-OK   M12  provenance.md 里 P-H2-a 的复跑命令把分母口径从 p90 改成 mean
+         provenance.md 里 P-H2-a 的复跑命令把分母口径从 p90 改成 mean　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 P-H2-a=FAIL
+RED-OK   M13  H4 把 662 图上的转写口径读数 51.81 改回**已被证伪的 48.79**（Critical-1 的回归位）
+         H4 把 662 图上的转写口径读数 51.81 改回**已被证伪的 48.79**（Critical-1 的回归位）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H4-n2lo=FAIL
+RED-OK   M14  H4 连续色图闸门的箱数下限 ≥100 → ≥20（退回形同虚设的那条腿）
+         H4 连续色图闸门的箱数下限 ≥100 → ≥20（退回形同虚设的那条腿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H4-gate-box=FAIL
+RED-OK   M15  H4 旧闸门在 heatmap 样本上的命中数 5/13 → 9/13（漏检证据被改坏）
+         H4 旧闸门在 heatmap 样本上的命中数 5/13 → 9/13（漏检证据被改坏）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H4-heat-old=FAIL
+RED-OK   M16  H3 的 120 抽样中位区间 2.24–2.42 → 2.14–2.42（N-5 的回归位）
+         H3 的 120 抽样中位区间 2.24–2.42 → 2.14–2.42（N-5 的回归位）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H3-s120-lo=FAIL
+RED-OK   M17  H9 的宽口径条数 578 → 572（Important-4 的回归位）
+         H9 的宽口径条数 578 → 572（Important-4 的回归位）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H9-578=FAIL
+RED-OK   M18  provenance.md P-H2-b 散文里的右尾 max 7.19 → 8.19（N-7：散文数也要守）
+         provenance.md P-H2-b 散文里的右尾 max 7.19 → 8.19（N-7：散文数也要守）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-P-H2b-max=FAIL
+RED-OK   M19  H12 的〔社区〕字号下限 ≥7 pt → ≥6 pt（N-8：社区值也不能被静默改掉）
+         H12 的〔社区〕字号下限 ≥7 pt → ≥6 pt（N-8：社区值也不能被静默改掉）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 G-H12-minpt=FAIL
+RED-OK   C1   往 house-style.md 末尾**加一句带整数的话**（『共 37 条断言，其中 6 条为社区条目。』）
+         前置(原件) exit=0 『未入理由表 0 个』；后置(改坏) exit=1 未入理由表 1 个 ⇒ CENSUS 当场点了出来
+RED-OK   C2   把仪器实现常量 `quantize(32, MEDIANCUT)` 改成 `quantize(99, MEDIANCUT)`（上下文豁免表不能是万能兜底）
+         前置(原件) exit=0 『未入理由表 0 个』；后置(改坏) exit=1 未入理由表 1 个 ⇒ CENSUS 当场点了出来
+
+==============================================================================
+结构守卫的变异（M22–M28 · 打的是 chart-types.md，共 7 条） + 读数条探针 R1
+==============================================================================
+RED-OK   M22  chart-types.md：入口 9 由『不确定性』**改名**（九个入口少一个）
+         chart-types.md：入口 9 由『不确定性』**改名**（九个入口少一个）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S1=FAIL
+RED-OK   M23  chart-types.md：删掉入口 1 的『**备选**』那一段（四段少一段）
+         chart-types.md：删掉入口 1 的『**备选**』那一段（四段少一段）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S2=FAIL
+RED-OK   M24  chart-types.md：删掉 **radar 定义行**上的『低频』标注
+         chart-types.md：删掉 **radar 定义行**上的『低频』标注　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S3=FAIL　NOTE/任务书给的正则（**全文**扫 `radar` × `低频`）在本变异体上仍**命中** ⇒ 那个写法会漏掉这次改坏；本实现只扫 **radar 定义行** ⇒ 红
+RED-OK   M25  chart-types.md：3D 那条参照分布数 9.2% → 9.3%（与 house-style 不同值）
+         chart-types.md：3D 那条参照分布数 9.2% → 9.3%（与 house-style 不同值）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S5=FAIL
+RED-OK   M26  chart-types.md：两个小数**都**写成中文数字 ⇒ 一个实测数都抽不到（fail-closed 该红）
+         chart-types.md：两个小数**都**写成中文数字 ⇒ 一个实测数都抽不到（fail-closed 该红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S5=FAIL
+RED-OK   M27  chart-types.md：写进一个**池内但无所属**的数 `1.20`（H1 的上限，旧池子里有它）
+         chart-types.md：写进一个**池内但无所属**的数 `1.20`（H1 的上限，旧池子里有它）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S5=FAIL　NOTE/`1.20` 在**旧池子**（125 个数）里: True ⇒ 旧写法**判绿、漏掉这次改坏**；新写法：该行**没有任何 `H<n>` 引用** ⇒ 无所属 ⇒ 红（fail-closed）
+RED-OK   M28  chart-types.md：H7 那条的数 `9.2` 换成 `0.5`（H4 的地板，**池内但语义不同**）
+         chart-types.md：H7 那条的数 `9.2` 换成 `0.5`（H4 的地板，**池内但语义不同**）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 S5=FAIL　NOTE/`0.5` 在**旧池子**（125 个数）里: True ⇒ 旧写法**判绿、漏掉这次改坏**；`H7` 条目的数 ['1.8', '2.1', '7.2', '9.2'] 里**没有它** ⇒ 新写法红（跨条目搬数）
+------------------------------------------------------------------------------
+RED-OK   R1   读数条 `S4`：该动的时候动、该判的时候不判
+         原件 `--only S4` exit=0 『定义行 42 · 不同名 42 · 重名 无（读数条：不参与 PASS/FAIL，重名由人看一眼）』（无 PASS/FAIL 判词）　把 `bar chart` 定义复制一份后 exit=0 『['bar chart']』⇒ 读数从 42 行涨到 43 行、重名被点出，而 **rc 仍为 0**（读数条只读不判；一个判据做不到这点）
+
+==============================================================================
+SKILL 守卫的变异（M29–M41 · 打的是 SKILL.md 的副本；M34/M41 打的是 house-style.md 的副本、M40 换 skills 根，共 13 条）
+==============================================================================
+RED-OK   M29  SKILL.md：写进一条规范数值『图宽用满 0.951×正文宽』⇒ 重述规范（`K3` 与 `K5` 都红）
+         SKILL.md：写进一条规范数值『图宽用满 0.951×正文宽』⇒ 重述规范（`K3` 与 `K5` 都红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL、K5=FAIL　NOTE/`0.951` 在 `house-style.md` 里出现: True ⇒ `K3`（现取禁止串）红；`K5`（除 `H<n>` 外每个数都要被声明为结构性计数）与禁止串表无关 —— 这个数没被声明就红（本次即红，故两条是**两道不同的闸**，不是同一条判两遍）
+RED-OK   M30  SKILL.md：指针行删掉、别处只留裸文件名 ⇒ `K2` 红（宽松谓词会漏，见 NOTE）
+         SKILL.md：指针行删掉、别处只留裸文件名 ⇒ `K2` 红（宽松谓词会漏，见 NOTE）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K2=FAIL　NOTE/任务书那条宽松谓词（路径**或**裸文件名任一即可）在本变异体上仍**命中** ⇒ 那个写法会漏掉这次改坏；本实现要求 `references/house-style.md` 这个**相对路径** ⇒ 红
+RED-OK   M31  SKILL.md：把文件撑到 151 行 ⇒ `K1` 红（短契约上限 <150）
+         SKILL.md：把文件撑到 151 行 ⇒ `K1` 红（短契约上限 <150）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K1=FAIL
+RED-OK   M32  SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）
+         SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K4=FAIL
+RED-OK   M33  SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名即错）
+         SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名即错）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K6=FAIL
+RED-OK   M35  SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红（原先整句走绿，见 Important-1）
+         SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红（原先整句走绿，见 Important-1）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL
+RED-OK   M36  SKILL.md：写进『图宽不超过一倍正文宽』⇒ `K3` 红（**单位词臂**单独在红，见 NOTE）
+         SKILL.md：写进『图宽不超过一倍正文宽』⇒ `K3` 红（**单位词臂**单独在红，见 NOTE）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同一副本上 `K3` 印出的『裸值词』= ['七', '二十', '十七', '十二', '四']（下界 ≥4）、『中文命中』= ['一倍'] ⇒ 插入串里的 `一` **不在裸值词里**（1 < 下界），这条红的是**单位词臂**（`倍` 是 `×` 的中文写法）—— 两条臂各管一段，只留一条就会漏掉这一半
+RED-OK   M37  SKILL.md：把 `4`（H4 的规范值）写进**声明行** ⇒ `K5` 红（声明行只许出现契约数）
+         SKILL.md：把 `4`（H4 的规范值）写进**声明行** ⇒ `K5` 红（声明行只许出现契约数）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K5=FAIL
+RED-OK   M38  SKILL.md：删掉「输出契约」整段 ⇒ `K7` 红（该段原先没有任何机械存在性守卫）
+         SKILL.md：删掉「输出契约」整段 ⇒ `K7` 红（该段原先没有任何机械存在性守卫）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K7=FAIL　NOTE/同一副本上 `K1`–`K6` 现跑 exit=0『RESULT: PASS』 ⇒ 这六条**一条都不红**（删掉整段不违反它们中的任何一条）—— `K7` 是这段唯一的机械守卫
+RED-OK   M39  SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（旧写法不会红）
+         SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（旧写法不会红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K4=FAIL、K5=FAIL
+RED-OK   M34  house-style.md：小数字面量与 `≤n` 全抹掉 ⇒ `K3` 抽不到禁止串 ⇒ fail-closed 红
+         前置(真件) exit=0 K3 绿；后置(副本抹掉小数与 `≤n`) exit=1 『禁止串 0 条（现取）· 命中 无 ⇒ **一条都抽不到 ⇒ fail-closed 记红** · 中文数词臂：裸值词 ['七', '二十', '十七', '十二']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无』（副本里剩下的禁止串 0 条）
+RED-OK   M40  SKILL.md：`--skills-root` 指到**真有** `mcm-plot-python` 的临时根 ⇒ `K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）
+         前置(真 skills 根) exit=0 K6 绿；后置(临时根里真有 mcm-plot-python) exit=1 『点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·标了〔拟建〕⇒**标记与事实不符**） · 标记与事实不符的 ['mcm-plot-python']』
+RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红（`SKILL.md` 那句『逐条标了验证状态』要成立）
+         前置(真件) exit=0 K8 绿；后置(副本抹掉 `H1` 的验证行) exit=1 『`### H<n>.` 条目 13 个 · 没有恰一行『**验证**：』的 ['H1（0 行）']』
+还原自证  house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 4b8eed1d5c51cdd2feaea27db719b4c4ab65815d · SKILL.md blob dca464475e6f7199c72e1bf7492296868530db3e · 原件字面仍在: True · _mut-house/ 已清空: True
+
+==============================================================================
+合计
+==============================================================================
+MUT: 9/9 红（check-figure-style.py）
+MUT: 13/13 红（house-style.md / provenance.md 的规范数守卫：11 条 `--only` + 2 条 CENSUS 全跑）
+MUT: 7/7 红（chart-types.md 的结构守卫 S1/S2/S3/S5：7 条 `--only`）
+MUT: 13/13 红（SKILL.md 的短契约守卫 K1–K8：13 条（10 条打 SKILL.md 副本 + 3 条打别的：`K3` fail-closed 臂 / `K6` 反向臂 / `K8`））
+MUT: 42/42 红（合计）
+探针 P1: 红（check-figure-style.py 的脚本探针）
+探针 R1: 红（读数条 S4 的『该动的时候动、该判的时候不判』）
+（本驱动器共 9 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 1 条读数条探针）
+[exit=0]
+
+==============================================================================
+§4  provenance 里每条复跑命令**按文档原样**跑一遍（逐字命令 + 输出）
+==============================================================================
+（下面每一行都是 `provenance.md` 的 `复跑命令:` 原文，可直接粘进 bash；cwd = 仓根）
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h1_p25
+h1_p25 = 0.7974
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h1_med
+h1_med = 0.9513
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h1_max
+h1_max = 1.1894
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h1_band_pct
+h1_band_pct = 74.4700
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h1_below_pct
+h1_below_pct = 25.5300
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h2_colw_p90_median
+h2_colw_p90_median = 6.3099
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h2_colw_p90_mean
+h2_colw_p90_mean = 6.3981
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h2_fork_global_pct
+h2_fork_global_pct = 56.6500
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h2_fork_perpaper_pct
+h2_fork_perpaper_pct = 59.3700
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h3_land_pct
+h3_land_pct = 98.0400
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h3_aspect_med
+h3_aspect_med = 2.0856
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h3_ge2_pct
+h3_ge2_pct = 53.4700
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h3_h_med
+h3_h_med = 2.6250
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric h3_below1_pct
+h3_below1_pct = 1.9600
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric color_median
+color_median = 2.0000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric color_zero_pct
+color_zero_pct = 30.5100
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric color_cov4_pct
+color_cov4_pct = 66.3100
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric recon_median
+recon_median = 3.0000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric recon_zero_pct
+recon_zero_pct = 19.4900
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric recon_cov4_pct
+recon_cov4_pct = 58.6100
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric recon_baseline_minw_s166_cov4_pct
+recon_baseline_minw_s166_cov4_pct = 57.2300
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric f2_r2_counted
+f2_r2_counted = 7
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cont_gate_pct
+cont_gate_pct = 72.8100
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric tab10_strict_n
+tab10_strict_n = 6
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric tab10_strict_pct
+tab10_strict_pct = 0.9100
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric tab10_loose_pct
+tab10_loose_pct = 17.8200
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric judge_pie_n
+judge_pie_n = 0
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric judge_3d_pct
+judge_3d_pct = 9.1700
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric caption_3d_pct
+caption_3d_pct = 2.1100
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric judge_mp_pct
+judge_mp_pct = 50.8300
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric pixel_mp_pct
+pixel_mp_pct = 92.3000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric mp_agree_pct
+mp_agree_pct = 55.8300
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric legend_agree_pct
+legend_agree_pct = 15.8300
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric grid_reading_pct
+grid_reading_pct = 27.3400
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cap_cut_pct
+cap_cut_pct = 100.0000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cap_ascii_colon_pct
+cap_ascii_colon_pct = 86.4000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cap_words_med
+cap_words_med = 5.0000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cap_words_p95
+cap_words_p95 = 12.0000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cap_words_max
+cap_words_max = 17.0000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cap_noperiod_pct
+cap_noperiod_pct = 94.5600
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cap_empty_n
+cap_empty_n = 17
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric font_est_pt_min
+font_est_pt_min = 1.5400
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric font_est_pt_max
+font_est_pt_max = 11.3100
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric probe_pages
+probe_pages = 2
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric cap_n
+cap_n = 662
+[exit=0]
+
+==============================================================================
+§4b  无数条目（『数: 无』 ⇔ 『复跑命令: 无』，由守卫强制）
+==============================================================================
+PASS  P-E-b  无数条目：数='无（**本条不给数**）' 命令='无——**本样本量不到**…'（两者必须同时以『无』开头；逐字见 §1）
+
+==============================================================================
+§5  第一手口径核对：一个图文件 = 一页（两页探针整份判 PASS）
+==============================================================================
+说明（修复轮 N-6）：本节原先贴的是一条**手敲的命令**（`--caption '…'` 的引号被再切一次
+⇒ exit=2、什么都没证）。整份判 PASS 这句话的真正承重件是 `house-metrics.py::probe_verdict`
+（内部按**参数列表**起子进程、不经 shell ⇒ 没有引号问题）⇒ 本节改贴**守卫读数**。
+
+$ python tests/skills/figure-choose/house-metrics.py --metric probe_verdict
+probe_verdict = PASS
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric probe_pages
+probe_pages = 2
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric probe_page1_w_in
+probe_page1_w_in = 6.3100
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric probe_page1_colors
+probe_page1_colors = 1
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric probe_page1_ratio
+probe_page1_ratio = 1.0000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric probe_page2_w_in
+probe_page2_w_in = 12.0000
+[exit=0]
+
+$ python tests/skills/figure-choose/house-metrics.py --metric probe_page2_colors
+probe_page2_colors = 6
+[exit=0]
+
+（上面 7 个读数逐条由 §1 的 `G-F0-verdict` / `G-F0-pages` / `G-F0-p1w` / `G-F0-p1c` /
+ `G-F0-p1ratio` / `G-F0-p2w` / `G-F0-p2c` 守住：`doc[0]` 的读数全绿、page2 的两项都超限，
+ 而整份仍判 PASS ⇒ 「检查器只读 doc[0]」这一实现事实由守卫钉住，不靠手敲命令。）
+
+==============================================================================
+§6  第一手口径核对：连续色图的 F2 边界（连续 R2 vs 离散 R1/R3）
+==============================================================================
+$ python tests/skills/figure-choose/red/f2-diagnose.py tests/skills/figure-choose/red/out-R2/figure.pdf tests/skills/figure-choose/red/out-R1/figure.pdf tests/skills/figure-choose/red/out-R3/figure.pdf
+=== tests/skills/figure-choose/red/out-R2/figure.pdf
+    loaded_px=1650x1260  pdf_pages=1
+    F2-relevant boxes (>= 0.5% floor): 7   => F2 FAIL
+    all chroma boxes kept (before floor): 152
+      #1  bin(12, 13, 14)  share=  2.052%  >=FLOOR
+      #2  bin(2, 4, 7)  share=  1.529%  >=FLOOR
+      #3  bin(7, 11, 13)  share=  1.072%  >=FLOOR
+      #4  bin(15, 14, 13)  share=  1.068%  >=FLOOR
+      #5  bin(15, 12, 11)  share=  0.725%  >=FLOOR
+      #6  bin(11, 13, 14)  share=  0.710%  >=FLOOR
+      #7  bin(10, 1, 2)  share=  0.689%  >=FLOOR
+      #8  bin(2, 6, 10)  share=  0.370%    below
+      #9  bin(14, 9, 7)  share=  0.369%    below
+      #10 bin(11, 1, 2)  share=  0.368%    below
+      #11 bin(0, 4, 7)  share=  0.364%    below
+      #12 bin(15, 12, 10)  share=  0.363%    below
+      #13 bin(3, 8, 11)  share=  0.359%    below
+      #14 bin(7, 0, 2)  share=  0.353%    below
+      #15 bin(9, 12, 14)  share=  0.349%    below
+      #16 bin(6, 10, 12)  share=  0.347%    below
+      #17 bin(12, 3, 3)  share=  0.345%    below
+      #18 bin(14, 8, 7)  share=  0.335%    below
+      #19 bin(5, 9, 12)  share=  0.329%    below
+      #20 bin(6, 7, 10)  share=  0.104%    below
+      #21 bin(9, 10, 12)  share=  0.084%    below
+      #22 bin(7, 8, 10)  share=  0.050%    below
+      #23 bin(12, 14, 14)  share=  0.046%    below
+      #24 bin(14, 11, 11)  share=  0.045%    below
+      #25 bin(11, 4, 2)  share=  0.044%    below
+      #26 bin(10, 11, 12)  share=  0.040%    below
+      #27 bin(10, 11, 13)  share=  0.039%    below
+      #28 bin(3, 5, 8)  share=  0.038%    below
+      #29 bin(15, 13, 12)  share=  0.033%    below
+      #30 bin(13, 14, 15)  share=  0.031%    below
+      #31 bin(5, 7, 9)  share=  0.030%    below
+      #32 bin(12, 9, 10)  share=  0.021%    below
+      #33 bin(13, 9, 10)  share=  0.020%    below
+      #34 bin(6, 7, 9)  share=  0.018%    below
+      #35 bin(8, 9, 11)  share=  0.015%    below
+      #36 bin(14, 12, 12)  share=  0.013%    below
+      #37 bin(4, 6, 8)  share=  0.013%    below
+      #38 bin(15, 11, 9)  share=  0.012%    below
+      #39 bin(15, 10, 8)  share=  0.012%    below
+      #40 bin(12, 4, 4)  share=  0.011%    below
+      #41 bin(14, 8, 6)  share=  0.010%    below
+      #42 bin(11, 4, 3)  share=  0.009%    below
+      #43 bin(13, 6, 5)  share=  0.008%    below
+      #44 bin(13, 5, 4)  share=  0.008%    below
+      #45 bin(11, 2, 3)  share=  0.008%    below
+      #46 bin(10, 13, 14)  share=  0.008%    below
+      #47 bin(9, 12, 13)  share=  0.008%    below
+      #48 bin(8, 11, 13)  share=  0.008%    below
+      #49 bin(8, 0, 2)  share=  0.008%    below
+      #50 bin(4, 9, 12)  share=  0.008%    below
+      #51 bin(2, 7, 11)  share=  0.008%    below
+      #52 bin(1, 5, 9)  share=  0.008%    below
+      #53 bin(1, 4, 8)  share=  0.008%    below
+      #54 bin(0, 3, 6)  share=  0.008%    below
+      #55 bin(12, 7, 6)  share=  0.007%    below
+      #56 bin(3, 5, 6)  share=  0.006%    below
+      #57 bin(13, 10, 10)  share=  0.005%    below
+      #58 bin(12, 10, 8)  share=  0.005%    below
+      #59 bin(15, 14, 14)  share=  0.004%    below
+      #60 bin(15, 13, 11)  share=  0.004%    below
+      #61 bin(15, 9, 7)  share=  0.004%    below
+      #62 bin(14, 7, 6)  share=  0.004%    below
+      #63 bin(13, 12, 11)  share=  0.004%    below
+      #64 bin(13, 7, 5)  share=  0.004%    below
+      #65 bin(13, 6, 4)  share=  0.004%    below
+      #66 bin(12, 8, 7)  share=  0.004%    below
+      #67 bin(11, 3, 3)  share=  0.004%    below
+      #68 bin(10, 12, 14)  share=  0.004%    below
+      #69 bin(9, 1, 2)  share=  0.004%    below
+      #70 bin(9, 0, 2)  share=  0.004%    below
+      #71 bin(6, 10, 13)  share=  0.004%    below
+      #72 bin(6, 9, 11)  share=  0.004%    below
+      #73 bin(6, 0, 1)  share=  0.004%    below
+      #74 bin(5, 10, 12)  share=  0.004%    below
+      #75 bin(3, 7, 11)  share=  0.004%    below
+      #76 bin(2, 6, 11)  share=  0.004%    below
+      #77 bin(1, 6, 10)  share=  0.004%    below
+      #78 bin(1, 5, 10)  share=  0.004%    below
+      #79 bin(0, 3, 7)  share=  0.004%    below
+      #80 bin(14, 13, 13)  share=  0.003%    below
+      #81 bin(14, 13, 12)  share=  0.003%    below
+      #82 bin(13, 10, 9)  share=  0.003%    below
+      #83 bin(13, 9, 9)  share=  0.003%    below
+      #84 bin(13, 9, 8)  share=  0.003%    below
+      #85 bin(13, 8, 6)  share=  0.003%    below
+      #86 bin(12, 8, 6)  share=  0.003%    below
+      #87 bin(12, 6, 6)  share=  0.003%    below
+      #88 bin(10, 12, 13)  share=  0.003%    below
+      #89 bin(10, 6, 5)  share=  0.003%    below
+      #90 bin(5, 8, 9)  share=  0.003%    below
+      #91 bin(14, 11, 12)  share=  0.002%    below
+      #92 bin(14, 11, 10)  share=  0.002%    below
+      #93 bin(13, 11, 12)  share=  0.002%    below
+      #94 bin(13, 8, 8)  share=  0.002%    below
+      #95 bin(12, 8, 8)  share=  0.002%    below
+      #96 bin(11, 13, 13)  share=  0.002%    below
+      #97 bin(10, 8, 7)  share=  0.002%    below
+      #98 bin(9, 6, 5)  share=  0.002%    below
+      #99 bin(8, 10, 13)  share=  0.002%    below
+      #100 bin(7, 10, 12)  share=  0.002%    below
+      #101 bin(7, 10, 11)  share=  0.002%    below
+      #102 bin(7, 6, 5)  share=  0.002%    below
+      #103 bin(6, 8, 10)  share=  0.002%    below
+      #104 bin(4, 7, 10)  share=  0.002%    below
+      #105 bin(4, 7, 8)  share=  0.002%    below
+      #106 bin(4, 5, 6)  share=  0.002%    below
+      #107 bin(2, 3, 3)  share=  0.002%    below
+      #108 bin(15, 13, 13)  share=  0.001%    below
+      #109 bin(14, 12, 11)  share=  0.001%    below
+      #110 bin(13, 11, 10)  share=  0.001%    below
+      #111 bin(12, 9, 8)  share=  0.001%    below
+      #112 bin(12, 4, 5)  share=  0.001%    below
+      #113 bin(11, 12, 13)  share=  0.001%    below
+      #114 bin(11, 11, 12)  share=  0.001%    below
+      #115 bin(11, 9, 8)  share=  0.001%    below
+      #116 bin(11, 9, 7)  share=  0.001%    below
+      #117 bin(11, 8, 9)  share=  0.001%    below
+      #118 bin(11, 5, 6)  share=  0.001%    below
+      #119 bin(11, 5, 3)  share=  0.001%    below
+      #120 bin(11, 4, 5)  share=  0.001%    below
+      #121 bin(11, 3, 5)  share=  0.001%    below
+      #122 bin(11, 3, 4)  share=  0.001%    below
+      #123 bin(10, 11, 11)  share=  0.001%    below
+      #124 bin(9, 11, 12)  share=  0.001%    below
+      #125 bin(9, 10, 11)  share=  0.001%    below
+      #126 bin(9, 7, 6)  share=  0.001%    below
+      #127 bin(8, 10, 11)  share=  0.001%    below
+      #128 bin(8, 9, 9)  share=  0.001%    below
+      #129 bin(8, 7, 6)  share=  0.001%    below
+      #130 bin(7, 9, 10)  share=  0.001%    below
+      #131 bin(7, 9, 9)  share=  0.001%    below
+      #132 bin(7, 8, 9)  share=  0.001%    below
+      #133 bin(7, 5, 5)  share=  0.001%    below
+      #134 bin(7, 4, 3)  share=  0.001%    below
+      #135 bin(6, 10, 11)  share=  0.001%    below
+      #136 bin(6, 9, 10)  share=  0.001%    below
+      #137 bin(6, 7, 8)  share=  0.001%    below
+      #138 bin(6, 5, 5)  share=  0.001%    below
+      #139 bin(5, 8, 10)  share=  0.001%    below
+      #140 bin(5, 6, 9)  share=  0.001%    below
+      #141 bin(4, 9, 11)  share=  0.001%    below
+      #142 bin(4, 6, 7)  share=  0.001%    below
+      #143 bin(4, 5, 8)  share=  0.001%    below
+      #144 bin(4, 4, 5)  share=  0.001%    below
+      #145 bin(3, 7, 10)  share=  0.001%    below
+      #146 bin(3, 5, 5)  share=  0.001%    below
+      #147 bin(3, 4, 5)  share=  0.001%    below
+      #148 bin(2, 4, 5)  share=  0.001%    below
+      #149 bin(2, 4, 4)  share=  0.001%    below
+      #150 bin(2, 3, 4)  share=  0.001%    below
+      #151 bin(1, 2, 4)  share=  0.001%    below
+      #152 bin(1, 2, 3)  share=  0.001%    below
+    boundary: highest sub-floor box = 0.370%  |  lowest counted box = 0.689%  |  floor = 0.500%
+
+=== tests/skills/figure-choose/red/out-R1/figure.pdf
+    loaded_px=1440x675  pdf_pages=1
+    F2-relevant boxes (>= 0.5% floor): 3   => F2 PASS
+    all chroma boxes kept (before floor): 78
+      #1  bin(15, 14, 10)  share=  6.370%  >=FLOOR
+      #2  bin(15, 11, 4)  share=  5.903%  >=FLOOR
+      #3  bin(15, 3, 1)  share=  3.260%  >=FLOOR
+      #4  bin(13, 4, 2)  share=  0.127%    below
+      #5  bin(13, 12, 8)  share=  0.110%    below
+      #6  bin(13, 9, 4)  share=  0.107%    below
+      #7  bin(14, 10, 4)  share=  0.082%    below
+      #8  bin(14, 13, 9)  share=  0.075%    below
+      #9  bin(12, 9, 4)  share=  0.073%    below
+      #10 bin(2, 3, 5)  share=  0.067%    below
+      #11 bin(8, 7, 5)  share=  0.059%    below
+      #12 bin(10, 9, 7)  share=  0.057%    below
+      #13 bin(12, 4, 2)  share=  0.052%    below
+      #14 bin(10, 8, 5)  share=  0.044%    below
+      #15 bin(9, 8, 7)  share=  0.034%    below
+      #16 bin(7, 6, 5)  share=  0.031%    below
+      #17 bin(12, 11, 8)  share=  0.030%    below
+      #18 bin(8, 4, 4)  share=  0.030%    below
+      #19 bin(9, 4, 3)  share=  0.027%    below
+      #20 bin(7, 5, 5)  share=  0.021%    below
+      #21 bin(13, 3, 2)  share=  0.021%    below
+      #22 bin(15, 14, 9)  share=  0.013%    below
+      #23 bin(15, 4, 2)  share=  0.012%    below
+      #24 bin(15, 3, 2)  share=  0.011%    below
+      #25 bin(15, 10, 4)  share=  0.009%    below
+      #26 bin(15, 8, 7)  share=  0.009%    below
+      #27 bin(10, 7, 4)  share=  0.009%    below
+      #28 bin(7, 7, 5)  share=  0.009%    below
+      #29 bin(15, 10, 9)  share=  0.008%    below
+      #30 bin(15, 9, 8)  share=  0.008%    below
+      #31 bin(15, 6, 5)  share=  0.008%    below
+      #32 bin(15, 5, 3)  share=  0.008%    below
+      #33 bin(11, 8, 4)  share=  0.008%    below
+      #34 bin(9, 9, 6)  share=  0.008%    below
+      #35 bin(9, 4, 4)  share=  0.008%    below
+      #36 bin(15, 13, 13)  share=  0.007%    below
+      #37 bin(15, 7, 6)  share=  0.007%    below
+      #38 bin(9, 7, 4)  share=  0.007%    below
+      #39 bin(7, 6, 4)  share=  0.006%    below
+      #40 bin(15, 5, 4)  share=  0.004%    below
+      #41 bin(11, 10, 7)  share=  0.004%    below
+      #42 bin(8, 8, 6)  share=  0.004%    below
+      #43 bin(8, 6, 4)  share=  0.004%    below
+      #44 bin(6, 5, 4)  share=  0.004%    below
+      #45 bin(15, 13, 12)  share=  0.003%    below
+      #46 bin(15, 12, 12)  share=  0.003%    below
+      #47 bin(15, 11, 10)  share=  0.003%    below
+      #48 bin(15, 10, 10)  share=  0.003%    below
+      #49 bin(12, 12, 8)  share=  0.003%    below
+      #50 bin(11, 11, 7)  share=  0.003%    below
+      #51 bin(10, 10, 7)  share=  0.003%    below
+      #52 bin(6, 5, 3)  share=  0.003%    below
+      #53 bin(5, 6, 7)  share=  0.003%    below
+      #54 bin(5, 5, 3)  share=  0.003%    below
+      #55 bin(4, 5, 6)  share=  0.003%    below
+      #56 bin(15, 12, 11)  share=  0.002%    below
+      #57 bin(15, 7, 5)  share=  0.002%    below
+      #58 bin(12, 11, 7)  share=  0.002%    below
+      #59 bin(12, 8, 4)  share=  0.002%    below
+      #60 bin(11, 4, 3)  share=  0.002%    below
+      #61 bin(10, 8, 4)  share=  0.002%    below
+      #62 bin(9, 8, 6)  share=  0.002%    below
+      #63 bin(3, 4, 5)  share=  0.002%    below
+      #64 bin(3, 3, 5)  share=  0.002%    below
+      #65 bin(15, 13, 9)  share=  0.001%    below
+      #66 bin(15, 11, 11)  share=  0.001%    below
+      #67 bin(15, 6, 4)  share=  0.001%    below
+      #68 bin(15, 4, 3)  share=  0.001%    below
+      #69 bin(13, 13, 8)  share=  0.001%    below
+      #70 bin(11, 11, 8)  share=  0.001%    below
+      #71 bin(10, 9, 6)  share=  0.001%    below
+      #72 bin(8, 5, 4)  share=  0.001%    below
+      #73 bin(7, 5, 4)  share=  0.001%    below
+      #74 bin(6, 7, 8)  share=  0.001%    below
+      #75 bin(6, 6, 5)  share=  0.001%    below
+      #76 bin(5, 5, 6)  share=  0.001%    below
+      #77 bin(5, 4, 3)  share=  0.001%    below
+      #78 bin(4, 4, 6)  share=  0.001%    below
+    boundary: highest sub-floor box = 0.127%  |  lowest counted box = 3.260%  |  floor = 0.500%
+
+=== tests/skills/figure-choose/red/out-R3/figure.pdf
+    loaded_px=1140x600  pdf_pages=1
+    F2-relevant boxes (>= 0.5% floor): 3   => F2 PASS
+    all chroma boxes kept (before floor): 93
+      #1  bin(12, 13, 14)  share=  8.586%  >=FLOOR
+      #2  bin(6, 10, 13)  share=  8.041%  >=FLOOR
+      #3  bin(0, 5, 9)  share=  4.499%  >=FLOOR
+      #4  bin(12, 3, 2)  share=  0.081%    below
+      #5  bin(1, 3, 5)  share=  0.074%    below
+      #6  bin(13, 14, 15)  share=  0.068%    below
+      #7  bin(1, 3, 4)  share=  0.066%    below
+      #8  bin(12, 14, 15)  share=  0.062%    below
+      #9  bin(11, 13, 14)  share=  0.049%    below
+      #10 bin(10, 12, 13)  share=  0.042%    below
+      #11 bin(2, 6, 10)  share=  0.034%    below
+      #12 bin(7, 11, 13)  share=  0.025%    below
+      #13 bin(12, 4, 3)  share=  0.024%    below
+      #14 bin(5, 8, 11)  share=  0.021%    below
+      #15 bin(2, 5, 7)  share=  0.018%    below
+      #16 bin(15, 13, 13)  share=  0.017%    below
+      #17 bin(12, 6, 5)  share=  0.015%    below
+      #18 bin(3, 6, 8)  share=  0.015%    below
+      #19 bin(13, 9, 8)  share=  0.013%    below
+      #20 bin(14, 11, 11)  share=  0.012%    below
+      #21 bin(8, 10, 13)  share=  0.012%    below
+      #22 bin(2, 4, 6)  share=  0.012%    below
+      #23 bin(14, 12, 12)  share=  0.011%    below
+      #24 bin(12, 5, 5)  share=  0.011%    below
+      #25 bin(11, 12, 14)  share=  0.011%    below
+      #26 bin(10, 11, 13)  share=  0.011%    below
+      #27 bin(14, 10, 10)  share=  0.010%    below
+      #28 bin(6, 8, 9)  share=  0.010%    below
+      #29 bin(4, 7, 9)  share=  0.010%    below
+      #30 bin(1, 5, 10)  share=  0.010%    below
+      #31 bin(13, 9, 9)  share=  0.009%    below
+      #32 bin(13, 8, 8)  share=  0.009%    below
+      #33 bin(13, 6, 6)  share=  0.009%    below
+      #34 bin(5, 7, 8)  share=  0.009%    below
+      #35 bin(12, 5, 4)  share=  0.008%    below
+      #36 bin(11, 12, 13)  share=  0.008%    below
+      #37 bin(8, 10, 11)  share=  0.008%    below
+      #38 bin(7, 9, 10)  share=  0.008%    below
+      #39 bin(5, 9, 11)  share=  0.008%    below
+      #40 bin(5, 6, 8)  share=  0.008%    below
+      #41 bin(4, 8, 10)  share=  0.008%    below
+      #42 bin(3, 5, 7)  share=  0.008%    below
+      #43 bin(14, 12, 11)  share=  0.007%    below
+      #44 bin(14, 11, 10)  share=  0.007%    below
+      #45 bin(9, 11, 13)  share=  0.007%    below
+      #46 bin(6, 9, 12)  share=  0.007%    below
+      #47 bin(6, 7, 9)  share=  0.007%    below
+      #48 bin(3, 5, 6)  share=  0.007%    below
+      #49 bin(9, 11, 12)  share=  0.006%    below
+      #50 bin(9, 10, 12)  share=  0.006%    below
+      #51 bin(6, 10, 12)  share=  0.006%    below
+      #52 bin(4, 6, 7)  share=  0.006%    below
+      #53 bin(14, 10, 9)  share=  0.005%    below
+      #54 bin(9, 12, 14)  share=  0.005%    below
+      #55 bin(7, 9, 12)  share=  0.005%    below
+      #56 bin(5, 9, 12)  share=  0.005%    below
+      #57 bin(13, 8, 7)  share=  0.004%    below
+      #58 bin(13, 7, 7)  share=  0.004%    below
+      #59 bin(5, 8, 10)  share=  0.004%    below
+      #60 bin(4, 7, 11)  share=  0.004%    below
+      #61 bin(4, 6, 8)  share=  0.004%    below
+      #62 bin(3, 7, 10)  share=  0.004%    below
+      #63 bin(2, 5, 6)  share=  0.004%    below
+      #64 bin(1, 6, 10)  share=  0.004%    below
+      #65 bin(8, 10, 12)  share=  0.003%    below
+      #66 bin(8, 9, 11)  share=  0.003%    below
+      #67 bin(7, 8, 10)  share=  0.003%    below
+      #68 bin(5, 7, 9)  share=  0.003%    below
+      #69 bin(4, 8, 11)  share=  0.003%    below
+      #70 bin(3, 4, 6)  share=  0.003%    below
+      #71 bin(2, 4, 5)  share=  0.003%    below
+      #72 bin(13, 7, 6)  share=  0.002%    below
+      #73 bin(10, 11, 12)  share=  0.002%    below
+      #74 bin(9, 10, 11)  share=  0.002%    below
+      #75 bin(4, 7, 10)  share=  0.002%    below
+      #76 bin(3, 7, 11)  share=  0.002%    below
+      #77 bin(3, 7, 9)  share=  0.002%    below
+      #78 bin(1, 4, 6)  share=  0.002%    below
+      #79 bin(1, 4, 5)  share=  0.002%    below
+      #80 bin(15, 14, 13)  share=  0.001%    below
+      #81 bin(14, 9, 9)  share=  0.001%    below
+      #82 bin(13, 14, 14)  share=  0.001%    below
+      #83 bin(12, 4, 4)  share=  0.001%    below
+      #84 bin(11, 7, 6)  share=  0.001%    below
+      #85 bin(10, 6, 6)  share=  0.001%    below
+      #86 bin(8, 11, 13)  share=  0.001%    below
+      #87 bin(8, 9, 10)  share=  0.001%    below
+      #88 bin(7, 8, 9)  share=  0.001%    below
+      #89 bin(6, 8, 10)  share=  0.001%    below
+      #90 bin(6, 7, 8)  share=  0.001%    below
+      #91 bin(4, 5, 7)  share=  0.001%    below
+      #92 bin(4, 5, 6)  share=  0.001%    below
+      #93 bin(1, 5, 9)  share=  0.001%    below
+    boundary: highest sub-floor box = 0.081%  |  lowest counted box = 4.499%  |  floor = 0.500%
+[exit=0]
+
+==============================================================================
+§7  台账逐格一致（重写件 vs 入库台账）
+==============================================================================
+$ python tests/skills/figure-choose/house-metrics.py --metrics recon_ledger_match,tab10_v2_ledger_match,tab10_loose_ledger_match
+recon_ledger_match = 662
+tab10_v2_ledger_match = 662
+tab10_loose_ledger_match = 662
+[exit=0]
+
+==============================================================================
+§8  修复轮新增的读数（Critical-1 / Important-3 / Important-4 / N-5 / N-7）
+==============================================================================
+$ python tests/skills/figure-choose/house-metrics.py --metrics recon_baseline_minw_cov4_pct,recon_baseline_minw_s166_cov4_pct,recon_baseline_minw_s166_median,recon_baseline_minw_s166_zero_pct,recon_cov4_s166_pct,cont_gate_pct,cont_gate_old_pct,cont_heat_hit_n,cont_heat_hit_old_n,cont_cite_den,cont_cite_n,cont_cite_old_n,cont_heat_subfloor_min_pct,cont_ratio_disc,cont_ratio_heat,cont_comp_n,color_median_comp,color_zero_pct_comp,color_cov4_pct_comp,cap_ascii_period_n,cap_ascii_colon_or_period_n,cap_ascii_colon_or_period_pct,h2_colw_p90_max,h2_colw_p90_gap,h3_aspect_pool908_med,h3_aspect_s120_med_lo,h3_aspect_s120_med_hi,n_png_all
+recon_baseline_minw_cov4_pct = 51.8100
+recon_baseline_minw_s166_cov4_pct = 57.2300
+recon_baseline_minw_s166_median = 4.0000
+recon_baseline_minw_s166_zero_pct = 15.6600
+recon_cov4_s166_pct = 63.8600
+cont_gate_pct = 72.8100
+cont_gate_old_pct = 49.4000
+cont_heat_hit_n = 11
+cont_heat_hit_old_n = 5
+cont_cite_den = 9
+cont_cite_n = 9
+cont_cite_old_n = 4
+cont_heat_subfloor_min_pct = 0.0940
+cont_ratio_disc = 26.0000
+cont_ratio_heat = 9.1200
+cont_comp_n = 180
+color_median_comp = 1.0000
+color_zero_pct_comp = 42.7800
+color_cov4_pct_comp = 88.3300
+cap_ascii_period_n = 6
+cap_ascii_colon_or_period_n = 578
+cap_ascii_colon_or_period_pct = 87.3100
+h2_colw_p90_max = 7.1900
+h2_colw_p90_gap = 0.0882
+h3_aspect_pool908_med = 2.2765
+h3_aspect_s120_med_lo = 2.2447
+h3_aspect_s120_med_hi = 2.4166
+n_png_all = 908
+[exit=0]
+
+==============================================================================
+§9  本节自证：上面每条命令都要 exit=0
+==============================================================================
+§0-§8 共跑 58 条；非零退出 0 条
+

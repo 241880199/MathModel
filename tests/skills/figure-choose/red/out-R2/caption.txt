@@ -1,0 +1,21 @@
+Figure 1. Drivers of the historical disaster count and similarity of the six districts (A-F).
+(a) Pearson r and Spearman rho between each measured factor and the historical disaster
+count (n = 6), ordered by |r|. Mean slope is the factor most strongly correlated with the
+disaster count (r = +0.93, rho = +0.94); the infrastructure index (r = -0.78, rho = -0.77)
+and vegetation cover (r = -0.74, rho = -0.77) are moderately and negatively correlated, and
+population density is only weakly correlated (r = +0.36, rho = +0.54).
+(b) Disaster count against mean slope, the strongest correlate; the least-squares line
+(y = 2.20x + 5.37) accounts for 87% of the variance, and the two extremes, district C
+(2.4 degrees, 8 events) and district D (14.8 degrees, 38 events), are highlighted.
+(c) Standardised attribute profiles (z-scores across the six districts), with rows ordered by
+the clustering in (d); red marks above-average and blue below-average values.
+(d) Dendrogram of the districts obtained by average-linkage clustering on the four
+standardised drivers (Euclidean distance): A and C are the closest pair, B and E form the
+next pair, and D is the most distinct district, combining the steepest mean slope with the
+lowest vegetation cover and infrastructure index and the highest disaster count.
+Two caveats apply. First, these are marginal associations rather than independent effects:
+with only six districts, and with the infrastructure index and vegetation cover themselves
+correlated at r = 0.98, their separate contributions cannot be disentangled, and no causal
+direction is implied. Second, the ordering within the middle group (B, E, F) is only weakly
+resolved, so the robust features of the similarity structure are the A-C pair and the
+isolation of district D.

@@ -405,22 +405,50 @@ def build(collection: str = PILOT, sample: list[Path] | None = None,
 
     `sample=None` → **全量**（该合集下的全部 PDF）；否则只处理给定样本
     （**变异演示必须能限样本**，否则每条演示都要跑 43 份）。
-    `out_dir=None` → `io.DERIVED`（入库产物目录）；限样本跑**必须**另给一个目录，
-    否则 `--limit` 会把入库的 INDEX/TAGS/PROVENANCE 覆写成 10 份的版本
+    `out_dir=None` → `io.DERIVED`（入库产物目录）；限样本跑**必须**另给一个**不入库**的
+    目录，否则 `--limit` 会把入库的 INDEX/TAGS/PROVENANCE 覆写成 N 份的版本
     （`tools/papers/report.py` 的落点机制管的是**报告**，产物这边由调用方负责）。
 
-    **`sample` 与 `out_dir=None` 同时出现 = 当场抛**：默认落点是**入库产物**
-    `io.DERIVED`，于是 `build(PILOT, sample=[…])` 会**静默覆写**入库的三份产物
-    （`git status` 上只显示一处「修改」，形态与 Task 3 的「限样本覆写放行证据」同族）。
-    这个敞口原先只有 docstring 提醒、**没有机制强制**——现在按 fail-closed 处理。
+    **`sample` 给了 且 落点解析到 `io.DERIVED` = 当场抛**（2026-09-27 加严：
+    **判的是落点，不是「有没有给 out_dir」**）。两种写法会**静默覆写**入库的三份产物：
+
+      * `build(PILOT, sample=[…])` —— 默认落点就是它；
+      * `build(PILOT, sample=[…], out_dir=io.DERIVED)` —— **显式**指向入库产物。
+
+    后一种**绕得过旧守卫**（旧谓词只看 `out_dir is None`）：实测被终审的探针用来把三份
+    产物覆写成「1 篇版本」（跑后 `git checkout --` 还原、核 135 个文件零差异才收场；
+    本轮的改前复现见 `tests/papers/reports/index-guard-evidence.txt`）。两者落点是
+    **同一个地方**，故必须**同一个下场**。原先只有 docstring 提醒、**没有机制强制**
+    ——现在按 fail-closed 处理（`git status` 上只显示一处「修改」，形态与 Task 3 的
+    「限样本覆写放行证据」同族）。
+
+    **落点判不出来时也抛**（2026-09-27 二次加严）：`dest.resolve()` 抛 `OSError` 时
+    **按「落在入库落点」处理**。理由：「解析不了」与「解析出是别的目录」之间**没有**任何
+    判据能把前者当成放行依据——旧写法 `dest == io.DERIVED` 只抓**字面同一路径**，
+    对「解析失败的其它写法」等于放行，而注释却自称 fail-closed（注释在说谎）。
     """
     # 先于一切取数：这条守卫必须在**任何写盘动作之前**触发（否则守卫自己变成破坏者）。
-    if sample is not None and out_dir is None:
-        raise ValueError(
-            f"限样本跑（sample 给了 {len(sample)} 份）必须显式指定 out_dir："
-            f"out_dir=None 的默认落点是**入库产物**目录 {io.DERIVED}"
-            f"（会覆写 INDEX.md/TAGS.md/PROVENANCE.md）。"
-            f"limit 跑请给一个不入库的目录。")
+    if sample is not None:
+        dest = io.DERIVED if out_dir is None else Path(out_dir)
+        try:
+            on_derived = dest.resolve() == io.DERIVED.resolve()
+        except OSError:      # 解析失败 ⇒ 视为**落在入库落点**（fail-closed：判不出来就不放行）
+            on_derived = True
+        if on_derived:
+            if out_dir is None:
+                shown = "（未给 out_dir：默认落点就是它）"
+            else:
+                try:
+                    shown = ("（显式给的 out_dir = "
+                             + dest.resolve().relative_to(io.REPO).as_posix() + "）")
+                except (OSError, ValueError):   # 仓库外/解析不了：绝不把绝对路径写进消息
+                    shown = "（显式给的 out_dir 就指向它）"
+            raise ValueError(
+                f"限样本跑（sample 给了 {len(sample)} 份）必须显式指定 out_dir，且该 "
+                f"out_dir **不得落到入库产物**目录 {io.DERIVED}{shown}——限样本跑不得写"
+                f"放行产物：那会把已放行的 INDEX.md/TAGS.md/PROVENANCE.md 覆写成 "
+                f"{len(sample)} 份的版本。**即使显式指定 out_dir** 也一样抛：判的是"
+                f"**落点**，不是「有没有给 out_dir」。limit 跑请给一个不入库的目录。")
 
     root = io.ORIGIN / collection
     # fail-closed：合集名不存在就抛。`Path.rglob` 对不存在的目录**静默返回空**，
@@ -499,6 +527,53 @@ def _award_note(collection: str) -> str:
             f"——奖项在合集内统一，故**不设「奖项」栏**（用户 2026-09-26 定案）。")
 
 
+def _coverage_note(collection: str, n_rows: int) -> list[str]:
+    """`INDEX.md` 的**覆盖边界块**（机读一行 + 具名说明）。
+
+    **为什么需要它**：终审的可用性复审实测——`INDEX.md` 是五份产物里**唯一没有覆盖
+    边界块的**，而它最可能被使用者**第一个打开**。形态与口径**照抄**
+    `TAGS.md` 的「标注覆盖边界（机读）」与 `MODEL_MAP.md` 的「覆盖边界（机读）」，
+    不另造一套。
+
+    **未建索引的合集名单与份数从磁盘现场算**（不是手写常量）：手写的名单会在下一个
+    合集入库时**静默过期**——那正是「文件里不写会随编辑过期的自指量」的同族
+    （`docs/mcm-suite-lessons.md` §4.8）。合集根目录不在 ⇒ **抛**（fail-closed：
+    不得把「读不到」写成「没有别的合集」）。
+    """
+    origin = io.ORIGIN
+    if not origin.is_dir():
+        raise FileNotFoundError(
+            f"合集根目录不存在：{origin}（拒绝把「读不到」写成「没有未建索引的合集」）")
+    others: list[tuple[str, int]] = []
+    n_here = 0
+    for d in sorted(origin.iterdir()):
+        if not d.is_dir():
+            continue
+        if d.name == collection:
+            n_here = len(sorted(d.rglob("*.pdf")))
+        else:
+            others.append((d.name, len(sorted(d.rglob("*.pdf")))))
+    return [
+        "## 覆盖边界（**机读**，必须与表同读）",
+        "",
+        f"> 覆盖={collection}(本文件 {n_rows} 行 / 磁盘 {n_here} 份) · "
+        f"未建索引=其余 {len(others)} 个合集"
+        f"（{sum(n for _c, n in others)} 份）："
+        + " · ".join(f"{c} {n}" for c, n in others),
+        "",
+        f"* **本表登记的是 `corpus/历届优秀论文/{collection}/` 里的论文**："
+        f"本文件 {n_rows} 行、该合集磁盘上 {n_here} 份"
+        f"（限样本跑时本表只覆盖样本，**两个数会不等**——覆盖数一律由判据当场算）。",
+        f"* `corpus/历届优秀论文/` 下另有上述 {len(others)} 个合集**未建索引**"
+        f"（**Task 9 才做**）——它们**没有过任何抽取、判据或核对**。"
+        f"名单与份数是**从磁盘现场算的**（合集根的子目录 + 各自 `*.pdf` 计数），"
+        f"不是手写常量：新增一个合集，本行自己会变。",
+        f"* **不得**把本表读成「获奖论文总表」或「2025 合集之外还有什么」："
+        f"表外的一切在本索引里**不可见**，不是「没有」。",
+        "",
+    ]
+
+
 def _write_index(path: Path, collection: str, rows: list[PaperRow]) -> None:
     L = [
         f"# 2025 美赛 O 奖论文索引（阶段 5 · Task 6）",
@@ -506,6 +581,7 @@ def _write_index(path: Path, collection: str, rows: list[PaperRow]) -> None:
         f"> 合集：`corpus/历届优秀论文/{collection}/`　·　篇数：**{len(rows)}**",
         f"> {_award_note(collection)}",
         "",
+        *_coverage_note(collection, len(rows)),
         "## 栏目契约（用户 2026-09-26 定案，未自改）",
         "",
         "`稳定 ID | 年份 | 题号 | 队号 | 页数 | 图注 | 表注 | 公式 | 主题 | 模型/算法 | 亮点`",
@@ -729,6 +805,39 @@ def _write_tags(path: Path, collection: str, rows: list[PaperRow],
     path.write_bytes(("\n".join(L) + "\n").encode("utf-8"))
 
 
+def _prov_limits() -> list[str]:
+    """`PROVENANCE.md` 的**「不能推出的结论」**一节（体例照 `TAGS.md` 的「局限（必读）」）。
+
+    **为什么需要它**：终审的可用性复审实测——`PROVENANCE.md` 是「ID ↔ 原件」的双射表，
+    读者**很容易把它读成「这份论文的质量已经核过」**，而它**一句「不能推出的结论」都没有**。
+    每一条都**可复核**（指向本仓的文件或判据），不是免责声明式的空话。
+    """
+    return [
+        "## 不能推出的结论（必读）",
+        "",
+        "**这张表证明的只有一件事**：`稳定 ID` ↔ `原件文件` 的**对应关系**"
+        "（上一节那三条）。下面这些**由它推不出来**：",
+        "",
+        "* **`md` 栏存在 ≠ md 的内容被核过**：该栏只声明「这一篇的 md 产物落在哪个路径」，"
+        "串是 `io.md_path` **拼出来**的。md 的内容另有判据组"
+        "（`tests/papers/verify_b.py` → `tests/papers/reports/b-report.txt` 的 B1–B4 与 "
+        "A2/A3）；**本表一个字节的 md 都不读**。",
+        "* **双射表只证「文件对应」，不证质量**：上一节的三条说的是「不重不漏、两向互逆」，"
+        "它**对论文内容一个字都没说**。判据是 `tests/papers/verify_ids.py` 的 I1（双射）"
+        "与 I9（六列各自落到磁盘上的事实）；「这篇论文好不好」在本仓**没有任何判据**"
+        "——没有判据的地方**不得**从本表读出结论。",
+        "* **`年月` 与 `题号` 是机械抽取的产物，不构成对论文的任何评价**："
+        "`年月` 取自稳定 ID（`io.stable_id`，按**到达顺序**生成、**内容无关**），"
+        "`题号` 由 `io.problem_of` **从路径**取，不是从论文里读的。"
+        "两者都只是**路径与序号的函数**；逐合集的 `problem_of` 行为实测"
+        "（四种目录布局）见 `tests/papers/recon/ids-recon.txt` §5。",
+        "* **本表的行数不是「论文集规模」的度量**：本表登记的就是**本次跑覆盖的那些篇**"
+        "（限样本跑只覆盖样本，覆盖数是判据当场算的，见上一节末行）。"
+        "「还有哪些合集没建索引」由 `INDEX.md` 的覆盖边界块回答，**不是**本表的职责。",
+        "",
+    ]
+
+
 def _write_prov(path: Path, collection: str, rows: list[PaperRow],
                 pdfs: list[Path]) -> None:
     L = [
@@ -750,6 +859,7 @@ def _write_prov(path: Path, collection: str, rows: list[PaperRow],
         "* 反向 `文件名词干 → ID`：每个词干**只出现一次**（不会两行同词干）；",
         "* 两向互逆，且并集**恰好覆盖**该合集磁盘上的全部 PDF（不重不漏）。",
         "",
+        *_prov_limits(),
         "## 双射表",
         "",
         "| 稳定 ID | 年月 | 题号 | 文件名词干（= 队号） | 原件（仓库相对） | md（仓库相对） |",
