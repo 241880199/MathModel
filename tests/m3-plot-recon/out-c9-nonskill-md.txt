@@ -1,0 +1,24 @@
+## C9 · 同一个禁止数值放进**非 SKILL.md** 的三种载体
+
+### (a) 全扫器的射程：只扫 */SKILL.md（普查行逐字）
+普查：扫到 2 个 skill（build/m3-plot-recon/fake-skills/*/SKILL.md）· 绘图家族 2 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
+      家族    mcm-plot-clean
+      家族    mcm-plot-python
+扫到 2 个 skill（绘图家族 2 个）· 判据 K2/K3 · 红 1 条
+
+### (b) 手工把 --skill 指到非 SKILL.md 载体，只跑 K2/K3
+--- mcm-plot-python/references/style.md ---
+FAIL  K2                 指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
+FAIL  K3                 禁止串 87 条（现取）· 命中 ['0.8'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+RESULT: FAIL（K2,K3）
+--- mcm-plot-python/style.mplstyle ---
+FAIL  K2                 指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
+FAIL  K3                 禁止串 87 条（现取）· 命中 ['0.8', '2.6', '6.31'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+RESULT: FAIL（K2,K3）
+--- mcm-plot-python/style.py ---
+FAIL  K2                 指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
+FAIL  K3                 禁止串 87 条（现取）· 命中 ['0.8', '2.6', '6.31'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+RESULT: FAIL（K2,K3）

@@ -153,12 +153,42 @@
   从正则里删掉也不会红（"声明了但没被任何变异证明"的判据腿，复审 Minor-3）。
 - **`M44`**：只留 `mcm-plot-ok` 再跑 ⇒ **绿**。这是**本组唯一**能证"检查器不是恒 FAIL"的一条；
   没有它，`M43` 的"红"什么都证明不了。
-- **`M45`**：把 `check-house-style.py`（`K2`/`K3` 的实现处）**副本**里 `_k3` 抽禁止串的
-  **两条正则都改坏**（抽到空集）⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红。
+- **`M45`**：把 `check-house-style.py`（`K2`/`K3` 的实现处）**副本**里 `_k3` 主臂的
+  **三族参照物全改坏**（小数正则 + `SK_CN_TIER_RES` 整条 ⇒ 两族值池一起抽到空集）
+  ⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红。
   故意打**真仓**：那里 0 个家族、逐份判据根本不执行，唯一能红的就是全局探针 ——
   这才证得到"仪器取不到参照物时，哪怕无对象也红"（本仓栽过六次的那一类：仪器抽空却默认放行）。
 - **`M46`**：`--skills-dir` 指向坏目录 ⇒ 非零退出，**两个分支都证**：
   分支 a 目录**不存在**、分支 b 目录在但**一个 `*/SKILL.md` 都没有**。两分支都不许打出 `RESULT: PASS`。
+
+## M3 绘图实现层新增的一组（`M47`–`M53`）：`K3` 主臂的 **ASCII 阈值标记**
+
+被验对象 = `check-house-style.py` 的 `_k3` **主臂**（文档 = `SKILL.md` 的副本）。
+编号从 **`M47`** 起：任务书给的 `M17`–`M20` 与已占号**撞号**（同 Task 3 顺延 `M9`、
+Task 5 顺延 `M29`、Task 7 顺延 `M43` 三次），故继续顺延。
+
+**为什么非有不可**：主臂原先只认 `\d+\.\d+` 与 `≤n` / `<n 词`，而 `H12` 的规范值**恰恰**写的就是
+**`≥7 pt`** ⇒ `≥n` / `上限 n` / `不超过 n` 这一整族重述**全走绿**（实测四条 `≥7 pt` / `上限 4` /
+`不超过 12 词` / `主色 4 个` 都 PASS）。对齐标记表后：**六个标记各有一条真红**
+（`M47`–`M49` + `M51`–`M53`），外加一条**边界对照组** `M50`（三种"不该红"的写法必须**仍绿**）。
+
+- **`M47`**：写进『`≥7 pt`』（规范 `H12` 的原话）⇒ `K3` 红（`≥` 这一族原先整族走绿）。
+- **`M48`**：写进『`上限 4`』⇒ `K3` 红。注意规范里写的是 `≤4`，**没有** `上限 4` 这个字面 ——
+  它红在"**同方向的标记可互换**"上（`≤4` 与 `上限 4` 是同一个阈值的重述）。
+- **`M49`**：写进『`不超过 12 词`』⇒ `K3` 红（`不超过 n` 这一族进射程；值池按方向共享）。
+- **`M51`**：写进『`字号下限 7 pt`』⇒ `K3` 红（`下限 n` 这一族；值 `7` 现取自规范里的 `≥7`）。
+- **`M52`**：写进『`图注 < 12 词`』⇒ `K3` 红（`<n 词` 这一族；值 `12` 现取自 `上限 12 词`）。
+- **`M53`**：写进『`图注 ≤12 词`』⇒ `K3` 红（`≤n` 这一族**本尊**；值 `12` 现取自 `上限 12 词`）。
+  为什么 `M51`/`M52`/`M53` 也要各来一条：只证 `≥`/`上限`/`不超过` 的话，"六个标记都在射程内"就是
+  **声明比事实大**（本仓明令：声明了覆盖就必须有一次真的红；同 Task 7 复审 Minor-3 那条腿）。
+  `M53` 是修复轮补的（复审 Important-1）：它取 `≤12` 而**不是**规范原话 `≤4` —— `≤4` 旧臂逐字也能抓，
+  证不到"值池化后**新增**的射程"；`≤12` 只有新臂才红（旧臂只认与规范逐字相同的 `≤4`/`≤3`）。
+- **`M50`**：**边界对照组**（必须**仍绿**，同 `M44` 那种反证条），三例：
+  ① 『`主色 4 个`』（**无标记裸整数**）—— 要判它就得退化成"文档里出现 `4` 就红"，而规范里的
+  `0/2/3/4/7/12/17/20/100` 会在任何普通句子里误红；
+  ② 『`下限 4`』（值在**另一个方向**的池里）—— **跨方向不算重述**，这条正是 `mcm-abstract` 的
+  `≥12pt` 不被假红的依据；
+  ③ 『`< 25 词`』（值不在任何池里）。谁把臂写成"见数就红"，三例里至少一条立刻 RED-BAD。
 
 ★ **假 skill 的目录名带家族前缀**（`mcm-plot-ok` / `mcm-plot-nopointer` / `mcm-plot-restate`）：
 任务书给的目录名是 `fake-ok` / `fake-nopointer` / `fake-restate`，但规则①②的**射程**是
@@ -949,25 +979,39 @@ def m45_ptr():
     """`M45`：把 `check-house-style.py` 抽数的**正则改坏** ⇒ 仪器取不到参照物 ⇒ fail-closed 红。
 
     做法：把检查器复制到**同目录**下（副本要能 `_load` 同目录的 `house-metrics.py` /
-    `check-figure-style.py`，且 `parents[3]` 仍指到仓根），把 `_k3` 里那一行 `banned = …` 的
-    **两条正则都改成打不中的形态**（`\\d+\\.\\d{9}` / `≤\\s*\\d{9}`）⇒ 禁止串抽到**空集**。
-    为什么两条一起改：那两条是**并行**的两臂（小数 + `≤n`），只改一条时另一条还抽得到，
-    抽到的仍是非空集 ⇒ 这一臂证不出来（同 `M35`/`M36` 各证一道臂的道理）。
+    `check-figure-style.py`，且 `parents[3]` 仍指到仓根），把 `_k3` 主臂的**三族参照物全改到抽不出**：
+      · 小数族：`k3_reference()` 里那句 `re.findall(r"\\d+\\.\\d+", doc)` → `\\d{9}`；
+      · 两个阈值值池：`SK_CN_TIER_RES` **整条语句**换成打不中的形态（`r"\\d{9}"`）⇒
+        由它现分的上界 / 下界两族一起空（`_tier_split()` 是现分的，改一处两族都塌）。
+    为什么都要改（M3-T1 修 K3 主臂后**必须跟着改**，这是本条与检查器的耦合点）：三族**任一为空**
+    就记红（fail-closed），只改小数族也能红 —— 但那样证不到"阈值值池这一族也真的承重"，
+    故三族一起改坏，让空集是真空集（同 `M35`/`M36` 各证一道臂的道理）。
     跑的时候**故意用真仓**（0 个绘图家族）：那里逐份 `K2`/`K3` 一次都不执行，
     唯一能让它红的就是**全局仪器探针** —— 这才证得到"仪器坏了、哪怕无对象也会红"。
     """
     src = HOUSE_CHK.read_bytes().decode("utf-8")
-    old = ('    banned = set(re.findall(r"\\d+\\.\\d+", doc)) '
-           '| set(re.findall(r"≤\\s*\\d+|<\\s*\\d+\\s*词", doc))')
+    old = '    dec = set(re.findall(r"\\d+\\.\\d+", doc))'
     n_hit = src.count(old)
     if n_hit != 1:
-        raise AssertionError(f"`check-house-style.py` 的抽数那一行命中 {n_hit} 次（必须恰 1）"
+        raise AssertionError(f"`check-house-style.py` 的小数抽数那一行命中 {n_hit} 次（必须恰 1）"
                              f"—— 检查器漂了，这条变异要跟着改")
-    new = ('    banned = set(re.findall(r"\\d+\\.\\d{9}", doc)) '
-           '| set(re.findall(r"≤\\s*\\d{9}", doc))  # 变异：两条正则都改坏（抽到空集）')
+    # 整条 `SK_CN_TIER_RES = (...)` 语句（行长不定：按**括号配平**取，不写死它的换行与缩进）
+    lines = src.splitlines(keepends=True)
+    i = next((k for k, l in enumerate(lines) if l.startswith("SK_CN_TIER_RES = (")), None)
+    if i is None:
+        raise AssertionError("`SK_CN_TIER_RES = (` 这一行找不到 —— 检查器漂了，这条变异要跟着改")
+    j = next((k for k in range(i, len(lines)) if lines[k].rstrip().endswith(")")), None)
+    if j is None:
+        raise AssertionError("`SK_CN_TIER_RES` 语句的收尾行找不到（括号没配平？）")
+    mut = src.replace(old, '    dec = set(re.findall(r"\\d+\\.\\d{9}", doc))  # 变异：小数抽不到', 1)
+    mut = "".join(mut.splitlines(keepends=True)[:i]) \
+        + 'SK_CN_TIER_RES = (r"\\d{9}",)   # 变异：六个标记全改坏（两族值池一起抽到空集）\n' \
+        + "".join(mut.splitlines(keepends=True)[j + 1:])
+    if mut == src:
+        raise AssertionError("变异体与原文相同（没改到？）")
     rc_b, out_b, _eb = pointer_run(checker=HOUSE_CHK)
     try:
-        PTR_MUT45.write_bytes(src.replace(old, new, 1).encode("utf-8"))   # write_bytes：不用 write_text
+        PTR_MUT45.write_bytes(mut.encode("utf-8"))                        # write_bytes：不用 write_text
         rc_a, out_a, _ea = pointer_run(checker=PTR_MUT45)
     finally:
         PTR_MUT45.unlink(missing_ok=True)          # 副本不属于交付物，跑完必须消失（同一目录也是纪律）
@@ -977,7 +1021,7 @@ def m45_ptr():
     n_red = len([l for l in out_a.splitlines() if l.startswith("FAIL  ")])
     return pre_ok and post_ok, (
         f"前置(真检查器) exit={rc_b} {'仪器探针绿' if pre_ok else '未绿 <<<'}；"
-        f"后置(副本两条正则改坏) exit={rc_a} 『{line[:96]}…』、全跑共红 {n_red} 条"
+        f"后置(副本三族参照物全改坏) exit={rc_a} 『{line[:96]}…』、全跑共红 {n_red} 条"
         f"（真仓 0 个家族 ⇒ 除仪器探针外无可红之处）、末行『{_ptr_result(out_a)}』"
         f"　NOTE/副本已删：{not PTR_MUT45.exists()}")
 
@@ -1014,9 +1058,9 @@ def run_pointer():
                 f"`{PTR_SCHEMATIC}`）缺指针也**各自**由 **K2** 点名（四条各打各的）", m43_ptr),
         ("M44", f"引用完整性：只留 `{PTR_OK}` 再跑 ⇒ **绿**"
                 f"（本组唯一能证这个检查器不是恒 FAIL 的一条）", m44_ptr),
-        ("M45", "check-house-style.py：把 `_k3` 抽禁止串的**两条正则都改坏**（抽到空集）⇒ "
-                "**仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红"
-                "（打真仓：那里逐份判据根本不执行，只有全局探针能红）", m45_ptr),
+        ("M45", "check-house-style.py：把 `_k3` 抽参照物的**三族全改坏**（小数正则 + "
+                "`SK_CN_TIER_RES` 整条 ⇒ 两族值池一起空）⇒ **仪器探针** `FAIL  INSTR K3@空串` "
+                "⇒ fail-closed 红（打真仓：那里逐份判据根本不执行，只有全局探针能红）", m45_ptr),
         ("M46", "引用完整性：`--skills-dir` 指向坏目录 ⇒ 非零退出"
                 "（分支 a 目录不存在 · 分支 b 目录在但一个 `SKILL.md` 都没有）", m46_ptr),
     ):
@@ -1027,6 +1071,132 @@ def run_pointer():
         rows.append(("RED-OK" if ok else "RED-BAD", mid, desc, detail))
         if not ok:
             failed.append(mid)
+    return rows, failed, len(rows)
+
+
+# ========================================== `K3` 的 ASCII **阈值标记臂**（M3-T1）的变异（`M47`–`M53`）
+# 打的是 `check-house-style.py` 的 `_k3` **主臂**（被验对象 = `mcm-figure-choose/SKILL.md` 的副本）。
+#
+# 为什么从 **`M47`** 起：`M1`–`M8`（检查器）· `M9`–`M19` + `C1`/`C2`（规范数）· `M22`–`M28`
+# （`chart-types.md` 结构）· `M29`–`M41`（`SKILL.md` 短契约）· `M43`–`M46`（引用完整性检查器）
+# 已占号；任务书给的 `M17`–`M20` 与上面**撞号**，撞号的变异表会让"哪条红了"没法引用
+# （同 Task 3 顺延 `M9`、Task 5 顺延 `M29`、Task 7 顺延 `M43` 那三次），故本组顺延 `M47` 起。
+#
+# 为什么这七条**必须**存在：`K3` 主臂原先只认 `\d+\.\d+` 与 `≤n` / `<n 词`，而 `H12` 的规范值
+# 恰恰写的就是 **`≥7 pt`** ⇒ `≥n` / `上限 n` / `不超过 n` 这一整族重述**全走绿**。
+# `M47`–`M49` + `M51`–`M53` 让**六个标记各有一条真红**（每条由 NOTE 现算证明红的是阈值标记臂
+# 本身）—— 只证其中几个的话，"六个标记都在射程内"就是一句**声明比事实大**的话
+# （本仓栽过多次；同 Task 7 复审 Minor-3 那条"声明了但没被任何变异证明"的判据腿）。
+# `M50` 是**射程边界对照**（`主色 4 个` 这类无标记裸整数必须**仍绿**）—— 它证的是
+# "这条臂没有偷偷扩到乱红"：谁哪天把裸值臂加了回来，`M50` 立刻 RED-BAD。
+#
+# ★ 修复轮（复审 Important-1）：补 **`M53`**（`≤n` 腿的**专属真红**）。原句"六个标记各有一条真红"
+#   当时只有 **5** 条专属变异 —— `≤` 那腿被误引到 `M34` 的既有路径上，而 `M34` 的红来自**小数族
+#   抽空**（后置读数「小数 0 条」），与 `≤` 无关 ⇒ 声明比事实大。补 `M53` 后声明成真。
+#   **编号顺延 `M53`**（不插号、不改既有号）：本组 `M47`–`M52` 已在 5 份入库证据件与报告里被引用，
+#   插号会让那些引用全部失准 —— 与上面"为什么从 `M47` 起"（`M9`/`M29`/`M43` 三次顺延）同一理由。
+#
+# ★ 两条反面对照（**必须绿**，由 `M50` 的兄弟断言覆盖在 `m50_tier_boundary` 的扩展里）：
+#   `下限 4`（值在**另一个方向**的池里）与 `< 25 词`（值不在任何池里）**都不该红** ——
+#   这才是"方向纪律"的下半句：跨方向**不算**重述（否则 `mcm-abstract` 的 `≥12pt` 会被假红）。
+
+TIER_INSERTS = (
+    ("M47", "≥7 pt", "`H12` 的规范值**原话**（生成器现取自 `house-style.md`：`≥7`）"),
+    ("M48", "上限 4", "**跨标记、同方向**：规范写的是 `≤4`，`上限 4` 是同一个阈值的重述"),
+    ("M49", "不超过 12 词", "`不超过 n` 这一族（规范里是 `不超过 17 词`，值池按方向共享）"),
+    ("M51", "字号下限 7 pt", "`下限 n` 这一族（下界方向；值 `7` 现取自规范里的 `≥7`）"),
+    ("M52", "图注 < 12 词", "`<n 词` 这一族（上界方向；值 `12` 现取自规范里的 `上限 12 词`）"),
+    ("M53", "图注 ≤12 词", "`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— "
+                         "规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的"
+                         "射程、旧臂抓不到"),
+)
+
+# `M50` 的**边界对照**用例：插进 SKILL.md 后 `K3` 必须**仍绿**（每一组里第一条是主用例，
+# 其余是"跨方向 / 不在池里"的反面对照——它们证的是方向纪律没被写成"见数就红"）。
+TIER_GREEN = (
+    ("主色 4 个", "**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』）"),
+    ("下限 4", "值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述"),
+    ("< 25 词", "值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述"),
+)
+
+
+def _k3_line(out):
+    """从 `--only K3` 的输出里取 `PASS/FAIL  K3` 那一行的**读数正文**（现算，不写死）。"""
+    line = next((l for l in out.splitlines() if l.startswith(("PASS  K3", "FAIL  K3"))), "")
+    return line.split(None, 2)[-1] if line else "（缺 K3 行）"
+
+
+def _tier_probe(_txt):
+    """`M47`–`M49`/`M51`–`M53` 的现算 NOTE：红的是**阈值标记臂**（不是小数臂、也不是中文数词臂）。
+
+    读的是同一副本上 `K3` 印出的那一行 —— 命中串里必须出现**带标记的字面**（`≥7` / `上限 4` /
+    `不超过 12`）；只出现小数的话，这条变异就没打在目标臂上。
+    """
+    _rc, out = skill_run(HOUSE_CHK, HMUTD / "SKILL.md", ["K3"])
+    m = re.search(r"命中 (\[[^\]]*\]|无)", _k3_line(out))
+    return (f"NOTE/同副本 `K3` 的『命中』= {m.group(1) if m else '?'}"
+            f"（**带标记的字面** ⇒ 打在阈值标记臂上）")
+
+
+def m50_tier_boundary():
+    """`M50`：**射程边界对照组** —— 三种"不该红"的写法下 `K3` 必须**仍绿**（逐一插进副本试）。
+
+    为什么这是**对照**而不是判据变异：`K3` 的主臂只认小数与六个阈值标记，判不了"数字不配标记
+    直接甩出来"；要判它就得退化成"文档里出现 `4` 就红"，而规范里的 `0`/`2`/`3`/`4`/`7`/`12`/
+    `17`/`20`/`100` 会在**任何普通句子**里误红（看着能红、实则乱红）。故这条边界**写实登记在
+    `_k3` 的 docstring 里**，并由本对照**常驻守住**。
+
+    三例（`TIER_GREEN`）：① `主色 4 个`（无标记裸整数）；② `下限 4`（值在**另一个方向**的池里
+    ⇒ 跨方向不算重述 —— 这正是 `mcm-abstract` 的 `≥12pt` 不被假红的那条规矩）；③ `< 25 词`
+    （值不在任何池里）。谁哪天把臂写成"见数就红"，这三条里至少一条立刻 RED-BAD。
+
+    断言：① 原件 `K3` 绿；② **三例逐个**插进去之后**都仍绿**。
+    """
+    text0 = SKILL_MD.read_bytes().decode("utf-8")
+    mp = HMUTD / "SKILL.md"
+    rc_b, out_b = skill_run(HOUSE_CHK, SKILL_MD, ["K3"])
+    pre_ok = rc_b == 0 and "PASS  K3 " in out_b
+    parts, ok_all = [], pre_ok
+    for lit, why in TIER_GREEN:
+        mp.write_bytes(sub_once(
+            text0, TOP_ITEM,
+            f"- **推荐图型**：给**一个首选**（{lit}）；").encode("utf-8"))   # write_bytes：不用 write_text
+        rc_a, out_a = skill_run(HOUSE_CHK, mp, ["K3"])
+        green = rc_a == 0 and "PASS  K3 " in out_a
+        ok_all = ok_all and green
+        parts.append(f"『{lit}』exit={rc_a} {'**仍绿** ✓' if green else '红了 <<< 越界乱红'}（{why}）")
+    return ok_all, (f"前置(原件) exit={rc_b} {'K3 绿' if pre_ok else '未绿 <<<'}；"
+                    + "；".join(parts))
+
+
+def run_k3_tier():
+    """跑 `M47`–`M53` 七条（6 条判据变异 + 1 条边界对照组）。返回 `(rows, failed, 本组条数)`。
+
+    `M47`–`M53` 里除 `M50` 外都走 `skill_assert`（前置绿 / 后置由 `K3` 点名红，同 `M29` 的纪律）；
+    `M50` 是反向对照组（**必须仍绿**），见 `m50_tier_boundary`。
+    """
+    rows, failed = [], []
+    for mid, lit, why in TIER_INSERTS:
+        desc = (f"SKILL.md：写进『{lit}』（{why}）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）")
+        try:
+            ok, detail = skill_assert(
+                desc, lambda t, s=lit: sub_once(
+                    t, TOP_ITEM, f"- **推荐图型**：给**一个首选**（{s}）；"), ["K3"], _tier_probe)
+        except AssertionError as e:                                 # noqa: BLE001（驱动器自己的出口）
+            ok, detail = False, f"驱动器自己报错：{type(e).__name__}: {e}"
+        rows.append(("RED-OK" if ok else "RED-BAD", mid, desc, detail))
+        if not ok:
+            failed.append(mid)
+    desc50 = ("SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）"
+              "⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`："
+              "它证「这条臂没扩到乱红」、且跨方向不算重述）")
+    try:
+        ok50, detail50 = m50_tier_boundary()
+    except AssertionError as e:                                     # noqa: BLE001（驱动器自己的出口）
+        ok50, detail50 = False, f"驱动器自己报错：{type(e).__name__}: {e}"
+    rows.append(("RED-OK" if ok50 else "RED-BAD", "M50", desc50, detail50))
+    if not ok50:
+        failed.append("M50")
     return rows, failed, len(rows)
 
 
@@ -1251,9 +1421,13 @@ def run_house():
     # ---- 引用完整性检查器（Task 7）：`M43`–`M46`（打的是 `check-spec-pointers.py` + 假 skill）
     prows, pfailed, n_ptr = run_pointer()
 
+    # ---- `K3` 的 ASCII 阈值标记臂（M3-T1）：`M47`–`M53`（打的是 SKILL.md 的副本）
+    trows, tfailed, n_tier = run_k3_tier()
+
     rows += srows
     rows += prows
     failed += pfailed
+    failed += tfailed
     for f in HMUTD.glob("*"):
         f.unlink()
     HMUTD.rmdir()
@@ -1298,15 +1472,22 @@ def run_house():
     for st, mid, desc, detail in prows:
         print(f"{st:<8} {mid:<4} {desc}")
         print(f"         {detail}")
+    print("\n" + "=" * 78)
+    print(f"`K3` ASCII 阈值标记臂的变异（M47–M53 · 打的是 SKILL.md 的副本；"
+          f"其中 M47–M49/M51–M53 必须红、M50 是射程边界对照必须绿，共 {len(trows)} 条）")
+    print("=" * 78)
+    for st, mid, desc, detail in trows:
+        print(f"{st:<8} {mid:<4} {desc}")
+        print(f"         {detail}")
     print(f"还原自证  house-style.md blob {doc_hash} {'== 变异前' if same else '!= 变异前 <<<'}"
           f" · provenance.md blob {prov_hash} · chart-types.md blob {ct_hash}"
           f" · SKILL.md blob {skill_hash}"
           f" · 原件字面仍在: {byte_ok} · _mut-house/ 已清空: {clean}")
     return rows, failed, (clean and byte_ok and same), {
         "house": n_house, "census": n_census, "struct": len(srows), "skill": len(krows),
-        "pointer": n_ptr,
+        "pointer": n_ptr, "tier": n_tier,
         "f_house": f_house, "f_census": f_census, "f_struct": f_struct, "f_skill": kfailed,
-        "f_pointer": pfailed,
+        "f_pointer": pfailed, "f_tier": tfailed,
         "probe_row": probe_row}
 
 
@@ -1402,10 +1583,12 @@ def main():
     n_struct = grp["struct"]                              # M22–M28
     n_skill = grp["skill"]                                # M29–M39（+ M34/M40/M41）
     n_ptr = grp["pointer"]                                # M43–M46
+    n_tier = grp["tier"]                                  # M47–M53（其中 M50 是必须绿的对照）
     n_spec_ok = n_spec - len(grp["f_house"]) - len(grp["f_census"])
     n_struct_ok = n_struct - len(grp["f_struct"])
     n_skill_ok = n_skill - len(grp["f_skill"])
     n_ptr_ok = n_ptr - len(grp["f_pointer"])
+    n_tier_ok = n_tier - len(grp["f_tier"])
     r1_ok = grp["probe_row"][0] == "RED-OK"
 
     print("\n" + "=" * 78)
@@ -1427,13 +1610,17 @@ def main():
     print(f"MUT: {n_ptr_ok}/{n_ptr} 红（引用完整性检查器 check-spec-pointers.py："
           f"`--skills-dir` 指假 skill 的全扫 + `K3` 仪器 fail-closed + 坏目录 fail-closed）"
           + ("" if not grp["f_pointer"] else f"（未达预期：{', '.join(grp['f_pointer'])}）"))
-    print(f"MUT: {len(rows) - len(mut_failed) + n_spec_ok + n_struct_ok + n_skill_ok + n_ptr_ok}/"
-          f"{len(MUTATIONS) + n_spec + n_struct + n_skill + n_ptr} 红（合计）")
+    print(f"MUT: {n_tier_ok}/{n_tier} 达预期（`K3` 的 ASCII 阈值标记臂 M47–M53："
+          f"{n_tier - 1} 条必须红 + 1 条**射程边界对照**（`主色 4 个` / `下限 4` / `< 25 词`）必须绿）"
+          + ("" if not grp["f_tier"] else f"（未达预期：{', '.join(grp['f_tier'])}）"))
+    print(f"MUT: {len(rows) - len(mut_failed) + n_spec_ok + n_struct_ok + n_skill_ok + n_ptr_ok + n_tier_ok}/"
+          f"{len(MUTATIONS) + n_spec + n_struct + n_skill + n_ptr + n_tier} 达预期（合计）")
     print(f"探针 P1: {'红' if probe_ok else '未红'}（check-figure-style.py 的脚本探针）")
     print(f"探针 R1: {'红' if r1_ok else '未红'}（读数条 S4 的『该动的时候动、该判的时候不判』）")
     print(f"（本驱动器共 {len(MUTATIONS)} 条检查器判据变异 + {n_probe} 条脚本探针"
           f" + {n_spec} 条规范数变异 + {n_struct} 条结构变异 + {n_skill} 条 SKILL.md 变异"
-          f" + {n_ptr} 条引用完整性变异 + 1 条读数条探针）")
+          f" + {n_ptr} 条引用完整性变异 + {n_tier} 条 `K3` 阈值标记臂变异"
+          f"（含 1 条射程边界对照）+ 1 条读数条探针）")
     return 0 if (not failed and not failed_h and byte_ok and clean and selfok_h
                  and rerun.returncode == 0) else 1
 

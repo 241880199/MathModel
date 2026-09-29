@@ -1,0 +1,82 @@
+/usr/bin/bash: line 17: science+no-latex: command not found
+## D12b ·  底座下扫 figsize（该底座把 savefig.bbox 强设成 tight）
+
+$ python tests/m3-plot-recon/d12_figsize_f1.py --site build/m3-plot-recon/site --out build/m3-plot-recon/d12 --dpi 200 --textwidth 6.31 --figsize 6.31,2.6 --styles science,no-latex
+matplotlib=3.11.2  styles=['science', 'no-latex']  目标 figsize=(6.31,2.6)  dpi=200  textwidth=6.31 in
+bbox_inches  pad_inches    PNG px宽   PNG宽/dpi  F1(PNG)     PDF页盒宽  F1(PDF)
+--------------------------------------------------------------------------
+default      default          1100      5.500    0.872      5.511    0.873
+default      0.05             1100      5.500    0.872      5.511    0.873
+default      0.1              1120      5.600    0.887      5.611    0.889
+default      0.0              1080      5.400    0.856      5.411    0.858
+tight        default          1100      5.500    0.872      5.511    0.873
+tight        0.05             1100      5.500    0.872      5.511    0.873
+tight        0.1              1120      5.600    0.887      5.611    0.889
+tight        0.0              1080      5.400    0.856      5.411    0.858
+
+F1 绿区（分母 6.31）: 5.048 <= 输出宽 <= 7.572 in
+
+$ python tests/m3-plot-recon/d12_figsize_f1.py --site build/m3-plot-recon/site --out build/m3-plot-recon/d12 --dpi 200 --textwidth 6.31 --figsize 7.2,2.6 --styles science,no-latex
+matplotlib=3.11.2  styles=['science', 'no-latex']  目标 figsize=(7.2,2.6)  dpi=200  textwidth=6.31 in
+bbox_inches  pad_inches    PNG px宽   PNG宽/dpi  F1(PNG)     PDF页盒宽  F1(PDF)
+--------------------------------------------------------------------------
+default      default          1238      6.190    0.981      6.201    0.983
+default      0.05             1238      6.190    0.981      6.201    0.983
+default      0.1              1258      6.290    0.997      6.301    0.999
+default      0.0              1218      6.090    0.965      6.101    0.967
+tight        default          1238      6.190    0.981      6.201    0.983
+tight        0.05             1238      6.190    0.981      6.201    0.983
+tight        0.1              1258      6.290    0.997      6.301    0.999
+tight        0.0              1218      6.090    0.965      6.101    0.967
+
+F1 绿区（分母 6.31）: 5.048 <= 输出宽 <= 7.572 in
+
+$ python tests/m3-plot-recon/d12_figsize_f1.py --site build/m3-plot-recon/site --out build/m3-plot-recon/d12 --dpi 200 --textwidth 6.31 --figsize 7.5,3.0 --styles science,no-latex
+matplotlib=3.11.2  styles=['science', 'no-latex']  目标 figsize=(7.5,3.0)  dpi=200  textwidth=6.31 in
+bbox_inches  pad_inches    PNG px宽   PNG宽/dpi  F1(PNG)     PDF页盒宽  F1(PDF)
+--------------------------------------------------------------------------
+default      default          1285      6.425    1.018      6.433    1.020
+default      0.05             1285      6.425    1.018      6.433    1.020
+default      0.1              1305      6.525    1.034      6.533    1.035
+default      0.0              1265      6.325    1.002      6.333    1.004
+tight        default          1285      6.425    1.018      6.433    1.020
+tight        0.05             1285      6.425    1.018      6.433    1.020
+tight        0.1              1305      6.525    1.034      6.533    1.035
+tight        0.0              1265      6.325    1.002      6.333    1.004
+
+F1 绿区（分母 6.31）: 5.048 <= 输出宽 <= 7.572 in
+
+$ python tests/m3-plot-recon/d12_figsize_f1.py --site build/m3-plot-recon/site --out build/m3-plot-recon/d12 --dpi 200 --textwidth 6.31 --figsize 8.0,3.0 --styles science,no-latex
+matplotlib=3.11.2  styles=['science', 'no-latex']  目标 figsize=(8.0,3.0)  dpi=200  textwidth=6.31 in
+bbox_inches  pad_inches    PNG px宽   PNG宽/dpi  F1(PNG)     PDF页盒宽  F1(PDF)
+--------------------------------------------------------------------------
+default      default          1362      6.810    1.079      6.821    1.081
+default      0.05             1362      6.810    1.079      6.821    1.081
+default      0.1              1382      6.910    1.095      6.921    1.097
+default      0.0              1342      6.710    1.063      6.721    1.065
+tight        default          1362      6.810    1.079      6.821    1.081
+tight        0.05             1362      6.810    1.079      6.821    1.081
+tight        0.1              1382      6.910    1.095      6.921    1.097
+tight        0.0              1342      6.710    1.063      6.721    1.065
+
+F1 绿区（分母 6.31）: 5.048 <= 输出宽 <= 7.572 in
+
+## D12c · 默认（无 style）下换 figsize —— 作对照（bbox=None ⇒ 输出宽恒 == figsize 宽）
+bbox_inches  pad_inches    PNG px宽   PNG宽/dpi  F1(PNG)     PDF页盒宽  F1(PDF)
+--------------------------------------------------------------------------
+default      default           800      4.000    0.634      4.000    0.634
+default      0.05              800      4.000    0.634      4.000    0.634
+default      0.1               800      4.000    0.634      4.000    0.634
+default      0.0               800      4.000    0.634      4.000    0.634
+tight        default           786      3.930    0.623      3.929    0.623
+tight        0.05              766      3.830    0.607      3.829    0.607
+tight        0.1               786      3.930    0.623      3.929    0.623
+bbox_inches  pad_inches    PNG px宽   PNG宽/dpi  F1(PNG)     PDF页盒宽  F1(PDF)
+--------------------------------------------------------------------------
+default      default          1600      8.000    1.268      8.000    1.268
+default      0.05             1600      8.000    1.268      8.000    1.268
+default      0.1              1600      8.000    1.268      8.000    1.268
+default      0.0              1600      8.000    1.268      8.000    1.268
+tight        default          1406      7.030    1.114      7.029    1.114
+tight        0.05             1386      6.930    1.098      6.929    1.098
+tight        0.1              1406      7.030    1.114      7.029    1.114

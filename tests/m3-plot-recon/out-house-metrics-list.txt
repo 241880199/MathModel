@@ -1,0 +1,129 @@
+n_figs	样本图数（fig-*.png）
+n_papers	样本份数（b-colwidth.tsv 行数）
+n_other_papers	未建索引的其余合集份数（读 corpus/papers/INDEX.md，且与其分项和自洽）
+n_tabs	同批抽到的表数（tab-*.png，不在射程）
+n_png_all	908 = 662 图 + 246 表的 PNG 总数（H3 差异登记里的『908 池』）
+h1_p25	662 图宽比值 p25
+h1_med	662 图宽比值中位
+h1_p75	662 图宽比值 p75
+h1_max	662 图宽比值 max
+h1_band_pct	落在出货 F1 区间 [0.80,1.20] 内的占比
+h1_below_pct	低于 0.80 的占比
+h1_above_pct	高于 1.20 的占比
+h2_colw_p90_median	43 篇正文行宽 p90 的全局中位（H2 的分母）
+h2_colw_p90_mean	同上但取均值（M10 对照口径，不作分母）
+h2_colw_p90_max	同上的 max（右尾）
+h2_colw_p90_gap	均值 − 中位的差（P-H2-b 的说明性数字，由 PROV_GUARDS 守）
+h2_fork_global_pct	全局分母 6.31 下落在 [0.9,1.1) 的占比
+h2_fork_perpaper_pct	逐篇 p90 作分母时同一区间的占比
+h3_land_pct	横图（宽高比 >=1）占比
+h3_below1_pct	竖图（宽高比 <1）占比
+h3_aspect_med	宽高比中位
+h3_ge2_pct	宽高比 >=2 占比
+h3_in_band_pct	宽高比落在常见带 [2,3] 的占比
+h3_h_med	图高中位（in）
+h3_h_p25	图高 p25（in）
+h3_h_p75	图高 p75（in）
+h3_aspect_p25	宽高比 p25
+h3_aspect_p75	宽高比 p75
+h3_legacy_2427	入库证据里唯一等于 2.427 的**单张**读数（设计稿那个 2.42 的来源**不是**它——见 h3_aspect_s120_*）
+h3_aspect_pool908_med	908 张 PNG（662 图 + 246 表）的宽高比中位
+h3_aspect_s120_med_lo	在同一个 908 池里按固定种子集重抽 120 张，宽高比中位的**最小**值（2.42 不可复跑的证据）
+h3_aspect_s120_med_hi	同上，宽高比中位的**最大**值
+color_median	出货仪器主色数中位
+color_zero_n	出货仪器零彩色张数
+color_zero_pct	出货仪器零彩色占比
+color_cov4_n	出货仪器 ≤4 覆盖张数
+color_cov4_pct	出货仪器 ≤4 覆盖率
+recon_median	侦察仪器主色数中位
+recon_zero_pct	侦察仪器零彩色占比
+recon_cov4_n	侦察仪器 ≤4 覆盖张数
+recon_cov4_pct	侦察仪器 ≤4 覆盖率
+recon_ledger_match	重写件 vs c-color-count.tsv 的 n_sig_colors 逐格一致数
+recon_baseline_minw_cov4_pct	baseline §7 的转写口径（min>=240 + //16 分箱）在同一 662 图上的 ≤4 覆盖率
+recon_baseline_minw_s166_cov4_pct	同上转写口径，但收在 **166 张抽样**（每 4 取 1）上——baseline §7 的 57.2% 的**原抽样**
+recon_baseline_minw_s166_median	同上转写口径在 166 抽样上的主色中位（baseline §7 报 4.0）
+recon_baseline_minw_s166_zero_pct	同上转写口径在 166 抽样上的零彩色占比（baseline §7 报 15.7）
+recon_cov4_s166_pct	**真侦察仪器**（max>=240、不分箱）在同一 166 抽样上的 ≤4 覆盖率（与转写口径 57.2% 对照）
+tab10_strict_n	严判据命中张数
+tab10_strict_pct	严判据命中占比
+tab10_loose_n	松判据命中张数
+tab10_loose_pct	松判据命中占比
+tab10_v2_ledger_match	严判据重写件 vs c6-tab10-v2.tsv 逐格一致数
+tab10_loose_ledger_match	松判据重写件 vs c-color-count.tsv 的 tab10_verdict 栏逐格一致数
+f2_r2_counted	连续红蓝发散热图在 F2 下的条数
+f2_r2_boxes	同一张图的（未设地板）彩色箱数
+f2_r2_subfloor_max_pct	最高落选箱占比 %
+f2_r2_lowest_counted_pct	最低入选箱占比 %
+f2_r2_margin_pp	最高落选箱离 0.5% 地板的富余（pp）
+f2_r1_subfloor_max_pct	离散配色图 R1 的最高落选箱（对照：不该被判成连续色图）
+f2_r3_subfloor_max_pct	离散配色图 R3 的最高落选箱（对照）
+cont_gate_pct	**新**闸门（箱数 ≥100 或 最高落选箱 ≥0.4%）在 662 图上的命中率
+cont_gate_old_pct	**旧**闸门（箱数 ≥20 且 最高落选箱 ≥0.3%）在同一 662 图上的命中率（对照）
+cont_box20_pass_pct	旧闸门那条『箱数 ≥20』的腿**放进来了多少张**（形同虚设的证据）
+cont_box20_below_n	旧闸门那条腿真正挡住了多少张（<20 箱）
+cont_heat_den	图注带 heatmap 的图数（正则 heat\s*-?\s*map）
+cont_heat_hit_n	新闸门在这组 heatmap 图上命中多少张
+cont_heat_hit_old_n	旧闸门在这组 heatmap 图上命中多少张（对照）
+cont_cite_den	这组 heatmap 图里 **F2 条数 >4**（会被当离散读数引用）的张数
+cont_cite_n	新闸门在那组『条数会被引用』的 heatmap 图里命中多少张
+cont_cite_old_n	旧闸门在那组『条数会被引用』的 heatmap 图里命中多少张（漏检的证据）
+cont_heat_subfloor_min_pct	那组图里**最低**的最高落选箱（%）：比离散标定件 R1 还低 ⇒ 这条线不区分连续/离散
+cont_ratio_disc	离散标定件 R1 的『箱数 ÷ 条数』（证『箱数 ≫ 条数』这条判据方向是反的）
+cont_ratio_heat	真热力图 B/2517929/fig-10-p19 的同一条比值（< 离散件）
+cont_comp_n	闸门补集（未被判为连续色图）的张数
+cont_ex1_f2	旧闸门漏掉的真热力图 #1（B/2517929/fig-10-p19）的 F2 条数
+cont_ex1_sub_pct	同图的最高落选箱（%）
+cont_ex2_f2	旧闸门漏掉的真热力图 #2（C/2505964/fig-08-p13）的 F2 条数
+cont_ex2_sub_pct	同图的最高落选箱（%）——比离散标定件 R1 的 0.127% 还低
+color_median_comp	补集上的出货仪器主色中位
+color_zero_pct_comp	补集上的零彩色占比
+color_cov4_pct_comp	补集上的 ≤4 覆盖率
+judge_n	判断层抽样张数
+judge_pie_n	判断层判为饼图的张数
+judge_pie_pct	判断层饼图占比
+judge_3d_n	判断层判为 3D 的张数
+judge_3d_pct	判断层 3D 占比
+judge_mp_n	判断层判为多面板的张数
+judge_mp_pct	判断层多面板占比
+mp_agree_n	多面板：判断层 vs 像素判据的一致张数
+legend_agree_n	图例：判断层 vs 像素判据的一致张数
+color_cov4_sample166_pct	出货仪器在 166 张抽样（每 4 张取 1）上的 ≤4 覆盖率（Task 1 §7 的同一抽样）
+mp_agree_pct	多面板：判断层 vs 像素判据的一致率
+pixel_mp_n	多面板：像素判据命中张数
+pixel_mp_pct	多面板：像素判据在 662 图上的读数
+legend_agree_pct	图例：判断层 vs 像素判据的一致率（证废用）
+grid_reading_pct	网格：像素判据在 662 图上的读数（不是结论）
+cap_n	图注条数（fig-*.caption.txt）
+cap_cut_pct	标签可机械切出的占比（宽松前缀）
+cap_f3a_n	出货 F3a 严格匹配张数
+cap_f3a_pct	出货 F3a 严格匹配（`^Figure <n>:`）的占比
+cap_ascii_colon_n	ASCII 冒号条数
+cap_ascii_colon_pct	ASCII 冒号占比
+cap_ascii_period_n	ASCII 句点条数
+cap_ascii_colon_or_period_n	ASCII 冒号**或**句点条数（= 侦察报告 §4.4『合计用 ASCII `:`/`.`』的口径）
+cap_ascii_colon_or_period_pct	同一更宽口径的占比（设计稿那个 87.3% 的真口径）
+cap_noperiod_n	句末无句号条数
+caption_3d_n	图注口径的 3D 张数
+n_sample166	166 张抽样的抽样量（每 4 张取 1）
+f2_floor_pct	F2 的噪声地板（%），取自 red/f2-diagnose.py 的 FLOOR
+grid_reading_n	网格：像素判据命中张数
+cap_words_med	正文词数中位
+cap_words_p25	正文词数 p25
+cap_words_p75	正文词数 p75
+cap_words_p95	正文词数 p95
+cap_words_max	正文词数上界
+cap_noperiod_pct	句末无句号的占比
+cap_empty_n	空图注张数（只有 `Figure N:`）
+cap_empty_f3d_n	空图注里被 F3d 抓到的张数
+caption_3d_pct	图注口径的 3D 占比（本任务自定判据面）
+font_est_n	d9 台账里可用张数
+font_est_pt_min	PNG 连通域反推字号的 min（pt）
+font_est_pt_max	PNG 连通域反推字号的 max（pt）
+probe_pages	multipage-probe.pdf 的页数
+probe_page1_w_in	探针 page1 页盒宽（in）
+probe_page2_w_in	探针 page2 页盒宽（in）
+probe_page1_colors	探针 page1 的 F2 读数
+probe_page1_ratio	探针 page1 的 F1 比值（分母 = 6.3099，故恰 1.000）
+probe_page2_colors	探针 page2 的 F2 读数
+probe_verdict	整份探针在出货检查器下的判词（PASS/FAIL）

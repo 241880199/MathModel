@@ -33,9 +33,9 @@ Task 7 证据 · 引用完整性检查器（check-spec-pointers.py）+ 假 skill
 ==============================================================================
 §0  blob 自证（git hash-object：被验对象就是即将入库的那几个文件）
 ==============================================================================
-c596fa095a9b7e674723da6085ee511c0e2bf623  tests/skills/figure-choose/check-spec-pointers.py
-76fd4dc163b05a7ee173fb7306abf7bdc5d3e776  tests/skills/figure-choose/mutate-figure-style.py
-1add38c056ed14076b2d6932dc1c58c76b914e8a  tests/skills/figure-choose/gen-pointer-verify.py
+d2901f8e8b8f99286cfad18db99b04aaaf8dbeb6  tests/skills/figure-choose/check-spec-pointers.py
+ac94ae908fbcbe1fb46d81f3b162f7a4fa9f4ddc  tests/skills/figure-choose/mutate-figure-style.py
+5e866865eab0ad8f1a85e5b7166bdc6db959697d  tests/skills/figure-choose/gen-pointer-verify.py
 be1ba75683b6433283c067973e7020059af8ff49  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-ok/SKILL.md
 473bae246577ae4e886fe3ff1300a74b23dad8ae  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-nopointer/SKILL.md
 1dba97ae79eee24188551cd4349b22810bfb0367  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-restate/SKILL.md
@@ -48,7 +48,7 @@ be1ba75683b6433283c067973e7020059af8ff49  tests/skills/figure-choose/fixtures/fa
 $ python tests/skills/figure-choose/check-spec-pointers.py
 引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
 skills-dir = .claude/skills · checker = tests/skills/figure-choose/check-house-style.py
-PASS  INSTR  K3@空串  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 普查：扫到 5 个 skill（.claude/skills/*/SKILL.md）· 绘图家族 0 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
       非家族  mcm-abstract
@@ -69,7 +69,7 @@ RESULT: PASS (无对象：扫到 5 个 skill，绘图家族 0 个)
 $ python tests/skills/figure-choose/check-spec-pointers.py --skills-dir tests/skills/figure-choose/fixtures/fake-skills
 引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
 skills-dir = tests/skills/figure-choose/fixtures/fake-skills · checker = tests/skills/figure-choose/check-house-style.py
-PASS  INSTR  K3@空串  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 普查：扫到 5 个 skill（tests/skills/figure-choose/fixtures/fake-skills/*/SKILL.md）· 绘图家族 5 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
       家族    mcm-plot-nopointer
@@ -79,15 +79,15 @@ PASS  INSTR  K3@空串  禁止串 87 条（现取）· 命中 无 · 中文数�
       家族    mcm-table
 ------------------------------------------------------------------------------
 FAIL  K2  mcm-plot-nopointer  指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-plot-nopointer  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-plot-nopointer  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K2  mcm-plot-ok  指针 `references/house-style.md` 出现 1 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-plot-ok  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-plot-ok  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K2  mcm-plot-restate  指针 `references/house-style.md` 出现 1 处（必须 ≥1；只写 `house-style.md` 不算）
-FAIL  K3  mcm-plot-restate  禁止串 87 条（现取）· 命中 ['0.9', '0.95', '0.951', '1.20'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+FAIL  K3  mcm-plot-restate  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 ['0.9', '0.95', '0.951', '1.20', '不超过 1'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 FAIL  K2  mcm-schematic  指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-schematic  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-schematic  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 FAIL  K2  mcm-table  指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-table  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-table  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 扫到 5 个 skill（绘图家族 5 个）· 判据 K2/K3 · 红 4 条
 RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）
@@ -109,7 +109,7 @@ RESULT: FAIL（DIR:skills-dir）
 $ python tests/skills/figure-choose/check-spec-pointers.py --skills-dir tests/skills/figure-choose/fixtures
 引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
 skills-dir = tests/skills/figure-choose/fixtures · checker = tests/skills/figure-choose/check-house-style.py
-PASS  INSTR  K3@空串  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 普查：扫到 0 个 skill（tests/skills/figure-choose/fixtures/*/SKILL.md）· 绘图家族 0 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
 FAIL  CENSUS    一个 skill 都没扫到（目录里没有 `*/SKILL.md`）⇒ fail-closed
@@ -238,7 +238,7 @@ RED-OK   M38  SKILL.md：删掉「输出契约」整段 ⇒ `K7` 红（该段原
 RED-OK   M39  SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（旧写法不会红）
          SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（旧写法不会红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K4=FAIL、K5=FAIL
 RED-OK   M34  house-style.md：小数字面量与 `≤n` 全抹掉 ⇒ `K3` 抽不到禁止串 ⇒ fail-closed 红
-         前置(真件) exit=0 K3 绿；后置(副本抹掉小数与 `≤n`) exit=1 『禁止串 0 条（现取）· 命中 无 ⇒ **一条都抽不到 ⇒ fail-closed 记红** · 中文数词臂：裸值词 ['七', '二十', '十七', '十二']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无』（副本里剩下的禁止串 0 条）
+         前置(真件) exit=0 K3 绿；后置(副本抹掉小数与 `≤n`) exit=1 『禁止串（现取）：小数 0 条 · 阈值值池 上界 [12, 17] / 下界 [2, 7, 20, 100] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，或标记表里有认不出方向的形态）⇒ fail-closed 记红** · 中文数词臂：裸值词 ['七', '二十', '十七', '十二']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无』（副本里剩下的禁止串 0 条）
 RED-OK   M40  SKILL.md：`--skills-root` 指到**真有** `mcm-plot-python` 的临时根 ⇒ `K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）
          前置(真 skills 根) exit=0 K6 绿；后置(临时根里真有 mcm-plot-python) exit=1 『点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·标了〔拟建〕⇒**标记与事实不符**） · 标记与事实不符的 ['mcm-plot-python']』
 RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红（`SKILL.md` 那句『逐条标了验证状态』要成立）
@@ -251,10 +251,28 @@ RED-OK   M43  引用完整性：整体跑 `fixtures/fake-skills/` ⇒ `mcm-plot-
          前置(真仓扫到 5 个 skill) exit=0 末行『RESULT: PASS (无对象：扫到 5 个 skill，绘图家族 0 个)』绿：判到且无 FAIL 行；后置(假 skill 目录扫到 5 份) exit=1 全目录共红 4 条、末行『RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）』 —— `mcm-plot-nopointer` 由 **K2** 点名=True、`mcm-plot-restate` 由 **K3** 点名=True、`mcm-table` 由 **K2** 点名=True、`mcm-schematic` 由 **K2** 点名=True；NOTE/两条规则**各打各的**（另四格全绿）：K3@mcm-plot-nopointer=True · K2@mcm-plot-restate=True · `mcm-plot-ok` 两格=True
 RED-OK   M44  引用完整性：只留 `mcm-plot-ok` 再跑 ⇒ **绿**（本组唯一能证这个检查器不是恒 FAIL 的一条）
          只留 `mcm-plot-ok`（临时根，真件不碰；目录名**逐字**打出来自证人不在赌路径）exit=0 K2=PASS、K3=PASS、末行『RESULT: PASS (绘图家族 1 个，K2/K3 全绿)』 ⇒ 这个检查器**不是恒 FAIL**
-RED-OK   M45  check-house-style.py：把 `_k3` 抽禁止串的**两条正则都改坏**（抽到空集）⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红（打真仓：那里逐份判据根本不执行，只有全局探针能红）
-         前置(真检查器) exit=0 仪器探针绿；后置(副本两条正则改坏) exit=1 『FAIL  INSTR  K3@空串  禁止串 0 条（现取）· 命中 无 ⇒ **一条都抽不到 ⇒ fail-closed 记红** · 中文数词臂：裸值词 ['七', '二十', '十七'…』、全跑共红 1 条（真仓 0 个家族 ⇒ 除仪器探针外无可红之处）、末行『RESULT: FAIL（INSTR:K3）』　NOTE/副本已删：True
+RED-OK   M45  check-house-style.py：把 `_k3` 抽参照物的**三族全改坏**（小数正则 + `SK_CN_TIER_RES` 整条 ⇒ 两族值池一起空）⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红（打真仓：那里逐份判据根本不执行，只有全局探针能红）
+         前置(真检查器) exit=0 仪器探针绿；后置(副本三族参照物全改坏) exit=1 『FAIL  INSTR  K3@空串  禁止串（现取）：小数 0 条 · 阈值值池 上界 [] / 下界 [] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，…』、全跑共红 1 条（真仓 0 个家族 ⇒ 除仪器探针外无可红之处）、末行『RESULT: FAIL（INSTR:K3）』　NOTE/副本已删：True
 RED-OK   M46  引用完整性：`--skills-dir` 指向坏目录 ⇒ 非零退出（分支 a 目录不存在 · 分支 b 目录在但一个 `SKILL.md` 都没有）
          分支 a(目录不存在) exit=1 『FAIL  DIR       `--skills-dir` 不存在或不是目录：tests/skills/figure-choose/fixtu…』；分支 b(目录在、一个 `SKILL.md` 都没有) exit=1 『FAIL  CENSUS    一个 skill 都没扫到（目录里没有 `*/SKILL.md`）⇒ fail-closed…』；两分支都没有 `RESULT: PASS`=True
+
+==============================================================================
+`K3` ASCII 阈值标记臂的变异（M47–M53 · 打的是 SKILL.md 的副本；其中 M47–M49/M51–M53 必须红、M50 是射程边界对照必须绿，共 7 条）
+==============================================================================
+RED-OK   M47  SKILL.md：写进『≥7 pt』（`H12` 的规范值**原话**（生成器现取自 `house-style.md`：`≥7`））⇒ `K3` **阈值标记臂**红（该族原先整族走绿）
+         SKILL.md：写进『≥7 pt』（`H12` 的规范值**原话**（生成器现取自 `house-style.md`：`≥7`））⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≥7']（**带标记的字面** ⇒ 打在阈值标记臂上）
+RED-OK   M48  SKILL.md：写进『上限 4』（**跨标记、同方向**：规范写的是 `≤4`，`上限 4` 是同一个阈值的重述）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）
+         SKILL.md：写进『上限 4』（**跨标记、同方向**：规范写的是 `≤4`，`上限 4` 是同一个阈值的重述）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['上限 4']（**带标记的字面** ⇒ 打在阈值标记臂上）
+RED-OK   M49  SKILL.md：写进『不超过 12 词』（`不超过 n` 这一族（规范里是 `不超过 17 词`，值池按方向共享））⇒ `K3` **阈值标记臂**红（该族原先整族走绿）
+         SKILL.md：写进『不超过 12 词』（`不超过 n` 这一族（规范里是 `不超过 17 词`，值池按方向共享））⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['不超过 12']（**带标记的字面** ⇒ 打在阈值标记臂上）
+RED-OK   M51  SKILL.md：写进『字号下限 7 pt』（`下限 n` 这一族（下界方向；值 `7` 现取自规范里的 `≥7`））⇒ `K3` **阈值标记臂**红（该族原先整族走绿）
+         SKILL.md：写进『字号下限 7 pt』（`下限 n` 这一族（下界方向；值 `7` 现取自规范里的 `≥7`））⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['下限 7']（**带标记的字面** ⇒ 打在阈值标记臂上）
+RED-OK   M52  SKILL.md：写进『图注 < 12 词』（`<n 词` 这一族（上界方向；值 `12` 现取自规范里的 `上限 12 词`））⇒ `K3` **阈值标记臂**红（该族原先整族走绿）
+         SKILL.md：写进『图注 < 12 词』（`<n 词` 这一族（上界方向；值 `12` 现取自规范里的 `上限 12 词`））⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['< 12 词']（**带标记的字面** ⇒ 打在阈值标记臂上）
+RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）
+         SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
+RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
+         前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
 还原自证  house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 4b8eed1d5c51cdd2feaea27db719b4c4ab65815d · SKILL.md blob dca464475e6f7199c72e1bf7492296868530db3e · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
@@ -265,10 +283,11 @@ MUT: 13/13 红（house-style.md / provenance.md 的规范数守卫：11 条 `--o
 MUT: 7/7 红（chart-types.md 的结构守卫 S1/S2/S3/S5：7 条 `--only`）
 MUT: 13/13 红（SKILL.md 的短契约守卫 K1–K8：13 条（10 条打 SKILL.md 副本 + 3 条打别的：`K3` fail-closed 臂 / `K6` 反向臂 / `K8`））
 MUT: 4/4 红（引用完整性检查器 check-spec-pointers.py：`--skills-dir` 指假 skill 的全扫 + `K3` 仪器 fail-closed + 坏目录 fail-closed）
-MUT: 46/46 红（合计）
+MUT: 7/7 达预期（`K3` 的 ASCII 阈值标记臂 M47–M53：6 条必须红 + 1 条**射程边界对照**（`主色 4 个` / `下限 4` / `< 25 词`）必须绿）
+MUT: 53/53 达预期（合计）
 探针 P1: 红（check-figure-style.py 的脚本探针）
 探针 R1: 红（读数条 S4 的『该动的时候动、该判的时候不判』）
-（本驱动器共 9 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 1 条读数条探针）
+（本驱动器共 9 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 7 条 `K3` 阈值标记臂变异（含 1 条射程边界对照）+ 1 条读数条探针）
 [exit=0]
 
 ==============================================================================
@@ -301,15 +320,15 @@ MUT: 46/46 红（合计）
      `fixtures/*/` 的子目录 = ['fake-skills']
 
 §5d  五份假 skill 各自的形态（**逐字**印出它们的关键读数，别让复核员只能信 M43 的结论）
-     mcm-plot-ok（含指针、无数值 ⇒ `K2`/`K3` 都该绿）：指针 `references/house-style.md` 出现 1 处 · 命中的现取禁止串 无（禁止串表共 87 条，现取）· 行数 15
-     mcm-plot-nopointer（缺指针 ⇒ `K2` 该红（`K3` 该绿））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（禁止串表共 87 条，现取）· 行数 13
-     mcm-plot-restate（重述数值 ⇒ `K3` 该红（`K2` 该绿））：指针 `references/house-style.md` 出现 1 处 · 命中的现取禁止串 ['0.9', '0.95', '0.951', '1.20']（禁止串表共 87 条，现取）· 行数 17
-     mcm-table（家族正则备选②：在射程内、缺指针 ⇒ `K2` 该红（删掉 `|mcm-table` 它就掉出射程 ⇒ M43 变 RED-BAD））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（禁止串表共 87 条，现取）· 行数 18
-     mcm-schematic（家族正则备选③：在射程内、缺指针 ⇒ `K2` 该红（删掉 `|mcm-schematic` 同上））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（禁止串表共 87 条，现取）· 行数 18
+     mcm-plot-ok（含指针、无数值 ⇒ `K2`/`K3` 都该绿）：指针 `references/house-style.md` 出现 1 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 15
+     mcm-plot-nopointer（缺指针 ⇒ `K2` 该红（`K3` 该绿））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 13
+     mcm-plot-restate（重述数值 ⇒ `K3` 该红（`K2` 该绿））：指针 `references/house-style.md` 出现 1 处 · 命中的现取禁止串 ['0.9', '0.95', '0.951', '1.20', '不超过 1']（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 17
+     mcm-table（家族正则备选②：在射程内、缺指针 ⇒ `K2` 该红（删掉 `|mcm-table` 它就掉出射程 ⇒ M43 变 RED-BAD））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 18
+     mcm-schematic（家族正则备选③：在射程内、缺指针 ⇒ `K2` 该红（删掉 `|mcm-schematic` 同上））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 18
 
 §5e  口径边界（**写实**：本器与这两条判据都判不了的）
-     · `K2`/`K3` 的**口径本身**（判得对不对）不在这里验 —— 那一侧由 `check-house-style.py` 的 `M29`–`M41` 守；本器只验它们**在一族 skill 上真的会被触发**、且不恒真/不恒红。
-     · `K3` 的机械射程只到「小数 / `≤n` / `<n 词` / 中文数词 + 规范单位词 / ≥4 的规范整数值的中文写法」；1–3 的中文写法、百位以上、以及「这句话是不是在复述规范」本身**都不在射程内**（判断层的事）。
+     · `K2`/`K3` 的**口径本身**（判得对不对）不在这里验 —— 那一侧由 `check-house-style.py` 的 `M29`–`M41` 与 `M47`–`M53` 守；本器只验它们**在一族 skill 上真的会被触发**、且不恒真/不恒红。
+     · `K3` 的机械射程只到「小数 / 六个阈值标记（`≤n` · `≥n` · `上限 n` · `下限 n` · `不超过 n` · `<n 词`，**同方向内可互换**）/ 中文数词 + 规范单位词 / ≥4 的规范整数值的中文写法」；1–3 的中文写法、百位以上、**无标记裸整数（`主色 4 个`）**、以及「这句话是不是在复述规范」本身**都不在射程内**（判断层的事；裸整数那条由驱动器 `M50` 常驻对照守住）。
 
 ==============================================================================
 §6  本节自证：上面每条命令的退出码都要**符合预期**（§1 真仓 = 0；§2/§3 两分支 = 1；§4 驱动器 = 0）

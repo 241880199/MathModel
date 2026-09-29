@@ -1,0 +1,61 @@
+matplotlib = 3.10.7（本机默认）
+==============================================================================
+### R1 构成 ###
+  $ python tests/skills/figure-choose/check-figure-style.py --fig build\m3-plot-recon\d14\R1_composition.png --caption 'Figure 1: Vulnerability composition by district' --textwidth-in 6.31 --dpi 200
+    PASS  F1  图宽比 1.000（分母 6.31 in）
+    PASS  F2  彩色主色数 3
+    PASS  F3a  图注以 `Figure N:` 起
+    PASS  F3b  图注词数 4（上限 12，硬上限 17）
+    PASS  F3c  句末不加句号
+    PASS  F3d  图注正文非空（正文 4 词）
+    RESULT: PASS
+    ⇒ exit = 0
+  $ python tests/skills/figure-choose/check-figure-style.py --fig build\m3-plot-recon\d14\R1_composition.pdf --caption 'Figure 1: Vulnerability composition by district' --textwidth-in 6.31
+    PASS  F1  图宽比 1.000（分母 6.31 in）
+    PASS  F2  彩色主色数 3
+    PASS  F3a  图注以 `Figure N:` 起
+    PASS  F3b  图注词数 4（上限 12，硬上限 17）
+    PASS  F3c  句末不加句号
+    PASS  F3d  图注正文非空（正文 4 词）
+    RESULT: PASS
+    ⇒ exit = 0
+==============================================================================
+### R2 多变量对比 ###
+  $ python tests/skills/figure-choose/check-figure-style.py --fig build\m3-plot-recon\d14\R2_correlation.png --caption 'Figure 2: Correlation of district attributes with disaster count' --textwidth-in 6.31 --dpi 200
+    PASS  F1  图宽比 1.000（分母 6.31 in）
+    PASS  F2  彩色主色数 1
+    PASS  F3a  图注以 `Figure N:` 起
+    PASS  F3b  图注词数 7（上限 12，硬上限 17）
+    PASS  F3c  句末不加句号
+    PASS  F3d  图注正文非空（正文 7 词）
+    RESULT: PASS
+    ⇒ exit = 0
+  $ python tests/skills/figure-choose/check-figure-style.py --fig build\m3-plot-recon\d14\R2_correlation.pdf --caption 'Figure 2: Correlation of district attributes with disaster count' --textwidth-in 6.31
+    PASS  F1  图宽比 1.000（分母 6.31 in）
+    PASS  F2  彩色主色数 1
+    PASS  F3a  图注以 `Figure N:` 起
+    PASS  F3b  图注词数 7（上限 12，硬上限 17）
+    PASS  F3c  句末不加句号
+    PASS  F3d  图注正文非空（正文 7 词）
+    RESULT: PASS
+    ⇒ exit = 0
+==============================================================================
+### R3 交付形态 ###
+  $ python tests/skills/figure-choose/check-figure-style.py --fig build\m3-plot-recon\d14\R3_delivery.png --caption 'Figure 3: Vulnerability composition by district, paper-ready' --textwidth-in 6.31 --dpi 200
+    PASS  F1  图宽比 1.000（分母 6.31 in）
+    PASS  F2  彩色主色数 3
+    PASS  F3a  图注以 `Figure N:` 起
+    PASS  F3b  图注词数 5（上限 12，硬上限 17）
+    PASS  F3c  句末不加句号
+    PASS  F3d  图注正文非空（正文 5 词）
+    RESULT: PASS
+    ⇒ exit = 0
+  $ python tests/skills/figure-choose/check-figure-style.py --fig build\m3-plot-recon\d14\R3_delivery.pdf --caption 'Figure 3: Vulnerability composition by district, paper-ready' --textwidth-in 6.31
+    PASS  F1  图宽比 1.000（分母 6.31 in）
+    PASS  F2  彩色主色数 3
+    PASS  F3a  图注以 `Figure N:` 起
+    PASS  F3b  图注词数 5（上限 12，硬上限 17）
+    PASS  F3c  句末不加句号
+    PASS  F3d  图注正文非空（正文 5 词）
+    RESULT: PASS
+    ⇒ exit = 0

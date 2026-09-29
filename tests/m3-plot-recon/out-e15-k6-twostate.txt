@@ -1,0 +1,16 @@
+## E15-1 · K6 正反两态（--skills-root，不动真 .claude/skills/）
+
+### 反态：临时根里 mcm-plot-python **存在**
+FAIL  K6                 点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·标了〔拟建〕⇒**标记与事实不符**） · 标记与事实不符的 ['mcm-plot-python']
+PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+RESULT: FAIL（K6）
+
+### 正态：临时根里三个都不存在（= 真仓现状，用默认根）
+PASS  K6                 点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（不存在·标了〔拟建〕） · 标记与事实不符的 无
+PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+RESULT: PASS
+
+### 被 K6 盯上的行（mcm-figure-choose/SKILL.md）
+66:  - `mcm-plot-python`（〔拟建〕）
+67:  - `mcm-plot-matlab`（〔拟建〕）
+68:  - `mcm-plot-origin`（〔拟建〕）

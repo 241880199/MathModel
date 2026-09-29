@@ -1,0 +1,239 @@
+matplotlib 3.11.2
+matplotlib 默认 axes.prop_cycle 的颜色数 = 10
+matplotlib 默认色序（前 3）= [{'color': (0.12156862745098039, 0.4666666666666667, 0.7058823529411765)}, {'color': (1.0, 0.4980392156862745, 0.054901960784313725)}, {'color': (0.17254901960784313, 0.6274509803921569, 0.17254901960784313)}]
+==============================================================================
+--- style.library['science'] 原始 dict · 26 键 ---
+    axes.linewidth             = 0.5
+    axes.prop_cycle            = cycler('color', ['#0C5DA5', '#00B945', '#FF9500', '#FF2C00', '#845B97', '#474747', '#9e9e9e'])
+    figure.figsize             = [3.5, 2.625]
+    font.family                = ['serif']
+    grid.linewidth             = 0.5
+    legend.frameon             = False
+    lines.linewidth            = 1.0
+    mathtext.fontset           = 'dejavuserif'
+    savefig.bbox               = 'tight'
+    savefig.pad_inches         = 0.05
+    text.latex.preamble        = '\\usepackage{amsmath} \\usepackage{amssymb}'
+    text.usetex                = True
+    xtick.direction            = 'in'
+    xtick.major.size           = 3.0
+    xtick.major.width          = 0.5
+    xtick.minor.size           = 1.5
+    xtick.minor.visible        = True
+    xtick.minor.width          = 0.5
+    xtick.top                  = True
+    ytick.direction            = 'in'
+    ytick.major.size           = 3.0
+    ytick.major.width          = 0.5
+    ytick.minor.size           = 1.5
+    ytick.minor.visible        = True
+    ytick.minor.width          = 0.5
+    ytick.right                = True
+    ## axes.prop_cycle 与 matplotlib 默认色序**逐项相同**？ False
+
+--- style.library['no-latex'] 原始 dict · 5 键 ---
+    axes.formatter.use_mathtext = True
+    font.family                = ['serif']
+    font.serif                 = ['STIXGeneral']
+    mathtext.fontset           = 'cm'
+    text.usetex                = False
+    ## 本 style **未设** axes.prop_cycle ⇒ 落回默认
+
+--- style.library['grid'] 原始 dict · 10 键 ---
+    axes.axisbelow             = True
+    axes.grid                  = True
+    grid.alpha                 = 0.5
+    grid.color                 = 'k'
+    grid.linestyle             = '--'
+    grid.linewidth             = 0.5
+    legend.fancybox            = True
+    legend.framealpha          = 1.0
+    legend.frameon             = True
+    legend.numpoints           = 1
+    ## 本 style **未设** axes.prop_cycle ⇒ 落回默认
+
+--- style.library['ieee'] 原始 dict · 6 键 ---
+    axes.prop_cycle            = (cycler('color', ['k', 'r', 'b', 'g']) + cycler('linestyle', ['-', '--', ':', '-.']))
+    figure.dpi                 = 600.0
+    figure.figsize             = [3.3, 2.5]
+    font.family                = ['serif']
+    font.serif                 = ['Times']
+    font.size                  = 8.0
+    ## axes.prop_cycle 与 matplotlib 默认色序**逐项相同**？ False
+
+--- style.library['nature'] 原始 dict · 14 键 ---
+    axes.labelsize             = 7.0
+    axes.linewidth             = 0.5
+    figure.figsize             = [3.3, 2.5]
+    font.family                = ['sans-serif']
+    font.sans-serif            = ['DejaVu Sans', 'Arial', 'Helvetica', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Avant Garde', 'sans-serif']
+    font.size                  = 7.0
+    grid.linewidth             = 0.5
+    legend.fontsize            = 7.0
+    lines.linewidth            = 1.0
+    lines.markersize           = 3.0
+    mathtext.fontset           = 'dejavusans'
+    text.latex.preamble        = '\\usepackage{amsmath} \\usepackage{amssymb} \\usepackage{sfmath}'
+    xtick.labelsize            = 7.0
+    ytick.labelsize            = 7.0
+    ## 本 style **未设** axes.prop_cycle ⇒ 落回默认
+
+--- style.library['notebook'] 原始 dict · 21 键 ---
+    axes.labelsize             = 16.0
+    axes.linewidth             = 1.0
+    axes.titlesize             = 16.0
+    figure.figsize             = [8.0, 6.0]
+    font.family                = ['sans-serif']
+    grid.linewidth             = 1.0
+    legend.fontsize            = 16.0
+    legend.title_fontsize      = 16.0
+    lines.linewidth            = 2.0
+    mathtext.fontset           = 'dejavusans'
+    text.usetex                = False
+    xtick.labelsize            = 16.0
+    xtick.major.size           = 6.0
+    xtick.major.width          = 1.0
+    xtick.minor.size           = 3.0
+    xtick.minor.width          = 1.0
+    ytick.labelsize            = 16.0
+    ytick.major.size           = 6.0
+    ytick.major.width          = 1.0
+    ytick.minor.size           = 3.0
+    ytick.minor.width          = 1.0
+    ## 本 style **未设** axes.prop_cycle ⇒ 落回默认
+
+==============================================================================
+组合用法（SciencePlots 的推荐写法就是列多个 style）在**落地后**的关键键：
+[science]
+    axes.prop_cycle ≡ matplotlib 默认色序？ False
+    text.usetex            = True
+    font.family            = ['serif']
+    font.size              = 10.0
+    lines.linewidth        = 1.0
+    axes.spines.top        = True
+    axes.spines.right      = True
+    xtick.direction        = 'in'
+    axes.grid              = False
+    figure.figsize         = [3.5, 2.625]
+    text.latex.preamble    = '\\usepackage{amsmath} \\usepackage{amssymb}'
+
+[science+no-latex]
+    axes.prop_cycle ≡ matplotlib 默认色序？ False
+    text.usetex            = False
+    font.family            = ['serif']
+    font.size              = 10.0
+    lines.linewidth        = 1.0
+    axes.spines.top        = True
+    axes.spines.right      = True
+    xtick.direction        = 'in'
+    axes.grid              = False
+    figure.figsize         = [3.5, 2.625]
+    text.latex.preamble    = '\\usepackage{amsmath} \\usepackage{amssymb}'
+
+[science+no-latex+grid]
+    axes.prop_cycle ≡ matplotlib 默认色序？ False
+    text.usetex            = False
+    font.family            = ['serif']
+    font.size              = 10.0
+    lines.linewidth        = 1.0
+    axes.spines.top        = True
+    axes.spines.right      = True
+    xtick.direction        = 'in'
+    axes.grid              = True
+    figure.figsize         = [3.5, 2.625]
+    text.latex.preamble    = '\\usepackage{amsmath} \\usepackage{amssymb}'
+
+[science+ieee]
+    axes.prop_cycle ≡ matplotlib 默认色序？ False
+    text.usetex            = True
+    font.family            = ['serif']
+    font.size              = 8.0
+    lines.linewidth        = 1.0
+    axes.spines.top        = True
+    axes.spines.right      = True
+    xtick.direction        = 'in'
+    axes.grid              = False
+    figure.figsize         = [3.3, 2.5]
+    text.latex.preamble    = '\\usepackage{amsmath} \\usepackage{amssymb}'
+
+[science+nature]
+    axes.prop_cycle ≡ matplotlib 默认色序？ False
+    text.usetex            = True
+    font.family            = ['sans-serif']
+    font.size              = 7.0
+    lines.linewidth        = 1.0
+    axes.spines.top        = True
+    axes.spines.right      = True
+    xtick.direction        = 'in'
+    axes.grid              = False
+    figure.figsize         = [3.3, 2.5]
+    text.latex.preamble    = '\\usepackage{amsmath} \\usepackage{amssymb} \\usepackage{sfmath}'
+
+[science+notebook]
+    axes.prop_cycle ≡ matplotlib 默认色序？ False
+    text.usetex            = False
+    font.family            = ['sans-serif']
+    font.size              = 10.0
+    lines.linewidth        = 2.0
+    axes.spines.top        = True
+    axes.spines.right      = True
+    xtick.direction        = 'in'
+    axes.grid              = False
+    figure.figsize         = [8.0, 6.0]
+    text.latex.preamble    = '\\usepackage{amsmath} \\usepackage{amssymb}'
+
+==============================================================================
+`science` 相对 matplotlib 默认**改动的全部键**（合并后逐键 diff）：
+改动键数 = 26
+    axes.linewidth             default=0.8
+                               science=0.5
+    axes.prop_cycle            default=cycler('color', [(0.12156862745098039, 0.4666666666666667, 0.7058823529411765), (1.0, 0.4980392156862745, 0.054901960784313725), (0.17254901960784313, 0.6274509803921569, 0.17254901960784313), (0.8392156862745098, 0.15294117647058825, 0.1568627450980392), (0.5803921568627451, 0.403921568627451, 0.7411764705882353), (0.5490196078431373, 0.33725490196078434, 0.29411764705882354), (0.8901960784313725, 0.4666666666666667, 0.7607843137254902), (0.4980392156862745, 0.4980392156862745, 0.4980392156862745), (0.7372549019607844, 0.7411764705882353, 0.13333333333333333), (0.09019607843137255, 0.7450980392156863, 0.8117647058823529)])
+                               science=cycler('color', ['#0C5DA5', '#00B945', '#FF9500', '#FF2C00', '#845B97', '#474747', '#9e9e9e'])
+    figure.figsize             default=[6.4, 4.8]
+                               science=[3.5, 2.625]
+    font.family                default=['sans-serif']
+                               science=['serif']
+    grid.linewidth             default=0.8
+                               science=0.5
+    legend.frameon             default=True
+                               science=False
+    lines.linewidth            default=1.5
+                               science=1.0
+    mathtext.fontset           default='dejavusans'
+                               science='dejavuserif'
+    savefig.bbox               default=None
+                               science='tight'
+    savefig.pad_inches         default=0.1
+                               science=0.05
+    text.latex.preamble        default=''
+                               science='\\usepackage{amsmath} \\usepackage{amssymb}'
+    text.usetex                default=False
+                               science=True
+    xtick.direction            default='out'
+                               science='in'
+    xtick.major.size           default=3.5
+                               science=3.0
+    xtick.major.width          default=0.8
+                               science=0.5
+    xtick.minor.size           default=2.0
+                               science=1.5
+    xtick.minor.visible        default=False
+                               science=True
+    xtick.minor.width          default=0.6
+                               science=0.5
+    xtick.top                  default=False
+                               science=True
+    ytick.direction            default='out'
+                               science='in'
+    ytick.major.size           default=3.5
+                               science=3.0
+    ytick.major.width          default=0.8
+                               science=0.5
+    ytick.minor.size           default=2.0
+                               science=1.5
+    ytick.minor.visible        default=False
+                               science=True
+    ytick.minor.width          default=0.6
+                               science=0.5
+    ytick.right                default=False
+                               science=True

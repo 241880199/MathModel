@@ -1,0 +1,34 @@
+C:\Users\Shameless\AppData\Local\Programs\Python\Python311\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Unknown extension is not supported and will be removed
+  warn(msg)
+扫的根 = corpus（递归；跳过以 `.` 开头与 build/）
+直接可读候选（.csv/.dat/.json/.tsv/.xls/.xlsx）共 3 个：
+  corpus/官方原题/2017/2017_ICM_Problem_D_Data.xlsx   12103 B
+  corpus/官方原题/2017/2017_MCM_Problem_C_Data.xlsx   20391 B
+  corpus/官方原题/2026/2026_MCM_Problem_C_Data.csv   90002 B
+
+压缩包形态（需先解压，**不算直接可读**）共 12 个：
+  corpus/官方原题/2016/ProblemCDATA.zip   5599899 B
+  corpus/官方原题/2018/2018_MCM_Problem_C_Data.zip   2737733 B
+  corpus/官方原题/2019/2019_MCMProblemC_DATA.zip   4430415 B
+  corpus/官方原题/2020/2020_ICM_Problem_D_DATA.zip   1410114 B
+  corpus/官方原题/2020/2020_MCM_Problem_C_Data.zip   5031847 B
+  corpus/官方原题/2021/2021_ICM_Problem_D_Data.zip   5365959 B
+  corpus/官方原题/2021/2021_MCM_Problem_C_Data.zip   4417418 B
+  corpus/官方原题/2022/2022_Problem_C_DATA.zip   18723 B
+  corpus/官方原题/2023/2023_MCM_Problem_C_Data.zip   33875 B
+  corpus/官方原题/2024/2024_ICM_Problem_D_Great_Lakes_Data.zip   2116567 B
+  corpus/官方原题/2025/2025_Problem_C_Data.zip   3145600 B
+  corpus/官方原题/2025/2025_Problem_D_Data.zip   36997466 B
+
+==============================================================================
+真读一次（pandas）：
+pandas = 3.0.5
+--- corpus/官方原题/2017/2017_ICM_Problem_D_Data.xlsx ---
+    sheets=['Sheet1'] · 首表 rows=58 cols=12
+    列名（前 6）: ['TSA Pre-Check Arrival Times', 'Regular Pax Arrival Times', 'ID Check Process Time 1', 'ID Check Process Time 2', 'Milimeter Wave Scan times', 'X-Ray Scan Time']
+--- corpus/官方原题/2017/2017_MCM_Problem_C_Data.xlsx ---
+    sheets=['parsed mile posts', 'definitions'] · 首表 rows=224 cols=9
+    列名（前 6）: ['Route_ID', 'startMilepost', 'endMilepost', 'Average daily traffic counts Year_2015', 'RteType (IS= Interstate, SR= State Route)', 'Number of Lanes DECR MP direction ']
+--- corpus/官方原题/2026/2026_MCM_Problem_C_Data.csv ---
+    rows=421 cols=53
+    列名（前 6）: ['celebrity_name', 'ballroom_partner', 'celebrity_industry', 'celebrity_homestate', 'celebrity_homecountry/region', 'celebrity_age_during_season']

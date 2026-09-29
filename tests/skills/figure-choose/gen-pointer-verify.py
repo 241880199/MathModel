@@ -166,7 +166,8 @@ def main():
     hs = load((HERE / "check-house-style.py").resolve(), "check_house_style")
     src = CHK.read_bytes().decode("utf-8")
     doc_text = hs.DOC.read_bytes().decode("utf-8")
-    banned_all = set(re.findall(r"\d+\.\d+", doc_text)) | set(re.findall(r"≤\s*\d+|< ?\d+\s*词", doc_text))
+    # 三族参照物**import 复用**检查器的 `k3_reference()`（M3-T1 起不再抄一条正则 —— 抄件会漂移）
+    dec_all, up_all, lo_all = hs.k3_reference(doc_text)
 
     ev("§5a  **判据复用自证**（本器零重写）")
     for fn in (hs._k2, hs._k3):
@@ -208,17 +209,21 @@ def main():
                                    "（删掉 `|mcm-schematic` 同上）")):
         txt = (FAKE / name / "SKILL.md").read_bytes().decode("utf-8")
         ptr = txt.count(hs.SK_POINTER)
-        hits = sorted(b for b in banned_all if b in txt)
+        hits = hs.k3_main_hits(doc_text, txt)[0]
         ev(f"     {name}（{want}）：指针 `{hs.SK_POINTER}` 出现 {ptr} 处 · 命中的现取禁止串 "
-           f"{hits or '无'}（禁止串表共 {len(banned_all)} 条，现取）· 行数 {len(txt.splitlines())}")
+           f"{hits or '无'}（参照物：小数 {len(dec_all)} 条 + 阈值值池 上界 {sorted(up_all)} / "
+           f"下界 {sorted(lo_all)}，现取）· 行数 {len(txt.splitlines())}")
     ev()
 
     ev("§5e  口径边界（**写实**：本器与这两条判据都判不了的）")
     ev("     · `K2`/`K3` 的**口径本身**（判得对不对）不在这里验 —— 那一侧由 `check-house-style.py` "
-       "的 `M29`–`M41` 守；本器只验它们**在一族 skill 上真的会被触发**、且不恒真/不恒红。")
-    ev("     · `K3` 的机械射程只到「小数 / `≤n` / `<n 词` / 中文数词 + 规范单位词 / "
+       "的 `M29`–`M41` 与 `M47`–`M53` 守；本器只验它们**在一族 skill 上真的会被触发**、"
+       "且不恒真/不恒红。")
+    ev("     · `K3` 的机械射程只到「小数 / 六个阈值标记（`≤n` · `≥n` · `上限 n` · `下限 n` · "
+       "`不超过 n` · `<n 词`，**同方向内可互换**）/ 中文数词 + 规范单位词 / "
        "≥4 的规范整数值的中文写法」；1–3 的中文写法、百位以上、"
-       "以及「这句话是不是在复述规范」本身**都不在射程内**（判断层的事）。")
+       "**无标记裸整数（`主色 4 个`）**、以及「这句话是不是在复述规范」本身**都不在射程内**"
+       "（判断层的事；裸整数那条由驱动器 `M50` 常驻对照守住）。")
     ev()
 
     def want_of(shown):

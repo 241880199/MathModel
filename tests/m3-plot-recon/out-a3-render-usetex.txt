@@ -1,0 +1,54 @@
+python=3.11.9  matplotlib=3.11.2
+figsize=(6.31,2.6)  dpi=200  caption='Figure 1: Sample series'
+==============================================================================
+[default] styles=[]
+    savefig 期间 warnings：0 条
+    渲染异常：None
+    产物 default.png  83444 字节
+    产物 default.pdf  13044 字节
+
+[science] styles=['science']
+    savefig 期间 warnings：0 条
+    渲染异常：RuntimeError: latex was not able to process the following string:
+b'lp'
+
+Here is the full command invocation and its output:
+
+latex -interaction=nonstopmode -halt-on-error -no-shell-escape file.tex
+
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=latex)
+entering extended mode
+(./file.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/fix-cm.sty
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/ts1enc.def))
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(d:/Software/texlive/2026/texmf-dist/tex/latex/base/size10.clo))
+
+! LaTeX Error: File `type1cm.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.9 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on file.log.
+
+
+
+NoneType: None
+
+
+[science+no-latex] styles=['science', 'no-latex']
+    savefig 期间 warnings：0 条
+    渲染异常：None
+    产物 science_no-latex.png  84318 字节
+    产物 science_no-latex.pdf  14829 字节
+

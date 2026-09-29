@@ -1,0 +1,28 @@
+## C8 · 造临时假家族 skill + 跑全扫器（逐字）
+
+$ python tests/m3-plot-recon/c89_fake_skill.py
+已生成假 skill 到 D:\Projects\数学建模\build\m3-plot-recon\fake-skills
+  build/m3-plot-recon/fake-skills/mcm-plot-clean/references/house-style.md  30 字节  bytes=b'# \xe5\x81\x87\xe6\x8c\x87\xe9\x92\x88\xe7\x9b\xae\xe6\xa0\x87\xef\xbc\x88\xe7\xa9\xba\xe5'
+  build/m3-plot-recon/fake-skills/mcm-plot-clean/SKILL.md  376 字节  bytes=b'---\nname: mcm-plot-pytho'
+  build/m3-plot-recon/fake-skills/mcm-plot-python/references/style.md  47 字节  bytes=b'# \xe6\xa0\xb7\xe5\xbc\x8f\n\n\xe4\xb8\xbb\xe8\x89\xb2\xe4\xb8\x8d\xe8\xb6\x85\xe8\xbf'
+  build/m3-plot-recon/fake-skills/mcm-plot-python/SKILL.md  396 字节  bytes=b'---\nname: mcm-plot-pytho'
+  build/m3-plot-recon/fake-skills/mcm-plot-python/style.mplstyle  47 字节  bytes=b'figure.figsize: 6.31, 2.'
+  build/m3-plot-recon/fake-skills/mcm-plot-python/style.py  38 字节  bytes=b'FIGSIZE = (6.31, 2.6)\nLI'
+
+$ python tests/skills/figure-choose/check-spec-pointers.py --skills-dir build/m3-plot-recon/fake-skills
+引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
+skills-dir = build/m3-plot-recon/fake-skills · checker = tests/skills/figure-choose/check-house-style.py
+PASS  INSTR  K3@空串  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+------------------------------------------------------------------------------
+普查：扫到 2 个 skill（build/m3-plot-recon/fake-skills/*/SKILL.md）· 绘图家族 2 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
+      家族    mcm-plot-clean
+      家族    mcm-plot-python
+------------------------------------------------------------------------------
+PASS  K2  mcm-plot-clean  指针 `references/house-style.md` 出现 2 处（必须 ≥1；只写 `house-style.md` 不算）
+PASS  K3  mcm-plot-clean  禁止串 87 条（现取）· 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K2  mcm-plot-python  指针 `references/house-style.md` 出现 2 处（必须 ≥1；只写 `house-style.md` 不算）
+FAIL  K3  mcm-plot-python  禁止串 87 条（现取）· 命中 ['6.31'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+------------------------------------------------------------------------------
+扫到 2 个 skill（绘图家族 2 个）· 判据 K2/K3 · 红 1 条
+RESULT: FAIL（K3@mcm-plot-python）
+exit=1

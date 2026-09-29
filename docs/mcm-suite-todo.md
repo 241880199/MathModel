@@ -465,7 +465,7 @@ git worktree remove "<仓库外的目录>"
 
 **已完成**：`mcm-figure-choose`（M3 第一份，也是本套件第一份**可被机器复算**的规范型 skill）——
 `.claude/skills/mcm-figure-choose/`：`SKILL.md`（82 行短契约）+ `references/{house-style.md（H1–H13，规范唯一权威）, provenance.md（45 条，每数带口径与复跑命令）, chart-types.md（9 个数据关系入口 + 题型索引 + 42 个图型名）}`。
-配套机器在 `tests/skills/figure-choose/`：`check-figure-style.py`（**产物判据** F1 图宽比 / F2 彩色主色数 / F3a-d 图注形态，fail-closed）· `check-house-style.py`（**162 条守卫**）· `mutate-figure-style.py`（**46 条变异全红**）· `check-spec-pointers.py`（**引用完整性全扫器**：判据**复用** `K2`/`K3` 不另写、射程 = 绘图家族、fail-closed 锚在**扫到的 skill 总数**）· `house-metrics.py`（95 个具名读数）。
+配套机器在 `tests/skills/figure-choose/`：`check-figure-style.py`（**产物判据** F1 图宽比 / F2 彩色主色数 / F3a-d 图注形态，fail-closed）· `check-house-style.py`（**162 条守卫**）· `mutate-figure-style.py`（**53 条变异达预期全红**——2026-09-29 M3-plot Task 1 后由 46 增到 53；含 1 条"必须仍绿"的射程边界对照）· `check-spec-pointers.py`（**引用完整性全扫器**：判据**复用** `K2`/`K3` 不另写、射程 = 绘图家族、fail-closed 锚在**扫到的 skill 总数**）· `house-metrics.py`（**129 个**具名读数——2026-09-29 复核订正：此处原写「95 个」，实测 `python tests/skills/figure-choose/house-metrics.py --list | wc -l` = **129**）。
 对照实验：**RED 基线 13 红 / 5 绿 ⇒ GREEN 0 红**（同场景、同判据、一字不改）。**逐轮任务级证据与复审结论在 `.superpowers/sdd/progress.md`（恢复图）。**
 
 **Task 7 已交付（2026-09-29，提交 `1478463` → `6926e34` → `acfbc75`，两轮独立复审均 Approved）**：引用完整性检查器 = `check-spec-pointers.py`——三条规则里**只新增"全扫"这一层**，规则①（必须有指向 `references/house-style.md` 的指针）与规则②（不许复述规范数值）**复用** `check-house-style.py` 的 `K2`/`K3`、**不另写判据**（抄件会随检查器漂移）；配三份假 skill 防恒真 + `M43`–`M46`（合计 **46/46 红**）。**射程 = 绘图家族**（`mcm-plot-*` / `mcm-table` / `mcm-schematic`）——原写法"任何 skill"实测**会在现有 4/5 份 skill 上假红**（house-style.md 现抽 87 条禁止串，命中的 11 条**全是 `§7.2` 这类章节引用**，属口径偶合不是重述）。真仓现状：`RESULT: PASS (无对象：扫到 5 个 skill，绘图家族 0 个)`——**无对象也打印普查**，故它既非恒真也非恒红。⚠️ 因此**本检查器"待 `mcm-plot-*` 出现时即生效"**（§C 已记）。
@@ -478,12 +478,31 @@ git worktree remove "<仓库外的目录>"
 
 | # | 事项 | 说明 |
 | :--- | :--- | :--- |
-| 1 | **`mcm-plot-python`（建议先行）** | 本机 matplotlib 可跑 ⇒ 立刻进"**出图 → 机械层验 → agent 亲眼看图**"的回路 |
+| 1 | **`mcm-plot-python`（建议先行）** | **在建**：设计/计划已定稿，Task 1 已收口（见下） |
 | 2 | `mcm-plot-matlab` | 本机 R2025b `-batch` 可跑 |
 | 3 | `mcm-plot-origin` | GUI，只给操作步骤；**导出物照样能过机械层**（F1/F2 都吃 PNG/PDF） |
 | 4 | `mcm-table` | 三线表 LaTeX 代码 |
 | 5 | `mcm-schematic` | **TikZ 源码**（载体已裁决，判据 = agent 能否看见产物） |
 | 6 | **最终全分支审查 + Minor 批量清**（见 H.2） | 一次做掉 |
+
+**M3 绘图实现层第一份 `mcm-plot-python`——在建（2026-09-29 开工）**
+
+- **设计与计划（已入库）**：`docs/superpowers/specs/2026-09-29-m3-plot-python-design.md`（含 §9 系统 3.10.7 实测补充、§11 字体）· `docs/superpowers/plans/2026-09-29-m3-plot-python.md`（**6 个任务** + Global Constraints）。
+- **用户已裁六条**：① 底座 = `matplotlib` + `SciencePlots`，style 取 **`science` + `no-latex` 叠加**并**自己覆盖 `savefig.bbox`**
+  （实测 `science` 设 `text.usetex=True` 而本机 TeX Live 2026 **缺 `type1cm.sty`** ⇒ 保存即 `RuntimeError`；且它自带 `bbox='tight'`
+  会把输出宽从 6.31 in 裁到 5.500 in ⇒ F1 只剩 **0.870**；覆盖回 `standard` 后 **1.000/1.000，PNG 与 PDF 逐位一致**）
+  ② 样式数值走 **派生件 + 新鲜度守卫**（实测非 `SKILL.md` 载体今天**没有任何守卫会扫**）
+  ③ `K3` 的 ASCII 标记集与中文臂 `SK_CN_TIER_RES` 对齐、**与家族落地同一次重生成**
+  ④ `house-metrics.py` 的「95 个具名读数」订正为 **129**
+  ⑤ **字体随 skill 入库**（`TeXGyreTermesX-{Regular,Italic,Bold,BoldItalic}.otf`；`newtx` README 原文
+  "All text fonts are now based on TeXGyre Termes"，许可 **LPPL 1.3**，上游 Termes 是 **GFL** ⇒ **两套许可原文都须随字体入库**）
+  ⑥ **加一条字体判据**：渲染后核"实际用的是入库那一份"，被移走即红——**今天 `F1`/`F2`/`F3` 一个字都不判字体，回退是完全静默的**。
+- **环境动作**：`pip install --no-deps SciencePlots`（**2.2.2**）**已装**；**matplotlib 仍 3.10.7**（`--no-deps` 保证没被顺带升级）。
+- **Task 1 已收口**（`8d56769`→`145e807`→`ddfe7fb`，修复 `5cfd47a`→`d0249b1`）：`K3` 主臂的 ASCII 阈值标记集与中文臂对齐
+  （六个标记 · 两族值池），变异 **46 → 53**（含 1 条"必须仍绿"的射程边界对照）。**两轮独立复审**（Spec ✅ / Needs work
+  → 修复 → 聚焦复核：**I-1 真收口**、M-1..M-4 全 ✅、无阻断）。
+- **余 5 个任务**：Task 2 生成器与派生件 + 字体入库 · Task 3 新鲜度守卫 + 字体守卫 · Task 4 `SKILL.md`/`workflow.md` + 家族落地涟漪 ·
+  Task 5 RED/GREEN 对照 · Task 6 真家族 ≥1 下的驱动器整跑与全库收口。
 
 ### H.2 待批量清的 Minor（同批文件，适合一次做掉）
 
@@ -500,7 +519,6 @@ git worktree remove "<仓库外的目录>"
 | T6-4 | `green-evidence.md` §8 · `check-figure-style.py` D7 | **两处跨任务涟漪的说明只活在 gitignored 报告里** ⇒ 仓内补 2 行（否则复算者会以为证据件造假）——**恰好重演了本轮自己识破的毛病**（"解释留在 `.superpowers/` 就走不掉"） |
 | T6-5 | 提交 `35133ec` 的信息 | 只写了 F3b 收敛 + 判断层列 + 6 Minor，**没提** Task 1 生成器/基线重发与三份证据件重生成（`--amend` 把跨任务活并进一个提交，信息留白） |
 | T6-6 | `.superpowers/sdd/task-m3-t6-report.md` | 报告上半部分（§0/§2/§3）仍是修复前的数（3 红 / 10 格），与 §R0（0 红 / 13）并存 ⇒ 只看 §0 会拿到过期结论 |
-
 | T7-1 | `mutate-figure-style.py:956-957`（`m46_ptr`） | 只断言 `rc != 0` **且无** `RESULT: PASS` ⇒ 无关崩溃也算过；建议改成要求 `FAIL  DIR` / `FAIL  CENSUS` |
 | T7-2 | `check-spec-pointers.py:118` | `_load()` 外无 `try` ⇒ `--checker` 指向坏文件时 traceback 且**不打印 `RESULT:`**，破了"末行恒为 RESULT"的契约（**仍非零退出 = fail-closed**） |
 | T7-3 | `gen-pointer-verify.py:47` | `FAMILY_RE` 是**抄件不是派生**（§5b 标题却写"现算，不是抄它的输出"）⇒ 改检查器正则后 §5b 仍报旧射程。修法：import 模块取 `mod.FAMILY_RE.pattern` |
@@ -510,7 +528,11 @@ git worktree remove "<仓库外的目录>"
 | T7-7 | `mutate-figure-style.py`（`M45`） | 在 `__pycache__/` 留 `.pyc`（已核 `.gitignore:9` ⇒ **不脏树**）⇒ `finally` 里加 `cache_from_source(...).unlink(missing_ok=True)` |
 | T7-8 | 仪器探针 | 只打 `K3` 且以"空串"为代理 ⇒ `SK_POINTER` 坏在真仓**不可见**（0 家族 ⇒ 逐份循环不跑）；对称加一条 `K2@空串` 探针 |
 | T7-9 | `figure-style-baseline.txt` §8 | 记的自己那行字节数**天生追不上自己**（phase 1 跑时文件还是重放前版本；基线 `1478463` 上同一现象，**非本轮引入**） |
-| — | **任务书侧待订正 + 通则候选** | Task 7 两份任务书把假 skill 写成 `fake-ok`/`fake-nopointer`/`fake-restate`，与同一份文件里刚定的"射程 = 绘图家族"**互相矛盾**（`fake-*` 不在射程内 ⇒ M43 不可能红）——实现者当场按家族前缀改名（**角色与内容未改**），复审判"成立且被逼"。**未造成返工，但属派发缺陷。** ⇒ **通则候选：改一条差异后必须回头扫同一份任务书里与它耦合的其他行**（与通则 10 同族，都是"派发前的自核"）。**待用户批准后入 `lessons`。** |
+| — | **任务书侧待订正 + 通则候选** | Task 7 两份任务书把假 skill 写成 `fake-ok`/`fake-nopointer`/`fake-restate`，与同一份文件里刚定的"射程 = 绘图家族"**互相矛盾**（`fake-*` 不在射程内 ⇒ M43 不可能红）——实现者当场按家族前缀改名（**角色与内容未改**），复审判"成立且被逼"。**未造成返工，但属派发缺陷。** ⇒ **通则候选：改一条差异后必须回头扫同一份任务书里与它耦合的其他行**（与通则 10 同族，都是"派发前的自核"）。**→ 用户 2026-09-29 批准，已入 `mcm-suite-lessons.md` §一 通则 11。** |
+| M3-plot-T4 | `tests/m3-plot-recon/out-m43-m46-today.txt:18` · `out-e15-m43-prealchor.txt:17` · `e15_m43_preanchor.py:67` | 3 处旧的 `46/46`。**前两处是逐字 stdout 捕获、自带年代指纹 ⇒ 手改 = 造伪，改它才是错**，处置应是**目录级横幅/README**；第三处是**可运行源码里的字符串字面量**（今天重跑仍印 `46/46`）⇒ 要么**重跑并同批重新捕获**，要么**去掉裸总数改措辞**。归 **Task 4 全库残留扫描** |
+| M3-plot-N1 | `.superpowers/sdd/task-m3-plot-t1-report.md`（gitignored） | §7.1-2 仍写「现值应为 52/52」而同报告 §8 写 52→53 ⇒ **同一份报告内自相矛盾**（只活在 gitignored 件里，不污染仓库；同 T6-6 那一型） |
+| M3-plot-N2 | 同上 §8.5 | 把 3 处 `46/46` 一概称"一次性快照"，**只对 3 处里的 2 处精确**（第三处是源码字面量） |
+| — | **通则候选（2026-09-29 新增）** | **凡"按槽位默认落盘"的工具，调用时必须显式给输出路径。** 实测：`task-brief` 漏第三个参数时会默认写到 `.superpowers/sdd/task-<N>-brief.md`，**覆盖了 M6 试点同名旧件**（9138 B；该目录被 gitignore ⇒ **git 无从恢复**，只能从受版本控制的计划重建并标注"重建件"）；同型的还有"任务书把报告落点写成被旧件占用的槽位"（那次实现者识别出来并让路了）。**待用户批准后入 `lessons`。** |
 
 ### H.3 M2 欠账
 

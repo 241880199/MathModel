@@ -1,0 +1,25 @@
+matplotlib = 3.10.7（本机默认，未插 site 路径）
+figsize = (9.0, 3.0)  dpi = 200
+产物：build\m3-plot-recon\d11\naive.png（172580 B）· build\m3-plot-recon\d11\naive.pdf（16551 B）
+图注：'Figure 1. This figure shows the simulated concentration of the species over time for all six parameter settings under baseline conditions.'
+==============================================================================
+$ python tests/skills/figure-choose/check-figure-style.py --fig build\m3-plot-recon\d11\naive.png --dpi 200 --caption Figure 1. This figure shows the simulated concentration of the species over time for all six parameter settings under baseline conditions. --textwidth-in 6.31
+FAIL  F1  图宽比 1.426（分母 6.31 in）
+PASS  F2  彩色主色数 2
+FAIL  F3a  图注以 `Figure N:` 起
+FAIL  F3b  图注词数 21 超硬上限 17
+FAIL  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 21 词）
+RESULT: FAIL（F1,F3a,F3b,F3c）
+  ⇒ exit = 1
+
+$ python tests/skills/figure-choose/check-figure-style.py --fig build\m3-plot-recon\d11\naive.pdf --caption Figure 1. This figure shows the simulated concentration of the species over time for all six parameter settings under baseline conditions. --textwidth-in 6.31
+FAIL  F1  图宽比 1.426（分母 6.31 in）
+PASS  F2  彩色主色数 1
+FAIL  F3a  图注以 `Figure N:` 起
+FAIL  F3b  图注词数 21 超硬上限 17
+FAIL  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 21 词）
+RESULT: FAIL（F1,F3a,F3b,F3c）
+  ⇒ exit = 1
+
