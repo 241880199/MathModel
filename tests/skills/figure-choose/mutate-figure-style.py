@@ -132,6 +132,38 @@
   这是 Task 6 GREEN 对照 **Important-2** 的回归位：那一轮把 F3b 收敛到规范侧
   （`len(caption_body(cap).split())`，常量 12/17 与 `G-H9-*` 一个没动）。
   同批其余图注两口径同判 ⇒ 证不了口径，故**新增** fixture 与 expected 行，理由见 `m42` 的 docstring。
+
+## Task 7 新增的一组（`M43`–`M46`）：引用完整性检查器的"防恒真"证明
+
+被验对象**不是** `check-figure-style.py`，也不是 `house-style.md`，是新增的
+`tests/skills/figure-choose/check-spec-pointers.py`（`.claude/skills/*/SKILL.md` 的引用纪律：
+绘图家族的 skill 必须指向 `house-style.md`、且不许重述规范数值）。编号从 **`M43`** 起
+（任务书给的 `M17`–`M20` 与已占号**撞号**，故顺延 —— 同 Task 3 顺延 `M9`、Task 5 顺延 `M29` 两次）。
+
+**这一组为什么非有不可**：真仓**此刻** 0 个绘图家族 skill（`mcm-plot-*` / `mcm-table` /
+`mcm-schematic` 这几族还没建出来）⇒ 只跑真仓，检查器的逐份判据**一次都不执行**，
+"它会红"就是一句自称。故四条全靠 `--skills-dir` 指到 `fixtures/fake-skills/` 的假 skill 上做
+（那些 fixture 就是为这件事存在的）。
+
+- **`M43`**：整体跑假 skill 目录 ⇒ `mcm-plot-nopointer`（缺指针）由 **`K2`** 点名、
+  `mcm-plot-restate`（重述 `1.20`/`0.951`）由 **`K3`** 点名，且互不打偏
+  （断言写成"**各打各的**"，不是"反正红了"—— 否则随便哪一份坏就够红两次，另一条拆掉也看不出来）。
+  家族正则 `FAMILY_RE` 还有**两条非 `mcm-plot-*` 的备选**（`mcm-table` / `mcm-schematic`），
+  故 `M43` 另断两份**在射程内且缺指针**的同名 fixture 各自由 `K2` 点名 —— 否则把那两条备选
+  从正则里删掉也不会红（"声明了但没被任何变异证明"的判据腿，复审 Minor-3）。
+- **`M44`**：只留 `mcm-plot-ok` 再跑 ⇒ **绿**。这是**本组唯一**能证"检查器不是恒 FAIL"的一条；
+  没有它，`M43` 的"红"什么都证明不了。
+- **`M45`**：把 `check-house-style.py`（`K2`/`K3` 的实现处）**副本**里 `_k3` 抽禁止串的
+  **两条正则都改坏**（抽到空集）⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红。
+  故意打**真仓**：那里 0 个家族、逐份判据根本不执行，唯一能红的就是全局探针 ——
+  这才证得到"仪器取不到参照物时，哪怕无对象也红"（本仓栽过六次的那一类：仪器抽空却默认放行）。
+- **`M46`**：`--skills-dir` 指向坏目录 ⇒ 非零退出，**两个分支都证**：
+  分支 a 目录**不存在**、分支 b 目录在但**一个 `*/SKILL.md` 都没有**。两分支都不许打出 `RESULT: PASS`。
+
+★ **假 skill 的目录名带家族前缀**（`mcm-plot-ok` / `mcm-plot-nopointer` / `mcm-plot-restate`）：
+任务书给的目录名是 `fake-ok` / `fake-nopointer` / `fake-restate`，但规则①②的**射程**是
+"名字匹配绘图家族"（增量任务书差异 2/5）⇒ 叫 `fake-*` 的样本**根本不在射程内**（会整目录判绿），
+那样 `M43` 不红、`M44` 也证不到"家族 ≥1 且全绿"这条路径。三条**角色**照原样，只加家族前缀。
 """
 import os
 import re
@@ -786,6 +818,218 @@ def k8_verify_line_mut():
                                 f"后置(副本抹掉 `{sec.group(1)}` 的验证行) exit={rc_a} 『{line}』")
 
 
+# ========================================== 引用完整性检查器（Task 7）的变异（`M43`–`M46`）
+# 打的是 `check-spec-pointers.py`（被验对象 = `.claude/skills/*/SKILL.md` 的**引用纪律**：
+# 绘图家族的 skill 必须指向 `house-style.md`、且不许重述规范数值）。
+#
+# 为什么从 **`M43`** 起：`M1`–`M8`（检查器）· `M9`–`M19` + `C1`/`C2`（规范数）· `M22`–`M28`
+# （`chart-types.md` 结构）· `M29`–`M41`（`SKILL.md` 短契约）已占号；任务书给的 `M17`–`M20`
+# 与上面**撞号**，撞号的变异表会让"哪条红了"没法引用（同 Task 3 顺延 `M9`、Task 5 顺延 `M29`
+# 那两次），故顺延 `M43` 起。
+#
+# 为什么这四条**必须**存在：真仓**此刻** 0 个绘图家族 skill（`mcm-plot-*` / `mcm-table` /
+# `mcm-schematic` 这几族还没建出来）⇒ 只跑真仓，检查器的逐份判据**一次都不执行**，
+# "它真的会红"就只是一句自称。故这组全靠 `--skills-dir` 指到 `fixtures/fake-skills/`
+# 的假 skill 上做（那些 fixture 就是为这件事存在的）。
+# ★ 因此 `M43` 的前置锚**只准写语义、不准写普查字面量**（复审 Important-1）：真仓的族数是
+# **会变的**（M3 的下一步就把那几个 skill 建出来），锚写死那天就是无端 RED-BAD。
+#
+# ★ 假 skill 的目录名带**家族前缀**（`mcm-plot-ok` / `mcm-plot-nopointer` / `mcm-plot-restate`）：
+# 任务书原文给的三个目录名是 `fake-ok` / `fake-nopointer` / `fake-restate`，但规则①②的**射程**
+# 是"名字匹配绘图家族"（差异 2/5）⇒ 叫 `fake-*` 的样本**根本不在射程内**，那样 M43 会绿、
+# M44 也证不到"家族 ≥1 且全绿"这条路径。三条角色（带指针 / 缺指针 / 重述数值）照原样，只加前缀。
+#
+# ★★ `mcm-table` / `mcm-schematic` 两份（复审 Minor-3）：`FAMILY_RE` 有**三条**备选，
+# 而 `mcm-plot-*` 那三份只压得住第一条 ⇒ 后两条**删掉也不会红**（"声明了但没被任何变异证明"
+# 的判据腿）。修法**不是**放一份干净的同名样例 —— 那样删掉备选它只是**掉出射程**，
+# `M43` 的交叉断言一字不变 ⇒ 照样 RED-OK，腿仍然没被证。故放**在射程内且脏**的两份：
+# 各缺 `references/house-style.md` 指针 ⇒ `M43` 必须**分别点名** `K2@mcm-table` /
+# `K2@mcm-schematic` ⇒ 删掉任一条备选，对应那条预期红当即消失 ⇒ `M43` 转 RED-BAD。
+PTR_CHK = HERE / "check-spec-pointers.py"
+FAKE_SKILLS = FIX / "fake-skills"
+PTR_OK = "mcm-plot-ok"                    # 合格的那份（含指针、无数值）
+PTR_NOPOINTER = "mcm-plot-nopointer"      # 缺指针的那份
+PTR_RESTATE = "mcm-plot-restate"          # 重述数值的那份
+PTR_TABLE = "mcm-table"                   # 家族正则备选②：在射程内、缺指针
+PTR_SCHEMATIC = "mcm-schematic"           # 家族正则备选③：在射程内、缺指针
+PTR_MUT45 = HERE / "check-house-style.__mut45__.py"   # `M45` 的副本名（**必须同目录**，见那条）
+
+
+def pointer_run(skills_dir=None, checker=None):
+    """跑引用完整性检查器：`--skills-dir` 换被扫的根、`--checker` 换提供 `K2`/`K3` 的检查器。"""
+    cmd = [sys.executable, str(PTR_CHK)]
+    if skills_dir is not None:
+        cmd += ["--skills-dir", str(skills_dir)]
+    if checker is not None:
+        cmd += ["--checker", str(checker)]
+    p = subprocess.run(cmd, capture_output=True, text=True, cwd=str(ROOT))
+    return p.returncode, p.stdout, p.stderr
+
+
+def _ptr_result(out):
+    """取末行 `RESULT: …`（没有就说明它没判）。"""
+    return next((l for l in out.splitlines() if l.startswith("RESULT")), "（缺 RESULT 行）")
+
+
+def _ptr_scanned(out, default="?"):
+    """取普查行的 `扫到 N 个 skill` —— **当场从输出里读**，不写死字面量（复审 Important-1 的同一条理由：
+    这两个数都会变：真仓那边 `M3` 的下一步就要建家族 skill，假 skill 那边本轮的 fixture 数也变过）。"""
+    m = re.search(r"扫到 (\d+) 个 skill", out)
+    return m.group(1) if m else default
+
+
+def m43_ptr():
+    """`M43`：整体跑假 skill 目录 ⇒ 缺指针的与重述数值的**必须分别点名**，且**四条**各打各的。
+
+    断言故意写成"**各打各的**"：不只是"反正红了"。只看"红了"的话，随便哪一份坏就够红两次，
+    另一条规则拆掉也看不出来 ⇒ 这条同时是"`K2` 与 `K3` 两条各自承重"的证明。
+
+    四条 = `K2@mcm-plot-nopointer` · `K3@mcm-plot-restate` · `K2@mcm-table` · `K2@mcm-schematic`。
+    后两条（复审 Minor-3）压的是 `FAMILY_RE` 里**另外两条备选** —— 只放 `mcm-plot-*` 的话，
+    把 `|mcm-table` / `|mcm-schematic` 从正则里删掉也不会红，那两条备选就只是"声明"。
+
+    前置锚在真仓：它必须**跑到并判绿**（有 `RESULT` 行且不是 PASS 之外的、且一行 `FAIL` 都没有）
+    —— 否则"改坏了才红"这条断言在"它本来就是红的"时也会通过（同 `M2` 的 R-6 那条教训）。
+    ★ **前置锚不许写普查字面量**（复审 Important-1）：原来锚的是
+    `RESULT: PASS (无对象：扫到 5 个 skill，绘图家族 0 个)` —— 那是**真仓那天的读数**。
+    `M3` 的下一步就把那 5 个绘图 skill 建出来，届时默认运行印的是『绘图家族 5 个，…』
+    ⇒ 字面量当场失配、`M43` 无端报 RED-BAD。而本器**恰恰是故意**设计成"家族 skill 一落地
+    即自动纳入"的 —— 驱动器那行锚跟它对着干。现在锚的是**语义**。
+    ⚠️ **不许再弱化成 `rc0 == 0`**：那会让"检查器没跑起来但退出码正常"也算过。
+    """
+    rc0, out0, _e0 = pointer_run()
+    rc1, out1, _e1 = pointer_run(skills_dir=FAKE_SKILLS)
+    res0 = _ptr_result(out0)
+    pre_ok = (rc0 == 0 and res0.startswith("RESULT: PASS")
+              and not [l for l in out0.splitlines() if l.startswith("FAIL")])
+    f_k2 = f"FAIL  K2  {PTR_NOPOINTER}" in out1          # 缺指针 ⇒ K2 点名
+    f_k3 = f"FAIL  K3  {PTR_RESTATE}" in out1            # 重述数值 ⇒ K3 点名
+    f_k2_tb = f"FAIL  K2  {PTR_TABLE}" in out1           # 家族备选②缺指针 ⇒ K2 点名
+    f_k2_sch = f"FAIL  K2  {PTR_SCHEMATIC}" in out1      # 家族备选③缺指针 ⇒ K2 点名
+    g_k2_rs = f"PASS  K2  {PTR_RESTATE}" in out1         # 它**不该**由 K2 打（指针在）
+    g_k3_np = f"PASS  K3  {PTR_NOPOINTER}" in out1       # 它**不该**由 K3 打（没写数值）
+    g_ok = f"PASS  K2  {PTR_OK}" in out1 and f"PASS  K3  {PTR_OK}" in out1
+    post_ok = (rc1 != 0 and f_k2 and f_k3 and f_k2_tb and f_k2_sch
+               and g_k2_rs and g_k3_np and g_ok)
+    n_fail = len([l for l in out1.splitlines() if l.startswith("FAIL  ")])
+    return pre_ok and post_ok, (
+        f"前置(真仓扫到 {_ptr_scanned(out0)} 个 skill) exit={rc0} 末行『{res0}』"
+        f"{'绿：判到且无 FAIL 行' if pre_ok else '未绿 <<<'}；"
+        f"后置(假 skill 目录扫到 {_ptr_scanned(out1)} 份) exit={rc1} 全目录共红 {n_fail} 条、"
+        f"末行『{_ptr_result(out1)}』 —— "
+        f"`{PTR_NOPOINTER}` 由 **K2** 点名={f_k2}、`{PTR_RESTATE}` 由 **K3** 点名={f_k3}、"
+        f"`{PTR_TABLE}` 由 **K2** 点名={f_k2_tb}、`{PTR_SCHEMATIC}` 由 **K2** 点名={f_k2_sch}；"
+        f"NOTE/两条规则**各打各的**（另四格全绿）：K3@{PTR_NOPOINTER}={g_k3_np} · "
+        f"K2@{PTR_RESTATE}={g_k2_rs} · `{PTR_OK}` 两格={g_ok}")
+
+
+def m44_ptr():
+    """`M44`：只留**合格的那一份**再跑 ⇒ 必须**绿**（**本组唯一**能证"这个检查器不是恒 FAIL"的一条）。
+
+    一个恒 FAIL 的检查器照样能让 `M43` 变红 ⇒ 没有这一条，`M43` 的"红"证明不了任何事。
+    做法：把 `mcm-plot-ok` 复制进一个**临时根**再跑 —— 真件不碰、也不在仓里留第二份会漂的副本。
+    """
+    src_ok = FAKE_SKILLS / PTR_OK / "SKILL.md"
+    if not src_ok.is_file():
+        raise AssertionError(f"缺 fixture：{src_ok}（前提不成立）")
+    with tempfile.TemporaryDirectory() as d:
+        tmp = Path(d)
+        (tmp / PTR_OK).mkdir()
+        (tmp / PTR_OK / "SKILL.md").write_bytes(src_ok.read_bytes())   # write_bytes：不用 write_text
+        rc, out, _e = pointer_run(skills_dir=tmp)
+    k2 = f"PASS  K2  {PTR_OK}" in out
+    k3 = f"PASS  K3  {PTR_OK}" in out
+    ok = rc == 0 and k2 and k3 and "RESULT: PASS" in out
+    return ok, (f"只留 `{PTR_OK}`（临时根，真件不碰；目录名**逐字**打出来自证人不在赌路径）exit={rc} "
+                f"K2={'PASS' if k2 else '未绿 <<<'}、K3={'PASS' if k3 else '未绿 <<<'}、"
+                f"末行『{_ptr_result(out)}』 ⇒ 这个检查器**不是恒 FAIL**")
+
+
+def m45_ptr():
+    """`M45`：把 `check-house-style.py` 抽数的**正则改坏** ⇒ 仪器取不到参照物 ⇒ fail-closed 红。
+
+    做法：把检查器复制到**同目录**下（副本要能 `_load` 同目录的 `house-metrics.py` /
+    `check-figure-style.py`，且 `parents[3]` 仍指到仓根），把 `_k3` 里那一行 `banned = …` 的
+    **两条正则都改成打不中的形态**（`\\d+\\.\\d{9}` / `≤\\s*\\d{9}`）⇒ 禁止串抽到**空集**。
+    为什么两条一起改：那两条是**并行**的两臂（小数 + `≤n`），只改一条时另一条还抽得到，
+    抽到的仍是非空集 ⇒ 这一臂证不出来（同 `M35`/`M36` 各证一道臂的道理）。
+    跑的时候**故意用真仓**（0 个绘图家族）：那里逐份 `K2`/`K3` 一次都不执行，
+    唯一能让它红的就是**全局仪器探针** —— 这才证得到"仪器坏了、哪怕无对象也会红"。
+    """
+    src = HOUSE_CHK.read_bytes().decode("utf-8")
+    old = ('    banned = set(re.findall(r"\\d+\\.\\d+", doc)) '
+           '| set(re.findall(r"≤\\s*\\d+|<\\s*\\d+\\s*词", doc))')
+    n_hit = src.count(old)
+    if n_hit != 1:
+        raise AssertionError(f"`check-house-style.py` 的抽数那一行命中 {n_hit} 次（必须恰 1）"
+                             f"—— 检查器漂了，这条变异要跟着改")
+    new = ('    banned = set(re.findall(r"\\d+\\.\\d{9}", doc)) '
+           '| set(re.findall(r"≤\\s*\\d{9}", doc))  # 变异：两条正则都改坏（抽到空集）')
+    rc_b, out_b, _eb = pointer_run(checker=HOUSE_CHK)
+    try:
+        PTR_MUT45.write_bytes(src.replace(old, new, 1).encode("utf-8"))   # write_bytes：不用 write_text
+        rc_a, out_a, _ea = pointer_run(checker=PTR_MUT45)
+    finally:
+        PTR_MUT45.unlink(missing_ok=True)          # 副本不属于交付物，跑完必须消失（同一目录也是纪律）
+    pre_ok = rc_b == 0 and "PASS  INSTR" in out_b
+    post_ok = rc_a != 0 and "FAIL  INSTR" in out_a
+    line = next((l for l in out_a.splitlines() if l.startswith("FAIL  INSTR")), "（缺 FAIL 行）")
+    n_red = len([l for l in out_a.splitlines() if l.startswith("FAIL  ")])
+    return pre_ok and post_ok, (
+        f"前置(真检查器) exit={rc_b} {'仪器探针绿' if pre_ok else '未绿 <<<'}；"
+        f"后置(副本两条正则改坏) exit={rc_a} 『{line[:96]}…』、全跑共红 {n_red} 条"
+        f"（真仓 0 个家族 ⇒ 除仪器探针外无可红之处）、末行『{_ptr_result(out_a)}』"
+        f"　NOTE/副本已删：{not PTR_MUT45.exists()}")
+
+
+def m46_ptr():
+    """`M46`：`--skills-dir` 指向**坏目录** ⇒ 必须非零退出（fail-closed 的**两个分支**）。
+
+    分支 a：目录**不存在**；分支 b：目录存在但**一个 `*/SKILL.md` 都没有**。
+    两条都是"扫不到东西"，但走的是两条不同的代码路径（`is_dir()` 与 `len(rows)==0`），
+    故两个都要证。两条都**不许**打出 `RESULT: PASS`。
+    """
+    miss = FIX / "fake-skills-does-not-exist"
+    if miss.exists():
+        raise AssertionError(f"{miss} 居然存在（这条变异的前提不成立）")
+    rc_a, out_a, err_a = pointer_run(skills_dir=miss)
+    with tempfile.TemporaryDirectory() as d:
+        rc_b, out_b, err_b = pointer_run(skills_dir=Path(d))
+    a_ok = rc_a != 0 and "RESULT: PASS" not in out_a + err_a
+    b_ok = rc_b != 0 and "RESULT: PASS" not in out_b + err_b
+    a_line = next((l for l in out_a.splitlines() if l.startswith("FAIL")), "（缺 FAIL 行）")
+    b_line = next((l for l in out_b.splitlines() if l.startswith("FAIL")), "（缺 FAIL 行）")
+    return a_ok and b_ok, (
+        f"分支 a(目录不存在) exit={rc_a} 『{a_line[:72]}…』；"
+        f"分支 b(目录在、一个 `SKILL.md` 都没有) exit={rc_b} 『{b_line[:72]}…』；"
+        f"两分支都没有 `RESULT: PASS`={a_ok and b_ok}")
+
+
+def run_pointer():
+    """跑 `M43`–`M46` 四条。返回 `(rows, failed, 本组条数)`。"""
+    rows, failed = [], []
+    for mid, desc, fn in (
+        ("M43", f"引用完整性：整体跑 `fixtures/fake-skills/` ⇒ `{PTR_NOPOINTER}` 缺指针由 **K2** 点名、"
+                f"`{PTR_RESTATE}` 重述数值由 **K3** 点名，家族正则另外两条备选（`{PTR_TABLE}` / "
+                f"`{PTR_SCHEMATIC}`）缺指针也**各自**由 **K2** 点名（四条各打各的）", m43_ptr),
+        ("M44", f"引用完整性：只留 `{PTR_OK}` 再跑 ⇒ **绿**"
+                f"（本组唯一能证这个检查器不是恒 FAIL 的一条）", m44_ptr),
+        ("M45", "check-house-style.py：把 `_k3` 抽禁止串的**两条正则都改坏**（抽到空集）⇒ "
+                "**仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红"
+                "（打真仓：那里逐份判据根本不执行，只有全局探针能红）", m45_ptr),
+        ("M46", "引用完整性：`--skills-dir` 指向坏目录 ⇒ 非零退出"
+                "（分支 a 目录不存在 · 分支 b 目录在但一个 `SKILL.md` 都没有）", m46_ptr),
+    ):
+        try:
+            ok, detail = fn()
+        except AssertionError as e:                                 # noqa: BLE001（驱动器自己的出口）
+            ok, detail = False, f"驱动器自己报错：{type(e).__name__}: {e}"
+        rows.append(("RED-OK" if ok else "RED-BAD", mid, desc, detail))
+        if not ok:
+            failed.append(mid)
+    return rows, failed, len(rows)
+
+
 def k3_fail_closed_mut():
     """`M34`：`K3` 的 **fail-closed 臂** —— 禁止串**一条都抽不到**时，这条判据必须红。
 
@@ -1004,7 +1248,12 @@ def run_house():
             failed.append(mid)
             kfailed.append(mid)
 
+    # ---- 引用完整性检查器（Task 7）：`M43`–`M46`（打的是 `check-spec-pointers.py` + 假 skill）
+    prows, pfailed, n_ptr = run_pointer()
+
     rows += srows
+    rows += prows
+    failed += pfailed
     for f in HMUTD.glob("*"):
         f.unlink()
     HMUTD.rmdir()
@@ -1014,7 +1263,9 @@ def run_house():
                and CT_DOC.read_bytes().decode("utf-8").count("### 入口 9 · 不确定性") == 1
                and SKILL_MD.read_bytes().decode("utf-8").count("- **推荐图型**：给**一个首选**；") == 1
                # `M40` 换的是 `--skills-root`，真 skills 根不该被碰：这里核它没多出那个 skill
-               and not (HOUSE_SKILLS / "mcm-plot-python").exists())
+               and not (HOUSE_SKILLS / "mcm-plot-python").exists()
+               # `M45` 写的是**同目录**的检查器副本（要能 import 兄弟脚本）⇒ 自证它已删干净
+               and not PTR_MUT45.exists())
     same = (git_hash_object(HOUSE_DOC) == doc_hash and git_hash_object(HOUSE_PROV) == prov_hash
             and git_hash_object(CT_DOC) == ct_hash and git_hash_object(SKILL_MD) == skill_hash)
     print("\n" + "=" * 78)
@@ -1040,13 +1291,22 @@ def run_house():
     for st, mid, desc, detail in krows:
         print(f"{st:<8} {mid:<4} {desc}")
         print(f"         {detail}")
+    print("\n" + "=" * 78)
+    print(f"引用完整性检查器的变异（M43–M46 · 打的是 check-spec-pointers.py；"
+          f"`--skills-dir` 指 fixtures/fake-skills/ 与两个坏目录，共 {len(prows)} 条）")
+    print("=" * 78)
+    for st, mid, desc, detail in prows:
+        print(f"{st:<8} {mid:<4} {desc}")
+        print(f"         {detail}")
     print(f"还原自证  house-style.md blob {doc_hash} {'== 变异前' if same else '!= 变异前 <<<'}"
           f" · provenance.md blob {prov_hash} · chart-types.md blob {ct_hash}"
           f" · SKILL.md blob {skill_hash}"
           f" · 原件字面仍在: {byte_ok} · _mut-house/ 已清空: {clean}")
     return rows, failed, (clean and byte_ok and same), {
         "house": n_house, "census": n_census, "struct": len(srows), "skill": len(krows),
+        "pointer": n_ptr,
         "f_house": f_house, "f_census": f_census, "f_struct": f_struct, "f_skill": kfailed,
+        "f_pointer": pfailed,
         "probe_row": probe_row}
 
 
@@ -1141,9 +1401,11 @@ def main():
     n_spec = grp["house"] + grp["census"]                 # M9–M19 + C1/C2
     n_struct = grp["struct"]                              # M22–M28
     n_skill = grp["skill"]                                # M29–M39（+ M34/M40/M41）
+    n_ptr = grp["pointer"]                                # M43–M46
     n_spec_ok = n_spec - len(grp["f_house"]) - len(grp["f_census"])
     n_struct_ok = n_struct - len(grp["f_struct"])
     n_skill_ok = n_skill - len(grp["f_skill"])
+    n_ptr_ok = n_ptr - len(grp["f_pointer"])
     r1_ok = grp["probe_row"][0] == "RED-OK"
 
     print("\n" + "=" * 78)
@@ -1162,13 +1424,16 @@ def main():
           f"（{n_skill_copy} 条打 SKILL.md 副本 + {n_skill - n_skill_copy} 条打别的："
           f"`K3` fail-closed 臂 / `K6` 反向臂 / `K8`））"
           + ("" if not grp["f_skill"] else f"（未达预期：{', '.join(grp['f_skill'])}）"))
-    print(f"MUT: {len(rows) - len(mut_failed) + n_spec_ok + n_struct_ok + n_skill_ok}/"
-          f"{len(MUTATIONS) + n_spec + n_struct + n_skill} 红（合计）")
+    print(f"MUT: {n_ptr_ok}/{n_ptr} 红（引用完整性检查器 check-spec-pointers.py："
+          f"`--skills-dir` 指假 skill 的全扫 + `K3` 仪器 fail-closed + 坏目录 fail-closed）"
+          + ("" if not grp["f_pointer"] else f"（未达预期：{', '.join(grp['f_pointer'])}）"))
+    print(f"MUT: {len(rows) - len(mut_failed) + n_spec_ok + n_struct_ok + n_skill_ok + n_ptr_ok}/"
+          f"{len(MUTATIONS) + n_spec + n_struct + n_skill + n_ptr} 红（合计）")
     print(f"探针 P1: {'红' if probe_ok else '未红'}（check-figure-style.py 的脚本探针）")
     print(f"探针 R1: {'红' if r1_ok else '未红'}（读数条 S4 的『该动的时候动、该判的时候不判』）")
     print(f"（本驱动器共 {len(MUTATIONS)} 条检查器判据变异 + {n_probe} 条脚本探针"
           f" + {n_spec} 条规范数变异 + {n_struct} 条结构变异 + {n_skill} 条 SKILL.md 变异"
-          f" + 1 条读数条探针）")
+          f" + {n_ptr} 条引用完整性变异 + 1 条读数条探针）")
     return 0 if (not failed and not failed_h and byte_ok and clean and selfok_h
                  and rerun.returncode == 0) else 1
 

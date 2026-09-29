@@ -465,8 +465,10 @@ git worktree remove "<仓库外的目录>"
 
 **已完成**：`mcm-figure-choose`（M3 第一份，也是本套件第一份**可被机器复算**的规范型 skill）——
 `.claude/skills/mcm-figure-choose/`：`SKILL.md`（82 行短契约）+ `references/{house-style.md（H1–H13，规范唯一权威）, provenance.md（45 条，每数带口径与复跑命令）, chart-types.md（9 个数据关系入口 + 题型索引 + 42 个图型名）}`。
-配套机器在 `tests/skills/figure-choose/`：`check-figure-style.py`（**产物判据** F1 图宽比 / F2 彩色主色数 / F3a-d 图注形态，fail-closed）· `check-house-style.py`（**162 条守卫**）· `mutate-figure-style.py`（**42 条变异全红**）· `house-metrics.py`（95 个具名读数）。
+配套机器在 `tests/skills/figure-choose/`：`check-figure-style.py`（**产物判据** F1 图宽比 / F2 彩色主色数 / F3a-d 图注形态，fail-closed）· `check-house-style.py`（**162 条守卫**）· `mutate-figure-style.py`（**46 条变异全红**）· `check-spec-pointers.py`（**引用完整性全扫器**：判据**复用** `K2`/`K3` 不另写、射程 = 绘图家族、fail-closed 锚在**扫到的 skill 总数**）· `house-metrics.py`（95 个具名读数）。
 对照实验：**RED 基线 13 红 / 5 绿 ⇒ GREEN 0 红**（同场景、同判据、一字不改）。**逐轮任务级证据与复审结论在 `.superpowers/sdd/progress.md`（恢复图）。**
+
+**Task 7 已交付（2026-09-29，提交 `1478463` → `6926e34` → `acfbc75`，两轮独立复审均 Approved）**：引用完整性检查器 = `check-spec-pointers.py`——三条规则里**只新增"全扫"这一层**，规则①（必须有指向 `references/house-style.md` 的指针）与规则②（不许复述规范数值）**复用** `check-house-style.py` 的 `K2`/`K3`、**不另写判据**（抄件会随检查器漂移）；配三份假 skill 防恒真 + `M43`–`M46`（合计 **46/46 红**）。**射程 = 绘图家族**（`mcm-plot-*` / `mcm-table` / `mcm-schematic`）——原写法"任何 skill"实测**会在现有 4/5 份 skill 上假红**（house-style.md 现抽 87 条禁止串，命中的 11 条**全是 `§7.2` 这类章节引用**，属口径偶合不是重述）。真仓现状：`RESULT: PASS (无对象：扫到 5 个 skill，绘图家族 0 个)`——**无对象也打印普查**，故它既非恒真也非恒红。⚠️ 因此**本检查器"待 `mcm-plot-*` 出现时即生效"**（§C 已记）。
 
 **两条结构性局限（已写在规范里，下游不许当结论引用）**：
 ① **H4 的连续色图闸门会把 72.81% 的图标为"条数不可引用"**——那是**闸门的性质**、不是"72.81% 的图有问题"；**H4 的证据基础因此只覆盖约 27% 语料**。
@@ -476,13 +478,12 @@ git worktree remove "<仓库外的目录>"
 
 | # | 事项 | 说明 |
 | :--- | :--- | :--- |
-| 1 | **Task 7 引用完整性检查器** | 每个 `mcm-plot-*` 必须指向 `house-style.md`、且**不许重述规范数值**；**必须用假 skill 做变异**（真 plot skill 未建 ⇒ 否则恒真）。**待它们出现时即生效。** |
-| 2 | **`mcm-plot-python`（建议先行）** | 本机 matplotlib 可跑 ⇒ 立刻进"**出图 → 机械层验 → agent 亲眼看图**"的回路 |
-| 3 | `mcm-plot-matlab` | 本机 R2025b `-batch` 可跑 |
-| 4 | `mcm-plot-origin` | GUI，只给操作步骤；**导出物照样能过机械层**（F1/F2 都吃 PNG/PDF） |
-| 5 | `mcm-table` | 三线表 LaTeX 代码 |
-| 6 | `mcm-schematic` | **TikZ 源码**（载体已裁决，判据 = agent 能否看见产物） |
-| 7 | **最终全分支审查 + Minor 批量清**（见 H.2） | 一次做掉 |
+| 1 | **`mcm-plot-python`（建议先行）** | 本机 matplotlib 可跑 ⇒ 立刻进"**出图 → 机械层验 → agent 亲眼看图**"的回路 |
+| 2 | `mcm-plot-matlab` | 本机 R2025b `-batch` 可跑 |
+| 3 | `mcm-plot-origin` | GUI，只给操作步骤；**导出物照样能过机械层**（F1/F2 都吃 PNG/PDF） |
+| 4 | `mcm-table` | 三线表 LaTeX 代码 |
+| 5 | `mcm-schematic` | **TikZ 源码**（载体已裁决，判据 = agent 能否看见产物） |
+| 6 | **最终全分支审查 + Minor 批量清**（见 H.2） | 一次做掉 |
 
 ### H.2 待批量清的 Minor（同批文件，适合一次做掉）
 
@@ -499,6 +500,17 @@ git worktree remove "<仓库外的目录>"
 | T6-4 | `green-evidence.md` §8 · `check-figure-style.py` D7 | **两处跨任务涟漪的说明只活在 gitignored 报告里** ⇒ 仓内补 2 行（否则复算者会以为证据件造假）——**恰好重演了本轮自己识破的毛病**（"解释留在 `.superpowers/` 就走不掉"） |
 | T6-5 | 提交 `35133ec` 的信息 | 只写了 F3b 收敛 + 判断层列 + 6 Minor，**没提** Task 1 生成器/基线重发与三份证据件重生成（`--amend` 把跨任务活并进一个提交，信息留白） |
 | T6-6 | `.superpowers/sdd/task-m3-t6-report.md` | 报告上半部分（§0/§2/§3）仍是修复前的数（3 红 / 10 格），与 §R0（0 红 / 13）并存 ⇒ 只看 §0 会拿到过期结论 |
+
+| T7-1 | `mutate-figure-style.py:956-957`（`m46_ptr`） | 只断言 `rc != 0` **且无** `RESULT: PASS` ⇒ 无关崩溃也算过；建议改成要求 `FAIL  DIR` / `FAIL  CENSUS` |
+| T7-2 | `check-spec-pointers.py:118` | `_load()` 外无 `try` ⇒ `--checker` 指向坏文件时 traceback 且**不打印 `RESULT:`**，破了"末行恒为 RESULT"的契约（**仍非零退出 = fail-closed**） |
+| T7-3 | `gen-pointer-verify.py:47` | `FAMILY_RE` 是**抄件不是派生**（§5b 标题却写"现算，不是抄它的输出"）⇒ 改检查器正则后 §5b 仍报旧射程。修法：import 模块取 `mod.FAMILY_RE.pattern` |
+| T7-4 | `gen-pointer-verify.py` §5a | 只**披露**「本器自己定义的 `_k2`/`_k3`：零个」却不因它非零而红 ⇒ 两行可硬化成 `raise` |
+| T7-5 | `figure-style-baseline.txt:923-925` | 断言"另起提交只动本文件"是**声明而非测量**（16 条比对取自提交①，②尚不存在）⇒ 改成可核写法（`git show --stat <hash>`） |
+| T7-6 | `.superpowers/sdd/task-m3-t7-report.md:528`（gitignored） | 记 73379 B「phase 2 后」，提交件实为 73594 B ⇒ §8.5 的改写发生在 phase 2 **之后**，叙述该说清（同 T6-6 那一型） |
+| T7-7 | `mutate-figure-style.py`（`M45`） | 在 `__pycache__/` 留 `.pyc`（已核 `.gitignore:9` ⇒ **不脏树**）⇒ `finally` 里加 `cache_from_source(...).unlink(missing_ok=True)` |
+| T7-8 | 仪器探针 | 只打 `K3` 且以"空串"为代理 ⇒ `SK_POINTER` 坏在真仓**不可见**（0 家族 ⇒ 逐份循环不跑）；对称加一条 `K2@空串` 探针 |
+| T7-9 | `figure-style-baseline.txt` §8 | 记的自己那行字节数**天生追不上自己**（phase 1 跑时文件还是重放前版本；基线 `1478463` 上同一现象，**非本轮引入**） |
+| — | **任务书侧待订正 + 通则候选** | Task 7 两份任务书把假 skill 写成 `fake-ok`/`fake-nopointer`/`fake-restate`，与同一份文件里刚定的"射程 = 绘图家族"**互相矛盾**（`fake-*` 不在射程内 ⇒ M43 不可能红）——实现者当场按家族前缀改名（**角色与内容未改**），复审判"成立且被逼"。**未造成返工，但属派发缺陷。** ⇒ **通则候选：改一条差异后必须回头扫同一份任务书里与它耦合的其他行**（与通则 10 同族，都是"派发前的自核"）。**待用户批准后入 `lessons`。** |
 
 ### H.3 M2 欠账
 
