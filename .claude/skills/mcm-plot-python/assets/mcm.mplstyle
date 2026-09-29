@@ -1,0 +1,21 @@
+# mcm.mplstyle —— MCM 论文图的 rcParams 覆盖（★ 派生件，勿手改）。
+#
+# 由 tests/skills/plot-python/gen-mcm-style.py 从规范
+# (.claude/skills/mcm-figure-choose/references/house-style.md) 重放产出：
+# 两条生成标记之间的 rcParams 由脚本重写，标记之外（本段说明）原样保留。
+#
+# 用法：mcmplot.apply_style() 里顺序固定 —— ['science', 'no-latex'] 先，本文件最后 ⇒ 本文件覆盖底座。
+# 本文件只装**与调用方参数无关**的覆盖键；随正文栏宽 / 正文 pt 而变的数值（图宽比、图高、字号）
+# 不在这里，走 mcmplot.figsize_for() / fontsize_for()（它们的乘数在 mcmplot.py 的生成常量区）。
+#
+# >>> BEGIN GENERATED: rcParams（gen-mcm-style.py 重放，勿手改）>>>
+# 底座 = ['science', 'no-latex'] 叠加本文件（apply_style() 里顺序固定：本文件最后 ⇒ 覆盖前者）。
+savefig.bbox: standard   # H1 机制：抵消底座 science 自带的 'tight'（否则输出宽 ≠ figsize 宽）
+mathtext.fontset: stix   # H12：数学取 stix（与 Times 相容；底座是 dejavuserif/cm，必须显式覆盖）
+font.family: serif   # H12：字体族随论文正文（serif）
+font.serif: TeX Gyre TermesX, TeX Gyre Termes, DejaVu Serif   # H12：入库的 TeX Gyre TermesX 优先（由 apply_style() 注册），后两档是回退
+axes.spines.top: False   # H10：去掉上边框线
+axes.spines.right: False   # H10：去掉右边框线
+xtick.minor.visible: False   # H10：只留主刻度
+ytick.minor.visible: False   # H10：只留主刻度
+# <<< END GENERATED: rcParams <<<

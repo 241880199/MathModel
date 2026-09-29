@@ -478,7 +478,7 @@ git worktree remove "<仓库外的目录>"
 
 | # | 事项 | 说明 |
 | :--- | :--- | :--- |
-| 1 | **`mcm-plot-python`（建议先行）** | **在建**：设计/计划已定稿，Task 1 已收口（见下） |
+| 1 | **`mcm-plot-python`（建议先行）** | **在建**：**Task 1–5 已收口**（每轮都过独立复审，且每轮都真的改出过东西）· 余 **Task 6**（真家族 ≥1 整跑 + 收口）（见下） |
 | 2 | `mcm-plot-matlab` | 本机 R2025b `-batch` 可跑 |
 | 3 | `mcm-plot-origin` | GUI，只给操作步骤；**导出物照样能过机械层**（F1/F2 都吃 PNG/PDF） |
 | 4 | `mcm-table` | 三线表 LaTeX 代码 |
@@ -501,8 +501,26 @@ git worktree remove "<仓库外的目录>"
 - **Task 1 已收口**（`8d56769`→`145e807`→`ddfe7fb`，修复 `5cfd47a`→`d0249b1`）：`K3` 主臂的 ASCII 阈值标记集与中文臂对齐
   （六个标记 · 两族值池），变异 **46 → 53**（含 1 条"必须仍绿"的射程边界对照）。**两轮独立复审**（Spec ✅ / Needs work
   → 修复 → 聚焦复核：**I-1 真收口**、M-1..M-4 全 ✅、无阻断）。
-- **余 5 个任务**：Task 2 生成器与派生件 + 字体入库 · Task 3 新鲜度守卫 + 字体守卫 · Task 4 `SKILL.md`/`workflow.md` + 家族落地涟漪 ·
-  Task 5 RED/GREEN 对照 · Task 6 真家族 ≥1 下的驱动器整跑与全库收口。
+- **Task 2–5 已收口（2026-09-29，每个任务都「实现 → 独立复审 → 修复 → 聚焦复核」走满）**：
+  - **Task 2 生成器与派生件 + 字体入库**（`2ff1291` → `bc01515` → 修复 `85cddc0`）：`gen-mcm-style.py`（重放式，11 条锚点**逐条恰命中 1 处**的 fail-closed 抽取）产出
+    `assets/mcm.mplstyle` 与 `assets/mcmplot.py`；**底座 = `science` + `no-latex` 叠加 + 自己覆盖 `savefig.bbox`**（不覆盖则 6.31 in 被裁到 5.500 in、F1 掉到 0.870）；
+    **字体随 skill 入库**（四份 `TeXGyreTermesX-*.otf` 字节级复制 + `PROVENANCE.md` 逐件 `git hash-object` + **GFL 与 LPPL 两套许可原文**，许可核到**文件级**即 OTF name 表 nameID 0 逐字声明）。
+    复审抓到**唯一一条 Important**：两个 H12 锚点把规范端点 `0.8`/`1.0` 当**正则字面量手写**（违反非 `SKILL.md` 载体零手写数值）⇒ 已改成字符类，**派生件逐字节未变**。
+  - **Task 3 判据：新鲜度守卫 + 字体守卫 + 变异**（`86278c2` → `f208f11` → `72ad5b8` → 修复 `0f77293` → `341c28d`）：
+    ★ **计划原文那条验收照字面实现是恒真的**（生成器原地写 ⇒ 一份**过期**派生件被原地重跑就被改对，再比必然相等）⇒ 改为**两份参考都取在重跑之前**（`git show HEAD:<path>` + 检查前工作树字节），
+    且实测**两臂互补、各有专属真红**（`M55` 改标记**之间**的常量只 `A2` 红；`M58` 改标记**之外**只 `A1` 红）；`M61` 机械证伪了计划那条字面形态。
+    **字体守卫取「核产物本身」**（探针 PDF 的 `fitz` 实报 basefont ⊆ 入库集合、含罗马正体档），`M58` 拆掉 `addfont` ⇒ 渲染**照常成功**但实报 **`DejaVuSerif`** ⇒ 红（设计 §11.3「静默回退无人红」的实测复现）。
+    驱动器的收尾自证**真的并进退出条件**（脏树 ⇒ `exit 1`），证据件**可从干净 HEAD 逐字节复跑**（复审在一次性克隆上真跑了脏/净两态，并把 223 行驱动器 stdout 与重跑输出 diff 为 0）。
+  - **Task 4 `SKILL.md` + `references/workflow.md` + 家族落地最小同步**（`11728eb` → `b23e870` → 修复 `727bd5f` → `0a77319` → `a760592`）：
+    `mcm-plot-python` **成为第一个绘图家族 skill**，`check-spec-pointers.py` 报 **`RESULT: PASS (绘图家族 1 个，K2/K3 全绿)`**；`mutate-figure-style.py` 在**真仓 6 skill / 家族 1 个**下仍 53/53、`exit 0`（侦察没跑过的那一步）。
+    涟漪按**性质分档**处置（真·声明语义改写 / 字面转录按各自生成器重生成 / **历史快照手改 = 造伪不许手改**）。复审抓到三条「声明与事实不符」：两件散文写「一个数字都不出现（含中文数词形态）」而里面明明有 `一/两/三`（约束本体满足了，假的是那句声明）；
+    `mutate-figure-style.py` 硬编码「真仓 0 个家族」而实测 1 个家族 2 条红 ⇒ **改成运行时现算**。**顺带冲销了 Task 2 留下的一处证据漂移**（Task 2 改了驱动器却没重生成那 5 份转录，Task 2 的复审漏了）。
+  - **Task 5 RED/GREEN 对照与证据**（`bff9e73` → 修复 `d9a594a` → `dd24ce4`）：**RED 由三个新起、未见过规范的写手产出**（先例纪律：只给场景 brief 路径 + 输出目录），
+    三场景 × 两载体**全判红**（R1 四条 `F1/F3a/F3b/F3c`；R2/R3 各五条，多一条 `F2`）；**GREEN 用模块三场景 × 两载体全 `PASS`**；同一把尺、同分母 `6.31`、两侧同源同数。
+    复审**重判了全部 12 张图**，读数逐字重现；**亲眼看图逼出两条模块级缺口**（`science` 自带 `xtick.top/ytick.right` 而 `mcm.mplstyle` 只关 spines ⇒ **悬空刻度**；条描白边抬 PNG 的 F2）⇒ **只登记不修**（修了 GREEN 图会变、对照全废）。
+  - **本模块内新起的两条耐久纪律**（下文 H.2 有对应待办）：① **计划里写死的行为口径，落地前必须实测复算**（计划那条新鲜度验收恒真、计划写的 `PNG=2/PDF=0` 实测是 `2/1`）；
+    ② **凡"声明"必须能被机械复算**——本模块 Task 2/3/4/5 **四个任务**的复审都各抓到至少一条「声明比事实大」，**没有一条是自己发现的**。
+- **余 1 个任务**：**Task 6 真家族 ≥1 下的驱动器整跑与全库收口**。⚠️ **其验收必须改写**（见 H.2 `M3-plot-T6`）：计划写「全库 `git grep` 残留 = 0」**不可达**。
 
 ### H.2 待批量清的 Minor（同批文件，适合一次做掉）
 
@@ -533,6 +551,16 @@ git worktree remove "<仓库外的目录>"
 | M3-plot-N1 | `.superpowers/sdd/task-m3-plot-t1-report.md`（gitignored） | §7.1-2 仍写「现值应为 52/52」而同报告 §8 写 52→53 ⇒ **同一份报告内自相矛盾**（只活在 gitignored 件里，不污染仓库；同 T6-6 那一型） |
 | M3-plot-N2 | 同上 §8.5 | 把 3 处 `46/46` 一概称"一次性快照"，**只对 3 处里的 2 处精确**（第三处是源码字面量） |
 | — | **通则候选（2026-09-29 新增）** | **凡"按槽位默认落盘"的工具，调用时必须显式给输出路径。** 实测：`task-brief` 漏第三个参数时会默认写到 `.superpowers/sdd/task-<N>-brief.md`，**覆盖了 M6 试点同名旧件**（9138 B；该目录被 gitignore ⇒ **git 无从恢复**，只能从受版本控制的计划重建并标注"重建件"）；同型的还有"任务书把报告落点写成被旧件占用的槽位"（那次实现者识别出来并让路了）。**待用户批准后入 `lessons`。** |
+
+| M3-plot-T6 | `docs/superpowers/plans/2026-09-29-m3-plot-python.md:227` | Task 6 的验收「全库 `git grep` 残留 = **0**」**不可达**（Task 4 复审核实：残留 8 件**全是"不该动"类** —— `fam==0` 才执行的代码分支、**带年代指纹的历史快照**、假 skill 根的读数、fixture 普查）。⇒ **写 Task 6 任务书时必须改成「不得残留过期的真仓普查陈述」+ 附逐件分类表**，否则那条验收恒不可达 |
+| M3-plot-T6b | 同上 `:101` | 那处**失效引用** `:821-824`（实测那 4 行是 `k6_exists_mut()` 函数体；真实落点在 `:146`/`:881-882`/`:1107`/`:1120-1121`）**仍未被改** —— Task 3 实现者的订正只碰了自己的新件。⇒ 归 Task 6 的 docs 订正 |
+| M3-plot-T6c | 同上（Task 5 硬要求 3） | 「同一张图 PNG=2 / **PDF=0**」与侦察实测不符（`out-d11-red-loop.txt` 实测 **PNG=2 / PDF=1**）⇒ 归 Task 6 的 docs 订正；**不许**为对齐这个写死的数去改口径或换图 |
+| M3-plot-font | `tests/skills/plot-python/check-style-freshness.py:42-48` · `.claude/skills/mcm-plot-python/assets/fonts/PROVENANCE.md:11-18` | **字体字节完整性无判据归属**：全 `tests/` **无任何判据**把 `.otf` 的 blob 与 `PROVENANCE.md` 对账 ⇒ Global Constraint 10 括注「改了哈希就变，判据会红」**目前无人兑现**（射程段已如实声明该缺口）。`PROVENANCE.md` 已有逐件 blob ⇒ 补一条哈希臂成本很低。**未排** |
+| M3-plot-gap | `.claude/skills/mcm-plot-python/assets/mcmplot.py`（『已知缺口（不许藏）』段） | **两条模块级缺口已登记、已指派 owner，但本身未修**：① 底座 `science` 自带 `xtick.top: True / ytick.right: True`，而 `mcm.mplstyle` 只关 `axes.spines.top/right` ⇒ **悬空刻度**；② **条描白边把 PNG 的 F2 抬高一档**。**修它必须重生成 Task 5 的对照证据** ⇒ 需要一个**独立的后续修复任务**，**别塞进 Task 6** |
+| M3-plot-M1 | `tests/skills/plot-python/check-style-freshness.py:261` | 行内注释仍写 `# 还原：本器非侵入` **无限定**，而 `:31-32` 已声明非侵入是**有条件的**（非原子）⇒ 同一处措辞的最后一件 |
+| M3-plot-M2 | `.claude/skills/mcm-plot-python/references/workflow.md` | 该件零数字是**纪律不是判据保证**（`K1`–`K8` 只看 `SKILL.md`；`census()` 只 `glob("*/SKILL.md")`）⇒ 将来往里写规范数值**不会有任何东西变红**。缺口既有、已自我披露（报告 §6.6/§9.8.3） |
+| M3-plot-M3 | `tests/skills/figure-choose/figure-style-baseline.txt:939-940` | 样板文字说末哈希登记在 `task-m3-t7-report.md`/`task-m3-t1-report.md`，本轮实际登记在 `task-m3-plot-t4-report.md`（**既有生成文本、不在任何本轮 diff、射程外**） |
+| M3-plot-M4 | `tests/skills/figure-choose/check-house-style.py`（`GUARDS` 的 `G-H12-scale-lo/hi`） | 守卫正则**手写了**规范端点 `1\.0` / `0\.8` —— 与 Task 2 那条 Important **同形**（那条已修成字符类），只是该件的"期望值来源"另有一列 `const:HM.H12_FONT_SCALE_*`、且该件一直被当冻结判据看待。**待终审裁决** |
 
 ### H.3 M2 欠账
 

@@ -1,0 +1,13 @@
+Figure 1. Vulnerability composition of the six districts (A-F). Left: share of
+each district's land area falling in the low, medium and high vulnerability
+tiers; the three shares sum to 100% within every district, and districts are
+ordered by decreasing low-tier share (C, F, A, E, B, D). Right: Euclidean
+distance between the composition vectors of all 15 district pairs, sorted from
+most to least similar. Districts B and D have by far the most similar structure
+(distance 0.042: they differ by at most 3 percentage points in any single tier
+and share the same 25% high-tier share), well ahead of the next-closest pairs
+A-E and C-F (0.062) and far from the most dissimilar pair C-D (0.334). Across
+districts the high tier is nearly constant (15-25%), whereas the low tier ranges
+from 28% (D) to 55% (C); the districts therefore differ mainly in how their
+non-high area splits between the low and medium tiers, with C and F the most
+low-dominated and D and B the most medium-dominated.

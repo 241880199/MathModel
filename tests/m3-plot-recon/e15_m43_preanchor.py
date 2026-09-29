@@ -10,6 +10,14 @@
 
 复跑（仓根）：
   python tests/m3-plot-recon/e15_m43_preanchor.py
+
+## 家族落地后的一处订正（Task 4）
+
+真 `mcm-plot-python` 入库后，`copytree` 已经带进来一份同名目录 ⇒ 原先的 `d.mkdir()` 会
+`FileExistsError`、探针跑不动。改 `exist_ok=True`：探针的意图本来就是把那**一份 `SKILL.md`**
+换成 GOOD / BAD 两态，覆盖掉拷贝里的真件正是它要的。此外末尾那行读数不再写死裸总数
+（原先写「真仓扫到 N 个 skill」的具体数），改由驱动器侧的 `_ptr_scanned()` 现读 —— 同一理由：
+那个数会随家族落地而变，写死就会过期。
 """
 import pathlib
 import re
@@ -51,7 +59,7 @@ def main():
     print(f"拷贝真 skills 根 -> {COPY.relative_to(ROOT)} · 成员 "
           f"{sorted(p.name for p in COPY.iterdir())}")
     d = COPY / "mcm-plot-python"
-    d.mkdir()
+    d.mkdir(exist_ok=True)          # 家族已真建 ⇒ 拷贝里已有同名目录（见头部订正）
     for label, txt in (("A 合规家族 skill", GOOD), ("B 不合规家族 skill", BAD)):
         (d / "SKILL.md").write_bytes(txt.encode("utf-8"))   # write_bytes：本仓硬纪律
         rc, out = pointer_run(COPY)
@@ -65,7 +73,7 @@ def main():
     shutil.rmtree(COPY)
     print("\n临时拷贝已删：", not COPY.exists())
     print("\n★ 驱动器本身今天跑过：见 out-m43-m46-today.txt（46/46 红，M43 RED-OK，"
-          "前置锚读数『真仓扫到 5 个 skill』由 `_ptr_scanned()` 现读，不写死字面量）")
+          "前置锚读数『真仓扫到的 skill 总数』由 `_ptr_scanned()` 现读，不写死字面量）")
 
 
 if __name__ == "__main__":

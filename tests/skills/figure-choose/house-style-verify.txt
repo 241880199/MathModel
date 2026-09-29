@@ -10,7 +10,7 @@ Task 3 证据 · house-style 13 条 + provenance（每数带口径与复跑命�
 625853d6d586e7762eae2a6b8aebd31b04cafe5f  tests/skills/figure-choose/check-house-style.py
 19e12afd0e6b011b7ca81edef93942d82114d931  .claude/skills/mcm-figure-choose/references/house-style.md
 c7346425c8cd39d675a8861b1ab8df700408cd69  .claude/skills/mcm-figure-choose/references/provenance.md
-ac94ae908fbcbe1fb46d81f3b162f7a4fa9f4ddc  tests/skills/figure-choose/mutate-figure-style.py
+755623875ea7d0581d7d02c568f56395bb01588c  tests/skills/figure-choose/mutate-figure-style.py
 90748f6f91a1712d03a775d64b58f396397d2566  tests/skills/figure-choose/gen-house-style-verify.py
 7636902a868aeca105e6b75b7dc616816fce95fe  tests/skills/figure-choose/check-figure-style.py
 
@@ -177,12 +177,12 @@ READ  S4                 定义行 42 · 不同名 42 · 重名 无（读数条�
 PASS  S5                 小数出现 2 处（不同值 ['0.0', '9.2']）· 与所属 H 条目不同值者 无 · 无所属 `H<n>` 者 无
 ------------------------------------------------------------------------------
 SKILL.md 守卫（短契约：行数 < 上界 / 指针 / 不复述规范数值（ASCII + 中文数词） / 九入口（含决策树表） / 数字声明 / 点名拟建的存否 / 五段+输出契约三件套 / 逐条验证行）
-PASS  K1                 行数 82（上限：<150）
+PASS  K1                 行数 84（上限：<150）
 PASS  K2                 指针 `references/house-style.md` 出现 2 处（必须 ≥1；只写 `house-style.md` 不算）
 PASS  K3                 禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K4                 入口名缺 无（契约 9 个，全部出现）· 决策树表 9 行
 PASS  K5                 声明行 1 行（含『结构性计数』）· 声明到的数 ['9']（白名单只许 [9]，多出 无）· 入口数 9 已在声明里 · 决策树表 9 行（应 9）· 未声明的数 无
-PASS  K6                 点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（不存在·标了〔拟建〕） · 标记与事实不符的 无
+PASS  K6                 点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 无
 PASS  K7                 五段标题缺 无（共 5 段）· 输出契约段内三件套缺 无
 PASS  K8                 `### H<n>.` 条目 13 个 · 没有恰一行『**验证**：』的 无
 ------------------------------------------------------------------------------
@@ -380,8 +380,8 @@ RED-OK   M31  SKILL.md：把文件撑到 151 行 ⇒ `K1` 红（短契约上限 
          SKILL.md：把文件撑到 151 行 ⇒ `K1` 红（短契约上限 <150）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K1=FAIL
 RED-OK   M32  SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）
          SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K4=FAIL
-RED-OK   M33  SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名即错）
-         SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名即错）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K6=FAIL
+RED-OK   M33  SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名不存在的 skill 即错）
+         SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名不存在的 skill 即错）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K6=FAIL
 RED-OK   M35  SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红（原先整句走绿，见 Important-1）
          SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红（原先整句走绿，见 Important-1）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL
 RED-OK   M36  SKILL.md：写进『图宽不超过一倍正文宽』⇒ `K3` 红（**单位词臂**单独在红，见 NOTE）
@@ -394,8 +394,8 @@ RED-OK   M39  SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `
          SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（旧写法不会红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K4=FAIL、K5=FAIL
 RED-OK   M34  house-style.md：小数字面量与 `≤n` 全抹掉 ⇒ `K3` 抽不到禁止串 ⇒ fail-closed 红
          前置(真件) exit=0 K3 绿；后置(副本抹掉小数与 `≤n`) exit=1 『禁止串（现取）：小数 0 条 · 阈值值池 上界 [12, 17] / 下界 [2, 7, 20, 100] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，或标记表里有认不出方向的形态）⇒ fail-closed 记红** · 中文数词臂：裸值词 ['七', '二十', '十七', '十二']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无』（副本里剩下的禁止串 0 条）
-RED-OK   M40  SKILL.md：`--skills-root` 指到**真有** `mcm-plot-python` 的临时根 ⇒ `K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）
-         前置(真 skills 根) exit=0 K6 绿；后置(临时根里真有 mcm-plot-python) exit=1 『点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·标了〔拟建〕⇒**标记与事实不符**） · 标记与事实不符的 ['mcm-plot-python']』
+RED-OK   M40  SKILL.md：`--skills-root` 指到**另建** `mcm-plot-matlab`（仍〔拟建〕）的临时根 ⇒ `K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）
+         前置(真 skills 根) exit=0 K6 绿；后置(临时根里 mcm-plot-matlab〔拟建〕却存在) exit=1 『点名的绘图 skill mcm-plot-matlab（存在·标了〔拟建〕⇒**标记与事实不符**）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 ['mcm-plot-matlab']』；非侵入(真根路径集合跑前/跑后逐字相等)=True
 RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红（`SKILL.md` 那句『逐条标了验证状态』要成立）
          前置(真件) exit=0 K8 绿；后置(副本抹掉 `H1` 的验证行) exit=1 『`### H<n>.` 条目 13 个 · 没有恰一行『**验证**：』的 ['H1（0 行）']』
 
@@ -403,11 +403,11 @@ RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：�
 引用完整性检查器的变异（M43–M46 · 打的是 check-spec-pointers.py；`--skills-dir` 指 fixtures/fake-skills/ 与两个坏目录，共 4 条）
 ==============================================================================
 RED-OK   M43  引用完整性：整体跑 `fixtures/fake-skills/` ⇒ `mcm-plot-nopointer` 缺指针由 **K2** 点名、`mcm-plot-restate` 重述数值由 **K3** 点名，家族正则另外两条备选（`mcm-table` / `mcm-schematic`）缺指针也**各自**由 **K2** 点名（四条各打各的）
-         前置(真仓扫到 5 个 skill) exit=0 末行『RESULT: PASS (无对象：扫到 5 个 skill，绘图家族 0 个)』绿：判到且无 FAIL 行；后置(假 skill 目录扫到 5 份) exit=1 全目录共红 4 条、末行『RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）』 —— `mcm-plot-nopointer` 由 **K2** 点名=True、`mcm-plot-restate` 由 **K3** 点名=True、`mcm-table` 由 **K2** 点名=True、`mcm-schematic` 由 **K2** 点名=True；NOTE/两条规则**各打各的**（另四格全绿）：K3@mcm-plot-nopointer=True · K2@mcm-plot-restate=True · `mcm-plot-ok` 两格=True
+         前置(真仓扫到 6 个 skill) exit=0 末行『RESULT: PASS (绘图家族 1 个，K2/K3 全绿)』绿：判到且无 FAIL 行；后置(假 skill 目录扫到 5 份) exit=1 全目录共红 4 条、末行『RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）』 —— `mcm-plot-nopointer` 由 **K2** 点名=True、`mcm-plot-restate` 由 **K3** 点名=True、`mcm-table` 由 **K2** 点名=True、`mcm-schematic` 由 **K2** 点名=True；NOTE/两条规则**各打各的**（另四格全绿）：K3@mcm-plot-nopointer=True · K2@mcm-plot-restate=True · `mcm-plot-ok` 两格=True
 RED-OK   M44  引用完整性：只留 `mcm-plot-ok` 再跑 ⇒ **绿**（本组唯一能证这个检查器不是恒 FAIL 的一条）
          只留 `mcm-plot-ok`（临时根，真件不碰；目录名**逐字**打出来自证人不在赌路径）exit=0 K2=PASS、K3=PASS、末行『RESULT: PASS (绘图家族 1 个，K2/K3 全绿)』 ⇒ 这个检查器**不是恒 FAIL**
-RED-OK   M45  check-house-style.py：把 `_k3` 抽参照物的**三族全改坏**（小数正则 + `SK_CN_TIER_RES` 整条 ⇒ 两族值池一起空）⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红（打真仓：那里逐份判据根本不执行，只有全局探针能红）
-         前置(真检查器) exit=0 仪器探针绿；后置(副本三族参照物全改坏) exit=1 『FAIL  INSTR  K3@空串  禁止串（现取）：小数 0 条 · 阈值值池 上界 [] / 下界 [] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，…』、全跑共红 1 条（真仓 0 个家族 ⇒ 除仪器探针外无可红之处）、末行『RESULT: FAIL（INSTR:K3）』　NOTE/副本已删：True
+RED-OK   M45  check-house-style.py：把 `_k3` 抽参照物的**三族全改坏**（小数正则 + `SK_CN_TIER_RES` 整条 ⇒ 两族值池一起空）⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红（打真仓：全局仪器探针自身 fail-closed —— 哪怕该轮没有逐份对象，它照样承重）
+         前置(真检查器) exit=0 仪器探针绿；后置(副本三族参照物全改坏) exit=1 『FAIL  INSTR  K3@空串  禁止串（现取）：小数 0 条 · 阈值值池 上界 [] / 下界 [] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，…』、全跑共红 2 条（真仓 1 个家族 ⇒ 除仪器探针外逐份判据红 1 条）、末行『RESULT: FAIL（INSTR:K3,K3@mcm-plot-python）』　NOTE/副本已删：True
 RED-OK   M46  引用完整性：`--skills-dir` 指向坏目录 ⇒ 非零退出（分支 a 目录不存在 · 分支 b 目录在但一个 `SKILL.md` 都没有）
          分支 a(目录不存在) exit=1 『FAIL  DIR       `--skills-dir` 不存在或不是目录：tests/skills/figure-choose/fixtu…』；分支 b(目录在、一个 `SKILL.md` 都没有) exit=1 『FAIL  CENSUS    一个 skill 都没扫到（目录里没有 `*/SKILL.md`）⇒ fail-closed…』；两分支都没有 `RESULT: PASS`=True
 
@@ -428,7 +428,7 @@ RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊
          SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
 RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
          前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
-还原自证  house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 4b8eed1d5c51cdd2feaea27db719b4c4ab65815d · SKILL.md blob dca464475e6f7199c72e1bf7492296868530db3e · 原件字面仍在: True · _mut-house/ 已清空: True
+还原自证  house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 4b8eed1d5c51cdd2feaea27db719b4c4ab65815d · SKILL.md blob 4383003897a2593000a163568fe69fe42db1b1d7 · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
 合计

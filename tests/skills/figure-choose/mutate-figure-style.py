@@ -104,6 +104,8 @@
 - **`M32`**：入口名『不确定性』改名 ⇒ `K4` 红（`ENTRIES` 是契约、缺一即红）。
 - **`M33`**：把点名绘图 skill 的那行的 **〔拟建〕** 去掉 ⇒ `K6` 红（点名不存在的 skill 即错；
   `K6` 同时是 fail-closed：一个绘图 skill 都不点名也红 —— "不点名"不许成为转绿路径）。
+  ★ 目标自 M3-plot Task 2 起由 `mcm-plot-python` 改成 **`mcm-plot-matlab`**：前者已建成、
+  已摘〔拟建〕，摘它不再与"不存在"矛盾（那条字面也已从 `SKILL.md` 里消失）。
 - **`M34`**：打的是 **`house-style.md` 的副本**（`--doc` 指它）：把小数字面量与 `≤n` 形态全抹掉
   ⇒ `K3` 的"现取禁止串"**抽到空集** ⇒ 必须红（fail-closed）。不证这一臂，
   "抽不到即 FAIL"就只是注释里的一句话 —— 仪器取不到参照物却默认放行，正是本仓栽过的那一类。
@@ -120,8 +122,11 @@
   NOTE 现算 `K1`–`K6` 在该副本上仍全绿）。
 - **`M39`**：往决策树表里多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（N-4：旧写法只查"九个名字
   出现过"，加一行不会红）。
-- **`M40`**：`--skills-root` 指向一个**真存在** `mcm-plot-python/SKILL.md` 的临时根 ⇒ `K6` 红
-  （N-5：只判单向的话，这个 skill 真建出来那天，守卫会强制保留一个已不成立的〔拟建〕）。
+- **`M40`**：`--skills-root` 指向一个**临时根**、里面另建 `mcm-plot-matlab`（**当前仍〔拟建〕**、
+  真根里并不存在）⇒ `K6` 红（N-5：标了〔拟建〕的 skill 真的存在时，守卫必须红）。
+  ★ M3-plot Task 2 起目标由 `mcm-plot-python` 改成 `mcm-plot-matlab`（前者已真建出）——
+  那一天正是 N-5 说的"真建出来那天"，所以**非侵入自证**也从"真根里反正没这个 skill"换成
+  **真根路径集合跑前/跑后逐字比对**（`_skills_tree`）。
 - **`M41`**：抹掉 `house-style.md` **副本**里 `H4` 的 `**验证**：` 行 ⇒ `K8` 红（N-7：
   `SKILL.md` 断言"逐条标了验证状态"，原先无人守）。
 
@@ -762,8 +767,10 @@ def skill_mutations():
          lambda t: pad_to(t, 151), ["K1"], None),
         ("M32", "SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）",
          lambda t: sub_all(t, "不确定性", "时变"), ["K4"], None),
-        ("M33", "SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名即错）",
-         lambda t: sub_once(t, "  - `mcm-plot-python`（〔拟建〕）", "  - `mcm-plot-python`"),
+        ("M33", "SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名不存在的 skill 即错）",
+         # `mcm-plot-python` 自 M3-plot Task 2 起**已建成、已摘〔拟建〕** ⇒ 目标改到**当前仍〔拟建〕**
+         # 的 `mcm-plot-matlab`（它既不存在、又必须标 〔拟建〕；摘掉就与事实不符）。
+         lambda t: sub_once(t, "  - `mcm-plot-matlab`（〔拟建〕）", "  - `mcm-plot-matlab`"),
          ["K6"], None),
         # ---- 修复轮（复审 1 Important + N-2/N-3/N-4）
         ("M35", "SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红"
@@ -786,32 +793,49 @@ def skill_mutations():
     ]
 
 
+def _skills_tree():
+    """真 skills 根的路径集合指纹（相对路径，已排序）—— 用于证 `M40` **没往真根里写东西**。
+
+    为什么需要它（M3-plot Task 2 的阻断项）：`M40` 原先借"真仓里反正没有 `mcm-plot-python`"
+    当**廉价代理**来证"换 `--skills-root` 没碰真根"；该 skill 已真建出 ⇒ 那条代理**恒假**
+    ⇒ 驱动器恒 `exit 1`。换成**真测**：把真根的路径集合在跑 `M40` 前后各快照一次、逐字比对。
+    """
+    return sorted(p.relative_to(HOUSE_SKILLS).as_posix() for p in HOUSE_SKILLS.rglob("*"))
+
+
 def k6_exists_mut():
     """`M40`：`K6` 的**反向臂** —— 标了〔拟建〕的 skill **真的存在**时必须红（复审 N-5）。
 
-    做法：把 `--skills-root` 指到一个**临时根**（真件不碰），里面建一个 `mcm-plot-python/SKILL.md`
-    ⇒ "标了〔拟建〕"与"事实存在"矛盾 ⇒ 必须红；前置（真根）必须绿。
+    做法：把 `--skills-root` 指到一个**临时根**（真件不碰）。`mcm-plot-python` 自 M3-plot Task 2
+    起**已建成、已摘〔拟建〕**，故反向臂的目标换成**当前仍〔拟建〕**的 `mcm-plot-matlab`：
+    临时根里**同时**建出这两个 skill 目录（`K6` 用 `.exists()` 判目录）⇒
+      · `mcm-plot-matlab`：标了〔拟建〕却"存在" ⇒ **标记与事实不符** ⇒ 红；
+      · `mcm-plot-python`：未标〔拟建〕且"存在" ⇒ 一致 ⇒ 不红（把它也放进去，是为了让本变异
+        **只**打在"标了〔拟建〕却存在"这一个方向上，不与"未标却不存在"的正向臂混在一起）。
+    前置（真根）必须绿；**并**自证跑前跑后真根的路径集合逐字未变（**非侵入**）。
     """
-    if (HOUSE_SKILLS / "mcm-plot-python").exists():
-        raise AssertionError("真仓里已经有 mcm-plot-python 了 —— 这条变异的前提不成立")
-
     def run(sroot):
         p = subprocess.run([sys.executable, str(HOUSE_CHK), "--skill", str(SKILL_MD),
                             "--skills-root", str(sroot), "--only", "K6"],
                            capture_output=True, text=True, cwd=str(ROOT))
         return p.returncode, p.stdout
 
+    tree_before = _skills_tree()
     with tempfile.TemporaryDirectory() as d:
         tmp = Path(d)
-        (tmp / "mcm-plot-python").mkdir()
-        (tmp / "mcm-plot-python" / "SKILL.md").write_bytes(b"---\nname: mcm-plot-python\n---\n")
+        (tmp / "mcm-plot-python").mkdir()                       # 已建成（与 SKILL.md 的"未标"一致）
+        (tmp / "mcm-plot-matlab").mkdir()                       # 仍〔拟建〕却"存在"⇒ 不该一致
         rc_b, out_b = run(HOUSE_SKILLS)
         rc_a, out_a = run(tmp)
+    tree_after = _skills_tree()
+    clean = tree_after == tree_before
     pre_ok = rc_b == 0 and "PASS  K6 " in out_b
     post_ok = rc_a != 0 and "FAIL  K6 " in out_a
     line = next((l.split(None, 2)[-1] for l in out_a.splitlines() if l.startswith("FAIL  K6")), "（缺 FAIL 行）")
-    return pre_ok and post_ok, (f"前置(真 skills 根) exit={rc_b} {'K6 绿' if pre_ok else '未绿 <<<'}；"
-                                f"后置(临时根里真有 mcm-plot-python) exit={rc_a} 『{line}』")
+    return pre_ok and post_ok and clean, (
+        f"前置(真 skills 根) exit={rc_b} {'K6 绿' if pre_ok else '未绿 <<<'}；"
+        f"后置(临时根里 mcm-plot-matlab〔拟建〕却存在) exit={rc_a} 『{line}』；"
+        f"非侵入(真根路径集合跑前/跑后逐字相等)={clean}")
 
 
 def k8_verify_line_mut():
@@ -908,6 +932,14 @@ def _ptr_scanned(out, default="?"):
     return m.group(1) if m else default
 
 
+def _ptr_families(out, default="?"):
+    """取普查行的 `绘图家族 N 个` —— 同 `_ptr_scanned()`：**当场从输出里读**，不写死字面量
+    （真仓家族数会随绘图 skill 落地而变；`M45` 判词里那句『真仓 N 个家族』必须跟着走，
+    否则家族一落地，出货证据里就印着"真仓 0 个家族"这种被事实证伪的硬编码）。"""
+    m = re.search(r"绘图家族 (\d+) 个", out)
+    return m.group(1) if m else default
+
+
 def m43_ptr():
     """`M43`：整体跑假 skill 目录 ⇒ 缺指针的与重述数值的**必须分别点名**，且**四条**各打各的。
 
@@ -986,8 +1018,9 @@ def m45_ptr():
     为什么都要改（M3-T1 修 K3 主臂后**必须跟着改**，这是本条与检查器的耦合点）：三族**任一为空**
     就记红（fail-closed），只改小数族也能红 —— 但那样证不到"阈值值池这一族也真的承重"，
     故三族一起改坏，让空集是真空集（同 `M35`/`M36` 各证一道臂的道理）。
-    跑的时候**故意用真仓**（0 个绘图家族）：那里逐份 `K2`/`K3` 一次都不执行，
-    唯一能让它红的就是**全局仪器探针** —— 这才证得到"仪器坏了、哪怕无对象也会红"。
+    跑的时候**故意用真仓**：**全局仪器探针**自身 fail-closed ⇒ 哪怕该轮没有逐份对象也会红
+    （真仓有没有绘图家族都是这样；有家族时逐份判据照跑，探针那条仍单独承重）
+    —— 这才证得到"仪器坏了、哪怕无对象也会红"。
     """
     src = HOUSE_CHK.read_bytes().decode("utf-8")
     old = '    dec = set(re.findall(r"\\d+\\.\\d+", doc))'
@@ -1019,10 +1052,14 @@ def m45_ptr():
     post_ok = rc_a != 0 and "FAIL  INSTR" in out_a
     line = next((l for l in out_a.splitlines() if l.startswith("FAIL  INSTR")), "（缺 FAIL 行）")
     n_red = len([l for l in out_a.splitlines() if l.startswith("FAIL  ")])
+    fam = _ptr_families(out_a)                    # 真仓家族数**当场从输出现读**（家族落地就会变）
+    n_skill_red = len([l for l in out_a.splitlines()   # 除仪器探针外的逐份判据红 —— 也是现算
+                       if l.startswith("FAIL  ") and "INSTR" not in l])
     return pre_ok and post_ok, (
         f"前置(真检查器) exit={rc_b} {'仪器探针绿' if pre_ok else '未绿 <<<'}；"
         f"后置(副本三族参照物全改坏) exit={rc_a} 『{line[:96]}…』、全跑共红 {n_red} 条"
-        f"（真仓 0 个家族 ⇒ 除仪器探针外无可红之处）、末行『{_ptr_result(out_a)}』"
+        f"（真仓 {fam} 个家族 ⇒ 除仪器探针外逐份判据红 {n_skill_red} 条）、"
+        f"末行『{_ptr_result(out_a)}』"
         f"　NOTE/副本已删：{not PTR_MUT45.exists()}")
 
 
@@ -1060,7 +1097,8 @@ def run_pointer():
                 f"（本组唯一能证这个检查器不是恒 FAIL 的一条）", m44_ptr),
         ("M45", "check-house-style.py：把 `_k3` 抽参照物的**三族全改坏**（小数正则 + "
                 "`SK_CN_TIER_RES` 整条 ⇒ 两族值池一起空）⇒ **仪器探针** `FAIL  INSTR K3@空串` "
-                "⇒ fail-closed 红（打真仓：那里逐份判据根本不执行，只有全局探针能红）", m45_ptr),
+                "⇒ fail-closed 红（打真仓：全局仪器探针自身 fail-closed —— 哪怕该轮没有逐份对象，"
+                "它照样承重）", m45_ptr),
         ("M46", "引用完整性：`--skills-dir` 指向坏目录 ⇒ 非零退出"
                 "（分支 a 目录不存在 · 分支 b 目录在但一个 `SKILL.md` 都没有）", m46_ptr),
     ):
@@ -1403,8 +1441,11 @@ def run_house():
 
     # ---- `M40`：`K6` 的反向臂（换 skills 根，真件不碰）
     # ---- `M41`：`K8`（打的是 `house-style.md` 的副本，真件不碰）
+    # 跑 `M40` 前后各快照一次真 skills 根的路径集合：`byte_ok` 用它证"换 `--skills-root` 没碰真根"
+    # （原先借"真仓里反正没有 mcm-plot-python"当代理，该 skill 一建出就恒假 —— 见 `_skills_tree`）。
+    skills_tree_before = _skills_tree()
     for mid, desc, fn in (
-        ("M40", "SKILL.md：`--skills-root` 指到**真有** `mcm-plot-python` 的临时根 ⇒ "
+        ("M40", "SKILL.md：`--skills-root` 指到**另建** `mcm-plot-matlab`（仍〔拟建〕）的临时根 ⇒ "
                 "`K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）", k6_exists_mut),
         ("M41", "house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红"
                 "（`SKILL.md` 那句『逐条标了验证状态』要成立）", k8_verify_line_mut),
@@ -1417,6 +1458,7 @@ def run_house():
         if not ok_m:
             failed.append(mid)
             kfailed.append(mid)
+    skills_tree_after = _skills_tree()
 
     # ---- 引用完整性检查器（Task 7）：`M43`–`M46`（打的是 `check-spec-pointers.py` + 假 skill）
     prows, pfailed, n_ptr = run_pointer()
@@ -1436,8 +1478,10 @@ def run_house():
                and HOUSE_PROV.read_bytes().decode("utf-8").count("--metric h2_colw_p90_median") == 1
                and CT_DOC.read_bytes().decode("utf-8").count("### 入口 9 · 不确定性") == 1
                and SKILL_MD.read_bytes().decode("utf-8").count("- **推荐图型**：给**一个首选**；") == 1
-               # `M40` 换的是 `--skills-root`，真 skills 根不该被碰：这里核它没多出那个 skill
-               and not (HOUSE_SKILLS / "mcm-plot-python").exists()
+               # `M40` 换的是 `--skills-root`，真 skills 根不该被碰：核它的路径集合在跑 `M40` 前后
+               # **逐字相等**（旧写法借"真仓里反正没有 mcm-plot-python"当代理 —— 该 skill 自
+               # M3-plot Task 2 起已真建出 ⇒ 那条代理恒假；这里换成**真测非侵入**，见 `_skills_tree`）
+               and skills_tree_after == skills_tree_before
                # `M45` 写的是**同目录**的检查器副本（要能 import 兄弟脚本）⇒ 自证它已删干净
                and not PTR_MUT45.exists())
     same = (git_hash_object(HOUSE_DOC) == doc_hash and git_hash_object(HOUSE_PROV) == prov_hash
