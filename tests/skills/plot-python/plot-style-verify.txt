@@ -9,7 +9,7 @@
 | `tests/skills/plot-python/mutate-plot-style.py` | `29d890fe074359fda2e0e6c99379e1bbcf762af2` |
 | `tests/skills/plot-python/gen-mcm-style.py` | `751f5875b4bebebddd8f17b98e215c1b77bd7ce9` |
 | `.claude/skills/mcm-plot-python/assets/mcm.mplstyle` | `a165f3a21b72af18aecc2d48f1ec7684ed02f3f6` |
-| `.claude/skills/mcm-plot-python/assets/mcmplot.py` | `4f87aba19496374e5eb0ec588cfbc4a4bb44776f` |
+| `.claude/skills/mcm-plot-python/assets/mcmplot.py` | `5851e9cf3110e59a7b29d537ca826897d0c6be96` |
 | `.claude/skills/mcm-figure-choose/references/house-style.md` | `19e12afd0e6b011b7ca81edef93942d82114d931` |
 | `.claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Regular.otf` | `e80891eeb992f306596eb69a5a764b600186978b` |
 | `.claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Italic.otf` | `1707ff148a8f1af1ce9b5cb7382a2b8af3b28000` |
@@ -29,8 +29,8 @@
 PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
 PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
 PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-PASS  A1:mcmplot.py  重放 == 快照（7107 字节）
-PASS  A2:mcmplot.py  重放 == 快照（7107 字节）
+PASS  A1:mcmplot.py  重放 == 快照（7244 字节）
+PASS  A2:mcmplot.py  重放 == 快照（7244 字节）
 PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
@@ -51,7 +51,7 @@ RESULT: PASS
 检查器 = tests/skills/plot-python/check-style-freshness.py  blob 3eac45b183b4c18ebeef1143353c79d00b2e9266
   受保护件 .claude/skills/mcm-figure-choose/references/house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931
   受保护件 .claude/skills/mcm-plot-python/assets/mcm.mplstyle         blob a165f3a21b72af18aecc2d48f1ec7684ed02f3f6
-  受保护件 .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 4f87aba19496374e5eb0ec588cfbc4a4bb44776f
+  受保护件 .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 5851e9cf3110e59a7b29d537ca826897d0c6be96
   受保护件 .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Bold.otf blob 5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb
   受保护件 .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-BoldItalic.otf blob 8ae3031ab56efd92f2340ef4ea0eba8c761e87a3
   受保护件 .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Italic.otf blob 1707ff148a8f1af1ce9b5cb7382a2b8af3b28000
@@ -71,38 +71,38 @@ $ check-style-freshness.py --doc m54.house-style.md   → exit=1
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
       | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
       | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | FAIL  A1:mcmplot.py  重放 != 入库快照（HEAD）（快照 7107 字节 / 重放 7107 字节）
-      |       首个相异行 L60（共 快照 124 行 / 重放 124 行）：
-      |          L57 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L57 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L58 快照: HOUSE_STYLE = {
-      |          L58 重放: HOUSE_STYLE = {
-      |          L59 快照:     'h1_width_ratio_min': 0.8,
-      |          L59 重放:     'h1_width_ratio_min': 0.8,
-      |       << L60 快照:     'h1_width_ratio_max': 1.2,
-      |       << L60 重放:     'h1_width_ratio_max': 1.7,
-      |          L61 快照:     'h1_width_ratio_default_lo': 0.95,
-      |          L61 重放:     'h1_width_ratio_default_lo': 0.95,
-      |          L62 快照:     'h1_width_ratio_default_hi': 1.0,
-      |          L62 重放:     'h1_width_ratio_default_hi': 1.0,
-      |          L63 快照:     'h3_aspect_ratio_lo': 2,
-      |          L63 重放:     'h3_aspect_ratio_lo': 2,
-      | FAIL  A2:mcmplot.py  重放 != 工作树快照（检查前）（快照 7107 字节 / 重放 7107 字节）
-      |       首个相异行 L60（共 快照 124 行 / 重放 124 行）：
-      |          L57 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L57 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L58 快照: HOUSE_STYLE = {
-      |          L58 重放: HOUSE_STYLE = {
-      |          L59 快照:     'h1_width_ratio_min': 0.8,
-      |          L59 重放:     'h1_width_ratio_min': 0.8,
-      |       << L60 快照:     'h1_width_ratio_max': 1.2,
-      |       << L60 重放:     'h1_width_ratio_max': 1.7,
-      |          L61 快照:     'h1_width_ratio_default_lo': 0.95,
-      |          L61 重放:     'h1_width_ratio_default_lo': 0.95,
-      |          L62 快照:     'h1_width_ratio_default_hi': 1.0,
-      |          L62 重放:     'h1_width_ratio_default_hi': 1.0,
-      |          L63 快照:     'h3_aspect_ratio_lo': 2,
-      |          L63 重放:     'h3_aspect_ratio_lo': 2,
+      | FAIL  A1:mcmplot.py  重放 != 入库快照（HEAD）（快照 7244 字节 / 重放 7244 字节）
+      |       首个相异行 L61（共 快照 125 行 / 重放 125 行）：
+      |          L58 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L58 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L59 快照: HOUSE_STYLE = {
+      |          L59 重放: HOUSE_STYLE = {
+      |          L60 快照:     'h1_width_ratio_min': 0.8,
+      |          L60 重放:     'h1_width_ratio_min': 0.8,
+      |       << L61 快照:     'h1_width_ratio_max': 1.2,
+      |       << L61 重放:     'h1_width_ratio_max': 1.7,
+      |          L62 快照:     'h1_width_ratio_default_lo': 0.95,
+      |          L62 重放:     'h1_width_ratio_default_lo': 0.95,
+      |          L63 快照:     'h1_width_ratio_default_hi': 1.0,
+      |          L63 重放:     'h1_width_ratio_default_hi': 1.0,
+      |          L64 快照:     'h3_aspect_ratio_lo': 2,
+      |          L64 重放:     'h3_aspect_ratio_lo': 2,
+      | FAIL  A2:mcmplot.py  重放 != 工作树快照（检查前）（快照 7244 字节 / 重放 7244 字节）
+      |       首个相异行 L61（共 快照 125 行 / 重放 125 行）：
+      |          L58 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L58 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L59 快照: HOUSE_STYLE = {
+      |          L59 重放: HOUSE_STYLE = {
+      |          L60 快照:     'h1_width_ratio_min': 0.8,
+      |          L60 重放:     'h1_width_ratio_min': 0.8,
+      |       << L61 快照:     'h1_width_ratio_max': 1.2,
+      |       << L61 重放:     'h1_width_ratio_max': 1.7,
+      |          L62 快照:     'h1_width_ratio_default_lo': 0.95,
+      |          L62 重放:     'h1_width_ratio_default_lo': 0.95,
+      |          L63 快照:     'h1_width_ratio_default_hi': 1.0,
+      |          L63 重放:     'h1_width_ratio_default_hi': 1.0,
+      |          L64 快照:     'h3_aspect_ratio_lo': 2,
+      |          L64 重放:     'h3_aspect_ratio_lo': 2,
       | PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
       |       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       |       产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
@@ -118,23 +118,23 @@ $ check-style-freshness.py   → exit=1
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
       | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
       | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A1:mcmplot.py  重放 == 快照（7107 字节）
-      | FAIL  A2:mcmplot.py  重放 != 工作树快照（检查前）（快照 7107 字节 / 重放 7107 字节）
-      |       首个相异行 L59（共 快照 124 行 / 重放 124 行）：
-      |          L56 快照: # 本区由 tests/skills/plot-python/gen-mcm-style.py 从规范**逐条锚定**重放产出 ——
-      |          L56 重放: # 本区由 tests/skills/plot-python/gen-mcm-style.py 从规范**逐条锚定**重放产出 ——
-      |          L57 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L57 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L58 快照: HOUSE_STYLE = {
-      |          L58 重放: HOUSE_STYLE = {
-      |       << L59 快照:     'h1_width_ratio_min': 2.3,
-      |       << L59 重放:     'h1_width_ratio_min': 0.8,
-      |          L60 快照:     'h1_width_ratio_max': 1.2,
-      |          L60 重放:     'h1_width_ratio_max': 1.2,
-      |          L61 快照:     'h1_width_ratio_default_lo': 0.95,
-      |          L61 重放:     'h1_width_ratio_default_lo': 0.95,
-      |          L62 快照:     'h1_width_ratio_default_hi': 1.0,
-      |          L62 重放:     'h1_width_ratio_default_hi': 1.0,
+      | PASS  A1:mcmplot.py  重放 == 快照（7244 字节）
+      | FAIL  A2:mcmplot.py  重放 != 工作树快照（检查前）（快照 7244 字节 / 重放 7244 字节）
+      |       首个相异行 L60（共 快照 125 行 / 重放 125 行）：
+      |          L57 快照: # 本区由 tests/skills/plot-python/gen-mcm-style.py 从规范**逐条锚定**重放产出 ——
+      |          L57 重放: # 本区由 tests/skills/plot-python/gen-mcm-style.py 从规范**逐条锚定**重放产出 ——
+      |          L58 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L58 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L59 快照: HOUSE_STYLE = {
+      |          L59 重放: HOUSE_STYLE = {
+      |       << L60 快照:     'h1_width_ratio_min': 2.3,
+      |       << L60 重放:     'h1_width_ratio_min': 0.8,
+      |          L61 快照:     'h1_width_ratio_max': 1.2,
+      |          L61 重放:     'h1_width_ratio_max': 1.2,
+      |          L62 快照:     'h1_width_ratio_default_lo': 0.95,
+      |          L62 重放:     'h1_width_ratio_default_lo': 0.95,
+      |          L63 快照:     'h1_width_ratio_default_hi': 1.0,
+      |          L63 重放:     'h1_width_ratio_default_hi': 1.0,
       | PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
       |       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       |       产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
@@ -167,8 +167,8 @@ $ check-style-freshness.py   → exit=1
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
       | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
       | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A1:mcmplot.py  重放 == 快照（7107 字节）
-      | PASS  A2:mcmplot.py  重放 == 快照（7107 字节）
+      | PASS  A1:mcmplot.py  重放 == 快照（7244 字节）
+      | PASS  A2:mcmplot.py  重放 == 快照（7244 字节）
       | FAIL  FON  入库字体缺件：TeXGyreTermesX-Bold.otf（fail-closed）
       | ------------------------------------------------------------------------------
       | 判据 6 条 · 红 1 条 · 派生件 2 份 · 生成器 exit=0
@@ -182,23 +182,23 @@ $ check-style-freshness.py   → exit=1
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
       | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
       | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | FAIL  A1:mcmplot.py  重放 != 入库快照（HEAD）（快照 7107 字节 / 重放 7077 字节）
-      |       首个相异行 L88（共 快照 124 行 / 重放 123 行）：
-      |          L85 快照: 
-      |          L85 重放: 
-      |          L86 快照:     global _FONTS_REGISTERED
-      |          L86 重放:     global _FONTS_REGISTERED
-      |          L87 快照:     if not _FONTS_REGISTERED:
-      |          L87 重放:     if not _FONTS_REGISTERED:
-      |       << L88 快照:         for f in _FONTS:
-      |       << L88 重放:         pass  # MUT M58：不注册入库字体
-      |          L89 快照:             font_manager.fontManager.addfont(str(f))
-      |          L89 重放:         _FONTS_REGISTERED = True
-      |          L90 快照:         _FONTS_REGISTERED = True
-      |          L90 重放:     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
-      |          L91 快照:     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
-      |          L91 重放: 
-      | PASS  A2:mcmplot.py  重放 == 快照（7077 字节）
+      | FAIL  A1:mcmplot.py  重放 != 入库快照（HEAD）（快照 7244 字节 / 重放 7214 字节）
+      |       首个相异行 L89（共 快照 125 行 / 重放 124 行）：
+      |          L86 快照: 
+      |          L86 重放: 
+      |          L87 快照:     global _FONTS_REGISTERED
+      |          L87 重放:     global _FONTS_REGISTERED
+      |          L88 快照:     if not _FONTS_REGISTERED:
+      |          L88 重放:     if not _FONTS_REGISTERED:
+      |       << L89 快照:         for f in _FONTS:
+      |       << L89 重放:         pass  # MUT M58：不注册入库字体
+      |          L90 快照:             font_manager.fontManager.addfont(str(f))
+      |          L90 重放:         _FONTS_REGISTERED = True
+      |          L91 快照:         _FONTS_REGISTERED = True
+      |          L91 重放:     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
+      |          L92 快照:     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
+      |          L92 重放: 
+      | PASS  A2:mcmplot.py  重放 == 快照（7214 字节）
       | FAIL  FON  产物用了**非入库**字体 ['DejaVuSerif'] ⇒ 回退（判据红）
       |       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       |       产物实报集合（探针 PDF）= ['DejaVuSerif']
@@ -233,8 +233,8 @@ $ check-style-freshness.py --doc m60.house-style.md   → exit=0
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
       | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
       | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A1:mcmplot.py  重放 == 快照（7107 字节）
-      | PASS  A2:mcmplot.py  重放 == 快照（7107 字节）
+      | PASS  A1:mcmplot.py  重放 == 快照（7244 字节）
+      | PASS  A2:mcmplot.py  重放 == 快照（7244 字节）
       | PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
       |       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       |       产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
@@ -250,7 +250,7 @@ REFUTED-OK  M61  **字面形态对照**：原地重跑把过期件改对 ⇒「�
 ==============================================================================
   .claude/skills/mcm-figure-choose/references/house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931  == 变异前
   .claude/skills/mcm-plot-python/assets/mcm.mplstyle         blob a165f3a21b72af18aecc2d48f1ec7684ed02f3f6  == 变异前
-  .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 4f87aba19496374e5eb0ec588cfbc4a4bb44776f  == 变异前
+  .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 5851e9cf3110e59a7b29d537ca826897d0c6be96  == 变异前
   .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Bold.otf blob 5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb  == 变异前
   .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-BoldItalic.otf blob 8ae3031ab56efd92f2340ef4ea0eba8c761e87a3  == 变异前
   .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Italic.otf blob 1707ff148a8f1af1ce9b5cb7382a2b8af3b28000  == 变异前
@@ -437,7 +437,7 @@ PASS  S5                 小数出现 2 处（不同值 ['0.0', '9.2']）· 与�
 SKILL.md 守卫（短契约：行数 < 上界 / 指针 / 不复述规范数值（ASCII + 中文数词） / 九入口（含决策树表） / 数字声明 / 点名拟建的存否 / 五段+输出契约三件套 / 逐条验证行）
 PASS  K1                 行数 84（上限：<150）
 PASS  K2                 指针 `references/house-style.md` 出现 2 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3                 禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3                 禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K4                 入口名缺 无（契约 9 个，全部出现）· 决策树表 9 行
 PASS  K5                 声明行 1 行（含『结构性计数』）· 声明到的数 ['9']（白名单只许 [9]，多出 无）· 入口数 9 已在声明里 · 决策树表 9 行（应 9）· 未声明的数 无
 PASS  K6                 点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 无
@@ -712,7 +712,7 @@ MISMATCH 0 / 21
 ```text
 引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
 skills-dir = .claude/skills · checker = tests/skills/figure-choose/check-house-style.py
-PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 普查：扫到 6 个 skill（.claude/skills/*/SKILL.md）· 绘图家族 1 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
       非家族  mcm-abstract
@@ -723,7 +723,7 @@ PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 �
       非家族  mcm-selfreview
 ------------------------------------------------------------------------------
 PASS  K2  mcm-plot-python  指针 `references/house-style.md` 出现 4 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-plot-python  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-plot-python  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 扫到 6 个 skill（绘图家族 1 个）· 判据 K2/K3 · 红 0 条
 RESULT: PASS (绘图家族 1 个，K2/K3 全绿)

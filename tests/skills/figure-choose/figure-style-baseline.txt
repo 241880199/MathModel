@@ -764,7 +764,12 @@ for name, fn in [('A 任务书原样(BICUBIC)', v1), ('B 出厂(NEAREST)', v2), 
 --- 8.1 提交**前**的 `git status --short`（本轮的改动尚未入库）---
 
 $ git status --short
+ M .claude/skills/mcm-plot-python/assets/mcmplot.py
+ M docs/mcm-suite-todo.md
+ M docs/superpowers/plans/2026-09-29-m3-plot-python.md
  M tests/skills/figure-choose/chart-types-verify.txt
+ M tests/skills/figure-choose/check-house-style.py
+ M tests/skills/figure-choose/gen-pointer-verify.py
  M tests/skills/figure-choose/house-style-verify.txt
  M tests/skills/figure-choose/pointer-verify.txt
  M tests/skills/figure-choose/skill-verify.txt
@@ -814,11 +819,11 @@ for p in sorted(pathlib.Path('tests/skills/figure-choose').rglob('*')):
         print(f'{str(p).replace(chr(92), chr(47)):62} bytes={len(b):7} CRLF={b.count(bytes([13, 10]))}')
 
 $ python -c "<上面的命令体>"
-tests/skills/figure-choose/chart-types-verify.txt              bytes=  56421 CRLF=0
+tests/skills/figure-choose/chart-types-verify.txt              bytes=  56418 CRLF=0
 tests/skills/figure-choose/check-figure-style.py               bytes=  13526 CRLF=0
-tests/skills/figure-choose/check-house-style.py                bytes=  75398 CRLF=0
+tests/skills/figure-choose/check-house-style.py                bytes=  76225 CRLF=0
 tests/skills/figure-choose/check-spec-pointers.py              bytes=   9754 CRLF=0
-tests/skills/figure-choose/figure-style-baseline.txt           bytes=  78825 CRLF=0
+tests/skills/figure-choose/figure-style-baseline.txt           bytes=  78845 CRLF=0
 tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png      bytes=   2523 CRLF=1
 tests/skills/figure-choose/fixtures/bad-f1-too-wide.png        bytes=   4148 CRLF=1
 tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf     bytes=   1322 CRLF=0
@@ -840,7 +845,7 @@ tests/skills/figure-choose/fixtures/run-expected.py            bytes=   4761 CRL
 tests/skills/figure-choose/gen-chart-types-verify.py           bytes=  10493 CRLF=0
 tests/skills/figure-choose/gen-figure-style-baseline.py        bytes=  11266 CRLF=0
 tests/skills/figure-choose/gen-house-style-verify.py           bytes=   9795 CRLF=0
-tests/skills/figure-choose/gen-pointer-verify.py               bytes=  14174 CRLF=0
+tests/skills/figure-choose/gen-pointer-verify.py               bytes=  14884 CRLF=0
 tests/skills/figure-choose/gen-skill-verify.py                 bytes=  14594 CRLF=0
 tests/skills/figure-choose/green/green-self-reports.md         bytes=  20490 CRLF=0
 tests/skills/figure-choose/green/judge-green.md                bytes=  13556 CRLF=0
@@ -861,9 +866,9 @@ tests/skills/figure-choose/green/README.md                     bytes=   4166 CRL
 tests/skills/figure-choose/green/rescue-transcripts.py         bytes=   8418 CRLF=0
 tests/skills/figure-choose/green-evidence.md                   bytes= 102780 CRLF=1
 tests/skills/figure-choose/house-metrics.py                    bytes=  41210 CRLF=0
-tests/skills/figure-choose/house-style-verify.txt              bytes=  82063 CRLF=0
+tests/skills/figure-choose/house-style-verify.txt              bytes=  82060 CRLF=0
 tests/skills/figure-choose/mutate-figure-style.py              bytes= 106637 CRLF=0
-tests/skills/figure-choose/pointer-verify.txt                  bytes=  44803 CRLF=0
+tests/skills/figure-choose/pointer-verify.txt                  bytes=  44838 CRLF=0
 tests/skills/figure-choose/red/brief-R1.md                     bytes=   1122 CRLF=0
 tests/skills/figure-choose/red/brief-R2.md                     bytes=   2029 CRLF=0
 tests/skills/figure-choose/red/brief-R3.md                     bytes=   1230 CRLF=0
@@ -893,7 +898,7 @@ tests/skills/figure-choose/red/rescue-transcripts.py           bytes=   8785 CRL
 tests/skills/figure-choose/red/truth.py                        bytes=   2890 CRLF=0
 tests/skills/figure-choose/red/verify-reproducible.py          bytes=   3667 CRLF=0
 tests/skills/figure-choose/red/writer-self-reports.md          bytes=  30721 CRLF=0
-tests/skills/figure-choose/skill-verify.txt                    bytes=  61499 CRLF=0
+tests/skills/figure-choose/skill-verify.txt                    bytes=  61487 CRLF=0
 [exit=0]
 
 注：PNG/PDF 里出现的 `CRLF=1` 是**二进制内容里恰好有 0x0D0A 这两个字节**，不是行尾；

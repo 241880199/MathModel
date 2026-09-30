@@ -72,7 +72,7 @@ def main():
                 print("    " + l)
     shutil.rmtree(COPY)
     print("\n临时拷贝已删：", not COPY.exists())
-    print("\n★ 驱动器本身今天跑过：见 out-m43-m46-today.txt（46/46 红，M43 RED-OK，"
+    print("\n★ 驱动器本身今天跑过：见 out-m43-m46-today.txt（变异全红、M43 RED-OK，"
           "前置锚读数『真仓扫到的 skill 总数』由 `_ptr_scanned()` 现读，不写死字面量）")
 
 

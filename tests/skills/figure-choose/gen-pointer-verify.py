@@ -44,7 +44,10 @@ OK, NOPOINTER, RESTATE = "mcm-plot-ok", "mcm-plot-nopointer", "mcm-plot-restate"
 # 家族正则 `FAMILY_RE` 的另外两条备选（复审 Minor-3）：在射程内、各缺指针 ⇒ 逐条压住一条备选
 TABLE, SCHEMATIC = "mcm-table", "mcm-schematic"
 OUT = HERE / "pointer-verify.txt"
-FAMILY_RE = re.compile(r"^(?:mcm-plot-.+|mcm-table|mcm-schematic)$")
+# ★ 家族正则**不在这里手写**（终审 Important-2）：`FAMILY_RE` 的唯一权威在 `check-spec-pointers.py`。
+# 本器原先抄了同一条字面量，而 §5b 标题却写"现算，不是抄它的输出" —— 正是本模块招牌毛病
+# （"声明比事实大"）。§5a 已把 `k3_reference()` 改成 import（那一次改动该带上的邻行就是这里）：
+# 现于 §5b 处 `load(CHK)` 取 `mod.FAMILY_RE`，检查器正则一改它即跟。
 FILES = [CHK, MUT, GEN, FAKE / OK / "SKILL.md", FAKE / NOPOINTER / "SKILL.md",
          FAKE / RESTATE / "SKILL.md", FAKE / TABLE / "SKILL.md", FAKE / SCHEMATIC / "SKILL.md"]
 
@@ -180,10 +183,13 @@ def main():
        f"（0 处 ⇒ 它没有自己抽一份禁止串表；唯一用 `re` 的地方是家族名匹配）")
     ev()
 
-    ev("§5b  家族判定与普查（与检查器同一条正则；**现算**，不是抄它的输出）")
-    ev(f"     正则：`{FAMILY_RE.pattern}`（对照 `mcm-figure-choose/SKILL.md` 边界段点名的三个前缀）")
+    ev("§5b  家族判定与普查（**import 检查器取同一条正则**；**现算**，不是抄它的输出）")
+    sp = load(CHK.resolve(), "check_spec_pointers")   # 家族正则的**唯一权威** = 检查器模块
+    family_re = sp.FAMILY_RE                           # 取**对象本身**（不是抄 pattern 字面量 ⇒ 不漂移）
+    ev(f"     正则：`{family_re.pattern}`（**现取**自 {rel(CHK)}：改检查器那条它即跟；"
+       f"对照 `mcm-figure-choose/SKILL.md` 边界段点名的三个前缀）")
     for root, label in ((SKILLS_ROOT, ".claude/skills（默认）"), (FAKE, "fixtures/fake-skills")):
-        rows = [(p.parent.name, bool(FAMILY_RE.match(p.parent.name)))
+        rows = [(p.parent.name, bool(family_re.match(p.parent.name)))
                 for p in sorted(root.glob("*/SKILL.md"))]
         n_fam = sum(1 for _n, f in rows if f)
         ev(f"     {label}：扫到 {len(rows)} 个 skill · 绘图家族 {n_fam} 个")

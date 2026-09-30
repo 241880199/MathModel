@@ -6,10 +6,11 @@
 
 ## 与规范的接口（规范正文只在 `mcm-figure-choose/references/house-style.md`，本文件不复述）
 
-三个入口的**参数名**与判据侧**逐字同名同义**：
+四个入口的**参数名**与判据侧**逐字同名同义**：
 
 - `figsize_for(textwidth_in)`：`textwidth_in` = 正文栏宽（英寸），即判据侧 `--textwidth-in` 的**分母**。
   **不预设默认值** —— 它是用户论文的属性，必须由调用方传入。
+- `fontsize_for(body_pt)`：给出图内字号的**允许区间**；`body_pt` 同样由调用方传（正文 pt 是论文的属性）。
 - `save(fig, path, dpi)`：`dpi` 必须与调用判据时传的 `--dpi` **一致**（否则 F1 的分母对不上）。
 - `apply_style()`：叠底座并注册入库字体。
 

@@ -35,7 +35,7 @@ Task 7 证据 · 引用完整性检查器（check-spec-pointers.py）+ 假 skill
 ==============================================================================
 1b877ba761b17516c6ae121682a12bc5a81176d4  tests/skills/figure-choose/check-spec-pointers.py
 755623875ea7d0581d7d02c568f56395bb01588c  tests/skills/figure-choose/mutate-figure-style.py
-5e866865eab0ad8f1a85e5b7166bdc6db959697d  tests/skills/figure-choose/gen-pointer-verify.py
+2d2e9a647cc93371bf7cb350f48e63ae44635c93  tests/skills/figure-choose/gen-pointer-verify.py
 be1ba75683b6433283c067973e7020059af8ff49  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-ok/SKILL.md
 473bae246577ae4e886fe3ff1300a74b23dad8ae  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-nopointer/SKILL.md
 1dba97ae79eee24188551cd4349b22810bfb0367  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-restate/SKILL.md
@@ -48,7 +48,7 @@ be1ba75683b6433283c067973e7020059af8ff49  tests/skills/figure-choose/fixtures/fa
 $ python tests/skills/figure-choose/check-spec-pointers.py
 引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
 skills-dir = .claude/skills · checker = tests/skills/figure-choose/check-house-style.py
-PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 普查：扫到 6 个 skill（.claude/skills/*/SKILL.md）· 绘图家族 1 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
       非家族  mcm-abstract
@@ -59,7 +59,7 @@ PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 �
       非家族  mcm-selfreview
 ------------------------------------------------------------------------------
 PASS  K2  mcm-plot-python  指针 `references/house-style.md` 出现 4 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-plot-python  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-plot-python  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 扫到 6 个 skill（绘图家族 1 个）· 判据 K2/K3 · 红 0 条
 RESULT: PASS (绘图家族 1 个，K2/K3 全绿)
@@ -71,7 +71,7 @@ RESULT: PASS (绘图家族 1 个，K2/K3 全绿)
 $ python tests/skills/figure-choose/check-spec-pointers.py --skills-dir tests/skills/figure-choose/fixtures/fake-skills
 引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
 skills-dir = tests/skills/figure-choose/fixtures/fake-skills · checker = tests/skills/figure-choose/check-house-style.py
-PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 普查：扫到 5 个 skill（tests/skills/figure-choose/fixtures/fake-skills/*/SKILL.md）· 绘图家族 5 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
       家族    mcm-plot-nopointer
@@ -81,15 +81,15 @@ PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 �
       家族    mcm-table
 ------------------------------------------------------------------------------
 FAIL  K2  mcm-plot-nopointer  指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-plot-nopointer  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-plot-nopointer  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K2  mcm-plot-ok  指针 `references/house-style.md` 出现 1 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-plot-ok  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-plot-ok  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K2  mcm-plot-restate  指针 `references/house-style.md` 出现 1 处（必须 ≥1；只写 `house-style.md` 不算）
-FAIL  K3  mcm-plot-restate  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 ['0.9', '0.95', '0.951', '1.20', '不超过 1'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+FAIL  K3  mcm-plot-restate  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 ['0.9', '0.95', '0.951', '1.20'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 FAIL  K2  mcm-schematic  指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-schematic  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-schematic  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 FAIL  K2  mcm-table  指针 `references/house-style.md` 出现 0 处（必须 ≥1；只写 `house-style.md` 不算）
-PASS  K3  mcm-table  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K3  mcm-table  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 扫到 5 个 skill（绘图家族 5 个）· 判据 K2/K3 · 红 4 条
 RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）
@@ -111,7 +111,7 @@ RESULT: FAIL（DIR:skills-dir）
 $ python tests/skills/figure-choose/check-spec-pointers.py --skills-dir tests/skills/figure-choose/fixtures
 引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
 skills-dir = tests/skills/figure-choose/fixtures · checker = tests/skills/figure-choose/check-house-style.py
-PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
 普查：扫到 0 个 skill（tests/skills/figure-choose/fixtures/*/SKILL.md）· 绘图家族 0 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
 FAIL  CENSUS    一个 skill 都没扫到（目录里没有 `*/SKILL.md`）⇒ fail-closed
@@ -302,8 +302,8 @@ MUT: 53/53 达预期（合计）
      本器点名的兄弟模块：`check-house-style.py`（全文 8 处）
      本器全文的 `re.findall` 调用：0 处（0 处 ⇒ 它没有自己抽一份禁止串表；唯一用 `re` 的地方是家族名匹配）
 
-§5b  家族判定与普查（与检查器同一条正则；**现算**，不是抄它的输出）
-     正则：`^(?:mcm-plot-.+|mcm-table|mcm-schematic)$`（对照 `mcm-figure-choose/SKILL.md` 边界段点名的三个前缀）
+§5b  家族判定与普查（**import 检查器取同一条正则**；**现算**，不是抄它的输出）
+     正则：`^(?:mcm-plot-.+|mcm-table|mcm-schematic)$`（**现取**自 tests/skills/figure-choose/check-spec-pointers.py：改检查器那条它即跟；对照 `mcm-figure-choose/SKILL.md` 边界段点名的三个前缀）
      .claude/skills（默认）：扫到 6 个 skill · 绘图家族 1 个
        非家族  mcm-abstract
        非家族  mcm-ai-disclosure
@@ -323,11 +323,11 @@ MUT: 53/53 达预期（合计）
      `fixtures/*/` 的子目录 = ['fake-skills']
 
 §5d  五份假 skill 各自的形态（**逐字**印出它们的关键读数，别让复核员只能信 M43 的结论）
-     mcm-plot-ok（含指针、无数值 ⇒ `K2`/`K3` 都该绿）：指针 `references/house-style.md` 出现 1 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 15
-     mcm-plot-nopointer（缺指针 ⇒ `K2` 该红（`K3` 该绿））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 13
-     mcm-plot-restate（重述数值 ⇒ `K3` 该红（`K2` 该绿））：指针 `references/house-style.md` 出现 1 处 · 命中的现取禁止串 ['0.9', '0.95', '0.951', '1.20', '不超过 1']（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 17
-     mcm-table（家族正则备选②：在射程内、缺指针 ⇒ `K2` 该红（删掉 `|mcm-table` 它就掉出射程 ⇒ M43 变 RED-BAD））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 18
-     mcm-schematic（家族正则备选③：在射程内、缺指针 ⇒ `K2` 该红（删掉 `|mcm-schematic` 同上））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [1, 3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 18
+     mcm-plot-ok（含指针、无数值 ⇒ `K2`/`K3` 都该绿）：指针 `references/house-style.md` 出现 1 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 15
+     mcm-plot-nopointer（缺指针 ⇒ `K2` 该红（`K3` 该绿））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 13
+     mcm-plot-restate（重述数值 ⇒ `K3` 该红（`K2` 该绿））：指针 `references/house-style.md` 出现 1 处 · 命中的现取禁止串 ['0.9', '0.95', '0.951', '1.20']（参照物：小数 85 条 + 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 17
+     mcm-table（家族正则备选②：在射程内、缺指针 ⇒ `K2` 该红（删掉 `|mcm-table` 它就掉出射程 ⇒ M43 变 RED-BAD））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 18
+     mcm-schematic（家族正则备选③：在射程内、缺指针 ⇒ `K2` 该红（删掉 `|mcm-schematic` 同上））：指针 `references/house-style.md` 出现 0 处 · 命中的现取禁止串 无（参照物：小数 85 条 + 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100]，现取）· 行数 18
 
 §5e  口径边界（**写实**：本器与这两条判据都判不了的）
      · `K2`/`K3` 的**口径本身**（判得对不对）不在这里验 —— 那一侧由 `check-house-style.py` 的 `M29`–`M41` 与 `M47`–`M53` 守；本器只验它们**在一族 skill 上真的会被触发**、且不恒真/不恒红。
