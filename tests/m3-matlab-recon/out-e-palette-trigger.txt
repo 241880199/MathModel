@@ -14,4 +14,3 @@ groot defaultFigureTheme: Figure 类的 Theme 属性中不允许存在默认值 
 Theme.getCurrent: 无法解析名称 'matlab.lang.Theme.getCurrent'。
 defaultAxesColorOrder is factory: factory=1
 === probe_e done ===
-RC=0 ELAPSED=24s

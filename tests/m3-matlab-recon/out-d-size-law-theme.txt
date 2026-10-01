@@ -33,4 +33,3 @@ initial PaperPositionMode = auto
 after set PaperPosition, mode = manual
 after auto, PaperPosition = [0.8474      4.4923      6.5729      2.7083]
 === probe_d done ===
-RC=0 ELAPSED=36s

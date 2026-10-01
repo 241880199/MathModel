@@ -6,4 +6,3 @@ after auto: PaperPosition=[-0.13146   -0.054167      6.5729      2.7083]
 === g3 control: A4 page, PaperPosition 6.31x2.6 ===
 === g4 exportgraphics vs PaperSize ===
 === probe_g done ===
-RC=0 ELAPSED=29s

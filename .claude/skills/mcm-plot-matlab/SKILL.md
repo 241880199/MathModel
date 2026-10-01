@@ -38,8 +38,8 @@ description: Use when 美赛 MCM/ICM 论文要用 MATLAB 出图、把图型决�
   `tw_in` = **正文栏宽分母**（英寸），由**调用方**传入 —— 它是论文的属性，本 skill 与检查器都不预设默认值。
 - `M.apply(fig)`：给 `fig` 及其下每个 axes 上 house style（白底 / 色序 / 字体 / 框线刻度）。
   **建图后、导出前**调它。
-- `M.size(tw_in)` / `M.fontsize(body_pt)`：只给"该落在哪个带里"；
-  落到哪个绝对值由调用方按论文正文定。
+- `M.size(tw_in)`：给出**该用哪个图幅**（宽 × 高，英寸）—— 宽取自表里图宽比那条规则的默认档，**是个确定值**。
+- `M.fontsize(body_pt)`：给出图内字号的**允许带**（下限 ~ 上限）—— 落在带里哪个绝对值由调用方按论文正文定。
 - `M.save(fig, path, [dpi])`：导出。走 `print` 家族（`.png` 跟 `PaperPosition`、`.pdf` 跟 `PaperSize`）。
   `dpi` 只对 PNG 有意义，且必须与送进检查器时的 `--dpi` **一致**。
 - `M.style.line_width`：线宽是**逐对象**属性，本封装只把值放在这里，**不替你套到每条线上**。
@@ -58,8 +58,8 @@ description: Use when 美赛 MCM/ICM 论文要用 MATLAB 出图、把图型决�
 ## 边界
 
 - **不重述任何规范数值**：阈值 / 占比 / 样本读数回 `references/house-style.md` 去说。
-  本文件与 `references/workflow.md` 都**不复述规范数值**（含用中文数词写的规范值），
-  也都**一个阿拉伯数字都没有**。要说的数回规范去说。
+  本文件**一个阿拉伯数字都没有**；`references/workflow.md` 里出现的数字**只有规则编号**
+  （`H<n>` 这类指针型 ID，**不是数值**）。要说的数回规范去说。
 - **不手改派生件**：`assets/mcmplot.m` 的 `BEGIN/END GENERATED` 之间是**派生件**
   （由入库的生成器从 `mcm-style.json` 重放产出）。要改样式值，请改那张表（或其上游规范），再重放。
 - **不判"图讲没讲清"**：机械层判不了这一层，它是判断层的事；这一层的入口写在

@@ -6,7 +6,7 @@
 [t0_base] PaperType     = A4
 [t0_base] ax.Position   = [0.13     0.13385       0.775     0.79115]
 [t0_base] ax.TightInset = [0.07167      0.1341    0.005814    0.072372]
-[t0_base] 4 exports in 5.73s
+[t0_base] 4 exports in 2.78s
 [t1_pos_w800] Position      = [100  100  800  260]
 [t1_pos_w800] PaperUnits    = inches
 [t1_pos_w800] PaperPosition = [0           0        6.31         2.6]
@@ -14,7 +14,7 @@
 [t1_pos_w800] PaperType     = A4
 [t1_pos_w800] ax.Position   = [0.13     0.13385       0.775     0.79115]
 [t1_pos_w800] ax.TightInset = [0.0565      0.1341   0.0045833    0.072372]
-[t1_pos_w800] 4 exports in 1.68s
+[t1_pos_w800] 4 exports in 1.47s
 [t2_pos_h400] Position      = [100  100  631  400]
 [t2_pos_h400] PaperUnits    = inches
 [t2_pos_h400] PaperPosition = [0           0        6.31         2.6]
@@ -22,7 +22,7 @@
 [t2_pos_h400] PaperType     = A4
 [t2_pos_h400] ax.Position   = [0.13        0.11       0.775       0.815]
 [t2_pos_h400] ax.TightInset = [0.078224       0.095   0.0063425    0.050833]
-[t2_pos_h400] 4 exports in 1.65s
+[t2_pos_h400] 4 exports in 1.56s
 [t3_paper_w800] Position      = [100  100  631  260]
 [t3_paper_w800] PaperUnits    = inches
 [t3_paper_w800] PaperPosition = [0           0           8         2.6]
@@ -30,7 +30,7 @@
 [t3_paper_w800] PaperType     = A4
 [t3_paper_w800] ax.Position   = [0.13     0.13385       0.775     0.79115]
 [t3_paper_w800] ax.TightInset = [0.07167      0.1341    0.005814    0.072372]
-[t3_paper_w800] 4 exports in 1.34s
+[t3_paper_w800] 4 exports in 2.32s
 [t4_paper_h350] Position      = [100  100  631  260]
 [t4_paper_h350] PaperUnits    = inches
 [t4_paper_h350] PaperPosition = [0           0        6.31         3.5]
@@ -38,7 +38,7 @@
 [t4_paper_h350] PaperType     = A4
 [t4_paper_h350] ax.Position   = [0.13     0.13385       0.775     0.79115]
 [t4_paper_h350] ax.TightInset = [0.07167      0.1341    0.005814    0.072372]
-[t4_paper_h350] 4 exports in 1.46s
+[t4_paper_h350] 4 exports in 3.42s
 [t5] set PaperSize [11 8.5] OK
 [t5_paper_size] Position      = [100  100  631  260]
 [t5_paper_size] PaperUnits    = inches
@@ -47,7 +47,7 @@
 [t5_paper_size] PaperType     = <custom>
 [t5_paper_size] ax.Position   = [0.13     0.13385       0.775     0.79115]
 [t5_paper_size] ax.TightInset = [0.07167      0.1341    0.005814    0.072372]
-[t5_paper_size] 4 exports in 1.31s
+[t5_paper_size] 4 exports in 3.18s
 [t6_letter] Position      = [100  100  631  260]
 [t6_letter] PaperUnits    = inches
 [t6_letter] PaperPosition = [0           0        6.31         2.6]
@@ -55,7 +55,7 @@
 [t6_letter] PaperType     = usletter
 [t6_letter] ax.Position   = [0.13     0.13385       0.775     0.79115]
 [t6_letter] ax.TightInset = [0.07167      0.1341    0.005814    0.072372]
-[t6_letter] 4 exports in 1.30s
+[t6_letter] 4 exports in 1.28s
 [c1_fig] Position      = [100  100  631  260]
 [c1_fig] PaperUnits    = inches
 [c1_fig] PaperPosition = [0           0        6.31         2.6]
@@ -82,4 +82,3 @@ default colororder rows=7
   lines   7: [0.9490 0.4030 0.7720]
 max abs diff default vs lines(7) = 0.000000
 === probe_b done ===
-RC=0 ELAPSED=42s

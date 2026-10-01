@@ -19,6 +19,23 @@
 而那些数字**正是它们的价值**。若某份捕获与今天的事实不一致，唯一正确的做法是
 **重跑产出它的探针并重新捕获**（让它携带今天的年代指纹），**不是**去改里面的字面量。
 
+> ★ **例外（2026-10-02，M3-matlab Task 5 实测后加）：上面这条规则对两份捕获已不可执行** ——
+> **`out-guards-k6-family-k3.txt`** 与 **`out-ripples-m33-m40.txt`** 的探针**在家族落地后跑不动了**，
+> 因为**它们的前提就是"家族还没落地"**：
+> - `probe_guards.py` §G2 先把真仓 `.claude/skills` 拷成 `skills2/`，再 `mkdir` 一个**假**的 `mcm-plot-matlab` ——
+>   真仓现在**真的有**这个 skill ⇒ `fake.mkdir()` **`FileExistsError`**（实测崩溃原文留在
+>   `build/m3-matlab-recon/raw_guards_POSTLANDING_CRASH.txt`）。
+> - `probe_ripples.py` §R2 的 `assert fixed != txt` 依赖 `SKILL.md` 里那行 `` - `mcm-plot-matlab`（〔拟建〕） ``，
+>   而该字面**已被 Task 1 删除** ⇒ **AssertionError**（崩溃原文留 `raw_ripples_POSTLANDING_CRASH.txt`）。
+>
+> ⇒ **这两份捕获现在是"冻结的历史"**：**不许手改**（老规矩），但**也不能靠重跑更新**（探针已失能）。
+> **`gen-evidence.py` docstring 里那份"RE-RUN"配方因此是单向的** —— 照它整跑会把这两份捕获
+> **覆盖成崩溃输出**（本任务实测过：崩溃 raw 一度覆盖上去，已由 `HEAD` 还原）。
+> 要真正复活它们，得先改探针源码（**改探针 = 改仪器，另案留痕**），不属于收口工作。
+>
+> 它们当初问的问题（"家族一落地，`K6`/普查/`M33`/`M40` 会怎样"）**今天已由真模块自己的仪器回答**
+> （`check-spec-pointers.py` 实报 `扫到 7 个 skill（绘图家族 2 个）`）⇒ **无需再跑**。
+
 ## ★ 给所有 `.m` 脚本的硬前提：`run()` 会切当前目录
 
 `.m` 脚本被 `run('<path>')` 执行时，**当前目录在执行期间变成脚本所在目录**，跑完再切回：
@@ -65,8 +82,8 @@ d:/Software/Matlab/bin/matlab -batch "run('tests/m3-matlab-recon/probe_i.m')" > 
 
 ```
 python tests/m3-matlab-recon/measure_pixels.py build/m3-matlab-recon/h_off build/m3-matlab-recon/h_on build/m3-matlab-recon/i > build/m3-matlab-recon/raw_pixels.txt 2>&1
-python tests/m3-matlab-recon/probe_guards.py   > build/m3-matlab-recon/raw_guards.txt   2>&1
-python tests/m3-matlab-recon/probe_ripples.py  > build/m3-matlab-recon/raw_ripples.txt  2>&1
+python tests/m3-matlab-recon/probe_guards.py   > build/m3-matlab-recon/raw_guards.txt   2>&1   # ⚠️ 已失能，别跑！见文首「例外」段
+python tests/m3-matlab-recon/probe_ripples.py  > build/m3-matlab-recon/raw_ripples.txt  2>&1   # ⚠️ 已失能，别跑！见文首「例外」段
 python tests/skills/figure-choose/mutate-figure-style.py > build/m3-matlab-recon/raw_mutate.txt 2>&1
 python tests/skills/figure-choose/check-house-style.py   > build/m3-matlab-recon/raw_house_style.txt 2>&1
 ```
@@ -93,7 +110,10 @@ python tests/m3-matlab-recon/gen-evidence.py
 
 ## 二进制产物
 
-**一份都不入库。** 全部可由入库脚本确定性重生成（PNG/PDF 都是）。
+**一份都不入库。** 全部可由入库脚本**重跑产出**（同一命令、同一输入）。
+⚠️ **但不声称逐字节相同** —— 实测 **MATLAB 出图/导出非字节可复现**：同一条命令跑两次，
+PNG 字节会变、PDF `MediaBox` 会有 **±1 pt** 的抖动（2026-10-02 Task 5 实测，见 `docs/mcm-suite-todo.md` §H.2 的 `M3-matlab-T5b`）。
+**原句写的是"确定性重生成"，那是过度声明**，由 Task 5 独立复核 `I-1` 抓出后订正。
 重生成命令 = 上面第一/二步；产物落在 `build/m3-matlab-recon/{a..g}/`（**已 gitignore**）。
 
 ## 本目录内几个**不是**"stdout 捕获"的文件

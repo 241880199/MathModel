@@ -1,0 +1,1 @@
+Figure 2: Pearson correlation of district attributes with disaster count

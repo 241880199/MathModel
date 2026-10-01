@@ -1,4 +1,3 @@
-batch cwd BEFORE run = D:\Projects\数学建模
 ### probe_a start ###
 repo root (derived) = D:\Projects\数学建模
 === P0 environment ===
@@ -67,13 +66,13 @@ P5 figure PaperType     = A4
 P5 ax Position          = [0.13     0.13385       0.775     0.79115]
 P5 ax OuterPosition     = [0  0  1  1]
 P5 ax TightInset        = [0.07167      0.1341    0.005814    0.072372]
-exportgraphics_png         ok=1  2.65s  bytes=51549
-exportgraphics_pdf         ok=1  0.39s  bytes=14249
-exportgraphics_pdf_vector  ok=1  0.28s  bytes=14249
+exportgraphics_png         ok=1  2.38s  bytes=55417
+exportgraphics_pdf         ok=1  0.36s  bytes=14249
+exportgraphics_pdf_vector  ok=1  0.27s  bytes=14249
 exportgraphics_pdf_image   ok=1  0.22s  bytes=88575
-print_dpng                 ok=1  0.36s  bytes=56814
-print_dpdf                 ok=1  0.18s  bytes=14271
-saveas_png                 ok=1  0.20s  bytes=37780
+print_dpng                 ok=1  0.33s  bytes=56814
+print_dpdf                 ok=1  0.16s  bytes=14271
+saveas_png                 ok=1  0.19s  bytes=37780
 saveas_pdf                 ok=1  0.16s  bytes=14271
 === P6 default font + Chinese ===
 gca FontName = Helvetica
@@ -102,5 +101,3 @@ Java Font.createFont OK: family=TeXGyreTermesX name=TeXGyreTermesX Regular
 set FontName=TeXGyreTermesX -> gca FontName = TeXGyreTermesX
 otf-name pdf ok, bytes=9038
 === probe_a done ===
-batch cwd AFTER run = D:\Projects\数学建模
-RC=0 ELAPSED=38s

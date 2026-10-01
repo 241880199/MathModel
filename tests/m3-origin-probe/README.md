@@ -85,6 +85,9 @@ python tests/m3-origin-probe/gen-evidence.py
 
 ## 二进制产物
 
-**一份都不入库。** 全部可由入库脚本确定性重生成（PNG/PDF 都是）。
+**一份都不入库。** 全部可由入库脚本**重跑产出**（同一命令、同一输入）。
+⚠️ **但不声称逐字节相同** —— 本目录的 PNG/PDF 是 **Origin 本体**导出（经 `originpro` → `OriginExt` 驱动），
+**可复现性本目录未测**；而**同类断言在 MATLAB 侧已被实测证伪**（同命令两次：PNG 字节变、PDF `MediaBox` ±1 pt，
+见 `docs/mcm-suite-todo.md` §H.2 的 `M3-matlab-T5b`）⇒ 这里**不再声称**"确定性重生成"。
 产物落 `build/m3-origin-probe/{b,c,d,e,f,g,h,i}/`（**已 gitignore**）。
 重生成命令 = 上面第一/二步。

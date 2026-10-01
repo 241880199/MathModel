@@ -80,8 +80,10 @@ python tests/m3-matlab-font-probe/gen-evidence.py
 
 ## 二进制产物
 
-**一份都不入库。** 全部可由上面的步骤确定性重生成。产物落在
-`build/m3-matlab-font/{probe_a,probe_a2,probe_a3,probe_b,probe_c,probe_d,check4,tmpfont}/`
+**一份都不入库。** 全部可由上面的步骤**重跑产出**（同一命令、同一输入）。
+⚠️ **但不声称逐字节相同** —— 实测 **MATLAB 出图/导出非字节可复现**（同命令两次：PNG 字节会变、PDF `MediaBox` ±1 pt；
+2026-10-02 Task 5 实测，见 `docs/mcm-suite-todo.md` §H.2 的 `M3-matlab-T5b`）。**原句"确定性重生成"是过度声明。**
+产物落在 `build/m3-matlab-font/{probe_a,probe_a2,probe_a3,probe_b,probe_c,probe_d,check4,tmpfont}/`
 （`build/` 已 gitignore）。
 
 ## 本目录里几个**不是** stdout 捕获的文件

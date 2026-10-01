@@ -4,7 +4,7 @@ PDF p5_exportgraphics_pdf_image.pdf    pages=1 box=477.000x198.000pt = 6.6250x2.
       fonts embedded: (none)
 PDF p5_exportgraphics_pdf_vector.pdf   pages=1 box=403.000x193.000pt = 5.5972x2.6806in  imgs=0  bytes=14249
       fonts embedded: ArialMT/Type0
-PNG p5_exportgraphics_png.png          px=1113x530  pHYs_dpi=200.0  bytes=51549
+PNG p5_exportgraphics_png.png          px=1113x530  pHYs_dpi=200.0  bytes=55417
 PDF p5_print_dpdf.pdf                  pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=14271
       fonts embedded: ArialMT/Type0
 PNG p5_print_dpng.png                  px=1262x520  pHYs_dpi=200.0  bytes=56814
@@ -24,13 +24,13 @@ PDF p7_otfname.pdf                     pages=1 box=401.000x185.000pt = 5.5694x2.
       fonts embedded: SimSun/Type0
 PDF p7_times.pdf                       pages=1 box=400.000x192.000pt = 5.5556x2.6667in  imgs=0  bytes=11868
       fonts embedded: TimesNewRomanPSMT/Type0
-PDF c1_pad0.pdf                        pages=1 box=400.000x189.000pt = 5.5556x2.6250in  imgs=0  bytes=10938
+PDF c1_pad0.pdf                        pages=1 box=399.000x190.000pt = 5.5417x2.6389in  imgs=0  bytes=10970
       fonts embedded: ArialMT/Type0
 PNG c1_pad0.png                        px=1111x525  pHYs_dpi=200.0  bytes=23546
 PDF c1_pad_default.pdf                 pages=1 box=402.000x193.000pt = 5.5833x2.6806in  imgs=0  bytes=10998
       fonts embedded: ArialMT/Type0
 PNG c1_pad_default.png                 px=1113x530  pHYs_dpi=200.0  bytes=23515
-PDF c2_dense_eg.pdf                    pages=1 box=404.000x188.000pt = 5.6111x2.6111in  imgs=0  bytes=12073
+PDF c2_dense_eg.pdf                    pages=1 box=404.000x188.000pt = 5.6111x2.6111in  imgs=0  bytes=12089
       fonts embedded: ArialMT/Type0
 PNG c2_dense_eg.png                    px=1121x514  pHYs_dpi=200.0  bytes=40353
 PDF c2_sparse_eg.pdf                   pages=1 box=389.000x179.000pt = 5.4028x2.4861in  imgs=0  bytes=7766
@@ -39,28 +39,28 @@ PNG c2_sparse_eg.png                   px=1075x488  pHYs_dpi=200.0  bytes=13541
 PDF t0_base_eg.pdf                     pages=1 box=403.000x192.000pt = 5.5972x2.6667in  imgs=0  bytes=10978
       fonts embedded: ArialMT/Type0
 PNG t0_base_eg.png                     px=1113x530  pHYs_dpi=200.0  bytes=20386
-PDF t0_base_pr.pdf                     pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=10982
+PDF t0_base_pr.pdf                     pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=10983
       fonts embedded: ArialMT/Type0
 PNG t0_base_pr.png                     px=1262x520  pHYs_dpi=200.0  bytes=24353
-PDF t1_pos_w800_eg.pdf                 pages=1 box=501.000x192.000pt = 6.9583x2.6667in  imgs=0  bytes=10980
+PDF t1_pos_w800_eg.pdf                 pages=1 box=501.000x193.000pt = 6.9583x2.6806in  imgs=0  bytes=10998
       fonts embedded: ArialMT/Type0
 PNG t1_pos_w800_eg.png                 px=1387x530  pHYs_dpi=200.0  bytes=26003
-PDF t1_pos_w800_pr.pdf                 pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=10982
+PDF t1_pos_w800_pr.pdf                 pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=10983
       fonts embedded: ArialMT/Type0
 PNG t1_pos_w800_pr.png                 px=1262x520  pHYs_dpi=200.0  bytes=24353
-PDF t2_pos_h400_eg.pdf                 pages=1 box=405.000x285.000pt = 5.6250x3.9583in  imgs=0  bytes=11340
+PDF t2_pos_h400_eg.pdf                 pages=1 box=405.000x285.000pt = 5.6250x3.9583in  imgs=0  bytes=11336
       fonts embedded: ArialMT/Type0
 PNG t2_pos_h400_eg.png                 px=1120x787  pHYs_dpi=200.0  bytes=36562
 PDF t2_pos_h400_pr.pdf                 pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=10982
       fonts embedded: ArialMT/Type0
 PNG t2_pos_h400_pr.png                 px=1262x520  pHYs_dpi=200.0  bytes=24353
-PDF t3_paper_w800_eg.pdf               pages=1 box=403.000x192.000pt = 5.5972x2.6667in  imgs=0  bytes=10978
+PDF t3_paper_w800_eg.pdf               pages=1 box=403.000x192.000pt = 5.5972x2.6667in  imgs=0  bytes=10979
       fonts embedded: ArialMT/Type0
 PNG t3_paper_w800_eg.png               px=1113x530  pHYs_dpi=200.0  bytes=23515
 PDF t3_paper_w800_pr.pdf               pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=11003
       fonts embedded: ArialMT/Type0
 PNG t3_paper_w800_pr.png               px=1600x520  pHYs_dpi=200.0  bytes=26229
-PDF t4_paper_h350_eg.pdf               pages=1 box=402.000x193.000pt = 5.5833x2.6806in  imgs=0  bytes=10998
+PDF t4_paper_h350_eg.pdf               pages=1 box=403.000x192.000pt = 5.5972x2.6667in  imgs=0  bytes=10979
       fonts embedded: ArialMT/Type0
 PNG t4_paper_h350_eg.png               px=1113x530  pHYs_dpi=200.0  bytes=23515
 PDF t4_paper_h350_pr.pdf               pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=11385
@@ -85,13 +85,13 @@ PDF c_default7.pdf                     pages=1 box=403.000x193.000pt = 5.5972x2.
 PNG c_default7.png                     px=1113x530  pHYs_dpi=200.0  bytes=68093
 PDF c_default7_pr.pdf                  pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=21897
       fonts embedded: ArialMT/Type0
-PDF c_defN1.pdf                        pages=1 box=400.000x185.000pt = 5.5556x2.5694in  imgs=0  bytes=10511
+PDF c_defN1.pdf                        pages=1 box=399.000x186.000pt = 5.5417x2.5833in  imgs=0  bytes=10536
       fonts embedded: ArialMT/Type0
 PNG c_defN1.png                        px=1104x510  pHYs_dpi=200.0  bytes=18472
 PDF c_defN2.pdf                        pages=1 box=402.000x186.000pt = 5.5833x2.5833in  imgs=0  bytes=11793
       fonts embedded: ArialMT/Type0
 PNG c_defN2.png                        px=1113x510  pHYs_dpi=200.0  bytes=21362
-PDF c_defN3.pdf                        pages=1 box=403.000x185.000pt = 5.5972x2.5694in  imgs=0  bytes=13124
+PDF c_defN3.pdf                        pages=1 box=402.000x186.000pt = 5.5833x2.5833in  imgs=0  bytes=13171
       fonts embedded: ArialMT/Type0
 PNG c_defN3.png                        px=1113x510  pHYs_dpi=200.0  bytes=31803
 PDF c_defN4.pdf                        pages=1 box=403.000x185.000pt = 5.5972x2.5694in  imgs=0  bytes=14258
@@ -100,16 +100,16 @@ PNG c_defN4.png                        px=1113x510  pHYs_dpi=200.0  bytes=41618
 PDF c_defN5.pdf                        pages=1 box=403.000x185.000pt = 5.5972x2.5694in  imgs=0  bytes=15414
       fonts embedded: ArialMT/Type0
 PNG c_defN5.png                        px=1113x510  pHYs_dpi=200.0  bytes=51641
-PDF c_defN6.pdf                        pages=1 box=403.000x185.000pt = 5.5972x2.5694in  imgs=0  bytes=16391
+PDF c_defN6.pdf                        pages=1 box=402.000x186.000pt = 5.5833x2.5833in  imgs=0  bytes=16428
       fonts embedded: ArialMT/Type0
 PNG c_defN6.png                        px=1113x510  pHYs_dpi=200.0  bytes=63046
 PDF c_defN7.pdf                        pages=1 box=403.000x185.000pt = 5.5972x2.5694in  imgs=0  bytes=17504
       fonts embedded: ArialMT/Type0
 PNG c_defN7.png                        px=1113x510  pHYs_dpi=200.0  bytes=73711
-PDF c_manN2.pdf                        pages=1 box=403.000x185.000pt = 5.5972x2.5694in  imgs=0  bytes=11761
+PDF c_manN2.pdf                        pages=1 box=402.000x186.000pt = 5.5833x2.5833in  imgs=0  bytes=11789
       fonts embedded: ArialMT/Type0
 PNG c_manN2.png                        px=1113x510  pHYs_dpi=200.0  bytes=20920
-PDF c_manN3.pdf                        pages=1 box=403.000x185.000pt = 5.5972x2.5694in  imgs=0  bytes=13129
+PDF c_manN3.pdf                        pages=1 box=402.000x186.000pt = 5.5833x2.5833in  imgs=0  bytes=13169
       fonts embedded: ArialMT/Type0
 PNG c_manN3.png                        px=1113x510  pHYs_dpi=200.0  bytes=31630
 PDF c_manN4.pdf                        pages=1 box=402.000x186.000pt = 5.5833x2.5833in  imgs=0  bytes=14308
@@ -135,7 +135,7 @@ PDF r5_w400_pr.pdf                     pages=1 box=595.000x842.000pt = 8.2639x11
 PNG r5_w400_pr.png                     px=1262x520  pHYs_dpi=200.0  bytes=20626
 PDF r5_w600_eg.pdf                     pages=1 box=385.000x186.000pt = 5.3472x2.5833in  imgs=0  bytes=10502
       fonts embedded: ArialMT/Type0
-PNG r5_w600_eg.png                     px=1063x509  pHYs_dpi=200.0  bytes=20000
+PNG r5_w600_eg.png                     px=1063x510  pHYs_dpi=200.0  bytes=19883
 PDF r5_w600_pr.pdf                     pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=10483
       fonts embedded: ArialMT/Type0
 PNG r5_w600_pr.png                     px=1262x520  pHYs_dpi=200.0  bytes=20626
@@ -154,7 +154,7 @@ PNG r5_w800_pr.png                     px=1262x520  pHYs_dpi=200.0  bytes=20626
 PDF r6_pad0.pdf                        pages=1 box=399.000x183.000pt = 5.5417x2.5417in  imgs=0  bytes=10451
       fonts embedded: ArialMT/Type0
 PNG r6_pad0.png                        px=1109x506  pHYs_dpi=200.0  bytes=20037
-PDF r6_pad1.pdf                        pages=1 box=402.000x184.000pt = 5.5833x2.5556in  imgs=0  bytes=10451
+PDF r6_pad1.pdf                        pages=1 box=401.000x185.000pt = 5.5694x2.5694in  imgs=0  bytes=10457
       fonts embedded: ArialMT/Type0
 PNG r6_pad1.png                        px=1113x507  pHYs_dpi=200.0  bytes=20239
 PDF r6_pad10.pdf                       pages=1 box=420.000x202.000pt = 5.8333x2.8056in  imgs=0  bytes=10458
@@ -192,10 +192,10 @@ PNG s3_bad.png                         px=2033x510  pHYs_dpi=200.0  bytes=84938
 PDF s3_bad_pr.pdf                      pages=1 box=595.000x842.000pt = 8.2639x11.6944in  imgs=0  bytes=16456
       fonts embedded: ArialMT/Type0
 PNG s3_bad_pr.png                      px=2400x520  pHYs_dpi=200.0  bytes=87529
-PDF s4_R1.pdf                          pages=1 box=402.000x226.000pt = 5.5833x3.1389in  imgs=0  bytes=10352
+PDF s4_R1.pdf                          pages=1 box=402.000x226.000pt = 5.5833x3.1389in  imgs=0  bytes=10351
       fonts embedded: ArialMT/Type0
 PNG s4_R1.png                          px=1111x625  pHYs_dpi=200.0  bytes=21664
-PDF s5_R2.pdf                          pages=1 box=433.000x225.000pt = 6.0139x3.1250in  imgs=0  bytes=10768
+PDF s5_R2.pdf                          pages=1 box=433.000x225.000pt = 6.0139x3.1250in  imgs=0  bytes=10765
       fonts embedded: ArialMT/Type0
 PNG s5_R2.png                          px=1195x621  pHYs_dpi=200.0  bytes=32896
 PDF s6_R3.pdf                          pages=1 box=402.000x226.000pt = 5.5833x3.1389in  imgs=0  bytes=10356

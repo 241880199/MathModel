@@ -1,604 +1,829 @@
 # checker = tests\skills\figure-choose\check-figure-style.py  (invoked by path, not modified)
 # denominator = --textwidth-in 6.31 (repo convention)
-### C default-N1 png  [png]  exit=0
+### C default-N1 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 76.40%）；下限 136
    PASS  F1  图宽比 0.875（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    PASS  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 3（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N1 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.880（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N2 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N2 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.885（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N3 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N3 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N4 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N4 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N5 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 1
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N5 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 1
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N6 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 2
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N6 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N7 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 3
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C default-N7 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C manual-N2 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C manual-N2 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C manual-N3 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C manual-N3 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C manual-N4 png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### C manual-N4 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.885（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### S2 good exportgraphics png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### S2 good exportgraphics pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### S2 good print png  [png]  exit=0
-   PASS  F1  图宽比 1.000（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### S2 good print pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.310（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
-### S2 good saveas png  [png]  exit=0
-   PASS  F1  图宽比 1.001（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### S2 good saveas pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.310（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
-### S2 good caption BAD variant  [png]  exit=1
-   PASS  F1  图宽比 1.000（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   FAIL  F3a  图注以 `Figure N:` 起
-   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
-   FAIL  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 16 词）
-   RESULT: FAIL（F3a,F3b,F3c）
-### S3 bad exportgraphics png  [png]  exit=1
-   FAIL  F1  图宽比 1.611（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   FAIL  F3a  图注以 `Figure N:` 起
-   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
-   FAIL  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 16 词）
-   RESULT: FAIL（F1,F3a,F3b,F3c）
-### S3 bad exportgraphics pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.613（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   FAIL  F3a  图注以 `Figure N:` 起
-   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
-   FAIL  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 16 词）
-   RESULT: FAIL（F1,F3a,F3b,F3c）
-### S3 bad print png  [png]  exit=1
-   FAIL  F1  图宽比 1.902（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   FAIL  F3a  图注以 `Figure N:` 起
-   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
-   FAIL  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 16 词）
-   RESULT: FAIL（F1,F3a,F3b,F3c）
-### S3 bad print pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.310（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   FAIL  F3a  图注以 `Figure N:` 起
-   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
-   FAIL  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 16 词）
-   RESULT: FAIL（F1,F3a,F3b,F3c）
-### S4 R1 stacked png  [png]  exit=0
-   PASS  F1  图宽比 0.880（分母 6.31 in）
-   PASS  F2  彩色主色数 3
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 4（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 4 词）
-   RESULT: PASS
-### S4 R1 stacked pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.885（分母 6.31 in）
-   PASS  F2  彩色主色数 3
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 4（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 4 词）
-   RESULT: PASS
-### S5 R2 corrbar png  [png]  exit=0
-   PASS  F1  图宽比 0.947（分母 6.31 in）
-   PASS  F2  彩色主色数 1
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 7（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 7 词）
-   RESULT: PASS
-### S5 R2 corrbar pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.953（分母 6.31 in）
-   PASS  F2  彩色主色数 1
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 7（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 7 词）
-   RESULT: PASS
-### S6 R3 exportgraphics pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.885（分母 6.31 in）
-   PASS  F2  彩色主色数 3
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 4（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 4 词）
-   RESULT: PASS
-### S6 R3 print -dpdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.310（分母 6.31 in）
-   PASS  F2  彩色主色数 3
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 4（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 4 词）
-   RESULT: FAIL（F1）
-### S6 R3 exportgraphics png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 3
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 4（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 4 词）
-   RESULT: PASS
-### D r5_w631 eg pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.885（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### D r5_w631 eg png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### D r5_w631 print pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.310（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
-### D r5_w631 print png  [png]  exit=0
-   PASS  F1  图宽比 1.000（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### D r5_w400 eg pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 0.590（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
-### D r5_w800 eg pdf  [pdf]  exit=0
-   PASS  F1  图宽比 1.103（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### D r5_w1000 eg pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.358（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
-### D r5_w1200 eg pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.613（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
-### H T5 exportgraphics png (dark)  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H T6 print png (dark)  [png]  exit=0
-   PASS  F1  图宽比 1.000（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H T7 new-figure png (dark)  [png]  exit=0
-   PASS  F1  图宽比 0.858（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H C1 figure+axes Color=w png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H L1 theme-light eg png  [png]  exit=0
-   PASS  F1  图宽比 0.882（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H L1 theme-light eg pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H L1 theme-light print png  [png]  exit=0
-   PASS  F1  图宽比 1.000（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H L1 theme-light print pdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.310（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
-### H P label-heavy eg png (dark)  [png]  exit=0
-   PASS  F1  图宽比 0.887（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H P label-heavy eg pdf (dark)  [pdf]  exit=0
-   PASS  F1  图宽比 0.891（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H P label-heavy print png (dark)  [png]  exit=0
-   PASS  F1  图宽比 1.000（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### H P label-heavy print pdf (dark)  [pdf]  exit=0
-   PASS  F1  图宽比 1.001（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### I W1 figure(...,'Theme','light') png  [png]  exit=0
-   PASS  F1  图宽比 0.852（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### I W2 theme(fig,'light')+colors png  [png]  exit=0
-   PASS  F1  图宽比 0.884（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### I W3 theme('light') no-handle png  [png]  exit=0
-   PASS  F1  图宽比 0.852（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### D r5_w600 eg pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.847（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### G g1 PaperSize=[6.31 2.6] print -dpdf  [pdf]  exit=0
-   PASS  F1  图宽比 1.001（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### G g1 PaperSize=[6.31 2.6] print -dpng  [png]  exit=0
-   PASS  F1  图宽比 1.000（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### G g2 PaperSize=[6.31 2.6] auto print -dpdf  [pdf]  exit=0
-   PASS  F1  图宽比 1.001（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### G g3 A4 control print -dpdf  [pdf]  exit=1
-   FAIL  F1  图宽比 1.310（分母 6.31 in）
-   PASS  F2  彩色主色数 0
-   PASS  F3a  图注以 `Figure N:` 起
-   PASS  F3b  图注词数 3（上限 12，硬上限 17）
-   PASS  F3c  句末不加句号
-   PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
-### D r6_pad0 pdf  [pdf]  exit=0
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### C default-N1 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.19%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 74.93%）；下限 136
    PASS  F1  图宽比 0.878（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    PASS  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 3（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### D r6_pad10 pdf  [pdf]  exit=0
-   PASS  F1  图宽比 0.924（分母 6.31 in）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C default-N2 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 75.17%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    PASS  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 3（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### F3 via MATLAB-written caption FILE (good)  [png]  exit=0
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### C default-N2 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.17%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 73.69%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C default-N3 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 74.37%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### C default-N3 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.17%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 72.75%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C default-N4 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 73.45%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### C default-N4 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 74.75%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 71.85%）；下限 136
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C default-N5 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 72.38%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 1
+   FAIL  F5  越界主色 1 种（不在 H14 允许集合）：[('#49db40', 0.0059)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F5）
+### C default-N5 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 74.75%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 70.59%）；下限 136
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 1
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C default-N6 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 71.19%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 2
+   FAIL  F5  越界主色 2 种（不在 H14 允许集合）：[('#6cf4ff', 0.0066), ('#49db40', 0.0058)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F5）
+### C default-N6 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.17%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 69.04%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C default-N7 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 69.87%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   FAIL  F5  越界主色 3 种（不在 H14 允许集合）：[('#f267c5', 0.0073), ('#6cf4ff', 0.0064), ('#49db40', 0.0057)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F5）
+### C default-N7 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 74.75%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 67.71%）；下限 136
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C manual-N2 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 75.17%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### C manual-N2 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.17%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 73.68%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C manual-N3 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 74.37%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### C manual-N3 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.17%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 72.74%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### C manual-N4 png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 73.45%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### C manual-N4 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.17%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 71.68%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### S2 good exportgraphics png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 74.84%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### S2 good exportgraphics pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 74.75%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 73.42%）；下限 136
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### S2 good print png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.07%）；下限 136
    PASS  F1  图宽比 1.000（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    PASS  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 3（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### F3 via MATLAB-written caption FILE (bad)  [png]  exit=1
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### S2 good print pdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 77.65%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 82.92%）；下限 136
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F1,F6）
+### S2 good saveas png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 58.86%）；下限 136
+   PASS  F1  图宽比 1.001（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### S2 good saveas pdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 77.65%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 82.92%）；下限 136
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F1,F6）
+### S2 good caption BAD variant  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.07%）；下限 136
    PASS  F1  图宽比 1.000（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    FAIL  F3a  图注以 `Figure N:` 起
    FAIL  F3b  图注词数 16（上限 12，硬上限 17）
    FAIL  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 16 词）
-   RESULT: FAIL（F3a,F3b,F3c）
-### F3 via MATLAB title string as caption  [png]  exit=1
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F3a,F3b,F3c）
+### S3 bad exportgraphics png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.74%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 75.51%）；下限 136
+   FAIL  F1  图宽比 1.611（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F1,F3a,F3b,F3c）
+### S3 bad exportgraphics pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 64.87%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 73.69%）；下限 136
+   FAIL  F1  图宽比 1.613（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F1,F3a,F3b,F3c,F6）
+### S3 bad print png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 57.10%）；下限 136
+   FAIL  F1  图宽比 1.902（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F1,F3a,F3b,F3c）
+### S3 bad print pdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 66.34%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 77.66%）；下限 136
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F1,F3a,F3b,F3c,F6）
+### S4 R1 stacked png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 87.83%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 26.38%）；下限 136
+   PASS  F1  图宽比 0.880（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   FAIL  F5  越界主色 3 种（不在 H14 允许集合）：[('#a8cce6', 0.2014), ('#8cb5d9', 0.1876), ('#4d73a6', 0.1065)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F5）
+### S4 R1 stacked pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 76.01%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 25.71%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   FAIL  F5  越界主色 3 种（不在 H14 允许集合）：[('#a8cce6', 0.1965), ('#8cb5d9', 0.1839), ('#4d73a6', 0.1047)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F5,F6）
+### S5 R2 corrbar png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 77.88%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 41.55%）；下限 136
+   PASS  F1  图宽比 0.947（分母 6.31 in）
+   PASS  F2  彩色主色数 1
+   FAIL  F5  越界主色 1 种（不在 H14 允许集合）：[('#4d73a6', 0.2969)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 7（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 7 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F5）
+### S5 R2 corrbar pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 66.15%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 40.66%）；下限 136
+   PASS  F1  图宽比 0.953（分母 6.31 in）
+   PASS  F2  彩色主色数 1
+   FAIL  F5  越界主色 1 种（不在 H14 允许集合）：[('#4d73a6', 0.289)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 7（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 7 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F5,F6）
+### S6 R3 exportgraphics pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 81.55%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 25.74%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   FAIL  F5  越界主色 3 种（不在 H14 允许集合）：[('#a8cce6', 0.198), ('#8cb5d9', 0.1847), ('#4d73a6', 0.1048)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F5,F6）
+### S6 R3 print -dpdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 76.14%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 79.00%）；下限 136
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   FAIL  F5  越界主色 3 种（不在 H14 允许集合）：[('#a8cce6', 0.0328), ('#8cb5d9', 0.0307), ('#4d73a6', 0.0174)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F1,F5,F6）
+### S6 R3 exportgraphics png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 87.86%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 26.33%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   FAIL  F5  越界主色 3 种（不在 H14 允许集合）：[('#a8cce6', 0.2006), ('#8cb5d9', 0.1875), ('#4d73a6', 0.1062)]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F5）
+### D r5_w631 eg pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.17%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 74.27%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### D r5_w631 eg png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 75.68%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### D r5_w631 print pdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 77.65%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 82.92%）；下限 136
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F1,F6）
+### D r5_w631 print png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.76%）；下限 136
    PASS  F1  图宽比 1.000（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### D r5_w400 eg pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 99.88%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 70.38%）；下限 136
+   FAIL  F1  图宽比 0.590（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F1,F6）
+### D r5_w800 eg pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 65.68%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 75.72%）；下限 136
+   PASS  F1  图宽比 1.103（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### D r5_w1000 eg pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 68.10%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 76.97%）；下限 136
+   FAIL  F1  图宽比 1.358（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F1,F6）
+### D r5_w1200 eg pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 64.87%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 77.76%）；下限 136
+   FAIL  F1  图宽比 1.613（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F1,F6）
+### H T5 exportgraphics png (dark)  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.59%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 75.68%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### H T6 print png (dark)  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.76%）；下限 136
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### H T7 new-figure png (dark)  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 98.52%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 83.77%）；下限 136
+   PASS  F1  图宽比 0.858（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### H C1 figure+axes Color=w png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 99.61%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 75.68%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### H L1 theme-light eg png  [png]  exit=0
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 99.59%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 97.99%）；下限 136
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: PASS
+### H L1 theme-light eg pdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 99.92%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 97.48%）；下限 136
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F6）
+### H L1 theme-light print png  [png]  exit=0
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 98.31%）；下限 136
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: PASS
+### H L1 theme-light print pdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 99.96%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 99.64%）；下限 136
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F1,F6）
+### H P label-heavy eg png (dark)  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 98.56%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 71.77%）；下限 136
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### H P label-heavy eg pdf (dark)  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 70.36%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 69.88%）；下限 136
+   PASS  F1  图宽比 0.891（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### H P label-heavy print png (dark)  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 99.77%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.76%）；下限 136
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### H P label-heavy print pdf (dark)  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 87.28%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.28%）；下限 136
+   PASS  F1  图宽比 1.001（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### I W1 figure(...,'Theme','light') png  [png]  exit=0
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 95.43%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 97.58%）；下限 136
+   PASS  F1  图宽比 0.852（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: PASS
+### I W2 theme(fig,'light')+colors png  [png]  exit=0
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 99.61%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 98.04%）；下限 136
+   PASS  F1  图宽比 0.884（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: PASS
+### I W3 theme('light') no-handle png  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 95.43%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 84.42%）；下限 136
+   PASS  F1  图宽比 0.852（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### D r5_w600 eg pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 62.25%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 73.72%）；下限 136
+   PASS  F1  图宽比 0.847（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### G g1 PaperSize=[6.31 2.6] print -dpdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 87.43%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.28%）；下限 136
+   PASS  F1  图宽比 1.001（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### G g1 PaperSize=[6.31 2.6] print -dpng  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.76%）；下限 136
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### G g2 PaperSize=[6.31 2.6] auto print -dpdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 49.60%）；下限 136
+   PASS  F1  图宽比 1.001（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### G g3 A4 control print -dpdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 77.65%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 82.92%）；下限 136
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F1,F6）
+### D r6_pad0 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 53.40%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 70.05%）；下限 136
+   PASS  F1  图宽比 0.878（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### D r6_pad10 pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 83.36%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 65.23%）；下限 136
+   PASS  F1  图宽比 0.924（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### F3 via MATLAB-written caption FILE (good)  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.07%）；下限 136
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4）
+### F3 via MATLAB-written caption FILE (bad)  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.07%）；下限 136
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F3a,F3b,F3c）
+### F3 via MATLAB title string as caption  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.07%）；下限 136
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    FAIL  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 2（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 2 词）
-   RESULT: FAIL（F3a）
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F3a）
 ### F3 via MATLAB xlabel string as caption  [png]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 59.07%）；下限 136
    PASS  F1  图宽比 1.000（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    FAIL  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 1（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 1 词）
-   RESULT: FAIL（F3a）
-### A p5 exportgraphics pdf  [pdf]  exit=0
+   PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+   RESULT: FAIL（F4,F3a）
+### A p5 exportgraphics pdf  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 66.31%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 68.44%）；下限 136
    PASS  F1  图宽比 0.887（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    PASS  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 3（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
-### A p5 exportgraphics pdf_image  [pdf]  exit=0
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F4,F6）
+### A p5 exportgraphics pdf_image  [pdf]  exit=1
+   FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 42.89%）；下限 136
    PASS  F1  图宽比 1.050（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    PASS  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 3（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: PASS
+   PASS  F6  N/A 本 PDF 未引用任何字体 ⇒ 本判据不适用（无字体可判）
+   RESULT: FAIL（F4）
 ### A p5 print dpdf  [pdf]  exit=1
+   PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 77.65%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 82.92%）；下限 136
    FAIL  F1  图宽比 1.310（分母 6.31 in）
    PASS  F2  彩色主色数 0
+   PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
    PASS  F3a  图注以 `Figure N:` 起
    PASS  F3b  图注词数 3（上限 12，硬上限 17）
    PASS  F3c  句末不加句号
    PASS  F3d  图注正文非空（正文 3 词）
-   RESULT: FAIL（F1）
+   FAIL  F6  内嵌字体 ['ArialMT']
+   RESULT: FAIL（F1,F6）
 
-# invocations with exit!=0: 18 / 75
+# invocations with exit!=0: 71 / 75

@@ -46,4 +46,3 @@ ylabel = [y]
 title  = [Series sample]
 capfig export ok
 === probe_c done ===
-RC=0 ELAPSED=39s

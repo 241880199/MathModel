@@ -1,0 +1,13 @@
+Figure 1. Vulnerability composition of the six study districts. Each bar is one
+district (A-F) and is divided into the share of that district's land area in the
+low, medium and high vulnerability tiers; because the three shares of a district
+sum to 1.00, all bars have the same height and are directly comparable. Sections
+are labelled with their share values. Low vulnerability is the largest tier in
+districts C (0.55), F (0.50) and A (0.42), whereas medium vulnerability is the
+largest tier in D (0.47), B (0.44) and E (0.38); the high tier is the smallest
+component of every district and varies only over the narrow range 0.15 (C) to
+0.25 (A, B, D, E). The bracket marks the two districts with the most similar
+structure. Districts B and D are that pair: their low, medium and high shares
+differ by only 0.03, 0.03 and 0.00 respectively, a total absolute difference of
+0.06, below the next closest pairs A-E and C-F (0.10 each). The remaining
+districts diverge more sharply, C and D being the most dissimilar (0.54).

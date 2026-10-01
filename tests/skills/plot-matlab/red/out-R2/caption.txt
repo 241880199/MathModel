@@ -1,0 +1,23 @@
+Figure 1. Drivers of historical disaster counts across the six districts (A-F).
+(a) Pearson correlation between each measured attribute and the historical
+disaster count, sorted by absolute strength. Mean slope is the factor most
+strongly correlated with disaster count (r = +0.93), followed by the
+infrastructure index (r = -0.78) and vegetation cover (r = -0.74); population
+density is only weakly related (r = +0.36). Steeper terrain therefore goes with
+more historical disasters, whereas denser infrastructure and higher vegetation
+cover go with fewer.
+(b) District similarity, shown as standardized (z-scored) attribute profiles,
+with districts ordered so that similar ones are adjacent. Two groups emerge.
+Districts D and B are the most similar pair: they are the two steepest districts
+and record the highest disaster counts (D: 14.8 degrees, 38 events; B: 11.5
+degrees, 31 events), and both have low population density. D is the more extreme
+of the two, and of all districts, holding the lowest vegetation cover (0.41) and
+the lowest infrastructure index (55). Districts A, C and E form the opposite,
+low-risk group: gentle slopes and below-average disaster counts (8-16, C being
+the lowest at 8); among them A and C also exceed the average in vegetation cover
+and infrastructure, with C the most extreme on both (vegetation 0.72,
+infrastructure 81). District F is the least typical: near average on every
+attribute except population density, where it is the clear outlier (1750
+people/km2, z = +1.7), and its disaster count is only moderate (24). Because
+only six districts are available, these correlation coefficients are indicative
+rather than statistically precise.

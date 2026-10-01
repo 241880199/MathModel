@@ -20,4 +20,3 @@ readtable csv OK rows=421 vars=53
 readtable xlsx OK rows=224 vars=9
 [s-end] co1=#268CDD lines1=#268CDD figColor=#212121
 === probe_f done ===
-RC=0 ELAPSED=34s

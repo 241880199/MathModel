@@ -32,4 +32,3 @@ L1 corner(print png)=[255 255 255]
 P exportgraphics png corner=[0 0 0]
 P print         png corner=[0 0 0]
 === probe_h done ===
-RC=0 ELAPSED=35s
