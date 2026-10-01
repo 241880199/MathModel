@@ -1,0 +1,25 @@
+=== OPDF.INI 备份 ===
+path: D:\Shameless\Documents\OriginLab\User Files\OPDF.INI
+sha256(原): 3dbcdcc902dd268d87aa41d476e57d77dd464251133fd20bd43f56cf4e372640 bytes: 306
+  INI -> Embed=0 OutLineMode=0
+### H baseline_Embed0  [h_baseline_Embed0.pdf]
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]] drawings=32
+    spans: {"TimesNewRomanPSMT": 6}
+  INI -> Embed=1 OutLineMode=0
+### H embed1  [h_embed1.pdf]
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]] drawings=32
+    spans: {"TimesNewRomanPSMT": 6}
+  INI -> Embed=2 OutLineMode=0
+### H embed2_outline  [h_embed2_outline.pdf]
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]] drawings=32
+    spans: {"TimesNewRomanPSMT": 6}
+  INI -> Embed=1 OutLineMode=1
+### H embed1_outline1  [h_embed1_outline1.pdf]
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]] drawings=32
+    spans: {"TimesNewRomanPSMT": 6}
+
+=== op.exit() ===
+op.exit() 返回
+=== OPDF.INI 还原 ===
+sha256(还原后): 3dbcdcc902dd268d87aa41d476e57d77dd464251133fd20bd43f56cf4e372640
+逐字节一致: True

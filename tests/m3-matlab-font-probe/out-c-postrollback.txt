@@ -1,0 +1,10 @@
+=== D1 listfonts after rollback (NEW session) ===
+listfonts count = 249
+wrote listfonts_probe_c_afterrollback.txt
+  contains Termes n=0 {}
+  exact TeXGyreTermesX = 0
+
+=== D2 request the font anyway: where does it land? ===
+D2 export lastwarn id=[] msg=[]
+
+=== D-END ===

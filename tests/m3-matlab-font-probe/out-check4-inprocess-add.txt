@@ -1,0 +1,16 @@
+before: listfonts=249 hasTeX=0
+  exists(C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Regular.otf)=2
+  AddFontResourceExA TeXGyreTermesX-Regular.otf   flags=0 ->1  FR_PRIVATE ->1
+  exists(C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Italic.otf)=2
+  AddFontResourceExA TeXGyreTermesX-Italic.otf    flags=0 ->1  FR_PRIVATE ->1
+  exists(C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Bold.otf)=2
+  AddFontResourceExA TeXGyreTermesX-Bold.otf      flags=0 ->1  FR_PRIVATE ->1
+  exists(C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-BoldItalic.otf)=2
+  AddFontResourceExA TeXGyreTermesX-BoldItalic.otf flags=0 ->1  FR_PRIVATE ->1
+  exists(C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\mcmprobe-ttf.ttf)=2
+  AddFontResourceExA mcmprobe-ttf.ttf             flags=0 ->1  FR_PRIVATE ->1
+after : listfonts=249 hasTeX=0
+after : pf=249 hasTeX=0 hasMWA=0
+after : java=248 hasTeX=0
+render lastwarn id=[]
+wrote inproc_add.pdf

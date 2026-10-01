@@ -7,10 +7,10 @@
 | :--- | :--- |
 | `tests/skills/plot-python/check-style-freshness.py` | `3eac45b183b4c18ebeef1143353c79d00b2e9266` |
 | `tests/skills/plot-python/mutate-plot-style.py` | `29d890fe074359fda2e0e6c99379e1bbcf762af2` |
-| `tests/skills/plot-python/gen-mcm-style.py` | `751f5875b4bebebddd8f17b98e215c1b77bd7ce9` |
-| `.claude/skills/mcm-plot-python/assets/mcm.mplstyle` | `a165f3a21b72af18aecc2d48f1ec7684ed02f3f6` |
-| `.claude/skills/mcm-plot-python/assets/mcmplot.py` | `5851e9cf3110e59a7b29d537ca826897d0c6be96` |
-| `.claude/skills/mcm-figure-choose/references/house-style.md` | `19e12afd0e6b011b7ca81edef93942d82114d931` |
+| `tests/skills/plot-python/gen-mcm-style.py` | `3db6ae6f28b3484dd91ea09c65f6904c7931dee7` |
+| `.claude/skills/mcm-plot-python/assets/mcm.mplstyle` | `eb0626dd62cdb14904973915ee9253f2d1d1f3c2` |
+| `.claude/skills/mcm-plot-python/assets/mcmplot.py` | `40831a8c2ca44112bf264bdc855f62f23a77505e` |
+| `.claude/skills/mcm-figure-choose/references/house-style.md` | `c11ae7cb9ecfa0618781f2aa0533212b70910333` |
 | `.claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Regular.otf` | `e80891eeb992f306596eb69a5a764b600186978b` |
 | `.claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Italic.otf` | `1707ff148a8f1af1ce9b5cb7382a2b8af3b28000` |
 | `.claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Bold.otf` | `5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb` |
@@ -27,10 +27,10 @@
 规范 = .claude/skills/mcm-figure-choose/references/house-style.md
 派生件 = ['mcm.mplstyle', 'mcmplot.py']   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
 PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
-PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
-PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-PASS  A1:mcmplot.py  重放 == 快照（7244 字节）
-PASS  A2:mcmplot.py  重放 == 快照（7244 字节）
+PASS  A1:mcm.mplstyle  重放 == 快照（2286 字节）
+PASS  A2:mcm.mplstyle  重放 == 快照（2286 字节）
+PASS  A1:mcmplot.py  重放 == 快照（11885 字节）
+PASS  A2:mcmplot.py  重放 == 快照（11885 字节）
 PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
@@ -49,9 +49,9 @@ RESULT: PASS
 变异驱动器 · check-style-freshness.py（mcm-plot-python）：新鲜度两臂 + 生成器 fail-closed + 字体臂
 ==============================================================================
 检查器 = tests/skills/plot-python/check-style-freshness.py  blob 3eac45b183b4c18ebeef1143353c79d00b2e9266
-  受保护件 .claude/skills/mcm-figure-choose/references/house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931
-  受保护件 .claude/skills/mcm-plot-python/assets/mcm.mplstyle         blob a165f3a21b72af18aecc2d48f1ec7684ed02f3f6
-  受保护件 .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 5851e9cf3110e59a7b29d537ca826897d0c6be96
+  受保护件 .claude/skills/mcm-figure-choose/references/house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333
+  受保护件 .claude/skills/mcm-plot-python/assets/mcm.mplstyle         blob eb0626dd62cdb14904973915ee9253f2d1d1f3c2
+  受保护件 .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 40831a8c2ca44112bf264bdc855f62f23a77505e
   受保护件 .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Bold.otf blob 5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb
   受保护件 .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-BoldItalic.otf blob 8ae3031ab56efd92f2340ef4ea0eba8c761e87a3
   受保护件 .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Italic.otf blob 1707ff148a8f1af1ce9b5cb7382a2b8af3b28000
@@ -69,40 +69,40 @@ $ check-style-freshness.py --doc m54.house-style.md   → exit=1
       | 规范 = tests/skills/plot-python/fixtures/_mut/m54.house-style.md
       | 派生件 = ['mcm.mplstyle', 'mcmplot.py']   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
-      | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | FAIL  A1:mcmplot.py  重放 != 入库快照（HEAD）（快照 7244 字节 / 重放 7244 字节）
-      |       首个相异行 L61（共 快照 125 行 / 重放 125 行）：
-      |          L58 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L58 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L59 快照: HOUSE_STYLE = {
-      |          L59 重放: HOUSE_STYLE = {
-      |          L60 快照:     'h1_width_ratio_min': 0.8,
-      |          L60 重放:     'h1_width_ratio_min': 0.8,
-      |       << L61 快照:     'h1_width_ratio_max': 1.2,
-      |       << L61 重放:     'h1_width_ratio_max': 1.7,
-      |          L62 快照:     'h1_width_ratio_default_lo': 0.95,
-      |          L62 重放:     'h1_width_ratio_default_lo': 0.95,
-      |          L63 快照:     'h1_width_ratio_default_hi': 1.0,
-      |          L63 重放:     'h1_width_ratio_default_hi': 1.0,
-      |          L64 快照:     'h3_aspect_ratio_lo': 2,
-      |          L64 重放:     'h3_aspect_ratio_lo': 2,
-      | FAIL  A2:mcmplot.py  重放 != 工作树快照（检查前）（快照 7244 字节 / 重放 7244 字节）
-      |       首个相异行 L61（共 快照 125 行 / 重放 125 行）：
-      |          L58 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L58 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L59 快照: HOUSE_STYLE = {
-      |          L59 重放: HOUSE_STYLE = {
-      |          L60 快照:     'h1_width_ratio_min': 0.8,
-      |          L60 重放:     'h1_width_ratio_min': 0.8,
-      |       << L61 快照:     'h1_width_ratio_max': 1.2,
-      |       << L61 重放:     'h1_width_ratio_max': 1.7,
-      |          L62 快照:     'h1_width_ratio_default_lo': 0.95,
-      |          L62 重放:     'h1_width_ratio_default_lo': 0.95,
-      |          L63 快照:     'h1_width_ratio_default_hi': 1.0,
-      |          L63 重放:     'h1_width_ratio_default_hi': 1.0,
-      |          L64 快照:     'h3_aspect_ratio_lo': 2,
-      |          L64 重放:     'h3_aspect_ratio_lo': 2,
+      | PASS  A1:mcm.mplstyle  重放 == 快照（2286 字节）
+      | PASS  A2:mcm.mplstyle  重放 == 快照（2286 字节）
+      | FAIL  A1:mcmplot.py  重放 != 入库快照（HEAD）（快照 11885 字节 / 重放 11885 字节）
+      |       首个相异行 L108（共 快照 182 行 / 重放 182 行）：
+      |          L105 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L105 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L106 快照: HOUSE_STYLE = {
+      |          L106 重放: HOUSE_STYLE = {
+      |          L107 快照:     'h1_width_ratio_min': 0.8,
+      |          L107 重放:     'h1_width_ratio_min': 0.8,
+      |       << L108 快照:     'h1_width_ratio_max': 1.2,
+      |       << L108 重放:     'h1_width_ratio_max': 1.7,
+      |          L109 快照:     'h1_width_ratio_default_lo': 0.95,
+      |          L109 重放:     'h1_width_ratio_default_lo': 0.95,
+      |          L110 快照:     'h1_width_ratio_default_hi': 1.0,
+      |          L110 重放:     'h1_width_ratio_default_hi': 1.0,
+      |          L111 快照:     'h3_aspect_ratio_lo': 2,
+      |          L111 重放:     'h3_aspect_ratio_lo': 2,
+      | FAIL  A2:mcmplot.py  重放 != 工作树快照（检查前）（快照 11885 字节 / 重放 11885 字节）
+      |       首个相异行 L108（共 快照 182 行 / 重放 182 行）：
+      |          L105 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L105 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L106 快照: HOUSE_STYLE = {
+      |          L106 重放: HOUSE_STYLE = {
+      |          L107 快照:     'h1_width_ratio_min': 0.8,
+      |          L107 重放:     'h1_width_ratio_min': 0.8,
+      |       << L108 快照:     'h1_width_ratio_max': 1.2,
+      |       << L108 重放:     'h1_width_ratio_max': 1.7,
+      |          L109 快照:     'h1_width_ratio_default_lo': 0.95,
+      |          L109 重放:     'h1_width_ratio_default_lo': 0.95,
+      |          L110 快照:     'h1_width_ratio_default_hi': 1.0,
+      |          L110 重放:     'h1_width_ratio_default_hi': 1.0,
+      |          L111 快照:     'h3_aspect_ratio_lo': 2,
+      |          L111 重放:     'h3_aspect_ratio_lo': 2,
       | PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
       |       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       |       产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
@@ -116,25 +116,25 @@ $ check-style-freshness.py   → exit=1
       | 规范 = .claude/skills/mcm-figure-choose/references/house-style.md
       | 派生件 = ['mcm.mplstyle', 'mcmplot.py']   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
-      | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A1:mcmplot.py  重放 == 快照（7244 字节）
-      | FAIL  A2:mcmplot.py  重放 != 工作树快照（检查前）（快照 7244 字节 / 重放 7244 字节）
-      |       首个相异行 L60（共 快照 125 行 / 重放 125 行）：
-      |          L57 快照: # 本区由 tests/skills/plot-python/gen-mcm-style.py 从规范**逐条锚定**重放产出 ——
-      |          L57 重放: # 本区由 tests/skills/plot-python/gen-mcm-style.py 从规范**逐条锚定**重放产出 ——
-      |          L58 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L58 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
-      |          L59 快照: HOUSE_STYLE = {
-      |          L59 重放: HOUSE_STYLE = {
-      |       << L60 快照:     'h1_width_ratio_min': 2.3,
-      |       << L60 重放:     'h1_width_ratio_min': 0.8,
-      |          L61 快照:     'h1_width_ratio_max': 1.2,
-      |          L61 重放:     'h1_width_ratio_max': 1.2,
-      |          L62 快照:     'h1_width_ratio_default_lo': 0.95,
-      |          L62 重放:     'h1_width_ratio_default_lo': 0.95,
-      |          L63 快照:     'h1_width_ratio_default_hi': 1.0,
-      |          L63 重放:     'h1_width_ratio_default_hi': 1.0,
+      | PASS  A1:mcm.mplstyle  重放 == 快照（2286 字节）
+      | PASS  A2:mcm.mplstyle  重放 == 快照（2286 字节）
+      | PASS  A1:mcmplot.py  重放 == 快照（11885 字节）
+      | FAIL  A2:mcmplot.py  重放 != 工作树快照（检查前）（快照 11885 字节 / 重放 11885 字节）
+      |       首个相异行 L107（共 快照 182 行 / 重放 182 行）：
+      |          L104 快照: # 本区由 tests/skills/plot-python/gen-mcm-style.py 从规范**逐条锚定**重放产出 ——
+      |          L104 重放: # 本区由 tests/skills/plot-python/gen-mcm-style.py 从规范**逐条锚定**重放产出 ——
+      |          L105 快照: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L105 重放: # **勿手改**（改了下一次重放就没了；要改请改规范里那条，再重放）。
+      |          L106 快照: HOUSE_STYLE = {
+      |          L106 重放: HOUSE_STYLE = {
+      |       << L107 快照:     'h1_width_ratio_min': 2.3,
+      |       << L107 重放:     'h1_width_ratio_min': 0.8,
+      |          L108 快照:     'h1_width_ratio_max': 1.2,
+      |          L108 重放:     'h1_width_ratio_max': 1.2,
+      |          L109 快照:     'h1_width_ratio_default_lo': 0.95,
+      |          L109 重放:     'h1_width_ratio_default_lo': 0.95,
+      |          L110 快照:     'h1_width_ratio_default_hi': 1.0,
+      |          L110 重放:     'h1_width_ratio_default_hi': 1.0,
       | PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
       |       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       |       产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
@@ -165,10 +165,10 @@ $ check-style-freshness.py   → exit=1
       | 规范 = .claude/skills/mcm-figure-choose/references/house-style.md
       | 派生件 = ['mcm.mplstyle', 'mcmplot.py']   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
-      | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A1:mcmplot.py  重放 == 快照（7244 字节）
-      | PASS  A2:mcmplot.py  重放 == 快照（7244 字节）
+      | PASS  A1:mcm.mplstyle  重放 == 快照（2286 字节）
+      | PASS  A2:mcm.mplstyle  重放 == 快照（2286 字节）
+      | PASS  A1:mcmplot.py  重放 == 快照（11885 字节）
+      | PASS  A2:mcmplot.py  重放 == 快照（11885 字节）
       | FAIL  FON  入库字体缺件：TeXGyreTermesX-Bold.otf（fail-closed）
       | ------------------------------------------------------------------------------
       | 判据 6 条 · 红 1 条 · 派生件 2 份 · 生成器 exit=0
@@ -180,25 +180,25 @@ $ check-style-freshness.py   → exit=1
       | 规范 = .claude/skills/mcm-figure-choose/references/house-style.md
       | 派生件 = ['mcm.mplstyle', 'mcmplot.py']   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
-      | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | FAIL  A1:mcmplot.py  重放 != 入库快照（HEAD）（快照 7244 字节 / 重放 7214 字节）
-      |       首个相异行 L89（共 快照 125 行 / 重放 124 行）：
-      |          L86 快照: 
-      |          L86 重放: 
-      |          L87 快照:     global _FONTS_REGISTERED
-      |          L87 重放:     global _FONTS_REGISTERED
-      |          L88 快照:     if not _FONTS_REGISTERED:
-      |          L88 重放:     if not _FONTS_REGISTERED:
-      |       << L89 快照:         for f in _FONTS:
-      |       << L89 重放:         pass  # MUT M58：不注册入库字体
-      |          L90 快照:             font_manager.fontManager.addfont(str(f))
-      |          L90 重放:         _FONTS_REGISTERED = True
-      |          L91 快照:         _FONTS_REGISTERED = True
-      |          L91 重放:     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
-      |          L92 快照:     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
-      |          L92 重放: 
-      | PASS  A2:mcmplot.py  重放 == 快照（7214 字节）
+      | PASS  A1:mcm.mplstyle  重放 == 快照（2286 字节）
+      | PASS  A2:mcm.mplstyle  重放 == 快照（2286 字节）
+      | FAIL  A1:mcmplot.py  重放 != 入库快照（HEAD）（快照 11885 字节 / 重放 11855 字节）
+      |       首个相异行 L136（共 快照 182 行 / 重放 181 行）：
+      |          L133 快照: 
+      |          L133 重放: 
+      |          L134 快照:     global _FONTS_REGISTERED
+      |          L134 重放:     global _FONTS_REGISTERED
+      |          L135 快照:     if not _FONTS_REGISTERED:
+      |          L135 重放:     if not _FONTS_REGISTERED:
+      |       << L136 快照:         for f in _FONTS:
+      |       << L136 重放:         pass  # MUT M58：不注册入库字体
+      |          L137 快照:             font_manager.fontManager.addfont(str(f))
+      |          L137 重放:         _FONTS_REGISTERED = True
+      |          L138 快照:         _FONTS_REGISTERED = True
+      |          L138 重放:     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
+      |          L139 快照:     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
+      |          L139 重放: 
+      | PASS  A2:mcmplot.py  重放 == 快照（11855 字节）
       | FAIL  FON  产物用了**非入库**字体 ['DejaVuSerif'] ⇒ 回退（判据红）
       |       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       |       产物实报集合（探针 PDF）= ['DejaVuSerif']
@@ -231,10 +231,10 @@ $ check-style-freshness.py --doc m60.house-style.md   → exit=0
       | 规范 = tests/skills/plot-python/fixtures/_mut/m60.house-style.md
       | 派生件 = ['mcm.mplstyle', 'mcmplot.py']   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
       | PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
-      | PASS  A1:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A2:mcm.mplstyle  重放 == 快照（1619 字节）
-      | PASS  A1:mcmplot.py  重放 == 快照（7244 字节）
-      | PASS  A2:mcmplot.py  重放 == 快照（7244 字节）
+      | PASS  A1:mcm.mplstyle  重放 == 快照（2286 字节）
+      | PASS  A2:mcm.mplstyle  重放 == 快照（2286 字节）
+      | PASS  A1:mcmplot.py  重放 == 快照（11885 字节）
+      | PASS  A2:mcmplot.py  重放 == 快照（11885 字节）
       | PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
       |       预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
       |       产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
@@ -248,9 +248,9 @@ REFUTED-OK  M61  **字面形态对照**：原地重跑把过期件改对 ⇒「�
 ==============================================================================
 还原自证
 ==============================================================================
-  .claude/skills/mcm-figure-choose/references/house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931  == 变异前
-  .claude/skills/mcm-plot-python/assets/mcm.mplstyle         blob a165f3a21b72af18aecc2d48f1ec7684ed02f3f6  == 变异前
-  .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 5851e9cf3110e59a7b29d537ca826897d0c6be96  == 变异前
+  .claude/skills/mcm-figure-choose/references/house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333  == 变异前
+  .claude/skills/mcm-plot-python/assets/mcm.mplstyle         blob eb0626dd62cdb14904973915ee9253f2d1d1f3c2  == 变异前
+  .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 40831a8c2ca44112bf264bdc855f62f23a77505e  == 变异前
   .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Bold.otf blob 5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb  == 变异前
   .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-BoldItalic.otf blob 8ae3031ab56efd92f2340ef4ea0eba8c761e87a3  == 变异前
   .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Italic.otf blob 1707ff148a8f1af1ce9b5cb7382a2b8af3b28000  == 变异前
@@ -435,14 +435,14 @@ READ  S4                 定义行 42 · 不同名 42 · 重名 无（读数条�
 PASS  S5                 小数出现 2 处（不同值 ['0.0', '9.2']）· 与所属 H 条目不同值者 无 · 无所属 `H<n>` 者 无
 ------------------------------------------------------------------------------
 SKILL.md 守卫（短契约：行数 < 上界 / 指针 / 不复述规范数值（ASCII + 中文数词） / 九入口（含决策树表） / 数字声明 / 点名拟建的存否 / 五段+输出契约三件套 / 逐条验证行）
-PASS  K1                 行数 84（上限：<150）
-PASS  K2                 指针 `references/house-style.md` 出现 2 处（必须 ≥1；只写 `house-style.md` 不算）
+PASS  K1                 行数 90（上限：<150）
+PASS  K2                 指针 `references/house-style.md` 出现 3 处（必须 ≥1；只写 `house-style.md` 不算）
 PASS  K3                 禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K4                 入口名缺 无（契约 9 个，全部出现）· 决策树表 9 行
 PASS  K5                 声明行 1 行（含『结构性计数』）· 声明到的数 ['9']（白名单只许 [9]，多出 无）· 入口数 9 已在声明里 · 决策树表 9 行（应 9）· 未声明的数 无
 PASS  K6                 点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 无
 PASS  K7                 五段标题缺 无（共 5 段）· 输出契约段内三件套缺 无
-PASS  K8                 `### H<n>.` 条目 13 个 · 没有恰一行『**验证**：』的 无
+PASS  K8                 `### H<n>.` 条目 14 个 · 没有恰一行『**验证**：』的 无
 ------------------------------------------------------------------------------
 provenance 复跑（命令按文档原样起子进程，cwd = 仓根）
 PASS  P-H1-a       文档=0.797 命令=0.7974 容差=0.02（h1_p25）
@@ -493,7 +493,7 @@ PASS  P-F-a        文档=2 命令=2 容差=0.5（probe_pages）
 PASS  P-G-a        文档=662 命令=662 容差=0.5（cap_n）
 PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
 ------------------------------------------------------------------------------
-CENSUS  house-style.md 数字 323 个 · 守卫覆盖片段 148 段 · 重复读数 89 个 · 上下文豁免 48 个 · 未入理由表 0 个
+CENSUS  house-style.md 数字 329 个 · 守卫覆盖片段 148 段 · 重复读数 94 个 · 上下文豁免 48 个 · 未入理由表 0 个
 
 守卫 162 条（其中结构守卫 4 条 · SKILL 守卫 8 条） · provenance 46 条 · 总 208 条
 RESULT: PASS
@@ -508,7 +508,7 @@ RESULT: PASS
 ==============================================================================
 变异驱动器 · check-figure-style.py
 ==============================================================================
-原检查器 blob  7636902a868aeca105e6b75b7dc616816fce95fe
+原检查器 blob  acf43fc7aec9492d9eed24635b981facedf17fbc
 逐格验收基线  python fixtures/run-expected.py → exit 0
 
 ==============================================================================
@@ -532,18 +532,28 @@ RED-OK   M8   F3a 判定取反
          caption:1 F3a PASS→FAIL（合格前缀转红）；caption:6 F3a FAIL→PASS（'Figure 6 Model structure' 缺冒号，转绿）
 RED-OK   M42  F3b 词数口径由**正文**换回**整条**（`len(body.split())` → `len(cap.split())`）
          caption:7（整条 13 词 / 正文 11 词）F3b PASS→FAIL（口径换回整条 ⇒ 越线 1 词）；NOTE/caption:5（整条 15 / 正文 13）F3b FAIL→FAIL（两口径同判红 ⇒ 它证不了口径，故口径锚另立 caption:7）
+RED-OK   M54  F4 的**外缘环**那一路退回**全图众数**（合取口径换回 I-1 的病根口径）⇒ 支点 ok-06 由 PASS 转 FAIL（边界对照**跑在变体上**）；附第二支变体单证 BG_MIN_LUMA 仍承重
+         **边界对照（跑在变体上）** ok-06.png F4 PASS→FAIL：原『PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 30.53%）；下限 136』 → 变异『FAIL  F4  外缘环 RGB (0, 114, 178) 亮度 87（占环 69.47%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 30.53%）；下限 136』（全图众数 = 那片 `#0072B2` 亮度 87 < 136 ⇒ 前提为真、咬得住）；ok-01.png F4 PASS→PASS（白底，不受影响）；**仅记录·不作断言** ok-04.png F4 PASS→PASS（它新旧两口径都 PASS ⇒ 拿它当对照是恒真，终审 Important-1）；**阈值常量仍承重（第二支变体 BG_MIN_LUMA 136→0）** bad-bg-dark.png F4 FAIL→PASS
+RED-OK   M55  F5 允许色序清空（H14 → 仅 #000000；判据失效）
+         good-color-order.png F5 PASS→FAIL（H14 前三色 ⊆ 允许集合；清空后全部越界）；bad-color-order.png F5 FAIL→FAIL（本来就越界，不受影响）
+RED-OK   M56  F6 可接受字体族清空（→ ("__none__",)；判据失效）
+         out-G1/figure.pdf F6 PASS→FAIL（内嵌 TeXGyreTermesX 被族表清空 ⇒ 越界）；PNG 侧 ok-01 F6 = PASS（PNG 载体标『不适用』= PASS，不受影响）
+RED-OK   M57  F5 射程边界对照：允许集合收窄成 H14 前三色子集 ⇒ 合法子集样本必须**仍绿**（同 `M50` 角色）
+         允许集合 = H14 前三色时：good-color-order.png F5 = PASS（该样本正是那三色 ⇒ 收窄后**仍绿**）；bad-color-order.png F5 = FAIL（非 H14 仍红）
+RED-OK   M58  F6 的内嵌判定退回『有字体名即算内嵌』（不看 /FontFile*）⇒ 只引用未内嵌的 `font-not-embedded.pdf` 由 `N/A` 转 `FAIL`
+         font-not-embedded.pdf F6 『PASS  F6  N/A 本 PDF **未内嵌**任何字体（只被引用、未内嵌：['Helvetica']）⇒ 未内嵌 ⇒ 本判据不适用（族不是这份文件里的事实；实测 Origin 的 PDF 即如此）』→『FAIL  F6  内嵌字体 ['Helvetica']』（内嵌事实被拆掉 ⇒ 只被引用的 `Helvetica` 被当成内嵌、族表里没有它 ⇒ 判族转红；内嵌事实没拆时它走 `N/A` 分支、**不**判族）
 ------------------------------------------------------------------------------
 变异探针（被打的不是判据，是验收脚本的 ERROR 分支）
 RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR 且整轮非零退出
-         干净一遍 exit=0 'MISMATCH 0 / 21'；对变异体一遍 exit=1 'MISMATCH 0 / 21  ERROR 1'（1 行 ERROR）　NOTE/同一行：原检查器 exit=1 判词 F2=FAIL；变异体 exit=2 stdout 空 ⇒ 旧版谓词会记 got=FAIL（= want ⇒ 记 OK，整轮报 MISMATCH 0 假绿）；新版记 ERROR 且 exit≠0
+         干净一遍 exit=0 'MISMATCH 0 / 34'；对变异体一遍 exit=1 'MISMATCH 0 / 34  ERROR 1'（1 行 ERROR）　NOTE/同一行：原检查器 exit=1 判词 F2=FAIL；变异体 exit=2 stdout 空 ⇒ 旧版谓词会记 got=FAIL（= want ⇒ 记 OK，整轮报 MISMATCH 0 假绿）；新版记 ERROR 且 exit≠0
 
 ==============================================================================
 还原自证
 ==============================================================================
-  check-figure-style.py  blob  7636902a868aeca105e6b75b7dc616816fce95fe  == 变异前
+  check-figure-style.py  blob  acf43fc7aec9492d9eed24635b981facedf17fbc  == 变异前
   工作树字节 == 变异前字节: True
   fixtures/_mut/ 已清空: True
-  还原后复跑逐格验收: exit=0  MISMATCH 0 / 21
+  还原后复跑逐格验收: exit=0  MISMATCH 0 / 34
 
 ==============================================================================
 规范数守卫的变异（M9–M19 + C1/C2 · 打的是 house-style.md / provenance.md，共 13 条）
@@ -624,7 +634,7 @@ RED-OK   M34  house-style.md：小数字面量与 `≤n` 全抹掉 ⇒ `K3` 抽�
 RED-OK   M40  SKILL.md：`--skills-root` 指到**另建** `mcm-plot-matlab`（仍〔拟建〕）的临时根 ⇒ `K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）
          前置(真 skills 根) exit=0 K6 绿；后置(临时根里 mcm-plot-matlab〔拟建〕却存在) exit=1 『点名的绘图 skill mcm-plot-matlab（存在·标了〔拟建〕⇒**标记与事实不符**）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 ['mcm-plot-matlab']』；非侵入(真根路径集合跑前/跑后逐字相等)=True
 RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红（`SKILL.md` 那句『逐条标了验证状态』要成立）
-         前置(真件) exit=0 K8 绿；后置(副本抹掉 `H1` 的验证行) exit=1 『`### H<n>.` 条目 13 个 · 没有恰一行『**验证**：』的 ['H1（0 行）']』
+         前置(真件) exit=0 K8 绿；后置(副本抹掉 `H1` 的验证行) exit=1 『`### H<n>.` 条目 14 个 · 没有恰一行『**验证**：』的 ['H1（0 行）']』
 
 ==============================================================================
 引用完整性检查器的变异（M43–M46 · 打的是 check-spec-pointers.py；`--skills-dir` 指 fixtures/fake-skills/ 与两个坏目录，共 4 条）
@@ -655,21 +665,21 @@ RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊
          SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
 RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
          前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
-还原自证  house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 4b8eed1d5c51cdd2feaea27db719b4c4ab65815d · SKILL.md blob 4383003897a2593000a163568fe69fe42db1b1d7 · 原件字面仍在: True · _mut-house/ 已清空: True
+还原自证  house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 7476e9ae88bda35b38da19e9a0b270f49504d43f · SKILL.md blob af7ab8f1f0e8693bc672c7dd426d5d904a53ba1e · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
 合计
 ==============================================================================
-MUT: 9/9 红（check-figure-style.py）
+MUT: 14/14 红（check-figure-style.py）
 MUT: 13/13 红（house-style.md / provenance.md 的规范数守卫：11 条 `--only` + 2 条 CENSUS 全跑）
 MUT: 7/7 红（chart-types.md 的结构守卫 S1/S2/S3/S5：7 条 `--only`）
 MUT: 13/13 红（SKILL.md 的短契约守卫 K1–K8：13 条（10 条打 SKILL.md 副本 + 3 条打别的：`K3` fail-closed 臂 / `K6` 反向臂 / `K8`））
 MUT: 4/4 红（引用完整性检查器 check-spec-pointers.py：`--skills-dir` 指假 skill 的全扫 + `K3` 仪器 fail-closed + 坏目录 fail-closed）
 MUT: 7/7 达预期（`K3` 的 ASCII 阈值标记臂 M47–M53：6 条必须红 + 1 条**射程边界对照**（`主色 4 个` / `下限 4` / `< 25 词`）必须绿）
-MUT: 53/53 达预期（合计）
+MUT: 58/58 达预期（合计）
 探针 P1: 红（check-figure-style.py 的脚本探针）
 探针 R1: 红（读数条 S4 的『该动的时候动、该判的时候不判』）
-（本驱动器共 9 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 7 条 `K3` 阈值标记臂变异（含 1 条射程边界对照）+ 1 条读数条探针）
+（本驱动器共 14 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 7 条 `K3` 阈值标记臂变异（含 1 条射程边界对照）+ 1 条读数条探针）
 ```
 
 ## 5. 收工三件套 ③ 逐格验收
@@ -682,11 +692,21 @@ MUT: 53/53 达预期（合计）
 flag      sample                   crit want got
 OK        ok-01.png                F1   want=PASS got=PASS
 OK        ok-01.png                F2   want=PASS got=PASS
+OK        ok-01.png                F5   want=PASS got=PASS
 OK        ok-02.png                F1   want=PASS got=PASS
+OK        ok-02.png                F5   want=PASS got=PASS
 OK        ok-03.png                F2   want=PASS got=PASS
+OK        ok-03.png                F5   want=PASS got=PASS
 OK        ok-04.png                F2   want=PASS got=PASS
+OK        ok-04.png                F4   want=PASS got=PASS
+OK        ok-04.png                F5   want=PASS got=PASS
 OK        ok-05.pdf                F1   want=PASS got=PASS
 OK        ok-05.pdf                F2   want=PASS got=PASS
+OK        ok-05.pdf                F5   want=PASS got=PASS
+OK        ok-06.png                F1   want=PASS got=PASS
+OK        ok-06.png                F2   want=PASS got=PASS
+OK        ok-06.png                F4   want=PASS got=PASS
+OK        ok-06.png                F5   want=PASS got=PASS
 OK        bad-f1-too-narrow.png    F1   want=FAIL got=FAIL
 OK        bad-f1-too-wide.png      F1   want=FAIL got=FAIL
 OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
@@ -701,7 +721,10 @@ OK        caption:4                F3d  want=FAIL got=FAIL  (fig borrowed: ok-01
 OK        caption:5                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:6                F3a  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:7                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
-MISMATCH 0 / 21
+OK        bad-bg-dark.png          F4   want=FAIL got=FAIL
+OK        bad-bg-navy.png          F4   want=FAIL got=FAIL
+OK        bad-color-order.png      F5   want=FAIL got=FAIL
+MISMATCH 0 / 34
 ```
 
 ## 6. 顺带：引用完整性（`mcm-plot-python` 已建 ⇒ 绘图家族逐份判据应全绿）

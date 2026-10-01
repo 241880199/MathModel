@@ -1,0 +1,48 @@
+D:\Projects\数学建模\tests\m3-origin-probe\probe_e_font_axis.py:63: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  return len(set(Image.open(p).convert('RGB').getdata())), len(sig), sorted(sig)
+D:\Projects\数学建模\tests\m3-origin-probe\probe_e_font_axis.py:70: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  return sum(1 for px in d.getdata() if px != (0, 0, 0))
+### probe_e_font_axis start ###
+--- A. 默认色序：不同模板下 6 条线的颜色 ---
+  [origin.otp] template='' 颜色 = [(81, 81, 81), (81, 81, 81), (81, 81, 81), (81, 81, 81), (81, 81, 81), (81, 81, 81)]
+        导出 pal_origin.otp.png distinct/有效彩色 = (9, 0, [])
+  [3Ys_Y-Y-Y] template='D:\\Program Files\\OriginLab\\Origin2026\\3Ys_Y-Y-Y.otp' 颜色 = [(81, 81, 81), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)]
+        导出 pal_3Ys_Y-Y-Y.png distinct/有效彩色 = (9, 0, [])
+  [ReportLineScatter] template='D:\\Program Files\\OriginLab\\Origin2026\\ReportLineScatter.otp' 颜色 = [(255, 0, 0), (255, 0, 0), (255, 0, 0), (255, 0, 0), (255, 0, 0), (255, 0, 0)]
+        导出 pal_ReportLineScatter.png distinct/有效彩色 = (10, 2, [(0, 0, 15), (15, 0, 0)])
+
+--- B. 显式指定 hex 色序 ---
+  设定色序 = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#000000']
+  读回 Plot.color = [(228, 26, 28), (55, 126, 184), (77, 175, 74), (152, 78, 163), (255, 127, 0), (0, 0, 0)]
+  导出 distinct/有效彩色 = (13, 0, [])
+
+--- C. 字体：索引-名字互查 + 点名 Times New Roman ---
+  FontIndexByName("Times New Roman")  -> run=OK 值=0.0
+  FontIndex("Times New Roman")  -> run=OK 值=0.0
+  FontNameByIndex(1)  -> run=OK 值=0.0
+  FontName$(1)  -> run=OK 值=
+  FontNames(0)  -> run=OK 值=
+  xb.text$ = '%(?X)' | xb.font = 1.0
+  FontNameByIndex(5) -> ('OK', 0.0)
+  FontNameByIndex(10) -> ('OK', 0.0)
+  FontNameByIndex(20) -> ('OK', 0.0)
+  Times New Roman 索引候选 = 0.0
+  设 layer.x.label.font / y / xb -> OK OK OK
+  点名后 PDF get_fonts() = [(8, 'n/a', 'Type3', 'SimSun', 'Font1', ''), (45, 'n/a', 'Type3', 'SimSun', 'Font2', ''), (39, 'n/a', 'TrueType', 'SimSun', 'Font3', 'WinAnsiEncoding'), (32, 'n/a', 'Type3', 'SimSun', 'Font4', ''), (42, 'n/a', 'TrueType', 'SimSun', 'Font5', 'WinAnsiEncoding')]
+
+--- C2. 静默回退测试：不存在的字体名 ---
+  FontIndexByName("NoSuchFontXYZ") -> ('OK', 0.0)
+  layer.x.label.font=99999 -> OK | 读回 = 34463.0
+  乱设索引后 PDF get_fonts() = [(8, 'n/a', 'Type3', 'SimSun', 'Font1', ''), (45, 'n/a', 'Type3', 'SimSun', 'Font2', ''), (39, 'n/a', 'TrueType', 'SimSun', 'Font3', 'WinAnsiEncoding'), (32, 'n/a', 'Type3', 'SimSun', 'Font4', ''), (42, 'n/a', 'TrueType', 'SimSun', 'Font5', 'WinAnsiEncoding')]
+
+--- D. 框线 / 刻度（改前后图像差分核实）---
+  设 layer.x.opposite=0, layer.y.opposite=0 -> OK OK
+   探测 layer.x.tick.direction -> 0.0
+   探测 layer.x.ticks.direction -> 0.0
+   探测 layer.x.tickdir -> 0.0
+   探测 layer.x.majorTick.direction -> 0.0
+   探测 layer.x.tickdir=1; -> OK
+  设 layer.x.tick.direction=1 -> OK | 读回 = 0.0
+  设 layer.x.minorTicks=0, layer.y.minorTicks=0 -> OK OK
+  改前/改后 像素差 = 42
+### probe_e_font_axis done ###

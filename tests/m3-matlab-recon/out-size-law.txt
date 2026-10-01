@@ -1,0 +1,15 @@
+# SIZE CALIBER -- one variable changed per row; identical plot content in every row.
+# source: out-artifacts-measured.txt (rebuilt by gen-evidence.py from the MATLAB artifacts).
+# columns: eg_* = exportgraphics (Resolution 200 for png), pr_* = print(-dpng -r200 / -dpdf).
+# case           what changed                                eg.pdf in  eg.png px  eg.png in  pr.pdf in  pr.png px  pr.png in
+t0_base          Position 631x260 · PaperPosition 6.31x2.6      5.5972       1113     5.5650     8.2639       1262     6.3100
+t1_pos_w800      Position 800x260 (ONLY pixel width)            6.9583       1387     6.9350     8.2639       1262     6.3100
+t2_pos_h400      Position 631x400 (ONLY pixel height)           5.6250       1120     5.6000     8.2639       1262     6.3100
+t3_paper_w800    PaperPosition 8.0x2.6 (ONLY paper width)       5.5972       1113     5.5650     8.2639       1600     8.0000
+t4_paper_h350    PaperPosition 6.31x3.5 (ONLY paper height)     5.5833       1113     5.5650     8.2639       1262     6.3100
+t5_paper_size    PaperSize 11x8.5 (ONLY paper size)             5.5972       1113     5.5650    11.0000       1262     6.3100
+t6_letter        PaperSize 8.5x11 (letter)                      5.5833       1113     5.5650     8.5000       1262     6.3100
+
+# F1 = width / 6.31.  exportgraphics ignores PaperPosition and PaperSize entirely;
+# it crops to the axes content bbox (+ padding) scaled by the figure's PIXEL Position.
+# print -dpng follows PaperPosition; print -dpdf puts the figure on the PaperSize page.

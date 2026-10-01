@@ -1,0 +1,34 @@
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_glyph_compare.py:47: UserWarning: Glyph 28201 (\N{CJK UNIFIED IDEOGRAPH-6E29}) missing from font(s) Times New Roman.
+  fig.savefig(os.path.join(OUT, "glyph_cjk_ab.png"), facecolor="white")
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_glyph_compare.py:47: UserWarning: Glyph 24230 (\N{CJK UNIFIED IDEOGRAPH-5EA6}) missing from font(s) Times New Roman.
+  fig.savefig(os.path.join(OUT, "glyph_cjk_ab.png"), facecolor="white")
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_glyph_compare.py:47: UserWarning: Glyph 26102 (\N{CJK UNIFIED IDEOGRAPH-65F6}) missing from font(s) Times New Roman.
+  fig.savefig(os.path.join(OUT, "glyph_cjk_ab.png"), facecolor="white")
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_glyph_compare.py:47: UserWarning: Glyph 38388 (\N{CJK UNIFIED IDEOGRAPH-95F4}) missing from font(s) Times New Roman.
+  fig.savefig(os.path.join(OUT, "glyph_cjk_ab.png"), facecolor="white")
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_glyph_compare.py:47: UserWarning: Glyph 25968 (\N{CJK UNIFIED IDEOGRAPH-6570}) missing from font(s) Times New Roman.
+  fig.savefig(os.path.join(OUT, "glyph_cjk_ab.png"), facecolor="white")
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_glyph_compare.py:47: UserWarning: Glyph 25454 (\N{CJK UNIFIED IDEOGRAPH-636E}) missing from font(s) Times New Roman.
+  fig.savefig(os.path.join(OUT, "glyph_cjk_ab.png"), facecolor="white")
+=== 字体解析 ===
+{"Times New Roman": "C:\\Windows\\Fonts\\times.ttf", "SimSun": "C:\\Windows\\Fonts\\simsun.ttc"}
+=== 逐字符墨迹宽度 @100pt ===
+{
+  "Times New Roman": {
+    "W": 93.6,
+    "a": 44.2,
+    "g": 48.2,
+    "R": 67.6,
+    "0": 46.4,
+    "9": 45.7
+  },
+  "SimSun": {
+    "W": 49.2,
+    "a": 48.0,
+    "g": 46.9,
+    "R": 48.0,
+    "0": 44.9,
+    "9": 44.5
+  }
+}
+wrote: D:\Projects\数学建模\build\m3-origin-font\mpl

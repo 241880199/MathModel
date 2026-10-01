@@ -25,9 +25,32 @@ GREEN = HERE / "green"
 OUT_DOC = HERE / "red-green-evidence.md"
 TEXTWIDTH = "6.31"
 
-CRIT = ["F1", "F2", "F3a", "F3b", "F3c", "F3d"]
+# 场景编号与载体：**唯一一处**定义 —— 图数与判据清单都由它现推，别处**不许再写死**。
+SCENES = (1, 2, 3)
+CARRIERS = ("png", "pdf")
 LINE_RE = re.compile(r"^(PASS|FAIL)\s+(F[0-9][a-d]?)\s+(.*)$")
 RES_RE = re.compile(r"^RESULT: (PASS|FAIL)(?:（(.*)）)?\s*$")
+
+
+def criteria_ids(*sides):
+    """判据 ID 清单**现取**自检查器的实得输出（保持首次出现次序）—— **不写死**。
+
+    本件写死过一次「判据 6 条」（`CRIT = [F1, F2, F3a..d]`），而 Task 3 又加了 F4/F5/F6 ⇒
+    解析器每张图抓到 9 条、`len(c) == len(CRIT)` 成了 `9 == 6` **恒 False** ⇒
+    汇总表「红格数」「全绿图数」双双归零/少算，且 §3、§3.1 **静默丢掉**那三条。
+    这是第 1 号病灶（「声明比事实大」）在入库件里的活体（Task 5 的硬性阻塞项）。
+    **现取**（清单跟着检查器走、不由本件维护第二份）才是不会再漂的那一版。
+    """
+    ids = []
+    for data in sides:
+        for n in SCENES:
+            for car in CARRIERS:
+                for k in data[n][car]["cells"]:
+                    if k not in ids:
+                        ids.append(k)
+    # 排序只为表头好读；**集合**才是从输出现取的（顺序不影响任何判红/计数）。
+    ids.sort(key=lambda k: (int(re.match(r"F(\d+)", k).group(1)), k))
+    return ids
 
 
 def load_checker():
@@ -79,7 +102,7 @@ def check_fig(fig, caption_file, dpi):
 
 def side(dirname, tag):
     res = {}
-    for n in (1, 2, 3):
+    for n in SCENES:
         d = dirname / f"out-{tag}{n}"
         pdf, png = d / "figure.pdf", d / "figure.png"
         cap = d / "caption.txt"
@@ -100,6 +123,12 @@ def verdict_cell(c):
 def main():
     red = side(RED, "R")
     green = side(GREEN, "G")
+
+    # 判据清单与图数**现取**（见 `criteria_ids()`）；本件**不再写死**任何一条总数。
+    CRIT = criteria_ids(red, green)
+    SIDES = (("RED", red), ("GREEN", green))
+    n_per_side = len(SCENES) * len(CARRIERS)
+    n_total = len(SIDES) * n_per_side
 
     # 同一把尺：checker 的工作树 blob == HEAD 的 blob
     rel = CHECKER.relative_to(REPO).as_posix()
@@ -125,7 +154,8 @@ def main():
     a("- **同一把尺**：`tests/skills/figure-choose/check-figure-style.py` **一字未改**。")
     a(f"  工作树 blob `{wt_blob[:12]}` · `HEAD:` blob `{hd_blob[:12]}` ⇒ "
       + ("**相同**" if wt_blob == hd_blob else "**不同（！）**"))
-    a("- **同数**：每侧 3 场景 × 2 载体（PNG/PDF）= **6 张图**，两侧共 12 张；判据 6 条 × 12 张。")
+    a(f"- **同数**：每侧 {len(SCENES)} 场景 × {len(CARRIERS)} 载体（PNG/PDF）= **{n_per_side} 张图**，"
+      f"两侧共 {n_total} 张；判据 {len(CRIT)} 条 × {n_total} 张。")
     a("- **PNG 的 `--dpi` 由产物自身推得**（PNG 像素宽 ÷ PDF 页盒宽），见每场景的 `dpi=` 行。")
     a("- **RED 侧**：三个场景由**干净上下文的写手**产出（提示词只给场景 brief 路径与输出目录；")
     a("  **未给**规范 / 模块 / 判据 / 先例证据）。派发提示词与自报见 `red/writer-self-reports.md`。")
@@ -135,7 +165,7 @@ def main():
     a("")
     a("## §1 RED 原始读数（朴素写手 · 无规范）")
     a("")
-    for n in (1, 2, 3):
+    for n in SCENES:
         a(f"### R{n}（dpi={red[n]['dpi']}）")
         a("")
         a(f"图注（`red/out-R{n}/caption.txt`，逐字）：")
@@ -143,13 +173,13 @@ def main():
         a(red[n]["caption_bytes"].rstrip("\n"))
         a("```")
         a("")
-        for car in ("png", "pdf"):
+        for car in CARRIERS:
             r = red[n][car]
             a(f"```\n$ {r['cmd']}\n{r['stdout'].rstrip()}\n[exit={r['rc']}]\n```")
             a("")
     a("## §2 GREEN 原始读数（模块 · `mcmplot`）")
     a("")
-    for n in (1, 2, 3):
+    for n in SCENES:
         a(f"### G{n}（dpi={green[n]['dpi']}）")
         a("")
         a(f"图注（`green/out-G{n}/caption.txt`，逐字）：")
@@ -157,7 +187,7 @@ def main():
         a(green[n]["caption_bytes"].rstrip("\n"))
         a("```")
         a("")
-        for car in ("png", "pdf"):
+        for car in CARRIERS:
             r = green[n][car]
             a(f"```\n$ {r['cmd']}\n{r['stdout'].rstrip()}\n[exit={r['rc']}]\n```")
             a("")
@@ -167,9 +197,9 @@ def main():
     a("")
     a("| 场景 | 载体 | 侧 | " + " | ".join(CRIT) + " | RESULT |")
     a("| :-- | :-- | :-- | " + " | ".join([":--"] * len(CRIT)) + " | :-- |")
-    for n in (1, 2, 3):
-        for car in ("png", "pdf"):
-            for name, data in (("RED", red), ("GREEN", green)):
+    for n in SCENES:
+        for car in CARRIERS:
+            for name, data in SIDES:
                 c = data[n][car]["cells"]
                 row = [f"R{n}" if name == "RED" else f"G{n}", car.upper(), name]
                 for k in CRIT:
@@ -182,9 +212,9 @@ def main():
     a("")
     a("| 场景 | 载体 | 侧 | 判据 | 状态 | 判词 |")
     a("| :-- | :-- | :-- | :-- | :-- | :-- |")
-    for n in (1, 2, 3):
-        for car in ("png", "pdf"):
-            for name, data in (("RED", red), ("GREEN", green)):
+    for n in SCENES:
+        for car in CARRIERS:
+            for name, data in SIDES:
                 c = data[n][car]["cells"]
                 for k in CRIT:
                     cell = c.get(k)
@@ -197,17 +227,18 @@ def main():
     a("")
     a("| 侧 | 红格数（判据×图） | 判红的判据 ID（并集） | 全绿图数 |")
     a("| :-- | :-- | :-- | :-- |")
-    for name, data in (("RED", red), ("GREEN", green)):
+    for name, data in SIDES:
         reds, ok_imgs = [], 0
-        for n in (1, 2, 3):
-            for car in ("png", "pdf"):
+        for n in SCENES:
+            for car in CARRIERS:
                 c = data[n][car]["cells"]
-                if len(c) == len(CRIT) and all(v[0] for v in c.values()):
+                # 「全绿」= 该图**判据集合与清单逐条相符**且全 PASS（缺一条即不算绿）。
+                if set(c) == set(CRIT) and all(v[0] for v in c.values()):
                     ok_imgs += 1
                 for k in CRIT:
                     if k in c and not c[k][0]:
                         reds.append(k)
-        a(f"| {name} | {len(reds)} | {'、'.join(sorted(set(reds))) or '（无）'} | {ok_imgs}/6 |")
+        a(f"| {name} | {len(reds)} | {'、'.join(sorted(set(reds))) or '（无）'} | {ok_imgs}/{n_per_side} |")
     a("")
     a("## §4 F2 随载体变（**不能跨载体比 F2**）")
     a("")
@@ -223,21 +254,62 @@ def main():
 
     # 自证断言（不满足即非零退出）
     assert wt_blob == hd_blob, "checker blob 与 HEAD 不同！"
-    for n in (1, 2, 3):
-        for car in ("png", "pdf"):
+    # ★ 逐图哨兵：每张图的判据集合必须与清单 `CRIT` **相等**（`CRIT` 也是**从同一批输出现取**的，
+    #   不是写死）—— 某张图缺/多一条 ⇒ `set(got) != set(CRIT)` ⇒ 当场炸，不再静默少算。
+    #   **射程（如实写窄）**：清单与各图**同源** ⇒ 给**所有**图**统一**加一条判据时两边同步变、
+    #   `set(got) == set(CRIT)` 仍成立 ⇒ **这里不炸**（实测：统一加一条假判据 F9 ⇒ 不符的图 = []）；
+    #   本哨兵抓的是**判据集合在不同图之间不一致**那一类（实测：只对 pdf 加 F9 ⇒ 不符的图 = 三张 png
+    #   ⇒ 炸）。「检查器整体换了判据集合」那类由 `make-evidence.py` 的 `判据 N 条：[...]` 打印行
+    #   自曝 + 转录按 GC10 重生成兜，**不由本断言兜**。
+    for name, data in SIDES:
+        for n in SCENES:
+            for car in CARRIERS:
+                got = data[n][car]["cells"]
+                assert data[n][car]["result"] is not None, f"{name} {n}/{car} 没解析到 RESULT 行"
+                assert set(got) == set(CRIT), (
+                    f"{name} {n}/{car} 的判据集合与清单不符：{sorted(got)} vs {CRIT}")
+    for n in SCENES:
+        for car in CARRIERS:
             assert green[n][car]["result"][0], f"GREEN {n}/{car} 未全绿"
-    for n in (1, 2, 3):
+    for n in SCENES:
         bad = set()
-        for car in ("png", "pdf"):
+        for car in CARRIERS:
             bad |= {k for k, v in red[n][car]["cells"].items() if not v[0]}
         print(f"RED R{n} 判红判据：{sorted(bad)}")
+    print(f"判据 {len(CRIT)} 条：{CRIT}")
     print("OK")
 
 
-def carrier_probe():
-    """现场探针：同一张图（G3 数据，横条**描白边**）在 PNG 与 PDF 上的 F2 读数。
+def _h14_colors():
+    """H14 色序 —— **现读**单源 `.claude/skills/mcm-figure-choose/assets/mcm-style.json` 的
+    `series.color`（即 `check-figure-style.py` 的 F5 用的那一份），**不手写第二份**。
 
-    直接 import 检查器的 `raster_rgb`/`color_count`（不抄），产物落 build/（gitignored）。
+    ★ 探针**必须**用 H14 作画（2026-10-01 修复轮）：本探针原先按 matplotlib **默认色**作画
+      （`#1f77b4/#ff7f0e/#2ca02c`），那三色**本就不在 H14 集合里** ⇒ 两个载体**都**报越界主色，
+      F5 在探针图上**不区分载体**；散文里那句「PDF 不报」因此是**假的**（复审实测：
+      白边 PDF `F5 越界主色 3 种`，正是那三色）。改用 H14 后，唯一可能越界的主色只剩
+      **描白边混出的混色** ⇒ F5 才真的在探针图上区分载体。
+    """
+    import json
+    data = json.loads(pathlib.Path(CHK._STYLE_PATH).read_text(encoding="utf-8"))
+    return next(e["value"] for e in data["entries"] if e["id"] == "series.color")
+
+
+def _probe_readings(fig_path):
+    """当场跑检查器**本人**的 `check()`（同一支仪器、不另写一份口径），返回 `(F2 数, F5 判词原文)`。"""
+    res = {cid: (ok, why) for cid, ok, why in CHK.check(fig_path, "Figure 1: probe", float(TEXTWIDTH), 200)}
+    f2 = int(re.search(r"彩色主色数 (\d+)", res["F2"][1]).group(1))
+    return f2, res["F5"][1]
+
+
+def carrier_probe():
+    """现场探针：同一张图（G3 数据，横条**描白边**）在 PNG 与 PDF 上的 F2 / F5 读数。
+
+    import 检查器的 `check()`（**同一支仪器**），产物落 build/（gitignored）。
+    画图用 **H14 配色**（见 `_h14_colors()`），不是 matplotlib 默认色 —— 理由与修复轮背景写在那里。
+
+    **两态**：同一份数据、同一张图（六段横向堆叠条），唯一被换的量 = **描不描白边**；
+    每一态各出 PNG 与 PDF 两个载体。所有读数**当场算、不手抄**（Task 5 缺口②的两态读数）。
     """
     import matplotlib
     matplotlib.use("Agg")
@@ -246,37 +318,63 @@ def carrier_probe():
     bd = REPO / "build" / "m3-t5-carrier-probe"
     bd.mkdir(parents=True, exist_ok=True)
     D = list("ABCDEF")
+    H14 = _h14_colors()
     LO = [0.42, 0.31, 0.55, 0.28, 0.37, 0.50]
     ME = [0.35, 0.44, 0.30, 0.47, 0.38, 0.33]
     HI = [0.23, 0.25, 0.15, 0.25, 0.25, 0.17]
-    png, pdf = bd / "white-edge.png", bd / "white-edge.pdf"
-    for out in (png, pdf):
+
+    def draw(edgecolor, linewidth):
         fig, ax = plt.subplots(figsize=(6.31, 2.6))
         y = np.arange(6)
         left = np.zeros(6)
-        for vals, lab in ((LO, "low"), (ME, "medium"), (HI, "high")):
-            ax.barh(y, vals, left=left, height=0.62, label=lab,
-                    edgecolor="white", linewidth=0.6)
+        for (vals, lab), col in zip(((LO, "low"), (ME, "medium"), (HI, "high")), H14):
+            ax.barh(y, vals, left=left, height=0.62, label=lab, color=col,   # color = H14（非默认色序）
+                    edgecolor=edgecolor, linewidth=linewidth)
             left = left + np.array(vals)
         ax.set_yticks(y)
         ax.set_yticklabels(D)
-        fig.savefig(out, dpi=200, bbox_inches=None)
-        plt.close(fig)
-    n_png = CHK.color_count(CHK.raster_rgb(png))
-    n_pdf = CHK.color_count(CHK.raster_rgb(pdf))
-    return ("同一份数据、同一张图（横条**描白边**），只换载体：\n\n"
+        return fig
+
+    f2, f5 = {}, {}
+    for tag, ec, lw in (("white-edge", "white", 0.6), ("no-edge", "none", 0.0)):
+        for car in ("PNG", "PDF"):
+            out = bd / f"{tag}.{car.lower()}"
+            fig = draw(ec, lw)
+            fig.savefig(out, dpi=200, bbox_inches=None)
+            plt.close(fig)
+            f2[(tag, car)], f5[(tag, car)] = _probe_readings(out)
+    w_png, w_pdf = f2[("white-edge", "PNG")], f2[("white-edge", "PDF")]
+    n_png, n_pdf = f2[("no-edge", "PNG")], f2[("no-edge", "PDF")]
+    return ("同一份数据、同一张图（六段**横向堆叠条**，**H14 配色**）；唯一被换的量 = **描不描白边**，"
+            "每态各出两载体。读数**当场算**（`check-figure-style.py` 本人的判词，逐字抄）：\n\n"
             "```\n"
-            f"PNG  F2 = {n_png}\n"
-            f"PDF  F2 = {n_pdf}\n"
+            "              PNG  PDF\n"
+            f"描白边          {w_png}    {w_pdf}\n"
+            f"不描边（对照）   {n_png}    {n_pdf}\n"
             "```\n\n"
-            "⇒ **F2 随载体变**（这里 PNG 比 PDF 高：PNG 栅格上描边的抗锯齿混色占到 0.5% 以上；"
-            "PDF 走第 1 页 150 dpi 栅格，混色占比低于阈值）。\n"
-            "**结论：F2 不能跨载体比** —— 同一张图必须写清“这是在哪个载体上量的”。\n"
-            "（同一个机制也解释了 GREEN 的 G3 / G1 **初版**：它们给条描了白边，实测 PNG 的 F2 "
-            "被抬高一档（G3 初版 PNG=5 / PDF=3；G1 初版加 constrained 后 PNG=4 / PDF=3）；"
-            "去掉白边后两图两载体都回落到 3。**这是“看图 + 看读数”逼出来的修图**。）\n"
+            "⇒ **描白边把 PNG 的 F2 抬高**（同一张图：不描边 "
+            f"{n_png} → 描白边 {w_png}）；**同图的 PDF 不变**（描与不描都 {w_pdf} = 对照 {n_pdf}）。\n"
+            "机制：描边的抗锯齿与白底混出的浅色，在 **PNG** 栅格上占到 0.5% 以上（各成一箱）；"
+            "PDF 走第 1 页 150 dpi 栅格 ⇒ 同一个混色占比落到地板之下。\n"
+            "**这批混色不在 H14 集合里** ⇒ 除 F2 外它也撞上 **F5（显式色序）** —— 同一支检查器判词：\n\n"
+            "```\n"
+            f"描白边 PNG：{f5[('white-edge', 'PNG')]}\n"
+            f"描白边 PDF：{f5[('white-edge', 'PDF')]}\n"
+            f"不描边 PNG：{f5[('no-edge', 'PNG')]}\n"
+            f"不描边 PDF：{f5[('no-edge', 'PDF')]}\n"
+            "```\n\n"
+            "⇒ 描白边混出的这批混色**只在 PNG 上报为越界主色**（上面 PNG 判词里列出的那几个 hex）、"
+            "**PDF 报 0 种**（落到 0.5% 地板之下）。**这条只在探针用 H14 配色时才成立**："
+            "若用 matplotlib 默认色序作画，那三色本就不在 H14 集合里 ⇒ 两载体都报越界、F5 不区分载体。\n"
+            "**结论①：F2 不能跨载体比** —— 同一张图必须写清“这是在哪个载体上量的”；"
+            "**F5 同批混色的落点也随载体变**（同一批混色在一个载体上算主色、在另一个载体上不算）。\n"
+            "**结论②（Task 5 缺口②）**：不要在条/柱上描白边；要拦就拦在源头（见 skill 侧禁令）。\n"
             "（另一条独立佐证：侦察 `tests/m3-plot-recon/out-d11-red-loop.txt` 的线图上是 "
-            "PNG=2 / PDF=1 —— 同样不同，方向与本探针相反，更说明两载体不可互换。）")
+            "PNG=2 / PDF=1 —— 同样不同，方向与本探针相反，更说明两载体不可互换。）\n"
+            "（**历史叙述（非本树复导）**：GREEN 的 G3 / G1 **初版**曾给条描白边，实测 PNG 的 F2 "
+            "被抬高一档（G3 初版 PNG=5 / PDF=3；G1 初版加 constrained 后 PNG=4 / PDF=3）；"
+            "去掉白边后两图两载体都回落到 3。**这是“看图 + 看读数”逼出来的修图**。"
+            "这几条是当时的过程读数、**无法从入库树复导** ⇒ 只作历史，别当可复算的读数用。）")
 
 
 JUDGMENT = """**这一节是判断层，机械判据判不了它。**下面是我（本任务 agent）**亲眼看图**后写下的：

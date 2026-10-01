@@ -100,6 +100,10 @@
   ⚠️ 任务书给的 `K2` 是 `"references/house-style.md" in txt or "house-style.md" in txt` ——
   `SKILL.md` 通篇要提规范，裸文件名**必然**还在 ⇒ **照任务书写法这条不会红**。本实现要求
   **skill 目录内的相对路径**（Task 7 的检查器要核的那个形态），逐条见该条 NOTE。
+  ★ **Task 3b 修 ②**：这个"别处只留裸文件名"必须**对所有出现处**做（本变异用 `sub_all`）。
+  原变异只动 L10、指针行只删 L79 ⇒ Task 2 添在 L83 的那处完整路径仍在 ⇒ `K2` 仍绿、M30 RED-BAD。
+  该路径今天在 `SKILL.md` 里出现**三处**（L10 · L79 指针行 · L83），故"删指针行"这个手法
+  **必须**配合"全文降成裸文件名"，否则它证的就不是它自称的那件事。
 - **`M31`**：把文件撑到 151 行 ⇒ `K1` 红（短契约上限 `<150`）。
 - **`M32`**：入口名『不确定性』改名 ⇒ `K4` 红（`ENTRIES` 是契约、缺一即红）。
 - **`M33`**：把点名绘图 skill 的那行的 **〔拟建〕** 去掉 ⇒ `K6` 红（点名不存在的 skill 即错；
@@ -199,6 +203,35 @@ Task 5 顺延 `M29`、Task 7 顺延 `M43` 三次），故继续顺延。
 任务书给的目录名是 `fake-ok` / `fake-nopointer` / `fake-restate`，但规则①②的**射程**是
 "名字匹配绘图家族"（增量任务书差异 2/5）⇒ 叫 `fake-*` 的样本**根本不在射程内**（会整目录判绿），
 那样 `M43` 不红、`M44` 也证不到"家族 ≥1 且全绿"这条路径。三条**角色**照原样，只加家族前缀。
+
+## M3 跨载体样式单源新增的一组（`M54`–`M58`）：共享判据三条 `F4`/`F5`/`F6`
+
+三条新判据各配一条"判据失效即红"的变异，外加 `F5` 的**射程边界对照**（同 `M50` 的角色），
+以及（Task 3b 修 ③）`F6` 的**内嵌事实**那一条承重件：
+
+- **`M54`**：F4 的**外缘环**那一路**退回全图众数**（= 把 F4 从"外缘环 ∧ 近灰众数"的合取新口径，
+  退回 **I-1 的病根口径**"全图出现最多的颜色"）⇒ 支点 ★新 `fixtures/ok-06.png` 由
+  `F4` PASS 转 FAIL（众数 = 那片 `#0072B2`、亮度 87 < 136）。
+  ★ 它承 `F4` 的**"必须仍绿"边界对照**（硬纪律 11），但**对照必须跑在变体上**（同 `M50`/`M57`）
+    —— 旧写法拿 `ok-04.png` 在**未变异件**上断言"必须仍绿"，而 `ok-04` 的全图众数是 H14 色带
+    （亮度 ≥ 136）⇒ 退回全图众数它照样 PASS ⇒ **恒真、什么都没证**（终审 **Important-1**：
+    I-1 与 I-4 同轮互噬）。`ok-04` 现已**降级为"仅记录、不作断言"**。
+  ★ `BG_MIN_LUMA` **仍承重**：主变异之外附**第二支自建变体**（`136 → 0`）单证 —— `bad-bg-dark.png`
+    由 FAIL 转 PASS。覆盖率不因主变异换向而减少。
+- **`M55`**：`F5` 的**允许色序清空**（H14 → 仅 `#000000`）⇒ 合法 H14 子集样本
+  `good-color-order.png` 由 PASS 转 FAIL（允许集合真参与判定）。
+- **`M56`**：`F6` 的**可接受字体族清空**（`FONT_FAMILY_OK → ("__none__",)`）⇒ 真实产物
+  `plot-python/green/out-G1/figure.pdf`（内嵌 `TeXGyreTermesX-Regular`）由 PASS 转 FAIL。
+- **`M57`**：**射程边界对照**（**必须仍绿**，同 `M50`）：把允许集合收窄成 H14 的**前三色子集** ⇒
+  正好用那三色的 `good-color-order.png` **仍 PASS**。它钉死"`F5` 不是恒红"且"不要求凑满八色"；
+  同副本上非 H14 的 `bad-color-order.png` 仍红 ⇒ 收窄没扩到乱红。
+- **`M58`**：`F6` 的**内嵌事实拆掉**（`font_embedded()` 恒 `True` = 退回"有字体名即算内嵌"）⇒
+  只引用、未内嵌的 `font-not-embedded.pdf`（base14 `Helvetica`）由 `N/A` 转 `FAIL`。
+  它钉的是 Task 3b 修 ③ 那件事：**"报得出名字"不等于"内嵌"**（Origin 的 34/34 导出件即 `/FontFile*` = 0）。
+
+⚠️ **涟漪**（含 2026-10-01 I-4 的后续）：`F5` 落地时对既有 `ok-*` fixture（当时用 Tol-bright 色、
+非 H14）为红 ⇒ `M7` 的前置曾放宽为 `rc0 in (0, 1)`。**I-4 把 `ok-*` 重上色成 H14** 后它们全部全绿
+⇒ `M7` 的前置**收紧回 `rc0 == 0`**，且 `ok-*` 的 `F5 = PASS` 另有 `expected.tsv` 逐格守着。
 """
 import os
 import re
@@ -331,11 +364,16 @@ def m7(before, after, mp):
     读法：原检查器对 ok-05.pdf 给出 F2 **判词**（PASS）；变异体**给不出任何判词**——
     rc=2、stdout 空。这不是"判成红"，是"根本没判成"，正是 F2 的 PDF 分支承重的证据。
     （PDF 上 F2 **真会红**另有入库样本兜着：`bad-f2-five-colors.pdf F2 FAIL`，见 expected.tsv。）
+
+    ⚠️ 前置曾是 `rc0 in (0, 1)`（M3 Task 3 涟漪：ok-05.pdf 当时用 Tol-bright 色、**不是** H14 ⇒
+    F5 对它红 ⇒ 原检查器整体 rc=1）。**2026-10-01（I-4）ok-05.pdf 已重上色为 H14** ⇒ 它现在
+    **全绿**（rc=0）⇒ 前置收紧回 `rc0 == 0`（比原来更严；这条变异证的是"F2 分支承重"，
+    现在可以连同"整份也全绿"一起要求）。
     """
     rc0, out0, _ = run_checker(CHK, FIX / PDF_OK, IMG_CAP)
     rc1, out1, err1 = run_checker(mp, FIX / PDF_OK, IMG_CAP)
     png_b, png_a = before[0]("ok-01.png", "F2"), after[0]("ok-01.png", "F2")
-    ok = (rc0 == 0 and verdict(out0, "F2") == "PASS"
+    ok = (rc0 == 0 and "RESULT:" in out0 and verdict(out0, "F2") == "PASS"
           and rc1 == EXIT_FAIL_CLOSED and "RESULT:" not in out1 and verdict(out1, "F2") == "-"
           and png_a == png_b == "PASS")
     return ok, (f"ok-05.pdf F2 原检查器 exit={rc0} 判词 {verdict(out0, 'F2')}；"
@@ -373,6 +411,139 @@ def m42(before, after, mp):
             f"（两口径同判红 ⇒ 它证不了口径，故口径锚另立 caption:7）")
 
 
+# ---------------------------------------------------------------- M3 Task 3（F4/F5/F6）
+def f4_line(checker, fig):
+    """取某检查器对某图打出的 **F4 那一行原文**（判词行，含两路读数）。
+
+    为什么要整行而不是 `verdict()`：F4 现在有**两路读数**（外缘环 / 近灰众数），
+    汇总判词只有 PASS/FAIL；把整行读出来，"它为什么翻"才在证据里一眼可见（任务书 §2.3）。
+    """
+    out = run_checker(checker, fig, IMG_CAP)[1]
+    return next((l.strip() for l in out.splitlines() if l.startswith(("PASS  F4", "FAIL  F4"))), "(无 F4 判词)")
+
+
+def _m54_threshold_probe():
+    """`M54` 的**第二支**变体：`BG_MIN_LUMA` 136 → 0 ⇒ 深色底样本由 FAIL 转 PASS（阈值常量仍承重）。
+
+    为什么要有第二支：任务书 §2 把 M54 的**主变异**定成「外缘环那一路退回全图众数」（好让
+    `ok-06` 支点咬得住），而旧 M54 承的"`BG_MIN_LUMA` 真参与判定"这件事**不许在重做时丢掉**
+    （覆盖率只许增、不许减）。故主变异之外，这里再自建一支阈值变体，单证阈值常量。
+    副本写在 `fixtures/_mut/`（驱动器收工会清空），并在 `finally` 里当场删掉。
+    """
+    src = CHK.read_bytes().decode("utf-8")
+    old = "BG_MIN_LUMA = 136"
+    if src.count(old) != 1:
+        raise AssertionError(f"`{old}` 命中 {src.count(old)} 次（必须恰 1）—— 检查器漂了，这条要跟着改")
+    mp = MUTD / "check-figure-style.M54thr.py"
+    try:
+        mp.write_bytes(src.replace(old, "BG_MIN_LUMA = 0", 1).encode("utf-8"))   # write_bytes
+        b = verdict(run_checker(CHK, FIX / "bad-bg-dark.png", IMG_CAP)[1], "F4")
+        a = verdict(run_checker(mp, FIX / "bad-bg-dark.png", IMG_CAP)[1], "F4")
+    finally:
+        mp.unlink(missing_ok=True)
+    return b, a
+
+
+def m54(before, after, mp):
+    """F4 的**外缘环**那一路承重，且它的「必须仍绿」边界对照**真的咬得住**（终审 Important-1 的修正）。
+
+    本变异把 `outer_ring_mode(im4)`（外缘环众数）**退回全图众数** —— 即把 F4 从"合取新口径"
+    退回 **I-1 之前那个病根口径**（"全图出现最多的颜色"）。两件事同时被钉住：
+
+    ★ **边界对照在**变体**上跑**（同 `M50`/`M57` 的角色）：支点 = ★新 `fixtures/ok-06.png`
+      （白底 + 一大片 `#0072B2` 占 ~69% + 四周白边 ⇒ **新口径**下外缘环 = 纯白 255、近灰众数 255
+      ⇒ **PASS**）。退回全图众数时，众数 = 那片蓝 `#0072B2`（**亮度 87 < 136**）⇒ **PASS 转 FAIL**。
+      ⚠️ **为什么换掉 `ok-04`**：`ok-04` 的全图众数是某个 H14 色带（**亮度 ≥ 136**）⇒ 退回全图众数
+      它**照样 PASS** —— 那条对照**恒真**、什么都没证（终审 **Important-1**：I-1 与 I-4 同轮互噬）。
+    ★ **两个读数**都打进断言（任务书 §2.3）：下面 detail 里逐字打印新旧两支检查器对 `ok-06` 的
+      **F4 整行**（外缘环 + 近灰众数两路读数），"为什么它会翻"写在证据里。
+    ★ **`ok-04` 降级为"仅记录、不作断言"**（任务书 §2.4）：它在**新旧两口径下都 PASS**，
+      与 `ok-06` 的区别正是"内容色亮度过不过线" ⇒ 不作断言，但打印出来供对账。
+    ★ **`BG_MIN_LUMA` 仍承重**：由第二支变体（`_m54_threshold_probe`）单证 —— `bad-bg-dark.png`
+      由 FAIL 转 PASS ⇒ 阈值常量真参与判定（覆盖率不因主变异换向而减少）。
+    """
+    o6_b, o6_a = before[0]("ok-06.png", "F4"), after[0]("ok-06.png", "F4")
+    o6_line_b, o6_line_a = f4_line(CHK, FIX / "ok-06.png"), f4_line(mp, FIX / "ok-06.png")
+    ok_b, ok_a = before[0]("ok-01.png", "F4"), after[0]("ok-01.png", "F4")
+    ctl_b, ctl_a = before[0]("ok-04.png", "F4"), after[0]("ok-04.png", "F4")     # 仅记录
+    thr_b, thr_a = _m54_threshold_probe()
+    ok = (o6_b == "PASS" and o6_a == "FAIL" and ok_a == ok_b == "PASS"
+          and thr_b == "FAIL" and thr_a == "PASS")
+    return ok, (
+        f"**边界对照（跑在变体上）** ok-06.png F4 {o6_b}→{o6_a}：原『{o6_line_b}』 → 变异『{o6_line_a}』"
+        f"（全图众数 = 那片 `#0072B2` 亮度 87 < 136 ⇒ 前提为真、咬得住）；"
+        f"ok-01.png F4 {ok_b}→{ok_a}（白底，不受影响）；"
+        f"**仅记录·不作断言** ok-04.png F4 {ctl_b}→{ctl_a}（它新旧两口径都 PASS ⇒ 拿它当对照是恒真，"
+        f"终审 Important-1）；"
+        f"**阈值常量仍承重（第二支变体 BG_MIN_LUMA 136→0）** bad-bg-dark.png F4 {thr_b}→{thr_a}")
+
+
+def m55(before, after, mp):
+    """F5 允许色序清空（H14 → 仅 #000000）：合法 H14 子集样本 good-color-order.png 由 PASS 转 FAIL ⇒ 允许集合真参与判定。"""
+    g_b, g_a = before[0]("good-color-order.png", "F5"), after[0]("good-color-order.png", "F5")
+    b_b, b_a = before[0]("bad-color-order.png", "F5"), after[0]("bad-color-order.png", "F5")
+    return (g_b == "PASS" and g_a == "FAIL" and b_a == b_b == "FAIL",
+            f"good-color-order.png F5 {g_b}→{g_a}（H14 前三色 ⊆ 允许集合；清空后全部越界）；"
+            f"bad-color-order.png F5 {b_b}→{b_a}（本来就越界，不受影响）")
+
+
+def m56(before, after, mp):
+    """F6 可接受字体族清空（→ ("__none__",)）：入库 OTF 的 green PDF 由 PASS 转 FAIL ⇒ 族表真参与判定。
+
+    打的是**真实产物** `plot-python/green/out-G1/figure.pdf`（内嵌 `TeXGyreTermesX-Regular`），
+    不是 fixture —— 仓里没有别的"内嵌合法族"的 PDF 可打。PNG 侧 F6 走"不适用"支、不受影响。
+    """
+    fig = HERE.parent / "plot-python/green/out-G1/figure.pdf"
+    b = verdict(run_checker(CHK, fig, IMG_CAP)[1], "F6")
+    a = verdict(run_checker(mp, fig, IMG_CAP)[1], "F6")
+    png = verdict(run_checker(mp, FIX / "ok-01.png", IMG_CAP)[1], "F6")
+    return (b == "PASS" and a == "FAIL" and png == "PASS",
+            f"out-G1/figure.pdf F6 {b}→{a}（内嵌 TeXGyreTermesX 被族表清空 ⇒ 越界）；"
+            f"PNG 侧 ok-01 F6 = {png}（PNG 载体标『不适用』= PASS，不受影响）")
+
+
+def m57(before, after, mp):
+    """F5 射程边界对照（**必须仍绿**，同 `M50` 的角色）：允许集合收窄成 H14 的**前三色子集** ⇒ 正好用那三色的样本**仍 PASS**。
+
+    它钉死两件事：① F5 **不是恒红**（谁哪天把 F5 写成"见彩色就红"，这条立刻 RED-BAD）；
+    ② F5 **不要求凑满八色** —— 合法色序的子集（前三色）收窄后仍绿。非 H14 的样本同时仍红 ⇒ 收窄没扩到乱红。
+    """
+    g = verdict(run_checker(mp, FIX / "good-color-order.png", IMG_CAP)[1], "F5")
+    b = verdict(run_checker(mp, FIX / "bad-color-order.png", IMG_CAP)[1], "F5")
+    return (g == "PASS" and b == "FAIL",
+            f"允许集合 = H14 前三色时：good-color-order.png F5 = {g}（该样本正是那三色 ⇒ 收窄后**仍绿**）；"
+            f"bad-color-order.png F5 = {b}（非 H14 仍红）")
+
+
+def f6_line(checker, fig):
+    """取某检查器对某图打出的 **F6 那一行原文**（判词行，含详情串）。
+
+    为什么要整行而不是 `verdict()`：`N/A` 与"判过且族对"在**汇总判词上都是 `PASS`**
+    （第三态只写在详情串里，见 `check-figure-style.py` 的 F6）⇒ 只读 PASS/FAIL 会把
+    "没判成" 读成 "判成了且对的"，正是本仓第一号病灶。
+    """
+    out = run_checker(checker, fig, IMG_CAP, dpi=None)[1]
+    return next((l.strip() for l in out.splitlines() if l.startswith(("PASS  F6", "FAIL  F6"))), "(无 F6 判词)")
+
+
+def m58(before, after, mp):
+    """F6 的**内嵌事实**（`/FontFile*`）是判据的承重件：把它拆掉（退回"有字体名即算内嵌"）⇒
+    只引用、未内嵌的样本 `font-not-embedded.pdf` 由 `N/A` 转 `FAIL`（`Helvetica` 不在族表里）。
+
+    ★ 这条钉的正是 **Task 3b 修 ③** 那件事：旧口径下"`get_page_fonts` 报了名字"就算内嵌
+    ⇒ 该样本会被**判族**（而不是如实标"未内嵌 ⇒ 不适用"）。断言要**整行**读（见 `f6_line`），
+    否则 `N/A` 与"判过且族对"在 `PASS/FAIL` 上分不开。
+    """
+    fix = FIX / "font-not-embedded.pdf"
+    b = f6_line(CHK, fix)
+    a = f6_line(mp, fix)
+    ok = (b.startswith("PASS") and "N/A" in b and "未内嵌" in b
+          and a.startswith("FAIL") and "Helvetica" in a)
+    return (ok,
+            f"font-not-embedded.pdf F6 『{b}』→『{a}』（内嵌事实被拆掉 ⇒ 只被引用的 `Helvetica` 被当成内嵌、"
+            f"族表里没有它 ⇒ 判族转红；内嵌事实没拆时它走 `N/A` 分支、**不**判族）")
+
+
 # (编号, 说明, 原文, 改文, 断言)
 MUTATIONS = [
     ("M1", "F1_HI 1.20 → 0.90", "F1_LO, F1_HI = 0.80, 1.20", "F1_LO, F1_HI = 0.80, 0.90", m1),
@@ -397,6 +568,24 @@ MUTATIONS = [
      'res.append(("F3a", not bool(re.match(r"^Figure\\s+\\d+\\s*:", cap)), "图注以 `Figure N:` 起"))', m8),
     ("M42", "F3b 词数口径由**正文**换回**整条**（`len(body.split())` → `len(cap.split())`）",
      "    words = len(body.split())", "    words = len(cap.split())", m42),
+    # ---- M3 Task 3：F4/F5/F6 三条新判据的变异（+ F5 的射程边界对照 M57）
+    ("M54", "F4 的**外缘环**那一路退回**全图众数**（合取口径换回 I-1 的病根口径）⇒ "
+            "支点 ok-06 由 PASS 转 FAIL（边界对照**跑在变体上**）；附第二支变体单证 BG_MIN_LUMA 仍承重",
+     "    ring_rgb, ring_cnt, ring_tot = outer_ring_mode(im4)",
+     "    _gm = max(_cols, key=lambda t: t[0])\n"
+     "    ring_rgb, ring_cnt, ring_tot = _gm[1], _gm[0], tot4   # 变异 M54：退回全图众数", m54),
+    ("M55", "F5 允许色序清空（H14 → 仅 #000000；判据失效）",
+     'next(e["value"] for e in _STYLE["entries"] if e["id"] == "series.color")',
+     '["#000000"]', m55),
+    ("M56", "F6 可接受字体族清空（→ (\"__none__\",)；判据失效）",
+     'FONT_FAMILY_OK = ("TeXGyreTermesX", "TimesNewRomanPSMT", "TimesNewRoman", "NimbusRoman", "FreeSerif")',
+     'FONT_FAMILY_OK = ("__none__",)', m56),
+    ("M57", "F5 射程边界对照：允许集合收窄成 H14 前三色子集 ⇒ 合法子集样本必须**仍绿**（同 `M50` 角色）",
+     'next(e["value"] for e in _STYLE["entries"] if e["id"] == "series.color")',
+     '["#E69F00", "#56B4E9", "#009E73"]', m57),
+    ("M58", "F6 的内嵌判定退回『有字体名即算内嵌』（不看 /FontFile*）⇒ "
+            "只引用未内嵌的 `font-not-embedded.pdf` 由 `N/A` 转 `FAIL`",
+     '    if ftype == "Type3":\n        return True', '    if True:  # 变异：不看 /FontFile*，有名字就算内嵌\n        return True', m58),
 ]
 
 # 探针（不是"判据变异"，是"验收脚本的 ERROR 分支变异"）：只在 **期望 FAIL 的那一行** fail-closed
@@ -759,9 +948,14 @@ def skill_mutations():
          lambda t: sub_once(t, TOP_ITEM, "- **推荐图型**：给**一个首选**（图宽用满 0.951×正文宽）；"),
          ["K3", "K5"], _k5_scope_probe("0.951")),
         ("M30", "SKILL.md：指针行删掉、别处只留裸文件名 ⇒ `K2` 红（宽松谓词会漏，见 NOTE）",
-         lambda t: sub_once(sub_once(t, "- **规范正文**（图通常长什么样、每条规则的数值与验证状态）："
+         # ★ Task 3b 修 ②（M30 曾 RED-BAD）：**拿掉完整路径时必须拿掉所有出现处** ——
+         #   Task 2 的 Step 8 又添了一处（L83 的 `规范正文（本目录 references/house-style.md）`），
+         #   而原变异只删指针行 + 只改 L10 那一处 ⇒ 该路径仍在 ⇒ `K2` 仍绿、M30 转 RED-BAD。
+         #   `sub_all` 是本驱动器既有的"多处字面替换"入口（同 `M32` 拿九个入口名时的用法），
+         #   本变异的两步：① 删掉指针行；② 把**其余所有** `\`references/house-style.md\`` 降成裸文件名。
+         lambda t: sub_all(sub_once(t, "- **规范正文**（图通常长什么样、每条规则的数值与验证状态）："
                                        "`references/house-style.md`\n", ""),
-                            "（规范在 `references/house-style.md`）", "（规范在 `house-style.md`）"),
+                            "`references/house-style.md`", "`house-style.md`"),
          ["K2"], _m30_probe),
         ("M31", "SKILL.md：把文件撑到 151 行 ⇒ `K1` 红（短契约上限 <150）",
          lambda t: pad_to(t, 151), ["K1"], None),

@@ -1,0 +1,31 @@
+### [POST-INSTALL] HKCU Fonts key (reg query) ###
+
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts
+    Noto Sans SC (TrueType)    REG_SZ    C:\WINDOWS\Fonts\Noto Sans SC (TrueType).otf
+    Noto Sans SC Bold (TrueType)    REG_SZ    C:\WINDOWS\Fonts\Noto Sans SC Bold (TrueType).otf
+    Noto Sans SC Medium (TrueType)    REG_SZ    C:\WINDOWS\Fonts\Noto Sans SC Medium (TrueType).otf
+    Source Han Serif SC Heavy (TrueType)    REG_SZ    C:\WINDOWS\Fonts\Source Han Serif SC Heavy (TrueType).ttf
+    yyb Sans Regular (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\yyb.ttf
+    sdk_init_timestamp    REG_DWORD    0x6a046332
+    字语康宋体 (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\8a19d507065221de6f2ee934ae1c41f5.ttf
+    萝莉体 第二版 & 萝莉体 第二版 & 萝莉体 第二版 & 萝莉体 第二版 (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\萝莉体.ttc
+    TeXGyreTermesX Regular (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Regular.otf
+    TeXGyreTermesX Italic (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Italic.otf
+    TeXGyreTermesX Bold (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Bold.otf
+    TeXGyreTermesX Bold Italic (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-BoldItalic.otf
+
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts\Microsoft.WindowsTerminal_1.24.11321.0_x64__8wekyb3d8bbwe
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts\Microsoft.WindowsTerminal_1.24.11911.0_x64__8wekyb3d8bbwe
+### [POST-INSTALL] user font dir (ls -1) ###
+8a19d507065221de6f2ee934ae1c41f5.ttf
+TeXGyreTermesX-Bold.otf
+TeXGyreTermesX-BoldItalic.otf
+TeXGyreTermesX-Italic.otf
+TeXGyreTermesX-Regular.otf
+yyb.ttf
+萝莉体.ttc
+### [POST-INSTALL] byte identity: source vs copied ###
+  TeXGyreTermesX-Regular.otf  src=e80891eeb992f306596eb69a5a764b600186978b  dst=e80891eeb992f306596eb69a5a764b600186978b  -> SAME
+  TeXGyreTermesX-Italic.otf  src=1707ff148a8f1af1ce9b5cb7382a2b8af3b28000  dst=1707ff148a8f1af1ce9b5cb7382a2b8af3b28000  -> SAME
+  TeXGyreTermesX-Bold.otf  src=5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb  dst=5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb  -> SAME
+  TeXGyreTermesX-BoldItalic.otf  src=8ae3031ab56efd92f2340ef4ea0eba8c761e87a3  dst=8ae3031ab56efd92f2340ef4ea0eba8c761e87a3  -> SAME

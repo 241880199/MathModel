@@ -1,0 +1,11 @@
+  已加注释（未应用任何主题）
+### K0 不加主题（含注释）  [k0_plain.pdf]
+    fonts: [["SimSun", "n/a"], ["SimSun", "n/a"], ["SimSun", "n/a"]]
+    span font SimSun                 n=36  sample="11R2=0.9Intens"
+### K1 expGraph + theme:=（含注释）  [k1_export_theme.pdf]
+    fonts: [["TimesNewRomanPSMT", "n/a"], ["TimesNewRomanPSMT", "n/a"], ["TimesNewRomanPSMT", "n/a"]]
+    span font TimesNewRomanPSMT      n=28  sample="11R2=0. 9Int ensi t y("
+### K2 先 themeApply2g 再加注释（反证）  [k2_theme_then_label.pdf]
+    fonts: [["TimesNewRomanPSMT", "n/a"], ["SimSun", "n/a"], ["TimesNewRomanPSMT", "n/a"], ["TimesNewRomanPSMT", "n/a"]]
+    span font TimesNewRomanPSMT      n=3  sample="11B"
+    span font SimSun                 n=6  sample="R2=0.9"

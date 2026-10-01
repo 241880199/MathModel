@@ -1,0 +1,360 @@
+{
+  "_generated_by": "tests/skills/figure-choose/gen-style-table.py",
+  "_source": ".claude/skills/mcm-figure-choose/references/house-style.md",
+  "entries": [
+    {
+      "id": "h1.width_ratio.min",
+      "clause": "H1",
+      "value": 0.8,
+      "origin": "measured",
+      "carriers": {
+        "python": {
+          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_min`（0.80）（`figsize_for(textwidth_in)` 是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 0.80（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "`print -dpng` 跟 `PaperPosition`、`print -dpdf` 跟 `PaperSize`（**显式设宽、不写死**）⇒ 实测输出宽 == 设定宽（pr.png in = 6.3100 ⇐ out-size-law.txt；设计 §6.2）。⚠️ `exportgraphics` 的宽 = **内容包围盒**、与 figsize/PaperPosition 无关（**完全忽略** `PaperPosition`/`PaperSize`、按轴内容 bbox 裁剪 ⇐ out-size-law.txt）⇒ **不作权威交付载体**",
+          "status": "same-value"
+        },
+        "origin": {
+          "how": "`GPage.save_fig(width=N)` → 发 `expGraph … tr1.Unit:=2 tr1.Width:=N`；裸 LabTalk 用 `tr1.Unit:=0 tr1.Width:=<in>`。实测输出宽 ≈ 设定宽（green.pdf 页盒 **6.31944 in** / 设定 6.31 ⇐ out-g-e2e-scenarios.txt）；**「PDF 页盒按 1/72 in 网格量化」与「6.31944 ≈ 455/72」均为据实测页盒推算**（`tr1.Width:=6.31` → 页盒 6.31944 in ⇐ out-g-e2e-scenarios.txt / probe_g_e2e.py）",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "scriptable"
+        }
+      }
+    },
+    {
+      "id": "h1.width_ratio.max",
+      "clause": "H1",
+      "value": 1.2,
+      "origin": "measured",
+      "carriers": {
+        "python": {
+          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_max`（1.20）（`figsize_for(textwidth_in)` 是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 1.20（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "`print -dpng` 跟 `PaperPosition`、`print -dpdf` 跟 `PaperSize`（**显式设宽、不写死**）⇒ 实测输出宽 == 设定宽（pr.png in = 6.3100 ⇐ out-size-law.txt；设计 §6.2）。⚠️ `exportgraphics` 的宽 = **内容包围盒**、与 figsize/PaperPosition 无关（**完全忽略** `PaperPosition`/`PaperSize`、按轴内容 bbox 裁剪 ⇐ out-size-law.txt）⇒ **不作权威交付载体**",
+          "status": "same-value"
+        },
+        "origin": {
+          "how": "`GPage.save_fig(width=N)` → 发 `expGraph … tr1.Unit:=2 tr1.Width:=N`；裸 LabTalk 用 `tr1.Unit:=0 tr1.Width:=<in>`。实测输出宽 ≈ 设定宽（green.pdf 页盒 **6.31944 in** / 设定 6.31 ⇐ out-g-e2e-scenarios.txt）；**「PDF 页盒按 1/72 in 网格量化」与「6.31944 ≈ 455/72」均为据实测页盒推算**（`tr1.Width:=6.31` → 页盒 6.31944 in ⇐ out-g-e2e-scenarios.txt / probe_g_e2e.py）",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "scriptable"
+        }
+      }
+    },
+    {
+      "id": "h1.width_ratio.default_lo",
+      "clause": "H1",
+      "value": 0.95,
+      "origin": "measured",
+      "carriers": {
+        "python": {
+          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_default_lo`（0.95）（`figsize_for(textwidth_in)` 是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 0.95（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "`print -dpng` 跟 `PaperPosition`、`print -dpdf` 跟 `PaperSize`（**显式设宽、不写死**）⇒ 实测输出宽 == 设定宽（pr.png in = 6.3100 ⇐ out-size-law.txt；设计 §6.2）。⚠️ `exportgraphics` 的宽 = **内容包围盒**、与 figsize/PaperPosition 无关（**完全忽略** `PaperPosition`/`PaperSize`、按轴内容 bbox 裁剪 ⇐ out-size-law.txt）⇒ **不作权威交付载体**",
+          "status": "same-value"
+        },
+        "origin": {
+          "how": "`GPage.save_fig(width=N)` → 发 `expGraph … tr1.Unit:=2 tr1.Width:=N`；裸 LabTalk 用 `tr1.Unit:=0 tr1.Width:=<in>`。实测输出宽 ≈ 设定宽（green.pdf 页盒 **6.31944 in** / 设定 6.31 ⇐ out-g-e2e-scenarios.txt）；**「PDF 页盒按 1/72 in 网格量化」与「6.31944 ≈ 455/72」均为据实测页盒推算**（`tr1.Width:=6.31` → 页盒 6.31944 in ⇐ out-g-e2e-scenarios.txt / probe_g_e2e.py）",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "scriptable"
+        }
+      }
+    },
+    {
+      "id": "h1.width_ratio.default_hi",
+      "clause": "H1",
+      "value": 1.0,
+      "origin": "measured",
+      "carriers": {
+        "python": {
+          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_default_hi`（1.0）（`figsize_for(textwidth_in)` 是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 1.0（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "`print -dpng` 跟 `PaperPosition`、`print -dpdf` 跟 `PaperSize`（**显式设宽、不写死**）⇒ 实测输出宽 == 设定宽（pr.png in = 6.3100 ⇐ out-size-law.txt；设计 §6.2）。⚠️ `exportgraphics` 的宽 = **内容包围盒**、与 figsize/PaperPosition 无关（**完全忽略** `PaperPosition`/`PaperSize`、按轴内容 bbox 裁剪 ⇐ out-size-law.txt）⇒ **不作权威交付载体**",
+          "status": "same-value"
+        },
+        "origin": {
+          "how": "`GPage.save_fig(width=N)` → 发 `expGraph … tr1.Unit:=2 tr1.Width:=N`；裸 LabTalk 用 `tr1.Unit:=0 tr1.Width:=<in>`。实测输出宽 ≈ 设定宽（green.pdf 页盒 **6.31944 in** / 设定 6.31 ⇐ out-g-e2e-scenarios.txt）；**「PDF 页盒按 1/72 in 网格量化」与「6.31944 ≈ 455/72」均为据实测页盒推算**（`tr1.Width:=6.31` → 页盒 6.31944 in ⇐ out-g-e2e-scenarios.txt / probe_g_e2e.py）",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "scriptable"
+        }
+      }
+    },
+    {
+      "id": "h3.height_in",
+      "clause": "H3",
+      "value": 2.6,
+      "origin": "measured",
+      "carriers": {
+        "python": {
+          "how": "`figsize_for(textwidth_in)` 的高 = 表内 `h3_height_in`（2.6 in，直取）（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py）",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "`PaperPosition` 第 4 元（`print -dpng`）/ `PaperSize` 的高（`print -dpdf`）⇒ 实测 `PaperPosition=[0 0 6.31 2.6]`（⇐ out-b-size-single-variable.txt）",
+          "status": "same-value"
+        },
+        "origin": {
+          "how": "**今天无实测的独立设高方式**：`GPage.save_fig` 签名无 height 参数（`save_fig(path, type, replace, width, ratio)` ⇐ probe_b_size.py）；裸 `expgraph … tr1.Height:=500` 实测**未生效**（与 `tr1.Width:=1000` 同发，产物却是 1000×708 = 按页面长宽比锁高 ⇐ out-b-export-size.txt 第 4 段）⇒ **今天没有实测到的独立设高方式**，高度随宽度按页面长宽比带出，**无独立落地**",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "not-landable"
+        }
+      }
+    },
+    {
+      "id": "h4.max_main_colors",
+      "clause": "H4",
+      "value": 4,
+      "origin": "measured",
+      "carriers": {
+        "python": {
+          "how": "**数值判据，无设置项**：F2『彩色主色 ≤4』在 check-figure-style.py 判；载体侧没有『限制主色数』的 rcParam/属性，一致性靠『按 H14 取色 + 控制系列数』的调用纪律",
+          "status": "not-landable"
+        },
+        "matlab": {
+          "how": "**数值判据，无设置项**：同上；F2 本就按像素占比数色、不数系列（只数占比 ≥0.5% 的颜色 ⇐ check-figure-style.py）—— 实测 MATLAB 侧同一张 7 系列默认图读 3（png）/ 0（pdf）（⇐ out-checks-figure-style.txt 的 `C default-N7` 段），更无『主色数上限』设置",
+          "status": "not-landable"
+        },
+        "origin": {
+          "how": "**数值判据，无设置项**：同上；默认模板连画 6 条线 `Plot.color` 6 条**全同色**（`(81,81,81)`、`colorinc` 恒 0 ⇐ Origin 侦察 §C④）⇒ 颜色数由调用方逐色设定，无『主色数上限』设置",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "not-landable"
+        }
+      }
+    },
+    {
+      "id": "h12.font_scale_lo",
+      "clause": "H12",
+      "value": 0.8,
+      "origin": "community",
+      "carriers": {
+        "python": {
+          "how": "**数值判据，无设置项**：图内字号 = 正文 pt 的 `[0.8, 1.0]×`、且 `≥7 pt`；载体侧设的是**绝对 pt**，无『倍数/下限』设置项。`mcmplot.fontsize_for(body_pt)` 只**产这个允许带**、不设值（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py）",
+          "status": "not-landable"
+        },
+        "matlab": {
+          "how": "**数值判据，无设置项**：同上；MATLAB 侧可设绝对 `FontSize`，但判据是比值/下限、无对应设置；且 H12 **无机械判据**（⇐ task-m3-matlab-recon-report.md『H12 落不了地』）",
+          "status": "not-landable"
+        },
+        "origin": {
+          "how": "**数值判据，无设置项**：同上；`layer.x.label.pt` 可直接设**绝对 pt**（实测可写、默认 14 ⇐ Origin 侦察 §C③），但表内值是比值/下限、无对应设置项",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "not-landable"
+        }
+      }
+    },
+    {
+      "id": "h12.font_scale_hi",
+      "clause": "H12",
+      "value": 1.0,
+      "origin": "community",
+      "carriers": {
+        "python": {
+          "how": "**数值判据，无设置项**：house-style H12 的『落地默认』= 取上限（正文 pt 的 `1.0×`）；载体侧设的是**绝对 pt**，无『倍数』设置项。`fontsize_for(body_pt)` 的上界 = `max(body_pt×1.0, 7)`，调用方在其中取一档（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py）",
+          "status": "not-landable"
+        },
+        "matlab": {
+          "how": "**数值判据，无设置项**：同上；MATLAB 侧可设绝对 `FontSize`，但无『倍数』设置项；且 H12 无机械判据（⇐ task-m3-matlab-recon-report.md）",
+          "status": "not-landable"
+        },
+        "origin": {
+          "how": "**数值判据，无设置项**：同上；`layer.x.label.pt` 可设绝对 pt，但无『倍数』设置项",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "not-landable"
+        }
+      }
+    },
+    {
+      "id": "h12.font_min_pt",
+      "clause": "H12",
+      "value": 7,
+      "origin": "community",
+      "carriers": {
+        "python": {
+          "how": "**数值判据，无设置项**：下限 `≥7 pt`；无『最小字号』设置项。`fontsize_for()` 把该下限取进允许带（`max(body×倍, 7)`）但不设值（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py）",
+          "status": "not-landable"
+        },
+        "matlab": {
+          "how": "**数值判据，无设置项**：同上；无对应设置项；且 H12 无机械判据（⇐ task-m3-matlab-recon-report.md）",
+          "status": "not-landable"
+        },
+        "origin": {
+          "how": "**数值判据，无设置项**：同上；`layer.x.label.pt` 可设绝对 pt，但无『最小字号』设置项；本轮未逐档测最小步长（⇐ Origin 侦察 §C③）",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "not-landable"
+        }
+      }
+    },
+    {
+      "id": "bg",
+      "clause": "§0",
+      "value": "#FFFFFF",
+      "origin": "as-delivered",
+      "why": "论文底色 = 白",
+      "carriers": {
+        "python": {
+          "how": "rcParams: figure.facecolor / axes.facecolor / savefig.facecolor",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "figure(...,'Theme','light') + set(gcf,'Color','w') + set(gca,'Color','w')",
+          "status": "same-value"
+        },
+        "origin": {
+          "how": "默认导出即白底（实测产物四角/中心像素均 255,255,255 ⇐ out-d-appearance.txt，Task 2 复跑逐字节复现）⇒ 无需设置。⚠️ 实测 `page.color=15;` / `layer.color=15;` / `layer.background=15;` 均返 OK 而产物底色不变（**静默失败**）⇒ 底色只能由产物证明，返回值不算数。",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "scriptable"
+        }
+      }
+    },
+    {
+      "id": "series.color",
+      "clause": "H14",
+      "value": [
+        "#E69F00",
+        "#56B4E9",
+        "#009E73",
+        "#CC79A7",
+        "#0072B2",
+        "#D55E00",
+        "#7570B3",
+        "#4D4D4D"
+      ],
+      "origin": "as-delivered",
+      "why": "H14 的八色序列（用户 2026-09-30 二次定稿）",
+      "carriers": {
+        "python": {
+          "how": "rcParams: axes.prop_cycle（⚠️ 表内值是带 `#` 的 hex；写进 mplstyle 的 `axes.prop_cycle` 时**值必须不带 `#`** —— mplstyle 把 `#` 当注释 ⇒ 剥去）",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "set(gca,'ColorOrder',[...])",
+          "status": "same-value"
+        },
+        "origin": {
+          "how": "逐色设色 = originpro `plot.color = \"#RRGGBB\"`（LabTalk 等价 `layer.plotN.color = <Origin 颜色值>`）。实测六色 hex 逐色设、读回 Plot.color 逐值命中（⇐ out-e-font-palette-axis.txt B 段）；**同一会话内不翻转**（同模板连建两图读数一致 ⇐ out-i-dpi-pagesize-frame.txt ③ 段）。本轮 Task 2 复跑逐字节复现。",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "scriptable"
+        }
+      }
+    },
+    {
+      "id": "font.family",
+      "clause": "H12",
+      "value": "serif",
+      "origin": "as-delivered",
+      "why": "衬线族",
+      "carriers": {
+        "python": {
+          "how": "font.family: serif",
+          "status": "family-equivalent"
+        },
+        "matlab": {
+          "how": "set(gca,'FontName','Times New Roman')",
+          "status": "family-equivalent"
+        },
+        "origin": {
+          "how": "导出那一刻施加主题：`expGraph type:=pdf … theme:=\"Times New Roman Font\";`（实测产物字体名 SimSun → TimesNewRomanPSMT ⇐ out-origin-5-round5.txt J1，本轮复跑逐字节复现）。⚠️ **次序坑**：主题必须在导出时施加，否则新建的文本注释回 SimSun（半张图两种字体 ⇐ J4）；⚠️ 给不存在的主题名**静默成功**（exec_ok=True、产物不变 ⇐ J3）⇒「设上了」只能由产物证明。⚠️ 本格标 `not-embedded` 的理由：Origin 导出的 PDF **不内嵌字体**（34/34 个产物 `/FontFile*` = 0 ⇐ out-pdf-embedding-scan.txt）⇒ 字体族判据（`F6`）对它只能判 `N/A`。",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "not-embedded"
+        }
+      }
+    },
+    {
+      "id": "font.serif",
+      "clause": "H12",
+      "value": [
+        "TeXGyreTermesX",
+        "Times New Roman"
+      ],
+      "origin": "as-delivered",
+      "why": "各载体取本机可用的 Times 系实现",
+      "carriers": {
+        "python": {
+          "how": "入库 OTF TeXGyreTermesX（随 skill，干净检出可用）",
+          "status": "family-equivalent"
+        },
+        "matlab": {
+          "how": "系统 Times New Roman（点名即内嵌，非静默回退）",
+          "status": "family-equivalent"
+        },
+        "origin": {
+          "how": "同 `font.family`：Origin 侧取系统 Times New Roman（衬线族的一员），落地命令 = 导出时 `theme:=\"Times New Roman Font\"`。⚠️ Origin 导出的 PDF **不内嵌**该字体（/FontFile*=0 ⇐ out-pdf-embedding-scan.txt）⇒ 最终呈现取决于打开它的机器；本格标 `not-embedded`：字体族判据（`F6`）对它只能判 `N/A`。",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "not-embedded"
+        }
+      }
+    },
+    {
+      "id": "lines.linewidth",
+      "clause": "H12",
+      "value": 1.0,
+      "origin": "community",
+      "why": "线宽默认值",
+      "carriers": {
+        "python": {
+          "how": "lines.linewidth",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "set(h,'LineWidth',v)",
+          "status": "same-value"
+        },
+        "origin": {
+          "how": "`layer.plotN.line.width = <pt>`（LabTalk；实测默认 0.5、可写，改后产物**差分像素非零** ⇒ 真的落到产物上 ⇐ out-d-appearance.txt / out-f-axis-candidates.txt，本轮复跑复现）。",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "scriptable"
+        }
+      }
+    },
+    {
+      "id": "h10.axes_box",
+      "clause": "H10",
+      "value": [
+        "spines.top=off",
+        "spines.right=off",
+        "ticks.dir=in",
+        "ticks.minor=off",
+        "axis.label=with-unit"
+      ],
+      "origin": "community",
+      "why": "去上/右边框线 · 刻度朝内 · 只留主刻度 · 轴标签带单位",
+      "carriers": {
+        "python": {
+          "how": "`mcm.mplstyle` 的生成区为它落了 **6 个键**：`axes.spines.top: False` / `axes.spines.right: False`（去上/右边框线）· `xtick.top: False` / `ytick.right: False`（底座 `science` 自带 `xtick.top/ytick.right=True` ⇒ 只关 spines 会留**悬空刻度**）· `xtick.minor.visible: False` / `ytick.minor.visible: False`（只留主刻度）。**刻度朝内**由底座 `science` 的 `xtick.direction='in'` 带出（入库探针 `probe-gap1-hanging-ticks.py` 的带内墨迹读数即据它算：落地态顶/右带均 0、旧态对照 234/120）；**轴标签带单位**是调用方纪律（GREEN 写手在 `make_figure.py` 里写 `Slope (deg)` 一类），载体侧无设置项。（⇐ .claude/skills/mcm-plot-python/assets/mcm.mplstyle / tests/skills/plot-python/probe-gap1-hanging-ticks.py）",
+          "status": "same-value"
+        },
+        "matlab": {
+          "how": "**今天无产物级实测**：侦察记录 MATLAB 侧有对应 API（`box(ax,'off')` 去框线 / `set(ax,'TickDir','in')` 刻度朝内 —— 两者都在 K3 采样行里出现过），但**产物端零回读**：侦察判定为「**能设、不能验**」（`box off` / `TickDir 'in'` 可设，**三支机器都没有 spine/tick 判据** ⇐ `.superpowers/sdd/task-m3-matlab-recon-report.md` §G19 /「落不了地」表）⇒ 如实记 `not-landable`，不编造落地方式。",
+          "status": "not-landable"
+        },
+        "origin": {
+          "how": "**去上/右框线与刻度朝内：侦察**未找到**能落到产物上的命令** —— 逐条试过 `layer.frame=0` / `layer.x2.show=0; layer.y2.show=0` / `layer.x.opposite=0|1` / `layer.x.tickDir=1` / `layer.x.tickdir=1` / `layer.x.tick.direction=1`，**改前后图像差分像素全为 0**（⇐ tests/m3-origin-probe/out-f-axis-candidates.txt / out-i-dpi-pagesize-frame.txt）。只有 `layer.x.minorTicks=0` 有非零差分（15 px，「只留主刻度」或有路）⇒ 整条规则**今天无落地**，如实记 `not-landable`。",
+          "steps": "本表不写 origin 的操作步骤（菜单路径 + 控件名）：本轮没有对 GUI 做过独立取证，故留待补（设计 §6.3③ 待补）",
+          "version": "10.300197（OriginPro 2026 / 教育版）",
+          "status": "not-landable"
+        }
+      }
+    }
+  ]
+}

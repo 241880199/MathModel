@@ -1,0 +1,151 @@
+==============================================================================
+§G1  K6: mcm-plot-matlab from 不存在 to 存在
+==============================================================================
+### A/today: real tree, no --skills-root, no --skill
+    $ C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe D:\Projects\数学建模\tests\skills\figure-choose\check-house-style.py --only K6 --no-provenance
+    ------------------------------------------------------------------------------
+    SKILL.md 守卫（短契约：行数 < 上界 / 指针 / 不复述规范数值（ASCII + 中文数词） / 九入口（含决策树表） / 数字声明 / 点名拟建的存否 / 五段+输出契约三件套 / 逐条验证行）
+    PASS  K6                 点名的绘图 skill mcm-plot-matlab（不存在·标了〔拟建〕）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 无
+    PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+    守卫 1 条（其中结构守卫 0 条 · SKILL 守卫 1 条） · provenance 0 条 · 总 1 条
+    RESULT: PASS
+    exit=0
+
+### B/family-2, mark kept (real SKILL.md text + temp root where matlab exists)
+    $ C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe D:\Projects\数学建模\tests\skills\figure-choose\check-house-style.py --only K6 --no-provenance --skills-root D:\Projects\数学建模\build\m3-matlab-recon\k6root_existing
+    ------------------------------------------------------------------------------
+    SKILL.md 守卫（短契约：行数 < 上界 / 指针 / 不复述规范数值（ASCII + 中文数词） / 九入口（含决策树表） / 数字声明 / 点名拟建的存否 / 五段+输出契约三件套 / 逐条验证行）
+    FAIL  K6                 点名的绘图 skill mcm-plot-matlab（存在·标了〔拟建〕⇒**标记与事实不符**）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 ['mcm-plot-matlab']
+    PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+    守卫 1 条（其中结构守卫 0 条 · SKILL 守卫 1 条） · provenance 0 条 · 总 1 条
+    RESULT: FAIL（K6）
+    exit=1
+
+    (wrote build\m3-matlab-recon\SKILL_matlab_built.md with 〔拟建〕 stripped from mcm-plot-matlab lines)
+### C/family-2, mark dropped (modified SKILL.md COPY + temp root)
+    $ C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe D:\Projects\数学建模\tests\skills\figure-choose\check-house-style.py --only K6 --no-provenance --skill D:\Projects\数学建模\build\m3-matlab-recon\SKILL_matlab_built.md --skills-root D:\Projects\数学建模\build\m3-matlab-recon\k6root_existing
+    ------------------------------------------------------------------------------
+    SKILL.md 守卫（短契约：行数 < 上界 / 指针 / 不复述规范数值（ASCII + 中文数词） / 九入口（含决策树表） / 数字声明 / 点名拟建的存否 / 五段+输出契约三件套 / 逐条验证行）
+    FAIL  K6                 点名的绘图 skill mcm-plot-matlab（存在·未标〔拟建〕）、mcm-plot-origin（不存在·未标〔拟建〕⇒**标记与事实不符**）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 ['mcm-plot-origin']
+    PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+    守卫 1 条（其中结构守卫 0 条 · SKILL 守卫 1 条） · provenance 0 条 · 总 1 条
+    RESULT: FAIL（K6）
+    exit=1
+
+    --- real SKILL.md lines naming mcm-plot-matlab ---
+    67:   - `mcm-plot-matlab`（〔拟建〕）
+    71:   `mcm-plot-matlab` 与 `mcm-plot-origin` **仍是〔拟建〕**（名字已登记、文件未建）——
+==============================================================================
+§G2  check-spec-pointers.py: does a newly built mcm-plot-matlab enter the family?
+==============================================================================
+### baseline: copy of real .claude/skills (family = 1)
+    $ C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe D:\Projects\数学建模\tests\skills\figure-choose\check-spec-pointers.py --skills-dir D:\Projects\数学建模\build\m3-matlab-recon\skills2
+    引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
+    skills-dir = build/m3-matlab-recon/skills2 · checker = tests/skills/figure-choose/check-house-style.py
+    PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    ------------------------------------------------------------------------------
+    普查：扫到 6 个 skill（build/m3-matlab-recon/skills2/*/SKILL.md）· 绘图家族 1 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
+          非家族  mcm-abstract
+          非家族  mcm-ai-disclosure
+          非家族  mcm-figure-choose
+          非家族  mcm-latex-format
+          家族    mcm-plot-python
+          非家族  mcm-selfreview
+    ------------------------------------------------------------------------------
+    PASS  K2  mcm-plot-python  指针 `references/house-style.md` 出现 4 处（必须 ≥1；只写 `house-style.md` 不算）
+    PASS  K3  mcm-plot-python  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    ------------------------------------------------------------------------------
+    扫到 6 个 skill（绘图家族 1 个）· 判据 K2/K3 · 红 0 条
+    RESULT: PASS (绘图家族 1 个，K2/K3 全绿)
+    exit=0
+
+    (wrote build\m3-matlab-recon\skills2\mcm-plot-matlab/SKILL.md with one restated number)
+
+### family 1 -> 2: same temp root + built mcm-plot-matlab
+    $ C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe D:\Projects\数学建模\tests\skills\figure-choose\check-spec-pointers.py --skills-dir D:\Projects\数学建模\build\m3-matlab-recon\skills2
+    引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
+    skills-dir = build/m3-matlab-recon/skills2 · checker = tests/skills/figure-choose/check-house-style.py
+    PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    ------------------------------------------------------------------------------
+    普查：扫到 7 个 skill（build/m3-matlab-recon/skills2/*/SKILL.md）· 绘图家族 2 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
+          非家族  mcm-abstract
+          非家族  mcm-ai-disclosure
+          非家族  mcm-figure-choose
+          非家族  mcm-latex-format
+          家族    mcm-plot-matlab
+          家族    mcm-plot-python
+          非家族  mcm-selfreview
+    ------------------------------------------------------------------------------
+    PASS  K2  mcm-plot-matlab  指针 `references/house-style.md` 出现 1 处（必须 ≥1；只写 `house-style.md` 不算）
+    FAIL  K3  mcm-plot-matlab  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 ['2.6'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    PASS  K2  mcm-plot-python  指针 `references/house-style.md` 出现 4 处（必须 ≥1；只写 `house-style.md` 不算）
+    PASS  K3  mcm-plot-python  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    ------------------------------------------------------------------------------
+    扫到 7 个 skill（绘图家族 2 个）· 判据 K2/K3 · 红 1 条
+    RESULT: FAIL（K3@mcm-plot-matlab）
+    exit=1
+
+### family 1 -> 3: + a CLEAN sibling mcm-plot-clean (contrast, must stay green)
+    $ C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe D:\Projects\数学建模\tests\skills\figure-choose\check-spec-pointers.py --skills-dir D:\Projects\数学建模\build\m3-matlab-recon\skills2
+    引用完整性检查器（Task 7）· 判据 K2（指针）/ K3（不复述规范数值）**从 check-house-style.py import 复用**，本文件不重写
+    skills-dir = build/m3-matlab-recon/skills2 · checker = tests/skills/figure-choose/check-house-style.py
+    PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    ------------------------------------------------------------------------------
+    普查：扫到 8 个 skill（build/m3-matlab-recon/skills2/*/SKILL.md）· 绘图家族 3 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
+          非家族  mcm-abstract
+          非家族  mcm-ai-disclosure
+          非家族  mcm-figure-choose
+          非家族  mcm-latex-format
+          家族    mcm-plot-clean
+          家族    mcm-plot-matlab
+          家族    mcm-plot-python
+          非家族  mcm-selfreview
+    ------------------------------------------------------------------------------
+    PASS  K2  mcm-plot-clean  指针 `references/house-style.md` 出现 1 处（必须 ≥1；只写 `house-style.md` 不算）
+    PASS  K3  mcm-plot-clean  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    PASS  K2  mcm-plot-matlab  指针 `references/house-style.md` 出现 1 处（必须 ≥1；只写 `house-style.md` 不算）
+    FAIL  K3  mcm-plot-matlab  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 ['2.6'] · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    PASS  K2  mcm-plot-python  指针 `references/house-style.md` 出现 4 处（必须 ≥1；只写 `house-style.md` 不算）
+    PASS  K3  mcm-plot-python  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+    ------------------------------------------------------------------------------
+    扫到 8 个 skill（绘图家族 3 个）· 判据 K2/K3 · 红 1 条
+    RESULT: FAIL（K3@mcm-plot-matlab）
+    exit=1
+
+==============================================================================
+§G3  K3 substring landmine for ordinary MATLAB .m plotting idioms
+==============================================================================
+verdict  hits                                     text
+PASS                                              exportgraphics(fig, 'f.pdf')
+PASS                                              exportgraphics(fig, 'f.png', 'Resolution', 200)
+PASS                                              print(fig, 'f.png', '-dpng', '-r200')
+PASS                                              print(fig, 'f.pdf', '-dpdf')
+PASS                                              saveas(fig, 'f.png')
+PASS                                              set(fig,'PaperUnits','inches')
+FAIL     '2.6', '6.31'                            set(fig,'PaperPosition',[0 0 6.31 2.6])
+PASS                                              set(fig,'Position',[100 100 631 260])
+PASS                                              set(ax,'LineWidth',1.5)
+PASS                                              set(ax,'FontSize',10)
+FAIL     '0.8'                                    plot(x, y, 'LineWidth', 0.8)
+FAIL     '1.0'                                    ylim([0 1.0])
+FAIL     '0.5'                                    x = 0.5;
+FAIL     '0.9'                                    alpha = 0.9;
+PASS                                              dpi = 300;
+FAIL     '2.6', '6.31'                            fig.Position = [0 0 6.31 2.6];
+PASS                                              t = linspace(0, 2*pi, 200);
+PASS                                              set(ax,'FontName','Times New Roman')
+PASS                                              axis([0 10 0 1]);
+PASS                                              legend(ax,'show')
+PASS                                              b = bar(D,'stacked');
+PASS                                              set(ax,'XTickLabel',{'A','B'})
+FAIL     '6.31'                                   % 图宽取正文宽（6.31 in）
+FAIL     '四'                                      % 用四种图型
+FAIL     '四', '四色'                                % 分四色显示
+PASS                                              set(ax,'TickDir','in')
+PASS                                              box(ax,'off')
+PASS                                              ax.XMinorTick = 'on';
+PASS                                              exportgraphics(fig,'f.pdf','Padding',0)
+PASS                                              set(fig,'PaperPositionMode','auto')
+PASS                                              matlab -batch "run('build/probe.m')"
+
+# 9 / 31 sample lines judged FAIL by K3

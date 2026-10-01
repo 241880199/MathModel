@@ -1,0 +1,106 @@
+batch cwd BEFORE run = D:\Projects\数学建模
+### probe_a start ###
+repo root (derived) = D:\Projects\数学建模
+=== P0 environment ===
+version        = 25.2.0.3177638 (R2025b) Update 5
+release        = 2025b
+matlabroot     = D:\Software\Matlab
+arch           = win64
+cwd            = D:\Projects\数学建模
+=== P1 exist() survey ===
+exist(exportgraphics  ) = 6
+exist(print           ) = 2
+exist(saveas          ) = 2
+exist(savefig         ) = 2
+exist(openfig         ) = 2
+exist(axes            ) = 5
+exist(tiledlayout     ) = 6
+exist(nexttile        ) = 6
+exist(exportapp       ) = 6
+exist(copygraphics    ) = 6
+exist(getframe        ) = 2
+exist(listfonts       ) = 2
+=== P2 default figure/axes props (factory) ===
+defaultFigurePaperUnits    = centimeters
+defaultFigurePaperPosition = [0.25         2.5           8           6]
+defaultFigurePaperSize     = [21         29.7]
+defaultFigurePosition      = [376  182  955  575]
+defaultAxesFontName        = Helvetica
+defaultAxesFontSize        = 10
+defaultAxesLineWidth       = 0.5
+defaultLineLineWidth       = 0.5
+defaultFigureColor         = [0.96078     0.96078     0.96078]
+DefaultAxesColorOrder rows = 7 cols = 3
+DefaultAxesColorOrder hex  = #1171BE #DD5400 #EDB120 #8516D1 #3BAA32 #2FBEEF #D1048B
+=== P3 fonts census ===
+listfonts count = 249
+listfonts has Arial              : 1
+listfonts has Times New Roman    : 1
+listfonts has Times              : 1
+listfonts has Nimbus Roman       : 0
+listfonts has Liberation Serif   : 0
+listfonts has STIXGeneral        : 0
+listfonts has DejaVu Serif       : 0
+listfonts has Cambria            : 1
+listfonts has SimSun             : 0
+listfonts has Microsoft YaHei    : 0
+listfonts has SimHei             : 0
+listfonts has TeXGyreTermes      : 0
+listfonts has TeX Gyre Termes    : 0
+listfonts has TeXGyreTermesX     : 0
+listfonts has 宋体                 : 1
+listfonts has 黑体                 : 1
+listfonts has 微软雅黑               : 1
+listfonts has SimSun-ExtB        : 1
+=== P4 LF discipline (byte-level) ===
+fopen mode w   -> bytes=12  CR(13)=0  LF(10)=2
+fopen mode W   -> bytes=12  CR(13)=0  LF(10)=2
+fopen mode wb  -> bytes=12  CR(13)=0  LF(10)=2
+fopen mode wt  -> bytes=14  CR(13)=2  LF(10)=2
+NOTE: MATLAB -batch stdout is captured by the shell, not by this probe.
+=== P5 six export paths ===
+P5 figure Position      = [100  100  631  260]
+P5 figure PaperUnits    = inches
+P5 figure PaperPosition = [0           0        6.31         2.6]
+P5 figure PaperSize     = [8.26772      11.6929]
+P5 figure PaperType     = A4
+P5 ax Position          = [0.13     0.13385       0.775     0.79115]
+P5 ax OuterPosition     = [0  0  1  1]
+P5 ax TightInset        = [0.07167      0.1341    0.005814    0.072372]
+exportgraphics_png         ok=1  2.65s  bytes=51549
+exportgraphics_pdf         ok=1  0.39s  bytes=14249
+exportgraphics_pdf_vector  ok=1  0.28s  bytes=14249
+exportgraphics_pdf_image   ok=1  0.22s  bytes=88575
+print_dpng                 ok=1  0.36s  bytes=56814
+print_dpdf                 ok=1  0.18s  bytes=14271
+saveas_png                 ok=1  0.20s  bytes=37780
+saveas_pdf                 ok=1  0.16s  bytes=14271
+=== P6 default font + Chinese ===
+gca FontName = Helvetica
+gca FontSize = 9.5
+chinese(default font) export ok, bytes=14795
+chinese(default font) png ok, bytes=27723
+chinese lastwarn id=[] msg=[]
+requested FontName=SimHei -> get(ax,FontName)=SimHei
+   export ok bytes=7738
+requested FontName=SimSun -> get(ax,FontName)=SimSun
+   export ok bytes=7819
+requested FontName=Microsoft YaHei -> get(ax,FontName)=Microsoft YaHei
+   export ok bytes=8186
+=== P7 Times family + bundled OTF ===
+after set, gca FontName = Times New Roman
+times pdf ok, bytes=11868
+fontdir (.claude/skills/mcm-plot-python/assets/fonts) exists = 7
+  otf: TeXGyreTermesX-Bold.otf (209828 B)
+  otf: TeXGyreTermesX-BoldItalic.otf (220832 B)
+  otf: TeXGyreTermesX-Italic.otf (217888 B)
+  otf: TeXGyreTermesX-Regular.otf (226088 B)
+after addpath, listfonts count = 249
+after addpath, has TeXGyreTermesX : 0
+after addpath, has TeX Gyre Termes : 0
+Java Font.createFont OK: family=TeXGyreTermesX name=TeXGyreTermesX Regular
+set FontName=TeXGyreTermesX -> gca FontName = TeXGyreTermesX
+otf-name pdf ok, bytes=9038
+=== probe_a done ===
+batch cwd AFTER run = D:\Projects\数学建模
+RC=0 ELAPSED=38s

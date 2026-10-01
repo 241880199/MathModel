@@ -1,0 +1,40 @@
+### HKCU Fonts key (reg query) ###
+
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts
+    Noto Sans SC (TrueType)    REG_SZ    C:\WINDOWS\Fonts\Noto Sans SC (TrueType).otf
+    Noto Sans SC Bold (TrueType)    REG_SZ    C:\WINDOWS\Fonts\Noto Sans SC Bold (TrueType).otf
+    Noto Sans SC Medium (TrueType)    REG_SZ    C:\WINDOWS\Fonts\Noto Sans SC Medium (TrueType).otf
+    Source Han Serif SC Heavy (TrueType)    REG_SZ    C:\WINDOWS\Fonts\Source Han Serif SC Heavy (TrueType).ttf
+    yyb Sans Regular (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\yyb.ttf
+    sdk_init_timestamp    REG_DWORD    0x6a046332
+    字语康宋体 (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\8a19d507065221de6f2ee934ae1c41f5.ttf
+    萝莉体 第二版 & 萝莉体 第二版 & 萝莉体 第二版 & 萝莉体 第二版 (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\萝莉体.ttc
+    TeXGyreTermesX (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Regular.otf
+    TeXGyreTermesX Italic (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Italic.otf
+    TeXGyreTermesX Bold (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-Bold.otf
+    TeXGyreTermesX Bold Italic (TrueType)    REG_SZ    C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts\TeXGyreTermesX-BoldItalic.otf
+    McmOutOfDirProbe (TrueType)    REG_SZ    D:\Projects\数学建模\build\m3-matlab-font\tmpfont\TeXGyreTermesX-Regular.otf
+
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts\Microsoft.WindowsTerminal_1.24.11321.0_x64__8wekyb3d8bbwe
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts\Microsoft.WindowsTerminal_1.24.11911.0_x64__8wekyb3d8bbwe
+### user font dir (ls -1) ###
+8a19d507065221de6f2ee934ae1c41f5.ttf
+TeXGyreTermesX-Bold.otf
+TeXGyreTermesX-BoldItalic.otf
+TeXGyreTermesX-Italic.otf
+TeXGyreTermesX-Regular.otf
+yyb.ttf
+萝莉体.ttc
+### user font dir (ls -la) ###
+total 17216
+drwxr-xr-x 1 Shameless 197121        0 Sep 30 18:57 .
+drwxr-xr-x 1 Shameless 197121        0 Sep 23 17:01 ..
+-rw-r--r-- 1 Shameless 197121  3051980 Jun 13 22:14 8a19d507065221de6f2ee934ae1c41f5.ttf
+-rw-r--r-- 1 Shameless 197121   209828 Sep 30 18:57 TeXGyreTermesX-Bold.otf
+-rw-r--r-- 1 Shameless 197121   220832 Sep 30 18:57 TeXGyreTermesX-BoldItalic.otf
+-rw-r--r-- 1 Shameless 197121   217888 Sep 30 18:57 TeXGyreTermesX-Italic.otf
+-rw-r--r-- 1 Shameless 197121   226088 Sep 30 18:57 TeXGyreTermesX-Regular.otf
+-rw-r--r-- 1 Shameless 197121  2840160 May 13 19:40 yyb.ttf
+-rw-r--r-- 1 Shameless 197121 10828284 May 21 11:46 萝莉体.ttc
+### HKLM Fonts: TeXGyre present? ###
+(grep_rc=1)

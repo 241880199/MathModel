@@ -1,0 +1,18 @@
+D:\Projects\数学建模\tests\m3-origin-probe\probe_f_axis.py:41: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  return sum(1 for px in d.getdata() if px != (0, 0, 0))
+### probe_f_axis start ###
+基准图 = D:\Projects\数学建模\build\m3-origin-probe\f\base.png
+  frame=0                    cmd=layer.frame=0;                     run=OK         差分像素=0
+  x2.show=0;y2.show=0        cmd=layer.x2.show=0; layer.y2.show=0;  run=OK         差分像素=0
+  x.opposite=1               cmd=layer.x.opposite=1;                run=OK         差分像素=0
+  x.show=0 (sanity 大改)       cmd=layer.x.show=0;                    run=OK         差分像素=0
+  x.majorTicks=3             cmd=layer.x.majorTicks=3;              run=OK         差分像素=314
+  x.minorTicks=0             cmd=layer.x.minorTicks=0;              run=OK         差分像素=15
+  x.ticks=4                  cmd=layer.x.ticks=4;                   run=OK         差分像素=409
+  x.tickDir=1                cmd=layer.x.tickDir=1;                 run=OK         差分像素=0
+  x.tickdir=1                cmd=layer.x.tickdir=1;                 run=OK         差分像素=0
+  x.tick.direction=1         cmd=layer.x.tick.direction=1;          run=OK         差分像素=0
+  x.ticklength=2             cmd=layer.x.ticklength=2;              run=OK         差分像素=453
+  plot1.line.width=3         cmd=layer.plot1.line.width=3;          run=OK         差分像素=4473
+  plot1.color=255            cmd=layer.plot1.color=255;             run=OK         差分像素=1281
+### probe_f_axis done ###

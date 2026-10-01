@@ -1,0 +1,4 @@
+=== 用户 OPDF.INI 已设 Color Translation=3（灰度），新起的 Origin 进程 ===
+Color Translation=3 下，红色像素数 = 0
+OPDF.INI 还原逐字节一致: True
+Color Translation=0（对照）下，红色像素数 = 0

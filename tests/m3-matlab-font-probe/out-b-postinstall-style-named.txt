@@ -1,0 +1,31 @@
+=== C0 env ===
+version = 25.2.0.3177638 (R2025b) Update 5
+
+=== C1 listfonts after user-level install (NEW session) ===
+listfonts count = 249
+wrote listfonts_probe_b_after.txt
+  exact [TeXGyreTermesX] = 0
+  exact [TeX Gyre TermesX] = 0
+  exact [TeXGyreTermes] = 0
+  exact [TeXGyreTermesX Bold] = 0
+  exact [Times New Roman] = 1
+  contains Termes n=0 {}
+
+=== C2 the Java source listfonts.m uses ===
+FontUtils.getFontNames size = 235
+  has TeXGyreTermesX = 0 ; has TeX Gyre TermesX = 0
+  contains Termes n=0 {}
+java.awt families count = 248 ; has TeXGyreTermesX = 0 ; has TeX Gyre TermesX = 0
+
+=== C3 end-to-end: does HG actually embed it? ===
+C3 texgyre_regular      FontName=TeXGyreTermesX     w=normal a=normal lastwarn id=[]
+C3 texgyre_bold         FontName=TeXGyreTermesX     w=bold   a=normal lastwarn id=[]
+C3 texgyre_italic       FontName=TeXGyreTermesX     w=normal a=italic lastwarn id=[]
+C3 texgyre_bolditalic   FontName=TeXGyreTermesX     w=bold   a=italic lastwarn id=[]
+C3 texgyre_spaced       FontName=TeX Gyre TermesX   w=normal a=normal lastwarn id=[]
+C3 times_control        FontName=Times New Roman    w=normal a=normal lastwarn id=[]
+
+=== C4 same font via print -dpdf and exportgraphics PNG ===
+C4 wrote print -dpdf and PNG
+
+=== C-END ===

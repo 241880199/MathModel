@@ -1,0 +1,6 @@
+listfonts = 251
+  mwa_cmb10          = 1
+  McmOutOfDirProbe   = 0
+  TeXGyreTermesX     = 1
+  pf mwa_cmb10       = 1
+  pf McmOutOfDirProbe = 0

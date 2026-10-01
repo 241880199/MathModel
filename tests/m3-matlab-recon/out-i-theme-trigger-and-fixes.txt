@@ -1,0 +1,74 @@
+### probe_i start ###
+=== S step-by-step ===
+[S0-start] defaultFigureColor=#F5F5F5  colorOrder1=#1171BE
+[S1-figure] defaultFigureColor=#F5F5F5  colorOrder1=#1171BE
+[S2-axes] defaultFigureColor=#F5F5F5  colorOrder1=#1171BE
+[S3-drawnow-after-axes] defaultFigureColor=#212121  colorOrder1=#268CDD
+[S4-plot] defaultFigureColor=#212121  colorOrder1=#268CDD
+[S5-drawnow-after-plot] defaultFigureColor=#212121  colorOrder1=#268CDD
+[S6-labels] defaultFigureColor=#212121  colorOrder1=#268CDD
+=== W fixes ===
+exist('theme') = 2
+Theme class = matlab.graphics.theme.GraphicsTheme
+Theme properties: Name, BaseColorStyle
+[警告: 对对象调用 STRUCT 将阻止该对象隐藏其实现详细信息，因此应避免执行此操作。使用 DISP 或 DISPLAY 可以查看对象的可见公共详细信息。有关详细信息，请参阅 'help struct'。] 
+[> 位置：probe_i (第 47 行)
+位置: run (第 112 行)] 
+                             Name: 'Dark Theme'
+                         NameMode: 'auto'
+                           Name_I: 'Dark Theme'
+                   BaseColorStyle: 'dark'
+               BaseColorStyleMode: 'auto'
+                 BaseColorStyle_I: 'dark'
+                   ContainerColor: [0.1294 0.1294 0.1294]
+               ContainerColorMode: 'auto'
+                 ContainerColor_I: [0.1294 0.1294 0.1294]
+                  BackgroundColor: [0.0706 0.0706 0.0706]
+              BackgroundColorMode: 'auto'
+                BackgroundColor_I: [0.0706 0.0706 0.0706]
+                    BaseTextColor: [0.8510 0.8510 0.8510]
+                BaseTextColorMode: 'auto'
+                  BaseTextColor_I: [0.8510 0.8510 0.8510]
+                   HyperlinkColor: [0.3294 0.7137 1]
+               HyperlinkColorMode: 'auto'
+                 HyperlinkColor_I: [0.3294 0.7137 1]
+            HyperlinkVisitedColor: [0.7529 0.3608 0.9843]
+        HyperlinkVisitedColorMode: 'auto'
+          HyperlinkVisitedColor_I: [0.7529 0.3608 0.9843]
+                DiscreteColorList: [7×3 double]
+            DiscreteColorListMode: 'auto'
+              DiscreteColorList_I: [7×3 double]
+        DiscreteColorListExtended: [12×3 double]
+    DiscreteColorListExtendedMode: 'auto'
+      DiscreteColorListExtended_I: [12×3 double]
+              ContinuousColorList: [256×3 double]
+          ContinuousColorListMode: 'auto'
+            ContinuousColorList_I: [256×3 double]
+          ContinuousBlueColorList: [256×3 double]
+      ContinuousBlueColorListMode: 'auto'
+        ContinuousBlueColorList_I: [256×3 double]
+                    AxesGridAlpha: 0.2500
+                AxesGridAlphaMode: 'auto'
+                  AxesGridAlpha_I: 0.2500
+               AxesMinorGridAlpha: 0.2500
+           AxesMinorGridAlphaMode: 'auto'
+             AxesMinorGridAlpha_I: 0.2500
+                          Basemap: 'streets-dark'
+                      BasemapMode: 'auto'
+          Basemap_InternalStorage: 'streets-dark'
+      Basemap_InternalStorageMode: 'auto'
+        Basemap_InternalStorage_I: 'streets-dark'
+                    OverrideColor: [0 0 0]
+
+W1 figure(...,'Theme','light') ok=1 
+W1 f2.Color=[0.9608 0.9608 0.9608]
+W1 corner=[255 255 255]
+W2 corner=[255 255 255]  ax.Color=[1.0000 1.0000 1.0000]
+W2 colorOrder after theme light rows=7 first=#1171BE
+W3 theme('light') (no handle) ok=1 
+[W3-after-theme-no-handle] defaultFigureColor=#212121  colorOrder1=#268CDD
+W3 new figure Color=[0.1294 0.1294 0.1294] ax.Color=[0.0706 0.0706 0.0706]
+W3 corner=[0 0 0]
+[W4-end] defaultFigureColor=#212121  colorOrder1=#268CDD
+=== probe_i done ===
+RC=0 ELAPSED=32s

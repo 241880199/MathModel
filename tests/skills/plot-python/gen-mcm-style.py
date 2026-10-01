@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""从规范 `house-style.md` **重放**派生件：`assets/mcm.mplstyle` 与 `assets/mcmplot.py` 的常量区。
+"""从规范 `house-style.md` + 载体无关样式表 `mcm-style.json` **重放**派生件：
+`assets/mcm.mplstyle` 与 `assets/mcmplot.py` 的常量区。
 
 用法（cwd = 仓根）：
 
@@ -46,12 +47,25 @@ H1 / H3 / H4 / H12 的数**一律落进 `mcmplot.py` 的常量区** `HOUSE_STYLE
 H12 的字体族、H9 之外各条需要的 `mathtext.fontset`），**不含**上述阈值 —— 那些随正文 pt / 栏宽而变，
 只能由调用方经函数换算。
 
+## 第二个输入：载体无关样式表 `mcm-style.json`（M3-style Task 4 起）
+
+H1/H3/H4/H12 从**规范**抽；**H14 的色序**不在规范正文里取（它登记在 Task 2 的载体无关样式表
+`.claude/skills/mcm-figure-choose/assets/mcm-style.json` 的 `series.color` 条目）⇒ 本脚本也读那份表，
+**逐字沿用 `check-figure-style.py` 的读法**（`read_text(encoding="utf-8")` + `entries` / `id` / `value`），
+两边同源。**色值绝不手写第二份**。
+
+**★ `axes.prop_cycle` 的 hex 必须不带 `#`**（实测，不是推论）：mplstyle 解析器把 `#` 当**注释起始**
+⇒ `cycler('color', ['#E69F00', …])` 解析失败，**而失败是静默的**（只往 stderr 打一条
+`Bad value in file …`，`rcParams` 保持原值）。不带 `#` 才落得上（SciencePlots 自己也是这么写的）。
+⇒ 落上与否由 `mcmplot.apply_style()` 里的**读回断言**兜（那是硬要求，见该函数）。
+
 ## 写入
 
 一律 `write_bytes`（全仓禁用 `write_text`：Windows 上会把 LF 写成 CRLF）；本脚本产出的两个文件
 都是 **LF**。
 """
 import argparse
+import json
 import pathlib
 import re
 import sys
@@ -60,6 +74,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[3]     # tests/skills/plot-pytho
 DOC = ROOT / ".claude/skills/mcm-figure-choose/references/house-style.md"
 MPLSTYLE = ROOT / ".claude/skills/mcm-plot-python/assets/mcm.mplstyle"
 MCM_PY = ROOT / ".claude/skills/mcm-plot-python/assets/mcmplot.py"
+# Task 2 的载体无关样式表（**H14 色序的唯一来源**）
+STYLE_TABLE = ROOT / ".claude/skills/mcm-figure-choose/assets/mcm-style.json"
 
 # ------------------------------------------------------------------ 锚点表
 # （id, house-style.md 里的锚定正则, HOUSE_STYLE 里的键）
@@ -106,11 +122,52 @@ MPLSTYLE_OVERRIDES = [
     ("axes.spines.right", "False", "H10：去掉右边框线"),
     ("xtick.minor.visible", "False", "H10：只留主刻度"),
     ("ytick.minor.visible", "False", "H10：只留主刻度"),
+    # ---- §0 底色：论文底色 = 白（Task 2 的表 `bg` 条目；四条一起设才盖全"画布 / 轴区 / 保存时"）
+    ("figure.facecolor", "white", "§0 交付形态：底色 = 论文底色（白）"),
+    ("axes.facecolor", "white", "§0：同上（否则轴区不是白）"),
+    ("savefig.facecolor", "white", "§0：同上（保存时不许被底座改写）"),
+    ("savefig.edgecolor", "white", "§0：同上（外边）"),
+    # ---- H10：底座 science 自带 xtick.top=True / ytick.right=True，只关 spines 会留**悬空刻度**
+    ("xtick.top", "False", "H10：底座 science 自带 xtick.top=True ⇒ 关掉 spines 后会留悬空刻度"),
+    ("ytick.right", "False", "H10：同上（底座 science 自带 ytick.right=True）"),
+    # ---- ★ H14 的 `axes.prop_cycle` **不在这个静态表里**：它的值要从 Task 2 的样式表现读
+    #      （抽不到即 fail-closed），见下面的 `mplstyle_overrides()`。
 ]
 
 
 class GeneratorError(RuntimeError):
-    """锚点不命中 / 命中 >1 / 目标件缺生成标记 —— 一律 fail-closed（非零退出、不写文件）。"""
+    """锚点不命中 / 命中 >1 / 目标件缺生成标记 / 读不出样式表 —— 一律 fail-closed（非零退出、不写文件）。"""
+
+
+def load_series_colors():
+    """从 Task 2 的载体无关样式表读 H14 的色序（`series.color`）。读不到 ⇒ `GeneratorError`。
+
+    读法与 `check-figure-style.py` 逐字同源（同一份表、同一套 `entries`/`id`/`value` 键序）。
+    **fail-closed**：抽不到色序就**不写任何文件**（绝不"抽不到就默认放行"—— 那正是本仓栽过六次的
+    "判据恒绿"）。
+    """
+    try:
+        tbl = json.loads(STYLE_TABLE.read_text(encoding="utf-8"))
+        return list(next(e["value"] for e in tbl["entries"] if e["id"] == "series.color"))
+    except Exception as e:                                   # noqa: BLE001（fail-closed 出口）
+        raise GeneratorError(f"读不出 {STYLE_TABLE.name} 的 series.color（{type(e).__name__}: {e}）"
+                             f"—— H14 的色序只有这一个来源，抽不到不写文件")
+
+
+def prop_cycle_value(colors):
+    """`axes.prop_cycle` 在 mplstyle 里的**值串**。hex **一律不带 `#`**：mplstyle 解析器把 `#` 当
+    注释起始 ⇒ 带 `#` 会**静默**解析失败（只往 stderr 打一条 `Bad value in file …`、`rcParams` 保持
+    原值）。不带 `#` 的写法与 SciencePlots 自己的 `science.mplstyle` 一致。
+    """
+    return "cycler('color', [" + ", ".join(f"'{c.lstrip('#')}'" for c in colors) + "])"
+
+
+def mplstyle_overrides():
+    """`mcm.mplstyle` 的覆盖键三元组列表 = 静态的 `MPLSTYLE_OVERRIDES` + 从样式表现取的 H14 色序。"""
+    return MPLSTYLE_OVERRIDES + [
+        ("axes.prop_cycle", prop_cycle_value(load_series_colors()),
+         "H14：显式色序（值来自 mcm-style.json 的 series.color，**去掉 # 前缀**）"),
+    ]
 
 
 def extract(text):
@@ -144,10 +201,10 @@ def render_mcm_py_values(pairs):
     return "\n".join(lines)
 
 
-def render_mplstyle_body():
-    """`mcm.mplstyle` 生成区的 rcParams 体。"""
+def render_mplstyle_body(overrides):
+    """`mcm.mplstyle` 生成区的 rcParams 体（`overrides` = `mplstyle_overrides()` 的结果）。"""
     lines = ["# 底座 = ['science', 'no-latex'] 叠加本文件（apply_style() 里顺序固定：本文件最后 ⇒ 覆盖前者）。"]
-    for key, val, why in MPLSTYLE_OVERRIDES:
+    for key, val, why in overrides:
         lines.append(f"{key}: {val}   # {why}")
     return "\n".join(lines)
 
@@ -175,6 +232,13 @@ def main():
         print(f"FAIL  ANCHOR  {e}", file=sys.stderr)
         return 1
 
+    # 第二个输入：Task 2 的样式表（H14 色序）。抽不到 ⇒ fail-closed、不写任何文件。
+    try:
+        overrides = mplstyle_overrides()
+    except GeneratorError as e:
+        print(f"FAIL  TABLE  {e}", file=sys.stderr)
+        return 1
+
     # ---- 先全部渲染（fail-closed 之后再写：任一环失败都不留半成品）
     mcm_text = MCM_PY.read_bytes().decode("utf-8")
     style_text = MPLSTYLE.read_bytes().decode("utf-8")
@@ -182,7 +246,7 @@ def main():
         new_mcm = replace_region(mcm_text, MCM_PY_BEGIN, MCM_PY_END,
                                  render_mcm_py_values(pairs), MCM_PY)
         new_style = replace_region(style_text, MPLSTYLE_BEGIN, MPLSTYLE_END,
-                                   render_mplstyle_body(), MPLSTYLE)
+                                   render_mplstyle_body(overrides), MPLSTYLE)
     except GeneratorError as e:
         print(f"FAIL  MARKER  {e}", file=sys.stderr)
         return 1
@@ -196,7 +260,11 @@ def main():
         val = dict(pairs)[key]
         print(f"    {aid:<22} {key:<26} = {val}")
     print(f"重放 → {MCM_PY.relative_to(ROOT).as_posix()}（常量区）")
-    print(f"重放 → {MPLSTYLE.relative_to(ROOT).as_posix()}（rcParams）")
+    print(f"重放 → {MPLSTYLE.relative_to(ROOT).as_posix()}（rcParams，覆盖键 {len(overrides)} 条）")
+    # H14 那条是**从样式表现读**的：把落进去的值原文打出来，便于一眼核对（hex 不带 `#`）。
+    for key, val, _why in overrides:
+        if key == "axes.prop_cycle":
+            print(f"    {key} = {val}")
     return 0
 
 

@@ -12,7 +12,8 @@
   **不预设默认值** —— 它是用户论文的属性，必须由调用方传入。
 - `fontsize_for(body_pt)`：给出图内字号的**允许区间**；`body_pt` 同样由调用方传（正文 pt 是论文的属性）。
 - `save(fig, path, dpi)`：`dpi` 必须与调用判据时传的 `--dpi` **一致**（否则 F1 的分母对不上）。
-- `apply_style()`：叠底座并注册入库字体。
+- `apply_style()`：叠底座并注册入库字体，**并当场读回断言色序真的落上了**（`axes.prop_cycle` 的
+  静默失败没有别的东西挡得住 —— 见该函数与 `_declared_prop_cycle_colors()`）。
 
 ## 两条**照实记**的操作事实（设计 §9 在系统 matplotlib 上实测）
 
@@ -30,17 +31,33 @@
 - **数学不是论文那一套**：论文的数学是 `NewTXMI` + `txexs`，本模块用 `mathtext`（`stix`）——
   **两套实现，逐字形同一做不到**。罗马字则用**入库的同一族**（`TeX Gyre TermesX`）。
 - **中文字形缺失**：默认与 `science` 底座都缺中文字形（只 warning、图上留空白框）。
-- **上/右悬空刻度（底座副作用）**：底座 `science` 自带 `xtick.top: True` / `ytick.right: True`，
-  而 `mcm.mplstyle` 只关了 `axes.spines.top` / `axes.spines.right` 两条**边框线** ⇒ 图上/右会留下
-  **没有边框线却仍在的悬空刻度**。**模块自身未关** —— 当前调用方得在**轴级**用
-  `tick_params(top=False, right=False)` 自己关（GREEN 生成器就是这么做的）。**修复 owner：本模块的
-  后续修复任务**（落点 = `mcm.mplstyle` 的覆盖键，属派生区，须走生成器）。
-- **描白边会抬高 PNG 的 F2**：给条/块描白边时，抗锯齿与白底混出的浅色在 **PNG** 栅格上占比越过
-  阈值 ⇒ 同一张图 PNG 的 F2 比 PDF 高（PDF 走栅格时混色占比低于阈值）。这更偏**用法**层
-  （调用方不该给条描白边），**不是**模块要改的键。**修复 owner：本模块的后续修复任务**（落点可以是
-  模块文档的用法禁忌 / `workflow.md` 的禁用项，或让 `save()` 之后的产物自带这条告警）。
+- ~~**上/右悬空刻度（底座副作用）**~~ **已处置**：底座 `science` 自带 `xtick.top: True` /
+  `ytick.right: True`，而本件原先只关 `axes.spines.top` / `axes.spines.right` 两条**边框线**
+  ⇒ 图上/右留下过**没有边框线却仍在的悬空刻度**。现已在 `mcm.mplstyle` 显式置 `xtick.top: False` /
+  `ytick.right: False`（属派生区，由 `gen-mcm-style.py` 重放产出）。
+  **证据（入库探针，可复算）**：底座 `science` 的刻度**朝内**，探针量**轴区顶边 / 右边内侧**带
+  （带宽 = 刻度长 3pt ≈ 12.5 px @300dpi + 余量）内的非白像素数，并同跑一条只把这两个键改回 `True`
+  的对照。**复算命令（逐字可粘）**：
+  `python tests/skills/plot-python/probe-gap1-hanging-ticks.py`
+  ⇒ **落地态两带均 0**；**旧态（对照）顶边带 234 / 右边带 120**（探针在对照里读得到墨迹 ⇒ 不是恒零）。
+  探针本身就在入库件 `tests/skills/plot-python/probe-gap1-hanging-ticks.py`（含口径与射程），
+  不依赖任何 gitignored 的过程件。
+- **描白边会抬高 PNG 的 F2**（**已定性，改由判据侧承重**）：条/柱描白边时抗锯齿边与白底混出浅色，
+  在 PNG 上把 F2 抬高一档（**两态读数实测**：同一张图不描边 PNG=3 → 描白边 PNG=5；同图的 PDF 两态
+  都 =3。四个读数由 `make-evidence.py` 当场算、落在 `tests/skills/plot-python/red-green-evidence.md`）。
+  **这批混色不在 H14 集合里** ⇒ 除 F2 外它也撞上 **F5（显式色序）**：这张图描白边的 **PNG** 报
+  越界主色 **2 种**（`#e2f2fb` / `#faeed4`，即混色），**同图 PDF 报 0 种**（这批混色落到 0.5% 地板
+  之下）。⚠️ **该结论只在探针用 H14 配色作画时成立**：探针若按 matplotlib 默认色序（`#1f77b4`…）
+  作画，那三色本就不在 H14 集合里 ⇒ 两载体都报越界主色、F5 在探针图上**不区分载体**。
+  **处置**：**不改 RED 语料**（写手产出物，手改 = 造伪）；源头加一条 **skill 侧用法禁令**
+  （`references/workflow.md`），并由 `check-figure-style.py` 的 **F5/F2** 与 `green/out-G*/make_figure.py`
+  **通篇不设 `edgecolor`**（`grep -rn edgecolor tests/skills/plot-python/green/` 零命中）这一事实共同承重。
+  **复算命令**：`python tests/skills/plot-python/make-evidence.py`（当场重画四个产物、跑检查器，
+  §4 里逐字列出 F2 表与四条 F5 判词）。
+  **owner** = `mcm-plot-python` 后续任何改动 F2 口径的任务。
 """
 import pathlib
+import re
 
 _ASSETS = pathlib.Path(__file__).resolve().parent
 _MPLSTYLE = _ASSETS / "mcm.mplstyle"
@@ -51,6 +68,36 @@ _FONTS = tuple(_ASSETS / "fonts" / f"TeXGyreTermesX-{s}.otf" for s in _FONT_STYL
 _BASE_STYLES = ("science", "no-latex")
 
 _FONTS_REGISTERED = False
+
+# `mcm.mplstyle` 生成区里那行 `axes.prop_cycle: cycler('color', [...])` 的声明形态。
+_PROP_CYCLE_RE = re.compile(r"(?m)^axes\.prop_cycle:\s*cycler\('color',\s*\[([^\]]*)\]\s*\)")
+
+
+def _declared_prop_cycle_colors():
+    """读回 `mcm.mplstyle`（**派生物**）里 `axes.prop_cycle` 声明的那串色 —— 本模块**不手写第二份**。
+
+    四段链条：`mcm-figure-choose/assets/mcm-style.json` 的 `series.color` →（`gen-mcm-style.py` 重放）
+    → 本文件那一行 →（matplotlib 解析）→ `rcParams`。本函数核**后两段**（"**声明了的色有没有真的落进
+    `rcParams`**"）；前两段由 `gen-mcm-style.py` 的 fail-closed 抽值与 `check-style-freshness.py` 的
+    A1/A2 两条臂守；产物上色序对不对则由 `check-figure-style.py` 的 F5 **端到端**判（拿产物对表）。
+
+    **射程（如实写窄，本机实测）**：
+    - "那一行解析失败"若**其色与底座不同** ⇒ 断言咬住（实测：声明 `['#111111', '#222222']` 时断言
+      报"声明 `['111111','222222']` / 实得底座八色"）；
+    - **盲区**：底座 `science` 若恰好也是同一串色，解析失败会被底座值**盖住**、断言不响
+      （本机装的 SciencePlots 已被改成同一串色，正属这种情形）⇒ 那时靠 F5 与上面那两段守；
+    - **不在射程内**：文件**声明本身写错**（但能解析）的情形 —— 本断言按定义对不上就报，对上就过；
+      那条由链条第 1–2 段（生成器 + A1/A2）与 F5 覆盖。
+
+    找不到那行 ⇒ **抛**（fail-loud）：派生件应由 `gen-mcm-style.py` 重放产出，缺了就没有核对的依据。
+    """
+    m = _PROP_CYCLE_RE.search(_MPLSTYLE.read_text(encoding="utf-8"))
+    if m is None:
+        raise RuntimeError(
+            f"{_MPLSTYLE.name} 里找不到可解析的 `axes.prop_cycle: cycler('color', […])` 行 "
+            f"⇒ 色序无从核对（派生件应由 gen-mcm-style.py 重放产出）")
+    return [c.lstrip("#") for c in re.findall(r"'([^']+)'", m.group(1))]
+
 
 # >>> BEGIN GENERATED: HOUSE_STYLE（gen-mcm-style.py 重放，勿手改）>>>
 # 规范（.claude/skills/mcm-figure-choose/references/house-style.md）在本模块里的镜像。
@@ -90,6 +137,16 @@ def apply_style():
             font_manager.fontManager.addfont(str(f))
         _FONTS_REGISTERED = True
     plt.style.use([*_BASE_STYLES, str(_MPLSTYLE)])
+
+    # ★ 硬要求：**设完之后当场读回、断言色序真的落上了** —— 因为"没设上"在这里是**静默**的：
+    #   mplstyle 解析器把 `#` 当**注释起始**，所以 `mcm.mplstyle` 里那行的 hex 一旦带上 `#`，
+    #   解析就失败、只往 stderr 打一条 `Bad value in file …`，`rcParams` **保持原值**（底座色序）。
+    #   没有这条断言，"色序没落上"会一路没人发现。核对的基准 = 那一行**自己声明**的那串色
+    #   （不在这里手写第二份，见 `_declared_prop_cycle_colors()`）。
+    _got = [c.lstrip("#") for c in plt.rcParams["axes.prop_cycle"].by_key()["color"]]
+    _want = _declared_prop_cycle_colors()
+    assert _got == _want, (
+        f"prop_cycle 没落上（静默失败）：mcm.mplstyle 声明 {_want}，rcParams 实得 {_got}")
 
 
 def figsize_for(textwidth_in):

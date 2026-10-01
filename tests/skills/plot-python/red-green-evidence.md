@@ -10,8 +10,8 @@
   R1/R3 同数据、R2 另一组数据。RED 与 GREEN 各 3 个场景。
 - **分母**：两侧都传 `--textwidth-in 6.31`（本仓演示口径）。
 - **同一把尺**：`tests/skills/figure-choose/check-figure-style.py` **一字未改**。
-  工作树 blob `7636902a868a` · `HEAD:` blob `7636902a868a` ⇒ **相同**
-- **同数**：每侧 3 场景 × 2 载体（PNG/PDF）= **6 张图**，两侧共 12 张；判据 6 条 × 12 张。
+  工作树 blob `55e5e9683603` · `HEAD:` blob `55e5e9683603` ⇒ **相同**
+- **同数**：每侧 3 场景 × 2 载体（PNG/PDF）= **6 张图**，两侧共 12 张；判据 9 条 × 12 张。
 - **PNG 的 `--dpi` 由产物自身推得**（PNG 像素宽 ÷ PDF 页盒宽），见每场景的 `dpi=` 行。
 - **RED 侧**：三个场景由**干净上下文的写手**产出（提示词只给场景 brief 路径与输出目录；
   **未给**规范 / 模块 / 判据 / 先例证据）。派发提示词与自报见 `red/writer-self-reports.md`。
@@ -42,25 +42,31 @@ low-dominated and D and B the most medium-dominated.
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\red\out-R1\figure.png --caption @tests\skills\plot-python\red\out-R1\caption.txt --textwidth-in 6.31 --dpi 300
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 FAIL  F1  图宽比 1.213（分母 6.31 in）
 PASS  F2  彩色主色数 4
+FAIL  F5  越界主色 4 种（不在 H14 允许集合）：[('#5aae61', 0.0518), ('#f4a259', 0.0483), ('#c1443c', 0.0279), ('#faf1d6', 0.0172)]
 FAIL  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 168 超硬上限 17
 FAIL  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 168 词）
-RESULT: FAIL（F1,F3a,F3b,F3c）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+RESULT: FAIL（F1,F5,F3a,F3b,F3c）
 [exit=1]
 ```
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\red\out-R1\figure.pdf --caption @tests\skills\plot-python\red\out-R1\caption.txt --textwidth-in 6.31
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 FAIL  F1  图宽比 1.214（分母 6.31 in）
 PASS  F2  彩色主色数 4
+FAIL  F5  越界主色 4 种（不在 H14 允许集合）：[('#5aae61', 0.0498), ('#f4a259', 0.0464), ('#c1443c', 0.0264), ('#faf1d7', 0.0163)]
 FAIL  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 168 超硬上限 17
 FAIL  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 168 词）
-RESULT: FAIL（F1,F3a,F3b,F3c）
+FAIL  F6  内嵌字体 ['DejaVuSans', 'DejaVuSans-Bold']
+RESULT: FAIL（F1,F5,F3a,F3b,F3c,F6）
 [exit=1]
 ```
 
@@ -73,25 +79,31 @@ Figure 1. Drivers of the historical disaster count and the similarity of the six
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\red\out-R2\figure.png --caption @tests\skills\plot-python\red\out-R2\caption.txt --textwidth-in 6.31 --dpi 300
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 FAIL  F1  图宽比 1.385（分母 6.31 in）
 FAIL  F2  彩色主色数 12
+FAIL  F5  越界主色 15 种（不在 H14 允许集合）：[('#95b1ce', 0.0236), ('#6e8fbe', 0.0235), ('#4c72b0', 0.0218), ('#c44e52', 0.0125)]
 FAIL  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 208 超硬上限 17
 FAIL  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 208 词）
-RESULT: FAIL（F1,F2,F3a,F3b,F3c）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+RESULT: FAIL（F1,F2,F5,F3a,F3b,F3c）
 [exit=1]
 ```
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\red\out-R2\figure.pdf --caption @tests\skills\plot-python\red\out-R2\caption.txt --textwidth-in 6.31
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 FAIL  F1  图宽比 1.385（分母 6.31 in）
 FAIL  F2  彩色主色数 12
+FAIL  F5  越界主色 15 种（不在 H14 允许集合）：[('#95b1ce', 0.0229), ('#6e8fbe', 0.0224), ('#4c72b0', 0.0214), ('#c44e52', 0.012)]
 FAIL  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 208 超硬上限 17
 FAIL  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 208 词）
-RESULT: FAIL（F1,F2,F3a,F3b,F3c）
+FAIL  F6  内嵌字体 ['DejaVuSerif', 'DejaVuSerif-Italic']
+RESULT: FAIL（F1,F2,F5,F3a,F3b,F3c,F6）
 [exit=1]
 ```
 
@@ -104,25 +116,31 @@ Figure 1. Vulnerability composition of the six districts and the similarity of t
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\red\out-R3\figure.png --caption @tests\skills\plot-python\red\out-R3\caption.txt --textwidth-in 6.31 --dpi 300
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 FAIL  F1  图宽比 1.514（分母 6.31 in）
 FAIL  F2  彩色主色数 15
+FAIL  F5  越界主色 15 种（不在 H14 允许集合）：[('#c6dbef', 0.085), ('#4292c6', 0.0794), ('#08306b', 0.059), ('#d2e3f3', 0.0258)]
 FAIL  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 237 超硬上限 17
 FAIL  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 237 词）
-RESULT: FAIL（F1,F2,F3a,F3b,F3c）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+RESULT: FAIL（F1,F2,F5,F3a,F3b,F3c）
 [exit=1]
 ```
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\red\out-R3\figure.pdf --caption @tests\skills\plot-python\red\out-R3\caption.txt --textwidth-in 6.31
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 FAIL  F1  图宽比 1.515（分母 6.31 in）
 FAIL  F2  彩色主色数 15
+FAIL  F5  越界主色 16 种（不在 H14 允许集合）：[('#c6dbef', 0.0826), ('#4292c6', 0.0768), ('#07306b', 0.0437), ('#72b1d7', 0.0254)]
 FAIL  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 237 超硬上限 17
 FAIL  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 237 词）
-RESULT: FAIL（F1,F2,F3a,F3b,F3c）
+FAIL  F6  内嵌字体 ['DejaVuSans', 'DejaVuSans-Bold']
+RESULT: FAIL（F1,F2,F5,F3a,F3b,F3c,F6）
 [exit=1]
 ```
 
@@ -137,24 +155,30 @@ Figure 1: Vulnerability composition by district; B and D most similar
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\green\out-G1\figure.png --caption @tests\skills\plot-python\green\out-G1\caption.txt --textwidth-in 6.31 --dpi 200
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 PASS  F1  图宽比 1.000（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 9（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 9 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 ```
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\green\out-G1\figure.pdf --caption @tests\skills\plot-python\green\out-G1\caption.txt --textwidth-in 6.31
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 PASS  F1  图宽比 1.000（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 9（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 9 词）
+PASS  F6  内嵌字体 ['TeXGyreTermesX-Regular']
 RESULT: PASS
 [exit=0]
 ```
@@ -168,24 +192,30 @@ Figure 2: Correlation of district attributes with historical disaster count
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\green\out-G2\figure.png --caption @tests\skills\plot-python\green\out-G2\caption.txt --textwidth-in 6.31 --dpi 200
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 PASS  F1  图宽比 1.000（分母 6.31 in）
 PASS  F2  彩色主色数 2
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 8（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 8 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 ```
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\green\out-G2\figure.pdf --caption @tests\skills\plot-python\green\out-G2\caption.txt --textwidth-in 6.31
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 PASS  F1  图宽比 1.000（分母 6.31 in）
 PASS  F2  彩色主色数 2
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 8（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 8 词）
+PASS  F6  内嵌字体 ['TeXGyreTermesX-Regular']
 RESULT: PASS
 [exit=0]
 ```
@@ -199,24 +229,30 @@ Figure 3: Vulnerability composition by district, paper-ready
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\green\out-G3\figure.png --caption @tests\skills\plot-python\green\out-G3\caption.txt --textwidth-in 6.31 --dpi 200
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 PASS  F1  图宽比 1.000（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 5（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 5 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 ```
 
 ```
 $ python tests\skills\figure-choose\check-figure-style.py --fig tests\skills\plot-python\green\out-G3\figure.pdf --caption @tests\skills\plot-python\green\out-G3\caption.txt --textwidth-in 6.31
+PASS  F4  底色亮度 255（众数 RGB (255, 255, 255)，下限 136）
 PASS  F1  图宽比 1.000（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 5（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 5 词）
+PASS  F6  内嵌字体 ['TeXGyreTermesX-Regular']
 RESULT: PASS
 [exit=0]
 ```
@@ -225,20 +261,20 @@ RESULT: PASS
 
 每个格子 = `状态`（绿=PASS / 红=FAIL）。同场景同行，RED 与 GREEN 并列；判据 ID 见表头。
 
-| 场景 | 载体 | 侧 | F1 | F2 | F3a | F3b | F3c | F3d | RESULT |
-| :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
-| R1 | PNG | RED | 红 | 绿 | 红 | 红 | 红 | 绿 | FAIL |
-| G1 | PNG | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
-| R1 | PDF | RED | 红 | 绿 | 红 | 红 | 红 | 绿 | FAIL |
-| G1 | PDF | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
-| R2 | PNG | RED | 红 | 红 | 红 | 红 | 红 | 绿 | FAIL |
-| G2 | PNG | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
-| R2 | PDF | RED | 红 | 红 | 红 | 红 | 红 | 绿 | FAIL |
-| G2 | PDF | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
-| R3 | PNG | RED | 红 | 红 | 红 | 红 | 红 | 绿 | FAIL |
-| G3 | PNG | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
-| R3 | PDF | RED | 红 | 红 | 红 | 红 | 红 | 绿 | FAIL |
-| G3 | PDF | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
+| 场景 | 载体 | 侧 | F1 | F2 | F3a | F3b | F3c | F3d | F4 | F5 | F6 | RESULT |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| R1 | PNG | RED | 红 | 绿 | 红 | 红 | 红 | 绿 | 绿 | 红 | 绿 | FAIL |
+| G1 | PNG | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
+| R1 | PDF | RED | 红 | 绿 | 红 | 红 | 红 | 绿 | 绿 | 红 | 红 | FAIL |
+| G1 | PDF | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
+| R2 | PNG | RED | 红 | 红 | 红 | 红 | 红 | 绿 | 绿 | 红 | 绿 | FAIL |
+| G2 | PNG | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
+| R2 | PDF | RED | 红 | 红 | 红 | 红 | 红 | 绿 | 绿 | 红 | 红 | FAIL |
+| G2 | PDF | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
+| R3 | PNG | RED | 红 | 红 | 红 | 红 | 红 | 绿 | 绿 | 红 | 绿 | FAIL |
+| G3 | PNG | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
+| R3 | PDF | RED | 红 | 红 | 红 | 红 | 红 | 绿 | 绿 | 红 | 红 | FAIL |
+| G3 | PDF | GREEN | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | 绿 | PASS |
 
 ### §3.1 逐判据红/绿明细（含判词，机器抽取）
 
@@ -250,93 +286,142 @@ RESULT: PASS
 | R1 | PNG | RED | F3b | FAIL | 图注词数 168 超硬上限 17 |
 | R1 | PNG | RED | F3c | FAIL | 句末不加句号 |
 | R1 | PNG | RED | F3d | PASS | 图注正文非空（正文 168 词） |
+| R1 | PNG | RED | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| R1 | PNG | RED | F5 | FAIL | 越界主色 4 种（不在 H14 允许集合）：[('#5aae61', 0.0518), ('#f4a259', 0.0483), ('#c1443c', 0.0279), ('#faf1d6', 0.0172)] |
+| R1 | PNG | RED | F6 | PASS | PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿） |
 | G1 | PNG | GREEN | F1 | PASS | 图宽比 1.000（分母 6.31 in） |
 | G1 | PNG | GREEN | F2 | PASS | 彩色主色数 3 |
 | G1 | PNG | GREEN | F3a | PASS | 图注以 `Figure N:` 起 |
 | G1 | PNG | GREEN | F3b | PASS | 图注词数 9（上限 12，硬上限 17） |
 | G1 | PNG | GREEN | F3c | PASS | 句末不加句号 |
 | G1 | PNG | GREEN | F3d | PASS | 图注正文非空（正文 9 词） |
+| G1 | PNG | GREEN | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| G1 | PNG | GREEN | F5 | PASS | 越界主色 0 种（不在 H14 允许集合）：[] |
+| G1 | PNG | GREEN | F6 | PASS | PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿） |
 | R1 | PDF | RED | F1 | FAIL | 图宽比 1.214（分母 6.31 in） |
 | R1 | PDF | RED | F2 | PASS | 彩色主色数 4 |
 | R1 | PDF | RED | F3a | FAIL | 图注以 `Figure N:` 起 |
 | R1 | PDF | RED | F3b | FAIL | 图注词数 168 超硬上限 17 |
 | R1 | PDF | RED | F3c | FAIL | 句末不加句号 |
 | R1 | PDF | RED | F3d | PASS | 图注正文非空（正文 168 词） |
+| R1 | PDF | RED | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| R1 | PDF | RED | F5 | FAIL | 越界主色 4 种（不在 H14 允许集合）：[('#5aae61', 0.0498), ('#f4a259', 0.0464), ('#c1443c', 0.0264), ('#faf1d7', 0.0163)] |
+| R1 | PDF | RED | F6 | FAIL | 内嵌字体 ['DejaVuSans', 'DejaVuSans-Bold'] |
 | G1 | PDF | GREEN | F1 | PASS | 图宽比 1.000（分母 6.31 in） |
 | G1 | PDF | GREEN | F2 | PASS | 彩色主色数 3 |
 | G1 | PDF | GREEN | F3a | PASS | 图注以 `Figure N:` 起 |
 | G1 | PDF | GREEN | F3b | PASS | 图注词数 9（上限 12，硬上限 17） |
 | G1 | PDF | GREEN | F3c | PASS | 句末不加句号 |
 | G1 | PDF | GREEN | F3d | PASS | 图注正文非空（正文 9 词） |
+| G1 | PDF | GREEN | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| G1 | PDF | GREEN | F5 | PASS | 越界主色 0 种（不在 H14 允许集合）：[] |
+| G1 | PDF | GREEN | F6 | PASS | 内嵌字体 ['TeXGyreTermesX-Regular'] |
 | R2 | PNG | RED | F1 | FAIL | 图宽比 1.385（分母 6.31 in） |
 | R2 | PNG | RED | F2 | FAIL | 彩色主色数 12 |
 | R2 | PNG | RED | F3a | FAIL | 图注以 `Figure N:` 起 |
 | R2 | PNG | RED | F3b | FAIL | 图注词数 208 超硬上限 17 |
 | R2 | PNG | RED | F3c | FAIL | 句末不加句号 |
 | R2 | PNG | RED | F3d | PASS | 图注正文非空（正文 208 词） |
+| R2 | PNG | RED | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| R2 | PNG | RED | F5 | FAIL | 越界主色 15 种（不在 H14 允许集合）：[('#95b1ce', 0.0236), ('#6e8fbe', 0.0235), ('#4c72b0', 0.0218), ('#c44e52', 0.0125)] |
+| R2 | PNG | RED | F6 | PASS | PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿） |
 | G2 | PNG | GREEN | F1 | PASS | 图宽比 1.000（分母 6.31 in） |
 | G2 | PNG | GREEN | F2 | PASS | 彩色主色数 2 |
 | G2 | PNG | GREEN | F3a | PASS | 图注以 `Figure N:` 起 |
 | G2 | PNG | GREEN | F3b | PASS | 图注词数 8（上限 12，硬上限 17） |
 | G2 | PNG | GREEN | F3c | PASS | 句末不加句号 |
 | G2 | PNG | GREEN | F3d | PASS | 图注正文非空（正文 8 词） |
+| G2 | PNG | GREEN | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| G2 | PNG | GREEN | F5 | PASS | 越界主色 0 种（不在 H14 允许集合）：[] |
+| G2 | PNG | GREEN | F6 | PASS | PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿） |
 | R2 | PDF | RED | F1 | FAIL | 图宽比 1.385（分母 6.31 in） |
 | R2 | PDF | RED | F2 | FAIL | 彩色主色数 12 |
 | R2 | PDF | RED | F3a | FAIL | 图注以 `Figure N:` 起 |
 | R2 | PDF | RED | F3b | FAIL | 图注词数 208 超硬上限 17 |
 | R2 | PDF | RED | F3c | FAIL | 句末不加句号 |
 | R2 | PDF | RED | F3d | PASS | 图注正文非空（正文 208 词） |
+| R2 | PDF | RED | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| R2 | PDF | RED | F5 | FAIL | 越界主色 15 种（不在 H14 允许集合）：[('#95b1ce', 0.0229), ('#6e8fbe', 0.0224), ('#4c72b0', 0.0214), ('#c44e52', 0.012)] |
+| R2 | PDF | RED | F6 | FAIL | 内嵌字体 ['DejaVuSerif', 'DejaVuSerif-Italic'] |
 | G2 | PDF | GREEN | F1 | PASS | 图宽比 1.000（分母 6.31 in） |
 | G2 | PDF | GREEN | F2 | PASS | 彩色主色数 2 |
 | G2 | PDF | GREEN | F3a | PASS | 图注以 `Figure N:` 起 |
 | G2 | PDF | GREEN | F3b | PASS | 图注词数 8（上限 12，硬上限 17） |
 | G2 | PDF | GREEN | F3c | PASS | 句末不加句号 |
 | G2 | PDF | GREEN | F3d | PASS | 图注正文非空（正文 8 词） |
+| G2 | PDF | GREEN | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| G2 | PDF | GREEN | F5 | PASS | 越界主色 0 种（不在 H14 允许集合）：[] |
+| G2 | PDF | GREEN | F6 | PASS | 内嵌字体 ['TeXGyreTermesX-Regular'] |
 | R3 | PNG | RED | F1 | FAIL | 图宽比 1.514（分母 6.31 in） |
 | R3 | PNG | RED | F2 | FAIL | 彩色主色数 15 |
 | R3 | PNG | RED | F3a | FAIL | 图注以 `Figure N:` 起 |
 | R3 | PNG | RED | F3b | FAIL | 图注词数 237 超硬上限 17 |
 | R3 | PNG | RED | F3c | FAIL | 句末不加句号 |
 | R3 | PNG | RED | F3d | PASS | 图注正文非空（正文 237 词） |
+| R3 | PNG | RED | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| R3 | PNG | RED | F5 | FAIL | 越界主色 15 种（不在 H14 允许集合）：[('#c6dbef', 0.085), ('#4292c6', 0.0794), ('#08306b', 0.059), ('#d2e3f3', 0.0258)] |
+| R3 | PNG | RED | F6 | PASS | PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿） |
 | G3 | PNG | GREEN | F1 | PASS | 图宽比 1.000（分母 6.31 in） |
 | G3 | PNG | GREEN | F2 | PASS | 彩色主色数 3 |
 | G3 | PNG | GREEN | F3a | PASS | 图注以 `Figure N:` 起 |
 | G3 | PNG | GREEN | F3b | PASS | 图注词数 5（上限 12，硬上限 17） |
 | G3 | PNG | GREEN | F3c | PASS | 句末不加句号 |
 | G3 | PNG | GREEN | F3d | PASS | 图注正文非空（正文 5 词） |
+| G3 | PNG | GREEN | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| G3 | PNG | GREEN | F5 | PASS | 越界主色 0 种（不在 H14 允许集合）：[] |
+| G3 | PNG | GREEN | F6 | PASS | PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿） |
 | R3 | PDF | RED | F1 | FAIL | 图宽比 1.515（分母 6.31 in） |
 | R3 | PDF | RED | F2 | FAIL | 彩色主色数 15 |
 | R3 | PDF | RED | F3a | FAIL | 图注以 `Figure N:` 起 |
 | R3 | PDF | RED | F3b | FAIL | 图注词数 237 超硬上限 17 |
 | R3 | PDF | RED | F3c | FAIL | 句末不加句号 |
 | R3 | PDF | RED | F3d | PASS | 图注正文非空（正文 237 词） |
+| R3 | PDF | RED | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| R3 | PDF | RED | F5 | FAIL | 越界主色 16 种（不在 H14 允许集合）：[('#c6dbef', 0.0826), ('#4292c6', 0.0768), ('#07306b', 0.0437), ('#72b1d7', 0.0254)] |
+| R3 | PDF | RED | F6 | FAIL | 内嵌字体 ['DejaVuSans', 'DejaVuSans-Bold'] |
 | G3 | PDF | GREEN | F1 | PASS | 图宽比 1.000（分母 6.31 in） |
 | G3 | PDF | GREEN | F2 | PASS | 彩色主色数 3 |
 | G3 | PDF | GREEN | F3a | PASS | 图注以 `Figure N:` 起 |
 | G3 | PDF | GREEN | F3b | PASS | 图注词数 5（上限 12，硬上限 17） |
 | G3 | PDF | GREEN | F3c | PASS | 句末不加句号 |
 | G3 | PDF | GREEN | F3d | PASS | 图注正文非空（正文 5 词） |
+| G3 | PDF | GREEN | F4 | PASS | 底色亮度 255（众数 RGB (255, 255, 255)，下限 136） |
+| G3 | PDF | GREEN | F5 | PASS | 越界主色 0 种（不在 H14 允许集合）：[] |
+| G3 | PDF | GREEN | F6 | PASS | 内嵌字体 ['TeXGyreTermesX-Regular'] |
 
 ### §3.2 汇总（由 §3 的格子逐格重算）
 
 | 侧 | 红格数（判据×图） | 判红的判据 ID（并集） | 全绿图数 |
 | :-- | :-- | :-- | :-- |
-| RED | 28 | F1、F2、F3a、F3b、F3c | 0/6 |
+| RED | 37 | F1、F2、F3a、F3b、F3c、F5、F6 | 0/6 |
 | GREEN | 0 | （无） | 6/6 |
 
 ## §4 F2 随载体变（**不能跨载体比 F2**）
 
-同一份数据、同一张图（横条**描白边**），只换载体：
+同一份数据、同一张图（六段**横向堆叠条**，**H14 配色**）；唯一被换的量 = **描不描白边**，每态各出两载体。读数**当场算**（`check-figure-style.py` 本人的判词，逐字抄）：
 
 ```
-PNG  F2 = 5
-PDF  F2 = 3
+              PNG  PDF
+描白边          5    3
+不描边（对照）   3    3
 ```
 
-⇒ **F2 随载体变**（这里 PNG 比 PDF 高：PNG 栅格上描边的抗锯齿混色占到 0.5% 以上；PDF 走第 1 页 150 dpi 栅格，混色占比低于阈值）。
-**结论：F2 不能跨载体比** —— 同一张图必须写清“这是在哪个载体上量的”。
-（同一个机制也解释了 GREEN 的 G3 / G1 **初版**：它们给条描了白边，实测 PNG 的 F2 被抬高一档（G3 初版 PNG=5 / PDF=3；G1 初版加 constrained 后 PNG=4 / PDF=3）；去掉白边后两图两载体都回落到 3。**这是“看图 + 看读数”逼出来的修图**。）
+⇒ **描白边把 PNG 的 F2 抬高**（同一张图：不描边 3 → 描白边 5）；**同图的 PDF 不变**（描与不描都 3 = 对照 3）。
+机制：描边的抗锯齿与白底混出的浅色，在 **PNG** 栅格上占到 0.5% 以上（各成一箱）；PDF 走第 1 页 150 dpi 栅格 ⇒ 同一个混色占比落到地板之下。
+**这批混色不在 H14 集合里** ⇒ 除 F2 外它也撞上 **F5（显式色序）** —— 同一支检查器判词：
+
+```
+描白边 PNG：越界主色 2 种（不在 H14 允许集合）：[('#e2f2fb', 0.0068), ('#faeed4', 0.0068)]
+描白边 PDF：越界主色 0 种（不在 H14 允许集合）：[]
+不描边 PNG：越界主色 0 种（不在 H14 允许集合）：[]
+不描边 PDF：越界主色 0 种（不在 H14 允许集合）：[]
+```
+
+⇒ 描白边混出的这批混色**只在 PNG 上报为越界主色**（上面 PNG 判词里列出的那几个 hex）、**PDF 报 0 种**（落到 0.5% 地板之下）。**这条只在探针用 H14 配色时才成立**：若用 matplotlib 默认色序作画，那三色本就不在 H14 集合里 ⇒ 两载体都报越界、F5 不区分载体。
+**结论①：F2 不能跨载体比** —— 同一张图必须写清“这是在哪个载体上量的”；**F5 同批混色的落点也随载体变**（同一批混色在一个载体上算主色、在另一个载体上不算）。
+**结论②（Task 5 缺口②）**：不要在条/柱上描白边；要拦就拦在源头（见 skill 侧禁令）。
 （另一条独立佐证：侦察 `tests/m3-plot-recon/out-d11-red-loop.txt` 的线图上是 PNG=2 / PDF=1 —— 同样不同，方向与本探针相反，更说明两载体不可互换。）
+（**历史叙述（非本树复导）**：GREEN 的 G3 / G1 **初版**曾给条描白边，实测 PNG 的 F2 被抬高一档（G3 初版 PNG=5 / PDF=3；G1 初版加 constrained 后 PNG=4 / PDF=3）；去掉白边后两图两载体都回落到 3。**这是“看图 + 看读数”逼出来的修图**。这几条是当时的过程读数、**无法从入库树复导** ⇒ 只作历史，别当可复算的读数用。）
 
 ## §5 判断层（亲眼看图 · 机械判据之外的那一层）
 

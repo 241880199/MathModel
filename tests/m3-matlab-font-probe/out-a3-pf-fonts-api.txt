@@ -1,0 +1,43 @@
+=== E1 decaf flag (decides which branch listfonts takes) ===
+DialogUtils.checkDecaf = 1
+usejava awt = 1
+
+=== E2 pf namespace: is it a MATLAB class? ===
+which pf -all n=0
+methods(pf.fonts) n=0
+meta.class pf.fonts = EMPTY
+
+=== E3 pf.fonts.getInstalledFontList payload ===
+class = pf.fonts.ShareablePFFont  numel = 244
+fields = font_name,isMonospaced
+  [1].font_name = Agency FB
+  [2].font_name = Algerian
+  [3].font_name = Arial
+contains Termes n=0
+has yyb=1  萝莉体 第二版=1  字语康宋体=1
+
+=== E4 try any add/install/refresh entry points that exist ===
+  exist(pf.fonts.addFont) = 0 (file=0)
+  exist(pf.fonts.addFonts) = 0 (file=0)
+  exist(pf.fonts.addFontFile) = 0 (file=0)
+  exist(pf.fonts.installFont) = 0 (file=0)
+  exist(pf.fonts.installFonts) = 0 (file=0)
+  exist(pf.fonts.registerFont) = 0 (file=0)
+  exist(pf.fonts.setFontPath) = 0 (file=0)
+  exist(pf.fonts.addFontFolder) = 0 (file=0)
+  exist(pf.fonts.addFontDir) = 0 (file=0)
+  exist(pf.fonts.loadFont) = 0 (file=0)
+  exist(pf.fonts.refresh) = 0 (file=0)
+  exist(pf.fonts.rehash) = 0 (file=0)
+  exist(pf.fonts.reset) = 0 (file=0)
+
+=== E5 java properties whose key mentions font ===
+E5 ERR: MATLAB:structRefFromNonStruct : 此类型的变量不支持使用点进行索引。
+
+=== E6 other font-ish namespaces on the path ===
+  methods(matlab.fonts) ERR: 第一个输入必须为字符串数组或字符向量元胞数组。
+  methods(matlab.internal.font) ERR: 第一个输入必须为字符串数组或字符向量元胞数组。
+  methods(matlab.internal.fonts) ERR: 第一个输入必须为字符串数组或字符向量元胞数组。
+  methods(matlab.ui.internal.font) ERR: 第一个输入必须为字符串数组或字符向量元胞数组。
+
+=== E-END ===

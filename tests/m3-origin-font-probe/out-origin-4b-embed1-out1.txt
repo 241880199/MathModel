@@ -1,0 +1,7 @@
+=== 本次: Embed=1 OutLineMode=1 tag=embed1_out1 ===
+   INI 已设；启动 Origin
+   get_fonts: [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "Type3", "n/a"]]
+   drawings : 32
+   text     : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|\u0007 \u0006 \u0001\u0002 \u0005\u0004 \u0003| B|"
+   /FontFile 计数: 0 /FontFile2: 0
+   INI 还原一致: True

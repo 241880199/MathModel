@@ -205,11 +205,23 @@ M6 语料库     ── 供 M2/M3 检索获奖论文原文
 | `mcm-figure-choose` | **核心**。图型决策树 + 设计规范（配色 / 字号 / 坐标轴 / 图例 / 信息密度） | 推荐图型 + 设计要点，语言无关 |
 | `mcm-plot-python` | matplotlib 实现；底层用 SciencePlots（9.2k★ 期刊样式库，MIT）叠加美赛 house style，不自造 | 可直接运行的脚本 |
 | `mcm-plot-matlab` | MATLAB 实现，同一套规范 | 可直接运行的 `.m` 脚本 |
-| `mcm-plot-origin` | Origin 实现，同一套规范 | 操作步骤 + 参数取值（GUI 软件，不产出脚本） |
+| `mcm-plot-origin` | Origin 实现，同一套规范 | **脚本为权威交付物 + 操作步骤为辅**（**2026-09-30 改**，见下） |
 | `mcm-table` | 三线表、结果表、灵敏度表 | LaTeX 表格代码 |
 | `mcm-schematic` | 技术路线图 / 机理示意图 / 模型结构图 | **TikZ 源码**（2026-09-27 定：单一载体） |
 
 三个 `mcm-plot-*` 必须与 `mcm-figure-choose` 共用同一份规范来源，不允许各自收敛出不同视觉标准。
+
+> **★ 订正（2026-09-30，用户裁）：`mcm-plot-origin` 的输出形状改了。**
+> 原写「**操作步骤 + 参数取值（GUI 软件，不产出脚本）**」——**被实测推翻**。
+> 本机装好 Origin 2026（OriginPro 教育版）后，两轮独立侦察（证据入库 `tests/m3-origin-probe/`、`tests/m3-origin-font-probe/`）实测：
+> ① **可脚本化**（`originpro` 1.1.15 + LabTalk + X-Function），能建图、设属性、导出；
+> ② **导出宽度可精确设定**（`GPage.save_fig(width=N)` / `expGraph … tr1.Width:=N`）；PNG 像素逐值命中、
+>    PDF 页盒按英寸（量化 1/144 in，`6.31 → 6.31944`）；`tr.Margin` 四态下**宽度恒等于请求值** ⇒ **无 MATLAB 那种隐式裁剪**；
+>    实测 **F1 = 1.001**、**PDF 是矢量**；**默认底色就是白**；**显式色序可设**。
+> ③ **字体族可换**（`expGraph … theme:="Times New Roman Font"`）。
+> ⚠️ **两条已知缺口**：**PDF 不内嵌字体**（34/34 个产物 `/FontFile*` = 0）⇒ 最终呈现取决于打开它的机器；
+> 且**依赖本机已授权的 OriginPro** ⇒ **干净检出复跑不相容**，复跑前置必须写明。
+> ⇒ 详细边界见 `docs/superpowers/specs/2026-09-30-m3-style-single-source-design.md`（§6.3 / §10）。
 
 **为什么是 TikZ 而不是 Mermaid / draw.io**（2026-09-27 定，判据 = **载体选择以“agent 能否看见产物”为准**）：
 本机已端到端实测 **`pdflatex` 编译 TikZ → `fitz`(PyMuPDF) 渲 PNG → agent 可读图**（探针 `build/m3-carrier/`，2026-09-27，由 .gitignore 忽略）；

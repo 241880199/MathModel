@@ -1,0 +1,46 @@
+
+========== G6: 主题动了哪些字体索引 ==========
+  [主题前] {"xb.font": 1.0, "yl.font": 1.0, "yr.font": 1.0, "xt.font": 1.0, "layer.x.label.font": 1.0, "layer.y.label.font": 1.0, "layer.x.font": "NaN", "layer.y.font": "NaN", "layer.font": "NaN", "page.font": "NaN", "legend.font": 1.0, "legend.text.font": "NaN"}
+  LT themeApply2g theme:="Times New Roman Font";        -> exec_ok=True
+  [主题后] {"xb.font": 338.0, "yl.font": 338.0, "yr.font": 338.0, "xt.font": 338.0, "layer.x.label.font": 338.0, "layer.y.label.font": 338.0, "layer.x.font": "NaN", "layer.y.font": "NaN", "layer.font": "NaN", "page.font": "NaN", "legend.font": 338.0, "legend.text.font": "NaN"}
+  ==> 变化的:  {"xb.font": [1.0, 338.0], "yl.font": [1.0, 338.0], "yr.font": [1.0, 338.0], "xt.font": [1.0, 338.0], "layer.x.label.font": [1.0, 338.0], "layer.y.label.font": [1.0, 338.0], "legend.font": [1.0, 338.0]}
+### G6 应用主题（参照物）  [g6_theme.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"]]
+    spans    : {"TimesNewRomanPSMT": 6}
+
+========== G7: 不用主题，只设变化项 ==========
+  LT xb.font = 338.0;                                   -> exec_ok=True
+  LT yl.font = 338.0;                                   -> exec_ok=True
+  LT yr.font = 338.0;                                   -> exec_ok=True
+  LT xt.font = 338.0;                                   -> exec_ok=True
+  LT layer.x.label.font = 338.0;                        -> exec_ok=True
+  LT layer.y.label.font = 338.0;                        -> exec_ok=True
+  LT legend.font = 338.0;                               -> exec_ok=True
+### G7 只设变化项  [g7_by_props.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"]]
+    spans    : {"TimesNewRomanPSMT": 6}
+
+========== G8: 逐条单点（每个属性单独一张图） ==========
+  LT layer.x.label.font = 338;                          -> exec_ok=True
+### G8 layer.x.label.font=338  [g8_0_layer_x_label_font.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType"], ["SimSun", "TrueType"], ["SimSun", "TrueType"], ["SimSun", "TrueType"]]
+    spans    : {"TimesNewRomanPSMT": 2, "SimSun": 4}
+  LT layer.y.label.font = 338;                          -> exec_ok=True
+### G8 layer.y.label.font=338  [g8_1_layer_y_label_font.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["TimesNewRomanPSMT", "TrueType"], ["SimSun", "TrueType"], ["SimSun", "TrueType"]]
+    spans    : {"SimSun": 4, "TimesNewRomanPSMT": 2}
+  LT xb.font = 338;                                     -> exec_ok=True
+### G8 xb.font=338  [g8_2_xb_font.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["SimSun", "TrueType"], ["TimesNewRomanPSMT", "TrueType"]]
+    spans    : {"SimSun": 6}
+  LT yl.font = 338;                                     -> exec_ok=True
+### G8 yl.font=338  [g8_3_yl_font.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["TimesNewRomanPSMT", "TrueType"], ["SimSun", "TrueType"]]
+    spans    : {"SimSun": 6}
+  LT legend.font = 338;                                 -> exec_ok=True
+### G8 legend.font=338  [g8_4_legend_font.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["SimSun", "TrueType"], ["SimSun", "TrueType"], ["TimesNewRomanPSMT", "TrueType"]]
+    spans    : {"SimSun": 4, "TimesNewRomanPSMT": 2}
+
+=== op.exit() ===
+op.exit() 返回

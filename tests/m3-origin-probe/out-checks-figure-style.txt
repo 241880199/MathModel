@@ -1,0 +1,72 @@
+### 0) 环境：checker 与分母 ###
+$ python tests/skills/figure-choose/check-figure-style.py --fig <p> --caption <c> --textwidth-in 6.31 [--dpi 300]
+
+### 1) GREEN green.pdf（PDF 页盒，tr1.Unit:=0 tr1.Width:=6.31）###
+PASS  F1  图宽比 1.001（分母 6.31 in）
+PASS  F2  彩色主色数 0
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+rc=0
+
+### 2) GREEN green.png（tr1.Unit:=2 tr1.Width:=1893，判 F1 需 --dpi 300）###
+PASS  F1  图宽比 1.000（分母 6.31 in）
+PASS  F2  彩色主色数 0
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+rc=0
+
+### 3) RED-1 red_wide.pdf（宽设 8.00 in）###
+FAIL  F1  图宽比 1.268（分母 6.31 in）
+PASS  F2  彩色主色数 0
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: FAIL（F1）
+rc=1
+
+### 4) RED-2a red_line6.png（6 色细线；--dpi 300）###
+FAIL  F1  图宽比 0.634（分母 6.31 in）
+PASS  F2  彩色主色数 0
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: FAIL（F1）
+rc=1
+
+### 5) RED-2b red_bar6.pdf（6 色柱，x 全=1.0 → 柱叠在一起）###
+PASS  F1  图宽比 1.001（分母 6.31 in）
+PASS  F2  彩色主色数 1
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+rc=0
+
+### 6) RED-2c bars6.pdf（6 色柱并排，面积大）###
+PASS  F1  图宽比 1.001（分母 6.31 in）
+FAIL  F2  彩色主色数 6
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 2（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 2 词）
+RESULT: FAIL（F2）
+rc=1
+
+### 7) RED-3 坏图注（无 Figure N: 前缀 + 句末句号 + 14 词）###
+PASS  F1  图宽比 1.001（分母 6.31 in）
+PASS  F2  彩色主色数 0
+FAIL  F3a  图注以 `Figure N:` 起
+FAIL  F3b  图注词数 14（上限 12，硬上限 17）
+FAIL  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 14 词）
+RESULT: FAIL（F3a,F3b,F3c）
+rc=1

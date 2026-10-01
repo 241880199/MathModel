@@ -1,0 +1,44 @@
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_mpl_control.py:46: UserWarning: Glyph 26102 (\N{CJK UNIFIED IDEOGRAPH-65F6}) missing from font(s) Times New Roman.
+  fig.tight_layout()
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_mpl_control.py:46: UserWarning: Glyph 38388 (\N{CJK UNIFIED IDEOGRAPH-95F4}) missing from font(s) Times New Roman.
+  fig.tight_layout()
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_mpl_control.py:46: UserWarning: Glyph 28201 (\N{CJK UNIFIED IDEOGRAPH-6E29}) missing from font(s) Times New Roman.
+  fig.tight_layout()
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_mpl_control.py:46: UserWarning: Glyph 24230 (\N{CJK UNIFIED IDEOGRAPH-5EA6}) missing from font(s) Times New Roman.
+  fig.tight_layout()
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_mpl_control.py:47: UserWarning: Glyph 28201 (\N{CJK UNIFIED IDEOGRAPH-6E29}) missing from font(s) Times New Roman.
+  fig.savefig(path, format="pdf")
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_mpl_control.py:47: UserWarning: Glyph 24230 (\N{CJK UNIFIED IDEOGRAPH-5EA6}) missing from font(s) Times New Roman.
+  fig.savefig(path, format="pdf")
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_mpl_control.py:47: UserWarning: Glyph 26102 (\N{CJK UNIFIED IDEOGRAPH-65F6}) missing from font(s) Times New Roman.
+  fig.savefig(path, format="pdf")
+D:\Projects\数学建模\tests\m3-origin-font-probe\probe_mpl_control.py:47: UserWarning: Glyph 38388 (\N{CJK UNIFIED IDEOGRAPH-95F4}) missing from font(s) Times New Roman.
+  fig.savefig(path, format="pdf")
+=== mpl 字体解析 ===
+{
+  "Times New Roman": "C:\\Windows\\Fonts\\times.ttf",
+  "SimSun": "C:\\Windows\\Fonts\\simsun.ttc"
+}
+=== times ===
+  get_fonts(): [["FHXFSG+TimesNewRomanPSMT", "Type0", "F1", "Identity-H"]]
+  span fonts : {"TimesNewRomanPSMT": 57}
+  text       : "0\n1\n2\n3\n4\n5\nX axis (s)\n0\n5\n10\n15\n20\n25\nY axis (m)\nWavelength 0123456789\n"
+=== simsun ===
+  get_fonts(): [["BHJLVU+SimSun", "Type0", "F1", "Identity-H"]]
+  span fonts : {"SimSun": 57}
+  text       : "0\n1\n2\n3\n4\n5\nX axis (s)\n0\n5\n10\n15\n20\n25\nY axis (m)\nWavelength 0123456789\n"
+=== cjk_times ===
+  get_fonts(): [["FHXFSG+TimesNewRomanPSMT", "Type0", "F1", "Identity-H"]]
+  span fonts : {"TimesNewRomanPSMT": 49}
+  text       : "0\n1\n2\n3\n4\n5\n时间 温度\n0\n5\n10\n15\n20\n25\n温度 (°C)\nWavelength 0123456789\n"
+=== cjk_simsun ===
+  get_fonts(): [["BHJLVU+SimSun", "Type0", "F1", "Identity-H"]]
+  span fonts : {"SimSun": 49}
+  text       : "0\n1\n2\n3\n4\n5\n时间 温度\n0\n5\n10\n15\n20\n25\n温度 (°C)\nWavelength 0123456789\n"
+
+=== 读数方法自检 ===
+Times 组内嵌名: ['FHXFSG+TimesNewRomanPSMT']
+SimSun 组内嵌名: ['BHJLVU+SimSun']
+两组集合不同 = True
+Times 组含 TIMES(忽略大小写) = True
+SimSun 组含 SIMSUN(忽略大小写) = True

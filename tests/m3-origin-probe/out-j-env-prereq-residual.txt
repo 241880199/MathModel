@@ -1,0 +1,97 @@
+### J. 环境 / 前置 / 残留（2026-09-30 侦察期）###
+
+--- python & pip ---
+3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe
+pip 25.3 from C:\Users\Shameless\AppData\Local\Programs\Python\Python311\Lib\site-packages\pip (python 3.11)
+
+
+--- 装的包（--target build/m3-origin-probe/site，--no-deps）---
+$ python -m pip install --target build/m3-origin-probe/site --no-deps originpro
+$ python -m pip install --target build/m3-origin-probe/site --no-deps build/m3-origin-probe/wheels/originext-1.2.5-cp311-none-win_amd64.whl
+  wheel OriginExt-1.2.5-cp311-none-win_amd64.whl  bytes=374324  sha256=b5e3c2071e526561730b65aeefd63968b4f97d80c9d49f749a65ae1798b2775f
+  wheel originpro-1.1.15-py3-none-any.whl  bytes=56108  sha256=85f3555a5386af6af5975bc61f96194aacd4f18bf984b579f3c51991143772a5
+
+--- 全局 site-packages 有没有被污染 ---
+WARNING: Package(s) not found: OriginExt, originpro
+ModuleNotFoundError: No module named 'originpro'
+
+--- 依赖树（wheel METADATA）---
+  originpro 1.1.15 Requires-Dist: OriginExt>=1.2.5
+  OriginExt 1.2.5  Requires-Dist: (无)
+  OriginExt 是 cp311-win_amd64 的编译扩展（_OriginExt.pyd），提供 PyOrigin/OriginExt
+  pywin32 312 本机原装（仅 probe_a2 的 win32gui 枚举窗口用到；核心链路不需要）
+
+--- 注册表（reg query 在 Git Bash 不可用，改用 powershell）---
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International :: Apps = C:\Users\Shameless\AppData\Local\OriginLab\Apps\
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International :: AppData = C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International :: Path = D:\Shameless\Documents\OriginLab\User Files\
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International :: Executable Path = D:\Program Files\OriginLab\Origin2026\
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International :: Build = 197
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International\Dialogs\expGraph :: PathTrack = D:\Projects\数学建模\build\m3-origin-probe\i|D:\Projects\数学建模\build\m3-origin-probe\h|D:\Projects\数学建模\build\m3-origin-probe\g|D:\Projects\数学建模\build\m3-origin-probe\f|D:\Projects\数学建模\build\m3-origin-probe\e|D:\Projects\数学建模\build\m3-origin-probe\d|D:\Projects\数学建模\build\m3-origin-probe\c|D:\Projects\数学建模\build\m3-origin-probe\b
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International\PartialMenus\OrgSettingsVersion :: Version = 2
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International\ToolBars\ControlBarVersion :: Major = 14
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International\ToolBars\ControlBarVersion :: Minor = 42
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International\ToolBars\DockablePaneAdapter-592 :: DPVERSION = 2
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International\ToolBars\DockablePaneAdapter-594 :: DPVERSION = 2
+HKCU HKEY_CURRENT_USER\SOFTWARE\OriginLab\Origin 10.3\International\ToolBars\DockablePaneAdapter-596 :: DPVERSION = 2
+Get-ChildItem : Cannot call method. The provider does not support the use of filters.
+At line:1 char:1
++ Get-ChildItem -Path 'Registry::HKEY_CLASSES_ROOT' -Filter 'Origin*' - ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotImplemented: (:) [Get-ChildItem], PSNotSupportedException
+    + FullyQualifiedErrorId : NotSupported,Microsoft.PowerShell.Commands.GetChildItemCommand
+ 
+
+--- 进程卫生 ---
+  运行前 tasklist(Origin*): 0 个
+
+现在 Origin64 count=0
+  [过程事实] 探针崩溃(未走到 op.exit())时，originpro 的 atexit 只做 Detach(releaseonly=True)，
+  Origin 进程会残留。本次 3 次崩溃(probe_c/probe_e/probe_g 首轮)各留 1 个 Origin64，
+  已按 PID 29956/34468/37544 逐个 Stop-Process 清除；清除后 count=0。
+
+--- 残留改动（Origin 自己写的用户配置/缓存）---
+D:\Shameless\Documents\OriginLab\User Files\FGroup.config
+D:\Shameless\Documents\OriginLab\User Files\MenuCmdRecent_C.txt
+D:\Shameless\Documents\OriginLab\User Files\NLSF.ini
+D:\Shameless\Documents\OriginLab\User Files\oeps.ini
+D:\Shameless\Documents\OriginLab\User Files\OIMG.INI
+D:\Shameless\Documents\OriginLab\User Files\OPDF.INI
+D:\Shameless\Documents\OriginLab\User Files\Origin.ini
+D:\Shameless\Documents\OriginLab\User Files\origin_dc.ini
+D:\Shameless\Documents\OriginLab\User Files\SYSTEM.CNF
+D:\Shameless\Documents\OriginLab\User Files\ExportSupport\Emcgm2.INI
+D:\Shameless\Documents\OriginLab\User Files\ExportSupport\Emdxf2.INI
+D:\Shameless\Documents\OriginLab\User Files\Origin Folder.lnk\target.lnk
+D:\Shameless\Documents\OriginLab\User Files\Origin Samples Folder.lnk\target.lnk
+C:\ProgramData\OriginLab\InstallInfo.ini
+C:\ProgramData\OriginLab\OlabWebAppsIgnoreVersion.ini
+C:\ProgramData\OriginLab\osn.dat
+C:\ProgramData\OriginLab\103\OWinver.dat
+C:\ProgramData\OriginLab\103\Search\C\FUNCTION\Functions.txt
+C:\ProgramData\OriginLab\103\Search\C\SAMPLE\Samples.txt
+C:\ProgramData\OriginLab\Search\C\APP\AppsSearch.txt
+C:\ProgramData\OriginLab\Search\C\TEMPLATE\TemplatesSearch.txt
+C:\Users\Shameless\AppData\Local\OriginLab\OlabWebApps.xml
+C:\Users\Shameless\AppData\Local\OriginLab\OlabWebNotify.xml
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\OrgApp.ini
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Origin64.INI
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\OCTemp\expGraph_64.OCB
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\OCTemp\fitLR_64.OCB
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\OCTemp\img2m_64.OCB
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\OCTemp\nlfit_64.OCB
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\APP\segments.gen
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\APP\segments_3
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\APP\_0.cfs
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\FAQ\segments.gen
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\FAQ\segments_3
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\FAQ\_0.cfs
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\HELP\segments.gen
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\HELP\segments_1
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\MENU\segments.gen
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\MENU\segments_3
+C:\Users\Shameless\AppData\Local\OriginLab\103\TMP\Search\C\MENU\_0.cfs
+
+--- git status ---
+?? tests/m3-origin-probe/

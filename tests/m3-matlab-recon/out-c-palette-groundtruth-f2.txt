@@ -1,0 +1,49 @@
+### probe_c start ###  cwd=D:\Projects\数学建模
+=== q1 colororder methods ===
+size = 7x3  class=double
+groot-co 1 = [0.066000 0.443000 0.745000]  hex=#1171BE
+groot-co 2 = [0.866000 0.329000 0.000000]  hex=#DD5400
+groot-co 3 = [0.929000 0.694000 0.125000]  hex=#EDB120
+groot-co 4 = [0.521000 0.086000 0.819000]  hex=#8516D1
+groot-co 5 = [0.231000 0.666000 0.196000]  hex=#3BAA32
+groot-co 6 = [0.184000 0.745000 0.937000]  hex=#2FBEEF
+groot-co 7 = [0.819000 0.015000 0.545000]  hex=#D1048B
+lines()  1 = [0.066000 0.443000 0.745000]  hex=#1171BE
+lines()  2 = [0.866000 0.329000 0.000000]  hex=#DD5400
+lines()  3 = [0.929000 0.694000 0.125000]  hex=#EDB120
+lines()  4 = [0.521000 0.086000 0.819000]  hex=#8516D1
+lines()  5 = [0.231000 0.666000 0.196000]  hex=#3BAA32
+lines()  6 = [0.184000 0.745000 0.937000]  hex=#2FBEEF
+lines()  7 = [0.819000 0.015000 0.545000]  hex=#D1048B
+max|groot-co - lines(7)| = 0.00000000
+get(0,...) 1 = [0.066000 0.443000 0.745000]  (identical to groot? 1)
+=== q2 actual line colors (default axis) ===
+line 1 Color = [0.066000 0.443000 0.745000]  hex=#1171BE
+line 2 Color = [0.866000 0.329000 0.000000]  hex=#DD5400
+line 3 Color = [0.929000 0.694000 0.125000]  hex=#EDB120
+line 4 Color = [0.521000 0.086000 0.819000]  hex=#8516D1
+line 5 Color = [0.231000 0.666000 0.196000]  hex=#3BAA32
+line 6 Color = [0.184000 0.745000 0.937000]  hex=#2FBEEF
+line 7 Color = [0.819000 0.015000 0.545000]  hex=#D1048B
+=== q3 default-palette N series ===
+exported c_defN1
+exported c_defN2
+exported c_defN3
+exported c_defN4
+exported c_defN5
+exported c_defN6
+exported c_defN7
+=== q4 manual 2/3/4 colors ===
+exported c_manN2
+exported c_manN3
+exported c_manN4
+=== q5 settable? ===
+after set: size=2x3 row1=[1.000 0.000 0.000]
+restored ok
+=== q6 caption text sources ===
+xlabel = [t]
+ylabel = [y]
+title  = [Series sample]
+capfig export ok
+=== probe_c done ===
+RC=0 ELAPSED=39s

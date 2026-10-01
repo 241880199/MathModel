@@ -19,8 +19,8 @@
 6. **派生件不许手改**：只许由入库的生成器重放产出（`mcm.mplstyle`、`mcmplot.py` 的常量区）。
 7. **声明了覆盖就必须有一次真的红**（本仓纪律）。凡"这条判据会拦住 X"，必须有一条**真红**的变异作证。
 8. **收工三件套**（每个任务都要跑并贴输出）：`check-house-style.py` → `RESULT: PASS` ·
-   `mutate-figure-style.py` → 全红（`RED-BAD 0`）· `run-expected.py` → `MISMATCH 0/21`。
-   > **⚠️ 订正（2026-09-30 终审修复轮）**：这个 `RED-BAD 0` 是**把提示语当读数列** —— `RED-BAD` **只在失败时逐条打印**，干净跑里一条都没有。**实为**末行 `MUT: 53/53 达预期（合计）`（一条命令可核：`python tests/skills/figure-choose/mutate-figure-style.py | tail -1`）。见 `docs/mcm-suite-todo.md` §H.1。
+   `mutate-figure-style.py` → 全红（`RED-BAD 0`）· `run-expected.py` → `MISMATCH 0/21`（**订正 2026-10-01**：`expected.tsv` 已由 21 条增到 **23 条**〔M3-style Task 3 加的 `F4`/`F5` 两条 fixture〕⇒ **今天应为 `MISMATCH 0 / 23`**，见 `docs/mcm-suite-todo.md` §H.5.6）。
+   > **⚠️ 订正（2026-09-30 终审修复轮）**：这个 `RED-BAD 0` 是**把提示语当读数列** —— `RED-BAD` **只在失败时逐条打印**，干净跑里一条都没有。**实为**合计行 `MUT: 53/53 达预期（合计）`（**该轮当时的合计**；一条命令可核：`python tests/skills/figure-choose/mutate-figure-style.py | grep "达预期（合计）"` —— **合计行不是末行**，`tail -1` 取不到它；**今天同命令取到的合计 = 58**，见 `docs/mcm-suite-todo.md` §H.5）。
 9. **不许提交脏树**；每个任务收工 `git status --short` 为空。任务之间**另起提交**，**不许 `--amend`**。
 10. **第三方二进制入库的规矩（本模块首次用到）**：随 skill 入库的字体必须
     ① **逐件 `git hash-object` 记录并写进 PROVENANCE**；② 记**来源绝对路径 + 上游包与版本 + 许可标识 + 取件日期**；

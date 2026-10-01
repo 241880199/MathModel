@@ -1,0 +1,28 @@
+=== B0 env ===
+version    = 25.2.0.3177638 (R2025b) Update 5
+matlabroot = D:\Software\Matlab
+
+=== B1 the exact Java call listfonts.m makes ===
+FontUtils.getFontNames size = 235
+  has TeXGyreTermesX = 0
+  has TeX Gyre TermesX = 0
+  has yyb = 0 ; has 萝莉体 第二版 = 0 ; has 字语康宋体 = 0
+  wrote FontUtils_getFontNames.txt
+
+=== B1b decaf / java properties / prefs ===
+DialogUtils.checkDecaf = 1
+props ERR: 元胞元素必须为字符数组。
+getpref(MathWorks_MATLAB) = double
+[警告: 转义字符 '\m' 无效。有关支持的特殊字符，请参阅 'doc sprintf'。] 
+[> 位置：probe_a2 (第 53 行)
+位置: run (第 112 行)] 
+
+=== B2 latex interpreter, clean (no B2 latex-clean lastwarn id=[] msg=[]
+B2 ticklatex lastwarn id=[] msg=[]
+
+=== B3 PRE-EXISTING per-user fonts: end-to-end embed test ===
+B3 puser_1 name=[yyb] lastwarn id=[]
+B3 puser_2 name=[字语康宋体] lastwarn id=[]
+B3 puser_3 name=[萝莉体 第二版] lastwarn id=[]
+
+=== B-END ===

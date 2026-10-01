@@ -1,0 +1,31 @@
+D:\Projects\数学建模\tests\m3-origin-probe\probe_i_dpi_pagesize.py:116: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  d = sum(1 for px in ImageChops.difference(ia, ib).getdata() if px != (0, 0, 0))
+### probe_i_dpi_pagesize start ###
+--- (1) tr.Advanced.DPI 节点 ---
+  tr.Advanced.DPI:=100 (Resolution:=0) -> (1892, 1341)
+  tr.Advanced.DPI:=300 (Resolution:=0) -> (1892, 1341)
+  tr.Advanced.DPI:=600 (Resolution:=0) -> (1892, 1341)
+
+--- (2) 改页面尺寸 → 导出宽高比 ---
+  改前 page.width/height/resx = 6432.0 4560.0 600.0
+  设 page.width=4500 page.height=3000 -> OK
+    导出(宽钉 1500px) = (1500, 1063)  ratio=1.4111
+  设 page.width=6000 page.height=3000 -> OK
+    导出(宽钉 1500px) = (1500, 1063)  ratio=1.4111
+
+--- (3) 会话内色序是否翻转：同模板连建两图比色 ---
+  图A 颜色 = [(81, 81, 81), (81, 81, 81)]
+  图B 颜色 = [(81, 81, 81), (81, 81, 81)]
+  两次一致 = True
+
+--- (4) 去上/右框线：候选再试一批（差分像素）---
+  layer.x2.show=0        run=OK       差分像素=0
+  layer.y2.show=0        run=OK       差分像素=0
+  layer.x.opposite=0     run=OK       差分像素=0
+  layer.y.opposite=0     run=OK       差分像素=0
+  layer.frame=0          run=OK       差分像素=0
+  layer.axes=0           run=OK       差分像素=0
+  layer.x.axes=0         run=OK       差分像素=0
+  layer.x.tickdir=2      run=OK       差分像素=0
+  layer.x.tick.dir=2     run=OK       差分像素=0
+### probe_i_dpi_pagesize done ###

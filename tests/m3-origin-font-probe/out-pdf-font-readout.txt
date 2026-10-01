@@ -1,0 +1,97 @@
+### b0_baseline.pdf               fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"]]
+    spans: {"SimSun": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### c1_theme_TNR.pdf              fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### c2_theme_nightsky.pdf         fonts=3 drawings=34 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### d1_named.pdf                  fonts=3 drawings=34 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["SimSun", "Type3", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 6, "SimSun": 1}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|\u0001| B|"
+### e1_cjk.pdf                    fonts=3 drawings=34 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["SimSun", "Type3", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 31, "SimSun": 7}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|W|a v e l e n g t h  ( n m )|\u0007|\u0006|\u0001|\u0002|\u0005|\u0004|\u0003| B|"
+### g1_a_baseline.pdf             fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"]]
+    spans: {"SimSun": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g1_b_named.pdf                fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"]]
+    spans: {"SimSun": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g2_a_baseline.pdf             fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"]]
+    spans: {"SimSun": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g2_b_bogus_theme.pdf          fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"]]
+    spans: {"SimSun": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g2_c_real_theme.pdf           fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g4_a_latin_text.pdf           fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 61}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|I n t e n s i t y  ( a . u . )|W|a v e l e n g t h  ( n m )| B|"
+### g4_b_cjk_text.pdf             fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "Type3", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 47}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|I n t e n s i t y  ( a . u . )|\u0007 \u0006 \u0001\u0002 \u0005\u0004 \u0003| B|"
+### g5_by_index.pdf               fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"SimSun": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g6_theme.pdf                  fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g7_by_props.pdf               fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g8_0_layer_x_label_font.pdf   fonts=4 drawings=32 images=0
+    (basefont, type, ext): [["TimesNewRomanPSMT", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"]]
+    spans: {"TimesNewRomanPSMT": 2, "SimSun": 4}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g8_1_layer_y_label_font.pdf   fonts=4 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"]]
+    spans: {"SimSun": 4, "TimesNewRomanPSMT": 2}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g8_2_xb_font.pdf              fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"SimSun": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g8_3_yl_font.pdf              fonts=3 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"]]
+    spans: {"SimSun": 6}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### g8_4_legend_font.pdf          fonts=4 drawings=32 images=0
+    (basefont, type, ext): [["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["SimSun", "TrueType", "n/a"], ["TimesNewRomanPSMT", "TrueType", "n/a"]]
+    spans: {"SimSun": 4, "TimesNewRomanPSMT": 2}
+    text : "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+### ctrl_cjk_simsun.pdf           fonts=1 drawings=25 images=0
+    (basefont, type, ext): [["BHJLVU+SimSun", "Type0", "ttf"]]
+    spans: {"SimSun": 49}
+    text : "0|1|2|3|4|5|时间 温度|0|5|10|15|20|25|温度 (°C)|Wavelength 0123456789|"
+### ctrl_cjk_times.pdf            fonts=1 drawings=25 images=0
+    (basefont, type, ext): [["FHXFSG+TimesNewRomanPSMT", "Type0", "ttf"]]
+    spans: {"TimesNewRomanPSMT": 49}
+    text : "0|1|2|3|4|5|时间 温度|0|5|10|15|20|25|温度 (°C)|Wavelength 0123456789|"
+### ctrl_simsun.pdf               fonts=1 drawings=25 images=0
+    (basefont, type, ext): [["BHJLVU+SimSun", "Type0", "ttf"]]
+    spans: {"SimSun": 57}
+    text : "0|1|2|3|4|5|X axis (s)|0|5|10|15|20|25|Y axis (m)|Wavelength 0123456789|"
+### ctrl_times.pdf                fonts=1 drawings=25 images=0
+    (basefont, type, ext): [["FHXFSG+TimesNewRomanPSMT", "Type0", "ttf"]]
+    spans: {"TimesNewRomanPSMT": 57}
+    text : "0|1|2|3|4|5|X axis (s)|0|5|10|15|20|25|Y axis (m)|Wavelength 0123456789|"
+wrote: D:\Projects\数学建模\tests\m3-origin-font-probe\ou

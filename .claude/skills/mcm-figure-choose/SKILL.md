@@ -77,6 +77,12 @@ description: Use when 需要决定"这组数据该画成哪种图"、在几个�
 ## 指针（唯一权威）与本文件的数字
 
 - **规范正文**（图通常长什么样、每条规则的数值与验证状态）：`references/house-style.md`
+
+**机器投影**：`assets/mcm-style.json` 是本规范给**实现方**用的机器投影（由
+`tests/skills/figure-choose/gen-style-table.py` 从本规范重放产出）。
+**分工**：规范正文（本目录 `references/house-style.md`）是**唯一权威**；那份 json 是它的投影，**勿手改**——
+每个载体（`mcm-plot-*` 等）只读它、各自映射成本工具的设置。
+
 - **口径与复跑命令**（每个数的分母、样本范围、已知偏差）：`references/provenance.md`
 - **决策树正文**（九个入口的首选 / 备选 / 禁忌 + 图型名册 + 题型索引）：`references/chart-types.md`
 

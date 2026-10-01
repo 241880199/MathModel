@@ -1,0 +1,68 @@
+### probe_c_export start ###
+默认页面 = 10.72000 x 7.60000 in (page.width=6432.0 resx=600.0)
+
+--- 1. tr1.Unit:=0 (inch) 直接指定英寸 ---
+  in631.pdf                  PDF 页盒 6.31944 x 4.48611 in  ratio=1.40867 bytes=5819
+  in500.pdf                  PDF 页盒 5.00000 x 3.55556 in  ratio=1.40625 bytes=5818
+  in800.pdf                  PDF 页盒 8.00000 x 5.68056 in  ratio=1.40831 bytes=5817
+  in631.png                  PNG 1892 x 1341 px  ratio=1.41089 bytes=25020
+
+--- 2. tr1.Unit:=2 (pixel) 直接指定像素 ---
+  px600.png                  PNG 600 x 425 px  ratio=1.41176 bytes=6348
+  px1200.png                 PNG 1200 x 850 px  ratio=1.41176 bytes=14552
+  px1893.png                 PNG 1893 x 1342 px  ratio=1.41058 bytes=25291
+  px2400.png                 PNG 2400 x 1701 px  ratio=1.41093 bytes=35628
+
+--- 3. 隐式裁剪：tr.Margin 四种取值（0=Border 1=Tight 2=Page 3=TightInPage）---
+  tr.Margin=0                PNG 1892 x 1479 px  ratio=1.27924 bytes=28376
+  tr.Margin=1                PNG 1892 x 1425 px  ratio=1.32772 bytes=30791
+  tr.Margin=2                PNG 1892 x 1341 px  ratio=1.41089 bytes=25020
+  tr.Margin=3                PNG 1892 x 1425 px  ratio=1.32772 bytes=30791
+  对照 tr1.Margin:
+  tr1.Margin=1               !!! 未产出
+
+--- 4. 同请求宽、不同 Margin 下边缘像素（判断是否裁到内容）---
+  margin0.png: size=(1892, 1479) 四角=[(255, 255, 255), (255, 255, 255), (255, 255, 255), (255, 255, 255)]
+  margin1.png: size=(1892, 1425) 四角=[(255, 255, 255), (255, 255, 255), (255, 255, 255), (255, 255, 255)]
+  margin2.png: size=(1892, 1341) 四角=[(255, 255, 255), (255, 255, 255), (255, 255, 255), (255, 255, 255)]
+  margin3.png: size=(1892, 1425) 四角=[(255, 255, 255), (255, 255, 255), (255, 255, 255), (255, 255, 255)]
+
+--- 5. DPI（tr.Advanced.Resolution）---
+  dpi=72                     PNG 1892 x 1341 px  ratio=1.41089 bytes=25020
+  dpi=150                    PNG 1892 x 1341 px  ratio=1.41089 bytes=25020
+  dpi=300                    PNG 1892 x 1341 px  ratio=1.41089 bytes=25020
+  dpi=600                    PNG 1892 x 1341 px  ratio=1.41089 bytes=25020
+
+--- 6. Height / KeepRatio 节点探测 ---
+  Height only                PDF 页盒 10.72222 x 7.61111 in  ratio=1.40876 bytes=5820
+  W+H                        PDF 页盒 6.31944 x 4.48611 in  ratio=1.40867 bytes=5819
+  tr1.KeepRatio:=0           !!! 未产出
+  tr.KeepRatio:=0            !!! 未产出
+  tr1.Rescaling:=0           PNG 1892 x 1341 px  ratio=1.41089 bytes=25020
+  tr.Rescaling:=0            !!! 未产出
+  tr1.Ratio:=0               !!! 未产出
+
+--- 7. 格式清单 ---
+  type:png   产出=True bytes=25020 hdr=89504e470d0a1a0a
+  type:pdf   产出=True bytes=5819 hdr=255044462d312e32
+  type:svg   产出=True bytes=14998 hdr=3c3f786d6c207665
+  type:emf   产出=True bytes=15740 hdr=010000006c000000
+  type:eps   产出=True bytes=23514 hdr=252150532d41646f
+  type:tif   产出=True bytes=42332 hdr=49492a0008000000
+  type:tiff  产出=False bytes=0 hdr=
+  type:jpg   产出=True bytes=176851 hdr=ffd8ffe000104a46
+  type:jpeg  产出=False bytes=0 hdr=
+  type:bmp   产出=True bytes=7611570 hdr=424db22474000000
+  type:gif   产出=True bytes=20849 hdr=4749463839616407
+  type:pcx   产出=True bytes=314166 hdr=0a05010800000000
+  type:psd   产出=True bytes=218354 hdr=3842505300010000
+  type:wmf   产出=True bytes=21704 hdr=d7cdc69a00000000
+  type:cgm   产出=True bytes=1800 hdr=002c0b666d745f63
+  type:dxf   产出=True bytes=16463 hdr=2020300d0a534543
+
+--- 8. PDF 矢量性 + 内嵌字体 ---
+  get_images() = []
+  get_drawings() 数 = 34
+  get_fonts() = [(11, 'n/a', 'TrueType', 'SimSun', 'Font1', 'WinAnsiEncoding'), (17, 'n/a', 'Type3', 'SimSun', 'Font2', ''), (8, 'n/a', 'TrueType', 'SimSun', 'Font3', 'WinAnsiEncoding'), (14, 'n/a', 'TrueType', 'SimSun', 'Font4', 'WinAnsiEncoding')]
+  get_text() 前 200 字 = '0\n2\n4\n6\n8\n1 0\n\x05\n\x03\n\x01\n\x02\n\x05\n\x02\n\x01\n\x04\n0 . 0\n0 . 5\n1 . 0\nY 1\nX\n Y 1\n Y 2\n'
+### probe_c_export done ###

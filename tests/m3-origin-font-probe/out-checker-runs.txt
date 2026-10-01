@@ -1,0 +1,36 @@
+### g1_a_baseline ###
+PASS  F1  图宽比 1.001（分母 6.31 in）
+PASS  F2  彩色主色数 0
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+
+### g2_c_real_theme ###
+PASS  F1  图宽比 1.001（分母 6.31 in）
+PASS  F2  彩色主色数 0
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+
+### k1_export_theme ###
+PASS  F1  图宽比 1.001（分母 6.31 in）
+PASS  F2  彩色主色数 0
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+
+### j2_no_theme ###
+PASS  F1  图宽比 1.001（分母 6.31 in）
+PASS  F2  彩色主色数 0
+PASS  F3a  图注以 `Figure N:` 起
+PASS  F3b  图注词数 4（上限 12，硬上限 17）
+PASS  F3c  句末不加句号
+PASS  F3d  图注正文非空（正文 4 词）
+RESULT: PASS
+

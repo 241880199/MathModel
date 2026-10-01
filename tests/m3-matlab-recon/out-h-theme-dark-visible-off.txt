@@ -1,0 +1,35 @@
+### probe_h start ###  MODE=Visible:off  cwd=D:\Projects\数学建模
+=== T timeline ===
+probe mode = Visible:off
+exist('theme') = 2   exist('imread') = 2   exist('drawnow') = 5
+[T0-session-start-no-figure] defaultFigureColor=[0.9608 0.9608 0.9608] hex=#F5F5F5  colorOrder1=[0.0660 0.4430 0.7450] hex=#1171BE
+T1 f.Color=[0.9608 0.9608 0.9608]  f.Theme ERR(无法从 matlab.graphics.theme.GraphicsTheme 转换为 string。)
+[T1-after-figure-created] defaultFigureColor=[0.9608 0.9608 0.9608] hex=#F5F5F5  colorOrder1=[0.0660 0.4430 0.7450] hex=#1171BE
+[T2-after-drawnow] defaultFigureColor=[0.9608 0.9608 0.9608] hex=#F5F5F5  colorOrder1=[0.0660 0.4430 0.7450] hex=#1171BE
+T3 f.Color=[0.9608 0.9608 0.9608] ax.Color=[1.0000 1.0000 1.0000]
+[T3-after-axes-plotted] defaultFigureColor=[0.1294 0.1294 0.1294] hex=#212121  colorOrder1=[0.1490 0.5490 0.8660] hex=#268CDD
+[T4-after-drawnow-2] defaultFigureColor=[0.1294 0.1294 0.1294] hex=#212121  colorOrder1=[0.1490 0.5490 0.8660] hex=#268CDD
+T5 corner(eg#1)=[0 0 0]  f.Color=[0.1294 0.1294 0.1294]
+[T5-after-first-exportgraphics] defaultFigureColor=[0.1294 0.1294 0.1294] hex=#212121  colorOrder1=[0.1490 0.5490 0.8660] hex=#268CDD
+T6 corner(print#1, SAME figure)=[0 0 0]
+[T6-after-first-print] defaultFigureColor=[0.1294 0.1294 0.1294] hex=#212121  colorOrder1=[0.1490 0.5490 0.8660] hex=#268CDD
+T7 NEW figure Color=[0.1294 0.1294 0.1294] ax2.Color=[0.0706 0.0706 0.0706]
+T7 corner=[0 0 0]
+[T7-new-figure-after-flip] defaultFigureColor=[0.1294 0.1294 0.1294] hex=#212121  colorOrder1=[0.1490 0.5490 0.8660] hex=#268CDD
+=== C: explicit Color ===
+C1 requested figure Color=w  -> get(f3,Color)=[1.0000 1.0000 1.0000]
+C1 requested axes   Color=w  -> get(ax3,Color)=[0.0706 0.0706 0.0706]
+C1 ax3 XColor=[0.8510 0.8510 0.8510] YColor=[0.8510 0.8510 0.8510]
+C1 corner=[255 255 255]
+=== L: theme light recipe ===
+L1 theme(f4,'light') ok=1 
+L1 after recipe: f4.Color=[1.0000 1.0000 1.0000] ax4.Color=[1.0000 1.0000 1.0000] XColor=[0.0000 0.0000 0.0000]
+L1 f4.Theme ERR 无法从 matlab.graphics.theme.GraphicsTheme 转换为 string。
+L1 corner(eg png)=[255 255 255]
+L1 corner(print png)=[255 255 255]
+[L1-after-light-recipe] defaultFigureColor=[0.1294 0.1294 0.1294] hex=#212121  colorOrder1=[0.1490 0.5490 0.8660] hex=#268CDD
+=== P: print vs exportgraphics, label-heavy figure ===
+P exportgraphics png corner=[0 0 0]
+P print         png corner=[0 0 0]
+=== probe_h done ===
+RC=0 ELAPSED=34s

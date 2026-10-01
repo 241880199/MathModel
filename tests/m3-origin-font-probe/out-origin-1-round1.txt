@@ -1,0 +1,58 @@
+=== originpro 版本 ===
+originpro: D:\Projects\数学建模\build\m3-origin-probe\site\originpro\__init__.py
+=== 图已建 === sheets/graphs: [GPage: Graph1]
+save_fig ok= D:\Projects\数学建模\build\m3-origin-font\origin\b0_baseline.pdf
+### B0 基线（默认模板）  [b0_baseline.pdf]
+    get_fonts: [["SimSun", "TrueType", "WinAnsiEncoding"], ["SimSun", "TrueType", "WinAnsiEncoding"], ["SimSun", "TrueType", "WinAnsiEncoding"]]
+    spans    : {"SimSun": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+
+=== 结构 introspection 尝试 ===
+  LT[page_as_string] string __S$ = page;                                        -> exec_ok=True
+   -> value len=4 head='page'
+  LT[layer_as_string] string __S2$ = layer;                                      -> exec_ok=True
+   -> value len=5 head='layer'
+  LT[label_list] label -l;                                                  -> exec_ok=False
+   -> value len=5 head='layer'
+  LT[tree:page.tree] Tree __T; __T = page.tree;                                 -> exec_ok=True
+  LT[xml:page.tree] string __S3$ = __T;                                        -> exec_ok=True
+   -> page.tree xml len=6 head='<__T/>'
+  LT[tree:layer.tree] Tree __T; __T = layer.tree;                                -> exec_ok=True
+  LT[xml:layer.tree] string __S3$ = __T;                                        -> exec_ok=True
+   -> layer.tree xml len=6 head='<__T/>'
+
+=== C 主题路线 ===
+  LT[theme] themeApply2g theme:="Times New Roman Font";                -> exec_ok=True
+### C1 应用主题 Times New Roman Font 后  [c1_theme_TNR.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"], ["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"], ["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"]]
+    spans    : {"TimesNewRomanPSMT": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+  LT[theme-neg] themeApply2g theme:="Night Sky";                           -> exec_ok=True
+### C2 应用 Night Sky（反证：主题有没有在动）  [c2_theme_nightsky.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"], ["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"], ["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"]]
+    spans    : {"TimesNewRomanPSMT": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+
+=== D 直接点名候选 ===
+  LT[xb.font$] xb.font$ = "Times New Roman";                              -> exec_ok=True
+  LT[yl.font$] yl.font$ = "Times New Roman";                              -> exec_ok=True
+  LT[legend.font$] legend.font$ = "Times New Roman";                          -> exec_ok=True
+  LT[page.font$] page.font$ = "Times New Roman";                            -> exec_ok=False
+  LT[layer.font$] layer.font$ = "Times New Roman";                           -> exec_ok=False
+  LT[sys.font$] sys.font$ = "Times New Roman";                             -> exec_ok=False
+  LT[xb.font=2] xb.font = 2;                                               -> exec_ok=True
+### D1 点名之后  [d1_named.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"], ["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"], ["SimSun", "Type3", ""]]
+    spans    : {"TimesNewRomanPSMT": 6, "SimSun": 1}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|| B|
+
+=== E 中文文本 ===
+  LT[cjk-text] xb.text$ = "温度 (°C)";                                      -> exec_ok=True
+  LT[latin-text] yl.text$ = "Wavelength (nm)";                              -> exec_ok=True
+### E1 中文轴标题  [e1_cjk.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"], ["TimesNewRomanPSMT", "TrueType", "WinAnsiEncoding"], ["SimSun", "Type3", ""]]
+    spans    : {"TimesNewRomanPSMT": 31, "SimSun": 7}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|W|a v e l e n g t h  ( n m )|||||||| B|
+
+=== op.exit() ===
+op.exit() 返回

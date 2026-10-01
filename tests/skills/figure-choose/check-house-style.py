@@ -31,6 +31,13 @@
    **两张表都不含"任何整数"式的万能兜底** ⇒ 文档里新写进去的整数**也会** FAIL。
    ⇒ 射程：**`house-style.md` 的全部数字** + **`provenance.md` 的 `数:` 行与 `PROV_GUARDS` 命中的散文数**；
    `provenance.md` 里**未被 `PROV_GUARDS` 命中的**散文数字仍是本检查器的盲区（明写在案，不假装覆盖）。
+   ★ **「重复读数」捷径的收紧门（修复轮 修 2）**：一个 token 的浮点值撞上某条守卫现取的文档值时，
+   **还**要求该 token 在 `git show HEAD:<house-style.md>` 里已存在，才当作"同一读数的重现"豁免。
+   ⇒ 这道门的射程仅限「**工作树里新写、还没提交**」的数字；**一旦提交，该数字就进了基线、不再被挡** ——
+   它是**作者当场**的防线，**不是**永久防线。收紧的动机：H12 新写的「线宽默认 `1.0 pt`」是一条
+   **全新的规范值**、本身无守卫，却因撞上不相干的 `G-H12-scale-hi`（`1.0×`）而被静默豁免。
+   ⚠️ **CENSUS 的计数不是入参 doc 的纯函数** —— 它依赖当前 `git HEAD`（HEAD 差集门读
+   `git show HEAD:<规范>`），换 HEAD 会换计数（同一份入参 doc，在提交前后翻出不同的数）。
 4. `PROV_GUARDS`（`G-P-*`）：`provenance.md` 里**散文**里的数（不在 `数:` 行上、因而不经 `run_prov` 的）
    的守卫——与 `GUARDS` 同形，只是文本换成 `provenance.md`。**只有列进表里的才被守**。
 5. `STRUCT_GUARDS`（`S1`–`S5`）：`chart-types.md` 的**结构**（那棵决策树的形状），
@@ -69,7 +76,10 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
-DOC = ROOT / ".claude/skills/mcm-figure-choose/references/house-style.md"
+# `house-style.md` 的**规范相对路径**（以仓根为基准）。CENSUS 的 HEAD 门要按这个**固定路径**
+# 去 `git show HEAD:<rel>`，故它与可被 `--doc` 覆写的 `DOC` 分开写（`--doc` 指向的常是副本）。
+DOC_REL = ".claude/skills/mcm-figure-choose/references/house-style.md"
+DOC = ROOT / DOC_REL
 PROV = ROOT / ".claude/skills/mcm-figure-choose/references/provenance.md"
 CT = ROOT / ".claude/skills/mcm-figure-choose/references/chart-types.md"
 SK = ROOT / ".claude/skills/mcm-figure-choose/SKILL.md"
@@ -1099,13 +1109,64 @@ def main():
     else:
         print(f"PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 {len(ids)} 条）")
 
+    # ---------------- CENSUS 的「重复读数」捷径 + 它的收紧门（修复轮 修 2）
+    # 旧捷径：一个数字 token 的**浮点值**只要等于某条守卫现取的**文档值**，就当作「同一读数/常量的
+    # 第 N 次出现」直接豁免（首次出现处已被那条守卫捕获）。
+    #
+    # 病灶（复审抓的 Important-2）：这条捷径的**盲区是 45 个整数**（不是原作者说的 4 个），
+    # 而且**已实际咬到一条真值** —— H12 新写进去的「线宽默认 `1.0 pt`」是一条**全新的规范值**，
+    # 它**没有自己的守卫**，豁免却来自毫不相干的 `G-H12-scale-hi`（"字号上限 `1.0×`"）
+    # ⇒ 一个没人要过的数因撞值而悄悄进了规范。（照抄那八色与这行 H12 的**不是**实现者的错。）
+    #
+    # 收紧 = 捷径成立的条件再加一条：**该 token 在 `git show HEAD:<doc>` 里已存在**
+    # （值相等 **∧** 不是本次新增）。这样既保住既有重现的零成本豁免，又让**任何新写进规范的数字
+    # 必须先过白名单**。
+    #
+    # ★ 这道门的**射程**（如实写，不许说成比这更强）：
+    #   它抓的是「**工作树里新写、还没提交**」的数字。**一旦提交，该数字就进了基线、不再被挡**。
+    #   ⇒ 它是**作者当场**的防线，**不是**永久防线。
+    # ★ 为什么不做更强的（把捷径整条拆掉）：文档里 **94 个**合法重现（实测）会全都要各自补白名单
+    #   ⇒ 大翻修。本轮**不做**。
+    # ★ 它必须仍能真的红（阳性对照，本任务实测过）：副本上**新增一个全新整数**（`12345`）⇒ CENSUS 红；
+    #   **未改动**的文档 ⇒ 仍 `PASS`。更强的一条对照：新增一个**与既有守卫值相等、但 HEAD 里没有**的
+    #   数值（如 `49.4`，守卫里那处写的是 `49.40`）⇒ 旧逻辑放行、新门拦下。
+    CENSUS_NUM_RE = r"(?<![\w.])\d+(?:\.\d+)?(?![\w])"
+    _HEAD_DOC_TOKENS = None      # 缓存：HEAD 版 `house-style.md` 的数字 token 集合
+    _HEAD_DOC_NOTE = ""          # 读不到时的一句话（并进 CENSUS 那行，好让人看见为什么红）
+
+    def head_doc_tokens():
+        """`git show HEAD:<DOC_REL>` 里的**数字 token** 集合（`CENSUS_NUM_RE` 口径，与 CENSUS 同一把尺）。
+
+        读不到（非 git 仓 / 无 HEAD / git 起不来）⇒ 返回**空集**并记 `_HEAD_DOC_NOTE`。
+        空集是 **fail-closed**：那 94 个重现会全落进「未入理由表」而红 —— 宁可红着让人看见，
+        也不假装"HEAD 里什么都没有、所以都没新增"（那正是本仓的第一号病灶：「声明比事实大」）。
+        """
+        nonlocal _HEAD_DOC_TOKENS, _HEAD_DOC_NOTE
+        if _HEAD_DOC_TOKENS is not None:
+            return _HEAD_DOC_TOKENS
+        try:
+            p = subprocess.run(["git", "show", f"HEAD:{DOC_REL}"],
+                               capture_output=True, cwd=str(ROOT))
+        except OSError as e:                 # git 起不来
+            _HEAD_DOC_NOTE = f"git 起不来（{type(e).__name__}）"
+            _HEAD_DOC_TOKENS = set()
+            return _HEAD_DOC_TOKENS
+        if p.returncode != 0:
+            err = p.stderr.decode("utf-8", "replace").strip().splitlines()
+            _HEAD_DOC_NOTE = f"读不到 HEAD:{DOC_REL}（{err[-1] if err else 'exit≠0'}）"
+            _HEAD_DOC_TOKENS = set()
+            return _HEAD_DOC_TOKENS
+        _HEAD_DOC_TOKENS = {m.group(0) for m in
+                            re.finditer(CENSUS_NUM_RE, p.stdout.decode("utf-8"))}
+        return _HEAD_DOC_TOKENS
+
     # ---------------- CENSUS：文档里每个数字都得有守卫或理由
     census_bad, unlisted = [], []
     if not want:
         covered = set()
         for s, e in spans:
             covered.update(range(s, e))
-        hits = list(re.finditer(r"(?<![\w.])\d+(?:\.\d+)?(?![\w])", text))
+        hits = list(re.finditer(CENSUS_NUM_RE, text))
         n_dup = n_ctx = 0
         for m in hits:
             if any(i in covered for i in range(*m.span())):
@@ -1118,7 +1179,10 @@ def main():
                 n_ctx += 1
                 continue
             try:                       # 同一读数/常量的第二次出现：首次出现处已被某条守卫捕获
-                if float(tok) in {v for v in guard_vals if isinstance(v, float)}:
+                # 收紧门（修复轮 修 2）：值相等 **∧** 该 token 在 HEAD 版文档里已存在 ⇒ 才算"重现"。
+                # 射程/局限见上面 `head_doc_tokens()` 那段注释：它只挡"工作树里新写、还没提交"的数字。
+                if (float(tok) in {v for v in guard_vals if isinstance(v, float)}
+                        and tok in head_doc_tokens()):
                     n_dup += 1
                     continue
             except ValueError:
@@ -1128,7 +1192,8 @@ def main():
         print("-" * 78)
         print(f"CENSUS  house-style.md 数字 {len(hits)} 个 · 守卫覆盖片段 {len(spans)} 段 · "
               f"重复读数 {n_dup} 个 · 上下文豁免 {n_ctx} 个 · 未入理由表 {len(unlisted)} 个"
-              f"{'' if not unlisted else '：' + ','.join(unlisted)}")
+              f"{'' if not unlisted else '：' + ','.join(unlisted)}"
+              f"{'' if not _HEAD_DOC_NOTE else ' · HEAD 门 ' + _HEAD_DOC_NOTE}")
         bad += census_bad
 
     print(f"\n守卫 {n_guard} 条（其中结构守卫 {n_struct} 条 · SKILL 守卫 {n_skill} 条）"

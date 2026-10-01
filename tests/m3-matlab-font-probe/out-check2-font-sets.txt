@@ -1,0 +1,8 @@
+n_listfonts=249  n_pf=249  n_java=248  n_uniq_pf=249
+key [Termes]: listfonts{} pf{} java{}
+key [mwa]: listfonts{} pf{} java{}
+key [mcm]: listfonts{} pf{} java{}
+key [probe]: listfonts{} pf{} java{}
+key [Gyre]: listfonts{} pf{} java{}
+in listfonts not in pf: n=5 {Helvetica, Monospaced, SansSerif, Serif, Times}
+in pf not in listfonts: n=5 {DengXian, Microsoft YaHei, Sitka, Source Han Serif SC, kangsongti}

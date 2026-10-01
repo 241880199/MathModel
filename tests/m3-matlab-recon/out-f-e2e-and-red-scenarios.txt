@@ -1,0 +1,23 @@
+### probe_f start ###
+=== s1 first export = print (png) ===
+[s1-before-any-export] co1=#1171BE lines1=#1171BE figColor=#F5F5F5
+[s1-after-print-png] co1=#268CDD lines1=#268CDD figColor=#212121
+=== s2 compliant figure ===
+=== s3 violating figure ===
+=== s4 R1 stacked bar ===
+=== s5 R2 corr bars ===
+R2 correlations: Pop. density=77.0000 ean slope=86.0000 egetation=73.0000 nfrastructure=0.3599 9.302388e-01=-0.7436 -7.766354e-01=
+=== s6 R3 delivery ===
+=== s7 corpus data read ===
+load OK: corpus/algorithms/src/FuzzyMathematicalModel模糊数学模型/模糊聚类/data1.mat fields=A,r
+  A size=[10  12] class=double
+  r size=[12  12] class=double
+[警告: 在为表创建变量名称之前，对文件中的列标题进行了修改，以使其成为有效的 MATLAB 标识符。原始列标题保存在 VariableDescriptions 属性中。
+将 'VariableNamingRule' 设置为 'preserve' 以使用原始列标题作为表变量名称。] 
+readtable csv OK rows=421 vars=53
+[警告: 在为表创建变量名称之前，对文件中的列标题进行了修改，以使其成为有效的 MATLAB 标识符。原始列标题保存在 VariableDescriptions 属性中。
+将 'VariableNamingRule' 设置为 'preserve' 以使用原始列标题作为表变量名称。] 
+readtable xlsx OK rows=224 vars=9
+[s-end] co1=#268CDD lines1=#268CDD figColor=#212121
+=== probe_f done ===
+RC=0 ELAPSED=34s

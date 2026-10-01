@@ -1,0 +1,28 @@
+
+========== G9: expGraph 的 theme 参数（导出期换字，不动页面） ==========
+  G9 xb.font (导出前) = 1.0
+  LT expGraph type:=pdf path:="D:/Projects/数学建模/build/m3-origin-font/ -> exec_ok=True
+### J1 expGraph + theme:=（导出期）  [j1_export_theme.pdf]
+    (basefont, ext): [["TimesNewRomanPSMT", "n/a"], ["TimesNewRomanPSMT", "n/a"], ["TimesNewRomanPSMT", "n/a"]]
+    text: "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+  G9 xb.font (导出后) = 1.0   <- 页面有没有被动过
+  LT expGraph type:=pdf path:="D:/Projects/数学建模/build/m3-origin-font/ -> exec_ok=True
+### J2 expGraph 不带 theme（同一张图）  [j2_no_theme.pdf]
+    (basefont, ext): [["SimSun", "n/a"], ["SimSun", "n/a"], ["SimSun", "n/a"]]
+    text: "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+  LT expGraph type:=pdf path:="D:/Projects/数学建模/build/m3-origin-font/ -> exec_ok=True
+### J3 expGraph + 假主题名  [j3_bogus_theme.pdf]
+    (basefont, ext): [["SimSun", "n/a"], ["SimSun", "n/a"], ["SimSun", "n/a"]]
+    text: "0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|"
+
+========== G10: 应用主题后新建文本对象 ==========
+  LT themeApply2g theme:="Times New Roman Font";                      -> exec_ok=True
+  LT label -a 3 5 -s "R2 = 0.99";                                     -> exec_ok=True
+  LT label -s "R2 = 0.99";                                            -> exec_ok=True
+  LT label -mg -s -sa -dc 3 5 "R2 = 0.99";                            -> exec_ok=True
+### J4 主题后新建文本对象  [j4_new_text.pdf]
+    (basefont, ext): [["TimesNewRomanPSMT", "n/a"], ["SimSun", "n/a"], ["TimesNewRomanPSMT", "n/a"], ["TimesNewRomanPSMT", "n/a"]]
+    text: "0|2|4|6|8|1 0|0|2|4|6|8|1 0|R 2  =  0 . 9 9|R 2  =  0 . 9 9|B|A| B|"
+
+=== op.exit() ===
+op.exit() 返回

@@ -1,0 +1,63 @@
+### probe_a_connect start ###
+platform : Windows-10-10.0.26200-SP0
+python   : 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)] | C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe
+site path: D:\Projects\数学建模\build\m3-origin-probe\site | exists= True
+pkg originpro : 1.1.15
+pkg OriginExt : 1.2.5
+pkg pywin32   : 312
+pkg numpy     : 2.3.5
+pkg pandas    : 3.0.5
+pkg Pillow    : 12.3.0
+pkg PyMuPDF   : 1.27.2.3
+import originpro: OK  (+0.39s)
+originpro.__file__: D:\Projects\数学建模\build\m3-origin-probe\site\originpro\__init__.py
+首次 API 触碰耗时 4.84s
+op.get_show()  [未显式隐藏前，默认可见性]: False
+op.get_show()  [set_show(False) 之后]: False
+--- 版本探测 ---
+LT_get_var('@V') = 10.300197
+LT_get_var('@V1') = 0.0
+LT_get_var('@V2') = 0.0
+LT_get_var('@S') = -3.0
+LT_get_var('@B') = 0.0
+op.path('u') [User Files] = D:\Shameless\Documents\OriginLab\User Files\
+op.path('e') [Exe]        = D:\Program Files\OriginLab\Origin2026\
+op.path('p') [project]    = 
+--- 版别探测（OriginPro / Origin）---
+dir(op.po) 里含 lic/pro/vers/title/edition/name 的成员: []
+op.po.LT_get_str("%B") [应用名?] = 
+候选 @PT = 3.0
+候选 @LC = 0.0
+候选 @LCT = 1.0
+候选 @OR = 1.0
+候选 @SS = 200.0
+op.po 公开成员数: 3
+  GetMainWnd*: []
+  GetVersion*: []
+--- op.exit() ---
+op.exit() 返回，耗时 9.31s
+### probe_a_connect done ###
+### probe_a2_edition start ###
+op.get_show() = False
+枚举到含 Origin 的顶层窗口数: 3
+  hwnd=1182774 visible=True title='OriginLab Origin 2026 - 文件资源管理器'
+  hwnd=526436 visible=False title='OriginPro 2026 (教育版) - UNTITLED'
+  hwnd=330060 visible=False title='GDI+ Window (Origin64.exe)'
+--- LabTalk 候选变量 ---
+  LT_get_var('@V') = 10.300197
+  LT_get_var('@PT') = 3.0
+  LT_get_var('@OR') = 1.0
+  LT_get_var('@LC') = 0.0
+  LT_get_var('@SS') = 200.0
+  LT_get_var('@V3') = 0.0
+--- 其它可读串 ---
+  LT_get_str('%@PT') = ''
+  LT_get_str('%B') = ''
+  LT_get_str('%H') = ''
+  LT_get_str('%N') = ''
+--- Pro-only 功能探测 ---
+  执行 `nlfit;` : 无异常
+  执行 `fitlr;` : 无异常
+  执行 `img2m;` : 无异常
+  执行 `xyz2m;` : 无异常
+### probe_a2_edition done ###

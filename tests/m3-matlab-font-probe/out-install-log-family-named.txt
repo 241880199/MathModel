@@ -1,0 +1,5 @@
+installed: TeXGyreTermesX-Regular.otf  as  [TeXGyreTermesX (TrueType)]
+installed: TeXGyreTermesX-Italic.otf  as  [TeXGyreTermesX Italic (TrueType)]
+installed: TeXGyreTermesX-Bold.otf  as  [TeXGyreTermesX Bold (TrueType)]
+installed: TeXGyreTermesX-BoldItalic.otf  as  [TeXGyreTermesX Bold Italic (TrueType)]
+done: 4 files copied to C:\Users\Shameless\AppData\Local\Microsoft\Windows\Fonts, 4 registry values added under HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts

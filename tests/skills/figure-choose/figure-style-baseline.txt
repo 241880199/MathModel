@@ -58,11 +58,21 @@ $ python tests/skills/figure-choose/fixtures/run-expected.py
 flag      sample                   crit want got
 OK        ok-01.png                F1   want=PASS got=PASS
 OK        ok-01.png                F2   want=PASS got=PASS
+OK        ok-01.png                F5   want=PASS got=PASS
 OK        ok-02.png                F1   want=PASS got=PASS
+OK        ok-02.png                F5   want=PASS got=PASS
 OK        ok-03.png                F2   want=PASS got=PASS
+OK        ok-03.png                F5   want=PASS got=PASS
 OK        ok-04.png                F2   want=PASS got=PASS
+OK        ok-04.png                F4   want=PASS got=PASS
+OK        ok-04.png                F5   want=PASS got=PASS
 OK        ok-05.pdf                F1   want=PASS got=PASS
 OK        ok-05.pdf                F2   want=PASS got=PASS
+OK        ok-05.pdf                F5   want=PASS got=PASS
+OK        ok-06.png                F1   want=PASS got=PASS
+OK        ok-06.png                F2   want=PASS got=PASS
+OK        ok-06.png                F4   want=PASS got=PASS
+OK        ok-06.png                F5   want=PASS got=PASS
 OK        bad-f1-too-narrow.png    F1   want=FAIL got=FAIL
 OK        bad-f1-too-wide.png      F1   want=FAIL got=FAIL
 OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
@@ -77,7 +87,10 @@ OK        caption:4                F3d  want=FAIL got=FAIL  (fig borrowed: ok-01
 OK        caption:5                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:6                F3a  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:7                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
-MISMATCH 0 / 21
+OK        bad-bg-dark.png          F4   want=FAIL got=FAIL
+OK        bad-bg-navy.png          F4   want=FAIL got=FAIL
+OK        bad-color-order.png      F5   want=FAIL got=FAIL
+MISMATCH 0 / 34
 [exit=0]
 
 ==============================================================================
@@ -91,109 +104,136 @@ MISMATCH 0 / 21
 --- ok-01.png ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 
 --- ok-02.png ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-02.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 50.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 50.00%）；下限 136
 PASS  F1  图宽比 0.807（分母 6.31 in）
 PASS  F2  彩色主色数 1
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 
 --- ok-03.png ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-03.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 40.26%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 20.00%）；下限 136
 PASS  F1  图宽比 0.998（分母 6.31 in）
 PASS  F2  彩色主色数 4
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 
 --- ok-04.png ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-04.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 40.88%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 19.71%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 4
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 
 --- bad-f1-too-narrow.png ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 50.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 50.00%）；下限 136
 FAIL  F1  图宽比 0.697（分母 6.31 in）
 PASS  F2  彩色主色数 1
+FAIL  F5  越界主色 1 种（不在 H14 允许集合）：[('#4477aa', 0.5)]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
-RESULT: FAIL（F1）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+RESULT: FAIL（F1,F5）
 [exit=1]
 
 --- bad-f1-too-wide.png ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/bad-f1-too-wide.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 50.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 50.00%）；下限 136
 FAIL  F1  图宽比 1.236（分母 6.31 in）
 PASS  F2  彩色主色数 1
+FAIL  F5  越界主色 1 种（不在 H14 允许集合）：[('#4477aa', 0.5)]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
-RESULT: FAIL（F1）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+RESULT: FAIL（F1,F5）
 [exit=1]
 
 --- bad-f2-five-colors.png ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/bad-f2-five-colors.png --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 46.14%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 14.42%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 FAIL  F2  彩色主色数 6
+FAIL  F5  越界主色 6 种（不在 H14 允许集合）：[('#aa3377', 0.1442), ('#66ccee', 0.1423), ('#4477aa', 0.1423), ('#ee6677', 0.1423)]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
-RESULT: FAIL（F2）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+RESULT: FAIL（F2,F5）
 [exit=1]
 
 --- ok-05.pdf ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-05.pdf --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 40.87%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 20.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 4
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
+PASS  F6  N/A 本 PDF 未引用任何字体 ⇒ 本判据不适用（无字体可判）
 RESULT: PASS
 [exit=0]
 
 --- bad-f2-five-colors.pdf ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 39.08%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 14.10%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 FAIL  F2  彩色主色数 6
+FAIL  F5  越界主色 6 种（不在 H14 允许集合）：[('#ee6677', 0.1409), ('#66ccee', 0.1409), ('#ccbb44', 0.1409), ('#4477aa', 0.1409)]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
-RESULT: FAIL（F2）
+PASS  F6  N/A 本 PDF 未引用任何字体 ⇒ 本判据不适用（无字体可判）
+RESULT: FAIL（F2,F5）
 [exit=1]
 
 3.2 图注样本（借位 ok-01.png；只读 F3a–F3d）
@@ -203,72 +243,90 @@ RESULT: FAIL（F2）
 --- captions.tsv 行 1 = 'Figure 1: Calibrated wear depth versus sliding distance' ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 1: Calibrated wear depth versus sliding distance" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 6（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 6 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 
 --- captions.tsv 行 2 = 'Figure 2: We show the calibrated wear depth versus sliding distance for all six groups, including the sensitivity band at the 95 percent level.' ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 2: We show the calibrated wear depth versus sliding distance for all six groups, including the sensitivity band at the 95 percent level." --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 22 超硬上限 17
 FAIL  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 22 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: FAIL（F3b,F3c）
 [exit=1]
 
 --- captions.tsv 行 3 = 'Figure 3: Model structure.' ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 3: Model structure." --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 2（上限 12，硬上限 17）
 FAIL  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 2 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: FAIL（F3c）
 [exit=1]
 
 --- captions.tsv 行 4 = 'Figure 4:' ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 4:" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 0（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 FAIL  F3d  图注正文非空（正文 0 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: FAIL（F3d）
 [exit=1]
 
 --- captions.tsv 行 5 = 'Figure 5: Calibrated wear depth versus sliding distance for six groups and the sensitivity band' ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 5: Calibrated wear depth versus sliding distance for six groups and the sensitivity band" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 13（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 13 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: FAIL（F3b）
 [exit=1]
 
 --- captions.tsv 行 6 = 'Figure 6 Model structure' ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 6 Model structure" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 FAIL  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: FAIL（F3a）
 [exit=1]
 
@@ -278,12 +336,15 @@ RESULT: FAIL（F3a）
     拿它们证不了"F3b 数的到底是哪一段" ⇒ 必须有这一条，且钉进 expected.tsv（§2 的 `caption:7 F3b PASS`）。
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption "Figure 7: Calibrated wear depth versus sliding distance for six groups and materials" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 11（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 11 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: PASS
 [exit=0]
 
@@ -292,13 +353,16 @@ RESULT: PASS
 --- --json 全量输出 ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-02.png --caption "Figure 1: ok" --textwidth-in 6.31 --dpi 200 --json
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 50.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 50.00%）；下限 136
 PASS  F1  图宽比 0.807（分母 6.31 in）
 PASS  F2  彩色主色数 1
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 1（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 1 词）
-{"F1": true, "F2": true, "F3a": true, "F3b": true, "F3c": true, "F3d": true}
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+{"F4": true, "F1": true, "F2": true, "F5": true, "F3a": true, "F3b": true, "F3c": true, "F3d": true, "F6": true}
 RESULT: PASS
 [exit=0]
 
@@ -314,12 +378,15 @@ $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/fig
 --- @file 入参 ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-01.png --caption @tests/skills/figure-choose/fixtures/captions.tsv --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 42.40%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 25.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 3
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 FAIL  F3a  图注以 `Figure N:` 起
 FAIL  F3b  图注词数 77 超硬上限 17
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 77 词）
+PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
 RESULT: FAIL（F3a,F3b）
 [exit=1]
 
@@ -411,12 +478,15 @@ PIL.UnidentifiedImageError: cannot identify image file 'tests\\skills\\figure-ch
 --- 新检查器 × 同一张 PDF ---
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/figure-choose/fixtures/ok-05.pdf --caption "Figure 1: A test figure caption" --textwidth-in 6.31 --dpi 200
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 40.87%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 20.00%）；下限 136
 PASS  F1  图宽比 0.951（分母 6.31 in）
 PASS  F2  彩色主色数 4
+PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
 PASS  F3a  图注以 `Figure N:` 起
 PASS  F3b  图注词数 4（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 4 词）
+PASS  F6  N/A 本 PDF 未引用任何字体 ⇒ 本判据不适用（无字体可判）
 RESULT: PASS
 [exit=0]
 
@@ -424,18 +494,20 @@ RESULT: PASS
 
 $ python tests/skills/figure-choose/check-figure-style.py --fig "$TEMP/m3t1/fake.pdf" --caption "Figure 1: T" --textwidth-in 6.31 --dpi 200
 [stdout] （空）
-[stderr] FAIL: 读不出 PDF 页盒 $TEMP\m3t1\fake.pdf（FileDataError: Failed to open file '$TEMP\\m3t1\\fake.pdf'.）（fail-closed）
+[stderr] FAIL: 读不出图 $TEMP\m3t1\fake.pdf（FileDataError: Failed to open file '$TEMP\\m3t1\\fake.pdf'.）（fail-closed）
 [exit=2]
 
 ==============================================================================
-§4  gate 2：变异驱动器（9 条判据变异 + 1 条脚本探针，一条命令全跑）
+§4  gate 2：变异驱动器（14 条判据变异 + 1 条脚本探针，一条命令全跑）
 ==============================================================================
 修复轮 8 条；本轮（F3b 口径收敛轮）新增 **`M42`**（F3b 的词数口径由正文换回整条 ⇒ 口径锚
 `caption:7` 由 PASS 转 FAIL）。
-⚠️ **同一支驱动器现在共 53 条**（Task 3 的 `M9`–`M19`/`C1`/`C2`、Task 4 的 `M22`–`M28`、
-Task 5 的 `M29`–`M41`、Task 7 的 `M43`–`M46`、M3-T1 的 `M47`–`M53` 后来都并进了这支驱动器），
-故下面这一段是**整份**输出 ——
-Task 1 关心的是开头那 `M1`–`M8` + `M42` 九条判据变异与探针 `P1`；`9/9` 与 `53/53` 两行都在末尾的合计里。
+⚠️ **同一支驱动器现在共 58 条**（Task 3 的 `M9`–`M19`/`C1`/`C2`、Task 4 的 `M22`–`M28`、
+Task 5 的 `M29`–`M41`、Task 7 的 `M43`–`M46`、M3-T1 的 `M47`–`M53`、M3-style 的 `M54`–`M58`
+后来都并进了这支驱动器），故下面这一段是**整份**输出 ——
+Task 1 关心的是开头那 `M1`–`M8` + `M42` 九条判据变异与探针 `P1`；**今天的合计行是 `14/14` 与 `58/58`**
+（M3-style 又并入了 `M54`–`M58`；⚠️ 这一段散文 2026-10-01 手改订正过一次 —— 生成器**不改散文**，
+散文必须跟着同件的输出去，否则就是入库证据里的「声明比事实大」），两行都在末尾的合计里。
 
 --- gate 2 ---
 
@@ -443,7 +515,7 @@ $ python tests/skills/figure-choose/mutate-figure-style.py
 ==============================================================================
 变异驱动器 · check-figure-style.py
 ==============================================================================
-原检查器 blob  7636902a868aeca105e6b75b7dc616816fce95fe
+原检查器 blob  acf43fc7aec9492d9eed24635b981facedf17fbc
 逐格验收基线  python fixtures/run-expected.py → exit 0
 
 ==============================================================================
@@ -467,18 +539,28 @@ RED-OK   M8   F3a 判定取反
          caption:1 F3a PASS→FAIL（合格前缀转红）；caption:6 F3a FAIL→PASS（'Figure 6 Model structure' 缺冒号，转绿）
 RED-OK   M42  F3b 词数口径由**正文**换回**整条**（`len(body.split())` → `len(cap.split())`）
          caption:7（整条 13 词 / 正文 11 词）F3b PASS→FAIL（口径换回整条 ⇒ 越线 1 词）；NOTE/caption:5（整条 15 / 正文 13）F3b FAIL→FAIL（两口径同判红 ⇒ 它证不了口径，故口径锚另立 caption:7）
+RED-OK   M54  F4 的**外缘环**那一路退回**全图众数**（合取口径换回 I-1 的病根口径）⇒ 支点 ok-06 由 PASS 转 FAIL（边界对照**跑在变体上**）；附第二支变体单证 BG_MIN_LUMA 仍承重
+         **边界对照（跑在变体上）** ok-06.png F4 PASS→FAIL：原『PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 30.53%）；下限 136』 → 变异『FAIL  F4  外缘环 RGB (0, 114, 178) 亮度 87（占环 69.47%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 30.53%）；下限 136』（全图众数 = 那片 `#0072B2` 亮度 87 < 136 ⇒ 前提为真、咬得住）；ok-01.png F4 PASS→PASS（白底，不受影响）；**仅记录·不作断言** ok-04.png F4 PASS→PASS（它新旧两口径都 PASS ⇒ 拿它当对照是恒真，终审 Important-1）；**阈值常量仍承重（第二支变体 BG_MIN_LUMA 136→0）** bad-bg-dark.png F4 FAIL→PASS
+RED-OK   M55  F5 允许色序清空（H14 → 仅 #000000；判据失效）
+         good-color-order.png F5 PASS→FAIL（H14 前三色 ⊆ 允许集合；清空后全部越界）；bad-color-order.png F5 FAIL→FAIL（本来就越界，不受影响）
+RED-OK   M56  F6 可接受字体族清空（→ ("__none__",)；判据失效）
+         out-G1/figure.pdf F6 PASS→FAIL（内嵌 TeXGyreTermesX 被族表清空 ⇒ 越界）；PNG 侧 ok-01 F6 = PASS（PNG 载体标『不适用』= PASS，不受影响）
+RED-OK   M57  F5 射程边界对照：允许集合收窄成 H14 前三色子集 ⇒ 合法子集样本必须**仍绿**（同 `M50` 角色）
+         允许集合 = H14 前三色时：good-color-order.png F5 = PASS（该样本正是那三色 ⇒ 收窄后**仍绿**）；bad-color-order.png F5 = FAIL（非 H14 仍红）
+RED-OK   M58  F6 的内嵌判定退回『有字体名即算内嵌』（不看 /FontFile*）⇒ 只引用未内嵌的 `font-not-embedded.pdf` 由 `N/A` 转 `FAIL`
+         font-not-embedded.pdf F6 『PASS  F6  N/A 本 PDF **未内嵌**任何字体（只被引用、未内嵌：['Helvetica']）⇒ 未内嵌 ⇒ 本判据不适用（族不是这份文件里的事实；实测 Origin 的 PDF 即如此）』→『FAIL  F6  内嵌字体 ['Helvetica']』（内嵌事实被拆掉 ⇒ 只被引用的 `Helvetica` 被当成内嵌、族表里没有它 ⇒ 判族转红；内嵌事实没拆时它走 `N/A` 分支、**不**判族）
 ------------------------------------------------------------------------------
 变异探针（被打的不是判据，是验收脚本的 ERROR 分支）
 RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR 且整轮非零退出
-         干净一遍 exit=0 'MISMATCH 0 / 21'；对变异体一遍 exit=1 'MISMATCH 0 / 21  ERROR 1'（1 行 ERROR）　NOTE/同一行：原检查器 exit=1 判词 F2=FAIL；变异体 exit=2 stdout 空 ⇒ 旧版谓词会记 got=FAIL（= want ⇒ 记 OK，整轮报 MISMATCH 0 假绿）；新版记 ERROR 且 exit≠0
+         干净一遍 exit=0 'MISMATCH 0 / 34'；对变异体一遍 exit=1 'MISMATCH 0 / 34  ERROR 1'（1 行 ERROR）　NOTE/同一行：原检查器 exit=1 判词 F2=FAIL；变异体 exit=2 stdout 空 ⇒ 旧版谓词会记 got=FAIL（= want ⇒ 记 OK，整轮报 MISMATCH 0 假绿）；新版记 ERROR 且 exit≠0
 
 ==============================================================================
 还原自证
 ==============================================================================
-  check-figure-style.py  blob  7636902a868aeca105e6b75b7dc616816fce95fe  == 变异前
+  check-figure-style.py  blob  acf43fc7aec9492d9eed24635b981facedf17fbc  == 变异前
   工作树字节 == 变异前字节: True
   fixtures/_mut/ 已清空: True
-  还原后复跑逐格验收: exit=0  MISMATCH 0 / 21
+  还原后复跑逐格验收: exit=0  MISMATCH 0 / 34
 
 ==============================================================================
 规范数守卫的变异（M9–M19 + C1/C2 · 打的是 house-style.md / provenance.md，共 13 条）
@@ -559,7 +641,7 @@ RED-OK   M34  house-style.md：小数字面量与 `≤n` 全抹掉 ⇒ `K3` 抽�
 RED-OK   M40  SKILL.md：`--skills-root` 指到**另建** `mcm-plot-matlab`（仍〔拟建〕）的临时根 ⇒ `K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）
          前置(真 skills 根) exit=0 K6 绿；后置(临时根里 mcm-plot-matlab〔拟建〕却存在) exit=1 『点名的绘图 skill mcm-plot-matlab（存在·标了〔拟建〕⇒**标记与事实不符**）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 ['mcm-plot-matlab']』；非侵入(真根路径集合跑前/跑后逐字相等)=True
 RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红（`SKILL.md` 那句『逐条标了验证状态』要成立）
-         前置(真件) exit=0 K8 绿；后置(副本抹掉 `H1` 的验证行) exit=1 『`### H<n>.` 条目 13 个 · 没有恰一行『**验证**：』的 ['H1（0 行）']』
+         前置(真件) exit=0 K8 绿；后置(副本抹掉 `H1` 的验证行) exit=1 『`### H<n>.` 条目 14 个 · 没有恰一行『**验证**：』的 ['H1（0 行）']』
 
 ==============================================================================
 引用完整性检查器的变异（M43–M46 · 打的是 check-spec-pointers.py；`--skills-dir` 指 fixtures/fake-skills/ 与两个坏目录，共 4 条）
@@ -590,21 +672,21 @@ RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊
          SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
 RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
          前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
-还原自证  house-style.md blob 19e12afd0e6b011b7ca81edef93942d82114d931 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 4b8eed1d5c51cdd2feaea27db719b4c4ab65815d · SKILL.md blob 4383003897a2593000a163568fe69fe42db1b1d7 · 原件字面仍在: True · _mut-house/ 已清空: True
+还原自证  house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 7476e9ae88bda35b38da19e9a0b270f49504d43f · SKILL.md blob af7ab8f1f0e8693bc672c7dd426d5d904a53ba1e · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
 合计
 ==============================================================================
-MUT: 9/9 红（check-figure-style.py）
+MUT: 14/14 红（check-figure-style.py）
 MUT: 13/13 红（house-style.md / provenance.md 的规范数守卫：11 条 `--only` + 2 条 CENSUS 全跑）
 MUT: 7/7 红（chart-types.md 的结构守卫 S1/S2/S3/S5：7 条 `--only`）
 MUT: 13/13 红（SKILL.md 的短契约守卫 K1–K8：13 条（10 条打 SKILL.md 副本 + 3 条打别的：`K3` fail-closed 臂 / `K6` 反向臂 / `K8`））
 MUT: 4/4 红（引用完整性检查器 check-spec-pointers.py：`--skills-dir` 指假 skill 的全扫 + `K3` 仪器 fail-closed + 坏目录 fail-closed）
 MUT: 7/7 达预期（`K3` 的 ASCII 阈值标记臂 M47–M53：6 条必须红 + 1 条**射程边界对照**（`主色 4 个` / `下限 4` / `< 25 词`）必须绿）
-MUT: 53/53 达预期（合计）
+MUT: 58/58 达预期（合计）
 探针 P1: 红（check-figure-style.py 的脚本探针）
 探针 R1: 红（读数条 S4 的『该动的时候动、该判的时候不判』）
-（本驱动器共 9 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 7 条 `K3` 阈值标记臂变异（含 1 条射程边界对照）+ 1 条读数条探针）
+（本驱动器共 14 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 7 条 `K3` 阈值标记臂变异（含 1 条射程边界对照）+ 1 条读数条探针）
 [exit=0]
 
 ==============================================================================
@@ -625,29 +707,42 @@ $ #   （与驱动器 P1 用的是同一条字面替换，见 §4）
 
 $ python "$TEMP/m3t1/p1/figure-choose/fixtures/run-expected.py"
 flag      sample                   crit want got
-OK        ok-01.png                F1   want=PASS got=PASS
-OK        ok-01.png                F2   want=PASS got=PASS
-OK        ok-02.png                F1   want=PASS got=PASS
-OK        ok-03.png                F2   want=PASS got=PASS
-OK        ok-04.png                F2   want=PASS got=PASS
-OK        ok-05.pdf                F1   want=PASS got=PASS
-OK        ok-05.pdf                F2   want=PASS got=PASS
+MISMATCH  ok-01.png                F1   want=PASS got=FAIL
+MISMATCH  ok-01.png                F2   want=PASS got=FAIL
+MISMATCH  ok-01.png                F5   want=PASS got=FAIL
+MISMATCH  ok-02.png                F1   want=PASS got=FAIL
+MISMATCH  ok-02.png                F5   want=PASS got=FAIL
+MISMATCH  ok-03.png                F2   want=PASS got=FAIL
+MISMATCH  ok-03.png                F5   want=PASS got=FAIL
+MISMATCH  ok-04.png                F2   want=PASS got=FAIL
+MISMATCH  ok-04.png                F4   want=PASS got=FAIL
+MISMATCH  ok-04.png                F5   want=PASS got=FAIL
+MISMATCH  ok-05.pdf                F1   want=PASS got=FAIL
+MISMATCH  ok-05.pdf                F2   want=PASS got=FAIL
+MISMATCH  ok-05.pdf                F5   want=PASS got=FAIL
+MISMATCH  ok-06.png                F1   want=PASS got=FAIL
+MISMATCH  ok-06.png                F2   want=PASS got=FAIL
+MISMATCH  ok-06.png                F4   want=PASS got=FAIL
+MISMATCH  ok-06.png                F5   want=PASS got=FAIL
 OK        bad-f1-too-narrow.png    F1   want=FAIL got=FAIL
 OK        bad-f1-too-wide.png      F1   want=FAIL got=FAIL
 OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
 OK        bad-f2-five-colors.pdf   F2   want=FAIL got=FAIL
-OK        caption:1                F3a  want=PASS got=PASS  (fig borrowed: ok-01.png)
-OK        caption:1                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
-OK        caption:1                F3c  want=PASS got=PASS  (fig borrowed: ok-01.png)
-OK        caption:1                F3d  want=PASS got=PASS  (fig borrowed: ok-01.png)
+MISMATCH  caption:1                F3a  want=PASS got=FAIL  (fig borrowed: ok-01.png)
+MISMATCH  caption:1                F3b  want=PASS got=FAIL  (fig borrowed: ok-01.png)
+MISMATCH  caption:1                F3c  want=PASS got=FAIL  (fig borrowed: ok-01.png)
+MISMATCH  caption:1                F3d  want=PASS got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:2                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:3                F3c  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:4                F3d  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:5                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
 OK        caption:6                F3a  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
-OK        caption:7                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
-MISMATCH 0 / 21
-[exit=0]
+MISMATCH  caption:7                F3b  want=PASS got=FAIL  (fig borrowed: ok-01.png)
+OK        bad-bg-dark.png          F4   want=FAIL got=FAIL
+OK        bad-bg-navy.png          F4   want=FAIL got=FAIL
+OK        bad-color-order.png      F5   want=FAIL got=FAIL
+MISMATCH 22 / 34
+[exit=1]
 
 --- 同上，只看那一行（grep bad-f2-five-colors.pdf） ---
 
@@ -655,49 +750,69 @@ $ python "$TEMP/m3t1/p1/figure-choose/fixtures/run-expected.py"   # 贴出 stdou
 [stdout 中匹配 /bad-f2-five-colors/ 的行]
 OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
 OK        bad-f2-five-colors.pdf   F2   want=FAIL got=FAIL
-[exit=0]
+[exit=1]
 
 --- B：新版验收脚本（--checker 指到同一支变异体） ---
 
 $ python tests/skills/figure-choose/fixtures/run-expected.py --checker "$TEMP/m3t1/p1/figure-choose/check-figure-style.py"
 # checker: $TEMP/m3t1/p1/figure-choose/check-figure-style.py
 flag      sample                   crit want got
-OK        ok-01.png                F1   want=PASS got=PASS
-OK        ok-01.png                F2   want=PASS got=PASS
-OK        ok-02.png                F1   want=PASS got=PASS
-OK        ok-03.png                F2   want=PASS got=PASS
-OK        ok-04.png                F2   want=PASS got=PASS
-OK        ok-05.pdf                F1   want=PASS got=PASS
-OK        ok-05.pdf                F2   want=PASS got=PASS
-OK        bad-f1-too-narrow.png    F1   want=FAIL got=FAIL
-OK        bad-f1-too-wide.png      F1   want=FAIL got=FAIL
-OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
+ERROR     ok-01.png                F1   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-01.png                F2   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-01.png                F5   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-02.png                F1   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-02.png                F5   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-03.png                F2   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-03.png                F5   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-04.png                F2   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-04.png                F4   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-04.png                F5   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-05.pdf                F1   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-05.pdf                F2   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-05.pdf                F5   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-06.png                F1   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-06.png                F2   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-06.png                F4   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     ok-06.png                F5   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     bad-f1-too-narrow.png    F1   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     bad-f1-too-wide.png      F1   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     bad-f2-five-colors.png   F2   rc=2 没产生判词（fail-closed 或崩溃）
 ERROR     bad-f2-five-colors.pdf   F2   rc=2 没产生判词（fail-closed 或崩溃）
-OK        caption:1                F3a  want=PASS got=PASS  (fig borrowed: ok-01.png)
-OK        caption:1                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
-OK        caption:1                F3c  want=PASS got=PASS  (fig borrowed: ok-01.png)
-OK        caption:1                F3d  want=PASS got=PASS  (fig borrowed: ok-01.png)
-OK        caption:2                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
-OK        caption:3                F3c  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
-OK        caption:4                F3d  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
-OK        caption:5                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
-OK        caption:6                F3a  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
-OK        caption:7                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
-MISMATCH 0 / 21  ERROR 1
+ERROR     caption:1                F3a  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:1                F3b  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:1                F3c  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:1                F3d  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:2                F3b  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:3                F3c  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:4                F3d  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:5                F3b  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:6                F3a  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     caption:7                F3b  rc=2 没产生判词（fail-closed 或崩溃）  (fig borrowed: ok-01.png)
+ERROR     bad-bg-dark.png          F4   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     bad-bg-navy.png          F4   rc=2 没产生判词（fail-closed 或崩溃）
+ERROR     bad-color-order.png      F5   rc=2 没产生判词（fail-closed 或崩溃）
+MISMATCH 0 / 34  ERROR 34
 [exit=1]
 
 --- 同上，只看那一行与末行 ---
 
 $ python tests/skills/figure-choose/fixtures/run-expected.py --checker "$TEMP/m3t1/p1/figure-choose/check-figure-style.py"   # 贴出 stdout 里匹配 /bad-f2-five-colors|^MISMATCH/ 的行
 [stdout 中匹配 /bad-f2-five-colors|^MISMATCH/ 的行]
-OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
+ERROR     bad-f2-five-colors.png   F2   rc=2 没产生判词（fail-closed 或崩溃）
 ERROR     bad-f2-five-colors.pdf   F2   rc=2 没产生判词（fail-closed 或崩溃）
-MISMATCH 0 / 21  ERROR 1
+MISMATCH 0 / 34  ERROR 34
 [exit=1]
 
-读法：A（旧）报 `MISMATCH 0 / 21`、**exit 0** —— 看着「全绿」，可那一行它**根本没判成**；
-      B（新）报 `MISMATCH 0 / 21  ERROR 1`、**exit 1** —— 同一行被如实记成 ERROR。
-      这正是 R-5 指出的盲区：期望 FAIL 的行 + 崩掉的运行 = 旧版的「OK」。
+读法（**本节 A/B 的实况，2026-10-01 随本件重生成手改订正** —— 生成器不改散文）：
+      A（旧脚本）对这支**整支静默 fail-closed** 的变异体逐行读成 FAIL ⇒ `MISMATCH 22 / 34`、**exit 1**；
+      其中**期望 FAIL 的 12 行**（`bad-f1-too-*` / `bad-f2-five-colors.*` / `bad-bg-*` / `bad-color-order` / `caption:2..6`）**全被记成 `OK`**
+      —— 这正是 R-5 指出的盲区：**「没判成」被旧版谓词记成「判成红」**。
+      B（新脚本）把同一批行如实记成 `ERROR 34`、exit 1（`MISMATCH 0 / 34  ERROR 34`）。
+      ★ 同一件事**更干净**的同形演示见 **§4 的探针 P1**（`--checker` 指到"只在该行 fail-closed"的变体）：
+      干净一遍 `MISMATCH 0 / 34`、exit 0；对变异体一遍 `MISMATCH 0 / 34  ERROR 1`、exit 1 ——
+      旧版谓词对那一行会记 `got=FAIL（= want）` ⇒ 记 OK、整轮报 `MISMATCH 0` 假绿。
+      ⚠️ **订正记录**：原文写的是 `MISMATCH 0 / 21` 与 `ERROR 1` —— 那两个数是**旧行数（21）与 §4 探针 P1 的读数**
+      （本节 A/B 的 temp-dir 变异体是**整支** fail-closed，不是"只该行"），与本节自己的捕获**对不上**；已按捕获改写。
 
 ==============================================================================
 §6  口径分叉登记（不自行挑一个悄悄用）
@@ -764,32 +879,26 @@ for name, fn in [('A 任务书原样(BICUBIC)', v1), ('B 出厂(NEAREST)', v2), 
 --- 8.1 提交**前**的 `git status --short`（本轮的改动尚未入库）---
 
 $ git status --short
- M .claude/skills/mcm-plot-python/assets/mcmplot.py
- M docs/mcm-suite-todo.md
- M docs/superpowers/plans/2026-09-29-m3-plot-python.md
  M tests/skills/figure-choose/chart-types-verify.txt
- M tests/skills/figure-choose/check-house-style.py
- M tests/skills/figure-choose/gen-pointer-verify.py
  M tests/skills/figure-choose/house-style-verify.txt
  M tests/skills/figure-choose/pointer-verify.txt
  M tests/skills/figure-choose/skill-verify.txt
- M tests/skills/plot-python/plot-style-verify.txt
 [exit=0]
 
 --- 8.2 blob 身份：工作树 `git hash-object`（提交后与 HEAD 逐个比对，见 §8.5）---
 
 $ git hash-object tests/skills/figure-choose/check-figure-style.py tests/skills/figure-choose/mutate-figure-style.py tests/skills/figure-choose/fixtures/make-fixtures.py tests/skills/figure-choose/fixtures/run-expected.py tests/skills/figure-choose/fixtures/expected.tsv tests/skills/figure-choose/fixtures/captions.tsv tests/skills/figure-choose/fixtures/ok-01.png tests/skills/figure-choose/fixtures/ok-02.png tests/skills/figure-choose/fixtures/ok-03.png tests/skills/figure-choose/fixtures/ok-04.png tests/skills/figure-choose/fixtures/ok-05.pdf tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png tests/skills/figure-choose/fixtures/bad-f1-too-wide.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py
-7636902a868aeca105e6b75b7dc616816fce95fe
-755623875ea7d0581d7d02c568f56395bb01588c
-327085088b530a4b1af4339c5a9d7b1b46ff895e
+acf43fc7aec9492d9eed24635b981facedf17fbc
+576a1c1ac006ae0f6230e4f24ce4aaad8f772932
+165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
-de5e3db5b4519b4940d28ed7704afb30b5e767ee
+f60be2dd9e102cea9ed6864d33b198ff8f393a87
 1798824fce4640044c34c775ac39042818609a29
-25abad7f2f9e2a39c9a777378d0527326a5b7a9b
-50a94b1689eb5c6c9bb8719dc08147fffb3ed27b
-8b515f04091f763b3c5396ff54def1df4d226d26
-dfd7405ad60e7a045b6bbe54bfcd670566db3e3d
-1d72b8375f3992422db636670dd6ad2829e2e28d
+2d3f5cf3059991f75b0278879c3a494a13b74db9
+d2948051ff6814cfaeaef508bb58cbb1e5aa8127
+ec2de0577c1139e1183f90173f10d607184eca7c
+3271a7ca7e5353ae642233ea9f3e47d70d4a9395
+05546fe7bbd2971d846d43dfd1d34c09b449c1ec
 4c3aaecf4574c274f161660c06cb2426f55cc330
 a3c07123b60a10688a6a6057f1c602e0ccc8fa54
 0ea61290afa8b7f277fe557dcccd56ccaec4f669
@@ -819,34 +928,42 @@ for p in sorted(pathlib.Path('tests/skills/figure-choose').rglob('*')):
         print(f'{str(p).replace(chr(92), chr(47)):62} bytes={len(b):7} CRLF={b.count(bytes([13, 10]))}')
 
 $ python -c "<上面的命令体>"
-tests/skills/figure-choose/chart-types-verify.txt              bytes=  56418 CRLF=0
-tests/skills/figure-choose/check-figure-style.py               bytes=  13526 CRLF=0
-tests/skills/figure-choose/check-house-style.py                bytes=  76225 CRLF=0
+tests/skills/figure-choose/chart-types-verify.txt              bytes=  58876 CRLF=0
+tests/skills/figure-choose/check-figure-style.py               bytes=  30280 CRLF=0
+tests/skills/figure-choose/check-house-style.py                bytes=  81439 CRLF=0
 tests/skills/figure-choose/check-spec-pointers.py              bytes=   9754 CRLF=0
-tests/skills/figure-choose/figure-style-baseline.txt           bytes=  78845 CRLF=0
+tests/skills/figure-choose/check-style-table-freshness.py      bytes=   3402 CRLF=0
+tests/skills/figure-choose/figure-style-baseline.txt           bytes=  88879 CRLF=0
+tests/skills/figure-choose/fixtures/bad-bg-dark.png            bytes=   3047 CRLF=1
+tests/skills/figure-choose/fixtures/bad-bg-navy.png            bytes=   3057 CRLF=1
+tests/skills/figure-choose/fixtures/bad-color-order.png        bytes=   3057 CRLF=1
 tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png      bytes=   2523 CRLF=1
 tests/skills/figure-choose/fixtures/bad-f1-too-wide.png        bytes=   4148 CRLF=1
 tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf     bytes=   1322 CRLF=0
 tests/skills/figure-choose/fixtures/bad-f2-five-colors.png     bytes=   3083 CRLF=1
 tests/skills/figure-choose/fixtures/captions.tsv               bytes=    457 CRLF=0
-tests/skills/figure-choose/fixtures/expected.tsv               bytes=    462 CRLF=0
+tests/skills/figure-choose/fixtures/expected.tsv               bytes=    718 CRLF=0
 tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-nopointer/SKILL.md bytes=    559 CRLF=0
 tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-ok/SKILL.md bytes=    942 CRLF=0
 tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-restate/SKILL.md bytes=    788 CRLF=0
 tests/skills/figure-choose/fixtures/fake-skills/mcm-schematic/SKILL.md bytes=   1204 CRLF=0
 tests/skills/figure-choose/fixtures/fake-skills/mcm-table/SKILL.md bytes=   1184 CRLF=0
-tests/skills/figure-choose/fixtures/make-fixtures.py           bytes=   3886 CRLF=0
-tests/skills/figure-choose/fixtures/ok-01.png                  bytes=   3060 CRLF=1
+tests/skills/figure-choose/fixtures/font-not-embedded.pdf      bytes=   1190 CRLF=0
+tests/skills/figure-choose/fixtures/good-color-order.png       bytes=   3056 CRLF=1
+tests/skills/figure-choose/fixtures/make-fixtures.py           bytes=  10717 CRLF=0
+tests/skills/figure-choose/fixtures/ok-01.png                  bytes=   3056 CRLF=1
 tests/skills/figure-choose/fixtures/ok-02.png                  bytes=   2783 CRLF=1
-tests/skills/figure-choose/fixtures/ok-03.png                  bytes=   3668 CRLF=1
-tests/skills/figure-choose/fixtures/ok-04.png                  bytes=   3090 CRLF=1
-tests/skills/figure-choose/fixtures/ok-05.pdf                  bytes=   1029 CRLF=0
+tests/skills/figure-choose/fixtures/ok-03.png                  bytes=   3667 CRLF=1
+tests/skills/figure-choose/fixtures/ok-04.png                  bytes=   3089 CRLF=1
+tests/skills/figure-choose/fixtures/ok-05.pdf                  bytes=    975 CRLF=0
+tests/skills/figure-choose/fixtures/ok-06.png                  bytes=   3057 CRLF=1
 tests/skills/figure-choose/fixtures/run-expected.py            bytes=   4761 CRLF=0
 tests/skills/figure-choose/gen-chart-types-verify.py           bytes=  10493 CRLF=0
 tests/skills/figure-choose/gen-figure-style-baseline.py        bytes=  11266 CRLF=0
 tests/skills/figure-choose/gen-house-style-verify.py           bytes=   9795 CRLF=0
 tests/skills/figure-choose/gen-pointer-verify.py               bytes=  14884 CRLF=0
 tests/skills/figure-choose/gen-skill-verify.py                 bytes=  14594 CRLF=0
+tests/skills/figure-choose/gen-style-table.py                  bytes=  30637 CRLF=0
 tests/skills/figure-choose/green/green-self-reports.md         bytes=  20490 CRLF=0
 tests/skills/figure-choose/green/judge-green.md                bytes=  13556 CRLF=0
 tests/skills/figure-choose/green/make-evidence.py              bytes=  61267 CRLF=0
@@ -866,9 +983,9 @@ tests/skills/figure-choose/green/README.md                     bytes=   4166 CRL
 tests/skills/figure-choose/green/rescue-transcripts.py         bytes=   8418 CRLF=0
 tests/skills/figure-choose/green-evidence.md                   bytes= 102780 CRLF=1
 tests/skills/figure-choose/house-metrics.py                    bytes=  41210 CRLF=0
-tests/skills/figure-choose/house-style-verify.txt              bytes=  82060 CRLF=0
-tests/skills/figure-choose/mutate-figure-style.py              bytes= 106637 CRLF=0
-tests/skills/figure-choose/pointer-verify.txt                  bytes=  44838 CRLF=0
+tests/skills/figure-choose/house-style-verify.txt              bytes=  84518 CRLF=0
+tests/skills/figure-choose/mutate-figure-style.py              bytes= 121189 CRLF=0
+tests/skills/figure-choose/pointer-verify.txt                  bytes=  47296 CRLF=0
 tests/skills/figure-choose/red/brief-R1.md                     bytes=   1122 CRLF=0
 tests/skills/figure-choose/red/brief-R2.md                     bytes=   2029 CRLF=0
 tests/skills/figure-choose/red/brief-R3.md                     bytes=   1230 CRLF=0
@@ -876,10 +993,10 @@ tests/skills/figure-choose/red/f2-boxes.txt                    bytes=  16801 CRL
 tests/skills/figure-choose/red/f2-diagnose.py                  bytes=   6392 CRLF=0
 tests/skills/figure-choose/red/judge.md                        bytes=   7711 CRLF=0
 tests/skills/figure-choose/red/make-briefs.py                  bytes=   5641 CRLF=0
-tests/skills/figure-choose/red/make-evidence.py                bytes=  69230 CRLF=0
-tests/skills/figure-choose/red/make-multipage-probe.py         bytes=   3914 CRLF=0
+tests/skills/figure-choose/red/make-evidence.py                bytes=  70169 CRLF=0
+tests/skills/figure-choose/red/make-multipage-probe.py         bytes=   6624 CRLF=0
 tests/skills/figure-choose/red/make-readme.py                  bytes=   6447 CRLF=0
-tests/skills/figure-choose/red/multipage-probe.pdf             bytes=   1923 CRLF=0
+tests/skills/figure-choose/red/multipage-probe.pdf             bytes=   1926 CRLF=0
 tests/skills/figure-choose/red/out-R1/caption.txt              bytes=   1215 CRLF=0
 tests/skills/figure-choose/red/out-R1/figure.pdf               bytes=  22481 CRLF=0
 tests/skills/figure-choose/red/out-R1/figure.png               bytes= 237943 CRLF=4
@@ -893,12 +1010,12 @@ tests/skills/figure-choose/red/out-R3/figure.pdf               bytes=  50533 CRL
 tests/skills/figure-choose/red/out-R3/figure.png               bytes= 215690 CRLF=5
 tests/skills/figure-choose/red/out-R3/make_figure.py           bytes=  10972 CRLF=0
 tests/skills/figure-choose/red/README.md                       bytes=   9724 CRLF=0
-tests/skills/figure-choose/red/red-evidence.md                 bytes=  71888 CRLF=0
+tests/skills/figure-choose/red/red-evidence.md                 bytes=  72827 CRLF=0
 tests/skills/figure-choose/red/rescue-transcripts.py           bytes=   8785 CRLF=0
 tests/skills/figure-choose/red/truth.py                        bytes=   2890 CRLF=0
 tests/skills/figure-choose/red/verify-reproducible.py          bytes=   3667 CRLF=0
 tests/skills/figure-choose/red/writer-self-reports.md          bytes=  30721 CRLF=0
-tests/skills/figure-choose/skill-verify.txt                    bytes=  61487 CRLF=0
+tests/skills/figure-choose/skill-verify.txt                    bytes=  63945 CRLF=0
 [exit=0]
 
 注：PNG/PDF 里出现的 `CRLF=1` 是**二进制内容里恰好有 0x0D0A 这两个字节**，不是行尾；
@@ -954,21 +1071,21 @@ $ git status --short
 [exit=0]
 
 $ git log -1 --format='%H %s'
-0a773195e6dd8419bcb5adc93609caa08656c116 test(m3-plot-t4): 驱动器 blob 变 ⇒ 6 份证据件按各自入库生成器重生成
+e644fef6095b08d373a538c83d75e80562118117 test(m3-style): plot-style-verify.txt 于干净树上重生成（F4-refix 轮）
 [exit=0]
 
 $ git hash-object tests/skills/figure-choose/check-figure-style.py tests/skills/figure-choose/mutate-figure-style.py tests/skills/figure-choose/fixtures/make-fixtures.py tests/skills/figure-choose/fixtures/run-expected.py tests/skills/figure-choose/fixtures/expected.tsv tests/skills/figure-choose/fixtures/captions.tsv tests/skills/figure-choose/fixtures/ok-01.png tests/skills/figure-choose/fixtures/ok-02.png tests/skills/figure-choose/fixtures/ok-03.png tests/skills/figure-choose/fixtures/ok-04.png tests/skills/figure-choose/fixtures/ok-05.pdf tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png tests/skills/figure-choose/fixtures/bad-f1-too-wide.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py    # 工作树
-7636902a868aeca105e6b75b7dc616816fce95fe
-755623875ea7d0581d7d02c568f56395bb01588c
-327085088b530a4b1af4339c5a9d7b1b46ff895e
+acf43fc7aec9492d9eed24635b981facedf17fbc
+576a1c1ac006ae0f6230e4f24ce4aaad8f772932
+165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
-de5e3db5b4519b4940d28ed7704afb30b5e767ee
+f60be2dd9e102cea9ed6864d33b198ff8f393a87
 1798824fce4640044c34c775ac39042818609a29
-25abad7f2f9e2a39c9a777378d0527326a5b7a9b
-50a94b1689eb5c6c9bb8719dc08147fffb3ed27b
-8b515f04091f763b3c5396ff54def1df4d226d26
-dfd7405ad60e7a045b6bbe54bfcd670566db3e3d
-1d72b8375f3992422db636670dd6ad2829e2e28d
+2d3f5cf3059991f75b0278879c3a494a13b74db9
+d2948051ff6814cfaeaef508bb58cbb1e5aa8127
+ec2de0577c1139e1183f90173f10d607184eca7c
+3271a7ca7e5353ae642233ea9f3e47d70d4a9395
+05546fe7bbd2971d846d43dfd1d34c09b449c1ec
 4c3aaecf4574c274f161660c06cb2426f55cc330
 a3c07123b60a10688a6a6057f1c602e0ccc8fa54
 0ea61290afa8b7f277fe557dcccd56ccaec4f669
@@ -977,17 +1094,17 @@ a3c07123b60a10688a6a6057f1c602e0ccc8fa54
 [exit=0]
 
 $ git rev-parse HEAD:tests/skills/figure-choose/check-figure-style.py HEAD:tests/skills/figure-choose/mutate-figure-style.py HEAD:tests/skills/figure-choose/fixtures/make-fixtures.py HEAD:tests/skills/figure-choose/fixtures/run-expected.py HEAD:tests/skills/figure-choose/fixtures/expected.tsv HEAD:tests/skills/figure-choose/fixtures/captions.tsv HEAD:tests/skills/figure-choose/fixtures/ok-01.png HEAD:tests/skills/figure-choose/fixtures/ok-02.png HEAD:tests/skills/figure-choose/fixtures/ok-03.png HEAD:tests/skills/figure-choose/fixtures/ok-04.png HEAD:tests/skills/figure-choose/fixtures/ok-05.pdf HEAD:tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png HEAD:tests/skills/figure-choose/fixtures/bad-f1-too-wide.png HEAD:tests/skills/figure-choose/fixtures/bad-f2-five-colors.png HEAD:tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py    # 入库 blob
-7636902a868aeca105e6b75b7dc616816fce95fe
-755623875ea7d0581d7d02c568f56395bb01588c
-327085088b530a4b1af4339c5a9d7b1b46ff895e
+acf43fc7aec9492d9eed24635b981facedf17fbc
+576a1c1ac006ae0f6230e4f24ce4aaad8f772932
+165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
-de5e3db5b4519b4940d28ed7704afb30b5e767ee
+f60be2dd9e102cea9ed6864d33b198ff8f393a87
 1798824fce4640044c34c775ac39042818609a29
-25abad7f2f9e2a39c9a777378d0527326a5b7a9b
-50a94b1689eb5c6c9bb8719dc08147fffb3ed27b
-8b515f04091f763b3c5396ff54def1df4d226d26
-dfd7405ad60e7a045b6bbe54bfcd670566db3e3d
-1d72b8375f3992422db636670dd6ad2829e2e28d
+2d3f5cf3059991f75b0278879c3a494a13b74db9
+d2948051ff6814cfaeaef508bb58cbb1e5aa8127
+ec2de0577c1139e1183f90173f10d607184eca7c
+3271a7ca7e5353ae642233ea9f3e47d70d4a9395
+05546fe7bbd2971d846d43dfd1d34c09b449c1ec
 4c3aaecf4574c274f161660c06cb2426f55cc330
 a3c07123b60a10688a6a6057f1c602e0ccc8fa54
 0ea61290afa8b7f277fe557dcccd56ccaec4f669
@@ -996,17 +1113,17 @@ tests/skills/figure-choose/gen-figure-style-baseline.py
 [exit=0]
 
 逐个比对：
-  tests/skills/figure-choose/check-figure-style.py               工作树=7636902a868a  HEAD=7636902a868a  相等
-  tests/skills/figure-choose/mutate-figure-style.py              工作树=755623875ea7  HEAD=755623875ea7  相等
-  tests/skills/figure-choose/fixtures/make-fixtures.py           工作树=327085088b53  HEAD=327085088b53  相等
+  tests/skills/figure-choose/check-figure-style.py               工作树=acf43fc7aec9  HEAD=acf43fc7aec9  相等
+  tests/skills/figure-choose/mutate-figure-style.py              工作树=576a1c1ac006  HEAD=576a1c1ac006  相等
+  tests/skills/figure-choose/fixtures/make-fixtures.py           工作树=165082257720  HEAD=165082257720  相等
   tests/skills/figure-choose/fixtures/run-expected.py            工作树=b3fd8153b5d6  HEAD=b3fd8153b5d6  相等
-  tests/skills/figure-choose/fixtures/expected.tsv               工作树=de5e3db5b451  HEAD=de5e3db5b451  相等
+  tests/skills/figure-choose/fixtures/expected.tsv               工作树=f60be2dd9e10  HEAD=f60be2dd9e10  相等
   tests/skills/figure-choose/fixtures/captions.tsv               工作树=1798824fce46  HEAD=1798824fce46  相等
-  tests/skills/figure-choose/fixtures/ok-01.png                  工作树=25abad7f2f9e  HEAD=25abad7f2f9e  相等
-  tests/skills/figure-choose/fixtures/ok-02.png                  工作树=50a94b1689eb  HEAD=50a94b1689eb  相等
-  tests/skills/figure-choose/fixtures/ok-03.png                  工作树=8b515f04091f  HEAD=8b515f04091f  相等
-  tests/skills/figure-choose/fixtures/ok-04.png                  工作树=dfd7405ad60e  HEAD=dfd7405ad60e  相等
-  tests/skills/figure-choose/fixtures/ok-05.pdf                  工作树=1d72b8375f39  HEAD=1d72b8375f39  相等
+  tests/skills/figure-choose/fixtures/ok-01.png                  工作树=2d3f5cf30599  HEAD=2d3f5cf30599  相等
+  tests/skills/figure-choose/fixtures/ok-02.png                  工作树=d2948051ff68  HEAD=d2948051ff68  相等
+  tests/skills/figure-choose/fixtures/ok-03.png                  工作树=ec2de0577c11  HEAD=ec2de0577c11  相等
+  tests/skills/figure-choose/fixtures/ok-04.png                  工作树=3271a7ca7e53  HEAD=3271a7ca7e53  相等
+  tests/skills/figure-choose/fixtures/ok-05.pdf                  工作树=05546fe7bbd2  HEAD=05546fe7bbd2  相等
   tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png      工作树=4c3aaecf4574  HEAD=4c3aaecf4574  相等
   tests/skills/figure-choose/fixtures/bad-f1-too-wide.png        工作树=a3c07123b60a  HEAD=a3c07123b60a  相等
   tests/skills/figure-choose/fixtures/bad-f2-five-colors.png     工作树=0ea61290afa8  HEAD=0ea61290afa8  相等

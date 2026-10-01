@@ -1,0 +1,67 @@
+
+========== G1: 基线 + 点名 xb.font$ ==========
+--- 建图: G1 ([Graph1])
+  G1 xb.font (默认) = 1.0
+### G1-a 基线  [g1_a_baseline.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["SimSun", "TrueType"], ["SimSun", "TrueType"]]
+    spans    : {"SimSun": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+  LT xb.font$ = "Times New Roman";                        -> exec_ok=True
+  G1 xb.font (点名后) = 1.0
+### G1-b 只点名 xb.font$ 之后  [g1_b_named.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["SimSun", "TrueType"], ["SimSun", "TrueType"]]
+    spans    : {"SimSun": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+
+========== G2: 假主题名 vs 真主题名 ==========
+--- 建图: G2 ([Graph2])
+### G2-a 基线  [g2_a_baseline.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["SimSun", "TrueType"], ["SimSun", "TrueType"]]
+    spans    : {"SimSun": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+  LT themeApply2g theme:="NoSuchThemeXYZ12345";           -> exec_ok=True
+### G2-b 假主题名之后  [g2_b_bogus_theme.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["SimSun", "TrueType"], ["SimSun", "TrueType"]]
+    spans    : {"SimSun": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+  LT themeApply2g theme:="Times New Roman Font";          -> exec_ok=True
+### G2-c 真主题名之后  [g2_c_real_theme.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"]]
+    spans    : {"TimesNewRomanPSMT": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+
+========== G3: 主题把索引设成了几（值名承重） ==========
+--- 建图: G3 ([Graph3])
+  G3 主题前索引: {"xb.font": 1.0, "yl.font": 1.0, "x1.font": NaN, "y1.font": NaN}
+  LT themeApply2g theme:="Times New Roman Font";          -> exec_ok=True
+  G3 主题后索引: {"xb.font": 338.0, "yl.font": 338.0, "x1.font": NaN, "y1.font": NaN}
+
+========== G4: 主题之后再改文本 ==========
+--- 建图: G4 ([Graph4])
+  LT themeApply2g theme:="Times New Roman Font";          -> exec_ok=True
+  LT xb.text$ = "Wavelength (nm)";                        -> exec_ok=True
+  LT yl.text$ = "Intensity (a.u.)";                       -> exec_ok=True
+### G4-a 主题后写拉丁轴标题  [g4_a_latin_text.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"]]
+    spans    : {"TimesNewRomanPSMT": 61}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|I n t e n s i t y  ( a . u . )|W|a v e l e n g t h  ( n m )| B|
+  LT xb.text$ = "温度 (°C)";                                -> exec_ok=True
+### G4-b 主题后写中文轴标题  [g4_b_cjk_text.pdf]
+    get_fonts: [["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "Type3"]]
+    spans    : {"TimesNewRomanPSMT": 47}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|I n t e n s i t y  ( a . u . )|    | B|
+  G4 改文本后 xb.font = 338.0
+
+========== G5: 用索引 N 直接赋值，不经主题 ==========
+--- 建图: G5 ([Graph5])
+  LT xb.font = 338.0;                                     -> exec_ok=True
+  LT yl.font = 338.0;                                     -> exec_ok=True
+  LT x1.font = 338.0;                                     -> exec_ok=False
+  LT y1.font = 338.0;                                     -> exec_ok=False
+### G5 用索引 338.0 直接赋值  [g5_by_index.pdf]
+    get_fonts: [["SimSun", "TrueType"], ["TimesNewRomanPSMT", "TrueType"], ["TimesNewRomanPSMT", "TrueType"]]
+    spans    : {"SimSun": 6}
+    text     : 0|2|4|6|8|1 0|0|2|4|6|8|1 0|B|A| B|
+
+=== op.exit() ===
+op.exit() 返回

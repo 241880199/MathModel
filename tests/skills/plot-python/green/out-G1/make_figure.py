@@ -40,8 +40,9 @@ def main():
     high = [0.23, 0.25, 0.15, 0.25, 0.25, 0.17]
 
     fig, ax = plt.subplots(figsize=mcmplot.figsize_for(TEXTWIDTH_IN), layout="constrained")
-    # 亲眼看图逼出的一笔：apply_style() 把 xtick.top/ytick.right 打开（science 底座），
-    # 而 mcm.mplstyle 关了对应边框线 ⇒ 上/右会留下悬空刻度。这里在轴级关掉。
+    # 底座的 xtick.top / ytick.right 曾让上/右留下悬空刻度（这一笔当初是亲眼看图逼出来的）。
+    # 缺口① 已由 mcm.mplstyle 显式置 False 处置 ⇒ 这行现在是**冗余的保底**：本机实测把它删掉
+    # 重跑，产出的 PNG 逐字节不变（对产物无影响，留作双保险）。
     ax.tick_params(top=False, right=False)
     bottom = np.zeros(len(districts))
     for vals, label in ((low, "low"), (medium, "medium"), (high, "high")):

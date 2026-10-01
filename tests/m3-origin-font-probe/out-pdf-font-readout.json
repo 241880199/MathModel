@@ -1,0 +1,783 @@
+{
+  "b0_baseline.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "c1_theme_TNR.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "c2_theme_nightsky.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 6
+    },
+    "drawings": 34,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "d1_named.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "Type3",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": ""
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 6,
+      "SimSun": 1
+    },
+    "drawings": 34,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\n\u0001\n B\n"
+  },
+  "e1_cjk.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "Type3",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": ""
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 31,
+      "SimSun": 7
+    },
+    "drawings": 34,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nW\na v e l e n g t h  ( n m )\n\u0007\n\u0006\n\u0001\n\u0002\n\u0005\n\u0004\n\u0003\n B\n"
+  },
+  "g1_a_baseline.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g1_b_named.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g2_a_baseline.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g2_b_bogus_theme.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g2_c_real_theme.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g4_a_latin_text.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 61
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nI n t e n s i t y  ( a . u . )\nW\na v e l e n g t h  ( n m )\n B\n"
+  },
+  "g4_b_cjk_text.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "Type3",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": ""
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 47
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nI n t e n s i t y  ( a . u . )\n\u0007 \u0006 \u0001\u0002 \u0005\u0004 \u0003\n B\n"
+  },
+  "g5_by_index.pdf": {
+    "fonts": [
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g6_theme.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g7_by_props.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g8_0_layer_x_label_font.pdf": {
+    "fonts": [
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 17,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font4",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 2,
+      "SimSun": 4
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g8_1_layer_y_label_font.pdf": {
+    "fonts": [
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 17,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font4",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 4,
+      "TimesNewRomanPSMT": 2
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g8_2_xb_font.pdf": {
+    "fonts": [
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g8_3_yl_font.pdf": {
+    "fonts": [
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 6
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "g8_4_legend_font.pdf": {
+    "fonts": [
+      {
+        "xref": 14,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font1",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 11,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font2",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 17,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "SimSun",
+        "name": "Font3",
+        "enc": "WinAnsiEncoding"
+      },
+      {
+        "xref": 8,
+        "ext": "n/a",
+        "type": "TrueType",
+        "basefont": "TimesNewRomanPSMT",
+        "name": "Font4",
+        "enc": "WinAnsiEncoding"
+      }
+    ],
+    "spans": {
+      "SimSun": 4,
+      "TimesNewRomanPSMT": 2
+    },
+    "drawings": 32,
+    "images": 0,
+    "text": "0\n2\n4\n6\n8\n1 0\n0\n2\n4\n6\n8\n1 0\nB\nA\n B\n"
+  },
+  "ctrl_cjk_simsun.pdf": {
+    "fonts": [
+      {
+        "xref": 16,
+        "ext": "ttf",
+        "type": "Type0",
+        "basefont": "BHJLVU+SimSun",
+        "name": "F1",
+        "enc": "Identity-H"
+      }
+    ],
+    "spans": {
+      "SimSun": 49
+    },
+    "drawings": 25,
+    "images": 0,
+    "text": "0\n1\n2\n3\n4\n5\n时间 温度\n0\n5\n10\n15\n20\n25\n温度 (°C)\nWavelength 0123456789\n"
+  },
+  "ctrl_cjk_times.pdf": {
+    "fonts": [
+      {
+        "xref": 16,
+        "ext": "ttf",
+        "type": "Type0",
+        "basefont": "FHXFSG+TimesNewRomanPSMT",
+        "name": "F1",
+        "enc": "Identity-H"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 49
+    },
+    "drawings": 25,
+    "images": 0,
+    "text": "0\n1\n2\n3\n4\n5\n时间 温度\n0\n5\n10\n15\n20\n25\n温度 (°C)\nWavelength 0123456789\n"
+  },
+  "ctrl_simsun.pdf": {
+    "fonts": [
+      {
+        "xref": 16,
+        "ext": "ttf",
+        "type": "Type0",
+        "basefont": "BHJLVU+SimSun",
+        "name": "F1",
+        "enc": "Identity-H"
+      }
+    ],
+    "spans": {
+      "SimSun": 57
+    },
+    "drawings": 25,
+    "images": 0,
+    "text": "0\n1\n2\n3\n4\n5\nX axis (s)\n0\n5\n10\n15\n20\n25\nY axis (m)\nWavelength 0123456789\n"
+  },
+  "ctrl_times.pdf": {
+    "fonts": [
+      {
+        "xref": 16,
+        "ext": "ttf",
+        "type": "Type0",
+        "basefont": "FHXFSG+TimesNewRomanPSMT",
+        "name": "F1",
+        "enc": "Identity-H"
+      }
+    ],
+    "spans": {
+      "TimesNewRomanPSMT": 57
+    },
+    "drawings": 25,
+    "images": 0,
+    "text": "0\n1\n2\n3\n4\n5\nX axis (s)\n0\n5\n10\n15\n20\n25\nY axis (m)\nWavelength 0123456789\n"
+  }
+}

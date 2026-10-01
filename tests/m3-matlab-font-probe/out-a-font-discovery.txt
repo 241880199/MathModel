@@ -1,0 +1,125 @@
+=== A0 env ===
+version    = 25.2.0.3177638 (R2025b) Update 5
+matlabroot = D:\Software\Matlab
+arch       = win64
+cwd        = D:\Projects\数学建模
+fontdir    = D:\Projects\数学建模\.claude\skills\mcm-plot-python\assets\fonts (exist=7)
+
+=== A1 listfonts BEFORE any change ===
+listfonts count = 249
+wrote listfonts_probe_a_before.txt
+  exact  [TeXGyreTermesX] = 0
+  exact  [TeX Gyre TermesX] = 0
+  exact  [TeXGyreTermes] = 0
+  exact  [Times New Roman] = 1
+  exact  [Times] = 1
+  exact  [Nimbus Roman] = 0
+  exact  [yyb] = 1
+  exact  [字语康宋体] = 1
+  exact  [萝莉体 第二版] = 1
+  exact  [Noto Sans SC] = 1
+  exact  [Source Han Serif SC Heavy] = 1
+  contains [Termes] : n=0
+  contains [TeX] : n=0
+  contains [Gyre] : n=0
+  contains [yyb] : n=1 -> {yyb}
+  contains [萝莉] : n=1 -> {萝莉体 第二版}
+  contains [字语康] : n=1 -> {字语康宋体}
+
+=== A2 provenance of listfonts ===
+exist(listfonts) = 2
+which -all [1] = D:\Software\Matlab\toolbox\matlab\uitools\uitools\listfonts.m
+
+=== A3 settings tree: matlab.fonts ===
+settings root class = matlab.settings.SettingsGroup
+--- disp(s.matlab.fonts) ---
+  SettingsGroup 'matlab.fonts' - 属性:
+
+      editor: [1×1 SettingsGroup]
+    codefont: [1×1 SettingsGroup]
+
+--- end disp ---
+-- probe known leaves --
+editor.code.Name = Monospaced
+editor.code.Size = 49
+editor.code.Size = 52
+editor.code.Size = 112
+editor.code.Size = 120
+editor.normal.Name = SansSerif
+
+=== A4 environment (Java System.getenv) ===
+env var count = 91
+keys containing FONT: n=0
+keys containing TEX: n=0
+getenv FONTCONFIG_FILE = []
+getenv FONTCONFIG_PATH = []
+
+=== A5 java.awt font enumeration (Java view) ===
+java families count = 248
+  java exact [TeXGyreTermesX] = 0
+  java exact [TeX Gyre TermesX] = 0
+  java exact [TeXGyreTermes] = 0
+  java exact [Times New Roman] = 1
+  java exact [Times] = 0
+  java exact [Nimbus Roman] = 0
+  java exact [yyb] = 0
+  java exact [字语康宋体] = 0
+  java exact [萝莉体 第二版] = 0
+  java exact [Noto Sans SC] = 1
+  java exact [Source Han Serif SC Heavy] = 1
+  java contains Termes n=0 {}
+
+=== A6 GDI AddFontResourceExA(FR_PRIVATE) -- no-install route 3c ===
+hdr exist=2  ascii otf copy exist=2
+loadlibrary(gdi32) ok
+AddFontResourceExA(FR_PRIVATE) returned 1
+listfonts count after private-add = 249 (before = 249)
+  after: exact TeXGyreTermesX = 0
+  after: exact TeX Gyre TermesX = 0
+  after: contains Termes n=0 {}
+A6 export lastwarn id=[] msg=[]
+
+=== A7 latex text interpreter (no-install route 1) ===
+[警告: SceneNode 状态错误。
+不支持字体 cmss10。
+] 
+[警告: SceneNode 状态错误。
+不支持字体 cmss10。
+] 
+[警告: SceneNode 状态错误。
+不支持字体 cmss10。
+] 
+A7 latex export lastwarn id=[MATLAB:handle_graphics:exceptions:SceneNode] msg=[SceneNode 状态错误。
+不支持字体 cmss10。
+]
+[警告: SceneNode 状态错误。
+字符串标量或字符向量必须具备有效的解释器语法:
+$\\usepackage{newtxtext}\\mathrm{ABC}$
+] 
+A7 usepackage: export ran
+A7 usepackage lastwarn id=[MATLAB:handle_graphics:exceptions:SceneNode] msg=[SceneNode 状态错误。
+字符串标量或字符向量必须具备有效的解释器语法: 
+$\\usepackage{newtxtext}\\mathrm{ABC}$
+]
+
+=== A8 matlabroot/sys/fonts (read-only listing) ===
+entries = 4
+  [dir] .
+  [dir] ..
+  [dir] ttf
+  [dir] type1
+ttf entries = 3
+  ttf/.  0 B
+  ttf/..  0 B
+  ttf/cm  0 B
+
+=== A9 control: set a nonexistent FontName silently? ===
+get after set = [NoSuchFontXYZ123]
+A9 lastwarn id=[] msg=[]
+
+=== A10 addpath(fontdir) -- re-test of the recon claim ===
+listfonts before addpath = 249 ; after addpath = 249
+  after addpath: exact TeXGyreTermesX = 0 ; contains Termes = 0
+  fontdir is on the MATLAB path now = 1
+
+=== A-END ===

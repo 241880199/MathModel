@@ -1,0 +1,44 @@
+### probe_b_size start ###
+--- 图的默认页面尺寸 ---
+  page.width = 6432.0
+  page.height = 4560.0
+  page.resx = 600.0
+  page.resy = 600.0
+  page.units = 0.0
+  => 页面物理尺寸: 10.7200 x 7.6000 in
+
+--- 3a. save_fig(width=N) 导 PNG（tr1.Unit:=2 = 像素）---
+  [width=600] png_w600.png: PNG 像素 w=600 h=425 px  ratio(w/h)=1.4118  bytes=6348
+  [width=900] png_w900.png: PNG 像素 w=900 h=638 px  ratio(w/h)=1.4107  bytes=8313
+  [width=1200] png_w1200.png: PNG 像素 w=1200 h=850 px  ratio(w/h)=1.4118  bytes=14552
+  [width=1800] png_w1800.png: PNG 像素 w=1800 h=1276 px  ratio(w/h)=1.4107  bytes=23868
+  [width=2400] png_w2400.png: PNG 像素 w=2400 h=1701 px  ratio(w/h)=1.4109  bytes=35628
+
+--- 3b. save_fig() 不给 width（走"上次导出设置"）---
+  [auto] png_auto.png: PNG 像素 w=3216 h=2280 px  ratio(w/h)=1.4105  bytes=53219
+  [auto2] png_auto2.png: PNG 像素 w=3216 h=2280 px  ratio(w/h)=1.4105  bytes=53219
+
+--- 3c. save_fig(width=N) 导 PDF ---
+  [pdf width=900] pdf_w900.pdf: PDF 页盒 w=3.0 h=2.138888888888889 in  ratio(w/h)=1.4026  bytes=5818
+        page_count=1 is_pdf=True
+  [pdf width=1800] pdf_w1800.pdf: PDF 页盒 w=6.0 h=4.263888888888889 in  ratio(w/h)=1.4072  bytes=5818
+        page_count=1 is_pdf=True
+  [pdf auto] pdf_auto.pdf: PDF 页盒 w=10.722222222222221 h=7.611111111111111 in  ratio(w/h)=1.4088  bytes=5820
+        page_count=1 is_pdf=True
+
+--- 4. 裸 expgraph：换 Unit（0=in,1=cm,2=px）与 Height ---
+  cmd: expgraph type:=png path:="D:\Projects\数学建模\build\m3-origin-probe\b" filename:="raw_in_w631.png" overwrite:=replace tr1.Unit:=0 tr1.Width:=6.31
+  [raw] raw_in_w631.png: PNG 像素 w=1892 h=1341 px  ratio(w/h)=1.4109  bytes=25020
+  cmd: expgraph type:=png path:="D:\Projects\数学建模\build\m3-origin-probe\b" filename:="raw_cm_w16.png" overwrite:=replace tr1.Unit:=1 tr1.Width:=16
+  [raw] raw_cm_w16.png: PNG 像素 w=1889 h=1339 px  ratio(w/h)=1.4108  bytes=25311
+  cmd: expgraph type:=png path:="D:\Projects\数学建模\build\m3-origin-probe\b" filename:="raw_px_wh.png" overwrite:=replace tr1.Unit:=2 tr1.Width:=1000 tr1.Height:=500
+  [raw] raw_px_wh.png: PNG 像素 w=1000 h=708 px  ratio(w/h)=1.4124  bytes=11421
+  cmd: expgraph type:=png path:="D:\Projects\数学建模\build\m3-origin-probe\b" filename:="raw_in_w631_dpi300.png" overwrite:=replace tr1.Unit:=0 tr1.Width:=6.31 tr.Advanced.Resolution:=300
+  [raw] raw_in_w631_dpi300.png: PNG 像素 w=1892 h=1341 px  ratio(w/h)=1.4109  bytes=25020
+
+--- 5. 导出设置树（LABTALK 侧有哪些可写节点）---
+  当前 tr1.Unit = 0.0
+  当前 tr1.Width = 0.0
+  当前 tr1.Height = 0.0
+  当前 tr.Advanced.Resolution = 0.0
+### probe_b_size done ###

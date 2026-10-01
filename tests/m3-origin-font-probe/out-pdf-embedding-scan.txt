@@ -1,0 +1,43 @@
+### 扫描：Origin 导出的 PDF 里有没有内嵌字体文件（/FontFile /FontFile2 /FontFile3）
+### 0 = 没有内嵌；对照：matplotlib 的 ctrl_times.pdf 有 1 个 /FontFile2
+
+b0_baseline.pdf              /FontFile*=0
+c1_theme_TNR.pdf             /FontFile*=0
+c2_theme_nightsky.pdf        /FontFile*=0
+d1_named.pdf                 /FontFile*=0
+e1_cjk.pdf                   /FontFile*=0
+g1_a_baseline.pdf            /FontFile*=0
+g1_b_named.pdf               /FontFile*=0
+g2_a_baseline.pdf            /FontFile*=0
+g2_b_bogus_theme.pdf         /FontFile*=0
+g2_c_real_theme.pdf          /FontFile*=0
+g4_a_latin_text.pdf          /FontFile*=0
+g4_b_cjk_text.pdf            /FontFile*=0
+g5_by_index.pdf              /FontFile*=0
+g6_theme.pdf                 /FontFile*=0
+g7_by_props.pdf              /FontFile*=0
+g8_0_layer_x_label_font.pdf  /FontFile*=0
+g8_1_layer_y_label_font.pdf  /FontFile*=0
+g8_2_xb_font.pdf             /FontFile*=0
+g8_3_yl_font.pdf             /FontFile*=0
+g8_4_legend_font.pdf         /FontFile*=0
+h_baseline_Embed0.pdf        /FontFile*=0
+h_embed1.pdf                 /FontFile*=0
+h_embed1_outline1.pdf        /FontFile*=0
+h_embed2_outline.pdf         /FontFile*=0
+i_embed1.pdf                 /FontFile*=0
+i_embed1_out1.pdf            /FontFile*=0
+i_embed2.pdf                 /FontFile*=0
+j1_export_theme.pdf          /FontFile*=0
+j2_no_theme.pdf              /FontFile*=0
+j3_bogus_theme.pdf           /FontFile*=0
+j4_new_text.pdf              /FontFile*=0
+k0_plain.pdf                 /FontFile*=0
+k1_export_theme.pdf          /FontFile*=0
+k2_theme_then_label.pdf      /FontFile*=0
+
+Origin PDFs 总数=34，含 /FontFile* 的=0
+ctrl_cjk_simsun.pdf          /FontFile*=2
+ctrl_cjk_times.pdf           /FontFile*=2
+ctrl_simsun.pdf              /FontFile*=2
+ctrl_times.pdf               /FontFile*=2

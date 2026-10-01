@@ -1,0 +1,28 @@
+=== G1 listfonts with value name = <Family> (TrueType) ===
+listfonts count = 250
+contains Termes n=1 {TeXGyreTermesX}
+contains Gyre n=1 {TeXGyreTermesX}
+  exact [TeXGyreTermesX] = 1
+  exact [TeXGyreTermesX Bold] = 0
+  exact [TeXGyreTermesX Italic] = 0
+  exact [TeXGyreTermesX Bold Italic] = 0
+pf.fonts = 251 ; contains Termes n=2 {TeX Gyre TermesX, TeXGyreTermesX}
+
+=== G2 end-to-end embed test ===
+G2 texgyre_regular      FontName=TeXGyreTermesX     w=normal a=normal lastwarn id=[]
+G2 texgyre_bold         FontName=TeXGyreTermesX     w=bold   a=normal lastwarn id=[]
+G2 texgyre_italic       FontName=TeXGyreTermesX     w=normal a=italic lastwarn id=[]
+G2 texgyre_bolditalic   FontName=TeXGyreTermesX     w=bold   a=italic lastwarn id=[]
+G2 texgyre_spaced       FontName=TeX Gyre TermesX   w=normal a=normal lastwarn id=[]
+G2 times_control        FontName=Times New Roman    w=normal a=normal lastwarn id=[]
+G2 arial_control        FontName=Arial              w=normal a=normal lastwarn id=[]
+
+=== G3 print -dpdf variant ===
+G3 wrote print -dpdf
+
+=== G4 value pointing at a file OUTSIDE any font directory ===
+  listfonts has McmOutOfDirProbe = 0
+  listfonts contains OutOfDir n=0 {}
+  pf.fonts has McmOutOfDirProbe = 0
+
+=== G-END ===

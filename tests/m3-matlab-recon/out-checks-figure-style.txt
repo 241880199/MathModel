@@ -1,0 +1,604 @@
+# checker = tests\skills\figure-choose\check-figure-style.py  (invoked by path, not modified)
+# denominator = --textwidth-in 6.31 (repo convention)
+### C default-N1 png  [png]  exit=0
+   PASS  F1  图宽比 0.875（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N1 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.880（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N2 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N2 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N3 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N3 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N4 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N4 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N5 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 1
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N5 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 1
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N6 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 2
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N6 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N7 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C default-N7 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C manual-N2 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C manual-N2 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C manual-N3 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C manual-N3 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C manual-N4 png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### C manual-N4 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### S2 good exportgraphics png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### S2 good exportgraphics pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### S2 good print png  [png]  exit=0
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### S2 good print pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+### S2 good saveas png  [png]  exit=0
+   PASS  F1  图宽比 1.001（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### S2 good saveas pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+### S2 good caption BAD variant  [png]  exit=1
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   RESULT: FAIL（F3a,F3b,F3c）
+### S3 bad exportgraphics png  [png]  exit=1
+   FAIL  F1  图宽比 1.611（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   RESULT: FAIL（F1,F3a,F3b,F3c）
+### S3 bad exportgraphics pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.613（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   RESULT: FAIL（F1,F3a,F3b,F3c）
+### S3 bad print png  [png]  exit=1
+   FAIL  F1  图宽比 1.902（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   RESULT: FAIL（F1,F3a,F3b,F3c）
+### S3 bad print pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   RESULT: FAIL（F1,F3a,F3b,F3c）
+### S4 R1 stacked png  [png]  exit=0
+   PASS  F1  图宽比 0.880（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   RESULT: PASS
+### S4 R1 stacked pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   RESULT: PASS
+### S5 R2 corrbar png  [png]  exit=0
+   PASS  F1  图宽比 0.947（分母 6.31 in）
+   PASS  F2  彩色主色数 1
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 7（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 7 词）
+   RESULT: PASS
+### S5 R2 corrbar pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.953（分母 6.31 in）
+   PASS  F2  彩色主色数 1
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 7（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 7 词）
+   RESULT: PASS
+### S6 R3 exportgraphics pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   RESULT: PASS
+### S6 R3 print -dpdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   RESULT: FAIL（F1）
+### S6 R3 exportgraphics png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 3
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 4（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 4 词）
+   RESULT: PASS
+### D r5_w631 eg pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.885（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### D r5_w631 eg png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### D r5_w631 print pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+### D r5_w631 print png  [png]  exit=0
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### D r5_w400 eg pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 0.590（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+### D r5_w800 eg pdf  [pdf]  exit=0
+   PASS  F1  图宽比 1.103（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### D r5_w1000 eg pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.358（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+### D r5_w1200 eg pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.613（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+### H T5 exportgraphics png (dark)  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H T6 print png (dark)  [png]  exit=0
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H T7 new-figure png (dark)  [png]  exit=0
+   PASS  F1  图宽比 0.858（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H C1 figure+axes Color=w png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H L1 theme-light eg png  [png]  exit=0
+   PASS  F1  图宽比 0.882（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H L1 theme-light eg pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H L1 theme-light print png  [png]  exit=0
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H L1 theme-light print pdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+### H P label-heavy eg png (dark)  [png]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H P label-heavy eg pdf (dark)  [pdf]  exit=0
+   PASS  F1  图宽比 0.891（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H P label-heavy print png (dark)  [png]  exit=0
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### H P label-heavy print pdf (dark)  [pdf]  exit=0
+   PASS  F1  图宽比 1.001（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### I W1 figure(...,'Theme','light') png  [png]  exit=0
+   PASS  F1  图宽比 0.852（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### I W2 theme(fig,'light')+colors png  [png]  exit=0
+   PASS  F1  图宽比 0.884（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### I W3 theme('light') no-handle png  [png]  exit=0
+   PASS  F1  图宽比 0.852（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### D r5_w600 eg pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.847（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### G g1 PaperSize=[6.31 2.6] print -dpdf  [pdf]  exit=0
+   PASS  F1  图宽比 1.001（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### G g1 PaperSize=[6.31 2.6] print -dpng  [png]  exit=0
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### G g2 PaperSize=[6.31 2.6] auto print -dpdf  [pdf]  exit=0
+   PASS  F1  图宽比 1.001（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### G g3 A4 control print -dpdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+### D r6_pad0 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.878（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### D r6_pad10 pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.924（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### F3 via MATLAB-written caption FILE (good)  [png]  exit=0
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### F3 via MATLAB-written caption FILE (bad)  [png]  exit=1
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   FAIL  F3a  图注以 `Figure N:` 起
+   FAIL  F3b  图注词数 16（上限 12，硬上限 17）
+   FAIL  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 16 词）
+   RESULT: FAIL（F3a,F3b,F3c）
+### F3 via MATLAB title string as caption  [png]  exit=1
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   FAIL  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 2（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 2 词）
+   RESULT: FAIL（F3a）
+### F3 via MATLAB xlabel string as caption  [png]  exit=1
+   PASS  F1  图宽比 1.000（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   FAIL  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 1（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 1 词）
+   RESULT: FAIL（F3a）
+### A p5 exportgraphics pdf  [pdf]  exit=0
+   PASS  F1  图宽比 0.887（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### A p5 exportgraphics pdf_image  [pdf]  exit=0
+   PASS  F1  图宽比 1.050（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: PASS
+### A p5 print dpdf  [pdf]  exit=1
+   FAIL  F1  图宽比 1.310（分母 6.31 in）
+   PASS  F2  彩色主色数 0
+   PASS  F3a  图注以 `Figure N:` 起
+   PASS  F3b  图注词数 3（上限 12，硬上限 17）
+   PASS  F3c  句末不加句号
+   PASS  F3d  图注正文非空（正文 3 词）
+   RESULT: FAIL（F1）
+
+# invocations with exit!=0: 18 / 75

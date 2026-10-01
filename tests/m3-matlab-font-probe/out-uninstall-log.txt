@@ -1,0 +1,9 @@
+reg removed: [TeXGyreTermesX (TrueType)]
+file removed: TeXGyreTermesX-Regular.otf
+reg removed: [TeXGyreTermesX Italic (TrueType)]
+file removed: TeXGyreTermesX-Italic.otf
+reg removed: [TeXGyreTermesX Bold (TrueType)]
+file removed: TeXGyreTermesX-Bold.otf
+reg removed: [TeXGyreTermesX Bold Italic (TrueType)]
+file removed: TeXGyreTermesX-BoldItalic.otf
+done: 4 files and 4 registry values removed

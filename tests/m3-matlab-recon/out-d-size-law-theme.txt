@@ -1,0 +1,36 @@
+### probe_d start ###  cwd=D:\Projects\数学建模
+=== r1 palette: before any figure ===
+[no-fig] groot-co row1=[0.0660 0.4430 0.7450] hex=#1171BE
+[no-fig] lines(7) row1=[0.0660 0.4430 0.7450] hex=#1171BE
+[no-fig] max|groot-lines| = 0.00000000
+=== r2 palette: with a figure open ===
+[fig-open] groot-co row1=[0.0660 0.4430 0.7450] hex=#1171BE
+[fig-open] lines(7) row1=[0.0660 0.4430 0.7450] hex=#1171BE
+[fig-open] max|groot-lines| = 0.00000000
+line color with fig open = [0.0660 0.4430 0.7450] hex=#1171BE
+=== r3 palette: after closing the figure ===
+[fig-closed] groot-co row1=[0.0660 0.4430 0.7450] hex=#1171BE
+[fig-closed] lines(7) row1=[0.0660 0.4430 0.7450] hex=#1171BE
+[fig-closed] max|groot-lines| = 0.00000000
+=== r4 screen pixels per inch ===
+groot ScreenPixelsPerInch = 96
+groot ScreenSize = [1              1      1706.6667            960]
+=== r5 size law (Position width sweep) ===
+400 done (contentNormW=0.801167)
+600 done (contentNormW=0.835778)
+631 done (contentNormW=0.839144)
+800 done (contentNormW=0.853083)
+1000 done (contentNormW=0.863467)
+1200 done (contentNormW=0.870389)
+=== r6 Padding sweep ===
+Padding 0 ok
+Padding 1 ok
+Padding 2 ok
+Padding 5 ok
+Padding 10 ok
+=== r7 PaperPositionMode ===
+initial PaperPositionMode = auto
+after set PaperPosition, mode = manual
+after auto, PaperPosition = [0.8474      4.4923      6.5729      2.7083]
+=== probe_d done ===
+RC=0 ELAPSED=36s

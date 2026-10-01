@@ -1,0 +1,32 @@
+### probe_a
+PDF A6_private_add.pdf                 box=394x182pt imgs=0 bytes=6930    fonts: SimSun/Type0
+PDF A7_latex_interp.pdf                box=118x168pt imgs=0 bytes=23620   fonts: mwb_cmmi10/Type0, mwa_cmr10/Type0, mwa_cmex10/Type0, mwa_cmmi10/Type0, SimSun/Type0, mwa_cmtt10/Type0, mwa_cmbx10/Type0, mwb_cmr10/Type0
+PDF A7_latex_pkg.pdf                   box=235x16pt imgs=0 bytes=8979    fonts: ArialMT/Type0
+PDF A9_nosuchfont.pdf                  box=311x203pt imgs=0 bytes=5115    fonts: SimSun/Type0
+### probe_a2
+PDF B2_latex_clean.pdf                 box=97x67pt imgs=0 bytes=14805   fonts: mwb_cmmi10/Type0, mwa_cmr10/Type0, mwa_cmex10/Type0, mwa_cmmi10/Type0, mwb_cmr10/Type0
+PDF B2_ticklatex.pdf                   box=384x185pt imgs=0 bytes=7275    fonts: mwa_cmmi10/Type0, mwa_cmr10/Type0
+PDF B3_puser_1.pdf                     box=349x158pt imgs=0 bytes=7841    fonts: yyb-Regular/Type0, SimSun/Type0
+PDF B3_puser_2.pdf                     box=345x154pt imgs=0 bytes=5587    fonts: ZiYuKangSongTi/Type0
+PDF B3_puser_3.pdf                     box=350x159pt imgs=0 bytes=6041    fonts: STHeitiSC-Light/Type0
+### probe_b
+PDF texgyre_bold.pdf                   box=412x181pt imgs=0 bytes=7883    fonts: SimSun/Type0
+PDF texgyre_bolditalic.pdf             box=414x181pt imgs=0 bytes=7976    fonts: SimSun/Type0
+PDF texgyre_italic.pdf                 box=413x181pt imgs=0 bytes=7650    fonts: SimSun/Type0
+PDF texgyre_print_dpdf.pdf             box=595x842pt imgs=0 bytes=7466    fonts: SimSun/Type0
+PDF texgyre_regular.pdf                box=411x181pt imgs=0 bytes=7558    fonts: SimSun/Type0
+PDF texgyre_spaced.pdf                 box=409x193pt imgs=0 bytes=8102    fonts: SimSun/Type0
+PDF times_control.pdf                  box=409x191pt imgs=0 bytes=10995   fonts: TimesNewRomanPSMT/Type0
+### probe_c
+PDF afterrollback_texgyre.pdf          box=396x181pt imgs=0 bytes=7045    fonts: SimSun/Type0
+### probe_d
+PDF arial_control.pdf                  box=413x191pt imgs=0 bytes=9015    fonts: ArialMT/Type0
+PDF texgyre_bold.pdf                   box=413x180pt imgs=0 bytes=11946   fonts: TeXGyreTermesX-Bold/Type0, TeXGyreTermesX-Regular/Type0
+PDF texgyre_bolditalic.pdf             box=413x180pt imgs=0 bytes=12742   fonts: TeXGyreTermesX-BoldItalic/Type0, TeXGyreTermesX-Italic/Type0
+PDF texgyre_italic.pdf                 box=413x180pt imgs=0 bytes=9034    fonts: TeXGyreTermesX-Italic/Type0
+PDF texgyre_print_dpdf.pdf             box=595x842pt imgs=0 bytes=8623    fonts: TeXGyreTermesX-Regular/Type0
+PDF texgyre_regular.pdf                box=412x180pt imgs=0 bytes=8399    fonts: TeXGyreTermesX-Regular/Type0
+PDF texgyre_spaced.pdf                 box=410x192pt imgs=0 bytes=8941    fonts: TeXGyreTermesX-Regular/Type0
+PDF times_control.pdf                  box=409x191pt imgs=0 bytes=10587   fonts: TimesNewRomanPSMT/Type0
+### check4
+PDF inproc_add.pdf                     box=396x181pt imgs=0 bytes=6531    fonts: SimSun/Type0

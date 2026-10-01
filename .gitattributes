@@ -48,3 +48,12 @@ tests/papers/**              -text
 # `-text` 让 git 对这批文件既不规范化也不转换，存什么取什么。
 tests/skills/**     -text
 .claude/skills/**   -text
+
+# 收口之前的遗漏：`corpus/official/**`（我们的判据指针指向这里）与 `.claude/**`、`tests/**`、`docs/**`
+# 都没有 `-text`，于是检出时 LF 被写成 CRLF，使「工作树字节 == 入库 blob」这条不变式在全新检出上失真。
+# 下面几条把本项目自己的产物/证据/文档全覆盖；上面那几条更窄的规则因此被包含（保留它们是为了留住各自的起因记录）。
+corpus/**     -text
+tools/**      -text
+tests/**      -text
+docs/**       -text
+.claude/**    -text

@@ -1,0 +1,7 @@
+listfonts = 249
+  TeXGyreTermesX = 0
+  TeX Gyre TermesX = 0
+  mwa_cmr10 = 0
+  yyb = 1
+pf.fonts = 249 ; TeXGyreTermesX=0 ; mwa_cmr10=0
+java.awt = 248 ; TeXGyreTermesX=0 ; mwa_cmr10=0

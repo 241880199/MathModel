@@ -1,0 +1,79 @@
+### probe_d_appearance start ###
+--- ④ 默认色序（6 条线的 Plot.color 读数）---
+  plot1.color = (81, 81, 81)  (type tuple)
+  plot2.color = (81, 81, 81)  (type tuple)
+  plot3.color = (81, 81, 81)  (type tuple)
+  plot4.color = (81, 81, 81)  (type tuple)
+  plot5.color = (81, 81, 81)  (type tuple)
+  plot6.color = (81, 81, 81)  (type tuple)
+  色序 = [(81, 81, 81), (81, 81, 81), (81, 81, 81), (81, 81, 81), (81, 81, 81), (81, 81, 81)]
+  layer.plot1.color(LT) = 22106449.0 | colorinc= 0.0
+  layer.plot2.color(LT) = 22106449.0 | colorinc= 0.0
+  layer.plot3.color(LT) = 22106449.0 | colorinc= 0.0
+  layer.plot4.color(LT) = 22106449.0 | colorinc= 0.0
+  layer.plot5.color(LT) = 22106449.0 | colorinc= 0.0
+  layer.plot6.color(LT) = 22106449.0 | colorinc= 0.0
+
+--- ③ 线宽 / 字号粒度 ---
+  layer.plot1.line.width = 0.5
+  layer.plot2.line.width = 0.5
+  layer.plot3.line.width = 0.5
+  读 layer.plot1.line.width = 0.5
+  读 layer.plot1.line.conn = 0.0
+  读 layer.x.label.pt = 14.0
+  读 layer.x.label.font = 1.0
+  读 layer.x.majorTicks = nan
+  读 layer.x.minorTicks = 1.0
+  读 layer.x.ticklen = 0.0
+  读 layer.y.label.pt = 14.0
+
+--- ① 底色 ---
+  读 page.color = 0.0
+  读 layer.color = 0.0
+  读 layer.background = 0.0
+  读 layer.fill.color = 0.0
+  读 layer.bgcolor = 0.0
+  默认导出角/中心像素: ((800, 567), [(255, 255, 255), (255, 255, 255), (255, 255, 255), (255, 255, 255), (255, 255, 255)])
+  设暗底尝试:
+     page.color=15; -> OK
+     layer.color=15; -> OK
+     layer.background=15; -> OK
+  设暗色后导出角/中心像素: ((800, 567), [(255, 255, 255), (255, 255, 255), (255, 255, 255), (255, 255, 255), (255, 128, 0)])
+
+--- ⑤ 框线 / 刻度 ---
+  读 layer.x.opposite = 0.0
+  读 layer.y.opposite = 0.0
+  读 layer.x2.show = 0.0
+  读 layer.y2.show = 0.0
+  读 layer.x.ticks = 10.0
+  读 layer.x.majorTicks = nan
+  读 layer.x.tick.direction = 0.0
+  读 layer.x.tickdir = 0.0
+  读 layer.x.tickslen = 0.0
+  读 layer.x.major.tick.direction = 0.0
+
+--- ② 字体族：候选设置命令 ---
+  读 layer.x.label.font = 1.0
+  读 layer.x.label.pt = 14.0
+  读 layer.x.label.bold = 0.0
+  读 xb.font = 1.0
+  读 xb.pt = 0.0
+  读 xb.text$ = %(?X)
+  读 layer.x.label.font$ = 
+  读 layer.x.label.typeface$ = 
+  执行 'layer.x.label.font=0;' -> OK
+  执行 'layer.x.label.font$="Times New Roman";' -> OK
+  执行 'xb.font="Times New Roman";' -> OK
+  执行 'xb.font$="Times New Roman";' -> OK
+  执行 'xb.pt=14;' -> OK
+  执行 'set xb -fn "Times New Roman";' -> OK
+  执行 'label -fn "Times New Roman" -fs 14 -n xb;' -> OK
+  执行 'system.font.names$;' -> OK
+  当前 xb.text$ = '' | xb.font = 0.0 | layer.x.label.font = 65536.0
+  默认字体 PDF get_fonts() = [(8, 'n/a', 'Type3', 'SimSun', 'Font1', ''), (32, 'n/a', 'Type3', 'SimSun', 'Font2', ''), (29, 'n/a', 'TrueType', 'SimSun', 'Font3', 'WinAnsiEncoding'), (26, 'n/a', 'TrueType', 'SimSun', 'Font4', 'WinAnsiEncoding')]
+
+--- ⑥ 中文字符 ---
+  set xb.text$ 中文 -> OK
+  含中文 PDF get_fonts() = [(8, 'n/a', 'Type3', 'SimSun', 'Font1', ''), (32, 'n/a', 'Type3', 'SimSun', 'Font2', ''), (29, 'n/a', 'TrueType', 'SimSun', 'Font3', 'WinAnsiEncoding'), (26, 'n/a', 'TrueType', 'SimSun', 'Font4', 'WinAnsiEncoding')]
+  get_text() 前 120 = '\x01\n\x03\n\x04\n\x05\n\x06\n\x02\n\x01\n\x05\n\x03\n\x01\n\x02\n\x05\n\x02\n\x01\n\x04\n0 . 0\n0 . 5\n1 . 0\nY 1\n Y 1\n Y 2\n Y 3\n Y 4\n Y 5\n Y 6\n'
+### probe_d_appearance done ###

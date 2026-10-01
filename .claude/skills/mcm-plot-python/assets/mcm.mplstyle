@@ -18,4 +18,11 @@ axes.spines.top: False   # H10：去掉上边框线
 axes.spines.right: False   # H10：去掉右边框线
 xtick.minor.visible: False   # H10：只留主刻度
 ytick.minor.visible: False   # H10：只留主刻度
+figure.facecolor: white   # §0 交付形态：底色 = 论文底色（白）
+axes.facecolor: white   # §0：同上（否则轴区不是白）
+savefig.facecolor: white   # §0：同上（保存时不许被底座改写）
+savefig.edgecolor: white   # §0：同上（外边）
+xtick.top: False   # H10：底座 science 自带 xtick.top=True ⇒ 关掉 spines 后会留悬空刻度
+ytick.right: False   # H10：同上（底座 science 自带 ytick.right=True）
+axes.prop_cycle: cycler('color', ['E69F00', '56B4E9', '009E73', 'CC79A7', '0072B2', 'D55E00', '7570B3', '4D4D4D'])   # H14：显式色序（值来自 mcm-style.json 的 series.color，**去掉 # 前缀**）
 # <<< END GENERATED: rcParams <<<

@@ -127,7 +127,7 @@ Deliverables - write all of these into the output directory:
 | `judge.md` | 独立判者的判断层判词（**判者未看任何规范文件**） |
 | `writer-self-reports.md` | 六个写手 + 判者的**派发提示词与完整自报原文**（逐字节，抢救自仓外 transcript）。**⚠️ 本栏泄题风险最高的一份**：写手自报里逐字引了规范表（H1-H13）并写明"按这些阈值选的" |
 | `f2-boxes.txt` | F2 全量色箱取证输出（341 行；由 `f2-diagnose.py --out` 用 `write_bytes` 落盘，可逐字节复现） |
-| `multipage-probe.pdf` | §6"只判第 1 页"的两页探针（由 `make-multipage-probe.py` 生成，1923 B） |
+| `multipage-probe.pdf` | §6"只判第 1 页"的两页探针（由 `make-multipage-probe.py` 生成，1926 B） |
 | `truth.py` | 场景地面真值（R1 的 L1 相似度排序 / R2 的相关系数） |
 
 **工具（造上面那些证据的脚本 —— 放在这里，不放 gitignored 的 `.superpowers/`）**
