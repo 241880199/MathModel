@@ -38,12 +38,17 @@ python 侧 `gen-mcm-style.py` 的锚点是**打在 `house-style.md` 正文上的
   `how`（"今天为何落不了地"那句）**写进产物的注释**。
 两条路**在产物里长得不一样**：前者产物根本没生成，后者产物里有一条显式的 `status=not-landable` 行。
 
-## `H10` 的落地判定（Task 1 的产物级先行实测）
+## `H10` 的落地判定：**表 status 驱动**（Task 2 起，取代 Task 1 的读数常数）
 
-`h10.axes_box` 的 matlab 格今天 `status=not-landable`（"能设、不能验"）。本模块 Task 1 **先做产物级实测**
-（量**轴区顶/右带内墨迹**，口径与 python 侧 `tests/skills/plot-python/probe-gap1-hanging-ticks.py` 同型）
-⇒ **探到了能落地**（读数见下常量 `H10_PROBE`）。故本生成器**把这些行写进产物**（`H10` 生成区），
-同时在注释里如实记下**表今天仍写 not-landable**这件事 —— **表的同步归 Task 2**（见 `docs/superpowers/plans/2026-10-01-m3-plot-matlab.md` 的 T5）。
+`h10.axes_box` 的 matlab 格在 Task 1 时是 `status=not-landable`（"能设、不能验"）；Task 1 先做了一次
+**产物级先行实测**（量**轴区顶/右带内墨迹**，口径与 python 侧
+`tests/skills/plot-python/probe-gap1-hanging-ticks.py` 同型）探到能落地，据实测把这几行写进了产物。
+**Task 2** 把该实测做成**入库探针** `tests/skills/plot-matlab/probe-h10-band-ink.py`，并把表的 matlab 格
+`status` 由 `not-landable` 改成 `same-value` + 按实测改写 `how`（见
+`docs/superpowers/plans/2026-10-01-m3-plot-matlab.md` 的 T5）。
+
+⇒ 本生成器现在**只看表 status**：`not-landable` ⇒ **不落代码行**（只留注释 + 表里的 `how`）；
+否则按 `H10_MAP` 落行。**读数不在本脚本重抄**（只写在表的 `how` 一处，免得两处漂）。
 
 ## 写入
 
@@ -112,12 +117,13 @@ H10_MAP = {
         "% H10: 轴标签带单位 = **调用方纪律**（MATLAB 侧**无设置项**）：写 xlabel/ylabel 时把单位写进去",
 }
 
-# ------------------------------------------------------------------ H10 的产物级实测结论
-# Task 1 的**一次性探针**（不入库；入库探针 + 改表归 Task 2）当场跑出的读数。
-# 复跑：`d:/Software/Matlab/bin/matlab -batch "run('build/m3-matlab-t1/probe_h10_band_ink.m')"`
-# 量的是**轴区顶/右带内墨迹**（非白像素数），口径与 python 侧 probe-gap1-hanging-ticks.py 同型。
-# 读数（本机 R2025b Update 5）：落地态(off/in) 顶内 0 右内 0 下外 0；对照态(on/out) 顶内 2900 右内 2337 下外 336。
-H10_PROBE = ("landed", "顶内 0 / 右内 0 / 下外 0（落地态） vs 顶内 2900 / 右内 2337 / 下外 336（对照态）")
+# ------------------------------------------------------------------ H10 的落地判定：**表 status 驱动**
+# H10 生成区是否落代码行，**由表里 `h10.axes_box` 的 matlab `status` 决定**（不再由本脚本自带的读数常数决定）：
+#   · status == 'not-landable' ⇒ **不落代码行**（Task 1 硬要求 8 的第一支：落不了地就不写进产物），
+#     只写一条注释 + 表里的 `how`（"为何落不了地"）；
+#   · 否则 ⇒ 按 `H10_MAP` 把需求串逐条落成 MATLAB 行。
+# 读数**不在这里重抄**（读数只写在表的 `h10.axes_box.carriers.matlab.how` 一处，免得两处漂）——
+# 入库探针 = `python tests/skills/plot-matlab/probe-h10-band-ink.py`（Task 2 交付，顶/右带内墨迹）。
 
 
 class GeneratorError(RuntimeError):
@@ -192,13 +198,26 @@ def matlab_literal(kind, val):
 def render_style(pairs, statuses, notlandable):
     """STYLE 生成区的正文：逐行 `STYLE.<键> = <字面量>;` + 每行的 status 注释 + not-landable 行说明。"""
     out = [
-        "% 唯一样式来源：.claude/skills/mcm-figure-choose/assets/mcm-style.json（由生成器**按 id 逐条锚定**重放）。",
+        "% **本模块所消费的那些样式值**的唯一来源："
+        ".claude/skills/mcm-figure-choose/assets/mcm-style.json（由生成器**按 id 逐条锚定**重放）。",
+        "%   ⚠️ 上面这句的限定（2026-10-01 Task 2 加）：本模块另有**若干写死的外观/渲染取值**不在本表内"
+        "（**不声称穷尽**；已知的如下）——"
+        "① `apply_style()` 的轴色 `set(ax,'XColor','k','YColor','k')`（表里**无轴色行**、规范 H10 也**不规定**轴色）；"
+        "② `new_figure()` 建图时的 `'Theme','light'`（浅色主题机制，表内无对应行）；"
+        "③ `save_fig()` 的 `dpi = 300` 缺省（导出分辨率，表内无对应行）。",
+        "%     实测（R2025b U5）：① 里那个 `'k'`（纯黑）**并非** MATLAB 出厂轴的默认色 —— 出厂轴色**随主题变**"
+        "（浅色主题下是近黑深灰、不显式上浅色主题时是浅灰），两种主题下都不是纯黑 "
+        "⇒ 它是一次**覆写**、不是「重申默认」⇒ 故不能把它读成「来自本表」或「来自规范」；它只是本封装的一处外观选择。",
         "% 下列 id **不声称穷尽**：只列本模块读到的那些行；表里别的行本模块不消费。",
     ]
     for eid, key, kind, val in pairs:
         st = statuses[eid]
         if key is None:
-            out.append(f"% {eid:<30} status={st}  （本模块不落活常量）")
+            # key=None 的两类：① 真的不落任何东西（`font.family`、`h1.width_ratio.default_lo`）；
+            # ② 落点在**本文件另一处生成区**（`h10.axes_box` ⇒ H10 生成区）。分开写，免得②被读成"没落"。
+            note = ("（不落活常量：落点在 H10 生成区）" if eid == "h10.axes_box"
+                    else "（本模块不落活常量）")
+            out.append(f"% {eid:<30} status={st}  {note}")
         else:
             out.append(f"STYLE.{key} = {matlab_literal(kind, val)};"
                        f"{' ' * max(1, 34 - len(key) - len(matlab_literal(kind, val)))}% {eid} · status={st}")
@@ -250,18 +269,21 @@ def main():
             if st == "not-landable":
                 notlandable.append((eid, st, carrier_how(e)))
 
-        # H10：先取需求串（fail-closed：空/缺一律抛），再逐条映射
-        h10_reqs = entry(tbl, "h10.axes_box")["value"]
-        h10_body = render_h10(h10_reqs)
-
-        # ★ H10 的落地判定：表 status != not-landable ⇒ 表已认；今天表仍写 not-landable，
-        # 但 Task 1 的**产物级探针**已证能落地 ⇒ 据实测写进产物。表同步归 Task 2。
-        h10_note = [
-            f"% 表 status（今天）= {statuses['h10.axes_box']!r}；"
-            f"Task 1 产物级实测 = {H10_PROBE[0]}（{H10_PROBE[1]}）。",
-            "% ⇒ 按**实测**把这些行落进产物；表 status 的同步（not-landable → 实测口径）归 Task 2。",
-        ]
-        h10_body = "\n".join(h10_note) + "\n" + h10_body
+        # H10：先取需求串（fail-closed：空/缺一律抛），再按**表 status** 决定落不落代码行
+        h10_entry = entry(tbl, "h10.axes_box")
+        h10_reqs = h10_entry["value"]
+        h10_st = statuses["h10.axes_box"]
+        if h10_st == "not-landable":
+            # 落不了地 ⇒ **不落代码行**（Task 1 硬要求 8）；只留一条注释 + 表里的 `how`（原句取自表）
+            h10_body = ("% 表 status = 'not-landable' ⇒ 本模块**不落** H10 的代码行（不编造落地方式）。\n"
+                        "% 【为何落不了地，原句取自表】" + carrier_how(h10_entry))
+        else:
+            h10_note = [
+                f"% 表 status = {h10_st!r}（载体能同值；本模块按 H10_MAP 把需求串逐条落成下面这些行）。",
+                "% 产物级实测读数与复跑命令见 mcm-style.json 的 h10.axes_box.carriers.matlab.how；"
+                "入库探针 = python tests/skills/plot-matlab/probe-h10-band-ink.py。",
+            ]
+            h10_body = "\n".join(h10_note) + "\n" + render_h10(h10_reqs)
     except GeneratorError as e:
         print(f"FAIL  {e}", file=sys.stderr)
         return 1

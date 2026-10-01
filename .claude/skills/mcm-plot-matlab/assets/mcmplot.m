@@ -47,7 +47,9 @@ function M = mcmplot()
 %    · **H10 的"轴标签带单位"**是**调用方纪律**：MATLAB 侧**无设置项**（见生成的 H10 区那条注释）。
 
 % >>> BEGIN GENERATED: STYLE（gen-mcm-style-matlab.py 重放，勿手改）>>>
-% 唯一样式来源：.claude/skills/mcm-figure-choose/assets/mcm-style.json（由生成器**按 id 逐条锚定**重放）。
+% **本模块所消费的那些样式值**的唯一来源：.claude/skills/mcm-figure-choose/assets/mcm-style.json（由生成器**按 id 逐条锚定**重放）。
+%   ⚠️ 上面这句的限定（2026-10-01 Task 2 加）：本模块另有**若干写死的外观/渲染取值**不在本表内（**不声称穷尽**；已知的如下）——① `apply_style()` 的轴色 `set(ax,'XColor','k','YColor','k')`（表里**无轴色行**、规范 H10 也**不规定**轴色）；② `new_figure()` 建图时的 `'Theme','light'`（浅色主题机制，表内无对应行）；③ `save_fig()` 的 `dpi = 300` 缺省（导出分辨率，表内无对应行）。
+%     实测（R2025b U5）：① 里那个 `'k'`（纯黑）**并非** MATLAB 出厂轴的默认色 —— 出厂轴色**随主题变**（浅色主题下是近黑深灰、不显式上浅色主题时是浅灰），两种主题下都不是纯黑 ⇒ 它是一次**覆写**、不是「重申默认」⇒ 故不能把它读成「来自本表」或「来自规范」；它只是本封装的一处外观选择。
 % 下列 id **不声称穷尽**：只列本模块读到的那些行；表里别的行本模块不消费。
 STYLE.width_ratio_min = 0.8;                % h1.width_ratio.min · status=same-value
 STYLE.width_ratio_max = 1.2;                % h1.width_ratio.max · status=same-value
@@ -63,7 +65,7 @@ STYLE.bg = [255 255 255]/255;               % bg · status=same-value
 STYLE.series_color = [[230 159 0]; [86 180 233]; [0 158 115]; [204 121 167]; [0 114 178]; [213 94 0]; [117 112 179]; [77 77 77]]/255; % series.color · status=same-value
 % font.family                    status=family-equivalent  （本模块不落活常量）
 STYLE.font_serif = {'TeXGyreTermesX', 'Times New Roman'}; % font.serif · status=family-equivalent
-% h10.axes_box                   status=not-landable  （本模块不落活常量）
+% h10.axes_box                   status=same-value  （不落活常量：落点在 H10 生成区）
 %
 % ---- status=not-landable 的行（**不静默跳过**：下面逐行给『为何落不了地』，原句取自表）----
 % [h4.max_main_colors] status=not-landable
@@ -74,8 +76,6 @@ STYLE.font_serif = {'TeXGyreTermesX', 'Times New Roman'}; % font.serif · status
 %     **数值判据，无设置项**：同上；MATLAB 侧可设绝对 `FontSize`，但无『倍数』设置项；且 H12 无机械判据（⇐ task-m3-matlab-recon-report.md）
 % [h12.font_min_pt] status=not-landable
 %     **数值判据，无设置项**：同上；无对应设置项；且 H12 无机械判据（⇐ task-m3-matlab-recon-report.md）
-% [h10.axes_box] status=not-landable
-%     **今天无产物级实测**：侦察记录 MATLAB 侧有对应 API（`box(ax,'off')` 去框线 / `set(ax,'TickDir','in')` 刻度朝内 —— 两者都在 K3 采样行里出现过），但**产物端零回读**：侦察判定为「**能设、不能验**」（`box off` / `TickDir 'in'` 可设，**三支机器都没有 spine/tick 判据** ⇐ `.superpowers/sdd/task-m3-matlab-recon-report.md` §G19 /「落不了地」表）⇒ 如实记 `not-landable`，不编造落地方式。
 % <<< END GENERATED: STYLE <<<
 
 M = struct();
@@ -123,8 +123,8 @@ for k = 1:numel(axs)
     set(ax, 'ColorOrder', S.series_color);
     set(ax, 'FontName', pick_font(S));
 % >>> BEGIN GENERATED: H10（gen-mcm-style-matlab.py 重放，勿手改）>>>
-% 表 status（今天）= 'not-landable'；Task 1 产物级实测 = landed（顶内 0 / 右内 0 / 下外 0（落地态） vs 顶内 2900 / 右内 2337 / 下外 336（对照态））。
-% ⇒ 按**实测**把这些行落进产物；表 status 的同步（not-landable → 实测口径）归 Task 2。
+% 表 status = 'same-value'（载体能同值；本模块按 H10_MAP 把需求串逐条落成下面这些行）。
+% 产物级实测读数与复跑命令见 mcm-style.json 的 h10.axes_box.carriers.matlab.how；入库探针 = python tests/skills/plot-matlab/probe-h10-band-ink.py。
 box(ax, 'off');                        % H10: 去上/右边框线（MATLAB 的 box 一并管顶与右）
 % H10: 右框线同上（MATLAB 无单独关右框线的设置项，由 box off 一并管）
 set(ax, 'TickDir', 'in');              % H10: 刻度朝内

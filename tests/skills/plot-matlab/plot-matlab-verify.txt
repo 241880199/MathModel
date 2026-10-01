@@ -1,33 +1,232 @@
-Task 4 证据 · chart-types.md（九个数据关系入口 + 题型索引 + radar 低频）+ 结构守卫 S1–S5
-生成者：Task 4 实施者（2026-09-27）· 写入用 write_bytes ⇒ 本文件恒 LF · 逐字输出
-本文件由 `python tests/skills/figure-choose/gen-chart-types-verify.py` 整份重生成；命令 cwd = 仓根。
-收工时的 `git status --short` 为空见报告（本文件生成于入库之前）。
+# Task 2 验收证据 · 新鲜度两臂 + 变异驱动器 + H10 回读（复跑：`python tests/skills/plot-matlab/gen-plot-matlab-verify.py`）
+# 本文件**一字不改**地记录每条命令的原始 stdout/stderr 与退出码。
 
-读法提示（四处最容易看错的地方）：
-  1. **`S4` 不是判据**：它出现在 §1/§2 里的时候前缀是 `READ` 而不是 `PASS`/`FAIL`——
-     它只印"定义行 / 不同名 / 重名"的计数，**不进判词**（**唯一例外**：`chart-types.md` **读不出**时
-     它随其余结构守卫一起记红 —— 见检查器模块头第 5 条）。它没有"会红"可证，
-     故由 §3 的探针 `R1` 证另一件事：**该动的时候动（读数会随文档变）、该判的时候不判（rc 恒 0）**。
-  2. **`S5` 抽不到任何小数也红**（fail-closed）：§3 的 `M26` 把两个小数都写成中文数字，
-     证明"把数全删光"不是转绿路径。
-  3. **`M24` 的 NOTE 是现算的**：任务书给的正则（**全文**扫 `radar` × `低频`）在那种改法下
-     **不会红**（别的入口顺带提到 radar 时也标了低频）⇒ `S3` 被收紧成**只看 radar 的那条定义行**。
-  4. **`S5` 判的是"归到哪个 `H<n>`"**（修复轮 N-2 收紧）：每个小数必须**归到它同行的 `H<n>` 引用**、
-     且**值 ∈ 那个 `H<n>` 条目里的数**。旧写法只查"值 ∈ house-style ∪ provenance 的全局池"
-     （123 个数）⇒ 池内的数写哪儿都绿（`M27` 的 `1.20`、`M28` 的 `0.5` 都会漏）。§4b 印归属。
+## 0. 证据绑定的件（`git hash-object`）
+
+| 件（仓相对） | `git hash-object` |
+| :--- | :--- |
+| `tests/skills/plot-matlab/check-style-freshness.py` | `e33db2aaadd90696677661fbbafa4151124adb58` |
+| `tests/skills/plot-matlab/mutate-plot-style.py` | `f8fe04fc784869f987d32bc05a3d16291817242a` |
+| `tests/skills/plot-matlab/probe-h10-band-ink.py` | `bcf08317907b0aef73439c074c1220745aa9929f` |
+| `tests/skills/plot-matlab/gen-mcm-style-matlab.py` | `ab65cbc2f080f605337a5634a31b6c4d55473333` |
+| `tests/skills/figure-choose/gen-style-table.py` | `7df8c57794fe9b160c77d64ccc942529d2ef89a8` |
+| `tests/skills/figure-choose/check-figure-style.py` | `47b9f4c355d6f12f5a3ee020aaff383c0294533b` |
+| `.claude/skills/mcm-figure-choose/assets/mcm-style.json` | `227fc3994e6fe761e2dd8514c3f405e88098ac77` |
+| `.claude/skills/mcm-plot-matlab/assets/mcmplot.m` | `7c48c8d744894df1d156d79c5c2f81c06b1b475d` |
+| `.claude/skills/mcm-figure-choose/references/house-style.md` | `c11ae7cb9ecfa0618781f2aa0533212b70910333` |
+
+## 1. Task 2 的新鲜度守卫（干净态：两臂 + G0）
+
+    $ python tests/skills/plot-matlab/check-style-freshness.py
+    exit=0
+
+```text
+样式新鲜度守卫（Task 2）· 派生件只许由 tests/skills/plot-matlab/gen-mcm-style-matlab.py 重放产出
+表 = .claude/skills/mcm-figure-choose/assets/mcm-style.json
+派生件 = mcmplot.m   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
+PASS  G0  重放成功（锚点 15 条，按 id 逐条命中 1 处：）
+PASS  A1  重放 == 快照（11658 字节）
+PASS  A2  重放 == 快照（11658 字节）
+------------------------------------------------------------------------------
+判据 3 条 · 红 0 条 · 派生件 1 份 · 生成器 exit=0
+RESULT: PASS
+```
+
+## 2. Task 2 的变异驱动器（6 条必须红：两臂专属 / fail-closed / F4 / F6 + 2 条对照：射程边界该绿 / 字面形态该被证伪）
+
+    $ python tests/skills/plot-matlab/mutate-plot-style.py
+    exit=0
+
+```text
+==============================================================================
+变异驱动器 · check-style-freshness.py（mcm-plot-matlab）：新鲜度两臂 + 生成器 fail-closed + F4/F6 真红
+==============================================================================
+检查器 = tests/skills/plot-matlab/check-style-freshness.py  blob e33db2aaadd90696677661fbbafa4151124adb58
+判据 = tests/skills/figure-choose/check-figure-style.py  blob 47b9f4c355d6f12f5a3ee020aaff383c0294533b
+  受保护件 .claude/skills/mcm-figure-choose/assets/mcm-style.json   blob 227fc3994e6fe761e2dd8514c3f405e88098ac77
+  受保护件 .claude/skills/mcm-plot-matlab/assets/mcmplot.m          blob 7c48c8d744894df1d156d79c5c2f81c06b1b475d
+  受保护件 tests/skills/plot-matlab/gen-mcm-style-matlab.py         blob ab65cbc2f080f605337a5634a31b6c4d55473333
+  受保护件 tests/skills/figure-choose/gen-style-table.py            blob 7df8c57794fe9b160c77d64ccc942529d2ef89a8
+
+前置（干净态）：exit=0 · RESULT: PASS
 
 ==============================================================================
-§0  blob 自证（git hash-object：被验对象就是即将入库的那几个文件）
+逐条结果（每条**逐字**贴判据的原始 stdout）
 ==============================================================================
-7476e9ae88bda35b38da19e9a0b270f49504d43f  .claude/skills/mcm-figure-choose/references/chart-types.md
-6aaab3194a294320adb22abff70cee93d568c8c6  tests/skills/figure-choose/check-house-style.py
-776bca804d6179bfe545dd7f9d8224029f241883  tests/skills/figure-choose/mutate-figure-style.py
-3041401fe29d1ca725cf4e5bcadb0585a5305aa5  tests/skills/figure-choose/gen-chart-types-verify.py
+RED-OK      M62  改表一个值（h3.height_in）⇒ 派生件落后 ⇒ `A1` 专属红
+表 `h3.height_in` 2.6 → 3.7（只改副本）· 预重放后工作树 = 乱表的重放结果 ⇒ 期望 `A1` 红 / `A2` 绿 · 实得 exit=1
+$ check-style-freshness.py --table m62.mcm-style.json   → exit=1
+      | 样式新鲜度守卫（Task 2）· 派生件只许由 tests/skills/plot-matlab/gen-mcm-style-matlab.py 重放产出
+      | 表 = build/m3-matlab-t2/_mut/m62.mcm-style.json
+      | 派生件 = mcmplot.m   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
+      | PASS  G0  重放成功（锚点 15 条，按 id 逐条命中 1 处：）
+      | FAIL  A1  重放 != 入库快照（HEAD）（快照 11658 字节 / 重放 11658 字节）
+      |       首个相异行 L58（共 快照 169 行 / 重放 169 行）：
+      |          L55 快照: STYLE.width_ratio_max = 1.2;                % h1.width_ratio.max · status=same-value
+      |          L55 重放: STYLE.width_ratio_max = 1.2;                % h1.width_ratio.max · status=same-value
+      |          L56 快照: STYLE.width_ratio_default_hi = 1.0;         % h1.width_ratio.default_hi · status=same-value
+      |          L56 重放: STYLE.width_ratio_default_hi = 1.0;         % h1.width_ratio.default_hi · status=same-value
+      |          L57 快照: % h1.width_ratio.default_lo      status=same-value  （本模块不落活常量）
+      |          L57 重放: % h1.width_ratio.default_lo      status=same-value  （本模块不落活常量）
+      |       << L58 快照: STYLE.height_in = 2.6;                      % h3.height_in · status=same-value
+      |       << L58 重放: STYLE.height_in = 3.7;                      % h3.height_in · status=same-value
+      |          L59 快照: STYLE.max_main_colors = 4;                  % h4.max_main_colors · status=not-landable
+      |          L59 重放: STYLE.max_main_colors = 4;                  % h4.max_main_colors · status=not-landable
+      |          L60 快照: STYLE.font_scale_lo = 0.8;                  % h12.font_scale_lo · status=not-landable
+      |          L60 重放: STYLE.font_scale_lo = 0.8;                  % h12.font_scale_lo · status=not-landable
+      |          L61 快照: STYLE.font_scale_hi = 1.0;                  % h12.font_scale_hi · status=not-landable
+      |          L61 重放: STYLE.font_scale_hi = 1.0;                  % h12.font_scale_hi · status=not-landable
+      | PASS  A2  重放 == 快照（11658 字节）
+      | ------------------------------------------------------------------------------
+      | 判据 3 条 · 红 1 条 · 派生件 1 份 · 生成器 exit=0
+      | RESULT: FAIL（A1）
+RED-OK      M63  改派生件生成区常量（STYLE.height_in）⇒ 重放改对它 ⇒ `A2` 专属红
+派生件生成区 `STYLE.height_in` 2.6 → 9.9（当场还原）· 期望 `A1` **仍绿** + `A2` 红 （`A1` 抓不到『手工改生成区』这一态）· 实得 exit=1
+$ check-style-freshness.py   → exit=1
+      | 样式新鲜度守卫（Task 2）· 派生件只许由 tests/skills/plot-matlab/gen-mcm-style-matlab.py 重放产出
+      | 表 = .claude/skills/mcm-figure-choose/assets/mcm-style.json
+      | 派生件 = mcmplot.m   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
+      | PASS  G0  重放成功（锚点 15 条，按 id 逐条命中 1 处：）
+      | PASS  A1  重放 == 快照（11658 字节）
+      | FAIL  A2  重放 != 工作树快照（检查前）（快照 11658 字节 / 重放 11658 字节）
+      |       首个相异行 L58（共 快照 169 行 / 重放 169 行）：
+      |          L55 快照: STYLE.width_ratio_max = 1.2;                % h1.width_ratio.max · status=same-value
+      |          L55 重放: STYLE.width_ratio_max = 1.2;                % h1.width_ratio.max · status=same-value
+      |          L56 快照: STYLE.width_ratio_default_hi = 1.0;         % h1.width_ratio.default_hi · status=same-value
+      |          L56 重放: STYLE.width_ratio_default_hi = 1.0;         % h1.width_ratio.default_hi · status=same-value
+      |          L57 快照: % h1.width_ratio.default_lo      status=same-value  （本模块不落活常量）
+      |          L57 重放: % h1.width_ratio.default_lo      status=same-value  （本模块不落活常量）
+      |       << L58 快照: STYLE.height_in = 9.9;                      % h3.height_in · status=same-value
+      |       << L58 重放: STYLE.height_in = 2.6;                      % h3.height_in · status=same-value
+      |          L59 快照: STYLE.max_main_colors = 4;                  % h4.max_main_colors · status=not-landable
+      |          L59 重放: STYLE.max_main_colors = 4;                  % h4.max_main_colors · status=not-landable
+      |          L60 快照: STYLE.font_scale_lo = 0.8;                  % h12.font_scale_lo · status=not-landable
+      |          L60 重放: STYLE.font_scale_lo = 0.8;                  % h12.font_scale_lo · status=not-landable
+      |          L61 快照: STYLE.font_scale_hi = 1.0;                  % h12.font_scale_hi · status=not-landable
+      |          L61 重放: STYLE.font_scale_hi = 1.0;                  % h12.font_scale_hi · status=not-landable
+      | ------------------------------------------------------------------------------
+      | 判据 3 条 · 红 1 条 · 派生件 1 份 · 生成器 exit=0
+      | RESULT: FAIL（A2）
+RED-OK      M64  删掉锚点的目标行（h3.height_in 整条 entry）⇒ 命中 0 ⇒ `G0` 红
+删掉锚点 `h3.height_in` 的整条 entry（只改副本）⇒ 生成器命中 0 ⇒ `G0` 红 + 非零退出 · 实得 exit=1
+$ check-style-freshness.py --table m64.mcm-style.json   → exit=1
+      | 样式新鲜度守卫（Task 2）· 派生件只许由 tests/skills/plot-matlab/gen-mcm-style-matlab.py 重放产出
+      | 表 = build/m3-matlab-t2/_mut/m64.mcm-style.json
+      | 派生件 = mcmplot.m   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
+      | FAIL  G0  生成器退出 1（fail-closed）：FAIL  锚点 'h3.height_in' 在表里命中 0 条（必须恰 1）—— 锚点被删/被改名/被复制，派生件无从取值
+      | FAIL  A1  生成器未跑成（见 G0） ⇒ 无从比对（fail-closed）
+      | FAIL  A2  生成器未跑成（见 G0） ⇒ 无从比对（fail-closed）
+      | ------------------------------------------------------------------------------
+      | 判据 3 条 · 红 3 条 · 派生件 1 份 · 生成器 exit=1
+      | RESULT: FAIL（G0,A1,A2）
+RED-OK      M65  复制锚点的目标行 ⇒ 命中 2 ⇒ `G0` 红
+把锚点 `h3.height_in` 的整条 entry 复制一份（只改副本）⇒ 生成器命中 2 ⇒ `G0` 红 + 非零退出 · 实得 exit=1
+$ check-style-freshness.py --table m65.mcm-style.json   → exit=1
+      | 样式新鲜度守卫（Task 2）· 派生件只许由 tests/skills/plot-matlab/gen-mcm-style-matlab.py 重放产出
+      | 表 = build/m3-matlab-t2/_mut/m65.mcm-style.json
+      | 派生件 = mcmplot.m   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
+      | FAIL  G0  生成器退出 1（fail-closed）：FAIL  锚点 'h3.height_in' 在表里命中 2 条（必须恰 1）—— 锚点被删/被改名/被复制，派生件无从取值
+      | FAIL  A1  生成器未跑成（见 G0） ⇒ 无从比对（fail-closed）
+      | FAIL  A2  生成器未跑成（见 G0） ⇒ 无从比对（fail-closed）
+      | ------------------------------------------------------------------------------
+      | 判据 3 条 · 红 3 条 · 派生件 1 份 · 生成器 exit=1
+      | RESULT: FAIL（G0,A1,A2）
+RED-OK      M66  摘掉浅色主题机制 ⇒ 产物深色 ⇒ `F4` 真红
+摘掉浅色主题机制（`'Theme','light'` + 三处显式白）⇒ 渲染 exit=0（照常成功）· 产物 `build/m3-matlab-t2/mut4-no-light-theme.png` · 期望 `F4` 红（且 `F1`/`F5` **仍绿**，证明深色只被 `F4` 接住）· 实得：
+$ check-figure-style.py --fig mut4-no-light-theme.png ...   → exit=1
+      | FAIL  F4  外缘环 RGB (0, 0, 0) 亮度 0（占环 100.00%）；近灰众数 RGB (18, 18, 18) 亮度 18（占全图 60.33%）；下限 136
+      | PASS  F1  图宽比 1.000（分母 6.31 in）
+      | PASS  F2  彩色主色数 0
+      | PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+      | PASS  F3a  图注以 `Figure N:` 起
+      | PASS  F3b  图注词数 1（上限 12，硬上限 17）
+      | PASS  F3c  句末不加句号
+      | PASS  F3d  图注正文非空（正文 1 词）
+      | PASS  F6  PNG 载体无内嵌字体信息 ⇒ 本判据在 PNG 上不适用（如实标，不假绿）
+      | RESULT: FAIL（F4）
+RED-OK      M67  字体点名不存在的族 ⇒ 静默回退 ⇒ `F6` 真红
+把 `STYLE.font_serif` 点名成不存在的族 `NoSuchFontXYZ` ⇒ 渲染 exit=0（照常成功、**不报错**）· 产物 `build/m3-matlab-t2/mut5-bad-font.pdf` · 期望 `F6` 红且读到回退字体（`SimSun`）· 实得：
+$ check-figure-style.py --fig mut5-bad-font.pdf ...   → exit=1
+      | PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 97.99%）；下限 136
+      | PASS  F1  图宽比 1.001（分母 6.31 in）
+      | PASS  F2  彩色主色数 0
+      | PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
+      | PASS  F3a  图注以 `Figure N:` 起
+      | PASS  F3b  图注词数 1（上限 12，硬上限 17）
+      | PASS  F3c  句末不加句号
+      | PASS  F3d  图注正文非空（正文 1 词）
+      | FAIL  F6  内嵌字体 ['SimSun']
+      | RESULT: FAIL（F6）
+------------------------------------------------------------------------------
+对照（不是判据变异：`GREEN` = 该绿、`REFUTED` = 该被证伪）
+GREEN-OK    M68  **射程边界对照**：改表里不参与抽取的散文 ⇒ 判据仍绿
+改表里 `bg.matlab.how` 的散文（生成器**不读** `same-value` 格的 `how`）⇒ 期望**仍绿** · 实得 exit=0
+$ check-style-freshness.py --table m68.mcm-style.json   → exit=0
+      | 样式新鲜度守卫（Task 2）· 派生件只许由 tests/skills/plot-matlab/gen-mcm-style-matlab.py 重放产出
+      | 表 = build/m3-matlab-t2/_mut/m68.mcm-style.json
+      | 派生件 = mcmplot.m   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
+      | PASS  G0  重放成功（锚点 15 条，按 id 逐条命中 1 处：）
+      | PASS  A1  重放 == 快照（11658 字节）
+      | PASS  A2  重放 == 快照（11658 字节）
+      | ------------------------------------------------------------------------------
+      | 判据 3 条 · 红 0 条 · 派生件 1 份 · 生成器 exit=0
+      | RESULT: PASS
+REFUTED-OK  M69  **字面形态对照**：原地重跑把过期件改对 ⇒「重跑后再比」恒真
+过期态（表 `h3.height_in` → 4.2，派生件未重放）下**原地重跑**：生成器 exit=0 · 派生件字节被改=True · 重跑后的 `git status --short` = 『M .claude/skills/mcm-plot-matlab/assets/mcmplot.m』
+      ⇒ 重跑之后取参考再比，参考件已被改成重放结果本身 ⇒ **恒真**。本器在重跑**之前**取参考，故不恒真。
 
 ==============================================================================
-§1  全量守卫（规范数守卫 + CENSUS + 结构守卫 S1–S5）：python tests/skills/figure-choose/check-house-style.py
+还原自证
 ==============================================================================
-$ python tests/skills/figure-choose/check-house-style.py
+  .claude/skills/mcm-figure-choose/assets/mcm-style.json   blob 227fc3994e6fe761e2dd8514c3f405e88098ac77  == 变异前
+  .claude/skills/mcm-plot-matlab/assets/mcmplot.m          blob 7c48c8d744894df1d156d79c5c2f81c06b1b475d  == 变异前
+  tests/skills/plot-matlab/gen-mcm-style-matlab.py         blob ab65cbc2f080f605337a5634a31b6c4d55473333  == 变异前
+  tests/skills/figure-choose/gen-style-table.py            blob 7df8c57794fe9b160c77d64ccc942529d2ef89a8  == 变异前
+  受保护件逐个 blob 还原: True
+  临时根已清空: _mut=True · _probe=True
+  变异后复跑（干净态）: exit=0 · RESULT: PASS
+  `git status --short`（应为空）:
+      （空）
+
+==============================================================================
+合计
+==============================================================================
+MUT: 6/6 红（新鲜度两臂 / 生成器 fail-closed / F4 / F6）
+MUT: 对照 2/2 达预期（M68 该绿、M69 该被证伪）
+MUT: 合计 6/6 条判据变异 + 2/2 条对照
+```
+
+## 3. Task 2 的 H10 产物级回读探针（落地态 0/0/0 vs 对照态非 0）
+
+    $ python tests/skills/plot-matlab/probe-h10-band-ink.py
+    exit=0
+
+```text
+H10 产物级回读探针（顶内 / 右内 / 下外带内非白像素）· 口径同 python 侧 probe-gap1-hanging-ticks.py
+驱动 = build/m3-matlab-t2/_probe/probe_h10_band_ink.m（临时；收工自清）
+MATLAB = D:/Software/Matlab/bin/matlab.exe
+  | ### probe_h10_band_ink start ###
+  | version = 2025b
+  | mcmplot STYLE.width_ratio_default_hi = 1 · height_in = 2.6
+  | mode      box/tick           顶内       右内       下外
+  | landed    off/in              0        0        0
+  | control   on/out           2902     2346      349
+  | （导出像素 1893 x 1260 · 带宽 17 px · 轴区 L246 R1713 T94 B1121）
+  | OK 落地态三带均 0，且对照态三带均 > 0（探针不是恒零）
+  | ### probe_h10_band_ink done ###
+------------------------------------------------------------------------------
+落地态（M.apply 的 H10：box off + TickDir in） 顶内/右内/下外 = (0, 0, 0)
+对照态（apply 后覆写 box on + TickDir out）    顶内/右内/下外 = (2902, 2346, 349)
+产物（给人看） = build/m3-matlab-t2/h10_{'landed','control'}.{png,pdf}
+RESULT: PASS
+```
+
+## 4. 收工门 ① 规范数守卫
+
+    $ python tests/skills/figure-choose/check-house-style.py
+    exit=0
+
+```text
 PASS  G-F0-papers        文档=43       实测=43        容差=0.5     样本份数
 PASS  G-F0-figs          文档=662      实测=662       容差=0.5     样本图数
 PASS  G-F0-tabs          文档=246      实测=246       容差=0.5     同批抽到的表数
@@ -249,29 +448,14 @@ CENSUS  house-style.md 数字 329 个 · 守卫覆盖片段 148 段 · 重复读
 
 守卫 162 条（其中结构守卫 4 条 · SKILL 守卫 8 条） · provenance 46 条 · 总 208 条
 RESULT: PASS
-[exit=0]
+```
 
-==============================================================================
-§2  只跑结构守卫（S4 是读数条 ⇒ 前缀是 READ）：python tests/skills/figure-choose/check-house-style.py --only S1 S2 S3 S4 S5
-==============================================================================
-$ python tests/skills/figure-choose/check-house-style.py --only S1 S2 S3 S4 S5
-------------------------------------------------------------------------------
-结构守卫（chart-types.md 的形状；S4 是**读数条**，不参与判词——除非 chart-types.md 读不出，那时它随其余结构守卫一起记红）
-PASS  S1                 入口标题 9 个（应 9）· 缺 无 · 重名 0
-PASS  S2                 四段齐全的入口 9/9
-PASS  S3                 radar 定义行：『**radar chart**: 多个变量摊成等角轴、连成多边形 —— **低频**：获奖样本里属罕见选…』带『低频』
-READ  S4                 定义行 42 · 不同名 42 · 重名 无（读数条：不参与 PASS/FAIL，重名由人看一眼）
-PASS  S5                 小数出现 2 处（不同值 ['0.0', '9.2']）· 与所属 H 条目不同值者 无 · 无所属 `H<n>` 者 无
-PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
+## 5. 收工门 ② 判据变异总驱动器（约 225 s）
 
-守卫 4 条（其中结构守卫 4 条 · SKILL 守卫 0 条） · provenance 0 条 · 总 4 条
-RESULT: PASS
-[exit=0]
+    $ python tests/skills/figure-choose/mutate-figure-style.py
+    exit=0
 
-==============================================================================
-§3  变异驱动器（一条命令跑全部）：python tests/skills/figure-choose/mutate-figure-style.py
-==============================================================================
-$ python tests/skills/figure-choose/mutate-figure-style.py
+```text
 ==============================================================================
 变异驱动器 · check-figure-style.py
 ==============================================================================
@@ -447,38 +631,95 @@ MUT: 58/58 达预期（合计）
 探针 P1: 红（check-figure-style.py 的脚本探针）
 探针 R1: 红（读数条 S4 的『该动的时候动、该判的时候不判』）
 （本驱动器共 14 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 7 条 `K3` 阈值标记臂变异（含 1 条射程边界对照）+ 1 条读数条探针）
-[exit=0]
+```
 
-==============================================================================
-§4  生成器当场算的三组读数（**不经 shell** ⇒ 没有引号可切）
-==============================================================================
-说明（与 Task 3 §5 同一条教训）：手敲的带引号命令会被再切一次、exit=2、什么都没证。
-下面三组数由本生成器**直接算**并打印，命令就是上面那一行 `python …/gen-chart-types-verify.py`。
+## 6. 收工门 ③ 逐格验收
 
-§4a  七个变异的目标串在**出货件**里各命中几次（必须恰为 1 —— 否则驱动器自己报错）
-     M22  命中 1 次   ### 入口 9 · 不确定性
-     M23  命中 1 次   **备选**：`dot plot`
-     M24  命中 1 次   连成多边形 —— **低频**：获奖样本里属罕见选择
-     M25  命中 1 次   **9.2%**
-     M26  命中 1 次   **0.0%**
-     M27  命中 1 次   机械守卫 `S5` 管的是**抄过来之后有没有漂**
-     M28  命中 1 次   **9.2%**
+    $ python tests/skills/figure-choose/fixtures/run-expected.py
+    exit=0
 
-§4b  S5 的**归属**（修复轮 N-2 收紧）：每个小数归到**同行 `H<n>` 引用**、值 ∈ **该条目**的数
-     旧写法只查『值 ∈ house-style ∪ provenance 的全局池』⇒ 池内的数写哪儿都绿（弱化）。
-     行 82   `0.0` → H6：∈ H6 条目的数 True（该条目的小数 ['0.0']）· 在旧全局池（125 个）里 True
-     行 125  `9.2` → H7：∈ H7 条目的数 True（该条目的小数 ['1.8', '2.1', '7.2', '9.2']）· 在旧全局池（125 个）里 True
-     三个备选改法（`M27`/`M28` 采用前两个）：
-     1.20  旧全局池里: True · 无所属（同行无 `H<n>`）⇒ 归不进任何条目: False ⇒ 新写法**红**
-     0.5   旧全局池里: True · 归到 H7 时 ∈ H7 的数: False ⇒ 新写法**红**
-     9.3   旧全局池里: False · 归到 H7 时 ∈ H7 的数: False ⇒ 新写法**红**
+```text
+# checker: tests/skills/figure-choose/check-figure-style.py
+flag      sample                   crit want got
+OK        ok-01.png                F1   want=PASS got=PASS
+OK        ok-01.png                F2   want=PASS got=PASS
+OK        ok-01.png                F5   want=PASS got=PASS
+OK        ok-02.png                F1   want=PASS got=PASS
+OK        ok-02.png                F5   want=PASS got=PASS
+OK        ok-03.png                F2   want=PASS got=PASS
+OK        ok-03.png                F5   want=PASS got=PASS
+OK        ok-04.png                F2   want=PASS got=PASS
+OK        ok-04.png                F4   want=PASS got=PASS
+OK        ok-04.png                F5   want=PASS got=PASS
+OK        ok-05.pdf                F1   want=PASS got=PASS
+OK        ok-05.pdf                F2   want=PASS got=PASS
+OK        ok-05.pdf                F5   want=PASS got=PASS
+OK        ok-06.png                F1   want=PASS got=PASS
+OK        ok-06.png                F2   want=PASS got=PASS
+OK        ok-06.png                F4   want=PASS got=PASS
+OK        ok-06.png                F5   want=PASS got=PASS
+OK        bad-f1-too-narrow.png    F1   want=FAIL got=FAIL
+OK        bad-f1-too-wide.png      F1   want=FAIL got=FAIL
+OK        bad-f2-five-colors.png   F2   want=FAIL got=FAIL
+OK        bad-f2-five-colors.pdf   F2   want=FAIL got=FAIL
+OK        caption:1                F3a  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3c  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:1                F3d  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        caption:2                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:3                F3c  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:4                F3d  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:5                F3b  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:6                F3a  want=FAIL got=FAIL  (fig borrowed: ok-01.png)
+OK        caption:7                F3b  want=PASS got=PASS  (fig borrowed: ok-01.png)
+OK        bad-bg-dark.png          F4   want=FAIL got=FAIL
+OK        bad-bg-navy.png          F4   want=FAIL got=FAIL
+OK        bad-color-order.png      F5   want=FAIL got=FAIL
+MISMATCH 0 / 34
+```
 
-§4c  九个入口标题 —— **入口名是契约**：那九个名字**硬编码在检查器 `ENTRIES`**、**不从文档现取**
-     （现取就等于『改文档即改期望值』，`S1` 会退化成恒真）；这里把**文档里的标题印出来供人核对**。
-     标题 9 个：比较 / 分布 / 相关 / 构成 / 时序 / 空间 / 流程 / 机理 / 不确定性
+## 7. 收工门 ④ 样式表新鲜度守卫（figure-choose 侧）
 
-==============================================================================
-§5  本节自证：上面每条命令都要 exit=0
-==============================================================================
-§0-§4 共跑 3 条；非零退出 0 条
+    $ python tests/skills/figure-choose/check-style-table-freshness.py
+    exit=0
 
+```text
+PASS  A1  逐字节一致
+PASS  A2  逐字节一致
+RESULT: PASS
+```
+
+## 8. 收工门 ⑤ 样式表新鲜度守卫（plot-python 侧）
+
+    $ python tests/skills/plot-python/check-style-freshness.py
+    exit=0
+
+```text
+样式新鲜度守卫 + 字体守卫（Task 3）· 派生件只许由 tests/skills/plot-python/gen-mcm-style.py 重放产出
+规范 = .claude/skills/mcm-figure-choose/references/house-style.md
+派生件 = ['mcm.mplstyle', 'mcmplot.py']   ·   A1 快照臂 = `git show HEAD:<path>`   ·   A2 工作树臂 = 检查前的工作树字节
+PASS  G0  重放成功（锚点 11 条，逐条命中 1 处：）
+PASS  A1:mcm.mplstyle  重放 == 快照（2286 字节）
+PASS  A2:mcm.mplstyle  重放 == 快照（2286 字节）
+PASS  A1:mcmplot.py  重放 == 快照（11885 字节）
+PASS  A2:mcmplot.py  重放 == 快照（11885 字节）
+PASS  FON  产物字体 ['TeXGyreTermesX-Regular'] ⊆ 入库集合，且用到入库的罗马正体 ['TeXGyreTermesX-Regular']
+      预期集合（入库件现读）= ['TeXGyreTermesX-Bold', 'TeXGyreTermesX-BoldItalic', 'TeXGyreTermesX-Italic', 'TeXGyreTermesX-Regular']
+      产物实报集合（探针 PDF）= ['TeXGyreTermesX-Regular']
+------------------------------------------------------------------------------
+判据 6 条 · 红 0 条 · 派生件 2 份 · 生成器 exit=0
+RESULT: PASS
+```
+
+## 9. 收工门 ⑥ 表重放一致性（15 条一致）
+
+    $ python tests/skills/figure-choose/gen-style-table.py --check
+    exit=0
+
+```text
+重放 → .claude/skills/mcm-figure-choose/assets/mcm-style.json（15 条）· 一致
+```
+
+## 合计
+
+命令 9 条 · 非零退出/未达预期 **0** 条

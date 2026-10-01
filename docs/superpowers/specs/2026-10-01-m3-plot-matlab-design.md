@@ -128,3 +128,11 @@
 4. **全库收口**（残留逐件分类 + 文档）。
 
 ⚠️ **本设计件与实施计划都不动 `mcm-plot-python` / `figure-choose` 的既有件**（那些属样式单源线）。
+
+> ★ **例外（2026-10-01 加，Task 2 落地后订正）**：上面这句**不是绝对的**。
+> `mcm-style.json` 里 `how` 一栏的**唯一来源**是 `tests/skills/figure-choose/gen-style-table.py`（该文件**托管**这些文案）
+> ⇒ **凡"订正某格 `how` 的误述"这类工作，非改它不可**（Task 2 的 Findings-M4：python 的 `h1.width_ratio.{min,max,default_lo}` 三格 `how` 谎称乘自己）。
+> ⇒ **正确表述**：**允许**改 `figure-choose` 的**读表生成器**（`gen-style-table.py`）与**它产出的表**（`mcm-style.json`）；
+> **不允许**改 `check-figure-style.py`（GC6：判据必须一字不改）与红/绿对照证据的语义。
+> ⚠️ **且这类跨线编辑有涟漪**：改 `gen-style-table.py` 会让**样式单源线已收口的证据件**过期
+> （实测：`figure-style-baseline.txt` 的体检表记着它的 `bytes=`）⇒ **必须与编辑同批重生成**（见 [[fix-the-ripple-with-the-edit]]）。

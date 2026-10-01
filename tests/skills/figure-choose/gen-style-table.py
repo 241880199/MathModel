@@ -135,6 +135,27 @@ CONSTS = (
 #      （fail-closed）。防的是手滑成 `"samevalue"` 之类**静默通过**（没有守卫兜底）。
 STATUSES = ("same-value", "family-equivalent", "not-landable", "scriptable", "not-embedded")
 
+# ── `status` 的**正面定义**（2026-10-01，M3-plot-matlab Task 2 补；随 `_status_defs` 写进表头）——
+#    ★ 为什么必须补（Task 1 独立复核 Findings-M4 / 计划 Task 2 硬要求 6）：旧稿只列了 5 个**值**，
+#      **没有给任何一个正面定义** ⇒ 它接不住"**载体有能力设、但产物里不落活常量**"这一类
+#      （实况：`h1.width_ratio.default_lo` 的 matlab 格写 `same-value`，而 `mcmplot.m` 只把它落成注释）。
+#    ★ 定义取"**能力**"口径（而非"产物已落"口径）——与设计 §1.1"一致性目标 = 同规范 / 按族等价、
+#      不追求逐字同值"同一取向：`same-value` 说的是"**载体侧能设成与表内逐字相同的值**"，
+#      **不保证**该值一定落成产物里的活常量。⇒ **`how` 一栏必须写明这个值在本模块产物里的落点**
+#      （活常量 / 产物像素 / 调用方参数 / 只登记不消费）—— 这条**新增的 how 义务**才是这次补定义的重点：
+#      单个 status 词承载不了"落点在哪"，落到 `how` 里说清、不许留一句笼统的"能同值"。
+STATUS_DEFS = {
+    "same-value": "载体侧**有能力**把该量设成与表内**逐字相同的值**（区别于 'family-equivalent' 的按族等价）；"
+                  "该格 `how` **必须写明这个值在本模块产物里的落点**（活常量 / 产物像素 / 调用方参数 / "
+                  "只登记不消费）。**不声称**产物一定落活常量。",
+    "family-equivalent": "载体只能按**族**等价（如字体：同族不同实现 —— python 入库 OTF 与系统 Times 系）；"
+                         "`how` 写明各载体取的族。",
+    "not-landable": "本模块**今天确实没有**能落到产物上的方式（载体可能连设置项都没有）；"
+                    "`how` 写清原因，**不许**既不测也不改、留一句'能设不能验'当结论。",
+    "scriptable": "（origin 专用）本支**能脚本化**落地，`F1`/`F4`/`F5` 在它上有承重；`how` 给出脚本命令。",
+    "not-embedded": "（origin 字体两格专用）产物**不内嵌**字体 ⇒ 字体族判据（`F6`）对它只能判 `N/A`。",
+}
+
 
 # ── origin 列的契约（设计 §6.3，2026-09-30 更新：脚本为权威、值已实测）——
 #    每个 id 的 `carriers.origin` 填**实测到的脚本命令 + 操作步骤 + 版本**，不再是 `null`。
@@ -175,12 +196,29 @@ def carrier_map(vals):
                 "version": ORIGIN_VERSION, "status": status}
 
     def width_py(key):
-        """H1 图宽（python）那格的 `how`：**本格**的键名与值由 `vals` 现取，不写别行的值。"""
+        """H1 图宽（python）那格的 `how`：**本格**的键名与值由 `vals` 现取，不写别行的值。
+
+        ★ 订正（2026-10-01 M3-plot-matlab Task 2，Task 1 独立复核 Findings-M4）：旧稿对四格**一律**
+        写「python 侧令宽 = 正文栏宽 × 表内 `<该键>`（…）… ⇒ F1 = …」，**而 `figsize_for()` 只乘
+        `default_hi`** ⇒ min / max / default_lo 三格描述的**动作在代码里都不发生**（只有 `default_hi`
+        那格与代码一致）。⇒ 现按代码实况**分写**：只有 `default_hi` 是 `figsize_for()` 现取的乘数；
+        其余三格**落了活常量但无人消费**（min / max 是 F1 验收带的边界、default_lo 是默认档下限），
+        `how` 如实写"不被消费"，不再声称那个不发生的乘法。
+        """
         name, val = key.replace(".", "_"), vals[key]
-        return (f"python 侧令宽 = 正文栏宽 × 表内 `{name}`（{val}）（`figsize_for(textwidth_in)` "
-                f"是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = {val}（⇐ "
-                ".claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / "
-                ".claude/skills/mcm-plot-python/assets/mcm.mplstyle）")
+        loc = (".claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / "
+               ".claude/skills/mcm-plot-python/assets/mcm.mplstyle")
+        if key == "h1.width_ratio.default_hi":
+            return (f"python 侧令宽 = 正文栏宽 × 表内 `{name}`（{val}）—— `figsize_for(textwidth_in)` "
+                    f"**取的就是本键**（默认档的上限）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 "
+                    f"⇒ F1 = {val}（⇐ {loc}）")
+        role = {"h1.width_ratio.min": "**F1 验收带的下界**（判据侧 `check-figure-style.py` 的 `F1_LO` "
+                                      "**独立写死**为同值）",
+                "h1.width_ratio.max": "**F1 验收带的上界**（判据侧 `check-figure-style.py` 的 `F1_HI` "
+                                      "**独立写死**为同值）",
+                "h1.width_ratio.default_lo": "**默认档的下限**"}[key]
+        return (f"python 侧本键（{val}）= {role}；`figsize_for(textwidth_in)` **只取 `default_hi`、"
+                f"不消费本键**，`HOUSE_STYLE['{name}']` 落了活常量但**无人消费**（⇐ {loc}）")
 
     # 宽度（matlab / origin）：三支都能把"图宽"设成正文栏宽的**指定倍**（F1 = 输出宽 / 正文栏宽）。
     #   ★ 下面两段**一个"某行比值的具体数"都不写**——只述实测的**绝对宽**（6.31 / 6.31944 in），
@@ -190,6 +228,20 @@ def carrier_map(vals):
              "⇒ 实测输出宽 == 设定宽（pr.png in = 6.3100 ⇐ out-size-law.txt；设计 §6.2）。⚠️ `exportgraphics` "
              "的宽 = **内容包围盒**、与 figsize/PaperPosition 无关（**完全忽略** `PaperPosition`/"
              "`PaperSize`、按轴内容 bbox 裁剪 ⇐ out-size-law.txt）⇒ **不作权威交付载体**")
+    # 宽度（matlab）**default_lo 专用**：本键是四格里唯一"**载体能设、但本模块产物不落活常量**"的一格
+    #   （`mcmplot.m` 的 `figsize_for()` 只取 `default_hi`）⇒ 按 Task 2 补的 `same-value` 正面定义
+    #   （`STATUS_DEFS`），`how` **必须写明落点**：这里落点是"**只登记、不消费、不落活常量**"。
+    #   ★ 为什么不落活常量：其值 `0.95` 是表里**唯一**形如 `0.xx` 的规范值，落进产物会与
+    #     `mcmplot.m` 的"产物里零手写规范字面"验收 tripwire（`git grep -nE "0\.[0-9]{2}"`）撞上
+    #     —— **该项裁决见 task-m3-matlab-t2-report.md**（本任务把它显式记账，未偷偷放宽 tripwire）。
+    _W_ML_DEFAULT_LO = (
+        "**本模块产物里不落活常量、也不消费**：`mcmplot.m` 的 `figsize_for()` **只取 `default_hi`**，"
+        "本键（`0.95`）仅登记在表里（H1 默认档的下限）。载体（`print` 家族）**有能力**把宽设成 0.95×"
+        "（`-dpng` 跟 `PaperPosition`、`-dpdf` 跟 `PaperSize`）⇒ `status=same-value` 指『**载体能同值**』，"
+        "**不指**『本模块产物已落该值』（口径见本表 `_status_defs.same-value`）。**不落活常量的理由**："
+        "其值 `0.95` 是表里唯一形如 `0.xx` 的规范值，落进产物会与『产物里零手写规范字面』的验收 tripwire "
+        "撞上（裁决见 `task-m3-matlab-t2-report.md`）。")
+
     _W_OG = ("`GPage.save_fig(width=N)` → 发 `expGraph … tr1.Unit:=2 tr1.Width:=N`；裸 LabTalk 用 "
              "`tr1.Unit:=0 tr1.Width:=<in>`。实测输出宽 ≈ 设定宽（green.pdf 页盒 **6.31944 in** / "
              "设定 6.31 ⇐ out-g-e2e-scenarios.txt）；**「PDF 页盒按 1/72 in 网格量化」与「6.31944 ≈ "
@@ -207,10 +259,11 @@ def carrier_map(vals):
             "matlab": {"how": _W_ML, "status": "same-value"},
             "origin": origin(_W_OG),
         },
-        # H1 的默认比值 lo/hi（0.95 / 1.0）：F1 的**落地默认**取的就是它们，机制同 min/max。
+        # H1 的默认比值 lo/hi（0.95 / 1.0）：F1 的**落地默认** = 上限（`default_hi`）；`default_lo`
+        #   是默认档下限、**不被 `figsize_for()` 消费**（matlab 格专用 how：见 `_W_ML_DEFAULT_LO`）。
         "h1.width_ratio.default_lo": {
             "python": {"how": width_py("h1.width_ratio.default_lo"), "status": "same-value"},
-            "matlab": {"how": _W_ML, "status": "same-value"},
+            "matlab": {"how": _W_ML_DEFAULT_LO, "status": "same-value"},
             "origin": origin(_W_OG),
         },
         "h1.width_ratio.default_hi": {
@@ -329,7 +382,9 @@ def carrier_map(vals):
                 "`layer.plotN.line.width = <pt>`（LabTalk；实测默认 0.5、可写，改后产物**差分像素非零** ⇒ "
                 "真的落到产物上 ⇐ out-d-appearance.txt / out-f-axis-candidates.txt，本轮复跑复现）。"),
         },
-        # H10（M3-style 终审 I-5 补进表）：载体相关规则，python 侧已落地、matlab / origin 均无产物级实测。
+        # H10（M3-style 终审 I-5 补进表）：载体相关规则。python 侧已落地（6 键 + 入库探针）；
+        #   matlab 侧由 M3-plot-matlab Task 2 的**入库探针**补齐产物级实测 ⇒ 由 not-landable 转 same-value
+        #   （2026-10-01）；origin 侧仍是 not-landable（侦察逐条试过、差分像素全 0）。
         "h10.axes_box": {
             "python": {
                 "how": "`mcm.mplstyle` 的生成区为它落了 **6 个键**：`axes.spines.top: False` / "
@@ -344,12 +399,17 @@ def carrier_map(vals):
                        "tests/skills/plot-python/probe-gap1-hanging-ticks.py）",
                 "status": "same-value"},
             "matlab": {
-                "how": "**今天无产物级实测**：侦察记录 MATLAB 侧有对应 API（`box(ax,'off')` 去框线 / "
-                       "`set(ax,'TickDir','in')` 刻度朝内 —— 两者都在 K3 采样行里出现过），但**产物端"
-                       "零回读**：侦察判定为「**能设、不能验**」（`box off` / `TickDir 'in'` 可设，"
-                       "**三支机器都没有 spine/tick 判据** ⇐ `.superpowers/sdd/task-m3-matlab-recon-report.md` "
-                       "§G19 /「落不了地」表）⇒ 如实记 `not-landable`，不编造落地方式。",
-                "status": "not-landable"},
+                "how": "**产物级实测能落地**（2026-10-01 M3-plot-matlab Task 2 回读，取代旧稿的"
+                       "「能设、不能验」）：`mcmplot.m` 的 H10 生成区落 `box(ax,'off')`（去上/右边框线；"
+                       "MATLAB 的 `box` 一并管顶与右）+ `set(ax,'TickDir','in')`（刻度朝内）+ "
+                       "`XMinorTick`/`YMinorTick` off（只留主刻度）。**入库探针** "
+                       "`tests/skills/plot-matlab/probe-h10-band-ink.py` 量**轴区顶/右带内非白像素**"
+                       "（灰度 < 200；带宽 = 刻度长换算 px + 2 余量，现算；口径同 python 侧 "
+                       "`probe-gap1-hanging-ticks.py`）：**落地态**（`M.apply()`）顶内 0 / 右内 0 / 下外 0，"
+                       "**对照态**（`apply` 之后把 `box` 打开、`TickDir` 改回 out）顶内 2902 / 右内 2346 / "
+                       "下外 349（本机 R2025b Update 5）⇒ 框线与刻度朝向**真的从产物上消失**（对照非 0 "
+                       "同时证探针不是恒零）。**轴标签带单位**是**调用方纪律**（MATLAB 侧**无设置项**）。",
+                "status": "same-value"},
             "origin": origin(
                 "**去上/右框线与刻度朝内：侦察**未找到**能落到产物上的命令** —— 逐条试过 "
                 "`layer.frame=0` / `layer.x2.show=0; layer.y2.show=0` / `layer.x.opposite=0|1` / "
@@ -394,6 +454,10 @@ def build(doc_path):
                         "why": why, "carriers": carriers_for(key, vals)})
     return {"_generated_by": "tests/skills/figure-choose/gen-style-table.py",
             "_source": str(HOUSE.relative_to(ROOT)).replace("\\", "/"),
+            # ★ 表头（2026-10-01 补）：`status` 的**正面定义**（`STATUS_DEFS`）。写进表头是为了让
+            #   **表自身**带上"每个 status 是什么意思"，而不是只在下游生成器的注释里 —— 下游
+            #   （`mcm-plot-*`）读表时能直接看到口径，无需回读生成器。（Task 2 硬要求 6(a)：写进生成器与表头）
+            "_status_defs": STATUS_DEFS,
             "entries": entries}
 
 

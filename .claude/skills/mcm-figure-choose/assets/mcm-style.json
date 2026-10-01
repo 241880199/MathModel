@@ -1,6 +1,13 @@
 {
   "_generated_by": "tests/skills/figure-choose/gen-style-table.py",
   "_source": ".claude/skills/mcm-figure-choose/references/house-style.md",
+  "_status_defs": {
+    "same-value": "载体侧**有能力**把该量设成与表内**逐字相同的值**（区别于 'family-equivalent' 的按族等价）；该格 `how` **必须写明这个值在本模块产物里的落点**（活常量 / 产物像素 / 调用方参数 / 只登记不消费）。**不声称**产物一定落活常量。",
+    "family-equivalent": "载体只能按**族**等价（如字体：同族不同实现 —— python 入库 OTF 与系统 Times 系）；`how` 写明各载体取的族。",
+    "not-landable": "本模块**今天确实没有**能落到产物上的方式（载体可能连设置项都没有）；`how` 写清原因，**不许**既不测也不改、留一句'能设不能验'当结论。",
+    "scriptable": "（origin 专用）本支**能脚本化**落地，`F1`/`F4`/`F5` 在它上有承重；`how` 给出脚本命令。",
+    "not-embedded": "（origin 字体两格专用）产物**不内嵌**字体 ⇒ 字体族判据（`F6`）对它只能判 `N/A`。"
+  },
   "entries": [
     {
       "id": "h1.width_ratio.min",
@@ -9,7 +16,7 @@
       "origin": "measured",
       "carriers": {
         "python": {
-          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_min`（0.80）（`figsize_for(textwidth_in)` 是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 0.80（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
+          "how": "python 侧本键（0.80）= **F1 验收带的下界**（判据侧 `check-figure-style.py` 的 `F1_LO` **独立写死**为同值）；`figsize_for(textwidth_in)` **只取 `default_hi`、不消费本键**，`HOUSE_STYLE['h1_width_ratio_min']` 落了活常量但**无人消费**（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
           "status": "same-value"
         },
         "matlab": {
@@ -31,7 +38,7 @@
       "origin": "measured",
       "carriers": {
         "python": {
-          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_max`（1.20）（`figsize_for(textwidth_in)` 是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 1.20（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
+          "how": "python 侧本键（1.20）= **F1 验收带的上界**（判据侧 `check-figure-style.py` 的 `F1_HI` **独立写死**为同值）；`figsize_for(textwidth_in)` **只取 `default_hi`、不消费本键**，`HOUSE_STYLE['h1_width_ratio_max']` 落了活常量但**无人消费**（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
           "status": "same-value"
         },
         "matlab": {
@@ -53,11 +60,11 @@
       "origin": "measured",
       "carriers": {
         "python": {
-          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_default_lo`（0.95）（`figsize_for(textwidth_in)` 是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 0.95（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
+          "how": "python 侧本键（0.95）= **默认档的下限**；`figsize_for(textwidth_in)` **只取 `default_hi`、不消费本键**，`HOUSE_STYLE['h1_width_ratio_default_lo']` 落了活常量但**无人消费**（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
           "status": "same-value"
         },
         "matlab": {
-          "how": "`print -dpng` 跟 `PaperPosition`、`print -dpdf` 跟 `PaperSize`（**显式设宽、不写死**）⇒ 实测输出宽 == 设定宽（pr.png in = 6.3100 ⇐ out-size-law.txt；设计 §6.2）。⚠️ `exportgraphics` 的宽 = **内容包围盒**、与 figsize/PaperPosition 无关（**完全忽略** `PaperPosition`/`PaperSize`、按轴内容 bbox 裁剪 ⇐ out-size-law.txt）⇒ **不作权威交付载体**",
+          "how": "**本模块产物里不落活常量、也不消费**：`mcmplot.m` 的 `figsize_for()` **只取 `default_hi`**，本键（`0.95`）仅登记在表里（H1 默认档的下限）。载体（`print` 家族）**有能力**把宽设成 0.95×（`-dpng` 跟 `PaperPosition`、`-dpdf` 跟 `PaperSize`）⇒ `status=same-value` 指『**载体能同值**』，**不指**『本模块产物已落该值』（口径见本表 `_status_defs.same-value`）。**不落活常量的理由**：其值 `0.95` 是表里唯一形如 `0.xx` 的规范值，落进产物会与『产物里零手写规范字面』的验收 tripwire 撞上（裁决见 `task-m3-matlab-t2-report.md`）。",
           "status": "same-value"
         },
         "origin": {
@@ -75,7 +82,7 @@
       "origin": "measured",
       "carriers": {
         "python": {
-          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_default_hi`（1.0）（`figsize_for(textwidth_in)` 是默认档的封装）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 1.0（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
+          "how": "python 侧令宽 = 正文栏宽 × 表内 `h1_width_ratio_default_hi`（1.0）—— `figsize_for(textwidth_in)` **取的就是本键**（默认档的上限）；`savefig.bbox: standard` 保证输出宽 == figsize 宽 ⇒ F1 = 1.0（⇐ .claude/skills/mcm-plot-python/assets/mcmplot.py figsize_for / .claude/skills/mcm-plot-python/assets/mcm.mplstyle）",
           "status": "same-value"
         },
         "matlab": {
@@ -345,8 +352,8 @@
           "status": "same-value"
         },
         "matlab": {
-          "how": "**今天无产物级实测**：侦察记录 MATLAB 侧有对应 API（`box(ax,'off')` 去框线 / `set(ax,'TickDir','in')` 刻度朝内 —— 两者都在 K3 采样行里出现过），但**产物端零回读**：侦察判定为「**能设、不能验**」（`box off` / `TickDir 'in'` 可设，**三支机器都没有 spine/tick 判据** ⇐ `.superpowers/sdd/task-m3-matlab-recon-report.md` §G19 /「落不了地」表）⇒ 如实记 `not-landable`，不编造落地方式。",
-          "status": "not-landable"
+          "how": "**产物级实测能落地**（2026-10-01 M3-plot-matlab Task 2 回读，取代旧稿的「能设、不能验」）：`mcmplot.m` 的 H10 生成区落 `box(ax,'off')`（去上/右边框线；MATLAB 的 `box` 一并管顶与右）+ `set(ax,'TickDir','in')`（刻度朝内）+ `XMinorTick`/`YMinorTick` off（只留主刻度）。**入库探针** `tests/skills/plot-matlab/probe-h10-band-ink.py` 量**轴区顶/右带内非白像素**（灰度 < 200；带宽 = 刻度长换算 px + 2 余量，现算；口径同 python 侧 `probe-gap1-hanging-ticks.py`）：**落地态**（`M.apply()`）顶内 0 / 右内 0 / 下外 0，**对照态**（`apply` 之后把 `box` 打开、`TickDir` 改回 out）顶内 2902 / 右内 2346 / 下外 349（本机 R2025b Update 5）⇒ 框线与刻度朝向**真的从产物上消失**（对照非 0 同时证探针不是恒零）。**轴标签带单位**是**调用方纪律**（MATLAB 侧**无设置项**）。",
+          "status": "same-value"
         },
         "origin": {
           "how": "**去上/右框线与刻度朝内：侦察**未找到**能落到产物上的命令** —— 逐条试过 `layer.frame=0` / `layer.x2.show=0; layer.y2.show=0` / `layer.x.opposite=0|1` / `layer.x.tickDir=1` / `layer.x.tickdir=1` / `layer.x.tick.direction=1`，**改前后图像差分像素全为 0**（⇐ tests/m3-origin-probe/out-f-axis-candidates.txt / out-i-dpi-pagesize-frame.txt）。只有 `layer.x.minorTicks=0` 有非零差分（15 px，「只留主刻度」或有路）⇒ 整条规则**今天无落地**，如实记 `not-landable`。",
