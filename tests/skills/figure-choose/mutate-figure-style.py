@@ -108,8 +108,10 @@
 - **`M32`**：入口名『不确定性』改名 ⇒ `K4` 红（`ENTRIES` 是契约、缺一即红）。
 - **`M33`**：把点名绘图 skill 的那行的 **〔拟建〕** 去掉 ⇒ `K6` 红（点名不存在的 skill 即错；
   `K6` 同时是 fail-closed：一个绘图 skill 都不点名也红 —— "不点名"不许成为转绿路径）。
-  ★ 目标自 M3-plot Task 2 起由 `mcm-plot-python` 改成 **`mcm-plot-matlab`**：前者已建成、
-  已摘〔拟建〕，摘它不再与"不存在"矛盾（那条字面也已从 `SKILL.md` 里消失）。
+  ★ 目标**不写死名字**：从被改文本**现取**"当前仍标〔拟建〕"的那一个（`marked_plot_skills`，
+  今天取到 `mcm-plot-origin`）。沿革：`mcm-plot-python`（M3-plot Task 2 落地）→
+  `mcm-plot-matlab`（M3-matlab Task 1 落地时**写死**，一落地即失去锚点）→ **现取**。
+  ⚠️ 取不到（= 一个仍〔拟建〕的都没有）⇒ 本变异**失去对象**、抛错（fail-closed）。
 - **`M34`**：打的是 **`house-style.md` 的副本**（`--doc` 指它）：把小数字面量与 `≤n` 形态全抹掉
   ⇒ `K3` 的"现取禁止串"**抽到空集** ⇒ 必须红（fail-closed）。不证这一臂，
   "抽不到即 FAIL"就只是注释里的一句话 —— 仪器取不到参照物却默认放行，正是本仓栽过的那一类。
@@ -126,11 +128,13 @@
   NOTE 现算 `K1`–`K6` 在该副本上仍全绿）。
 - **`M39`**：往决策树表里多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（N-4：旧写法只查"九个名字
   出现过"，加一行不会红）。
-- **`M40`**：`--skills-root` 指向一个**临时根**、里面另建 `mcm-plot-matlab`（**当前仍〔拟建〕**、
-  真根里并不存在）⇒ `K6` 红（N-5：标了〔拟建〕的 skill 真的存在时，守卫必须红）。
-  ★ M3-plot Task 2 起目标由 `mcm-plot-python` 改成 `mcm-plot-matlab`（前者已真建出）——
-  那一天正是 N-5 说的"真建出来那天"，所以**非侵入自证**也从"真根里反正没这个 skill"换成
-  **真根路径集合跑前/跑后逐字比对**（`_skills_tree`）。
+- **`M40`**：`--skills-root` 指向一个**临时根**，把 `SKILL.md` 点到的**每一个**绘图 skill 都
+  在那里建出目录 ⇒ 仍标〔拟建〕的那一个（今天 = `mcm-plot-origin`）变成"**标了却存在**" ⇒ `K6` 红
+  （N-5：标了〔拟建〕的 skill 真的存在时，守卫必须红）。
+  ★ **隔离性质**：其余名字（存在且未标）在临时根里一致 ⇒ 本变异**只**打在"标了却存在"这一个方向上。
+  ★ **非侵入自证** = **真根路径集合跑前/跑后逐字比对**（`_skills_tree`）——**不**再用"真根里反正没有
+  某个 skill"当代理（那种代理在该 skill 真建出来那天**恒假**，先例见 `_skills_tree` 的 docstring）。
+  ★ 目标**不写死名字**（同 `M33`）：`mcm-plot-python` → `mcm-plot-matlab` → **现取**。
 - **`M41`**：抹掉 `house-style.md` **副本**里 `H4` 的 `**验证**：` 行 ⇒ `K8` 红（N-7：
   `SKILL.md` 断言"逐条标了验证状态"，原先无人守）。
 
@@ -850,6 +854,27 @@ def pad_to(text, n):
     return text + "\n" * (n - cur)
 
 
+# ---- `M33`/`M40` 的**语义锚**：目标 = 被验文本里**当前仍标〔拟建〕**的那个绘图 skill。
+# 为什么必须是语义锚（M3-matlab Task 1 的实测）：`mcm-plot-python`（M3-plot Task 2 落地）与
+# `mcm-plot-matlab`（M3-matlab Task 1 落地）先后建出并摘掉〔拟建〕⇒ **把名字写死**的写法每次有
+# skill 落地就失效：`M33` 的字面串命中 0（`sub_once` 抛错）、`M40` 的反向臂收不到 FAIL 行
+# ⇒ 整轮 `MUT` 跑不完（`exit 1`）。改成**现取**当前仍〔拟建〕的那一个（今天 = `mcm-plot-origin`），
+# 落地涟漪就不再打到这里。取不到（= 一个仍〔拟建〕的都没有）⇒ 两条各自 fail-closed，**不静默放行**。
+MARKED_PLOT_RE = re.compile(r"- `(mcm-plot-[a-z]+)`（〔拟建〕）")
+
+
+def marked_plot_skills(text):
+    """`text` 里**仍标〔拟建〕**的绘图 skill 名（升序去重）。空集 ⇒ 调用方 fail-closed。"""
+    return sorted({m.group(1) for m in MARKED_PLOT_RE.finditer(text)})
+
+
+def m33_strip_marks(text):
+    """`M33` 的改法：把**仍标〔拟建〕**的绘图 skill 那几行的标记摘掉（按被改文本现取，不写死名字）。"""
+    if not marked_plot_skills(text):
+        raise AssertionError("文本里没有『- `mcm-plot-*`（〔拟建〕）』形态的行 ⇒ M33 失去对象")
+    return MARKED_PLOT_RE.sub(lambda m: f"- `{m.group(1)}`", text)
+
+
 def skill_run(checker, skill, only):
     """跑 SKILL 守卫：只换 `--skill`（被验的短契约），其余文档用真件。"""
     cmd = [sys.executable, str(checker), "--skill", str(skill), "--only", *only]
@@ -962,9 +987,10 @@ def skill_mutations():
         ("M32", "SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）",
          lambda t: sub_all(t, "不确定性", "时变"), ["K4"], None),
         ("M33", "SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名不存在的 skill 即错）",
-         # `mcm-plot-python` 自 M3-plot Task 2 起**已建成、已摘〔拟建〕** ⇒ 目标改到**当前仍〔拟建〕**
-         # 的 `mcm-plot-matlab`（它既不存在、又必须标 〔拟建〕；摘掉就与事实不符）。
-         lambda t: sub_once(t, "  - `mcm-plot-matlab`（〔拟建〕）", "  - `mcm-plot-matlab`"),
+         # 目标**不写死名字**：按被改文本**现取**"当前仍标〔拟建〕"的那一个（今天 = `mcm-plot-origin`）。
+         # 写死名字的写法两度失效：`mcm-plot-python`（M3-plot Task 2 建）、`mcm-plot-matlab`
+         # （M3-matlab Task 1 建）—— 每落地一个 skill 就得改一次源码，是恒会漂的写法。
+         m33_strip_marks,
          ["K6"], None),
         # ---- 修复轮（复审 1 Important + N-2/N-3/N-4）
         ("M35", "SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红"
@@ -1000,12 +1026,13 @@ def _skills_tree():
 def k6_exists_mut():
     """`M40`：`K6` 的**反向臂** —— 标了〔拟建〕的 skill **真的存在**时必须红（复审 N-5）。
 
-    做法：把 `--skills-root` 指到一个**临时根**（真件不碰）。`mcm-plot-python` 自 M3-plot Task 2
-    起**已建成、已摘〔拟建〕**，故反向臂的目标换成**当前仍〔拟建〕**的 `mcm-plot-matlab`：
-    临时根里**同时**建出这两个 skill 目录（`K6` 用 `.exists()` 判目录）⇒
-      · `mcm-plot-matlab`：标了〔拟建〕却"存在" ⇒ **标记与事实不符** ⇒ 红；
-      · `mcm-plot-python`：未标〔拟建〕且"存在" ⇒ 一致 ⇒ 不红（把它也放进去，是为了让本变异
-        **只**打在"标了〔拟建〕却存在"这一个方向上，不与"未标却不存在"的正向臂混在一起）。
+    做法：把 `--skills-root` 指到一个**临时根**（真件不碰），在那里把 `SKILL.md` 点到的**每一个**
+    绘图 skill 都建出目录（`K6` 用 `SKILLS_ROOT / <名字` 的 `.exists()` 判目录）⇒
+      · 仍标〔拟建〕的那一个（今天 = `mcm-plot-origin`）：标了却"存在" ⇒ **标记与事实不符** ⇒ 红；
+      · 其余（未标〔拟建〕且"存在"）⇒ 一致 ⇒ 不红。**隔离性质**就在这一步：本变异因此**只**打在
+        "标了〔拟建〕却存在"这一个方向上，不与"未标却不存在"的正向臂混在一起。
+    **目标不写死名字**（同 `M33`）：`mcm-plot-python`（M3-plot Task 2 建）→ `mcm-plot-matlab`
+    （M3-matlab Task 1 建）→ **现取**。一个仍〔拟建〕的都没有 ⇒ 本变异**失去对象** ⇒ 抛错（fail-closed）。
     前置（真根）必须绿；**并**自证跑前跑后真根的路径集合逐字未变（**非侵入**）。
     """
     def run(sroot):
@@ -1014,11 +1041,17 @@ def k6_exists_mut():
                            capture_output=True, text=True, cwd=str(ROOT))
         return p.returncode, p.stdout
 
+    sk_text = SKILL_MD.read_text(encoding="utf-8")
+    names = sorted(set(re.findall(r"mcm-plot-[a-z]+", sk_text)))       # `K6` 同款正则
+    marked = marked_plot_skills(sk_text)
+    if not marked:
+        raise AssertionError("`SKILL.md` 里没有仍标〔拟建〕的绘图 skill ⇒ M40 反向臂失去对象")
+
     tree_before = _skills_tree()
     with tempfile.TemporaryDirectory() as d:
         tmp = Path(d)
-        (tmp / "mcm-plot-python").mkdir()                       # 已建成（与 SKILL.md 的"未标"一致）
-        (tmp / "mcm-plot-matlab").mkdir()                       # 仍〔拟建〕却"存在"⇒ 不该一致
+        for n in names:
+            (tmp / n).mkdir()          # 每个点名的 skill 都"存在"：未标的一致、标了的（marked）不符
         rc_b, out_b = run(HOUSE_SKILLS)
         rc_a, out_a = run(tmp)
     tree_after = _skills_tree()
@@ -1028,7 +1061,7 @@ def k6_exists_mut():
     line = next((l.split(None, 2)[-1] for l in out_a.splitlines() if l.startswith("FAIL  K6")), "（缺 FAIL 行）")
     return pre_ok and post_ok and clean, (
         f"前置(真 skills 根) exit={rc_b} {'K6 绿' if pre_ok else '未绿 <<<'}；"
-        f"后置(临时根里 mcm-plot-matlab〔拟建〕却存在) exit={rc_a} 『{line}』；"
+        f"后置(临时根里 {marked} 〔拟建〕却存在) exit={rc_a} 『{line}』；"
         f"非侵入(真根路径集合跑前/跑后逐字相等)={clean}")
 
 
@@ -1639,8 +1672,8 @@ def run_house():
     # （原先借"真仓里反正没有 mcm-plot-python"当代理，该 skill 一建出就恒假 —— 见 `_skills_tree`）。
     skills_tree_before = _skills_tree()
     for mid, desc, fn in (
-        ("M40", "SKILL.md：`--skills-root` 指到**另建** `mcm-plot-matlab`（仍〔拟建〕）的临时根 ⇒ "
-                "`K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）", k6_exists_mut),
+        ("M40", "SKILL.md：`--skills-root` 指到**建出全部点名 skill** 的临时根 ⇒ 仍〔拟建〕的那个"
+                "（现取，今天 = `mcm-plot-origin`）变成『标了却存在』⇒ `K6` 红（反向臂）", k6_exists_mut),
         ("M41", "house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红"
                 "（`SKILL.md` 那句『逐条标了验证状态』要成立）", k8_verify_line_mut),
     ):

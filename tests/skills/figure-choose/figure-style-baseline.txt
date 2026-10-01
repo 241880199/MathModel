@@ -24,7 +24,13 @@ tests/skills/figure-choose/ —— 产物判据检查器 Task 1 放行证据（�
 检查器**不预设**口径——分母一律由参数传入。另一种口径（逐篇 p90 各自作分母）
 会给出不同比值，两者结论不同 ⇒ 见 §6，不自行挑一个悄悄用。
 
-【条数】expected.tsv 现为 **21** 条（修复轮 20 条；本轮新增 `caption:7 F3b PASS` 这一条口径锚，见 §9）。
+【条数】**本条不写死条数**（2026-10-01 订正：原文写「expected.tsv 现为 **21** 条」，与同件
+        §2 捕获块里的实际行数不符 ⇒ 散文数 ≠ 同件捕获）——**以本件 §2 捕获块里的
+        `MISMATCH 0 / N` 行为准，N 由当场跑出**。
+        ⚠️ 这里**连"当时的现值"也不写**（2026-10-01 第 2 轮修复：上一轮此处曾写死 `MISMATCH 0 / 34`，
+        `expected.tsv` 一变它就假 —— 正是本条要修的那一类）。
+        （选「指针」而不是「带日期的现值」的理由：这个数在 Task 1 之后已经漂过一次 ——
+        写死的现值还会再漂第二次；指针则不可能与同件捕获脱节。历史沿革见 §9。）
 
 ==============================================================================
 §1  本轮修了什么（逐条对应独立评审判定）
@@ -47,9 +53,11 @@ R-7         图样本借用的图注带尾句号 ⇒ 每行都混一条无关的
 ==============================================================================
 §2  gate 1：fixtures 逐格验收（expected.tsv 的每一行跑一次检查器）
 ==============================================================================
-条数说明：修复轮 20 条；**本轮（F3b 口径收敛轮）再加 1 条** —— `caption:7 F3b PASS`
-          （口径锚：整条 13 词 / 正文 11 词，卡在 `CAP_MAX=12` 的分界上 ⇒ 换回整条口径即 MISMATCH，
-          见 §4 的 `M42`）。按实打印，**没有凑数**。
+条数说明（**历史叙述 · 属 F3b 口径收敛轮，2026-09-27 · 不是现值**）：修复轮 20 条；
+          **该轮再加 1 条** —— `caption:7 F3b PASS`（口径锚：整条 13 词 / 正文 11 词，卡在
+          `CAP_MAX=12` 的分界上 ⇒ 换回整条口径即 MISMATCH，见 §4 的 `M42`）。按实打印，**没有凑数**。
+          ⚠️ **现值不在这里**：以本件 §2 捕获块里的 `MISMATCH 0 / N` 行为准（2026-10-01 订正 ——
+          原文的"本轮"读起来像现值声明，实为当轮叙述）。
 
 --- gate 1 ---
 
@@ -515,7 +523,7 @@ $ python tests/skills/figure-choose/mutate-figure-style.py
 ==============================================================================
 变异驱动器 · check-figure-style.py
 ==============================================================================
-原检查器 blob  acf43fc7aec9492d9eed24635b981facedf17fbc
+原检查器 blob  47b9f4c355d6f12f5a3ee020aaff383c0294533b
 逐格验收基线  python fixtures/run-expected.py → exit 0
 
 ==============================================================================
@@ -557,7 +565,7 @@ RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR �
 ==============================================================================
 还原自证
 ==============================================================================
-  check-figure-style.py  blob  acf43fc7aec9492d9eed24635b981facedf17fbc  == 变异前
+  check-figure-style.py  blob  47b9f4c355d6f12f5a3ee020aaff383c0294533b  == 变异前
   工作树字节 == 变异前字节: True
   fixtures/_mut/ 已清空: True
   还原后复跑逐格验收: exit=0  MISMATCH 0 / 34
@@ -638,8 +646,8 @@ RED-OK   M39  SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `
          SKILL.md：决策树表多加一行（= 多一个入口名）⇒ `K4` + `K5` 红（旧写法不会红）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K4=FAIL、K5=FAIL
 RED-OK   M34  house-style.md：小数字面量与 `≤n` 全抹掉 ⇒ `K3` 抽不到禁止串 ⇒ fail-closed 红
          前置(真件) exit=0 K3 绿；后置(副本抹掉小数与 `≤n`) exit=1 『禁止串（现取）：小数 0 条 · 阈值值池 上界 [12, 17] / 下界 [2, 7, 20, 100] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，或标记表里有认不出方向的形态）⇒ fail-closed 记红** · 中文数词臂：裸值词 ['七', '二十', '十七', '十二']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无』（副本里剩下的禁止串 0 条）
-RED-OK   M40  SKILL.md：`--skills-root` 指到**另建** `mcm-plot-matlab`（仍〔拟建〕）的临时根 ⇒ `K6` 红（标了〔拟建〕就必须真的不存在 —— 反向臂）
-         前置(真 skills 根) exit=0 K6 绿；后置(临时根里 mcm-plot-matlab〔拟建〕却存在) exit=1 『点名的绘图 skill mcm-plot-matlab（存在·标了〔拟建〕⇒**标记与事实不符**）、mcm-plot-origin（不存在·标了〔拟建〕）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 ['mcm-plot-matlab']』；非侵入(真根路径集合跑前/跑后逐字相等)=True
+RED-OK   M40  SKILL.md：`--skills-root` 指到**建出全部点名 skill** 的临时根 ⇒ 仍〔拟建〕的那个（现取，今天 = `mcm-plot-origin`）变成『标了却存在』⇒ `K6` 红（反向臂）
+         前置(真 skills 根) exit=0 K6 绿；后置(临时根里 ['mcm-plot-origin'] 〔拟建〕却存在) exit=1 『点名的绘图 skill mcm-plot-matlab（存在·未标〔拟建〕）、mcm-plot-origin（存在·标了〔拟建〕⇒**标记与事实不符**）、mcm-plot-python（存在·未标〔拟建〕） · 标记与事实不符的 ['mcm-plot-origin']』；非侵入(真根路径集合跑前/跑后逐字相等)=True
 RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红（`SKILL.md` 那句『逐条标了验证状态』要成立）
          前置(真件) exit=0 K8 绿；后置(副本抹掉 `H1` 的验证行) exit=1 『`### H<n>.` 条目 14 个 · 没有恰一行『**验证**：』的 ['H1（0 行）']』
 
@@ -672,7 +680,7 @@ RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊
          SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
 RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
          前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
-还原自证  house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 7476e9ae88bda35b38da19e9a0b270f49504d43f · SKILL.md blob af7ab8f1f0e8693bc672c7dd426d5d904a53ba1e · 原件字面仍在: True · _mut-house/ 已清空: True
+还原自证  house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 7476e9ae88bda35b38da19e9a0b270f49504d43f · SKILL.md blob 43fac2f0fc6b9fa5c00ee81df39e0a2964b48740 · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
 合计
@@ -888,8 +896,8 @@ $ git status --short
 --- 8.2 blob 身份：工作树 `git hash-object`（提交后与 HEAD 逐个比对，见 §8.5）---
 
 $ git hash-object tests/skills/figure-choose/check-figure-style.py tests/skills/figure-choose/mutate-figure-style.py tests/skills/figure-choose/fixtures/make-fixtures.py tests/skills/figure-choose/fixtures/run-expected.py tests/skills/figure-choose/fixtures/expected.tsv tests/skills/figure-choose/fixtures/captions.tsv tests/skills/figure-choose/fixtures/ok-01.png tests/skills/figure-choose/fixtures/ok-02.png tests/skills/figure-choose/fixtures/ok-03.png tests/skills/figure-choose/fixtures/ok-04.png tests/skills/figure-choose/fixtures/ok-05.pdf tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png tests/skills/figure-choose/fixtures/bad-f1-too-wide.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py
-acf43fc7aec9492d9eed24635b981facedf17fbc
-576a1c1ac006ae0f6230e4f24ce4aaad8f772932
+47b9f4c355d6f12f5a3ee020aaff383c0294533b
+776bca804d6179bfe545dd7f9d8224029f241883
 165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
 f60be2dd9e102cea9ed6864d33b198ff8f393a87
@@ -928,12 +936,12 @@ for p in sorted(pathlib.Path('tests/skills/figure-choose').rglob('*')):
         print(f'{str(p).replace(chr(92), chr(47)):62} bytes={len(b):7} CRLF={b.count(bytes([13, 10]))}')
 
 $ python -c "<上面的命令体>"
-tests/skills/figure-choose/chart-types-verify.txt              bytes=  58876 CRLF=0
-tests/skills/figure-choose/check-figure-style.py               bytes=  30280 CRLF=0
+tests/skills/figure-choose/chart-types-verify.txt              bytes=  58901 CRLF=0
+tests/skills/figure-choose/check-figure-style.py               bytes=  35412 CRLF=0
 tests/skills/figure-choose/check-house-style.py                bytes=  81439 CRLF=0
 tests/skills/figure-choose/check-spec-pointers.py              bytes=   9754 CRLF=0
 tests/skills/figure-choose/check-style-table-freshness.py      bytes=   3402 CRLF=0
-tests/skills/figure-choose/figure-style-baseline.txt           bytes=  88879 CRLF=0
+tests/skills/figure-choose/figure-style-baseline.txt           bytes=  93560 CRLF=0
 tests/skills/figure-choose/fixtures/bad-bg-dark.png            bytes=   3047 CRLF=1
 tests/skills/figure-choose/fixtures/bad-bg-navy.png            bytes=   3057 CRLF=1
 tests/skills/figure-choose/fixtures/bad-color-order.png        bytes=   3057 CRLF=1
@@ -983,9 +991,9 @@ tests/skills/figure-choose/green/README.md                     bytes=   4166 CRL
 tests/skills/figure-choose/green/rescue-transcripts.py         bytes=   8418 CRLF=0
 tests/skills/figure-choose/green-evidence.md                   bytes= 102780 CRLF=1
 tests/skills/figure-choose/house-metrics.py                    bytes=  41210 CRLF=0
-tests/skills/figure-choose/house-style-verify.txt              bytes=  84518 CRLF=0
-tests/skills/figure-choose/mutate-figure-style.py              bytes= 121189 CRLF=0
-tests/skills/figure-choose/pointer-verify.txt                  bytes=  47296 CRLF=0
+tests/skills/figure-choose/house-style-verify.txt              bytes=  84543 CRLF=0
+tests/skills/figure-choose/mutate-figure-style.py              bytes= 123636 CRLF=0
+tests/skills/figure-choose/pointer-verify.txt                  bytes=  47324 CRLF=0
 tests/skills/figure-choose/red/brief-R1.md                     bytes=   1122 CRLF=0
 tests/skills/figure-choose/red/brief-R2.md                     bytes=   2029 CRLF=0
 tests/skills/figure-choose/red/brief-R3.md                     bytes=   1230 CRLF=0
@@ -1015,7 +1023,7 @@ tests/skills/figure-choose/red/rescue-transcripts.py           bytes=   8785 CRL
 tests/skills/figure-choose/red/truth.py                        bytes=   2890 CRLF=0
 tests/skills/figure-choose/red/verify-reproducible.py          bytes=   3667 CRLF=0
 tests/skills/figure-choose/red/writer-self-reports.md          bytes=  30721 CRLF=0
-tests/skills/figure-choose/skill-verify.txt                    bytes=  63945 CRLF=0
+tests/skills/figure-choose/skill-verify.txt                    bytes=  63952 CRLF=0
 [exit=0]
 
 注：PNG/PDF 里出现的 `CRLF=1` 是**二进制内容里恰好有 0x0D0A 这两个字节**，不是行尾；
@@ -1071,12 +1079,12 @@ $ git status --short
 [exit=0]
 
 $ git log -1 --format='%H %s'
-e644fef6095b08d373a538c83d75e80562118117 test(m3-style): plot-style-verify.txt 于干净树上重生成（F4-refix 轮）
+244edd449aa662a1e74877bdbcf205829e8d47e1 test(m3-matlab): 5 份捕获件按各自生成器重生成 —— 新 driver/SKILL.md blob + M40 读数 + 相 1
 [exit=0]
 
 $ git hash-object tests/skills/figure-choose/check-figure-style.py tests/skills/figure-choose/mutate-figure-style.py tests/skills/figure-choose/fixtures/make-fixtures.py tests/skills/figure-choose/fixtures/run-expected.py tests/skills/figure-choose/fixtures/expected.tsv tests/skills/figure-choose/fixtures/captions.tsv tests/skills/figure-choose/fixtures/ok-01.png tests/skills/figure-choose/fixtures/ok-02.png tests/skills/figure-choose/fixtures/ok-03.png tests/skills/figure-choose/fixtures/ok-04.png tests/skills/figure-choose/fixtures/ok-05.pdf tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png tests/skills/figure-choose/fixtures/bad-f1-too-wide.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py    # 工作树
-acf43fc7aec9492d9eed24635b981facedf17fbc
-576a1c1ac006ae0f6230e4f24ce4aaad8f772932
+47b9f4c355d6f12f5a3ee020aaff383c0294533b
+776bca804d6179bfe545dd7f9d8224029f241883
 165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
 f60be2dd9e102cea9ed6864d33b198ff8f393a87
@@ -1094,8 +1102,8 @@ a3c07123b60a10688a6a6057f1c602e0ccc8fa54
 [exit=0]
 
 $ git rev-parse HEAD:tests/skills/figure-choose/check-figure-style.py HEAD:tests/skills/figure-choose/mutate-figure-style.py HEAD:tests/skills/figure-choose/fixtures/make-fixtures.py HEAD:tests/skills/figure-choose/fixtures/run-expected.py HEAD:tests/skills/figure-choose/fixtures/expected.tsv HEAD:tests/skills/figure-choose/fixtures/captions.tsv HEAD:tests/skills/figure-choose/fixtures/ok-01.png HEAD:tests/skills/figure-choose/fixtures/ok-02.png HEAD:tests/skills/figure-choose/fixtures/ok-03.png HEAD:tests/skills/figure-choose/fixtures/ok-04.png HEAD:tests/skills/figure-choose/fixtures/ok-05.pdf HEAD:tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png HEAD:tests/skills/figure-choose/fixtures/bad-f1-too-wide.png HEAD:tests/skills/figure-choose/fixtures/bad-f2-five-colors.png HEAD:tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py    # 入库 blob
-acf43fc7aec9492d9eed24635b981facedf17fbc
-576a1c1ac006ae0f6230e4f24ce4aaad8f772932
+47b9f4c355d6f12f5a3ee020aaff383c0294533b
+776bca804d6179bfe545dd7f9d8224029f241883
 165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
 f60be2dd9e102cea9ed6864d33b198ff8f393a87
@@ -1113,8 +1121,8 @@ tests/skills/figure-choose/gen-figure-style-baseline.py
 [exit=0]
 
 逐个比对：
-  tests/skills/figure-choose/check-figure-style.py               工作树=acf43fc7aec9  HEAD=acf43fc7aec9  相等
-  tests/skills/figure-choose/mutate-figure-style.py              工作树=576a1c1ac006  HEAD=576a1c1ac006  相等
+  tests/skills/figure-choose/check-figure-style.py               工作树=47b9f4c355d6  HEAD=47b9f4c355d6  相等
+  tests/skills/figure-choose/mutate-figure-style.py              工作树=776bca804d61  HEAD=776bca804d61  相等
   tests/skills/figure-choose/fixtures/make-fixtures.py           工作树=165082257720  HEAD=165082257720  相等
   tests/skills/figure-choose/fixtures/run-expected.py            工作树=b3fd8153b5d6  HEAD=b3fd8153b5d6  相等
   tests/skills/figure-choose/fixtures/expected.tsv               工作树=f60be2dd9e10  HEAD=f60be2dd9e10  相等

@@ -613,12 +613,30 @@ BG_MIN_LUMA = 136
 ```python
     # ---- 底色 / 颜色身份：共用一次栅格化（避免两次读图口径不一致）
     im4 = raster_rgb(fig)
-    _cols = im4.getcolors(im4.size[0] * im4.size[1]) or []
+    tot4 = im4.size[0] * im4.size[1]
+    _cols = im4.getcolors(tot4) or []
 
-    # F4 底色：论文底色是白。★ 不能用角落单像素（实测 MATLAB 会出现「外围白、轴区仍深」）⇒ 用众数底色。
-    mode_rgb = max(_cols, key=lambda t: t[0])[1] if _cols else (0, 0, 0)
-    luma = (mode_rgb[0] * 299 + mode_rgb[1] * 587 + mode_rgb[2] * 114) // 1000
-    res.append(("F4", luma >= BG_MIN_LUMA, f"底色亮度 {luma}（众数 RGB {mode_rgb}，下限 {BG_MIN_LUMA}）"))
+    # F4 **背景**为白。★ 不能用角落单像素（实测 MATLAB 会出现「外围白、轴区仍深」）。
+    # ★★ 2026-10-01 订正：以下是**最终口径**（合取），**不是**本计划初稿那版「单口径全图众数底色」。
+    #   初稿写的是 `mode_rgb = max(_cols, key=lambda t: t[0])[1]` / 判词「底色亮度」，已被
+    #   F4-refix 轮取代：全图众数会被大面积内容占住，且没有一路能把「深色底」与「白底上的深色内容」
+    #   分开。**权威实现在 tests/skills/figure-choose/check-figure-style.py 的 §F4**（判据只写一处，
+    #   这里给指针；下面的代码块与它逐行同形，不含第二份判据）。
+    #   判词说的是**背景**亮度：两条腿量的都是背景（外缘环 / 近灰档），不是"全图最多的颜色"。
+    ring_rgb, ring_cnt, ring_tot = outer_ring_mode(im4)     # ① 外缘环（四边 1% 厚、含四角）的众数
+    luma_ring = luma(ring_rgb)
+    gray = [t for t in _cols if max(t[1]) - min(t[1]) < 24]  # ② 近灰档（与 F2/F5 同一支仪器）
+    if gray:
+        gray_cnt, gray_rgb = max(gray, key=lambda t: t[0])    # 平票取首个（与 getcolors 同序）
+        luma_gray = luma(gray_rgb)
+        gray_txt = f"近灰众数 RGB {gray_rgb} 亮度 {luma_gray}（占全图 {gray_cnt / tot4:.2%}）"
+        f4_ok = luma_ring >= BG_MIN_LUMA and luma_gray >= BG_MIN_LUMA   # 合取：只收紧、不放宽
+    else:                                                     # ③ 全图无近灰像素（整幅饱和色）⇒ 直接红
+        gray_txt = "近灰众数 无（全图无近灰像素 ⇒ 红）"
+        f4_ok = False
+    res.append(("F4", f4_ok,
+                f"外缘环 RGB {ring_rgb} 亮度 {luma_ring}（占环 {ring_cnt / ring_tot:.2%}）；"
+                f"{gray_txt}；下限 {BG_MIN_LUMA}"))
 ```
 
 - [ ] **Step 4: 跑测试，确认 `F4` 真的红/绿**
@@ -632,7 +650,9 @@ python tests/skills/figure-choose/check-figure-style.py \
   --fig tests/skills/plot-python/green/out-G1/figure.png --caption 'Figure 1: A test figure caption' \
   --textwidth-in 6.31 --dpi 300 | grep -E "F4|RESULT"
 ```
-Expected: 第一句 `FAIL  F4  底色亮度 18…` + `RESULT: FAIL`；第二句 `PASS  F4  …` + `RESULT: PASS`
+Expected（**2026-10-01 按最终口径订正**，原文写的是初稿判词 `FAIL  F4  底色亮度 18…`）：
+第一句 `FAIL  F4  外缘环 RGB (18, 18, 18) 亮度 18（占环 …%）；近灰众数 …；下限 136` + `RESULT: FAIL`；
+第二句 `PASS  F4  …` + `RESULT: PASS`（判词两段都可能被 % 截断，**只看 `FAIL`/`PASS` 与 `RESULT` 行**）。
 
 - [ ] **Step 5: 实现 `F5`（显式色序）**
 
