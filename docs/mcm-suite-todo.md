@@ -215,6 +215,11 @@ git worktree remove "<仓库外的目录>"
    `tests/papers/recon/*.png`，**新增产物就会漏**（Task 4 起的 `c4-*.png` 正是这么长的）。
    一律按**目录**排除：`tests/papers/reports/*.png` 与 `tests/papers/recon/*.png` ——
    它们是**第三方论文页面的渲染图**，本地入库作证据可以，**推公开远端不行**。
+   **✅ 已处置（2026-10-03，`4474fa4`）**：这条规则**曾被违反** —— 远端 `main` 自 `b0ffb8e`（2026-09-27）起
+   就带着 **13 张**这样的图（`c4-*.png` 6 张 + `a4-*.png` 2 张 + `recon/` 5 张），而该提交的信息写着「不含第三方语料与官方材料」。
+   已发**普通提交**（非强推、未重写历史）把它们从远端当前树里删除，并同批给两份证据目录 README 加了「本目录 `*.png` 不入公开远端」的说明以免断链。
+   **复核命令**：`git ls-tree -r --name-only origin/main | grep -cE '^tests/papers/(recon|reports)/.*\.png$'` ⇒ **0**。
+   （**历史里仍可翻出**那 13 个 blob；彻底抹除须重写公开远端历史 = 强推，被 harness 硬拦。）
 1. **不要在主工作树里 `git checkout main`** —— git 会把那 1.86 GB 语料从工作树**删掉**
    （它们在 main 的树里不存在）。main 侧操作一律用**仓库外的独立 worktree**。
 2. 本机访问 GitHub 需 `git config http.sslBackend schannel`（默认 CA 取不到证书）；
