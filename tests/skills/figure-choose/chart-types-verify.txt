@@ -19,8 +19,8 @@ Task 4 证据 · chart-types.md（九个数据关系入口 + 题型索引 + rada
 ==============================================================================
 §0  blob 自证（git hash-object：被验对象就是即将入库的那几个文件）
 ==============================================================================
-7476e9ae88bda35b38da19e9a0b270f49504d43f  .claude/skills/mcm-figure-choose/references/chart-types.md
-6aaab3194a294320adb22abff70cee93d568c8c6  tests/skills/figure-choose/check-house-style.py
+a13c017e86ead20343898b0cd334100c32b7634a  .claude/skills/mcm-figure-choose/references/chart-types.md
+f71e8ca5416e66d101a4faf541ff92a1104dbd88  tests/skills/figure-choose/check-house-style.py
 24b84ff30fff8284eef590e7a64c71f53b70c3a2  tests/skills/figure-choose/mutate-figure-style.py
 3041401fe29d1ca725cf4e5bcadb0585a5305aa5  tests/skills/figure-choose/gen-chart-types-verify.py
 
@@ -245,7 +245,7 @@ PASS  P-F-a        文档=2 命令=2 容差=0.5（probe_pages）
 PASS  P-G-a        文档=662 命令=662 容差=0.5（cap_n）
 PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
 ------------------------------------------------------------------------------
-CENSUS  house-style.md 数字 329 个 · 守卫覆盖片段 148 段 · 重复读数 94 个 · 上下文豁免 48 个 · 未入理由表 0 个
+CENSUS  house-style.md 数字 330 个 · 守卫覆盖片段 148 段 · 重复读数 95 个 · 上下文豁免 48 个 · 未入理由表 0 个
 
 守卫 162 条（其中结构守卫 4 条 · SKILL 守卫 8 条） · provenance 46 条 · 总 208 条
 RESULT: PASS
@@ -275,7 +275,7 @@ $ python tests/skills/figure-choose/mutate-figure-style.py
 ==============================================================================
 变异驱动器 · check-figure-style.py
 ==============================================================================
-原检查器 blob  47b9f4c355d6f12f5a3ee020aaff383c0294533b
+原检查器 blob  31621e433d239cb0d34ea359d014e7ab4189aab9
 逐格验收基线  python fixtures/run-expected.py → exit 0
 
 ==============================================================================
@@ -317,7 +317,7 @@ RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR �
 ==============================================================================
 还原自证
 ==============================================================================
-  check-figure-style.py  blob  47b9f4c355d6f12f5a3ee020aaff383c0294533b  == 变异前
+  check-figure-style.py  blob  31621e433d239cb0d34ea359d014e7ab4189aab9  == 变异前
   工作树字节 == 变异前字节: True
   fixtures/_mut/ 已清空: True
   还原后复跑逐格验收: exit=0  MISMATCH 0 / 34
@@ -432,7 +432,7 @@ RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊
          SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
 RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
          前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
-还原自证  house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 7476e9ae88bda35b38da19e9a0b270f49504d43f · SKILL.md blob c59dff097a74cf24c894c4dd615c8ac7f57a5581 · 原件字面仍在: True · _mut-house/ 已清空: True
+还原自证  house-style.md blob 6812d70ac67fba8abc062a73557d46a954e85806 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob a13c017e86ead20343898b0cd334100c32b7634a · SKILL.md blob c59dff097a74cf24c894c4dd615c8ac7f57a5581 · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
 合计
@@ -466,8 +466,8 @@ MUT: 58/58 达预期（合计）
 
 §4b  S5 的**归属**（修复轮 N-2 收紧）：每个小数归到**同行 `H<n>` 引用**、值 ∈ **该条目**的数
      旧写法只查『值 ∈ house-style ∪ provenance 的全局池』⇒ 池内的数写哪儿都绿（弱化）。
-     行 82   `0.0` → H6：∈ H6 条目的数 True（该条目的小数 ['0.0']）· 在旧全局池（125 个）里 True
-     行 125  `9.2` → H7：∈ H7 条目的数 True（该条目的小数 ['1.8', '2.1', '7.2', '9.2']）· 在旧全局池（125 个）里 True
+     行 87   `0.0` → H6：∈ H6 条目的数 True（该条目的小数 ['0.0']）· 在旧全局池（125 个）里 True
+     行 130  `9.2` → H7：∈ H7 条目的数 True（该条目的小数 ['1.8', '2.1', '7.2', '9.2']）· 在旧全局池（125 个）里 True
      三个备选改法（`M27`/`M28` 采用前两个）：
      1.20  旧全局池里: True · 无所属（同行无 `H<n>`）⇒ 归不进任何条目: False ⇒ 新写法**红**
      0.5   旧全局池里: True · 归到 H7 时 ∈ H7 的数: False ⇒ 新写法**红**

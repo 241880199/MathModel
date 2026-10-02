@@ -352,7 +352,7 @@ def main():
           + ("" if not [m for m in failed if m.startswith('MUT')] else f"（未达预期：{', '.join(m for m in failed if m.startswith('MUT'))}）"))
     print(f"MUT: 对照 {n_ctl_ok}/{len(all_ctrls)} 达预期（必须绿：射程边界 + C3 覆盖口径 + `\\multicolumn` 合规表 "
           f"+ 前导 `&` 两级表头 + `\\end{{tabular}}` 后表注 + 可选线宽参数合规表）")
-    print(f"MUT: 合计 {n_red_ok + n_ctl_ok}/{len(MUTATIONS) + len(all_ctrls)} 达预期（合计）")
+    print(f"MUT: {n_red_ok + n_ctl_ok}/{len(MUTATIONS) + len(all_ctrls)} 达预期（合计）")
     # ★ 合计行**不是末行**（照 mutate-figure-style.py 的形态）：末行放"运行完整性"读数。
     print(f"RUN: 受保护件 blob 逐件还原={byte_ok} · 基准样本复跑 exit={rerun_rc} · "
           f"全仓 `git status --short` {'空' if not dirty else '非空 <<< ' + '; '.join(dirty)}")

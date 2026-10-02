@@ -6,7 +6,7 @@
 
 - **场景**：`tests/skills/figure-choose/red/brief-R{1,2,3}.md`（**权威副本**，本支未改写）。R1/R3 同一组数据（六区低/中/高三档构成），R2 另一组数据（五属性 + 历史灾次计数）。
 - **同数**：每侧 3 张表，两侧共 6 张；判据清单**现取**（本支 8 条）x 6 张。
-- **同一把尺**：`tests/skills/table/check-table-style.py` **一字未改**。工作树 blob `534a775500b7` · `HEAD:` blob `534a775500b7` ⇒ **相同**
+- **同一把尺**：`tests/skills/table/check-table-style.py` —— 两侧用的是**同一版**（RED→GREEN 之间未改动）；**判据逻辑一字未改**（2026-10-03 批量清只动了注释 / 死代码 / `C1` 诊断行，见其文件头 `M-4`/`M-5`；判词不受影响）。工作树 blob `6318afe7e827` · `HEAD:` blob `6318afe7e827` ⇒ **相同**
 - **RED 侧**：三份由**干净上下文的写手**产出（只给 brief 路径 + 输出目录 + 一件环境事实 `pdflatex` 在 PATH；**未给**规范 / 模块 / 判据 / 先例证据）。派发口径与三份自述见 `red/writer-self-reports.md`。**RED 是本任务的自变量** —— `red/out-R{n}/table.tex` 与 `caption.txt` 本轮**未改**（逐个 blob 与 `HEAD` 比对，见下）。
 - **GREEN 侧**：由本任务用本规范（`references/table-style.md` 的 `T1`–`T3` / `D4`–`D8`）产出，并过判据 8 条。
 - ★ **判据修过三处假红**：`bd97fd6`（2026-10-02）修两处 —— 修前 R1 红集 `{C1,C5,C7,C8}`、R3 `{C5,C7,C8}`、R2 `{C1,C2,C3,C5,C6,C7,C8}`；修后 R1/R3 只剩 `{C8}`、R2 `{C2,C3,C5,C6,C7,C8}`。第三处（`RULES_RE` 不吞可选线宽参数 `\toprule[..]` ⇒ 幻影一行 ⇒ `C5`/`C8` 假红）由 **2026-10-03 全分支终审修复轮 I-1** 修掉，**不影响 R1/R2/R3 的红集**。三处假红各有**正控制**（`fixtures/good-note-after-tabular.tex` · `good-multilevel-leading.tex` · `good-rulethickness.tex`，都全绿）。
@@ -690,7 +690,7 @@ RESULT: PASS
 $ python tests/skills/table/mutate-table-style.py
 MUT: 14/14 红（check-table-style.py 的 C1–C8 逐条打红 + 2 条 fail-closed 分支打红 + 2 条修复边界打红：`MUT-C1b`/`MUT-LEAD-a`）
 MUT: 对照 6/6 达预期（必须绿：射程边界 + C3 覆盖口径 + `\multicolumn` 合规表 + 前导 `&` 两级表头 + `\end{tabular}` 后表注 + 可选线宽参数合规表）
-MUT: 合计 20/20 达预期（合计）
+MUT: 20/20 达预期（合计）
 RUN: 受保护件 blob 逐件还原=True · 基准样本复跑 exit=0 · 全仓 `git status --short` 空
 ```
 

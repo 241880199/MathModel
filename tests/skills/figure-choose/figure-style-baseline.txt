@@ -523,7 +523,7 @@ $ python tests/skills/figure-choose/mutate-figure-style.py
 ==============================================================================
 变异驱动器 · check-figure-style.py
 ==============================================================================
-原检查器 blob  47b9f4c355d6f12f5a3ee020aaff383c0294533b
+原检查器 blob  31621e433d239cb0d34ea359d014e7ab4189aab9
 逐格验收基线  python fixtures/run-expected.py → exit 0
 
 ==============================================================================
@@ -565,7 +565,7 @@ RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR �
 ==============================================================================
 还原自证
 ==============================================================================
-  check-figure-style.py  blob  47b9f4c355d6f12f5a3ee020aaff383c0294533b  == 变异前
+  check-figure-style.py  blob  31621e433d239cb0d34ea359d014e7ab4189aab9  == 变异前
   工作树字节 == 变异前字节: True
   fixtures/_mut/ 已清空: True
   还原后复跑逐格验收: exit=0  MISMATCH 0 / 34
@@ -680,7 +680,7 @@ RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊
          SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
 RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
          前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
-还原自证  house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 7476e9ae88bda35b38da19e9a0b270f49504d43f · SKILL.md blob c59dff097a74cf24c894c4dd615c8ac7f57a5581 · 原件字面仍在: True · _mut-house/ 已清空: True
+还原自证  house-style.md blob 6812d70ac67fba8abc062a73557d46a954e85806 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob a13c017e86ead20343898b0cd334100c32b7634a · SKILL.md blob c59dff097a74cf24c894c4dd615c8ac7f57a5581 · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
 合计
@@ -892,7 +892,7 @@ $ git status --short
 --- 8.2 blob 身份：工作树 `git hash-object`（提交后与 HEAD 逐个比对，见 §8.5）---
 
 $ git hash-object tests/skills/figure-choose/check-figure-style.py tests/skills/figure-choose/mutate-figure-style.py tests/skills/figure-choose/fixtures/make-fixtures.py tests/skills/figure-choose/fixtures/run-expected.py tests/skills/figure-choose/fixtures/expected.tsv tests/skills/figure-choose/fixtures/captions.tsv tests/skills/figure-choose/fixtures/ok-01.png tests/skills/figure-choose/fixtures/ok-02.png tests/skills/figure-choose/fixtures/ok-03.png tests/skills/figure-choose/fixtures/ok-04.png tests/skills/figure-choose/fixtures/ok-05.pdf tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png tests/skills/figure-choose/fixtures/bad-f1-too-wide.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py
-47b9f4c355d6f12f5a3ee020aaff383c0294533b
+31621e433d239cb0d34ea359d014e7ab4189aab9
 24b84ff30fff8284eef590e7a64c71f53b70c3a2
 165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
@@ -933,11 +933,11 @@ for p in sorted(pathlib.Path('tests/skills/figure-choose').rglob('*')):
 
 $ python -c "<上面的命令体>"
 tests/skills/figure-choose/chart-types-verify.txt              bytes=  59382 CRLF=0
-tests/skills/figure-choose/check-figure-style.py               bytes=  35412 CRLF=0
-tests/skills/figure-choose/check-house-style.py                bytes=  81439 CRLF=0
-tests/skills/figure-choose/check-spec-pointers.py              bytes=   9850 CRLF=0
+tests/skills/figure-choose/check-figure-style.py               bytes=  35742 CRLF=0
+tests/skills/figure-choose/check-house-style.py                bytes=  81816 CRLF=0
+tests/skills/figure-choose/check-spec-pointers.py              bytes=   9864 CRLF=0
 tests/skills/figure-choose/check-style-table-freshness.py      bytes=   3402 CRLF=0
-tests/skills/figure-choose/figure-style-baseline.txt           bytes=  93872 CRLF=0
+tests/skills/figure-choose/figure-style-baseline.txt           bytes=  93860 CRLF=0
 tests/skills/figure-choose/fixtures/bad-bg-dark.png            bytes=   3047 CRLF=1
 tests/skills/figure-choose/fixtures/bad-bg-navy.png            bytes=   3057 CRLF=1
 tests/skills/figure-choose/fixtures/bad-color-order.png        bytes=   3057 CRLF=1
@@ -965,12 +965,12 @@ tests/skills/figure-choose/fixtures/run-expected.py            bytes=   4761 CRL
 tests/skills/figure-choose/gen-chart-types-verify.py           bytes=  10493 CRLF=0
 tests/skills/figure-choose/gen-figure-style-baseline.py        bytes=  11266 CRLF=0
 tests/skills/figure-choose/gen-house-style-verify.py           bytes=   9795 CRLF=0
-tests/skills/figure-choose/gen-pointer-verify.py               bytes=  14884 CRLF=0
+tests/skills/figure-choose/gen-pointer-verify.py               bytes=  15146 CRLF=0
 tests/skills/figure-choose/gen-skill-verify.py                 bytes=  14617 CRLF=0
 tests/skills/figure-choose/gen-style-table.py                  bytes=  40688 CRLF=0
 tests/skills/figure-choose/green/green-self-reports.md         bytes=  20490 CRLF=0
 tests/skills/figure-choose/green/judge-green.md                bytes=  13556 CRLF=0
-tests/skills/figure-choose/green/make-evidence.py              bytes=  61267 CRLF=0
+tests/skills/figure-choose/green/make-evidence.py              bytes=  61992 CRLF=0
 tests/skills/figure-choose/green/out-G1/caption.txt            bytes=     79 CRLF=0
 tests/skills/figure-choose/green/out-G1/figure.pdf             bytes=  18360 CRLF=0
 tests/skills/figure-choose/green/out-G1/figure.png             bytes=  86017 CRLF=2
@@ -985,7 +985,7 @@ tests/skills/figure-choose/green/out-G3/figure.png             bytes=  39889 CRL
 tests/skills/figure-choose/green/out-G3/make_figure.py         bytes=   8523 CRLF=0
 tests/skills/figure-choose/green/README.md                     bytes=   4166 CRLF=0
 tests/skills/figure-choose/green/rescue-transcripts.py         bytes=   8418 CRLF=0
-tests/skills/figure-choose/green-evidence.md                   bytes= 102780 CRLF=1
+tests/skills/figure-choose/green-evidence.md                   bytes= 103648 CRLF=1
 tests/skills/figure-choose/house-metrics.py                    bytes=  41210 CRLF=0
 tests/skills/figure-choose/house-style-verify.txt              bytes=  85024 CRLF=0
 tests/skills/figure-choose/mutate-figure-style.py              bytes= 126341 CRLF=0
@@ -997,7 +997,7 @@ tests/skills/figure-choose/red/f2-boxes.txt                    bytes=  16801 CRL
 tests/skills/figure-choose/red/f2-diagnose.py                  bytes=   6392 CRLF=0
 tests/skills/figure-choose/red/judge.md                        bytes=   7711 CRLF=0
 tests/skills/figure-choose/red/make-briefs.py                  bytes=   5641 CRLF=0
-tests/skills/figure-choose/red/make-evidence.py                bytes=  70169 CRLF=0
+tests/skills/figure-choose/red/make-evidence.py                bytes=  70947 CRLF=0
 tests/skills/figure-choose/red/make-multipage-probe.py         bytes=   6624 CRLF=0
 tests/skills/figure-choose/red/make-readme.py                  bytes=   6447 CRLF=0
 tests/skills/figure-choose/red/multipage-probe.pdf             bytes=   1926 CRLF=0
@@ -1014,7 +1014,7 @@ tests/skills/figure-choose/red/out-R3/figure.pdf               bytes=  50533 CRL
 tests/skills/figure-choose/red/out-R3/figure.png               bytes= 215690 CRLF=5
 tests/skills/figure-choose/red/out-R3/make_figure.py           bytes=  10972 CRLF=0
 tests/skills/figure-choose/red/README.md                       bytes=   9724 CRLF=0
-tests/skills/figure-choose/red/red-evidence.md                 bytes=  72827 CRLF=0
+tests/skills/figure-choose/red/red-evidence.md                 bytes=  73605 CRLF=0
 tests/skills/figure-choose/red/rescue-transcripts.py           bytes=   8785 CRLF=0
 tests/skills/figure-choose/red/truth.py                        bytes=   2890 CRLF=0
 tests/skills/figure-choose/red/verify-reproducible.py          bytes=   3667 CRLF=0
@@ -1075,11 +1075,11 @@ $ git status --short
 [exit=0]
 
 $ git log -1 --format='%H %s'
-5a3181ad95be5227dd95dab39fe3e198e020f24e test(m3-table): Task 1 涟漪 —— figure-style-baseline.txt 自指字节行收敛（93866→93879 == 实长）
+ac89efc47a7d5718d0f064694ce9181d6ab19533 test(figure-choose): 生成器 7 相 1 —— figure-style-baseline 重放（blob/字节/自指行）
 [exit=0]
 
 $ git hash-object tests/skills/figure-choose/check-figure-style.py tests/skills/figure-choose/mutate-figure-style.py tests/skills/figure-choose/fixtures/make-fixtures.py tests/skills/figure-choose/fixtures/run-expected.py tests/skills/figure-choose/fixtures/expected.tsv tests/skills/figure-choose/fixtures/captions.tsv tests/skills/figure-choose/fixtures/ok-01.png tests/skills/figure-choose/fixtures/ok-02.png tests/skills/figure-choose/fixtures/ok-03.png tests/skills/figure-choose/fixtures/ok-04.png tests/skills/figure-choose/fixtures/ok-05.pdf tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png tests/skills/figure-choose/fixtures/bad-f1-too-wide.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.png tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py    # 工作树
-47b9f4c355d6f12f5a3ee020aaff383c0294533b
+31621e433d239cb0d34ea359d014e7ab4189aab9
 24b84ff30fff8284eef590e7a64c71f53b70c3a2
 165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
@@ -1098,7 +1098,7 @@ a3c07123b60a10688a6a6057f1c602e0ccc8fa54
 [exit=0]
 
 $ git rev-parse HEAD:tests/skills/figure-choose/check-figure-style.py HEAD:tests/skills/figure-choose/mutate-figure-style.py HEAD:tests/skills/figure-choose/fixtures/make-fixtures.py HEAD:tests/skills/figure-choose/fixtures/run-expected.py HEAD:tests/skills/figure-choose/fixtures/expected.tsv HEAD:tests/skills/figure-choose/fixtures/captions.tsv HEAD:tests/skills/figure-choose/fixtures/ok-01.png HEAD:tests/skills/figure-choose/fixtures/ok-02.png HEAD:tests/skills/figure-choose/fixtures/ok-03.png HEAD:tests/skills/figure-choose/fixtures/ok-04.png HEAD:tests/skills/figure-choose/fixtures/ok-05.pdf HEAD:tests/skills/figure-choose/fixtures/bad-f1-too-narrow.png HEAD:tests/skills/figure-choose/fixtures/bad-f1-too-wide.png HEAD:tests/skills/figure-choose/fixtures/bad-f2-five-colors.png HEAD:tests/skills/figure-choose/fixtures/bad-f2-five-colors.pdf tests/skills/figure-choose/gen-figure-style-baseline.py    # 入库 blob
-47b9f4c355d6f12f5a3ee020aaff383c0294533b
+31621e433d239cb0d34ea359d014e7ab4189aab9
 24b84ff30fff8284eef590e7a64c71f53b70c3a2
 165082257720c09d58e2e45d5d0177ab5f7d2b58
 b3fd8153b5d66391106725fc20d28f47a9118bc2
@@ -1117,7 +1117,7 @@ tests/skills/figure-choose/gen-figure-style-baseline.py
 [exit=0]
 
 逐个比对：
-  tests/skills/figure-choose/check-figure-style.py               工作树=47b9f4c355d6  HEAD=47b9f4c355d6  相等
+  tests/skills/figure-choose/check-figure-style.py               工作树=31621e433d23  HEAD=31621e433d23  相等
   tests/skills/figure-choose/mutate-figure-style.py              工作树=24b84ff30fff  HEAD=24b84ff30fff  相等
   tests/skills/figure-choose/fixtures/make-fixtures.py           工作树=165082257720  HEAD=165082257720  相等
   tests/skills/figure-choose/fixtures/run-expected.py            工作树=b3fd8153b5d6  HEAD=b3fd8153b5d6  相等

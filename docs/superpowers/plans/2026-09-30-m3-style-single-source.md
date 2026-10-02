@@ -225,11 +225,17 @@ git commit -m "docs(m3-style): 规范侧三条 —— §0 底色前提 + 新 H14
 | `family-equivalent` | 只能做到**同族等价**（如字体各取本机可用的 Times 系） | python / matlab |
 | `not-landable` | **该载体今天没有实测到的落地方式**（**必须写 `why`，且措辞只能到"今天没测到"，不许断言"永不可能"**） | python / matlab / origin |
 | `scriptable` | 该支**能脚本化**、且 `F1`/`F4`/`F5` 在它上面有承重（Origin 支专用，design §6.3 定） | origin |
-| `not-embedded` | 该格的值**不体现在产物里**（Origin 的 PDF 不内嵌字体 ⇒ `F6` 对它只能判 `N/A`） | origin |
+| `not-embedded` | 该格的值**不体现在产物里**（Origin 的 PDF 不内嵌字体 ⇒ `F6` 对它只能判 `N/A`）**——**★ **这半句已被实测证伪，见下方订正** | origin |
 
 ⚠️ **本节原先写"三个枚举值"、`design §6.3` 又加了两个 ⇒ 计划内部自相矛盾**（三处写法各不相同：本节 3 个、
 下一段 5 个、代码骨架 4 个）。**2026-09-30 由 Task 2 修复轮的 Q2 指出、控制者当场坐实并统一到本表。**
 ⚠️ **`pending-probe` 已废弃**（Origin 探针已回）⇒ 表里**不许**再出现它。
+
+★★ **订正（2026-10-03 批量清 `M3-origin-T1i`）：上表 `not-embedded` 格与本节下文里"Origin 的 PDF 不内嵌字体 ⇒ `F6` 只能判 `N/A`"这个负向全称，已被 `mcm-plot-origin` 支实测证伪** ——
+Origin 产物**落哪一态依产物而定**：含**内嵌的 `Type3` 过程字形件**时 `F6` 按**族名**判（`PASS`/`FAIL`），
+不含时才 `N/A`。且 **`/FontFile* = 0` ≠ 没内嵌字体**（`Type3` 过程字形件无该条目）。
+**现行口径以 `.claude/skills/mcm-figure-choose/assets/mcm-style.json` 的 origin 字体两格为准**（`status = family-equivalent`）。
+下文凡出现同一负向全称处，均按此订正理解。
 
 **★ `origin` 列的契约（design §6.3，**2026-09-30 更新：脚本为权威、值已实测**）**：
 每个 id 的 `carriers.origin` **必须**填**实测到的脚本命令 + 操作步骤**（不再是 `null`），并满足四条：
@@ -238,6 +244,8 @@ git commit -m "docs(m3-style): 规范侧三条 —— §0 底色前提 + 新 H14
 ④ 标**针对哪个 Origin 版本**（本机实测 `10.300197` = Origin 2026 **OriginPro 教育版**）。
 `status` 的取值：**`"scriptable"`**（本支能脚本化、且 `F1`/`F4`/`F5` 在它上面有承重）；
 **字体那一格单独标 `"not-embedded"`**（它的 PDF 不内嵌字体 ⇒ `F6` 只能判 `N/A`，见 Task 3 Step 6）。
+★ **订正（2026-10-03 批量清 `M3-origin-T1i`）**：这句的负向全称**已被实测证伪** —— 现行该格 `status = family-equivalent`，
+`F6` 依产物是否含内嵌 `Type3` 过程字形件而落 `PASS`/`FAIL`/`N/A` 三态（见本节上方订正块）。
 
 **已实测、可直接落进表的四条**（来自 `tests/m3-origin-probe/` 与 `tests/m3-origin-font-probe/`）：
 - **导出宽度**：`GPage.save_fig(width=N)` / `expGraph … tr1.Unit:=2 tr1.Width:=N`（英寸用 `tr1.Unit:=0`）；
@@ -740,7 +748,7 @@ FONT_FAMILY_OK = ("TeXGyreTermesX", "TimesNewRomanPSMT", "TimesNewRoman", "Nimbu
     if fams is not None:
         # ★ 三态：内嵌且族对 = PASS；内嵌但族错 = FAIL；**一个都没内嵌 = N/A**（判词里必须写出这个事实）
         if not fams:
-            res.append(("F6", True, "N/A 本 PDF 未内嵌任何字体 ⇒ 本判据不适用（实测 Origin 的 PDF 即如此）"))
+            res.append(("F6", True, "N/A 本 PDF 未内嵌任何字体 ⇒ 本判据不适用（~~实测 Origin 的 PDF 即如此~~ ★ 订正见 2026-10-03 批量清 M3-origin-T1i：该负向全称已被证伪，Origin 依产物落三态）"))
         else:
             ok = all(any(k in f for k in FONT_FAMILY_OK) for f in fams)
             res.append(("F6", ok, f"内嵌字体 {sorted(fams)}"))

@@ -8,6 +8,12 @@ tests/skills/figure-choose/red/ —— Task 2 RED 基线证据（逐字）
 【机器】Windows 11 / Python 3.11.9 / Pillow 12.3.0 / PyMuPDF 1.27.2 / matplotlib 3.10.7
 【起始 commit】`5ace7b4`（分支 `feat/m6-corpus-pipeline`）
 【本轮修复起点】HEAD `5edbd20`；本文件随修复同步更新（**本轮见 §11**，上一轮见 §10）
+【★ 判词块的时点（2026-10-03 批量清 `T6-1` 登记）】本文件里 `check-figure-style.py` 的判词块**录于
+  `F4`/`F5`/`F6` 三条判据落地之前**（那三条 2026-10-01 才加进检查器）⇒ **复算时每条会多出
+  `F4`/`F5`/`F6` 三行**、`RESULT` 里也可能多出 `F5`（例：R1 PNG 的 `RESULT` 现行为 `FAIL（F1,F5,F3a,F3b,F3c）`，
+  本文件旧块记的是 `FAIL（F1,F3a,F3b,F3c）`）。这是**整份文件的时点差**，不是个别块篡改。
+  另：`F3b` 的词数口径于 2026-09-30 收敛到**正文**（去 `Figure N:` 前缀）⇒ 两处**探针**的 `F3b`
+  显示数已按新口径订正（`5→3`）；两页探针那两块**另见其上方的历史说明**（`blob=dc8697b00cff…` 那一轮，**不随本次改写**）。
 
 【写手与判者的身份】六个写手 + 一位判者**全部是 `general-purpose` 全新 subagent，未用 `fork`**。
   这一条**不是自报**：`fork` 会继承主 agent 上下文，其 transcript 的**首条 user 消息**会是
@@ -524,7 +530,7 @@ $ python tests/skills/figure-choose/check-figure-style.py --fig tests/skills/fig
 FAIL  F1  图宽比 1.997（分母 6.31 in）
 PASS  F2  彩色主色数 4
 PASS  F3a  图注以 `Figure N:` 起
-PASS  F3b  图注词数 5（上限 12，硬上限 17）
+PASS  F3b  图注词数 3（上限 12，硬上限 17）
 PASS  F3c  句末不加句号
 PASS  F3d  图注正文非空（正文 3 词）
 RESULT: FAIL（F1）
@@ -835,7 +841,6 @@ Task 6 的 RED/GREEN 对照会得出"规范没用"的**反向**结论。
 **一处没修的（有意保留）**：`caption.txt` 仍不由 `make_figure.py` 再生（§7 末条）。
 brief 只要求脚本"regenerates the figure"，这是已知缺口、且已逐条登记，不在该轮改动范围。
 
-<<ROUND2>>
 ==============================================================================
 §11 第二轮修复记录（评审 Needs fixes 后）—— 1 条 Important + 5 条 Minor
 ==============================================================================

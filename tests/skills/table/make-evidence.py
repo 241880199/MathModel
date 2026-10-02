@@ -214,7 +214,9 @@ def main():
     a("- **场景**：`tests/skills/figure-choose/red/brief-R{1,2,3}.md`（**权威副本**，本支未改写）。"
       "R1/R3 同一组数据（六区低/中/高三档构成），R2 另一组数据（五属性 + 历史灾次计数）。")
     a("- **同数**：每侧 3 张表，两侧共 6 张；判据清单**现取**（本支 %d 条）x 6 张。" % len(CRIT))
-    a("- **同一把尺**：`%s` **一字未改**。工作树 blob `%s` · `HEAD:` blob `%s` ⇒ %s"
+    a("- **同一把尺**：`%s` —— 两侧用的是**同一版**（RED→GREEN 之间未改动）；**判据逻辑一字未改**"
+      "（2026-10-03 批量清只动了注释 / 死代码 / `C1` 诊断行，见其文件头 `M-4`/`M-5`；判词不受影响）。"
+      "工作树 blob `%s` · `HEAD:` blob `%s` ⇒ %s"
       % (rel, wt_blob[:12], hd_blob[:12], "**相同**" if wt_blob == hd_blob else "**不同（！）**"))
     a("- **RED 侧**：三份由**干净上下文的写手**产出（只给 brief 路径 + 输出目录 + 一件环境事实 "
       "`pdflatex` 在 PATH；**未给**规范 / 模块 / 判据 / 先例证据）。派发口径与三份自述见 "
@@ -379,7 +381,7 @@ def main():
     a("$ python tests/skills/table/mutate-table-style.py")
     a("MUT: 14/14 红（check-table-style.py 的 C1–C8 逐条打红 + 2 条 fail-closed 分支打红 + 2 条修复边界打红：`MUT-C1b`/`MUT-LEAD-a`）")
     a("MUT: 对照 6/6 达预期（必须绿：射程边界 + C3 覆盖口径 + `\\multicolumn` 合规表 + 前导 `&` 两级表头 + `\\end{tabular}` 后表注 + 可选线宽参数合规表）")
-    a("MUT: 合计 20/20 达预期（合计）")
+    a("MUT: 20/20 达预期（合计）")
     a("RUN: 受保护件 blob 逐件还原=True · 基准样本复跑 exit=0 · 全仓 `git status --short` 空")
     a("```")
     a("")

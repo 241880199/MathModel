@@ -175,9 +175,11 @@ def main():
     ev("§5a  **判据复用自证**（本器零重写）")
     for fn in (hs._k2, hs._k3):
         ev(f"     `{fn.__name__}` 的来源文件：{rel(inspect.getsourcefile(fn))}")
-    ev(f"     本器自己定义的 `_k2`/`_k3`："
-       f"{[n for n in ('_k2', '_k3') if re.search(rf'^def {n}', src, re.M)] or '**零个**'}"
+    self_defs = [n for n in ('_k2', '_k3') if re.search(rf'^def {n}', src, re.M)]
+    ev(f"     本器自己定义的 `_k2`/`_k3`：{self_defs or '**零个**'}"
        f"（有的话就是抄件 ⇒ 会随检查器漂移）")
+    # ★ 硬化（2026-10-03 批量清 T7-4）：原先只是**披露**这个读数，非零也不红 ⇒ 改成 raise（fail-closed）。
+    assert not self_defs, f"本器自己定义了 {self_defs} ⇒ 是抄件，判据复用自证不成立"
     ev(f"     本器点名的兄弟模块：`check-house-style.py`（全文 {src.count('check-house-style')} 处）")
     ev(f"     本器全文的 `re.findall` 调用：{src.count('re.findall')} 处"
        f"（0 处 ⇒ 它没有自己抽一份禁止串表；唯一用 `re` 的地方是家族名匹配）")

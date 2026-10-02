@@ -455,8 +455,8 @@ def run_pdflatex(tex_text):
             return None, "", f"{type(e).__name__}: {e}"
         logp = pathlib.Path(d) / "t.log"
         log = logp.read_text(encoding="utf-8", errors="replace") if logp.is_file() else ""
-        pdf = pathlib.Path(d) / "t.pdf"
-        return pr.returncode, log, (str(pdf) if pdf.is_file() else "")
+        return pr.returncode, log, ""                           # 第三个返回值 = **出错说明**（rc≠None 时为空）
+                                                                # ★ 批量清 M-5：原返回 t.pdf 的路径，但它是临时目录、下面 finally 已删 ⇒ 无人能用
     finally:
         shutil.rmtree(d, ignore_errors=True)                    # PDF 留到最后一步单独渲（见 --png 说明）
 
@@ -475,14 +475,17 @@ def compile_and_measure(template_path, fragment, body_for_width):
 
 # --------------------------------------------------------------------- 判据主体
 def judge(tex_path, missing_token):
-    """对一份片段跑完 8 条。返回 `(rows, extra)` —— `rows` 是 `(id, ok, detail, [extra_lines])`。"""
+    """对一份片段跑完 8 条。返回 `rows` —— 每项是 `(id, ok, detail, [extra_lines])`。
+
+    ★ 批量清 M-5：原返回 `(rows, extra)`，而 `extra` **恒为 `[]`**（第二返回值是死代码）⇒ 收成单返回值。
+    """
     rows = []
     try:
         raw = tex_path.read_bytes().decode("utf-8")
     except OSError as e:
         for cid in ("C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"):
             rows.append((cid, False, f"读不出输入（fail-closed）：{type(e).__name__}: {e}", []))
-        return rows, []
+        return rows
 
     src = strip_comments(raw)                                   # 结构判定用无注释文本
     env, n_tab = find_tabular(src)
@@ -510,7 +513,11 @@ def judge(tex_path, missing_token):
     elif rc == 0:
         rows.append(("C1", True, "pdflatex rc=0（片段在自带模板里编过）", []))
     else:
-        first = next((l for l in _log.splitlines() if l.startswith("!")), "（log 里无 `!` 行）")
+        # ★ 批量清 M-4：`-file-line-error` 的真实错误行形如 `t.tex:<行>: <消息>`（**不以 `!` 开头**），
+        #   只挑 `!` 行常只抓到 `! Emergency stop.`（误导）⇒ 优先取 `-file-line-error` 行，退而求其次才取 `!` 行。
+        errlines = [l for l in _log.splitlines() if re.search(r"\.tex:\d+:", l)]
+        first = (errlines[0] if errlines
+                 else next((l for l in _log.splitlines() if l.startswith("!")), "（log 里无错误行）"))
         rows.append(("C1", False, f"pdflatex rc={rc} ⇒ 编不过", [f"      首个错误：{first[:160]}"]))
 
     # ---------------------------------------------------------------- C2 三线结构
@@ -663,7 +670,7 @@ def judge(tex_path, missing_token):
         else:
             rows.append(("C8", True, f"来源回显覆盖 {nrow}×{ncol}={nrow*ncol} 格全齐（注释 {len(covered)} 条）", []))
 
-    return rows, []
+    return rows
 
 
 def _decimals(cell):
@@ -682,8 +689,11 @@ def _decimals(cell):
 
 
 # --------------------------------------------------------------------- main
-def render_png(tex_path, missing_token, out_path):
-    """把编译出的**第一页**渲成 PNG（`--png`，供"看一眼"；非判据）。返回一行说明。"""
+def render_png(tex_path, out_path):
+    """把编译出的**第一页**渲成 PNG（`--png`，供"看一眼"；非判据）。返回一行说明。
+
+    ★ 批量清 M-5：原签名多一个 `missing_token` 形参，函数体里**从未用到** ⇒ 删掉这个死参数。
+    """
     try:
         import fitz
     except Exception as e:                                      # noqa: BLE001
@@ -727,7 +737,7 @@ def main():
     print(f"规范（缺失值 token 现取处） = {_shown(NORM)} · D6 token = {missing_token!r}")
     print("-" * 78)
 
-    rows, _ = judge(tex_path, missing_token)
+    rows = judge(tex_path, missing_token)
     for rid, ok, detail, extra in rows:
         print(f"{'PASS' if ok else 'FAIL'}  {rid}  {detail}")
         for line in extra:
@@ -739,7 +749,7 @@ def main():
 
     if a.png:
         print("-" * 78)
-        print(render_png(tex_path, missing_token, pathlib.Path(a.png)))
+        print(render_png(tex_path, pathlib.Path(a.png)))
 
     bad = [rid for rid, ok, _d, _e in rows if not ok]
     print("-" * 78)

@@ -5,12 +5,12 @@
 
 | 件（仓相对） | `git hash-object` |
 | :--- | :--- |
-| `tests/skills/plot-python/check-style-freshness.py` | `3eac45b183b4c18ebeef1143353c79d00b2e9266` |
+| `tests/skills/plot-python/check-style-freshness.py` | `09bafd01f734753b4c3cfe2185dfb77600485c7f` |
 | `tests/skills/plot-python/mutate-plot-style.py` | `29d890fe074359fda2e0e6c99379e1bbcf762af2` |
 | `tests/skills/plot-python/gen-mcm-style.py` | `3db6ae6f28b3484dd91ea09c65f6904c7931dee7` |
 | `.claude/skills/mcm-plot-python/assets/mcm.mplstyle` | `eb0626dd62cdb14904973915ee9253f2d1d1f3c2` |
 | `.claude/skills/mcm-plot-python/assets/mcmplot.py` | `40831a8c2ca44112bf264bdc855f62f23a77505e` |
-| `.claude/skills/mcm-figure-choose/references/house-style.md` | `c11ae7cb9ecfa0618781f2aa0533212b70910333` |
+| `.claude/skills/mcm-figure-choose/references/house-style.md` | `6812d70ac67fba8abc062a73557d46a954e85806` |
 | `.claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Regular.otf` | `e80891eeb992f306596eb69a5a764b600186978b` |
 | `.claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Italic.otf` | `1707ff148a8f1af1ce9b5cb7382a2b8af3b28000` |
 | `.claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Bold.otf` | `5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb` |
@@ -48,8 +48,8 @@ RESULT: PASS
 ==============================================================================
 变异驱动器 · check-style-freshness.py（mcm-plot-python）：新鲜度两臂 + 生成器 fail-closed + 字体臂
 ==============================================================================
-检查器 = tests/skills/plot-python/check-style-freshness.py  blob 3eac45b183b4c18ebeef1143353c79d00b2e9266
-  受保护件 .claude/skills/mcm-figure-choose/references/house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333
+检查器 = tests/skills/plot-python/check-style-freshness.py  blob 09bafd01f734753b4c3cfe2185dfb77600485c7f
+  受保护件 .claude/skills/mcm-figure-choose/references/house-style.md blob 6812d70ac67fba8abc062a73557d46a954e85806
   受保护件 .claude/skills/mcm-plot-python/assets/mcm.mplstyle         blob eb0626dd62cdb14904973915ee9253f2d1d1f3c2
   受保护件 .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 40831a8c2ca44112bf264bdc855f62f23a77505e
   受保护件 .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Bold.otf blob 5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb
@@ -248,7 +248,7 @@ REFUTED-OK  M61  **字面形态对照**：原地重跑把过期件改对 ⇒「�
 ==============================================================================
 还原自证
 ==============================================================================
-  .claude/skills/mcm-figure-choose/references/house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333  == 变异前
+  .claude/skills/mcm-figure-choose/references/house-style.md blob 6812d70ac67fba8abc062a73557d46a954e85806  == 变异前
   .claude/skills/mcm-plot-python/assets/mcm.mplstyle         blob eb0626dd62cdb14904973915ee9253f2d1d1f3c2  == 变异前
   .claude/skills/mcm-plot-python/assets/mcmplot.py           blob 40831a8c2ca44112bf264bdc855f62f23a77505e  == 变异前
   .claude/skills/mcm-plot-python/assets/fonts/TeXGyreTermesX-Bold.otf blob 5b5f0228b282abbb7ff9ad64e979b96c2bcaacdb  == 变异前
@@ -493,7 +493,7 @@ PASS  P-F-a        文档=2 命令=2 容差=0.5（probe_pages）
 PASS  P-G-a        文档=662 命令=662 容差=0.5（cap_n）
 PASS  IDCHECK  文档点名的守卫/P 条目全部存在（族前缀 196 条）
 ------------------------------------------------------------------------------
-CENSUS  house-style.md 数字 329 个 · 守卫覆盖片段 148 段 · 重复读数 94 个 · 上下文豁免 48 个 · 未入理由表 0 个
+CENSUS  house-style.md 数字 330 个 · 守卫覆盖片段 148 段 · 重复读数 95 个 · 上下文豁免 48 个 · 未入理由表 0 个
 
 守卫 162 条（其中结构守卫 4 条 · SKILL 守卫 8 条） · provenance 46 条 · 总 208 条
 RESULT: PASS
@@ -508,7 +508,7 @@ RESULT: PASS
 ==============================================================================
 变异驱动器 · check-figure-style.py
 ==============================================================================
-原检查器 blob  47b9f4c355d6f12f5a3ee020aaff383c0294533b
+原检查器 blob  31621e433d239cb0d34ea359d014e7ab4189aab9
 逐格验收基线  python fixtures/run-expected.py → exit 0
 
 ==============================================================================
@@ -550,7 +550,7 @@ RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR �
 ==============================================================================
 还原自证
 ==============================================================================
-  check-figure-style.py  blob  47b9f4c355d6f12f5a3ee020aaff383c0294533b  == 变异前
+  check-figure-style.py  blob  31621e433d239cb0d34ea359d014e7ab4189aab9  == 变异前
   工作树字节 == 变异前字节: True
   fixtures/_mut/ 已清空: True
   还原后复跑逐格验收: exit=0  MISMATCH 0 / 34
@@ -665,7 +665,7 @@ RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊
          SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
 RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
          前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
-还原自证  house-style.md blob c11ae7cb9ecfa0618781f2aa0533212b70910333 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob 7476e9ae88bda35b38da19e9a0b270f49504d43f · SKILL.md blob c59dff097a74cf24c894c4dd615c8ac7f57a5581 · 原件字面仍在: True · _mut-house/ 已清空: True
+还原自证  house-style.md blob 6812d70ac67fba8abc062a73557d46a954e85806 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob a13c017e86ead20343898b0cd334100c32b7634a · SKILL.md blob c59dff097a74cf24c894c4dd615c8ac7f57a5581 · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
 合计

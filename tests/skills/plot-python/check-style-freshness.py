@@ -258,7 +258,7 @@ def main():
                     snap_err.append((f"GEN:{p.name}",
                                      f"重跑后读不出（fail-closed）：{type(e).__name__}: {e}"))
     finally:
-        for p in TARGETS:                                    # 还原：本器非侵入
+        for p in TARGETS:                                    # 还原：本器非侵入（**有条件** —— 见 :31-32：正常收尾下；重跑与还原之间被杀会留脏，非原子）
             if p in wt:
                 p.write_bytes(wt[p])
 
