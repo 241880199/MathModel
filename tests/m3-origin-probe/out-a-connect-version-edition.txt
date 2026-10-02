@@ -9,9 +9,9 @@ pkg numpy     : 2.3.5
 pkg pandas    : 3.0.5
 pkg Pillow    : 12.3.0
 pkg PyMuPDF   : 1.27.2.3
-import originpro: OK  (+0.39s)
+import originpro: OK  (+0.41s)
 originpro.__file__: D:\Projects\数学建模\build\m3-origin-probe\site\originpro\__init__.py
-首次 API 触碰耗时 4.84s
+首次 API 触碰耗时 4.61s
 op.get_show()  [未显式隐藏前，默认可见性]: False
 op.get_show()  [set_show(False) 之后]: False
 --- 版本探测 ---
@@ -35,14 +35,13 @@ op.po 公开成员数: 3
   GetMainWnd*: []
   GetVersion*: []
 --- op.exit() ---
-op.exit() 返回，耗时 9.31s
+op.exit() 返回，耗时 0.93s
 ### probe_a_connect done ###
 ### probe_a2_edition start ###
 op.get_show() = False
-枚举到含 Origin 的顶层窗口数: 3
-  hwnd=1182774 visible=True title='OriginLab Origin 2026 - 文件资源管理器'
-  hwnd=526436 visible=False title='OriginPro 2026 (教育版) - UNTITLED'
-  hwnd=330060 visible=False title='GDI+ Window (Origin64.exe)'
+枚举到含 Origin 的顶层窗口数: 2
+  hwnd=37162014 visible=False title='Origin 2026'
+  hwnd=24381954 visible=False title='GDI+ Window (Origin64.exe)'
 --- LabTalk 候选变量 ---
   LT_get_var('@V') = 10.300197
   LT_get_var('@PT') = 3.0

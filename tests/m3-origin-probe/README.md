@@ -80,7 +80,9 @@ python tests/m3-origin-probe/gen-evidence.py
 ## 字节纪律（本目录的实测事实）
 
 - Python 的 stdout 在 Windows 上是 **CRLF**。本次 **12 份**原始捕获共
-  **476 个裸 CR**（逐份计数由 `gen-evidence.py` 打印），`out-*.txt` 由 `write_bytes`
+  **496 个裸 CR**（**2026-10-02 `Task 4` 重捕获后**；侦察期原件记 **476** —— 该数随原始捕获
+  的行数走，重跑后 `raw_probe_a2` 的窗口枚举由 3 行变 2 行、`raw_checks_manual` 改为逐条列命令，
+  故总数变；逐份计数由 `gen-evidence.py` 打印），`out-*.txt` 由 `write_bytes`
   写入并归一化为 **LF**（自查：本目录 `out-*.txt` 全部 `CR=0`）。
 
 ## 二进制产物
@@ -91,3 +93,23 @@ python tests/m3-origin-probe/gen-evidence.py
 见 `docs/mcm-suite-todo.md` §H.2 的 `M3-matlab-T5b`）⇒ 这里**不再声称**"确定性重生成"。
 产物落 `build/m3-origin-probe/{b,c,d,e,f,g,h,i}/`（**已 gitignore**）。
 重生成命令 = 上面第一/二步。
+
+## ★ 2026-10-02 `Task 4` 重捕获（`mcm-plot-origin` 全库收口）
+
+**先查再跑**（照 `M3-matlab-T5a` 先例）：本目录 **11 个** `probe_*.py` **都不含**「依赖真仓
+没有某个 skill / 某个字面还在」一类的构造 —— 它们只读 Origin 安装与自己的 `build/` 产物，
+**与真仓 skill 集合无关** ⇒ **落地后没有"必崩"的探针**（与 matlab 那支相反）。
+`grep -nE "\.claude/skills|plot-origin|家族|len\(" probe_*.py` 实测：**0 处**涉及 skill 集合。
+
+**逐份重跑结果**（**串行**、每条以 `op.exit()` 收尾、`tasklist` 残留 **0**）：
+
+| 件 | 重跑后 | 说明 |
+| :--- | :--- | :--- |
+| `out-b` … `out-i`（`b c d e f g h i`，**8 份**） | **逐字节不动**（`diff` = 0） | Origin 读数可复现；**未过期** |
+| `out-a-connect-version-edition.txt` | **变**（计时 3 行 + `out-a2` 段窗口枚举 3→2 行） | **环境**：`import/save/exit` 墙钟、`probe_a2` 的顶层窗口计数与标题/HWND（会话态）——非模块之变 |
+
+★ **2026-10-02 重捕获（`out-a`）**：**仅墙钟与顶层窗口枚举变**（3 → 2，会话态）；**版本 / 版别等事实不变**（`LT_get_var('@V')` = `10.300197` · `@PT`/`@OR` 等 Pro 功能探测读数逐字不变）。
+| `out-checks-figure-style.txt` | **真变**（6 → 9 条判据） | 检查器早已加 `F4`/`F5`/`F6`（M3-style 线）⇒ 由**本 README 第 2 步的 7 条 checker 命令重捕获**（原文逐条列命令 + `rc`）；**手改 = 造伪，故走重捕获** |
+| `out-j-env-prereq-residual.txt` | **不动**（无变） | **无对应探针脚本**（人工装配，`raw_probe_j.txt`）；照实**保持**，不改不重跑 |
+
+**未新增 / 移除印变异合计的捕获件**（§H.1.1 计数只因 `docs/mcm-suite-todo.md:748` 一处台账命中而 10 → 11）。

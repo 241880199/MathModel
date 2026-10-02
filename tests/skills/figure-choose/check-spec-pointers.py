@@ -50,8 +50,8 @@
 
 - **`K2`/`K3` 的口径本身**（判得对不对）不在这里验 —— 它们由 `check-house-style.py` 那一侧守
   （`M29`–`M41`）。本器只验"这两条在**一族 skill** 上真的会被触发、且不是恒真/恒红"。
-- 真仓**已有绘图家族 skill**（`mcm-plot-python` 与 `mcm-plot-matlab`；家族每多建出一个，
-  普查就多扫一份）⇒ 只跑真仓时，逐份判据路径**会**执行。
+- 真仓**已有绘图家族 skill**（`mcm-plot-python`、`mcm-plot-matlab` 与 `mcm-plot-origin`；
+  家族每多建出一个，普查就多扫一份）⇒ 只跑真仓时，逐份判据路径**会**执行。
   要证"缺指针 / 重述数值**分别**点名"，仍得靠 `--skills-dir` 指到假 skill 上
   （见 `mutate-figure-style.py` 的 `M43`–`M46`）。
 """

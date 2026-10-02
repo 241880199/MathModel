@@ -131,9 +131,9 @@ CONSTS = (
 
 
 # ── 载体落地 `status` 的**唯一声明**（设计 §6.3）——
-#    ★ 这 5 个值是全表唯一权威；`carrier_map()` 里任何格子的 status 不在其中 ⇒ `GeneratorError`
+#    ★ 这 4 个值是全表唯一权威；`carrier_map()` 里任何格子的 status 不在其中 ⇒ `GeneratorError`
 #      （fail-closed）。防的是手滑成 `"samevalue"` 之类**静默通过**（没有守卫兜底）。
-STATUSES = ("same-value", "family-equivalent", "not-landable", "scriptable", "not-embedded")
+STATUSES = ("same-value", "family-equivalent", "not-landable", "scriptable")
 
 # ── `status` 的**正面定义**（2026-10-01，M3-plot-matlab Task 2 补；随 `_status_defs` 写进表头）——
 #    ★ 为什么必须补（Task 1 独立复核 Findings-M4 / 计划 Task 2 硬要求 6）：旧稿只列了 5 个**值**，
@@ -153,7 +153,6 @@ STATUS_DEFS = {
     "not-landable": "本模块**今天确实没有**能落到产物上的方式（载体可能连设置项都没有）；"
                     "`how` 写清原因，**不许**既不测也不改、留一句'能设不能验'当结论。",
     "scriptable": "（origin 专用）本支**能脚本化**落地，`F1`/`F4`/`F5` 在它上有承重；`how` 给出脚本命令。",
-    "not-embedded": "（origin 字体两格专用）产物**不内嵌**字体 ⇒ 字体族判据（`F6`）对它只能判 `N/A`。",
 }
 
 
@@ -186,7 +185,7 @@ def carrier_map(vals):
     `status` 的枚举见模块级 `STATUSES`（**唯一声明**，越界即 `GeneratorError`）：
       · python / matlab：`same-value` / `family-equivalent` / `not-landable`；
       · origin：`scriptable`（本支能脚本化、`F1`/`F4`/`F5` 在它上有承重）、
-        `not-embedded`（**字体两格**：产出的 PDF 不内嵌字体 ⇒ `F6` 只能判 `N/A`），
+        `family-equivalent`（**字体两格**：族 = Times 系；`F6` 落哪一态**依产物而定**，见该两格 `how`），
         或 `not-landable`（本支**今天确实没有**对应的落地方式，`how` 里写原因 —— 不编造）。
 
     `h4.*` / `h12.*` 是**数值判据**（判据、不是设置）⇒ 三支都 `not-landable`，如实写"无设置项"。
@@ -278,11 +277,15 @@ def carrier_map(vals):
                                "⇒ 实测 `PaperPosition=[0 0 6.31 2.6]`（⇐ out-b-size-single-variable.txt）",
                        "status": "same-value"},
             "origin": origin(
-                "**今天无实测的独立设高方式**：`GPage.save_fig` 签名无 height 参数"
-                "（`save_fig(path, type, replace, width, ratio)` ⇐ probe_b_size.py）；裸 "
+                "**今天无实测的独立设高方式**（本支四路实测收敛）：① `GPage.save_fig` 签名无 height "
+                "参数（`save_fig(path, type, replace, width, ratio)` ⇐ probe_b_size.py）；② 裸 "
                 "`expgraph … tr1.Height:=500` 实测**未生效**（与 `tr1.Width:=1000` 同发，产物却是 "
-                "1000×708 = 按页面长宽比锁高 ⇐ out-b-export-size.txt 第 4 段）⇒ **今天没有实测到的"
-                "独立设高方式**，高度随宽度按页面长宽比带出，**无独立落地**", status="not-landable"),
+                "1000×708 = 按页面长宽比锁高 ⇐ out-b-export-size.txt 第 4 段）；③ 直写 `page.width` "
+                "**或** `page.height` **互相重算**（R2/R3 写手实测：改一维另一维跟着变 ⇐ "
+                "tests/skills/plot-origin/red/writer-self-reports.md）；④ 该比值即**模板锁定的 √2**"
+                "（≈1.411，与 A4 同源，R3 给出）⇒ 高度**随宽度按锁定比值带出**：本支 GREEN 三张实测 "
+                "1893×1342 px = 6.31×4.47 in（宽高比 1.41）。⇒ **今天没有实测到的独立设高方式**，"
+                "**无独立落地**", status="not-landable"),
         },
         "h4.max_main_colors": {
             "python": {"how": "**数值判据，无设置项**：F2『彩色主色 ≤4』在 check-figure-style.py 判；"
@@ -361,19 +364,26 @@ def carrier_map(vals):
                 "（实测产物字体名 SimSun → TimesNewRomanPSMT ⇐ out-origin-5-round5.txt J1，本轮复跑逐字节复现）。"
                 "⚠️ **次序坑**：主题必须在导出时施加，否则新建的文本注释回 SimSun（半张图两种字体 ⇐ J4）；"
                 "⚠️ 给不存在的主题名**静默成功**（exec_ok=True、产物不变 ⇐ J3）⇒「设上了」只能由产物证明。"
-                "⚠️ 本格标 `not-embedded` 的理由：Origin 导出的 PDF **不内嵌字体**（34/34 个产物 "
-                "`/FontFile*` = 0 ⇐ out-pdf-embedding-scan.txt）⇒ 字体族判据（`F6`）对它只能判 `N/A`。",
-                status="not-embedded"),
+                "**族 = Times 系**（与 python / matlab 两格同类 ⇒ `family-equivalent`）。"
+                "★ **`F6` 落哪一态依产物而定**（2026-10-02 `mcm-plot-origin` Task 2/3 实测）：导出时施加主题后，"
+                "**产物是否内嵌那个过程字形件**决定 —— 有（如 G2 的 PDF 内嵌 `TimesNewRomanPSMT`）⇒ 按**族名**判 "
+                "`PASS`；内嵌的是别的族（如 R2 的 PDF 内嵌 `MicrosoftJhengHeiUIRegular`）⇒ `FAIL`；"
+                "**没有**（字体**只被引用、未内嵌**，如 G1/G3 的 PDF）⇒ `N/A`。"
+                "★ **`/FontFile* = 0` ≠「没内嵌字体」** —— `Type3` 过程字形件**无** `/FontFile` 条目"
+                "（旧稿「34/34 个产物 `/FontFile*` = 0 ⇒ 不内嵌 ⇒ `F6` 只能判 `N/A`」**已被本支实测证伪**）。",
+                status="family-equivalent"),
         },
         "font.serif": {
             "python": {"how": "入库 OTF TeXGyreTermesX（随 skill，干净检出可用）", "status": "family-equivalent"},
             "matlab": {"how": "系统 Times New Roman（点名即内嵌，非静默回退）", "status": "family-equivalent"},
             "origin": origin(
                 "同 `font.family`：Origin 侧取系统 Times New Roman（衬线族的一员），落地命令 = 导出时 "
-                "`theme:=\"Times New Roman Font\"`。⚠️ Origin 导出的 PDF **不内嵌**该字体"
-                "（/FontFile*=0 ⇐ out-pdf-embedding-scan.txt）⇒ 最终呈现取决于打开它的机器；"
-                "本格标 `not-embedded`：字体族判据（`F6`）对它只能判 `N/A`。",
-                status="not-embedded"),
+                "`theme:=\"Times New Roman Font\"`。**族 = Times 系**（与 python 的入库 OTF / matlab 的系统 TNR "
+                "同类 ⇒ `family-equivalent`）。⚠️ **旧稿那条负向全称已被本支证伪**：原写「Origin 导出的 PDF "
+                "**不内嵌**该字体（`/FontFile*`=0）⇒ 最终呈现取决于打开它的机器；`F6` 只能判 `N/A`」——"
+                "实测**内嵌与否、内嵌什么族随产物而定**（`/FontFile* = 0` **≠** 没内嵌：`Type3` 过程字形件无该条目）；"
+                "逐态读数见 `font.family` 格。",
+                status="family-equivalent"),
         },
         "lines.linewidth": {
             "python": {"how": "lines.linewidth", "status": "same-value"},
@@ -384,7 +394,9 @@ def carrier_map(vals):
         },
         # H10（M3-style 终审 I-5 补进表）：载体相关规则。python 侧已落地（6 键 + 入库探针）；
         #   matlab 侧由 M3-plot-matlab Task 2 的**入库探针**补齐产物级实测 ⇒ 由 not-landable 转 same-value
-        #   （2026-10-01）；origin 侧仍是 not-landable（侦察逐条试过、差分像素全 0）。
+        #   （2026-10-01）；origin 侧仍是 not-landable —— 但该格的 `how` 于 2026-10-02 终审修复轮
+        #   **收窄为经验口径**：证据只到"本仓试过的这些 token 里没有"，且**未试 theme 路线**
+        #   （原写"仍未落地/今天无落地"易读成全称 ⇒ 见该格 how 的限定语）。
         "h10.axes_box": {
             "python": {
                 "how": "`mcm.mplstyle` 的生成区为它落了 **6 个键**：`axes.spines.top: False` / "
@@ -411,12 +423,28 @@ def carrier_map(vals):
                        "同时证探针不是恒零）。**轴标签带单位**是**调用方纪律**（MATLAB 侧**无设置项**）。",
                 "status": "same-value"},
             "origin": origin(
-                "**去上/右框线与刻度朝内：侦察**未找到**能落到产物上的命令** —— 逐条试过 "
-                "`layer.frame=0` / `layer.x2.show=0; layer.y2.show=0` / `layer.x.opposite=0|1` / "
+                "**本仓今天没有实测到能落到产物上的方式**（**本支 Task 2/3 实测复证** + 侦察；"
+                "口径 = 当日实测、**非永久断言** —— 理由见末句）：本支 `mcmplot_origin.py` 应用样式后，"
+                "**三张 GREEN 产物均四边全框、刻度朝外**—— 即 H10 的『去上/右框线 + 刻度朝内』"
+                "**在产物上没发生**。★ **本支复量（产物层）**：origin G1 的**上(y=213)/下(y=1102)/"
+                "左(x=225)/右(x=1818)四条长直线俱在**，而 python / matlab 同场景 G1 **各只有左+下两条**"
+                "（开框；⇐ tests/skills/plot-origin/green/out-G1/figure.png 等，读法 = 逐行/逐列数"
+                "近黑像素是否占满 60% 以上）。侦察阶段**逐条试过** `layer.frame=0` / "
+                "`layer.x2.show=0; layer.y2.show=0` / `layer.x.opposite=0|1` / "
                 "`layer.x.tickDir=1` / `layer.x.tickdir=1` / `layer.x.tick.direction=1`，"
                 "**改前后图像差分像素全为 0**（⇐ tests/m3-origin-probe/out-f-axis-candidates.txt / "
-                "out-i-dpi-pagesize-frame.txt）。只有 `layer.x.minorTicks=0` 有非零差分（15 px，"
-                "「只留主刻度」或有路）⇒ 整条规则**今天无落地**，如实记 `not-landable`。",
+                "out-i-dpi-pagesize-frame.txt）。★ **这条证据只到『本仓试过的这些 token 里没有』，"
+                "不构成『不存在任何可落地方式』的全称**：同一批侦察里 `layer.x.majorTicks=3` 差分 **314** / "
+                "`layer.x.ticks=4` 差分 **409** / `layer.x.ticklength=2` 差分 **453** / "
+                "`layer.x.minorTicks=0` 差分 **15** —— **探针能测到轴向变化 ⇒ 不是探针坏了**；"
+                "且同一批的**反向正控制** `layer.x.show=0`（期望大改）差分**也是 0** ⇒ 探针"
+                "**分不清『该属性不存在』与『属性名猜错』**；**更没试过 `theme:=` 路线** —— "
+                "本支唯一真落地过的功能（字体 `F6`）正是靠 `expGraph … theme:=\"Times New Roman Font\";` "
+                "落地的，而侦察**未用 theme 路线试过轴设置** ⇒ **不能排除**另有 token 或 theme "
+                "能带出框线 / 刻度朝向。（仅 `layer.x.minorTicks=0` 有非零差分 —— 「只留主刻度」或有路。）"
+                "⇒ 结论**按今天实测**记 `not-landable`（`_status_defs.not-landable` 的正面定义"
+                "『本模块**今天确实没有**能落到产物上的方式』本就是**当日实测口径**，与本格证据相符；"
+                "本次只是把 how 里易被读成全称的措辞收窄，未改 status）。",
                 status="not-landable"),
         },
     }

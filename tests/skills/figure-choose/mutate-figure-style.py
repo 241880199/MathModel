@@ -854,25 +854,40 @@ def pad_to(text, n):
     return text + "\n" * (n - cur)
 
 
-# ---- `M33`/`M40` 的**语义锚**：目标 = 被验文本里**当前仍标〔拟建〕**的那个绘图 skill。
-# 为什么必须是语义锚（M3-matlab Task 1 的实测）：`mcm-plot-python`（M3-plot Task 2 落地）与
-# `mcm-plot-matlab`（M3-matlab Task 1 落地）先后建出并摘掉〔拟建〕⇒ **把名字写死**的写法每次有
-# skill 落地就失效：`M33` 的字面串命中 0（`sub_once` 抛错）、`M40` 的反向臂收不到 FAIL 行
-# ⇒ 整轮 `MUT` 跑不完（`exit 1`）。改成**现取**当前仍〔拟建〕的那一个（今天 = `mcm-plot-origin`），
-# 落地涟漪就不再打到这里。取不到（= 一个仍〔拟建〕的都没有）⇒ 两条各自 fail-closed，**不静默放行**。
-MARKED_PLOT_RE = re.compile(r"- `(mcm-plot-[a-z]+)`（〔拟建〕）")
+# ---- `M33`/`M40` 的**自造〔拟建〕场景**（2026-10-02 origin Task 1 改造）。
+# 为什么不再"从被改文本现取仍〔拟建〕的那一个"：`mcm-plot-origin` 是本支**最后一个**待建绘图
+# skill，它落地后真仓**一个仍〔拟建〕的绘图 skill 都没有** ⇒ 现取式写法在**空集**上 fail-closed
+# 抛错（`M33`/`M40` 双双失去对象），而这一次**没有"下一个待建"可以换过去**（matlab 那轮换到了
+# origin，正是本支）。⇒ 改成**自造场景**：在**副本 / 临时根**里**注入**一个**永不建目录**的绘图
+# skill 名（带〔拟建〕）——「标记与事实一致（不存在且标了）」= 绿、**可断言**；「摘掉标记」(`M33`)
+# 或「让它"存在"」(`M40`) = 红。两条都**不再依赖真仓是否还有待建 skill**。
+# ★ 这同时**了结了已知脆弱 `M3-matlab-T1c`**（"若某天一个仍〔拟建〕的都没有，M33/M40 都会抛错"）。
+PENDING_SKILL = "mcm-plot-pending"          # 该名**永不建目录** ⇒ 在 `K6` 眼里它"不存在"
+PENDING_MARK = "（〔拟建〕）"
+PENDING_NAMED = f"- `{PENDING_SKILL}`"      # 不带标记的形态
+PENDING_MARKED = PENDING_NAMED + PENDING_MARK   # 带标记的形态（= `K6` 眼里"一致"的那态）
+_PLOT_LINE_RE = re.compile(r"^\s*- `mcm-plot-[a-z]+`")
 
 
-def marked_plot_skills(text):
-    """`text` 里**仍标〔拟建〕**的绘图 skill 名（升序去重）。空集 ⇒ 调用方 fail-closed。"""
-    return sorted({m.group(1) for m in MARKED_PLOT_RE.finditer(text)})
+def inject_pending(text, marked=True):
+    """在 `text` 的**最后一行绘图 skill 列表项**之后**注入**一行 `mcm-plot-pending`（可带标记）。
+
+    注入点 = `_PLOT_LINE_RE` 命中的**最后一行**（语义锚是"边界段那张列表的末尾"），
+    **不写死任何一个真 skill 名** —— 那些名字本身也会随绘图家族演进变。
+    """
+    lines = text.splitlines(keepends=True)
+    hits = [i for i, l in enumerate(lines) if _PLOT_LINE_RE.match(l)]
+    if not hits:
+        raise AssertionError("被改文本里找不到『- `mcm-plot-*`』形态的行 ⇒ 注入点不存在（fail-closed）")
+    lines.insert(hits[-1] + 1, "  " + (PENDING_MARKED if marked else PENDING_NAMED) + "\n")
+    return "".join(lines)
 
 
-def m33_strip_marks(text):
-    """`M33` 的改法：把**仍标〔拟建〕**的绘图 skill 那几行的标记摘掉（按被改文本现取，不写死名字）。"""
-    if not marked_plot_skills(text):
-        raise AssertionError("文本里没有『- `mcm-plot-*`（〔拟建〕）』形态的行 ⇒ M33 失去对象")
-    return MARKED_PLOT_RE.sub(lambda m: f"- `{m.group(1)}`", text)
+def strip_pending_mark(text):
+    """`M33` 的改法：把**注入行**上的〔拟建〕摘掉（只摘我们自己注入的那一行，真件的行不碰）。"""
+    if PENDING_MARKED not in text:
+        raise AssertionError(f"文本里没有注入的『{PENDING_MARKED}』 ⇒ M33 失去对象（fail-closed）")
+    return text.replace(PENDING_MARKED, PENDING_NAMED)
 
 
 def skill_run(checker, skill, only):
@@ -967,7 +982,11 @@ def _m38_probe(_txt):
 
 
 def skill_mutations():
-    """`M29`–`M39`：`SKILL.md` 的十种改坏手法，逐条必须实测红。"""
+    """`M29`–`M39`（**去 M33**）：`SKILL.md` 的九种改坏手法，逐条必须实测红。
+
+    ★ `M33`（`K6` 正向臂）已于 2026-10-02（origin Task 1）**移出本表**，改由 `m33_pending_mut()`
+    以**自造〔拟建〕场景**做（与 `M40` 同批，见 `k6_exists_mut`）—— 理由见上面那段注释。
+    """
     return [
         ("M29", "SKILL.md：写进一条规范数值『图宽用满 0.951×正文宽』⇒ 重述规范（`K3` 与 `K5` 都红）",
          lambda t: sub_once(t, TOP_ITEM, "- **推荐图型**：给**一个首选**（图宽用满 0.951×正文宽）；"),
@@ -986,12 +1005,6 @@ def skill_mutations():
          lambda t: pad_to(t, 151), ["K1"], None),
         ("M32", "SKILL.md：入口 9 由『不确定性』改名 ⇒ `K4` 红（九个入口少一个）",
          lambda t: sub_all(t, "不确定性", "时变"), ["K4"], None),
-        ("M33", "SKILL.md：把点名绘图 skill 的那行的〔拟建〕去掉 ⇒ `K6` 红（点名不存在的 skill 即错）",
-         # 目标**不写死名字**：按被改文本**现取**"当前仍标〔拟建〕"的那一个（今天 = `mcm-plot-origin`）。
-         # 写死名字的写法两度失效：`mcm-plot-python`（M3-plot Task 2 建）、`mcm-plot-matlab`
-         # （M3-matlab Task 1 建）—— 每落地一个 skill 就得改一次源码，是恒会漂的写法。
-         m33_strip_marks,
-         ["K6"], None),
         # ---- 修复轮（复审 1 Important + N-2/N-3/N-4）
         ("M35", "SKILL.md：写进『主色四色以内』（中文数词 + 规范单位词）⇒ `K3` 的中文数词臂红"
                 "（原先整句走绿，见 Important-1）",
@@ -1023,37 +1036,63 @@ def _skills_tree():
     return sorted(p.relative_to(HOUSE_SKILLS).as_posix() for p in HOUSE_SKILLS.rglob("*"))
 
 
+def m33_pending_mut():
+    """`M33`：`K6` 的**正向臂** —— 点名一个**不存在**的绘图 skill **却不标〔拟建〕** ⇒ 红。
+
+    **自造场景**（不再从真件现取"仍〔拟建〕"的那一个，理由见上面那段注释）：副本 = 真件 +
+    注入一行 `mcm-plot-pending`（〔拟建〕）。先把**注入后（带标记）**这一态跑一遍，证它**绿**
+    （⇒ 这条不是恒红、注入点也没落错地方）；再把注入行的标记**摘掉** ⇒ `K6` 红。
+    """
+    text0 = SKILL_MD.read_bytes().decode("utf-8")
+    marked = inject_pending(text0, marked=True)
+    stripped = strip_pending_mark(marked)
+    if stripped == marked:
+        raise AssertionError("摘标记没改到文本（注入没命中？）")
+    mp_ok = HMUTD / "k6.pending-marked.SKILL.md"
+    mp_bad = HMUTD / "k6.pending-stripped.SKILL.md"
+    mp_ok.write_bytes(marked.encode("utf-8"))              # write_bytes：不用 write_text
+    mp_bad.write_bytes(stripped.encode("utf-8"))
+    rc_ok, out_ok = skill_run(HOUSE_CHK, mp_ok, ["K6"])
+    rc_bad, out_bad = skill_run(HOUSE_CHK, mp_bad, ["K6"])
+    pre_ok = rc_ok == 0 and "PASS  K6 " in out_ok
+    post_ok = rc_bad != 0 and "FAIL  K6 " in out_bad
+    line = next((l.split(None, 2)[-1] for l in out_bad.splitlines() if l.startswith("FAIL  K6")), "（缺 FAIL 行）")
+    return pre_ok and post_ok, (
+        f"前置(注入 `{PENDING_SKILL}`〔拟建〕、真根无此目录) exit={rc_ok} "
+        f"{'K6 绿' if pre_ok else '未绿 <<<'}；"
+        f"后置(摘掉该行标记 ⇒ 点名不存在却不标) exit={rc_bad} 『{line}』")
+
+
 def k6_exists_mut():
     """`M40`：`K6` 的**反向臂** —— 标了〔拟建〕的 skill **真的存在**时必须红（复审 N-5）。
 
-    做法：把 `--skills-root` 指到一个**临时根**（真件不碰），在那里把 `SKILL.md` 点到的**每一个**
-    绘图 skill 都建出目录（`K6` 用 `SKILLS_ROOT / <名字` 的 `.exists()` 判目录）⇒
-      · 仍标〔拟建〕的那一个（今天 = `mcm-plot-origin`）：标了却"存在" ⇒ **标记与事实不符** ⇒ 红；
+    **自造场景**（同 `M33`，不再从真件现取"仍〔拟建〕"的那一个）：副本 = 真件 + 注入一行
+    `mcm-plot-pending`（〔拟建〕）；`--skills-root` 指到一个**临时根**，把副本点到的**每一个**
+    绘图 skill（含 pending）都建出目录（`K6` 用 `SKILLS_ROOT / <名字>` 的 `.exists()` 判目录）⇒
+      · pending：标了〔拟建〕却"存在" ⇒ **标记与事实不符** ⇒ 红；
       · 其余（未标〔拟建〕且"存在"）⇒ 一致 ⇒ 不红。**隔离性质**就在这一步：本变异因此**只**打在
         "标了〔拟建〕却存在"这一个方向上，不与"未标却不存在"的正向臂混在一起。
-    **目标不写死名字**（同 `M33`）：`mcm-plot-python`（M3-plot Task 2 建）→ `mcm-plot-matlab`
-    （M3-matlab Task 1 建）→ **现取**。一个仍〔拟建〕的都没有 ⇒ 本变异**失去对象** ⇒ 抛错（fail-closed）。
-    前置（真根）必须绿；**并**自证跑前跑后真根的路径集合逐字未变（**非侵入**）。
+    前置（真件 + 真根）必须绿；**并**自证跑前跑后真根的路径集合逐字未变（**非侵入**）。
     """
-    def run(sroot):
-        p = subprocess.run([sys.executable, str(HOUSE_CHK), "--skill", str(SKILL_MD),
+    def run(skpath, sroot):
+        p = subprocess.run([sys.executable, str(HOUSE_CHK), "--skill", str(skpath),
                             "--skills-root", str(sroot), "--only", "K6"],
                            capture_output=True, text=True, cwd=str(ROOT))
         return p.returncode, p.stdout
 
-    sk_text = SKILL_MD.read_text(encoding="utf-8")
-    names = sorted(set(re.findall(r"mcm-plot-[a-z]+", sk_text)))       # `K6` 同款正则
-    marked = marked_plot_skills(sk_text)
-    if not marked:
-        raise AssertionError("`SKILL.md` 里没有仍标〔拟建〕的绘图 skill ⇒ M40 反向臂失去对象")
+    text0 = SKILL_MD.read_bytes().decode("utf-8")
+    fixture = inject_pending(text0, marked=True)
+    mp = HMUTD / "k6.pending-exists.SKILL.md"
+    mp.write_bytes(fixture.encode("utf-8"))
+    names = sorted(set(re.findall(r"mcm-plot-[a-z]+", fixture)))       # `K6` 同款正则
 
     tree_before = _skills_tree()
     with tempfile.TemporaryDirectory() as d:
         tmp = Path(d)
         for n in names:
-            (tmp / n).mkdir()          # 每个点名的 skill 都"存在"：未标的一致、标了的（marked）不符
-        rc_b, out_b = run(HOUSE_SKILLS)
-        rc_a, out_a = run(tmp)
+            (tmp / n).mkdir()          # 每个点名的 skill 都"存在"：未标的与事实一致、标了的（pending）不符
+        rc_b, out_b = run(SKILL_MD, HOUSE_SKILLS)          # 前置(真件 + 真根) ⇒ 绿
+        rc_a, out_a = run(mp, tmp)                         # 后置(注入行 + 临时根) ⇒ 红
     tree_after = _skills_tree()
     clean = tree_after == tree_before
     pre_ok = rc_b == 0 and "PASS  K6 " in out_b
@@ -1061,7 +1100,7 @@ def k6_exists_mut():
     line = next((l.split(None, 2)[-1] for l in out_a.splitlines() if l.startswith("FAIL  K6")), "（缺 FAIL 行）")
     return pre_ok and post_ok and clean, (
         f"前置(真 skills 根) exit={rc_b} {'K6 绿' if pre_ok else '未绿 <<<'}；"
-        f"后置(临时根里 {marked} 〔拟建〕却存在) exit={rc_a} 『{line}』；"
+        f"后置(临时根里 `{PENDING_SKILL}`〔拟建〕却存在) exit={rc_a} 『{line}』；"
         f"非侵入(真根路径集合跑前/跑后逐字相等)={clean}")
 
 
@@ -1666,14 +1705,16 @@ def run_house():
         failed.append("M34")
         kfailed.append("M34")
 
-    # ---- `M40`：`K6` 的反向臂（换 skills 根，真件不碰）
+    # ---- `M33`/`M40`：`K6` 的两个臂（**自造〔拟建〕场景**，真件不碰、也不依赖真仓是否还有待建 skill）
     # ---- `M41`：`K8`（打的是 `house-style.md` 的副本，真件不碰）
-    # 跑 `M40` 前后各快照一次真 skills 根的路径集合：`byte_ok` 用它证"换 `--skills-root` 没碰真根"
+    # 跑 `M33`/`M40` 前后各快照一次真 skills 根的路径集合：`byte_ok` 用它证"没往真根里写东西"
     # （原先借"真仓里反正没有 mcm-plot-python"当代理，该 skill 一建出就恒假 —— 见 `_skills_tree`）。
     skills_tree_before = _skills_tree()
     for mid, desc, fn in (
-        ("M40", "SKILL.md：`--skills-root` 指到**建出全部点名 skill** 的临时根 ⇒ 仍〔拟建〕的那个"
-                "（现取，今天 = `mcm-plot-origin`）变成『标了却存在』⇒ `K6` 红（反向臂）", k6_exists_mut),
+        ("M33", "SKILL.md：副本里**注入**一行 `mcm-plot-pending`（〔拟建〕）再**摘掉其标记** ⇒ "
+                "点名不存在的 skill 却不标 ⇒ `K6` 红（正向臂 · 自造场景）", m33_pending_mut),
+        ("M40", "SKILL.md：副本注入 `mcm-plot-pending`（〔拟建〕）、`--skills-root` 指到**建出它**的"
+                "临时根 ⇒ 『标了却存在』⇒ `K6` 红（反向臂 · 自造场景）", k6_exists_mut),
         ("M41", "house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：』行 ⇒ `K8` 红"
                 "（`SKILL.md` 那句『逐条标了验证状态』要成立）", k8_verify_line_mut),
     ):
@@ -1731,7 +1772,7 @@ def run_house():
     print(f"         {probe_row[3]}")
     print("\n" + "=" * 78)
     print(f"SKILL 守卫的变异（M29–M41 · 打的是 SKILL.md 的副本；M34/M41 打的是 house-style.md 的"
-          f"副本、M40 换 skills 根，共 {len(krows)} 条）")
+          f"副本、M33/M40 是**自造〔拟建〕场景**，共 {len(krows)} 条）")
     print("=" * 78)
     for st, mid, desc, detail in krows:
         print(f"{st:<8} {mid:<4} {desc}")
@@ -1876,7 +1917,7 @@ def main():
     n_skill_copy = len(skill_mutations())                 # 打 SKILL.md 副本的那几条
     print(f"MUT: {n_skill_ok}/{n_skill} 红（SKILL.md 的短契约守卫 K1–K8：{n_skill} 条"
           f"（{n_skill_copy} 条打 SKILL.md 副本 + {n_skill - n_skill_copy} 条打别的："
-          f"`K3` fail-closed 臂 / `K6` 反向臂 / `K8`））"
+          f"`K3` fail-closed 臂 / `K6` 的**两个臂**（M33 正向 · M40 反向，均为自造场景）/ `K8`））"
           + ("" if not grp["f_skill"] else f"（未达预期：{', '.join(grp['f_skill'])}）"))
     print(f"MUT: {n_ptr_ok}/{n_ptr} 红（引用完整性检查器 check-spec-pointers.py："
           f"`--skills-dir` 指假 skill 的全扫 + `K3` 仪器 fail-closed + 坏目录 fail-closed）"
