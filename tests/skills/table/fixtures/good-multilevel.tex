@@ -1,0 +1,28 @@
+% 正控制样本 2（判据全绿）：多级表头（\multicolumn + \cmidrule）+ 表内 \pm + 缺失值。
+% 列数 = 3；行数 = 4（多级表头行 / 列头行 / 两数据行）。
+% mcm-table-src: r1c1 <- pasted:r1c1
+% mcm-table-src: r1c2 <- pasted:r1c2
+% mcm-table-src: r1c3 <- pasted:r1c3
+% mcm-table-src: r2c1 <- pasted:r2c1
+% mcm-table-src: r2c2 <- pasted:r2c2
+% mcm-table-src: r2c3 <- pasted:r2c3
+% mcm-table-src: r3c1 <- pasted:r3c1
+% mcm-table-src: r3c2 <- pasted:r3c2
+% mcm-table-src: r3c3 <- pasted:r3c3
+% mcm-table-src: r4c1 <- pasted:r4c1
+% mcm-table-src: r4c2 <- pasted:r4c2
+% mcm-table-src: r4c3 <- pasted:r4c3
+\begin{table}[htbp]
+  \centering
+  \caption{Model fit across two datasets.}
+  \begin{tabular}{l S[table-format=2.3] S[table-format=1.2]}
+    \toprule
+    \multicolumn{2}{c}{Dataset A} & \multicolumn{1}{c}{Dataset B} \\
+    \cmidrule(lr){1-2}\cmidrule(lr){3-3}
+    Method & {RMSE} & {$R^2$} \\
+    \midrule
+    ARIMA & 1.234 & 0.91 \\
+    LSTM  & 0.987 \pm 0.021 & {--} \\
+    \bottomrule
+  \end{tabular}
+\end{table}

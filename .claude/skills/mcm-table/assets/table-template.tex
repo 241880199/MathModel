@@ -1,0 +1,35 @@
+% mcm-table / assets/table-template.tex
+% 最小可编译模板 —— 存在的唯一理由是「编译验收需要一个能独立编的最小 .tex」。
+% 它**不是样式来源**：表格的规范只在 ../references/table-style.md。
+% 自带 booktabs / siunitx；含 \typeout{MCMLAYOUT ...} 供判据取确定的版心宽。
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\pagestyle{empty}
+\typeout{MCMLAYOUT textwidth=\the\textwidth}
+\begin{document}
+
+% 来源回显（格式钉死在 ../references/table-style.md §3.2）：放在 \begin{table} 之前，
+% 每一格都要有一个 r<行>c<列> 出现在某一行注释的左端。
+% mcm-table-src: r1c1 <- pasted:r1c1
+% mcm-table-src: r1c2 <- pasted:r1c2
+% mcm-table-src: r2c1 <- pasted:r2c1
+% mcm-table-src: r2c2 <- pasted:r2c2
+% mcm-table-src: r3c1 <- pasted:r3c1
+% mcm-table-src: r3c2 <- pasted:r3c2
+\begin{table}[htbp]
+  \centering
+  \caption{An example table typeset with the mcm-table template.}
+  \begin{tabular}{l S[table-format=3.2]}
+    \toprule
+    Item  & {Value} \\
+    \midrule
+    Alpha & 12.34 \\
+    Beta  & {--}  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\end{document}

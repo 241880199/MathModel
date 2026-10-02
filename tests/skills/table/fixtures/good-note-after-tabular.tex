@@ -1,0 +1,28 @@
+% 正控制样本 5（判据全绿）：在浮动体里、`\end{tabular}` **之后**放一段表注（`\par` + 段落）。
+% 用途 = `C1`/`C4` 的**防假红对照**（2026-10-02 RED 暴露：判据量宽时把**整个** `table` 环境体
+% 塞进 `\settowidth`，表注里的 `\par` 触发 `Paragraph ended before \@settodim was complete`
+% ⇒ 片段本身编得过却报 `C1` 红、`C4` 分子量成 `0.0pt`）。本件必须全绿。
+% 列数 = 3；行数 = 3（列头行 + 两条数据行）。
+% mcm-table-src: r1c1 <- pasted:r1c1
+% mcm-table-src: r1c2 <- pasted:r1c2
+% mcm-table-src: r1c3 <- pasted:r1c3
+% mcm-table-src: r2c1 <- pasted:r2c1
+% mcm-table-src: r2c2 <- pasted:r2c2
+% mcm-table-src: r2c3 <- pasted:r2c3
+% mcm-table-src: r3c1 <- pasted:r3c1
+% mcm-table-src: r3c2 <- pasted:r3c2
+% mcm-table-src: r3c3 <- pasted:r3c3
+\begin{table}[htbp]
+  \centering
+  \caption{A table carrying a note below the tabular.}
+  \begin{tabular}{l l S[table-format=2.2]}
+    \toprule
+    Method & Note & {Value} \\
+    \midrule
+    Alpha & ok & 12.34 \\
+    Beta  & -- & {--} \\
+    \bottomrule
+  \end{tabular}
+  \par\smallskip
+  {\footnotesize Note: this note lives inside the float, after the tabular.}
+\end{table}

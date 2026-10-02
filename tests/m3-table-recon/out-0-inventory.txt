@@ -1,0 +1,381 @@
+### probe_0_inventory —— corpus/** PDF 分类（T1 分母）
+# repo = D:\Projects\数学建模
+# fitz = PyMuPDF 1.27.2.3: Python bindings for the MuPDF 1.27.2 library.
+
+relpath                                                    src-type   pages    chars      w      h  draw3  unit
+------------------------------------------------------------------------------------------------------------------------
+corpus/official/20YearsofGoodAdvice.pdf                    official       8    16675    612    792      0  official
+corpus/official/Contest_AI_Policy.pdf                      official       2     6233    612    792     26  official
+corpus/official/MCM-ICM_Tips.pdf                           official       8    18464    612    792     10  official
+corpus/official/MCM-directors-overview.pdf                 official      10    10172    612    792     32  official
+MuPDF error: format error: cmsOpenProfileFromMem failed
+
+corpus/official/UMAP-2003-judges-commentary.pdf            official     200   351606    612    792      7  official
+corpus/official/experience.pdf                             official       4     6553    612    792      0  official
+corpus/official/expertech.pdf                              official       4     9734    612    792      0  official
+corpus/official/reflections.pdf                            official       6    13063    612    792      0  official
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2200289.pdf                paper         25    43178    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2207343.pdf                paper         25    51777    612    792     10  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209466.pdf                paper         25    59552    595    842      4  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209812.pdf                paper         24    47714    612    792     23  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2210307.pdf                paper         25    48425    595    842      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2212245.pdf                paper         25    49572    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2216547.pdf                paper         25    48113    595    842      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2200084.pdf                paper         24    43799    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2202748.pdf                paper         25    57626    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2207864.pdf                paper         25    54341    595    842      4  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2211922.pdf                paper         25    52436    612    792      4  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2213970.pdf                paper         25    50526    612    792      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2228168.pdf                paper         25    48750    595    842      6  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2200401.pdf                paper         25    45123    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2200688.pdf                paper         24    49802    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2203120.pdf                paper         24    41963    612    792      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2204883.pdf                paper         25    47013    595    842      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2208834.pdf                paper         25    47274    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2212336.pdf                paper         25    51159    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2218743.pdf                paper         24    50018    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2218931.pdf                paper         25    49029    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2224507.pdf                paper         25    53306    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2229059.pdf                paper         24    34378    595    842     11  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/D/2208928.pdf                paper         22    44374    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/D/2215444.pdf                paper         22    44077    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/D/2218897.pdf                paper         23    46484    595    842     21  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/D/2224178.pdf                paper         24    56349    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2202171.pdf                paper         24    54388    612    792      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2202666.pdf                paper         21    39632    595    842      5  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2202838.pdf                paper         25    62180    612    792     21  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2203489.pdf                paper         25    52447    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2209336.pdf                paper         25    54801    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2216618.pdf                paper         25    44296    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2218144.pdf                paper         25    51736    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2220714.pdf                paper         25    47644    595    842      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2223269.pdf                paper         25    60865    612    792      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2223495.pdf                paper         25    60577    595    842     12  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2204803.pdf                paper         23    56070    595    842      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2208238.pdf                paper         25    55216    595    842      8  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2209952.pdf                paper         25    43683    612    792      3  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2211240.pdf                paper         25    47249    595    842      4  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2218577.pdf                paper         25    54188    612    792      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2220722.pdf                paper         25    68176    612    792      2  paper
+corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2224021.pdf                paper         25    52953    595    842      2  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2300336.pdf paper         25    43380    612    792      2  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2300661.pdf paper         25    44351    595    842      2  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2303950.pdf paper         25    53505    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2309229.pdf paper         25    62605    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2316994.pdf paper         25    48802    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2321860.pdf paper         24    48872    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2322687.pdf paper         25    52050    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/B/2300136.pdf paper         25    68525    612    792      4  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/B/2315379.pdf paper         25    58252    612    792      1  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/B/2318300.pdf paper         25    63565    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2300348.pdf paper         26    46190    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2301192.pdf paper         25    49180    595    842      2  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2307166.pdf paper         25    42347    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2307946.pdf paper         26    50264    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2309397.pdf paper         25    58654    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2310767.pdf paper         25    56978    595    842     68  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2311035.pdf paper         23    34933    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2311717.pdf paper         25    69223    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2314151.pdf paper         25    51670    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2318036.pdf paper         24    53717    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2318982.pdf paper         25    51933    612    792      2  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2322645.pdf paper         22    51207    612    792      2  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/D/2300229.pdf paper         25    52048    595    842      7  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/D/2303967.pdf paper         25    42808    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/D/2304962.pdf paper         25    50211    612    792      2  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2301428.pdf paper         25    46264    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2305598.pdf paper         25    58364    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2307336.pdf paper         24    46503    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2308000.pdf paper         25    57287    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2312411.pdf paper         25    69297    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2314354.pdf paper         25    72091    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2314817.pdf paper         25    52441    612    792      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2320131.pdf paper         25    48474    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/F/2305794.pdf paper         25    54513    612    792      2  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/F/2311258.pdf paper         25    57042    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/F/2311517.pdf paper         25    64322    595    842      3  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/F/2315018.pdf paper         24    57636    595    842     61  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2330610_00.pdf     paper         25    50441    596    842      4  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2330610_23.pdf     paper         25    50441    596    842      4  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2330646_08.pdf     paper         25    52175    596    842      0  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2330760_15.pdf     paper         25    61650    596    842      0  paper
+corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2332142_00.pdf     paper         25    54941    596    842      1  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2400996.pdf        paper         24    48988    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2405424.pdf        paper         25    54015    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2407093.pdf        paper         27    53752    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2424371.pdf        paper         25    50597    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2425397.pdf        paper         27    50448    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛B题O奖论文/2407038.pdf        paper         25    61461    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛B题O奖论文/2411570.pdf        paper         25    51631    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛B题O奖论文/2419984.pdf        paper         25    51033    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛B题O奖论文/2425792.pdf        paper         25    53555    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2401298.pdf        paper         25    48565    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2401445.pdf        paper         26    49199    595    842      2  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2401919.pdf        paper         27    66293    612    792    129  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2403774.pdf        paper         24    69613    595    842      1  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2406176.pdf        paper         28    52884    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2406324.pdf        paper         27    60810    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2409404.pdf        paper         25    62136    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2409961.pdf        paper         25    53748    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2410482.pdf        paper         26    50239    612    792      2  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2418251.pdf        paper         24    51440    612    792      2  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2425454.pdf        paper         31    65540    595    842      2  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2417004.pdf        paper         25    46683    595    842      5  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2417831.pdf        paper         25    51307    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2419588.pdf        paper         27    61299    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2429211.pdf        paper         25    51492    612    792      3  paper
+MuPDF error: syntax error: cannot find ExtGState resource 'KSPE314'
+
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2400860.pdf        paper         27    55936    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2401102.pdf        paper         25    51486    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2407414.pdf        paper         28    60911    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2410578.pdf        paper         25    59103    612    792      9  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2410889.pdf        paper         24    52136    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2413552.pdf        paper         25    63213    612    792      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2409949.pdf        paper         22    44026    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2413565.pdf        paper         25    74781    595    842     13  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2417340.pdf        paper         27    52670    595    842      3  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2422054.pdf        paper         25    50962    612    792      2  paper
+corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2426941.pdf        paper         27    65453    595    842      1  paper
+corpus/历届优秀论文/2025美赛O奖论文/A/2500836.pdf                     paper         25    53974    595    842      8  paper
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'R22'
+
+corpus/历届优秀论文/2025美赛O奖论文/A/2501567.pdf                     paper         25    43727    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/A/2501909.pdf                     paper         25    47326    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/A/2504218.pdf                     paper         26    65295    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/A/2511565.pdf                     paper         31    55475    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/B/2501687.pdf                     paper         25    43289    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/B/2502617.pdf                     paper         26    61563    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/B/2503268.pdf                     paper         26    56870    612    792     88  paper
+corpus/历届优秀论文/2025美赛O奖论文/B/2504448.pdf                     paper         25    46058    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/B/2505199.pdf                     paper         28    66997    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/B/2509557.pdf                     paper         26    52455    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/B/2517929.pdf                     paper         25    52661    595    842      9  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2500759.pdf                     paper         26    60486    595    842      2  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2501869.pdf                     paper         25    51033    595    842      2  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2503389.pdf                     paper         26    48472    595    842      2  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2505964.pdf                     paper         31    64599    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2507817.pdf                     paper         25    52501    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2510006.pdf                     paper         29    55901    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2510185.pdf                     paper         24    43196    612    792     74  paper
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+MuPDF error: syntax error: cannot find ExtGState resource 'gs4'
+
+corpus/历届优秀论文/2025美赛O奖论文/C/2510862.pdf                     paper         25    53928    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2513314.pdf                     paper         22    62321    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2514362.pdf                     paper         27    67922    595    842      8  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2514461.pdf                     paper         30    67649    595    842      1  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2515235.pdf                     paper         26    57746    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2516178.pdf                     paper         27    61736    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2516695.pdf                     paper         26    49353    595    842      2  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2517690.pdf                     paper         25    55792    595    842      4  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2521556.pdf                     paper         25    43862    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2522820.pdf                     paper         25    70810    612    792      6  paper
+corpus/历届优秀论文/2025美赛O奖论文/C/2524070.pdf                     paper         25    49043    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/D/2504188.pdf                     paper         26    46422    595    842      7  paper
+corpus/历届优秀论文/2025美赛O奖论文/D/2507692.pdf                     paper         25    50225    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/D/2516219.pdf                     paper         25    51854    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/D/2519935.pdf                     paper         27    52840    595    842      2  paper
+corpus/历届优秀论文/2025美赛O奖论文/E/2502355.pdf                     paper         26    63811    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/E/2508861.pdf                     paper         27    69494    595    842     12  paper
+corpus/历届优秀论文/2025美赛O奖论文/E/2515136.pdf                     paper         25    43752    612    792      2  paper
+corpus/历届优秀论文/2025美赛O奖论文/E/2517273.pdf                     paper         26    62705    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/F/2504223.pdf                     paper         25    52284    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/F/2507789.pdf                     paper         25    47739    612    792      1  paper
+corpus/历届优秀论文/2025美赛O奖论文/F/2513705.pdf                     paper         33    88551    612    792      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/F/2517199.pdf                     paper         25    53556    595    842      3  paper
+corpus/历届优秀论文/2025美赛O奖论文/F/2521039.pdf                     paper         27    65262    595    842      6  paper
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2000.2.pdf     volume        96        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2000.3.pdf     volume       234        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2001.2.pdf     volume        96        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2001.3.pdf     volume       164        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2002.2.pdf     volume        94        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2002.3.pdf     volume       192        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2003.2.pdf     volume       108        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2003.3.pdf     volume       200        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2004.2.pdf     volume        96        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2004.3.pdf     volume       176        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2005.2.pdf     volume        96        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2005.3.pdf     volume       221        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2006.2.pdf     volume        96        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2006.3.pdf     volume       237        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2007.2.pdf     volume        96        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2007.3.pdf     volume       304        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2008.2.pdf     volume        95        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2008.3.pdf     volume       213        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2009.2.pdf     volume        94        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2009.3.pdf     volume       234        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2010.2.pdf     volume        96        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2000-2010年美赛特等奖优秀论文集/UMAP-2010.3.pdf     volume        98        0    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2011-MCM-ICM.pdf volume        95     5985    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2011-MCM.pdf   volume        95     5985    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2012-ICM.pdf   volume       127     8001    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2012-MCM.pdf   volume        95     5985    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2013-MCM-ICM.pdf volume       169    10647    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2014-MCM-ICM.pdf volume       190    11970    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2015-ICM.pdf   volume       104     6552    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2015-MCM.pdf   volume        93     5859    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2016-ICM.pdf   volume       142     8946    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2016-MCM.pdf   volume       102     6426    612    792      0  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2017-ICM.pdf   volume       150   309839    612    792      2  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2017-MCM.pdf   volume       116   214606    612    792      2  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2018-ICM.pdf   volume       148   311489    612    792     35  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2018-MCM.pdf   volume       116   236203    612    792     35  volume
+corpus/历届优秀论文/UMAP2010-2019年美赛特等奖优秀论文集/UMAP-2019-ICM.pdf   volume       176   347004    612    792     35  volume
+corpus/官方原题/2016/2016_ICM_Problem_D.pdf                    problem        2     5280    612    792     15  problem
+corpus/官方原题/2016/2016_ICM_Problem_E.pdf                    problem        2     5666    612    792      6  problem
+corpus/官方原题/2016/2016_ICM_Problem_F.pdf                    problem        3     8307    612    792     10  problem
+corpus/官方原题/2016/2016_MCM_Problem_A.pdf                    problem        1     1530    612    792      0  problem
+corpus/官方原题/2016/2016_MCM_Problem_B.pdf                    problem        1     2223    612    792      0  problem
+corpus/官方原题/2016/2016_MCM_Problem_C.pdf                    problem        1     3148    612    792      8  problem
+corpus/官方原题/2017/2017_ICM_Problem_D.pdf                    problem        3     7166    612    792     10  problem
+corpus/官方原题/2017/2017_ICM_Problem_E.pdf                    problem        2     4179    612    792      5  problem
+corpus/官方原题/2017/2017_ICM_Problem_F.pdf                    problem        5    10748    612    792     23  problem
+corpus/官方原题/2017/2017_MCM_Problem_A.pdf                    problem        1     2820    612    792      2  problem
+corpus/官方原题/2017/2017_MCM_Problem_B.pdf                    problem        1     2670    612    792      1  problem
+corpus/官方原题/2017/2017_MCM_Problem_C.pdf                    problem        2    10604    612    792   2263  problem
+corpus/官方原题/2018/2018_ICM_Problem_D.pdf                    problem        2     7171    612    792     14  problem
+corpus/官方原题/2018/2018_ICM_Problem_E.pdf                    problem        2     4130    612    792     12  problem
+corpus/官方原题/2018/2018_ICM_Problem_F.pdf                    problem        3     8468    612    792     97  problem
+corpus/官方原题/2018/2018_MCM_Problem_A.pdf                    problem        1     3060    612    792      2  problem
+corpus/官方原题/2018/2018_MCM_Problem_B.pdf                    problem        7    10584    612    792    398  problem
+corpus/官方原题/2018/2018_MCM_Problem_C.pdf                    problem        2     3879    612    792      2  problem
+corpus/官方原题/2019/2019_ICM_Problem_D.pdf                    problem        3     5190    612    792     12  problem
+corpus/官方原题/2019/2019_ICM_Problem_E.pdf                    problem        3     5234    612    792      6  problem
+corpus/官方原题/2019/2019_ICM_Problem_F.pdf                    problem        3     7185    612    792      7  problem
+corpus/官方原题/2019/2019_MCM_Problem_A.pdf                    problem        1     3434    595    842      4  problem
+corpus/官方原题/2019/2019_MCM_Problem_B.pdf                    problem        6    11162    612    792    110  problem
+corpus/官方原题/2019/2019_MCM_Problem_C.pdf                    problem        3     6970    612    792      7  problem
+corpus/官方原题/2020/2020_ICM_Problem_D.pdf                    problem        3     7180    612    792      5  problem
+corpus/官方原题/2020/2020_ICM_Problem_E.pdf                    problem        2     5053    612    792      4  problem
+corpus/官方原题/2020/2020_ICM_Problem_F.pdf                    problem        5    15655    612    792      8  problem
+corpus/官方原题/2020/2020_MCM_Problem_A.pdf                    problem        2       22    612    792   3922  problem
+corpus/官方原题/2020/2020_MCM_Problem_B.pdf                    problem        1     2860    612    792      1  problem
+corpus/官方原题/2020/2020_MCM_Problem_C.pdf                    problem        3     6612    612    792      3  problem
+corpus/官方原题/2021/2021_ICM_Problem_D.pdf                    problem        5    12425    612    792     96  problem
+corpus/官方原题/2021/2021_ICM_Problem_E.pdf                    problem        2     4670    612    792      0  problem
+corpus/官方原题/2021/2021_ICM_Problem_F.pdf                    problem        2     4235    612    792      6  problem
+corpus/官方原题/2021/2021_MCM_Problem_A.pdf                    problem        4     9446    595    842      1  problem
+corpus/官方原题/2021/2021_MCM_Problem_B.pdf                    problem        3     6571    612    792     30  problem
+corpus/官方原题/2021/2021_MCM_Problem_C.pdf                    problem        4     6890    612    792      2  problem
+corpus/官方原题/2022/2022_ICM_Problem_D.pdf                    problem        3     8288    612    792      0  problem
+corpus/官方原题/2022/2022_ICM_Problem_E.pdf                    problem        3     6569    612    792      0  problem
+corpus/官方原题/2022/2022_ICM_Problem_F.pdf                    problem        2     4965    612    792      0  problem
+corpus/官方原题/2022/2022_MCM_Problem_A.pdf                    problem        3     6243    612    792      0  problem
+corpus/官方原题/2022/2022_MCM_Problem_B.pdf                    problem        3     6606    612    792      0  problem
+corpus/官方原题/2022/2022_MCM_Problem_C.pdf                    problem        2     3105    612    792      0  problem
+corpus/官方原题/2023/2023_ICM_Problem_D.pdf                    problem        2     3859    612    792      1  problem
+corpus/官方原题/2023/2023_ICM_Problem_E.pdf                    problem        2     4734    612    792      0  problem
+corpus/官方原题/2023/2023_ICM_Problem_F.pdf                    problem        2     5067    612    792      2  problem
+corpus/官方原题/2023/2023_ICM_Problem_Z.pdf                    problem        1     2649    612    792      1  problem
+corpus/官方原题/2023/2023_MCM_Problem_A.pdf                    problem        2     3114    612    792      0  problem
+corpus/官方原题/2023/2023_MCM_Problem_B.pdf                    problem        2     3151    612    792      0  problem
+corpus/官方原题/2023/2023_MCM_Problem_C.pdf                    problem        4     7052    612    792      5  problem
+corpus/官方原题/2024/2024_ICM_Problem_D.pdf                    problem        5    12790    612    792     38  problem
+corpus/官方原题/2024/2024_ICM_Problem_E.pdf                    problem        4    11725    612    792     48  problem
+corpus/官方原题/2024/2024_ICM_Problem_F.pdf                    problem        4    10235    612    792      9  problem
+corpus/官方原题/2024/2024_MCM_Problem_A.pdf                    problem        4     9099    612    792      9  problem
+corpus/官方原题/2024/2024_MCM_Problem_B.pdf                    problem        4     9844    612    792     28  problem
+corpus/官方原题/2024/2024_MCM_Problem_C.pdf                    problem        8    18525    612    792      3  problem
+corpus/官方原题/2025/2025_ICM_Problem_D.pdf                    problem        5    12658    612    792      6  problem
+corpus/官方原题/2025/2025_ICM_Problem_E.pdf                    problem        4     9488    612    792     24  problem
+corpus/官方原题/2025/2025_ICM_Problem_F.pdf                    problem        3     6963    612    792     10  problem
+corpus/官方原题/2025/2025_MCM_Problem_A.pdf                    problem        2     5767    595    842      8  problem
+corpus/官方原题/2025/2025_MCM_Problem_B.pdf                    problem        3     6270    612    792     13  problem
+corpus/官方原题/2025/2025_MCM_Problem_C.pdf                    problem        4     9184    612    792    124  problem
+corpus/官方原题/2026/2026_ICM_Problem_D.pdf                    problem        4    11430    612    792     72  problem
+corpus/官方原题/2026/2026_ICM_Problem_E.pdf                    problem        4     8478    612    792      4  problem
+corpus/官方原题/2026/2026_ICM_Problem_F.pdf                    problem        2     5624    612    792      2  problem
+corpus/官方原题/2026/2026_MCM_Problem_A.pdf                    problem        3     5980    612    792     29  problem
+corpus/官方原题/2026/2026_MCM_Problem_B.pdf                    problem        3     6710    612    792     45  problem
+corpus/官方原题/2026/2026_MCM_Problem_C.pdf                    problem        5    11738    612    792    136  problem
+
+### 汇总（不声称穷尽；本探针只区分下表这些 unit）
+  official        8
+  paper         164
+  problem        67
+  volume         37
+  TOTAL         276  (= 文件总数)
+
+### 论文分母候选（unit=paper）：164 份
+  口径：单册单题、有文本层、页数 <60 的 O 奖论文 PDF。
+  不含：scanned 卷（UMAP）、官方赛题、官方文档。
+
+### 可量性预判（reading 6 的伏笔；真正的读数在 probe_2）
+  全样本 276 份：有文本层 254、抽 3 页见矢量图元 226
+  ⇒ 无文本层的 PDF 一律量不出表（probe_2 会以 chars/pages 判）

@@ -1,0 +1,1 @@
+Vulnerability composition of the six districts: the share of each district's land area falling in the low, medium and high vulnerability tiers. In every district the three shares sum to 1.00, so the Low, Medium and High columns together describe each district completely. The most similar pair is B and D, whose tier shares differ by at most 0.03 in any tier.

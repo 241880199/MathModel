@@ -1,0 +1,75 @@
+% mcm-table-src: r1c1 <- pasted:r1c1
+% mcm-table-src: r1c2 <- pasted:r1c2
+% mcm-table-src: r1c3 <- pasted:r1c3
+% mcm-table-src: r1c4 <- pasted:r1c4
+% mcm-table-src: r1c5 <- pasted:r1c5
+% mcm-table-src: r1c6 <- pasted:r1c6
+% mcm-table-src: r2c1 <- pasted:r2c1
+% mcm-table-src: r2c2 <- pasted:r2c2
+% mcm-table-src: r2c3 <- pasted:r2c3
+% mcm-table-src: r2c4 <- pasted:r2c4
+% mcm-table-src: r2c5 <- pasted:r2c5
+% mcm-table-src: r2c6 <- pasted:r2c6
+% mcm-table-src: r3c1 <- pasted:r3c1
+% mcm-table-src: r3c2 <- pasted:r3c2
+% mcm-table-src: r3c3 <- pasted:r3c3
+% mcm-table-src: r3c4 <- pasted:r3c4
+% mcm-table-src: r3c5 <- pasted:r3c5
+% mcm-table-src: r3c6 <- pasted:r3c6
+% mcm-table-src: r4c1 <- pasted:r4c1
+% mcm-table-src: r4c2 <- pasted:r4c2
+% mcm-table-src: r4c3 <- pasted:r4c3
+% mcm-table-src: r4c4 <- pasted:r4c4
+% mcm-table-src: r4c5 <- pasted:r4c5
+% mcm-table-src: r4c6 <- pasted:r4c6
+% mcm-table-src: r5c1 <- pasted:r5c1
+% mcm-table-src: r5c2 <- pasted:r5c2
+% mcm-table-src: r5c3 <- pasted:r5c3
+% mcm-table-src: r5c4 <- pasted:r5c4
+% mcm-table-src: r5c5 <- pasted:r5c5
+% mcm-table-src: r5c6 <- pasted:r5c6
+% mcm-table-src: r6c1 <- pasted:r6c1
+% mcm-table-src: r6c2 <- pasted:r6c2
+% mcm-table-src: r6c3 <- pasted:r6c3
+% mcm-table-src: r6c4 <- pasted:r6c4
+% mcm-table-src: r6c5 <- pasted:r6c5
+% mcm-table-src: r6c6 <- pasted:r6c6
+% mcm-table-src: r7c1 <- pasted:r7c1
+% mcm-table-src: r7c2 <- pasted:r7c2
+% mcm-table-src: r7c3 <- pasted:r7c3
+% mcm-table-src: r7c4 <- pasted:r7c4
+% mcm-table-src: r7c5 <- pasted:r7c5
+% mcm-table-src: r7c6 <- pasted:r7c6
+% mcm-table-src: r8c1 <- pasted:r8c1
+% mcm-table-src: r8c2 <- pasted:r8c2
+% mcm-table-src: r8c3 <- pasted:r8c3
+% mcm-table-src: r8c4 <- pasted:r8c4
+% mcm-table-src: r8c5 <- pasted:r8c5
+% mcm-table-src: r8c6 <- pasted:r8c6
+\begin{table}[htbp]
+  \centering
+  \caption{Vulnerability composition of the six districts. The Low, Medium and High
+  columns give the share of each district's land area in that tier; the three shares
+  sum to 1.00. The right-hand pair of columns names, for each district, the district
+  whose composition is closest and the total-variation distance between the two
+  (smaller = more similar). Districts B and D form the most similar pair, differing
+  by at most 0.03 in any tier.}
+  \label{tab:vulnerability-composition}
+  \begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] l S[table-format=1.2]}
+    \toprule
+    & \multicolumn{3}{c}{Land-area share by tier} & \multicolumn{2}{c}{Closest composition} \\
+    District & {Low} & {Medium} & {High} & District & {Distance} \\
+    \midrule
+    A & 0.42 & 0.35 & 0.23 & E & 0.05 \\
+    B & 0.31 & 0.44 & 0.25 & D & 0.03 \\
+    C & 0.55 & 0.30 & 0.15 & F & 0.05 \\
+    D & 0.28 & 0.47 & 0.25 & B & 0.03 \\
+    E & 0.37 & 0.38 & 0.25 & A & 0.05 \\
+    F & 0.50 & 0.33 & 0.17 & C & 0.05 \\
+    \bottomrule
+  \end{tabular}
+  \par\smallskip
+  {\footnotesize Note: shares are dimensionless fractions of land area. ``Distance''
+  is the total-variation distance, half the sum of the absolute tier differences
+  (range 0--1), computed on the shares as tabulated.}
+\end{table}

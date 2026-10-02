@@ -9,9 +9,9 @@
 | `tests/skills/plot-matlab/mutate-plot-style.py` | `f8fe04fc784869f987d32bc05a3d16291817242a` |
 | `tests/skills/plot-matlab/probe-h10-band-ink.py` | `bcf08317907b0aef73439c074c1220745aa9929f` |
 | `tests/skills/plot-matlab/gen-mcm-style-matlab.py` | `ab65cbc2f080f605337a5634a31b6c4d55473333` |
-| `tests/skills/figure-choose/gen-style-table.py` | `7df8c57794fe9b160c77d64ccc942529d2ef89a8` |
+| `tests/skills/figure-choose/gen-style-table.py` | `39a276e7f7a2adfcc0578ed860fa1767206ca7cb` |
 | `tests/skills/figure-choose/check-figure-style.py` | `47b9f4c355d6f12f5a3ee020aaff383c0294533b` |
-| `.claude/skills/mcm-figure-choose/assets/mcm-style.json` | `227fc3994e6fe761e2dd8514c3f405e88098ac77` |
+| `.claude/skills/mcm-figure-choose/assets/mcm-style.json` | `3808318b5485b2d03a858df7f9df219ca5e159fe` |
 | `.claude/skills/mcm-plot-matlab/assets/mcmplot.m` | `7c48c8d744894df1d156d79c5c2f81c06b1b475d` |
 | `.claude/skills/mcm-figure-choose/references/house-style.md` | `c11ae7cb9ecfa0618781f2aa0533212b70910333` |
 
@@ -43,10 +43,10 @@ RESULT: PASS
 ==============================================================================
 检查器 = tests/skills/plot-matlab/check-style-freshness.py  blob e33db2aaadd90696677661fbbafa4151124adb58
 判据 = tests/skills/figure-choose/check-figure-style.py  blob 47b9f4c355d6f12f5a3ee020aaff383c0294533b
-  受保护件 .claude/skills/mcm-figure-choose/assets/mcm-style.json   blob 227fc3994e6fe761e2dd8514c3f405e88098ac77
+  受保护件 .claude/skills/mcm-figure-choose/assets/mcm-style.json   blob 3808318b5485b2d03a858df7f9df219ca5e159fe
   受保护件 .claude/skills/mcm-plot-matlab/assets/mcmplot.m          blob 7c48c8d744894df1d156d79c5c2f81c06b1b475d
   受保护件 tests/skills/plot-matlab/gen-mcm-style-matlab.py         blob ab65cbc2f080f605337a5634a31b6c4d55473333
-  受保护件 tests/skills/figure-choose/gen-style-table.py            blob 7df8c57794fe9b160c77d64ccc942529d2ef89a8
+  受保护件 tests/skills/figure-choose/gen-style-table.py            blob 39a276e7f7a2adfcc0578ed860fa1767206ca7cb
 
 前置（干净态）：exit=0 · RESULT: PASS
 
@@ -178,10 +178,10 @@ REFUTED-OK  M69  **字面形态对照**：原地重跑把过期件改对 ⇒「�
 ==============================================================================
 还原自证
 ==============================================================================
-  .claude/skills/mcm-figure-choose/assets/mcm-style.json   blob 227fc3994e6fe761e2dd8514c3f405e88098ac77  == 变异前
+  .claude/skills/mcm-figure-choose/assets/mcm-style.json   blob 3808318b5485b2d03a858df7f9df219ca5e159fe  == 变异前
   .claude/skills/mcm-plot-matlab/assets/mcmplot.m          blob 7c48c8d744894df1d156d79c5c2f81c06b1b475d  == 变异前
   tests/skills/plot-matlab/gen-mcm-style-matlab.py         blob ab65cbc2f080f605337a5634a31b6c4d55473333  == 变异前
-  tests/skills/figure-choose/gen-style-table.py            blob 7df8c57794fe9b160c77d64ccc942529d2ef89a8  == 变异前
+  tests/skills/figure-choose/gen-style-table.py            blob 39a276e7f7a2adfcc0578ed860fa1767206ca7cb  == 变异前
   受保护件逐个 blob 还原: True
   临时根已清空: _mut=True · _probe=True
   变异后复跑（干净态）: exit=0 · RESULT: PASS
@@ -591,11 +591,11 @@ RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：�
 引用完整性检查器的变异（M43–M46 · 打的是 check-spec-pointers.py；`--skills-dir` 指 fixtures/fake-skills/ 与两个坏目录，共 4 条）
 ==============================================================================
 RED-OK   M43  引用完整性：整体跑 `fixtures/fake-skills/` ⇒ `mcm-plot-nopointer` 缺指针由 **K2** 点名、`mcm-plot-restate` 重述数值由 **K3** 点名，家族正则另外两条备选（`mcm-table` / `mcm-schematic`）缺指针也**各自**由 **K2** 点名（四条各打各的）
-         前置(真仓扫到 8 个 skill) exit=0 末行『RESULT: PASS (绘图家族 3 个，K2/K3 全绿)』绿：判到且无 FAIL 行；后置(假 skill 目录扫到 5 份) exit=1 全目录共红 4 条、末行『RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）』 —— `mcm-plot-nopointer` 由 **K2** 点名=True、`mcm-plot-restate` 由 **K3** 点名=True、`mcm-table` 由 **K2** 点名=True、`mcm-schematic` 由 **K2** 点名=True；NOTE/两条规则**各打各的**（另四格全绿）：K3@mcm-plot-nopointer=True · K2@mcm-plot-restate=True · `mcm-plot-ok` 两格=True
+         前置(真仓扫到 9 个 skill) exit=0 末行『RESULT: PASS (绘图家族 4 个，K2/K3 全绿)』绿：判到且无 FAIL 行；后置(假 skill 目录扫到 5 份) exit=1 全目录共红 4 条、末行『RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）』 —— `mcm-plot-nopointer` 由 **K2** 点名=True、`mcm-plot-restate` 由 **K3** 点名=True、`mcm-table` 由 **K2** 点名=True、`mcm-schematic` 由 **K2** 点名=True；NOTE/两条规则**各打各的**（另四格全绿）：K3@mcm-plot-nopointer=True · K2@mcm-plot-restate=True · `mcm-plot-ok` 两格=True
 RED-OK   M44  引用完整性：只留 `mcm-plot-ok` 再跑 ⇒ **绿**（本组唯一能证这个检查器不是恒 FAIL 的一条）
          只留 `mcm-plot-ok`（临时根，真件不碰；目录名**逐字**打出来自证人不在赌路径）exit=0 K2=PASS、K3=PASS、末行『RESULT: PASS (绘图家族 1 个，K2/K3 全绿)』 ⇒ 这个检查器**不是恒 FAIL**
 RED-OK   M45  check-house-style.py：把 `_k3` 抽参照物的**三族全改坏**（小数正则 + `SK_CN_TIER_RES` 整条 ⇒ 两族值池一起空）⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红（打真仓：全局仪器探针自身 fail-closed —— 哪怕该轮没有逐份对象，它照样承重）
-         前置(真检查器) exit=0 仪器探针绿；后置(副本三族参照物全改坏) exit=1 『FAIL  INSTR  K3@空串  禁止串（现取）：小数 0 条 · 阈值值池 上界 [] / 下界 [] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，…』、全跑共红 4 条（真仓 3 个家族 ⇒ 除仪器探针外逐份判据红 3 条）、末行『RESULT: FAIL（INSTR:K3,K3@mcm-plot-matlab,K3@mcm-plot-origin,K3@mcm-plot-python）』　NOTE/副本已删：True
+         前置(真检查器) exit=0 仪器探针绿；后置(副本三族参照物全改坏) exit=1 『FAIL  INSTR  K3@空串  禁止串（现取）：小数 0 条 · 阈值值池 上界 [] / 下界 [] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，…』、全跑共红 5 条（真仓 4 个家族 ⇒ 除仪器探针外逐份判据红 4 条）、末行『RESULT: FAIL（INSTR:K3,K3@mcm-plot-matlab,K3@mcm-plot-origin,K3@mcm-plot-python,K3@mcm-table）』　NOTE/副本已删：True
 RED-OK   M46  引用完整性：`--skills-dir` 指向坏目录 ⇒ 非零退出（分支 a 目录不存在 · 分支 b 目录在但一个 `SKILL.md` 都没有）
          分支 a(目录不存在) exit=1 『FAIL  DIR       `--skills-dir` 不存在或不是目录：tests/skills/figure-choose/fixtu…』；分支 b(目录在、一个 `SKILL.md` 都没有) exit=1 『FAIL  CENSUS    一个 skill 都没扫到（目录里没有 `*/SKILL.md`）⇒ fail-closed…』；两分支都没有 `RESULT: PASS`=True
 

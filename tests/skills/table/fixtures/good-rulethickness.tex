@@ -1,0 +1,31 @@
+% 正控制样本 6（判据全绿）：可选线宽参数 —— 三条主线用 \toprule[..]/\midrule[..]/\bottomrule[..]，
+% 分组线用 \cmidrule[..](trim){range}。用途 = I-1「第三处假红」的**防假红对照**（2026-10-03）：
+% 旧 RULES_RE 不吞 [..] ⇒ 剥掉规则线后留裸 `[..]` ⇒ 幻影一行 ⇒ C5 + C8 假红（表本身能编过）。
+% ★ 紧贴（\toprule[1.2pt]）与**横空白分隔**（\midrule [0.8pt]）两种写法都覆盖（不声称穷尽）。
+% 本件必须全绿。列数 = 3；行数 = 4（分组头行 / 列头行 / 两条数据行）。
+% mcm-table-src: r1c1 <- pasted:r1c1
+% mcm-table-src: r1c2 <- pasted:r1c2
+% mcm-table-src: r1c3 <- pasted:r1c3
+% mcm-table-src: r2c1 <- pasted:r2c1
+% mcm-table-src: r2c2 <- pasted:r2c2
+% mcm-table-src: r2c3 <- pasted:r2c3
+% mcm-table-src: r3c1 <- pasted:r3c1
+% mcm-table-src: r3c2 <- pasted:r3c2
+% mcm-table-src: r3c3 <- pasted:r3c3
+% mcm-table-src: r4c1 <- pasted:r4c1
+% mcm-table-src: r4c2 <- pasted:r4c2
+% mcm-table-src: r4c3 <- pasted:r4c3
+\begin{table}[htbp]
+  \centering
+  \caption{A compliant table with explicit rule thicknesses.}
+  \begin{tabular}{l S[table-format=1.2] S[table-format=1.2]}
+    \toprule[1.2pt]
+    & \multicolumn{2}{c}{Score} \\
+    \cmidrule[0.6pt](lr){2-3}
+    Item & {A} & {B} \\
+    \midrule [0.8pt]
+    Alpha & 1.00 & 2.00 \\
+    Beta  & {--} & 3.00 \\
+    \bottomrule[1.2pt]
+  \end{tabular}
+\end{table}

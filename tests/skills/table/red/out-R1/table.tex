@@ -1,0 +1,34 @@
+% Vulnerability composition of the six districts.
+% Self-contained snippet: paste into an existing document.
+% Requires: booktabs, siunitx.
+\begin{table}[htbp]
+  \centering
+  \caption{Vulnerability composition of the six districts. Entries are the share of
+  each district's land area in the low, medium and high vulnerability tiers; the three
+  shares in a row sum to 1.00. The right-hand panel gives each district's nearest
+  neighbour under the $L_1$ (Manhattan) distance between composition vectors; districts~B
+  and~D are the most similar pair (distance 0.06).}
+  \label{tab:district-vulnerability}
+  \begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] l S[table-format=1.2]}
+    \toprule
+    & \multicolumn{3}{c}{Share of land area} & \multicolumn{2}{c}{Nearest neighbour} \\
+    \cmidrule(lr){2-4}\cmidrule(lr){5-6}
+    District & {Low} & {Medium} & {High} & {District} & {$L_1$ distance} \\
+    \midrule
+    A             & 0.42 & 0.35 & 0.23 & E & 0.10 \\
+    B$^{\dagger}$ & 0.31 & 0.44 & 0.25 & D & 0.06 \\
+    C             & 0.55 & 0.30 & 0.15 & F & 0.10 \\
+    D$^{\dagger}$ & 0.28 & 0.47 & 0.25 & B & 0.06 \\
+    E             & 0.37 & 0.38 & 0.25 & A & 0.10 \\
+    F             & 0.50 & 0.33 & 0.17 & C & 0.10 \\
+    \bottomrule
+  \end{tabular}
+  \par\smallskip
+  \begin{minipage}{\linewidth}
+    \footnotesize
+    \textit{Notes:} Shares are dimensionless fractions of land area, reported as
+    measured. The $L_1$ distance is the sum of absolute differences between two
+    districts' composition vectors (range 0--2); it is computed on the shares as
+    tabulated. $\dagger$ marks the two districts forming the most similar pair.
+  \end{minipage}
+\end{table}

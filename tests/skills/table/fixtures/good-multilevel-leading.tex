@@ -1,0 +1,43 @@
+% 正控制样本 4（判据全绿）：**两级表头用「前导 `&`」的标准写法**（首格留空 + \cmidrule 分组）。
+% 用途 = `C5`/`C7` 的**防假红对照**（2026-10-02 三份 RED 暴露：首格占位被误判成「空格子 /
+% 错形缺失值」）。与本仓已有的 `good-multilevel.tex` 互补 —— 后者用「无前导 `&`、直接
+% `\multicolumn{2}{c}{…} & …`」的写法，**绕开了**首格留空这条路径，故彼时没抓到假红。
+% 列数 = 6；行数 = 4（分组头行 / 列头行 / 两条数据行）。
+% mcm-table-src: r1c1 <- pasted:r1c1
+% mcm-table-src: r1c2 <- pasted:r1c2
+% mcm-table-src: r1c3 <- pasted:r1c3
+% mcm-table-src: r1c4 <- pasted:r1c4
+% mcm-table-src: r1c5 <- pasted:r1c5
+% mcm-table-src: r1c6 <- pasted:r1c6
+% mcm-table-src: r2c1 <- pasted:r2c1
+% mcm-table-src: r2c2 <- pasted:r2c2
+% mcm-table-src: r2c3 <- pasted:r2c3
+% mcm-table-src: r2c4 <- pasted:r2c4
+% mcm-table-src: r2c5 <- pasted:r2c5
+% mcm-table-src: r2c6 <- pasted:r2c6
+% mcm-table-src: r3c1 <- pasted:r3c1
+% mcm-table-src: r3c2 <- pasted:r3c2
+% mcm-table-src: r3c3 <- pasted:r3c3
+% mcm-table-src: r3c4 <- pasted:r3c4
+% mcm-table-src: r3c5 <- pasted:r3c5
+% mcm-table-src: r3c6 <- pasted:r3c6
+% mcm-table-src: r4c1 <- pasted:r4c1
+% mcm-table-src: r4c2 <- pasted:r4c2
+% mcm-table-src: r4c3 <- pasted:r4c3
+% mcm-table-src: r4c4 <- pasted:r4c4
+% mcm-table-src: r4c5 <- pasted:r4c5
+% mcm-table-src: r4c6 <- pasted:r4c6
+\begin{table}[htbp]
+  \centering
+  \caption{Composition by district, with a two-level header.}
+  \begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] l S[table-format=1.2]}
+    \toprule
+    & \multicolumn{3}{c}{Share of land area} & \multicolumn{2}{c}{Nearest neighbour} \\
+    \cmidrule(lr){2-4}\cmidrule(lr){5-6}
+    District & {Low} & {Medium} & {High} & {District} & {$L_1$ distance} \\
+    \midrule
+    A & 0.42 & 0.35 & 0.23 & E & 0.10 \\
+    B & 0.31 & 0.44 & 0.25 & D & 0.06 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

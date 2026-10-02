@@ -1,0 +1,51 @@
+% mcm-table-src: r1c1 <- pasted:r1c1
+% mcm-table-src: r1c2 <- pasted:r1c2
+% mcm-table-src: r1c3 <- pasted:r1c3
+% mcm-table-src: r1c4 <- pasted:r1c4
+% mcm-table-src: r1c5 <- pasted:r1c5
+% mcm-table-src: r1c6 <- pasted:r1c6
+% mcm-table-src: r2c1 <- pasted:r2c1
+% mcm-table-src: r2c2 <- pasted:r2c2
+% mcm-table-src: r2c3 <- pasted:r2c3
+% mcm-table-src: r2c4 <- pasted:r2c4
+% mcm-table-src: r2c5 <- pasted:r2c5
+% mcm-table-src: r2c6 <- pasted:r2c6
+% mcm-table-src: r3c1 <- pasted:r3c1
+% mcm-table-src: r3c2 <- pasted:r3c2
+% mcm-table-src: r3c3 <- pasted:r3c3
+% mcm-table-src: r3c4 <- pasted:r3c4
+% mcm-table-src: r3c5 <- pasted:r3c5
+% mcm-table-src: r3c6 <- pasted:r3c6
+% mcm-table-src: r4c1 <- pasted:r4c1
+% mcm-table-src: r4c2 <- pasted:r4c2
+% mcm-table-src: r4c3 <- pasted:r4c3
+% mcm-table-src: r4c4 <- pasted:r4c4
+% mcm-table-src: r4c5 <- pasted:r4c5
+% mcm-table-src: r4c6 <- pasted:r4c6
+% mcm-table-src: r5c1 <- pasted:r5c1
+% mcm-table-src: r5c2 <- pasted:r5c2
+% mcm-table-src: r5c3 <- pasted:r5c3
+% mcm-table-src: r5c4 <- pasted:r5c4
+% mcm-table-src: r5c5 <- pasted:r5c5
+% mcm-table-src: r5c6 <- pasted:r5c6
+\begin{table}[htbp]
+  \centering
+  \caption{Correlation of each district attribute with the historical disaster count over the
+  six districts. Mean slope is by far the strongest correlate (Pearson $r = 0.930$,
+  Spearman $\rho = 0.943$), ahead of the infrastructure index ($r = -0.777$) and
+  vegetation cover ($r = -0.744$); population density is only weakly related
+  ($r = 0.360$). Attributes are ranked by $|r|$; the rank correlation is tied at
+  $-0.771$ between the infrastructure index and vegetation cover. With six districts
+  these values are indicative rather than conclusive.}
+  \label{tab:disaster-correlates}
+  \begin{tabular}{l l S[table-format=-1.3] S[table-format=-1.3] S[table-format=1.3] c}
+    \toprule
+    Attribute & Unit & {$r$} & {$\rho$} & {$|r|$} & {Rank} \\
+    \midrule
+    Mean slope           & degrees           &  0.930 &  0.943 & 0.930 & 1 \\
+    Infrastructure index & 0--100            & -0.777 & -0.771 & 0.777 & 2 \\
+    Vegetation cover     & fraction of area  & -0.744 & -0.771 & 0.744 & 3 \\
+    Population density   & people\,km$^{-2}$ &  0.360 &  0.543 & 0.360 & 4 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

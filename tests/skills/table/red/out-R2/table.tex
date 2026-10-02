@@ -1,0 +1,56 @@
+% Table: drivers of the historical disaster count across six districts.
+% Self-contained snippet (no preamble). Requires: booktabs, siunitx.
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Correlation of each district attribute with the historical disaster
+  count (a) and pairwise similarity of the six districts (b). Mean slope is by far
+  the strongest correlate of the disaster count (Pearson $r = 0.930$, rank
+  correlation $0.943$), ahead of infrastructure index ($r = -0.777$) and vegetation
+  cover ($r = -0.744$), while population density is only weakly related
+  ($r = 0.360$); steeper, sparsely vegetated and less developed districts therefore
+  record more disasters. In (b) smaller distances mean more similar districts and
+  each district's nearest neighbour is shown in bold: districts A and C form the
+  most similar pair ($d = 1.59$) and E and F the next closest ($d = 2.28$), whereas
+  D is the most distinctive district and E the most typical. Attributes in (a) are
+  ranked by $|r|$ and the rank correlation is tied ($-0.771$) between vegetation
+  cover and infrastructure index; with only six districts these values are
+  indicative rather than conclusive. Source: district attribute data supplied with
+  the brief.}
+  \label{tab:disaster-drivers}
+
+  \textbf{(a) Correlation with the historical disaster count (target)}\\[0.4em]
+  \begin{tabular}{@{}l S[table-format=-1.3] S[table-format=-1.3] S[table-format=1.3] c@{}}
+    \toprule
+    Attribute (unit)                        & {$r$}  & {$\rho$} & {$|r|$} & {Rank} \\
+    \midrule
+    \textbf{Mean slope} ($^\circ$)          & 0.930  & 0.943    & 0.930  & \textbf{1} \\
+    Infrastructure index (0--100)           & -0.777 & -0.771   & 0.777  & 2 \\
+    Vegetation cover (fraction of area)     & -0.744 & -0.771   & 0.744  & 3 \\
+    Population density (people\,km$^{-2}$)  & 0.360  & 0.543    & 0.360  & 4 \\
+    \bottomrule
+  \end{tabular}
+
+  \par\vspace{1.1em}
+  \textbf{(b) Similarity of districts (pairwise distance, smaller = more similar)}\\[0.4em]
+  \begin{tabular}{@{}l r r r r r r r@{}}
+    \toprule
+    District (disaster count) & C & A & E & F & B & D & {Mean} \\
+    \midrule
+    C (8)  & --              & \textbf{1.59} & 3.44 & 4.01 & 3.50 & 6.25 & 3.76 \\
+    A (12) & \textbf{1.59}   & --            & 1.91 & 2.78 & 2.65 & 4.87 & 2.76 \\
+    E (16) & 3.44            & \textbf{1.91} & --   & 2.28 & 2.28 & 3.19 & 2.62 \\
+    F (24) & 4.01            & 2.78          & \textbf{2.28} & -- & 3.28 & 3.75 & 3.22 \\
+    B (31) & 3.50            & 2.65          & \textbf{2.28} & 3.28 & -- & 3.28 & 3.00 \\
+    D (38) & 6.25            & 4.87          & \textbf{3.19} & 3.75 & 3.28 & -- & 4.27 \\
+    \bottomrule
+  \end{tabular}
+
+  \par\vspace{0.5em}
+  {\footnotesize
+  Note: distances in (b) are Euclidean in units of pooled standard deviations over
+  all five attributes, including the disaster count; the diagonal is omitted; bold
+  marks each district's nearest neighbour; the right-hand column is the mean
+  distance from that district to the other five. Columns in (b) follow the same
+  order as the rows.}
+\end{table}

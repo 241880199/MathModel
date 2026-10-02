@@ -1,0 +1,27 @@
+% 正控制样本（判据全绿）：一条三线表，含一个缺失值（非 S 列写 -- · S 列写 {--}）。
+% 来源回显覆盖 4 行 × 3 列 = 12 格（格式见 table-style.md §3.2）。
+% mcm-table-src: r1c1 <- pasted:r1c1
+% mcm-table-src: r1c2 <- pasted:r1c2
+% mcm-table-src: r1c3 <- pasted:r1c3
+% mcm-table-src: r2c1 <- pasted:r2c1
+% mcm-table-src: r2c2 <- pasted:r2c2
+% mcm-table-src: r2c3 <- pasted:r2c3
+% mcm-table-src: r3c1 <- pasted:r3c1
+% mcm-table-src: r3c2 <- pasted:r3c2
+% mcm-table-src: r3c3 <- pasted:r3c3
+% mcm-table-src: r4c1 <- pasted:r4c1
+% mcm-table-src: r4c2 <- pasted:r4c2
+% mcm-table-src: r4c3 <- pasted:r4c3
+\begin{table}[htbp]
+  \centering
+  \caption{A small illustrative table.}
+  \begin{tabular}{l l S[table-format=3.2]}
+    \toprule
+    Method & Note & {Value} \\
+    \midrule
+    Alpha & ok & 12.34 \\
+    Beta  & -- & {--}  \\
+    Gamma & ok & 5.67  \\
+    \bottomrule
+  \end{tabular}
+\end{table}

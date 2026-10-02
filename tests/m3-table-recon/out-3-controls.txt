@@ -1,0 +1,30 @@
+### probe_3_controls —— T8 正/负控制（自造样本）
+# 页面 612x792 版心 72..540（宽 468，长线阈值 234pt）
+
+P1_三线表                 PASS   cand=1 kept=1  ntables=1:1 n==3:3 vert=False:False cap=above:above
+        → 生成 build/m3-table-recon/controls/P1_三线表.pdf
+P2_四线表                 PASS   cand=1 kept=1  ntables=1:1 n==4:4
+        → 生成 build/m3-table-recon/controls/P2_四线表.pdf
+P3_全网格(逐行竖线)           PASS   cand=1 kept=1  ntables=1:1 vert=True:True
+        → 生成 build/m3-table-recon/controls/P3_全网格(逐行竖线).pdf
+P8_表头填充色带              PASS   cand=1 kept=1  ntables=1:1 vert=False:False
+        → 生成 build/m3-table-recon/controls/P8_表头填充色带.pdf
+N1_纯文本无表               PASS   cand=0 kept=0  ntables=0:0
+        → 生成 build/m3-table-recon/controls/N1_纯文本无表.pdf
+N2_页眉页脚线               PASS   cand=0 kept=0  ntables=0:0
+        → 生成 build/m3-table-recon/controls/N2_页眉页脚线.pdf
+N2b_三线不对齐              PASS   cand=0 kept=0  ntables=0:0
+        → 生成 build/m3-table-recon/controls/N2b_三线不对齐.pdf
+N3_两表夹正文               PASS   cand=2 kept=2  ntables=2:2
+        → 生成 build/m3-table-recon/controls/N3_两表夹正文.pdf
+N4_两表夹表题               PASS   cand=2 kept=2  ntables=2:2
+        → 生成 build/m3-table-recon/controls/N4_两表夹表题.pdf
+N5_图框+Figure题          PASS   cand=1 kept=0  ntables=0:0 候选判为图:True
+        → 生成 build/m3-table-recon/controls/N5_图框+Figure题.pdf
+N6_扫描位图页               PASS   cand=0 kept=0  ntables=0:0
+        → 生成 build/m3-table-recon/controls/N6_扫描位图页.pdf
+N7_水印+一表               PASS   cand=1 kept=1  ntables=1:1
+        → 生成 build/m3-table-recon/controls/N7_水印+一表.pdf
+
+### 汇总：PASS 12 / FAIL 0（共 12）
+★ 若有一条 FAIL，probe_2 的对应读数就要打折，**不许当没看见**。

@@ -1,0 +1,1 @@
+Vulnerability composition of the six districts. Entries are the share of each district's land area in the low, medium and high vulnerability tiers; the three shares in a row sum to 1.00. The right-hand panel gives each district's nearest neighbour under the L1 (Manhattan) distance between composition vectors; districts B and D are the most similar pair (distance 0.06).

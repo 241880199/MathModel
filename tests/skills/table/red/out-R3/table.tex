@@ -1,0 +1,21 @@
+% Table: vulnerability composition of the six districts.
+% Self-contained snippet; requires \usepackage{booktabs} and \usepackage{siunitx}.
+\begin{table}[htbp]
+  \centering
+  \caption{Vulnerability composition of the six districts. For each district the low, medium and high columns give the share of its land area falling in each vulnerability tier; the three shares sum to 1.00 in every district. The last two columns name the district whose composition is closest to that district, measured by the total-variation distance (half the sum of the absolute differences over the three tiers), so smaller distances mean more similar structure. Districts B and D form the most similar pair (distance 0.03), differing by at most 0.03 in any tier.}
+  \label{tab:district-vulnerability-composition}
+  \begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] l S[table-format=1.2]}
+    \toprule
+    & \multicolumn{3}{c}{Land-area share by tier} & \multicolumn{2}{c}{Closest composition} \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-6}
+    {District} & {Low} & {Medium} & {High} & {District} & {Distance} \\
+    \midrule
+    A & 0.42 & 0.35 & 0.23 & E & 0.05 \\
+    B & 0.31 & 0.44 & 0.25 & D & 0.03 \\
+    C & 0.55 & 0.30 & 0.15 & F & 0.05 \\
+    D & 0.28 & 0.47 & 0.25 & B & 0.03 \\
+    E & 0.37 & 0.38 & 0.25 & A & 0.05 \\
+    F & 0.50 & 0.33 & 0.17 & C & 0.05 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
