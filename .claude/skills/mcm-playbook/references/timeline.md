@@ -70,7 +70,7 @@ python -c "from datetime import datetime; from zoneinfo import ZoneInfo; est=Zon
 
 | 阶段 | 小时（自开赛起） | 在干什么 | 该调哪个 |
 | :--- | :--- | :--- | :--- |
-| **0 选题** | 0–5 | 通读六题、定题；想清"这题最后能不能给出一个清晰结论" | `mcm-topic-select`（**未建**）——本阶段只给"选题要看哪四件事" |
+| **0 选题** | 0–5 | 通读六题、定题；想清"这题最后能不能给出一个清晰结论" | `mcm-topic-select`——本阶段只给"选题要看哪四件事" |
 | **1 破题** | 5–14 | 重述问题、立假设并论证、定模型方向 | 无（M2 的 `mcm-paper-architecture`、`mcm-section-writer` 均**未建**） |
 | **2 建模与求解** | 14–50 | 主体；★ **图和表要尽早出第一版** | `mcm-figure-choose` → `mcm-plot-python` / `mcm-plot-matlab` / `mcm-plot-origin` / `mcm-table` / `mcm-schematic` |
 | **3 写作主体** | 50–80 | 按页数预算写正文与摘要 | `mcm-latex-format` · `mcm-abstract` · `docs/mcm-writing-discipline.md`（M2 的 `mcm-paper-architecture` **未建**） |
