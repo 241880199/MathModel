@@ -3,7 +3,7 @@
 **本文件只写落库时在盘上实测/复算出来的东西。** 凡引用的外部结论，一律指向文件与行号；凡本机查不到的，写"**未能核实**"。
 材料本体在 `tests/skills/arch-cases/`；说明见该目录的 `README.md`。
 
-**被测目标**：`mcm-section-writer`（尚未建；`.claude/skills/` 下无此目录，落库时实测）。
+**被测目标**：`mcm-section-writer`（尚未建；`.claude/skills/` 下无此目录，落库时实测）。★ 2026-10-03 时点注：本行写于 RED 期，当时该 skill 确未建；`mcm-section-writer` 已于 2026-10-03 落地。
 **案例**：2025 MCM A 题 / 获奖论文队号 `2501909`（与 `abs-cases/` 同一份案例）。
 
 ---

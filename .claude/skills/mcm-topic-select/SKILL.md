@@ -24,7 +24,7 @@ description: Use when 美赛 MCM/ICM 开赛后要从六道题里挑一道、并�
 - **替你查数据**（该题的数据到底有没有、在哪）⇒ 那是 M5；
 - **替你建模 / 解模型** ⇒ 那是 M4；
 - **排赛程**（现在该干什么、还剩多久）⇒ `mcm-playbook`（**已建**），本支不排；
-- **替你写论文正文** ⇒ M2 的 `mcm-paper-architecture` · `mcm-section-writer` · `mcm-memo` **未建**；
+- **替你写论文正文** ⇒ M2 的 `mcm-paper-architecture` **未建**（`mcm-section-writer` **已建** = 逐节写作范式；`mcm-memo` **已建** = 题面要求 letter/memo 时的写作范式）；
   **写作纪律的唯一权威表述**是 `docs/mcm-writing-discipline.md`（本支只给指针、不重述）。
 
 ## 怎么用：贴六道题的题面

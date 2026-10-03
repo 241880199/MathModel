@@ -1,0 +1,92 @@
+\subsection{Wear Volume Model}
+\label{subsec:wear-volume-model}
+
+This subsection builds the model that links a quantity an archaeologist measures directly -- the wear imprinted on a tread surface -- to two quantities that can otherwise only be inferred, namely the age $T$ (yr) of the stairwell and the average number of pedestrians who use it each day, $N_d$. The construction rests on a single observation: wear is the accumulated outcome of a repeated action distributed over a long period, so the depth of material lost at a given point records both how often that point was stepped on and the length of time over which the stepping occurred.
+
+\subsubsection{Discretization of a Tread}
+\label{subsubsec:discretization}
+
+The top view of one step is represented as a rectangle of length $X$ (m) and width $Y$ (m). Because the tread surface is continuous while computation is not, the rectangle is partitioned into an $m \times n$ grid whose cells have edge length $G_s$ (m); the centre of each cell is termed a cell-observation point (COP). Gridding is what makes a real, irregularly worn step tractable for a computer, since a single depth per step would discard the very spatial variation that carries the archaeological signal. A COP is located by two distances measured from the lower-left corner of the tread, $p$ (m) along the length and $q$ (m) along the width, and its grid indices follow as
+\begin{equation}
+(x,\,y) = \left(\left\lfloor \frac{p}{G_s}\right\rfloor,\; \left\lfloor \frac{q}{G_s}\right\rfloor\right),
+\label{eq:cop-index}
+\end{equation}
+so that each COP is addressed by the integer pair $(x,y)$. Let $d(x,y)$ denote the wear volume (m$^3$) at that COP. Measuring the wear volume at every COP produces the measured wear matrix $D_{\text{measure}}(x,y)$, which is the empirical object that the remainder of this subsection explains.
+
+\subsubsection{The Core Wear Relation and Its Parameters}
+\label{subsubsec:core-and-parameters}
+
+The central relation of the model writes the local wear as the product of an exposure count, a time scale, a spatial distribution and a material factor,
+\begin{equation}
+d(x,y) = T \cdot N_d \cdot D(x,y) \cdot G \cdot k_m .
+\label{eq:core}
+\end{equation}
+Its multiplicative form follows from four physical considerations. The total number of impacts delivered to one location fixes how much material is removed there, and that count grows with the daily pedestrian number $N_d$. The length of time $T$ over which the traffic has been applied sets the scale on which wear accumulates. The hardness and abrasion resistance of the stone govern the rate of loss, an effect collected in the wear-volume coefficient $k_m$. Pedestrians are distributed unevenly over the tread and do not all press with the same gravitational load, so local removal is modulated by the distribution function $D(x,y)$ and by the mean load $G$. The distribution function is developed in the following subsection; the present subsection records equation~\eqref{eq:core} as the bridge between the measurable left-hand side and the unknown pair $(T, N_d)$ on the right.
+
+The coefficient $k_m$ is supplied by Archard's wear theory, which applies here because each footfall imposes a normal load on the tread and, as the foot rolls forward, a slight relative slip develops between the sole and the stone and removes a small volume of material locally. For a single step the coefficient takes the Archard form
+\begin{equation}
+k_m = \frac{K\, d_s}{H},
+\label{eq:archard}
+\end{equation}
+where $K$ is the dimensionless wear coefficient of the stone, $d_s$ (m) is the relative sliding distance along the tread per step, and $H$ (Pa) is the hardness of the stone. The distinct symbol $d_s$ is used for the sliding distance so that it cannot be confused with the wear volume $d(x,y)$ introduced above.
+
+The hardness is not constant over the life of the stairwell. Temperature cycling and wind erosion act physically on the surface, hydrolysis and oxidation act chemically, and both processes weaken the stone with time. The ageing is represented by an exponential decay,
+\begin{equation}
+H(t) = H_0\, e^{-p\,t},
+\label{eq:hardness-decay}
+\end{equation}
+in which $H_0$ (Pa) is the initial hardness and $p$ (yr$^{-1}$) is a weathering rate constant. Since the wear accumulated over the full life responds to whatever hardness was present at each moment, the decay enters the model through the cumulative hardness
+\begin{equation}
+H_T = \int_0^{T} H(t)\,\mathrm{d}t = \frac{H_0}{p}\left(1 - e^{-p T}\right).
+\label{eq:cumulative-hardness}
+\end{equation}
+The three constants $K$, $H_0$ and $p$ are not free parameters to be fitted; they are fixed by field inspection of the stone together with published material properties.
+
+The load $G$ is built from a population of pedestrians, not from a single individual. Pedestrians are divided into six demographic classes: minor male (mm), minor female (fm), adult male (am), adult female (af), older male (om) and older female (ow). Writing $u_i$ (kg) for the mean body weight of class $i$ and $q_i$ (dimensionless) for the share of that class in the population, the population mean weight is
+\begin{equation}
+W = \sum_{i} u_i\, q_i,
+\label{eq:weighted-weight}
+\end{equation}
+and the mean gravitational load transmitted to the tread follows as
+\begin{equation}
+G = W\, g,
+\label{eq:gravity}
+\end{equation}
+where $g = 9.81~\mathrm{m\,s^{-2}}$ is the gravitational acceleration. Table~\ref{tab:weight} collects the reference values adopted for $u_i$ and $q_i$; their substitution into equation~\eqref{eq:weighted-weight} gives $W = 62.8$ kg and therefore $G = 616.1$ N.
+
+\begin{table}[htbp]
+\centering
+\caption{Demographic classes with reference mean body weight and population share (illustrative defaults).}
+\label{tab:weight}
+\begin{tabular}{lcc}
+\toprule
+Class & Mean weight $u_i$ (kg) & Share $q_i$ (\%) \\
+\midrule
+Minor male (mm)   & 46 & 9  \\
+Minor female (fm) & 44 & 9  \\
+Adult male (am)   & 75 & 30 \\
+Adult female (af) & 62 & 26 \\
+Older male (om)   & 66 & 14 \\
+Older female (ow) & 57 & 12 \\
+\midrule
+Weighted mean $W$ & \multicolumn{2}{c}{$62.8$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Both the class weights and the class shares are adjustable inputs. The reference composition in Table~\ref{tab:weight} follows the global body-weight summaries compiled by the World Health Organization \cite{who-weights}; the tabulated figures are illustrative defaults for this study and may be replaced outright by local census data, which sharpens the estimate of $G$ and makes the model more adaptable.
+
+\subsubsection{Average Wear and Inversion}
+\label{subsubsec:average-and-inversion}
+
+Integrating the core relation over the tread and dividing by the effective top-view area $A_{\text{eff}}$ (m$^2$) gives the mean wear depth over the surface,
+\begin{equation}
+d_{\text{avg}} = \frac{1}{A_{\text{eff}}}\iint_{A_{\text{eff}}} T\, N_d\, D(x,y)\, G\, k_m \,\mathrm{d}x\,\mathrm{d}y .
+\label{eq:average}
+\end{equation}
+Once $D$, $G$ and $k_m$ have been fixed, the two quantities the archaeologist ultimately wants are the only unknowns left in equation~\eqref{eq:average}, and the relation can be solved for either of them:
+\begin{align}
+T   &= \frac{A_{\text{eff}}\, d_{\text{avg}}}{N_d\, G\, k_m}, \label{eq:solve-T}\\
+N_d &= \frac{A_{\text{eff}}\, d_{\text{avg}}}{T\, G\, k_m}. \label{eq:solve-N}
+\end{align}
+Equation~\eqref{eq:solve-T} yields the age of a stone stairwell from a measured average wear depth, and equation~\eqref{eq:solve-N} yields the average daily number of pedestrians once an independent age estimate is available. An intact stone stairwell therefore carries enough information to recover both quantities, which completes the model and hands the numerical treatment over to the next section.

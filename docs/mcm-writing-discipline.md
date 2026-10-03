@@ -1,7 +1,7 @@
 # MCM/ICM 论文写作纪律（跨 skill 的**唯一权威**）
 
-> **本文件是"写作类要求"的唯一权威表述**——它**已不只是约定**：截至本次修订，`grep -rn "mcm-writing-discipline" .claude/` 命中 **5**（`mcm-playbook` 在写作阶段指向本文件；`mcm-topic-select` 在**边界**处指向本文件）。（★ **2026-10-03 改时点（`mcm-playbook` 落地）**：本行那个数原记作「命中 **0**，即目前没有任何 skill 指向本文件」；`mcm-playbook` 第一次让写作纪律文档被 skill 指向 ⇒ 由 **0** 变 **4**，按本仓"**改时点标注 + 追加现值、不覆盖旧值**"追加现值，旧值即本括注所记；§H.3 的 **R6** 由此销账。）（★ **2026-10-03 再改时点（`mcm-topic-select` 落地）**：本行那个数原记作「命中 **4**」；`mcm-topic-select` 在**边界**处指向本文件 ⇒ 由 **4** 变 **5**；按本仓的「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）
-> 将来的写作类 skill（**拟建**的 `mcm-section-writer` · `mcm-memo`，以及已建的 `mcm-abstract`；`.claude/skills/` 下现存 12 个 = `mcm-abstract` / `mcm-ai-disclosure` / `mcm-figure-choose` / `mcm-latex-format` / `mcm-playbook` / `mcm-plot-matlab` / `mcm-plot-origin` / `mcm-plot-python` / `mcm-schematic` / `mcm-selfreview` / `mcm-table` / `mcm-topic-select`）（★ **2026-10-03 改时点**：本行的两个数原记作「现存 **9** 个 / 名单里没有 `mcm-schematic`」；`mcm-schematic` 落地当天，绘图家族由 **4** 个变 **5** 个、skill 总数由 **9** 个变 **10** 个 ⇒ 按本仓"**改时点标注 + 追加现值、不覆盖旧值**"追加现值，旧值即本括注所记）（★ **2026-10-03 再改时点（`mcm-playbook` 落地）**：本行的两个数原记作「现存 **10** 个 / 名单里没有 `mcm-playbook`」；`mcm-playbook` 是**绘图家族外第一个 skill** ⇒ skill 总数由 **10** 个变 **11** 个、名单补 `mcm-playbook` ⇒ 再按本仓"**改时点标注 + 追加现值、不覆盖旧值**"追加现值，旧值即本括注所记）（★ **2026-10-03 再改时点（`mcm-topic-select` 落地）**：本行的两个数原记作「现存 **11** 个 / 名单里没有 `mcm-topic-select`」；`mcm-topic-select` 是**绘图家族外第二个 skill** ⇒ skill 总数由 **11** 个变 **12** 个、名单补 `mcm-topic-select` ⇒ 按本仓的「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）在这个约定下**只给指针、不重述**——否则同一句话写两处，必有一处忘改（本项目 `docs/mcm-suite-lessons.md` **4.8**）。
+> **本文件是"写作类要求"的唯一权威表述**——它**已不只是约定**：截至本次修订，`grep -rn "mcm-writing-discipline" .claude/` 命中 **19**（`mcm-playbook` 在写作阶段指向本文件；`mcm-topic-select` 在**边界**处指向本文件；`mcm-section-writer` 在**逐节范式**里多处指向本文件；`mcm-memo` 在**题面要求 letter/memo 的写作范式**里指向本文件；`mcm-abstract` 的自查清单在**四格去重**后指向本文件）。（★ **2026-10-04 改时点（`mcm-abstract` 四格去重）**：本行那个数原记作「命中 **14**」；`.claude/skills/mcm-abstract/references/quality-checklist.md` 的 Q7 家族 / Q8 / Q9 / Q12 **已改成指向本文件**（共同项去重）⇒ 由 **14** 变 **19**；按本仓「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）（★ **2026-10-04 改时点（`mcm-memo` 落地）**：本行那个数原记作「命中 **13**」；`mcm-memo` 落地 ⇒ 由 **13** 变 **14**；按本仓「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）（★ **2026-10-03 改时点（`mcm-playbook` 落地）**：本行那个数原记作「命中 **0**，即目前没有任何 skill 指向本文件」；`mcm-playbook` 第一次让写作纪律文档被 skill 指向 ⇒ 由 **0** 变 **4**，按本仓"**改时点标注 + 追加现值、不覆盖旧值**"追加现值，旧值即本括注所记；§H.3 的 **R6** 由此销账。）（★ **2026-10-03 再改时点（`mcm-topic-select` 落地）**：本行那个数原记作「命中 **4**」；`mcm-topic-select` 在**边界**处指向本文件 ⇒ 由 **4** 变 **5**；按本仓的「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）（★ **2026-10-03 再改时点（`mcm-section-writer` 落地）**：本行那个数原记作「命中 **5**」；`mcm-section-writer` 在**逐节范式**里多处指向本文件（`SKILL.md` 与三份 `references` 都把它列为**唯一权威**、并只给 `纪律` 条号）⇒ 由 **5** 变 **13**；按本仓的「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）
+> 将来的写作类 skill（已建的 `mcm-memo` · `mcm-section-writer` · `mcm-abstract`；`.claude/skills/` 下现存 14 个 = `mcm-abstract` / `mcm-ai-disclosure` / `mcm-figure-choose` / `mcm-latex-format` / `mcm-memo` / `mcm-playbook` / `mcm-plot-matlab` / `mcm-plot-origin` / `mcm-plot-python` / `mcm-schematic` / `mcm-section-writer` / `mcm-selfreview` / `mcm-table` / `mcm-topic-select`）（★ **2026-10-03 改时点**：本行的两个数原记作「现存 **9** 个 / 名单里没有 `mcm-schematic`」；`mcm-schematic` 落地当天，绘图家族由 **4** 个变 **5** 个、skill 总数由 **9** 个变 **10** 个 ⇒ 按本仓"**改时点标注 + 追加现值、不覆盖旧值**"追加现值，旧值即本括注所记）（★ **2026-10-03 再改时点（`mcm-playbook` 落地）**：本行的两个数原记作「现存 **10** 个 / 名单里没有 `mcm-playbook`」；`mcm-playbook` 是**绘图家族外第一个 skill** ⇒ skill 总数由 **10** 个变 **11** 个、名单补 `mcm-playbook` ⇒ 再按本仓"**改时点标注 + 追加现值、不覆盖旧值**"追加现值，旧值即本括注所记）（★ **2026-10-03 再改时点（`mcm-topic-select` 落地）**：本行的两个数原记作「现存 **11** 个 / 名单里没有 `mcm-topic-select`」；`mcm-topic-select` 是**绘图家族外第二个 skill** ⇒ skill 总数由 **11** 个变 **12** 个、名单补 `mcm-topic-select` ⇒ 按本仓的「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）（★ **2026-10-03 再改时点（`mcm-section-writer` 落地）**：本行的两个数原记作「现存 **12** 个 / 名单里没有 `mcm-section-writer`」；`mcm-section-writer` 是**绘图家族外第三个 skill** ⇒ skill 总数由 **12** 个变 **13** 个、名单补 `mcm-section-writer` ⇒ 按本仓的「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）（★ **2026-10-04 再改时点（`mcm-memo` 落地）**：本行的两个数原记作「现存 **13** 个 / 名单里没有 `mcm-memo`」；`mcm-memo` 是**绘图家族外第四个 skill** ⇒ skill 总数由 **13** 个变 **14** 个、名单补 `mcm-memo` ⇒ 按本仓的「**改时点标注 + 追加现值、不覆盖旧值**」追加现值，旧值即本括注所记。）在这个约定下**只给指针、不重述**——否则同一句话写两处，必有一处忘改（本项目 `docs/mcm-suite-lessons.md` **4.8**）。
 >
 > **证据来源（两轮对照；每条规则标题后的〔〕标出它出自哪一轮）**
 > - **RED 轮**（无纪律）：`tests/skills/arch-red-evidence.md` + `tests/skills/arch-cases/judge.md`。做法：给"题面 + 要点清单"让 agent 写论文某一节，再与该论文真实那一节对照。
@@ -160,20 +160,20 @@ RED 实测：`out-S1.md` **正文全篇零引用** ✗。GREEN：**正文明标�
 
 ---
 
-## 与 `mcm-abstract` 的重叠（待合并，本轮不动）
+## 与 `mcm-abstract` 的重叠（**已去重** · 2026-10-04；下表记去重后的指向）
 
 **先把两份文件的可核身份写死**：
 - **判分表** = `tests/skills/mcm-abstract-quality-rubric.md`，**Q1–Q13 共 13 条**〔机器守卫：E11 判分表条数〕自检件当场点数该判分表的顶层 `### Q<n>` 行数，并与本行的 `Q1–Q13 共 13 条` 比对，不符即 FAIL。（该文件 `tests/skills/mcm-abstract-quality-rubric.md:3`）。
 - **逐条自查清单** = `.claude/skills/mcm-abstract/references/quality-checklist.md`，**15 条**〔机器守卫：E7 自查清单条数〕自检件当场点数该清单的顶层条目行数并与本行的 `15 条` 比对，不符即 FAIL。；其中第 15 条（摘要自身不许前后打架）**不在判分表 13 条内**（`.claude/skills/mcm-abstract/references/quality-checklist.md:65-67`）。
 
-| 本文件 | `mcm-abstract` 侧 | 指针（skill 文件:行） |
+| 本文件（唯一权威） | `mcm-abstract` 侧（**共同项已改为指针**） | 指针（skill 文件:行） |
 |---|---|---|
-| **A1**（缺数据要标 `assumed`） | **Q7 家族「结果没出来就显式标缺」** | `quality-checklist.md:30-34` |
-| **A2**（每个数字追到来源） | **Q8「数字与具名归属都要能回指正文」** | `quality-checklist.md:80` |
-| **A5**（同处不许自相矛盾） | **Q9「数字必须自洽」**；同族另加 **15 条清单第 15 条**「摘要自身不许前后打架」 | `quality-checklist.md:54-57`；第 15 条 `quality-checklist.md:65-72` |
-| **C1**（套话/自评句比） | **Q12「措辞克制」** | `quality-checklist.md:44-52` |
+| **A1**（缺数据要标 `assumed`） | **Q7 家族「结果没出来就显式标缺」（共同项 = `纪律 A1`）** | `quality-checklist.md:30-34` |
+| **A2**（每个数字追到来源） | **Q8「数字与具名归属都要能回指正文」（共同项 = `纪律 A2`）** | `quality-checklist.md:80` |
+| **A5**（同处不许自相矛盾） | **Q9「数字必须自洽」（共同项 = `纪律 A5`）**；同族另加 **15 条清单第 15 条**「摘要自身不许前后打架」 | `quality-checklist.md:54-57`；第 15 条 `quality-checklist.md:65-72` |
+| **C1**（套话/自评句比） | **Q12「措辞克制」（共同项 = `纪律 C1`）** | `quality-checklist.md:44-52` |
 
-合并方式应为"`mcm-abstract` 只留摘要特有项、共同项改成指指针过来"——**那是对已交付 skill 的改动，须单独走一遍流程**。
+合并已落（2026-10-04）——**那是对已交付 skill 的改动，须单独走一遍流程**。本次已单独开 Task 处置该去重：`mcm-abstract` 只留摘要特有项，共同项（Q7 家族 / Q8 / Q9 / Q12）**已改成指向本文件的 `纪律 A1/A2/A5/C1`**，并走独立复核。
 
 ---
 

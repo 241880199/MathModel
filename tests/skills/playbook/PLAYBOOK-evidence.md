@@ -18,7 +18,7 @@
 | `red/out-R2/schedule.md` | 6174 | 75 | `ed1b93cf81ed` |
 | `red/out-R3/schedule.md` | 9160 | 104 | `fd8aeb8d6b21` |
 
-- **判据对象（GREEN）逐件 blob**：`skill_md`=`56b2fa886885` · `timeline`=`81f7f9608135` · `mistakes`=`a60f51c4a5fd`
+- **判据对象（GREEN）逐件 blob**：`skill_md`=`56b2fa886885` · `timeline`=`1a740bc85b57` · `mistakes`=`00b841336cd7`
 
 - **检查器自证**：工作树 blob `1826316e19b6` · **基线 `e9d8d47`** blob `48ba3dfea3c9` ⇒ **不同** —— ★ **差的就是本支唯一那处改动**（`T5` arm C 加结束标记，§8）。**两侧用的是同一版**（工作树版）。（★ 参照系取**基线 commit**、**不取 `HEAD`**：本支提交之后 `HEAD` 就等于工作树版了，拿 `HEAD` 当参照会让本行在**提交前后给出两个不同的读数** ⇒ 生成器就不动了。）★ 生成器**当场**用基线版各跑一遍两侧、逐判据比对 ⇒ 见本节末两版同判块：**四份判定完全一致**。（★ 基线版副本落在 `build/`、与工作树版**目录深度不同** ⇒ 其自推仓根会偏；比对时把 `--index` / `--skills-root` **显式钉住**成工作树版默认读的那同两份，确保两侧在同一份源上比。）
 
@@ -116,7 +116,7 @@ $ C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe tests/sk
 判据对象：mcm-playbook/（SKILL.md + 2 references）
 PASS  T1  硬时刻 4 项 vs §2.6.1/§2.6.2 现取 · 开赛→停止修改 现算 99h · 开赛→提交截止 现算 100h
 PASS  T2  13 条失误 · 出处 §id 25 处 · `INDEX.md` 表格行 50 个
-PASS  T3  点名 49 处 · 现存 skill 目录 12 个 · 不存在的名字 2 个 ['mcm-paper-architecture', 'mcm-section-writer']
+PASS  T3  点名 54 处 · 现存 skill 目录 14 个 · 不存在的名字 1 个 ['mcm-paper-architecture']
 PASS  T4  4 行换算由 `zoneinfo` 现算比对（EST→Asia/Shanghai）
 PASS  T5  §4 阶段边界理由 6 条逐条带「构造」 · 失误 13 条的归类行逐条带「构造」 · 示例评分表节带 "A Sample" + "adjusting categories and points as needed"
 ------------------------------------------------------------------------------
@@ -157,7 +157,7 @@ RESULT: PASS
 | R3 | RED | T5 | FAIL | §4 阶段边界理由 0 条逐条带「构造」  <<< §4 未声明阶段表「全是构造」 ; fail-closed：§4 解析不出任何「为何切在…」的理由行 ; fail-closed：`phase-mistakes.md` 解析不出任何「失误」块 ; fail-closed：`phase-mistakes.md` 取不到示例评分表那一节 |
 | G1 | GREEN | T1 | PASS | 硬时刻 4 项 vs §2.6.1/§2.6.2 现取 · 开赛→停止修改 现算 99h · 开赛→提交截止 现算 100h |
 | G1 | GREEN | T2 | PASS | 13 条失误 · 出处 §id 25 处 · `INDEX.md` 表格行 50 个 |
-| G1 | GREEN | T3 | PASS | 点名 49 处 · 现存 skill 目录 12 个 · 不存在的名字 2 个 ['mcm-paper-architecture', 'mcm-section-writer'] |
+| G1 | GREEN | T3 | PASS | 点名 54 处 · 现存 skill 目录 14 个 · 不存在的名字 1 个 ['mcm-paper-architecture'] |
 | G1 | GREEN | T4 | PASS | 4 行换算由 `zoneinfo` 现算比对（EST→Asia/Shanghai） |
 | G1 | GREEN | T5 | PASS | §4 阶段边界理由 6 条逐条带「构造」 · 失误 13 条的归类行逐条带「构造」 · 示例评分表节带 "A Sample" + "adjusting categories and points as needed" |
 
@@ -348,6 +348,9 @@ RESULT: PASS
 1. **核心动作没有已建工具兜底。** 动作 1「写正文主体」是阶段 3 的主干，却只把你推给
    `docs/mcm-writing-discipline.md`；而清单自己承认本阶段本该用的 `mcm-paper-architecture`（页数预算）与
    `mcm-section-writer`（逐节写作）**未建**，**既没给替代技能、也没给「没有它就先怎么干」的降级路径**。
+   ★ **2026-10-03 改时点（编辑后加；上一条是读者原话的浓缩，按原样保留、不覆盖旧值）**：
+   现值 = `mcm-section-writer`（逐节写作）**已落地**（`.claude/skills/mcm-section-writer/`）⇒
+   上面这条判断**关于它的那一半已消解**；`mcm-paper-architecture`（页数预算）**仍未建**，该句对它**仍成立**。
 2. **缺「截止时刻 / 剩余总时长」。** 只给了开赛与当前，没给交稿时间；动作 5 却要给阶段 4 留够时间 ⇒ **没法排期**。
 3. **动作 1 与动作 2 实际互相依赖，却标按先后**（结果节依赖图表定稿）⇒ 结果节会悬空；每个动作也没有时间盒。
 4. **已有第一版图，到底重做还是重画没说**（「先选型再落代码」是**从零**的路径）。

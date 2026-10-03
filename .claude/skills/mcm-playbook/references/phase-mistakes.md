@@ -41,12 +41,12 @@
 **失误 1-1："问题重述"照抄赛题（官方明示的弱摘要之一）**
 - 出处：`corpus/official/INDEX.md` §2.2.7〔`[官方]`〕（官方明示的弱摘要：仅重述赛题，或从 Introduction 复制粘贴套话）
 - 为什么归这个阶段：★ **此归类是本支的构造**——官方说"重述赛题"是弱项，**没说**重述该在第几小时做
-- 该调：无（写作类 M2 的 `mcm-paper-architecture`、`mcm-section-writer` 均**未建**）
+- 该调：`mcm-section-writer`（逐节写作范式）——M2 的 `mcm-paper-architecture`（页数预算）仍**未建**
 
 **失误 1-2：假设含糊、没有论证假设的合理性**
 - 出处：`corpus/official/INDEX.md` §2.5.3〔`[官方]`〕（官方 10 条内容清单：变量与假设的清晰陈述 / 假设的合理性与论证）；§2.5.4〔`[官方]†`〕（优秀论文含 assumptions with justifications）
 - 为什么归这个阶段：★ **此归类是本支的构造**——官方把它列进内容清单，**没说**它该在第几小时做
-- 该调：无（同上，M2 未建）
+- 该调：`mcm-section-writer`（逐节写作范式）——同上，M2 的 `mcm-paper-architecture` 仍**未建**
 
 ### 阶段 2 · 建模与求解（第 14–50 小时）
 
@@ -73,12 +73,12 @@
 **失误 3-2：引用不规范（只在末尾列文献、正文无标注）**
 - 出处：`corpus/official/INDEX.md` §2.5.7〔`[官方]`〕（官方以 `must` 写死：**两件都要**——① 用足注 / 尾注 / 正文内标注标出每一处外部来源，② 在文献表或参考书目中给出对应条目）
 - 为什么归这个阶段：★ **此归类是本支的构造**——官方规定的是**义务与形态**，**没说**它该在第几小时做
-- 该调：`docs/mcm-writing-discipline.md`（M2 的 `mcm-paper-architecture` **未建**）
+- 该调：`mcm-section-writer`（逐节写作范式）· `docs/mcm-writing-discipline.md`（M2 的 `mcm-paper-architecture` **未建**）
 
 **失误 3-3：把冗长推导全塞正文**
 - 出处：`corpus/official/INDEX.md` §2.5.3〔`[官方]`〕（官方 10 条内容清单："正文只放推导 / 计算摘要，冗长部分入附录"）
 - 为什么归这个阶段：★ **此归类是本支的构造**——这是内容形态要求，**没说**在第几小时改
-- 该调：`docs/mcm-writing-discipline.md`
+- 该调：`mcm-section-writer`（逐节写作范式）· `docs/mcm-writing-discipline.md`
 
 ### 阶段 4 · 收口与自查（第 80–99 小时）
 
