@@ -81,10 +81,25 @@
 - 这七台**不是** `tests/skills/` 下的全部生成器：另有 `figure-choose/gen-style-table.py`
   （派生 `mcm-style.json`）、`plot-python/gen-mcm-style.py`、`plot-matlab/gen-mcm-style-matlab.py`、
   各 `fixtures/make-fixtures.py` 与 `make-evidence.py` —— 它们的重生成条件见各自文件头。
+- ★ **补充：`mcm-schematic` 支的两个生成器（2026-10-03 补登）** ——
+  `tests/skills/schematic/make-evidence.py`（重生成 `tests/skills/schematic/red-green-evidence.md`）
+  与 `tests/skills/schematic/fixtures/make-fixtures.py`（重生成骨架族的 `<名>.pdf` / `<名>.check.txt` /
+  `<名>.build.txt`）；两支**都不在上表**。它们的重生成**触发条件 = `check-figure-style.py` 的 blob 变时**
+  （两支都调它出判词；`make-evidence.py` 另外断言该 blob == `HEAD`）。
+  ★ **`make-evidence.py` 的文件头没写**这条触发条件 ⇒ **以本行为准**（不把重跑条件只寄在文件头里）。
+  ★ 该触发条件**不声称穷尽**：本支**样式层 `schematic-style.tex` 或骨架 `.tex` 里会落到产物上的那部分变了**、
+  也会改这两支的产物（判据的允许集合来自样式层）。
+  ★ 反过来：**只改注释**这类**不进产物**的编辑 ⇒ 产物逐字节不变、**不必**重生成
+  （别把上一行读成"动了骨架 `.tex` 就得重跑"；无任何守卫哈希骨架 `.tex`）。
 - 上表「读不读 `git status`」那一列是**读源码**逐台查的（扫串 `git status --short` 与
   `return 0 if (… and not dirty)`），**不是**穷举跑出来的；**次序**那一列是**实测**的。
 - `tests/m3-*-recon/` 下的探针捕获**不在本表**：它们是一次性**取证现场**，纪律不同
   （见各自目录 `README.md`；其中 `m3-matlab-recon` 有两支探针在新 skill 落地后会崩 ⇒ 其捕获**冻结为历史**）。
+- **`figure-style-baseline.txt` 的 `§8.1` 不属于「重跑逐字节不变」的射程**：该节标题即
+  「提交**前**的 `git status --short`（本轮的改动尚未入库）」，记的是**那一刻**工作树还没提交的 6 个文件；
+  在**干净 `HEAD`** 上重跑生成器，同一节会写成**空**（`git status --short` 无输出，此时没有未提交改动）。**这是设计如此**
+  （2026-10-03 控制者裁定），**不改生成器行为**。⇒ 判「baseline 是否跑对了」要看的是
+  `§2–§8.4` 的**逐条重放**与 `§8.5` 的**提交后 blob 自证**，**不是** `§8.1` 那一段。
 - 本表**不覆盖** `docs/` 散文里的旧读数（例：`docs/mcm-writing-discipline.md` 记的
   `.claude/skills/` 目录数）。★ **订正（2026-10-02，`mcm-table` Task 1）**：那一处**本任务就同批清了**
   （它一红就是 `check-writing-discipline.py` 的 `A9`，而 `A9` **不在两道收工门里**）

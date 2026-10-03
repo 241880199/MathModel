@@ -1,0 +1,51 @@
+% =====================================================================
+% mcm-schematic · green/out-G1/figure.tex
+%
+% GREEN product for Task 3 — produced with the mcm-schematic skill:
+%   category  = technical route (course of action, with a branch + a loop);
+%   skeleton  = assets/skeletons/pipeline-branch.tex, adapted (a 3-way
+%               projection fan instead of 2 routes, plus a dashed revision
+%               loop back to Calibration);
+%   styling   = ONLY via ../schematic-style.tex (this file pins no colour,
+%               line width, corner radius, font or spacing literal).
+% =====================================================================
+
+\documentclass[12pt]{article}
+\input{../schematic-style.tex}
+\usepackage[paperwidth=\mcmscfigwidth,paperheight=4.10in,margin=0pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tikzpicture}[x=1in, y=1in]
+  \useasboundingbox (0,0) rectangle (\mcmscfigwidth, 4.10in);
+
+  \node[mcmnode, text width=0.95in]                    (nData) at (0.85, 3.05) {Data collection};
+  \node[mcmnode, text width=0.95in]                    (nPre)  at (2.15, 3.05) {Preprocessing};
+  \node[mcmnode, text width=0.85in]                    (nCal)  at (3.45, 3.05) {Calibration};
+  \node[mcmdec, text width=0.58in, minimum size=0.66in] (nDec) at (5.05, 3.05) {fit ok?};
+
+  \node[mcmfillalt, text width=1.05in] (nP1) at (1.45, 2.00) {No intervention};
+  \node[mcmfillalt, text width=1.05in] (nP2) at (3.20, 2.00) {Vaccination campaign};
+  \node[mcmfillalt, text width=1.05in] (nP3) at (4.95, 2.00) {School closure};
+
+  \node[mcmnode, text width=1.00in] (nCmp) at (3.20, 1.10) {Comparison};
+  \node[mcmterm, text width=1.18in] (nOut) at (3.20, 0.33) {Recommendation};
+
+  \mcmedge{nData}{nPre}
+  \mcmedge{nPre}{nCal}
+  \mcmedge{nCal}{nDec}
+  \mcmedge{nDec}{nP1}
+  \mcmedge{nDec}{nP2}
+  \mcmedge{nDec}{nP3}
+  \mcmedge{nP1}{nCmp}
+  \mcmedge{nP2}{nCmp}
+  \mcmedge{nP3}{nCmp}
+  \mcmedge{nCmp}{nOut}
+
+  % revision loop (S2: dashed = feedback / optional; one dashed semantic only)
+  \draw[mcmdash] (nDec.north) -- ++(0,0.42) -| (nCal.north);
+  \node[mcmnote] at ($(nDec.north)!0.5!(nCal.north) + (0,0.42)$) {No};
+  \node[mcmlabel] at ($(nDec.south) + (0.26,-0.16)$) {Yes};
+\end{tikzpicture}
+\end{document}

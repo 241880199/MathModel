@@ -36,6 +36,7 @@ import sys
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[2]                      # 仓根（本文件在 tests/skills/figure-choose/）
 SKILLS_ROOT = ROOT / ".claude/skills"
+SKILL = ROOT / ".claude/skills/mcm-figure-choose/SKILL.md"   # §5b 现算「边界段点名的家族载体」
 CHK = HERE / "check-spec-pointers.py"
 MUT = HERE / "mutate-figure-style.py"
 GEN = HERE / "gen-pointer-verify.py"
@@ -188,8 +189,15 @@ def main():
     ev("§5b  家族判定与普查（**import 检查器取同一条正则**；**现算**，不是抄它的输出）")
     sp = load(CHK.resolve(), "check_spec_pointers")   # 家族正则的**唯一权威** = 检查器模块
     family_re = sp.FAMILY_RE                           # 取**对象本身**（不是抄 pattern 字面量 ⇒ 不漂移）
+    # 边界段点名的家族载体**现算**（不写死个数 —— SKILL.md 的边界段随家族演进变，
+    # 写死"三个"会在 `mcm-schematic` 之类落地那刻变假；同 §5b 标题"现算，不是抄它的输出"）。
+    # FAMILY_RE is `^(?:...)$` (anchored per name, no MULTILINE) ⇒ match token-by-token,
+    # NOT findall over the whole file (that yields 0).
+    _toks = set(re.findall(r"mcm-[a-z-]+", SKILL.read_text(encoding="utf-8")))
+    named = sorted(n for n in _toks if family_re.match(n))
     ev(f"     正则：`{family_re.pattern}`（**现取**自 {rel(CHK)}：改检查器那条它即跟；"
-       f"对照 `mcm-figure-choose/SKILL.md` 边界段点名的三个前缀）")
+       f"对照 `mcm-figure-choose/SKILL.md` 边界段点名的家族载体 {len(named)} 个："
+       f"{'、'.join(named)}）")
     for root, label in ((SKILLS_ROOT, ".claude/skills（默认）"), (FAKE, "fixtures/fake-skills")):
         rows = [(p.parent.name, bool(family_re.match(p.parent.name)))
                 for p in sorted(root.glob("*/SKILL.md"))]

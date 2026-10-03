@@ -1,0 +1,24 @@
+% =====================================================================
+% mcm-schematic · tests/skills/schematic/fixtures/negative-control-math.tex
+%
+% ★★ 这是**反例控制组**，不是骨架。它**故意**在节点文字里用数学模式 ⇒ 预期 F6 判 FAIL。
+%    实测：数学模式会引入 Computer Modern / NewTX 的**数学**字体（CMMI10 / CMSY10 / txmi…），
+%    它们都不在 check-figure-style.py 的 `FONT_FAMILY_OK` 里 ⇒ F6 红。
+%    ⇒ 这条反例是"**本支骨架一律用文本模式标签**"这条规矩的机械证据（README「不许把它改成绿的」）。
+%    判定口径固定 = `RESULT: FAIL（F6）`；make-fixtures.py 会断言它**必须**红。
+%    其余部分与 assets/skeletons/ 下的骨架同形（同一份样式层、同一套宽度）。
+% =====================================================================
+
+\documentclass[12pt]{article}
+\input{../schematic-style.tex}
+\usepackage[paperwidth=\mcmscfigwidth,paperheight=1.00in,margin=0pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tikzpicture}[x=1in, y=1in]
+  \useasboundingbox (0,0) rectangle (\mcmscfigwidth, 1.00in);
+  \node[mcmnode, text width=2.20in] (a) at (3.20, 0.50)
+    {$Q_{\mathrm{in}} = \alpha\, h(t) + \beta$};
+\end{tikzpicture}
+\end{document}

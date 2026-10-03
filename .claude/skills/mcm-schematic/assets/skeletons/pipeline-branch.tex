@@ -1,0 +1,51 @@
+% =====================================================================
+% mcm-schematic · assets/skeletons/pipeline-branch.tex
+% 起步骨架 2/5 —— **分支与汇合**：判定菱形 + 多路 + 再汇合
+%
+% 选取依据：Task 0 侦察读数 6 做不到机械分类（明文降级），成员由判断保留；
+%           本份的理由见 tests/m3-schematic-recon/README.md「起步五份的逐个去向」。
+% 视觉标准全部来自 ../schematic-style.tex（本文件**不含颜色 / 线宽 / 圆角 / 字号**）。
+%
+% ── 「改哪儿」对照表 ─────────────────────────────────────────────────
+%  类   | 改什么                              | 怎么改
+%  -----|-------------------------------------|------------------------------------------
+%  内容 | 每个节点的文字                       | 只改 {…} 里的字；不要改节点名 (nIn)…
+%  内容 | 两条支路的 Yes / No 标签             | \mcmedge 里 node[mcmlabel] 的那个词
+%  结构 | 加一条支路                           | 复制一组「\node + 两条 \mcmedge」，
+%       |                                     | 支路 y 相对 0.85 上下对称铺开
+%  结构 | 去掉汇合点、让多条支路各连到终点      | 删 nJ 与它的两条边，各支路直接连 nOut
+%  ------|-------------------------------------|------------------------------------------
+%  不许动 | 颜色 / 线宽 / 圆角 / 字号            | 一律走 ../schematic-style.tex
+%  不许动 | \useasboundingbox 那一行             | 页盒 = 图框，删了图宽就失控（F1）
+%  不许动 | 菱形判定节点的形状与 y 位置          | 它居中才让两条支路的夹角对称
+% ─────────────────────────────────────────────────────────────────────
+
+\documentclass[12pt]{article}
+\input{../schematic-style.tex}
+\usepackage[paperwidth=\mcmscfigwidth,paperheight=1.68in,margin=0pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tikzpicture}[x=1in, y=1in]
+  \useasboundingbox (0,0) rectangle (\mcmscfigwidth, 1.68in);
+
+  \node[mcmterm, text width=0.62in]              (nIn)  at (0.55, 0.84) {Input};
+  \node[mcmdec,  text width=0.56in, minimum size=0.62in] (nDec) at (1.90, 0.84) {pass?};
+  \node[mcmfillalt, text width=1.00in]           (nA)   at (3.55, 1.26) {Route A};
+  \node[mcmfillalt, text width=1.00in]           (nB)   at (3.55, 0.42) {Route B};
+  \node[mcmjoin]                                 (nJ)   at (4.85, 0.84) {};
+  \node[mcmterm, text width=0.78in]              (nOut) at (5.86, 0.84) {Report};
+
+  \mcmedge{nIn}{nDec}
+  \mcmedge{nDec}{nA}
+  \mcmedge{nDec}{nB}
+  \mcmedge{nA}{nJ}
+  \mcmedge{nB}{nJ}
+  \mcmedge{nJ}{nOut}
+
+  % 支路标签：放在边的中点上方（S2 的第三语义要用图例说明；这里是二分，直接标注）
+  \node[mcmlabel] at ($(nDec)!0.58!(nA)$) {Yes};
+  \node[mcmlabel] at ($(nDec)!0.58!(nB)$) {No};
+\end{tikzpicture}
+\end{document}

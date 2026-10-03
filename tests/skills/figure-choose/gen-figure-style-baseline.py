@@ -167,7 +167,7 @@ INSTRUMENT = code_block(text, "命令体（逐字，cwd = 仓根）：", "\n\n�
 BYTECHECK = code_block(text, "命令体：\n", "\n$ python -c ")
 (M3T1 / "instrument.py").write_bytes((INSTRUMENT + "\n").encode("utf-8"))
 
-P1_OLD = "    res = check(p, cap, a.textwidth_in, a.dpi)"
+P1_OLD = "    res = check(p, cap, a.textwidth_in, a.dpi, schematic=a.schematic)"
 P1_NEW = ('    if p.name == "bad-f2-five-colors.pdf":\n'
           "        sys.exit(EXIT_FAIL_CLOSED)  # 探针：只在期望 FAIL 的那一行 fail-closed\n"
           + P1_OLD)

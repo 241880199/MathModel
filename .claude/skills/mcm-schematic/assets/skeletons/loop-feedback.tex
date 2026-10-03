@@ -1,0 +1,53 @@
+% =====================================================================
+% mcm-schematic · assets/skeletons/loop-feedback.tex
+% 起步骨架 4/5 —— **反馈回路**：存量-流量 / 正反馈环 / 负反馈环
+%
+% 选取依据：Task 0 侦察读数 6 做不到机械分类（明文降级），成员由判断保留；
+%           抽样里只出现一次（低频，标注），保留理由见
+%           tests/m3-schematic-recon/README.md「起步五份的逐个去向」。
+% 视觉标准全部来自 ../schematic-style.tex（本文件**不含颜色 / 线宽 / 圆角 / 字号**）。
+%
+% ── 「改哪儿」对照表 ─────────────────────────────────────────────────
+%  类   | 改什么                              | 怎么改
+%  -----|-------------------------------------|------------------------------------------
+%  内容 | 三个块的文字                         | 只改 {…} 里的字；不要改节点名 (nIn)…
+%  内容 | 两个环的名称与极性                   | 改 \node[mcmnote] 与极性徽标那两个词
+%  内容 | 哪条环用强调色                       | 把 mcmarrowa 换成 mcmarrow，或反过来（**整图至多一条强调环**）
+%  结构 | 去掉负反馈环                         | 删掉 \draw[mcmdash] 那一段与它的标签
+%  结构 | 改环的半径                           | 改 ++(0,0.55) / ++(0,-0.55) 里的 0.55in——
+%       |                                     | **两条环要一起改**，否则页面高度会不够（越界即被页盒裁掉）
+%  ------|-------------------------------------|------------------------------------------
+%  不许动 | 颜色 / 线宽 / 圆角 / 字号            | 一律走 ../schematic-style.tex
+%  不许动 | \useasboundingbox 那一行             | 页盒 = 图框，删了图宽就失控（F1）
+%  不许动 | 环的**出入点**（.north / .south）     | 它们决定两条环会不会互相压线
+% ─────────────────────────────────────────────────────────────────────
+
+\documentclass[12pt]{article}
+\input{../schematic-style.tex}
+\usepackage[paperwidth=\mcmscfigwidth,paperheight=2.30in,margin=0pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tikzpicture}[x=1in, y=1in]
+  \useasboundingbox (0,0) rectangle (\mcmscfigwidth, 2.30in);
+
+  \node[mcmterm, text width=0.88in]              (nIn)  at (0.95, 1.20) {Inflow};
+  \node[mcmnode, text width=1.00in, minimum height=0.52in] (nS) at (3.20, 1.20) {Stock};
+  \node[mcmterm, text width=0.88in]              (nOut) at (5.45, 1.20) {Outflow};
+
+  % 主流量：实线 = 主流程（S2）；极性徽标标在边的上方
+  \mcmedge{nIn}{nS}
+  \mcmedge{nS}{nOut}
+  \node[mcmlabel] at ($(nIn)!0.5!(nS) + (0,0.11)$) {+};
+  \node[mcmlabel] at ($(nS)!0.5!(nOut) + (0,0.11)$) {+};
+
+  % 正反馈环（上）：强调色 + 实线；出点 = nOut.north，入点 = nIn.north
+  \draw[mcmarrowa] (nOut.north) -- ++(0,0.55) -| (nIn.north);
+  \node[mcmnoteaccent] at (3.20, 2.05) {reinforcing loop \textbf{(+)}};
+
+  % 负反馈环（下）：虚线 = 回环 / 反馈（S2）；出点 = nIn.south，入点 = nOut.south
+  \draw[mcmdash] (nIn.south) -- ++(0,-0.55) -| (nOut.south);
+  \node[mcmnote] at (3.20, 0.34) {balancing loop \textbf{(-)}};
+\end{tikzpicture}
+\end{document}

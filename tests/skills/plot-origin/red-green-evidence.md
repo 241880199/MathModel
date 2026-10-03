@@ -10,7 +10,7 @@
   低/中/高三档；G2 = brief-R2 的五属性表；RED 侧脚本里硬编码的同一批数）。
 - **分母**：两侧都传 `--textwidth-in 6.31`（本仓演示口径）。
 - **同一把尺**：`tests/skills/figure-choose/check-figure-style.py` **一字未改**。
-  工作树 blob `31621e433d23` · `HEAD:` blob `31621e433d23` ⇒ **相同**
+  工作树 blob `0a4bb765a825` · `HEAD:` blob `0a4bb765a825` ⇒ **相同**
 - **同数**：每侧 3 场景 × 2 载体（PNG/PDF）= **6 张图**，两侧共 12 张；判据 9 条 × 12 张。
 - **PNG 的 `--dpi` 由产物自身推得**（PNG 像素宽 ÷ PDF 页盒宽），见每场景的 `dpi=` 行；
   **PDF 不给 `--dpi`**（走页盒）。

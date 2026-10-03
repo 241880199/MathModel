@@ -1,0 +1,8 @@
+# mcm-schematic · 骨架自证控制组的图注（<骨架名>\t<图注>）
+# 图注就是喂给 check-figure-style.py --caption 的那个字符串（F3a–d 判的是它，不是图里的字）。
+# 词数一律落在 H9 的正文上限以内（判词见同目录 <骨架名>.check.txt 的 F3b 行）。
+pipeline-linear	Figure 1: Five-stage modelling pipeline with a dashed refit loop
+pipeline-branch	Figure 2: Branch-and-merge route through a screening decision
+model-layered	Figure 3: Layered model structure with bundled cross-layer links
+loop-feedback	Figure 4: Stock-flow loop with one reinforcing and one balancing path
+mechanism-block	Figure 5: Mechanism block diagram of the coupled tank process

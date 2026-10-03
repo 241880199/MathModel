@@ -1,0 +1,2 @@
+# pipeline-branch · 编译读数（pdflatex，TeX Live 2026）
+rc=0 · Overfull \hbox=0 · Output written on pipeline-branch.pdf (1 page, 33744 bytes)

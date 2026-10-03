@@ -1,0 +1,28 @@
+### probe_0_inventory —— 分母侦察（复用 table 支的 unit 分类）
+# repo = D:\Projects\数学建模
+# fitz = PyMuPDF 1.27.2.3: Python bindings for the MuPDF 1.27.2 library.
+# 分类器出处 = tests/m3-table-recon/probe_0_inventory.py（probe_pdf / classify）
+
+## A) 276 份 PDF 的 unit 分布（table 支的判据，当场重跑）
+   official        8
+   paper         164
+   problem        67
+   volume         37
+   TOTAL         276
+
+## B) 论文层（分母）= 164 份
+   口径：单册单题、有文本层、页数 <60 的 O 奖论文 PDF（与 table 支**同一判据**）。
+   不含：37 份 UMAP 扫描合集 · 67 份官方赛题 · 8 份官方文档。
+
+## C) 图注锚点（`Figure N:` 起首的行）= 本支的「图」单位
+   论文层总页数 = 4143
+   图注锚点总数 = 2302，分布在 156 / 164 份论文里
+   单篇最多 = 29（corpus/历届优秀论文/2025美赛O奖论文/D/2507692.pdf）
+   ★ 注意：这是**图注锚点**数，不等于「图」数 —— 一页多图、图注跨行都会让它偏。
+     真正的按图分类见 probe_2。
+
+## D) 可量性预判（读数 1 的伏笔；真读数在 probe_2）
+   ★ 本支实测的核心事实：这些论文的图**绝大多数是位图贴入**（PNG/JPEG 嵌进 PDF），
+     不是矢量绘制 ⇒ 几何特征（节点框 / 箭头）**只对矢量图可用**。
+     故 probe_2 会把每张图先判 raster / vector，并**点名排除**不可量的那批。
+

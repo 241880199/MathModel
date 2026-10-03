@@ -34,7 +34,7 @@ SCENES = (1, 2, 3)
 CARRIERS = ("png", "pdf")
 # 判据 ID 允许**多位数**（`F10`、`F12`…）：检查器将来新增两位数判据时，下面按行解析的汇总表
 # 不会静默丢格（`M3-plot-INIT` 的「清单写死 6 条 / 检查器实得 9 条」同型坑：解析器看不见 = 静默丢项）。
-LINE_RE = re.compile(r"^(PASS|FAIL)\s+(F[0-9]+[a-d]?)\s+(.*)$")
+LINE_RE = re.compile(r"^(PASS|FAIL)\s+([A-Z][0-9]+[a-d]?)\s+(.*)$")
 RES_RE = re.compile(r"^RESULT: (PASS|FAIL)(?:（(.*)）)?\s*$")
 
 

@@ -66,8 +66,9 @@ description: Use when 需要决定"这组数据该画成哪种图"、在几个�
   - `mcm-plot-python`
   - `mcm-plot-matlab`
   - `mcm-plot-origin`
+  - `mcm-schematic`（**示意图 / 技术路线图 / 机理图 / 模型结构图** ⇒ LaTeX 的 TikZ 源码；判据族与 plot 侧不同）
 
-  **交接状态**：`mcm-plot-python`、`mcm-plot-matlab` 与 `mcm-plot-origin` 三个绘图 skill **都已建**
+  **交接状态**：`mcm-plot-python`、`mcm-plot-matlab`、`mcm-plot-origin` 与 `mcm-schematic` **都已建**
   ⇒ "产代码"这一段可以直接交给它们，本 skill **不再有待建载体**。
 - **不做合规检查。** 图的机械判据在出货检查器（`check-figure-style.py` 的宽度 / 颜色 / 图注那一族），**不在本 skill**；本 skill 不出"这张图合规吗"的判词。
 - **不声明"规范已被全面验证"。** `house-style.md` **逐条**标了验证状态（① 有机械守卫 / ② 只有判断层 / ③ 无验证），而且判断层的**实际射程只有单条规则**——是哪一条、为什么，见 `house-style.md` 的「验证状态三级」那一段与 `H6` 那一条；每条规则自己的验证状态写在它的「验证」行里。**覆盖到哪、没覆盖到哪，一律以那份文件为准**，本文件不把它总结成"可靠"。

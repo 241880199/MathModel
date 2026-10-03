@@ -1,0 +1,125 @@
+% =====================================================================
+% mcm-schematic · assets/schematic-style.tex
+%
+% 样式层**单源**：本 skill 产物样式的**唯一来源**。
+%   · 骨架一律 `\input` 本文件；
+%   · 骨架自身**不许**出现任何样式字面量（颜色 / 线宽 / 圆角 / 间距 / 字号）；
+%   · 规则正文、每条的出处的边界，见 ../references/schematic-style.md。
+% 本文件是**产物规范**（"我们的选择"），不是对获奖语料的描述 —— 依据见规范 §2 的 S 条。
+% =====================================================================
+
+% ---- 宏包：字体与论文正文同源；TikZ 及其库（library 清单见 references/workflow.md 的产物契约）----
+\RequirePackage[T1]{fontenc}
+\RequirePackage{newtxtext}          % 字体与论文正文同源（house-style H12；出货 F6 在量）
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,shapes.geometric}
+
+% ---- 整图宽度（★ 写死；骨架靠它把 F1 钉在验收带内）----
+% 图宽 = 论文版心宽 × 0.95 = 6.75in × 0.95 = 6.4125in
+%   6.75in = 论文版心宽，出处 .claude/skills/mcm-latex-format/assets/mcm-2027-summary.tex
+%            （article 12pt + geometry left=1in,right=0.75in ⇒ 8.5 − 1 − 0.75 = 6.75in）
+%   0.95   = .claude/skills/mcm-figure-choose/assets/mcm-style.json 的
+%            h1.width_ratio.default_lo（house-style H1 的默认档下限）
+%   F1 的验收带是 [0.80, 1.20]；6.4125 / 6.75 = 0.95 落在带内。
+% ★ 上面这个 0.95 与验收带 [0.80, 1.20] 是 `mcm-figure-choose/references/house-style.md` 的
+%   `H1` 条（与出货常量 F1_LO / F1_HI）的**转述**，只为在**本文件**把固定宽度算出来 ——
+%   **那份文件与出货检查器才权威**；两处若不一致，改本文件、别改它（本支**不新造守卫**盯它）。
+%      ⚠️ 语料里示意图宽度的中位是 0.700 —— **低于该带下界**，故语料中位**不是**本支的目标值，
+%         只作边界登记（见规范 §1 宽度条与侦察读数 2）。
+%         ★ **这个 0.700 的分母是「该篇自己的版心」（正文行宽 p90，house-style `H2` 口径）**，
+%           与上面用的固定 6.75in（**本仓论文骨架**的版心）**不是同一个分母** —— 别混成一个数。
+\newlength{\mcmscfigwidth}
+\setlength{\mcmscfigwidth}{6.4125in}
+
+% ---- 颜色（S4：单色系深浅 + **至多一个**强调色）----
+% 非灰的色必须是 house-style H14 显式色序里的色 —— 出货 F5 要求显著色**精确命中**该集合。
+\definecolor{mcmInk}{gray}{0.10}       % 文字与主描边
+\definecolor{mcmLine}{gray}{0.35}      % 主流程线 / 节点描边
+\definecolor{mcmFaint}{gray}{0.62}     % 虚线 / 回环 / 分组框
+\definecolor{mcmFill}{gray}{0.93}      % 节点底色
+\definecolor{mcmFillAlt}{gray}{0.86}   % 次级节点底色
+\definecolor{mcmAccent}{HTML}{0072B2}  % 强调色（H14 显式色序第五位「蓝」）
+
+% ---- 线宽 / 圆角 / 间距（唯一定义处）----
+\newlength{\mcmsclwthin}\setlength{\mcmsclwthin}{0.5pt}    % 辅助线 / 虚线
+\newlength{\mcmsclwmain}\setlength{\mcmsclwmain}{0.7pt}    % 主流程线
+\newlength{\mcmsclwaccent}\setlength{\mcmsclwaccent}{0.9pt}% 强调线
+\newlength{\mcmscround}\setlength{\mcmscround}{2pt}        % 节点圆角
+\newlength{\mcmscroundgrp}\setlength{\mcmscroundgrp}{3pt}  % 分组框圆角
+\newlength{\mcmscgap}\setlength{\mcmscgap}{6mm}            % 节点默认间距（沿流向）
+\newlength{\mcmscgapcross}\setlength{\mcmscgapcross}{4mm}  % 并列 / 跨层间距
+
+% ---- TikZ 样式（原语层：节点 / 箭头 / 分组 / 泳道 / 回环 / 标注）----
+% ★ `\tikzset{…}` 的实参里**不许出现空行**（空行 = \par ⇒ pgfkeys 报
+%   "Paragraph ended before \pgfkeys@addpath was complete"）。本块内只用注释分行。
+\tikzset{
+  % —— 节点 ——
+  mcmnode/.style    = {draw=mcmLine, fill=mcmFill, rounded corners=\mcmscround,
+                       line width=\mcmsclwmain, inner sep=3pt, minimum height=6.5mm,
+                       align=center, font=\small, text=mcmInk},
+  mcmterm/.style    = {mcmnode, rounded corners=3mm},
+  mcmdec/.style     = {mcmnode, shape=diamond, aspect=2.2, rounded corners=0pt, fill=mcmFillAlt},
+  mcmio/.style      = {mcmnode, fill=none},
+  mcmfillalt/.style = {mcmnode, fill=mcmFillAlt},
+  mcmaccent/.style  = {mcmnode, draw=mcmAccent, line width=\mcmsclwaccent},
+  % —— 箭头（有向：方向 = 因果 / 流转）——
+  mcmarrow/.style   = {-{Stealth[length=1.8mm,width=1.4mm]}, draw=mcmLine,
+                       line width=\mcmsclwmain},
+  mcmarrowa/.style  = {mcmarrow, draw=mcmAccent, line width=\mcmsclwaccent},
+  mcmdash/.style    = {mcmarrow, draw=mcmFaint, line width=\mcmsclwthin,
+                       dash pattern=on 2.2pt off 1.6pt},
+  mcmdashplain/.style={draw=mcmFaint, line width=\mcmsclwthin, dash pattern=on 2.2pt off 1.6pt},
+  % —— 分组框 / 泳道 ——
+  mcmgroup/.style   = {draw=mcmFaint, line width=\mcmsclwthin, rounded corners=\mcmscroundgrp,
+                       inner sep=4pt, fill=none},
+  mcmgroupfill/.style={mcmgroup, fill=mcmFill},
+  mcmgroupaccent/.style={mcmgroup, draw=mcmAccent, line width=\mcmsclwmain},
+  mcmswimlane/.style= {draw=mcmFaint, line width=\mcmsclwthin, fill=mcmFill, inner sep=3pt,
+                       minimum height=9mm, align=left, font=\footnotesize, text=mcmInk},
+  % —— 标注 / 图内文字 ——
+  mcmnote/.style    = {font=\footnotesize, text=mcmInk, align=center, inner sep=1pt},
+  mcmnoteaccent/.style={mcmnote, text=mcmAccent},
+  mcmlabel/.style   = {font=\scriptsize, text=mcmInk, fill=white, inner sep=1pt},
+  % —— 汇合点（分支汇合用的小实心点）——
+  mcmjoin/.style    = {circle, fill=mcmLine, draw=none, inner sep=0pt, minimum size=2.4mm},
+  % —— 机理块（储罐 / 液面 / 示意尺寸线）——
+  mcmtank/.style    = {draw=mcmLine, line width=\mcmsclwmain, fill=none, rounded corners=0pt,
+                       inner sep=0pt},
+  mcmliquid/.style  = {fill=mcmFill, draw=none},
+  mcmdim/.style     = {{Stealth[length=1.2mm,width=0.9mm]}-{Stealth[length=1.2mm,width=0.9mm]},
+                       draw=mcmFaint, line width=\mcmsclwthin},
+  % —— 流的粗细语义（只在 mechanism-block 用粗细编码"量"）——
+  mcmflow/.style    = {-{Stealth[length=3.0mm,width=2.4mm]}, draw=mcmLine,
+                       line width=1.4mm, line cap=round},
+  mcmflowthin/.style= {-{Stealth[length=1.8mm,width=1.4mm]}, draw=mcmLine,
+                       line width=0.5mm, line cap=round},
+}
+
+% ---- 宏（原语兜底用；骨架里也一律走宏或上面这些样式，不写裸字面量）----
+
+% 箭头宏：\mcmedge[样式]{起点}{终点}
+\newcommand{\mcmedge}[3][]{\draw[mcmarrow,#1] (#2) -- (#3);}
+
+% 折线箭头宏：\mcmedgevia[样式]{起点}{拐点}{终点}
+\newcommand{\mcmedgevia}[4][]{\draw[mcmarrow,#1] (#2) -- (#3) -- (#4);}
+
+% 回环宏：从 #2 的南边绕到 #3 的南边，横向走线在下；#4 是环上标注（置于走线下方）
+\newcommand{\mcmloopback}[4][0.42in]{%
+  \draw[mcmdash] (#2.south) -- ++(0,-#1) -| (#3.south);%
+  \node[mcmnote] at ($(#2.south)!0.5!(#3.south) + (0,-#1-0.13in)$) {#4};%
+}
+
+% 分组框宏（★ 签名以本行为准，调用形态与真跑对照见 ../references/schematic-style.md 的
+%   「原语兜底宏的调用形态」那一节）：把若干**已命名**节点框起来。
+%   \mcmgroup[<额外样式>]{<fit 列表>}{<分组名>} —— 第二个参数是**节点列表** (a)(b)(c)，**不是**分组名；
+%   例：\mcmgroup[mcmgroupfill]{(a1)(a2)(a3)}{layerBox}
+%   （旧注释误写作 \mcmgroup{框名}{节点名,…}；照那个写会让 fit 收到"框名"⇒ tikz 报
+%    `Cannot parse this coordinate`、编译失败 —— 实测对照见规范那一节。）
+% 注意：需要 fit 库 —— 本文件已载。
+\newcommand{\mcmgroup}[3][]{\node[mcmgroup,#1,fit=#2] (#3) {};}
+
+% 泳道宏：\mcmswimlane{左端坐标}{泳道宽}{纵向中心 y}{标题}{标签名}
+% 以绝对坐标画一条带标题的横向泳道（原语兜底用）
+\newcommand{\mcmswimlane}[5]{%
+  \node[mcmswimlane, minimum width=#2, anchor=west] (#5) at (#1,#3) {#4};%
+}

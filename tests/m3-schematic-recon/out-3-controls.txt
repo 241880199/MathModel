@@ -1,0 +1,39 @@
+### probe_3_controls —— 自造控制页 + 读数 6 可行性实验
+# 页面 612x792 版心 72..540
+
+## A) kind 分类控制（自造样本）
+   ★ 排除表区有两个口径：naive=任何'横线成组'的区；prod=只取**带 `Table N` 表题**的区。
+     S1（流程图）专测这一点：它的框线会被 naive 判成表（跨仪器误伤），prod 不会。
+   S1_矢量流程图         期望=vector         实测 kind=['vector']  PASS   [naive口径=['table']]
+        vector 特征 {'n_rect': 5, 'n_small': 8, 'n_long': 0, 'n_curve': 0, 'n_items': 17, 'n_text': 5}
+   S2_矢量坐标轴图        期望=vector         实测 kind=['vector']  PASS
+        vector 特征 {'n_rect': 1, 'n_small': 12, 'n_long': 0, 'n_curve': 0, 'n_items': 33, 'n_text': 0}
+   S3_矢量条形图         期望=vector         实测 kind=['vector']  PASS
+        vector 特征 {'n_rect': 8, 'n_small': 0, 'n_long': 2, 'n_curve': 0, 'n_items': 10, 'n_text': 0}
+   S4_矢量散点图         期望=vector         实测 kind=['vector']  PASS
+        vector 特征 {'n_rect': 1, 'n_small': 300, 'n_long': 0, 'n_curve': 0, 'n_items': 301, 'n_text': 0}
+   S5_位图贴入          期望=raster         实测 kind=['raster']  PASS
+   S6_三线表带图注        期望=table-or-none  实测 kind=['none']  PASS
+   S7_纯文本页          期望=no-figure      实测 kind=[]  PASS
+   小计：PASS 7 / FAIL 0（共 7）
+
+## B) 可分性实验：**矢量**示意图 vs **矢量**坐标轴图（读数 6 的否定证据）
+   现画 4 张矢量图，量同一组几何特征：
+   线性流程图      n_rect=  5 n_small=    8 n_curve=   0 n_items=   17 n_text=  5
+   条形图        n_rect=  8 n_small=    0 n_curve=   0 n_items=   10 n_text=  0
+   散点图        n_rect=  1 n_small=  300 n_curve=   0 n_items=  301 n_text=  0
+   坐标轴折线      n_rect=  1 n_small=   12 n_curve=   0 n_items=   33 n_text=  0
+   ★ 结论：线性流程图的 n_rect=5，条形图（坐标轴图）n_rect=8 —— **同一量级**
+     ⇒ 任何 n_rect 阈值都把条形图当成流程图（或反之）⇒ 单特征**分不开**两类。
+   ★ 且散点图的 n_small 远大于流程图 ⇒ 只能把散点图分出去，条形图/折线图仍混在一起。
+
+## C) 形态细分（线性/分支/分层/环路）的重建实验
+   现画一个 **4 框环路**（反馈回路），用最朴素的重建法：矩形=节点、线段=边。
+   重建得到：节点（矩形）= 4 个，线段 = 12 条
+   ★ 环路的判定需要**邻接关系**（哪条边连哪两个节点），而 get_drawings() 只给**路径**，
+     不给拓扑 ⇒ 得靠'端点落在哪个框内'去猜。本例画得干净，猜得出来；
+     **但真语料做不到**：矢量图的 n_rect 中位数只有 2（见 probe_2 读数 6 的分布）
+     ⇒ 大多数矢量图**凑不出 >=3 个节点**，节点图无从谈起。
+   ★ 分层同样要节点图（按 y 聚类成层）；分支要**箭头方向**（箭头尖是一个小三角，
+     与它连接的线不共享端点，方向须另行配对）—— 本支**未实现**，故**不承诺**。
+

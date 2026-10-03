@@ -1,0 +1,264 @@
+### probe_2_corpus —— 全量扫描六读数
+# 论文层 = 164 份（tableprobe 同一分类器）
+# 阈值（schematicprobe）：图注带 330pt · 矢量 >=3 条目 · 图区 >=30x30/8000pt^2
+# 复用：F2 数色(color_count) · F3b 词数(caption_body) · F6 内嵌字体(page_font_split) —— 均取自
+#       tests/skills/figure-choose/check-figure-style.py（真复用，非重写）
+
+# montage -> build/m3-schematic-recon/montage/all_00.png
+# montage -> build/m3-schematic-recon/montage/all_01.png
+# montage -> build/m3-schematic-recon/montage/all_02.png
+# montage -> build/m3-schematic-recon/montage/all_03.png
+# montage -> build/m3-schematic-recon/montage/vec_00.png
+# montage -> build/m3-schematic-recon/montage/vec_01.png
+## 0) 分母与「图」的总量
+   论文层 = 164 份；图元记录（图注锚点命中的图/空位）= 2302
+     kind=raster       1855
+     kind=vector        230
+     kind=tiny-vector   111
+     kind=table           1
+     kind=none          105
+   ★ 说明：
+     · raster      = 位图贴入的图（几何**不可量**；宽度/配色仍可量）
+     · vector      = 几何可量的矢量图（读数 6 的唯一可用子集）
+     · tiny-vector = 只有零星矢量图元（分隔线/边角），**不成图**
+     · table       = 与表区重叠 >=0.50 的区（是表不是图，**排除**）
+     · none        = 图注下方/上方找不到任何图元（图注是正文引用或图在下一段外）
+
+## 1) 读数 1 · 非数据图占比
+   ★ **机械判据做不到**（本支核心否定结论，证据在 `## 0` 与 `## 6`）：
+     · 示意图与坐标轴图**没有**表格那种硬特征（横线）；
+     · 论文层的图 81% 是位图贴入 ⇒ 连几何都取不到（见上 kind=raster）。
+   ⇒ 只报**机械可判的部分** + **人眼抽样的估计**（下表），两件事分清。
+   ① 机械可判：可定位图区（raster+vector）= 2085 / 2302 = 90.6%
+      其中位图（几何不可量）1855 = 80.6%；矢量（几何可量）230 = 10.0%
+   ② 人眼抽样：从可定位图区里**均匀系统抽样** 96 张（step=21，无随机种子）
+      判定表 = sample-labels.tsv（**人眼判定，不是机械读数**）
+      schematic   27 / 96 =  28.1%   Wilson95%CI [20.1%, 37.8%]
+      plot        54 / 96 =  56.2%   Wilson95%CI [46.3%, 65.7%]
+      other       13 / 96 =  13.5%   Wilson95%CI [8.1%, 21.8%]
+      table        2 / 96 =   2.1%   Wilson95%CI [0.6%, 7.3%]
+      **非坐标轴图**（schematic+other）40 / 96 = 41.7%  CI [32.3%, 51.7%]
+      示意图的形态分布（**人眼判定**，不声称穷尽）：{'structure': 11, 'layered': 7, 'mechanism': 4, 'linear': 2, 'branch': 2, 'loop': 1}
+
+## 2) 读数 2 · 图宽 / 版心比（分母口径与 table 支**同一支仪器**）
+   用 tableprobe.analyze_page(page)['body_width']（表区已排除）⇒ 与 m3-table-recon 的 2 可比。
+   n=2085  min=0.084  p10=0.405  median=0.700  p90=1.000  max=2.033
+      (0.00, 0.30] :   64    3.1%
+      (0.30, 0.50] :  522   25.0%
+      (0.50, 0.70] :  462   22.2%
+      (0.70, 0.90] :  531   25.5%
+      (0.90, 1.00] :  389   18.7%
+      (1.00, 1.15] :   81    3.9%
+      (1.15, 9.00] :   36    1.7%
+   ★ 满版心（>=0.90）= 506 (24.3%)；>1.0 = 131 (6.3%)
+
+## 3) 读数 3 · 配色（F2 度量：彩色主色数 / 是否单色系）
+   n=2085（可栅格化的图区）  min=0  p50=3  p90=13  max=50
+      彩色主色数 = 0 :  574   27.5%
+      彩色主色数 = 1 :  219   10.5%
+      彩色主色数 = 2 :  192    9.2%
+      彩色主色数 = 3 :  157    7.5%
+      彩色主色数 = 4 :  152    7.3%
+      彩色主色数 = 5 :  122    5.9%
+      彩色主色数 = 6 :  108    5.2%
+      彩色主色数 = 7 :   99    4.7%
+      >=8 并入 '8+' :  462
+   ★ 单色系（彩色主色数 <= 1）= 793 / 2085 = 38.0%
+   ★ 口径：与 F2 同（NEAREST 缩到 320x320，剔近灰 max-min<24，占比 >=0.5% 才算主色）。
+     F5 的『是否命中 H14 显式色序』**不在此测** —— 那是**产物规范**，语料的图不是按它画的。
+
+## 4) 读数 4 · 图注词数（F3b 口径：去 `Figure N:` 前缀后的正文）
+   n=2302  min=0  p50=5  p90=11  p95=13  max=21
+      词数 [ 0,6) : 1205   52.3%
+      词数 [ 6,12) :  907   39.4%
+      词数 [12,17) :  179    7.8%
+      词数 [17,25) :   11    0.5%
+      词数 [25,inf) :    0    0.0%
+   计数（对照 H9）：>=13 词（即「>12 ⇒ 不合格侧」）= 141 / 2302 = 6.1%；>17 词（F3b 硬失败线）= 6 / 2302 = 0.3%
+   ★ 对照 F3b/H9 的现阈值：<=12 合格、>17 硬失败
+
+## 5) 读数 5 · 示意图所在页的内嵌字体（F6 口径）
+   ★ 如实说明：图**本身是位图** ⇒ 图内文字**不是字体对象**；本读数量的是**该页的**内嵌字体，
+     即『这张图所在页的字体是否与正文同源』，**不是**『图里的字用了什么字体』。
+   PASS   132    6.3%
+   FAIL  1926   92.4%
+   N/A     27    1.3%
+   （PASS=内嵌且族在 FONT_FAMILY_OK；N/A=该页未内嵌任何字体）
+   ★ 这个 PASS/FAIL 是 F6 自己的判词；它衡量的是「族在不在**本 skill 的允许集合**里」，
+     不是「与正文同源」。下面才是本读数问的那件事：
+   ★ 同源判定（**族级**）：图页的内嵌字体**族** == 该**论文最常见的**字体族
+     （族 = 剥掉子集前缀后、'-' 前的部分；如 TeXGyreTermesX-Regular → TeXGyreTermesX）
+     同族 502 ( 24.1%) · 不同族 1556 ( 74.6%) · 图页未内嵌字体 27 (  1.3%)
+     ⇒ 图内文字不在文本层（图是位图）⇒ 这个读数只说明**页面**字体，见 README 的边界。
+
+## 6) 读数 6 · 形态粗分类（线性/分支/分层/环路）—— **可行性**
+   可用子集 = 矢量图 230 张（占全部图元记录的 10.0%）
+   n_rect   min=     0 p25=     1 med=     2 p75=      7 max=     651
+   n_small  min=     0 p25=    18 med=   138 p75=   1412 max=   41695
+   n_curve  min=     0 p25=     1 med=    56 p75=   1600 max=   36443
+   n_items  min=     3 p25=   135 med=  1073 p75=   3589 max=   52912
+   n_text   min=     0 p25=     8 med=    22 p75=     38 max=     133
+   ★ 关键否定证据：这些特征上，**人眼判为示意图**与**判为「非示意图」**的图**重叠**。
+     （此处对照 = 示意图 vs 非示意图，**比任务书问的四分类更粗**；那 37 张
+       「非示意图」里**并不全是坐标轴图** —— 成分 = {'plot': 32, 'other': 3, 'table': 2}，见 sample-labels.tsv）
+   人眼抽样 48 张矢量图（step=4，起点 0，无随机数）：示意图 11 / 非示意图 37
+     **全判多数类的基线 = 0.771**（= 48 张里 11 张示意图全漏，判错率 22.9%）
+   n_rect   最佳单特征阈值精度 = 0.771  （n_rect >651；基线 0.771）
+   n_small  最佳单特征阈值精度 = 0.792  （n_small >12697；基线 0.771）
+   n_curve  最佳单特征阈值精度 = 0.771  （n_curve >27740；基线 0.771）
+   n_items  最佳单特征阈值精度 = 0.771  （n_items >39861；基线 0.771）
+   n_text   最佳单特征阈值精度 = 0.771  （n_text >46；基线 0.771）
+   ★ 单特征**都不过基线附近**（或仅略高，最好者只多对 1 张）⇒ 用它定「是不是示意图」判错率 ≈20.8%~22.9%
+   ★ a fortiori（**四分类本身没测过**，靠更粗的一步撑）：连这个**更粗**的二分类
+     （示意图 vs 非示意图）都不过基线 ⇒ **更细**的四分类（线性/分支/分层/环路 **互相**分开）
+     **更不可能**；且 `probe_3` 的 C 组**独立地**否掉了四分类所需的拓扑特征
+     （谁连谁 / 箭头朝向，`get_drawings()` 不给）。
+   ⇒ **不可机械定稿**。降级结论与骨架表规则见 README。
+
+# ---- 抽样清单（供人眼复核；索引即 montage 里的 #N）----
+# [A] 读数 1 全图抽样（96 张）：
+#     0  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2200289.pdf p5   kind=raster words= 4  Figure 1: Structure of Our Work
+#     1  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2207343.pdf p3   kind=raster words= 2  Figure 1: Power curve
+#     2  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209466.pdf p8   kind=raster words= 5  Figure 3: Curve Fitting Results for Men
+#     3  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209812.pdf p14  kind=vector words= 7  Figure 9: The Effect of Posture on Air Resistance
+#     4  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2210307.pdf p17  kind=raster words=11  Figure 13: Diagram of power, speed, elevation and distan
+#     5  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2212245.pdf p17  kind=raster words=10  Figure 14: 2021 UCI World Championship ITT Course (Male)
+#     6  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2216547.pdf p19  kind=raster words=12  Figure 15: The Optimal Power Distribution,the velocity a
+#     7  corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2202748.pdf p7   kind=raster words=15  Figure 2: The fitting curves of Lake Powell ( Left ) and
+#     8  corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2207864.pdf p22  kind=raster words= 4  Figure 16: Visualization of sensitivity analysis
+#     9  corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2213970.pdf p18  kind=raster words= 8  Figure 10: Strategies for water resource allocation as d
+#    10  corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2200688.pdf p7   kind=vector words=13  Figure 3: Schematic view of the analyst-in-the-loop appr
+#    11  corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2203120.pdf p17  kind=raster words= 7  Figure 13: The impact of m on total assets
+#    12  corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2208834.pdf p11  kind=raster words= 5  Figure 8: Scatter matrix between[’return’, ’RSI-6’, ’MAC
+#    13  corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2212336.pdf p9   kind=raster words= 7  Figure 10: ARIMA-LSTM Model - Bitcoin Price Forecast Res
+#    14  corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2218743.pdf p16  kind=raster words=12  Figure 13: Time series plot of gold and bitcoin holdings
+#    15  corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2224507.pdf p16  kind=raster words= 7  Figure 10: Schematic diagram of asset changes and transa
+#    16  corpus/历届优秀论文/2022年美赛特等奖原版论文集/D/2208928.pdf p16  kind=raster words= 4  Figure 7: Flow Chart of Technology
+#    17  corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2202666.pdf p15  kind=raster words= 5  Figure 10: GE metrix of harvesting programs
+#    18  corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2203489.pdf p17  kind=raster words= 9  Figure 9: Annual tree cover loss by dominant driver in C
+#    19  corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2216618.pdf p16  kind=raster words= 6  Figure 6: The native range of quaking aspen.[15]
+#    20  corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2220714.pdf p9   kind=raster words=11  Figure 4.2 The Accumulate Carbon Sequestration of Forest
+#    21  corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2204803.pdf p11  kind=raster words= 2  Figure 4: NDI distribution
+#    22  corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2211240.pdf p4   kind=raster words= 5  Figure 2: Flow chart of our work
+#    23  corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2218577.pdf p11  kind=raster words= 4  Figure 3: Degree of Global Equity
+#    24  corpus/历届优秀论文/2022年美赛特等奖原版论文集/F/2220722.pdf p20  kind=raster words= 7  Figure 10: RE&OE performances in major mineral exporter 
+#    25  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2300336.pdf p9   kind=raster words= 5  Figure 6: Species interactions and community evolution
+#    26  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2300661.pdf p12  kind=raster words= 2  Figure 7: k=4,Benefit Analysis
+#    27  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2303950.pdf p18  kind=vector words=10  Figure 10: Evolution of The Plant Community under Normal
+#    28  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2309229.pdf p21  kind=raster words= 5  Figure 21: biomass of Single Plant Community
+#    29  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2321860.pdf p6   kind=vector words= 2  Figure 1: Our work
+#    30  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2322687.pdf p16  kind=raster words= 9  Figure 9: Dynamics of the two-plant system with severe d
+#    31  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/B/2315379.pdf p15  kind=raster words= 6  Figure7.The zoning situation of scenario 2
+#    32  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2300348.pdf p15  kind=raster words= 5  Figure 9: The algorithmic flow of GSRF
+#    33  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2301192.pdf p19  kind=raster words= 7  Figure 15: PCA on the Accuracy of Model Classification
+#    34  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2307946.pdf p4   kind=raster words= 3  Figure 1: NY Times Wordle
+#    35  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2309397.pdf p13  kind=raster words= 4  Figure 11: Percentage of successful attempts
+#    36  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2310767.pdf p22  kind=vector words=10  Figure 20: Accuracy of clustering for words containing d
+#    37  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2311717.pdf p7   kind=vector words= 6  Figure 3: Description of the number of reports
+#    38  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2314151.pdf p16  kind=raster words= 7  Figure 10: Heat map of the features importance of
+#    39  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2318982.pdf p10  kind=raster words= 2  Figure 8: Prediction results
+#    40  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2322645.pdf p21  kind=vector words=13  Figure 12: Posterior-predicted distributions for the num
+#    41  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/D/2304962.pdf p5   kind=raster words= 2  Figure 1: Our work
+#    42  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2301428.pdf p7   kind=raster words= 6  Figure 4: Impact of Light Pollution(from Literature [6])
+#    43  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2307336.pdf p7   kind=raster words= 7  Figure 4: Spectrum of a fluorescent and LED lamp
+#    44  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2308000.pdf p14  kind=raster words= 7  Figure 8: System dynamics analysis of light pollution sy
+#    45  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2314817.pdf p12  kind=raster words=10  Figure 10: Heat map of light pollution risk levels in Ch
+#    46  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2320131.pdf p22  kind=raster words=11  Figure 15: Changes in various indicators across differen
+#    47  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/F/2311258.pdf p11  kind=raster words=12  Figure 6: Scores of 46 countries of three climate indica
+#    48  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/F/2315018.pdf p7   kind=vector words= 4  Figure 3: Description of the Equation
+#    49  corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2330610_00.pdf p20  kind=raster words=13  Figure 8.3 The optimal choice of three cities hosting th
+#    50  corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2330646_08.pdf p14  kind=raster words= 3  Figure 7: Kmeans clustering method
+#    51  corpus/历届优秀论文/2023年美赛O奖论文/2023美赛春季赛O奖论文/2332142_00.pdf p11  kind=raster words= 5  Figure 4: Flowchart of PCSL regeneration model
+#    52  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2400996.pdf p19  kind=raster words= 3  Figure 12: Multiple Population Evolutionary
+#    53  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2405424.pdf p20  kind=raster words= 7  Figure 14: Ecosystem only containing parasites(Gender Ra
+#    54  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2407093.pdf p23  kind=raster words= 9  Figure 18: (a)A0 = 0.15, A1 = 0.05, A2 = 0
+#    55  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2425397.pdf p4   kind=raster words= 2  Figure 2: Our Work
+#    56  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2425397.pdf p23  kind=raster words=10  Figure 23: Sensitivity Analysis of the Model to Changes 
+#    57  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛B题O奖论文/2411570.pdf p11  kind=raster words= 8  Figure 6: Schematic diagram of the current disturbance p
+#    58  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛B题O奖论文/2419984.pdf p19  kind=raster words= 5  Figure 12: Diﬀerent probabilities with diﬀerent t
+#    59  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛B题O奖论文/2425792.pdf p21  kind=raster words=13  Figure 19: A comparison of predicted (green) and actual 
+#    60  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2401445.pdf p7   kind=raster words= 7  Figure 4: Gradient Boosting Tree + Grid Search Diagram
+#    61  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2401919.pdf p19  kind=vector words= 9  Figure 10: Predictive and Actual Turning Points in Gentl
+#    62  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2406176.pdf p7   kind=raster words= 3  Figure 2: RTMQ model setup
+#    63  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2406324.pdf p13  kind=raster words=15  Figure 9: The common structure of the three rerrent neur
+#    64  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2409961.pdf p7   kind=vector words= 3  Figure 2: Relative Score Curve
+#    65  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2410482.pdf p15  kind=raster words= 5  Figure 8: schematic of the Kalman filter
+#    66  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2425454.pdf p4   kind=raster words= 5  Figure 2: Our Work Overview Schematic Diagram
+#    67  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2417004.pdf p5   kind=raster words= 7  Figure 2: A map of the Great Lake Basin
+#    68  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2417831.pdf p11  kind=raster words= 5  Figure 8: Topography of the Great Lakes
+#    69  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2429211.pdf p3   kind=raster words= 8  Figure 1: A cloudless view of all of the Great
+#    70  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2400860.pdf p23  kind=raster words= 2  Figure 11.
+#    71  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2407414.pdf p8   kind=raster words= 7  Figure 7: Q-Q plots on the Standard Exponential Distribu
+#    72  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2410889.pdf p11  kind=raster words= 7  Figure 4: Operations of insurance companies at different
+#    73  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2409949.pdf p7   kind=raster words= 5  Figure 3: Project Funding Map by countries1
+#    74  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2413565.pdf p17  kind=vector words=16  Figure 9: A scatter plot of the total illegal trade in a
+#    75  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2422054.pdf p11  kind=raster words= 5  Figure 2: Index of IWT in TZA
+#    76  corpus/历届优秀论文/2025美赛O奖论文/A/2501909.pdf p4   kind=raster words= 5  Figure 2: The ﬂowchart of our work
+#    77  corpus/历届优秀论文/2025美赛O奖论文/A/2504218.pdf p15  kind=raster words= 4  Figure 9: Ascending wear evolution graph.
+#    78  corpus/历届优秀论文/2025美赛O奖论文/B/2501687.pdf p4   kind=raster words= 4  Figure 2: Overview of our work
+#    79  corpus/历届优秀论文/2025美赛O奖论文/B/2502617.pdf p17  kind=vector words= 4  Figure 9: Optimization Results - Juneau
+#    80  corpus/历届优秀论文/2025美赛O奖论文/B/2504448.pdf p12  kind=raster words= 4  Figure 8: Framework of the model
+#    81  corpus/历届优秀论文/2025美赛O奖论文/B/2509557.pdf p5   kind=raster words= 2  Figure 2: Our Work
+#    82  corpus/历届优秀论文/2025美赛O奖论文/B/2517929.pdf p19  kind=raster words= 7  Figure 10: Correlation Heatmap: Devision Variables and O
+#    83  corpus/历届优秀论文/2025美赛O奖论文/C/2503389.pdf p6   kind=raster words=10  Figure 1: Sankey Diagram Representing Medal Flow Across 
+#    84  corpus/历届优秀论文/2025美赛O奖论文/C/2505964.pdf p13  kind=raster words= 5  Figure 8: Correlation Heatmaps for 3 Disciplines
+#    85  corpus/历届优秀论文/2025美赛O奖论文/C/2510006.pdf p18  kind=raster words= 2  Figure 20: Heat Map
+#    86  corpus/历届优秀论文/2025美赛O奖论文/C/2510862.pdf p4   kind=raster words= 4  Figure 1: Structure of our paper
+#    87  corpus/历届优秀论文/2025美赛O奖论文/C/2513314.pdf p16  kind=raster words=14  Figure 5: Predicted Medal Allocations for LA 2028 in dif
+#    88  corpus/历届优秀论文/2025美赛O奖论文/C/2514461.pdf p12  kind=raster words= 7  Figure 7: Probability prediction of Chinese diving gold 
+#    89  corpus/历届优秀论文/2025美赛O奖论文/C/2515235.pdf p22  kind=raster words= 4  Figure 10: Host effect influences trends.
+#    90  corpus/历届优秀论文/2025美赛O奖论文/C/2517690.pdf p7   kind=raster words= 5  Figure 3: Number of medals by country
+#    91  corpus/历届优秀论文/2025美赛O奖论文/C/2521556.pdf p19  kind=raster words= 9  Figure 17: Great Coach Effect To The Country’s Overall M
+#    92  corpus/历届优秀论文/2025美赛O奖论文/C/2524070.pdf p17  kind=raster words= 7  Figure 10: The Result of Association Rule Model(Host Cou
+#    93  corpus/历届优秀论文/2025美赛O奖论文/D/2507692.pdf p7   kind=raster words= 5  Figure 3: The Transportation Network of Baltimore
+#    94  corpus/历届优秀论文/2025美赛O奖论文/D/2516219.pdf p5   kind=raster words= 5  Figure 3: Flow Chart of Our Work
+#    95  corpus/历届优秀论文/2025美赛O奖论文/D/2519935.pdf p14  kind=raster words= 4  Figure 12: Histogram of Evaluation Indicators
+# [B] 读数 6 矢量抽样（48 张）：
+#     0  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209812.pdf p3   rect=  3 small=   10 curve=   56 items=  133  Figure 1: Literature Review Framework
+#     1  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209812.pdf p8   rect=  9 small= 4419 curve= 9748 items=14278  Figure 6: Cyclist Data Overview
+#     2  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209812.pdf p14  rect= 48 small=12697 curve=26836 items=39861  Figure 11: TTC of UCI
+#     3  corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209812.pdf p17  rect= 25 small= 7338 curve=15778 items=24169  Figure 15: Wind Effect to Defferent TTCs (Up
+#     4  corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2202748.pdf p14  rect=  0 small=  699 curve= 1879 items= 2648  Figure 5: The result of additional water
+#     5  corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2211922.pdf p6   rect=  7 small=    0 curve=    0 items=    8  Figure 3: The Electricity Consumption Per Ca
+#     6  corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2211922.pdf p11  rect=  3 small=  589 curve=   10 items=  778  Figure 7: Result of the Periodic Decrease fo
+#     7  corpus/历届优秀论文/2022年美赛特等奖原版论文集/B/2211922.pdf p17  rect=  1 small=   82 curve= 1766 items= 1874  Figure 11: The Overview of the Result When W
+#     8  corpus/历届优秀论文/2022年美赛特等奖原版论文集/C/2200688.pdf p13  rect=  0 small=    0 curve=    0 items=    4  Figure 6: (a) shows the P value of the gold 
+#     9  corpus/历届优秀论文/2022年美赛特等奖原版论文集/D/2218897.pdf p5   rect=  1 small=   64 curve=  912 items= 1038  Figure 2: Hierarchical relationship of the k
+#    10  corpus/历届优秀论文/2022年美赛特等奖原版论文集/D/2218897.pdf p18  rect=  3 small=  632 curve=  525 items= 1175  Figure 7: Cascade between four main processe
+#    11  corpus/历届优秀论文/2022年美赛特等奖原版论文集/E/2223269.pdf p20  rect= 43 small=    6 curve=    0 items=   80  Figure 8: Results of the harvested area and 
+#    12  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2303950.pdf p18  rect=  6 small= 2204 curve=    0 items= 2261  Figure 9: The Rainfall Distribution under Se
+#    13  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2321860.pdf p9   rect= 11 small=    1 curve=    6 items=   61  Figure 2: Mechanism of a plant community dev
+#    14  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2321860.pdf p15  rect=  3 small= 1649 curve= 3581 items= 5271  Figure 7: Predicted Population Densities in 
+#    15  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/A/2321860.pdf p19  rect=  2 small=   58 curve= 4172 items= 4298  Figure 13: Influence of Species Richness und
+#    16  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/B/2315379.pdf p19  rect=  9 small=    0 curve=    0 items=   18  Figure 11. Topography of Yellowstone Nationa
+#    17  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2310767.pdf p3   rect= 29 small= 1582 curve=    0 items= 2051  Figure 1: Workflow
+#    18  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2310767.pdf p11  rect=651 small= 6920 curve=27740 items=35492  Figure 6: Heat Map of Correlation
+#    19  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2310767.pdf p17  rect=  9 small=    0 curve= 4332 items= 4379  Figure 11: Two-dimensional graph of clusteri
+#    20  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2310767.pdf p22  rect=  2 small=   15 curve=    0 items= 1073  Figure 20: Accuracy of clustering for words 
+#    21  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2311717.pdf p10  rect= 15 small= 2355 curve= 6586 items= 9038  Figure 5: Report number trends and 75% confi
+#    22  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2311717.pdf p16  rect=  6 small=  335 curve=  998 items= 1398  Figure 10: Schematic diagram of integrated B
+#    23  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2311717.pdf p22  rect=  0 small= 1631 curve= 2281 items= 4063  Figure 15: Fitting to the distribution of re
+#    24  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2322645.pdf p8   rect= 15 small=    3 curve=    0 items=   21  Figure 3: Diagram representing the Subset En
+#    25  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2322645.pdf p15  rect=  6 small= 2924 curve=    0 items= 3010  Figure 8: Posterior-predicted distributions 
+#    26  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/C/2322645.pdf p21  rect=  6 small= 2924 curve=    0 items= 3010  Figure 12: Posterior-predicted distributions
+#    27  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2308000.pdf p9   rect=  2 small=    1 curve=    0 items=   72  Figure 4: Weight radar map
+#    28  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/E/2314354.pdf p4   rect=  1 small=   33 curve=   48 items=  230  Figure 1: Flowchart of our study
+#    29  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/F/2315018.pdf p6   rect=  2 small=   10 curve=   47 items=  105  Figure 2: Measurement of Green GDP
+#    30  corpus/历届优秀论文/2023年美赛O奖论文/2023年美国大学生数学建模竞赛（常规赛）O奖论文/F/2315018.pdf p18  rect=  2 small=   76 curve=   16 items=  135  Figure 10: ECRi of different sectors in Chin
+#    31  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2407093.pdf p6   rect=  0 small=17073 curve=11837 items=28947  Figure 3: Life Cycle of lampreys
+#    32  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛A题O奖论文/2424371.pdf p15  rect=  0 small=   48 curve= 5278 items= 5326  Figure 14: plot of biomass of different spec
+#    33  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛B题O奖论文/2407038.pdf p8   rect=  3 small=  138 curve=    0 items=  413  Figure 4: Uncertainty Series in Test-set
+#    34  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2401919.pdf p7   rect=  1 small=  339 curve=  954 items= 1308  Figure 4: Performance Assessment System
+#    35  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2401919.pdf p13  rect=  3 small=   50 curve=  336 items=  507  Figure 8: Autocorrelation Graph and Partial 
+#    36  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2401919.pdf p20  rect=  1 small=    8 curve=    0 items=   21  Figure 12: Contrast of Three Matches
+#    37  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2409404.pdf p8   rect=  2 small= 4408 curve=  788 items= 5721  Figure 4: Match Flow
+#    38  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2409404.pdf p18  rect=  2 small=  663 curve=    4 items=  715  Figure 10: The ROC curve
+#    39  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2409404.pdf p21  rect=  2 small=  693 curve=    4 items= 1322  Figure 14: The Sensitivity Test for α
+#    40  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2409961.pdf p7   rect=  2 small= 5025 curve=    1 items= 5383  Figure 3: Instantaneous Score Rate Curve
+#    41  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛C题O奖论文/2409961.pdf p18  rect=  3 small= 6051 curve=    8 items= 6349  Figure 13: Player’s Momentum and Momentum Pr
+#    42  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2417004.pdf p8   rect=  2 small=   21 curve=    2 items=   65  Figure 7: Two types of flow in the river
+#    43  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2429211.pdf p10  rect=  4 small=   96 curve=    0 items=  133  Figure 5: Time lagged cross-correlation exam
+#    44  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛D题O奖论文/2429211.pdf p14  rect=  2 small=    0 curve=    0 items=   43  Figure 9: Plot of the percent error between 
+#    45  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2413552.pdf p11  rect=  3 small=    4 curve=    0 items=   16  Figure 3: Probability statistics of extreme 
+#    46  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛E题O奖论文/2413552.pdf p22  rect=  1 small=   17 curve=  292 items=  348  Figure 10: Results of the sensitivity analys
+#    47  corpus/历届优秀论文/2024年美赛O奖论文/2024年美赛F题O奖论文/2413565.pdf p17  rect= 90 small=    0 curve=  952 items= 1071  Figure 9: A scatter plot of the total illega

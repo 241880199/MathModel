@@ -82,7 +82,7 @@ def heredoc(code, note=""):
     return shown, out, r.returncode
 
 
-CELL_RE = re.compile(r"^(PASS|FAIL)\s+(F\d[abcd]?)\s+(.*)$")
+CELL_RE = re.compile(r"^(PASS|FAIL)\s+([A-Z]\d+[a-z]?)\s+(.*)$")
 
 
 def cells(out):
@@ -350,7 +350,7 @@ def verdicts(fig, cap):
                         "--textwidth-in", "6.31"], capture_output=True, text=True)
     got = {}
     for line in r.stdout.splitlines():
-        m = re.match(r"^(PASS|FAIL)\s+(F\d[abcd]?)\s", line)
+        m = re.match(r"^(PASS|FAIL)\s+([A-Z]\d+[a-z]?)\s", line)
         if m:
             got[m.group(2)] = m.group(1)
     return got, r.returncode

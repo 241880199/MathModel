@@ -1,0 +1,58 @@
+% =====================================================================
+% mcm-schematic · assets/skeletons/pipeline-linear.tex
+% 起步骨架 1/5 —— **直线流程**：数据 → 预处理 → 建模 → 验证 → 结论（＋一条回环虚线）
+%
+% 选取依据：Task 0 侦察读数 6 做不到机械分类（明文降级），成员由判断保留；
+%           本份的理由见 tests/m3-schematic-recon/README.md「起步五份的逐个去向」。
+% 视觉标准全部来自 ../schematic-style.tex（本文件**不含任何样式字面量**）。
+% 整图宽度由样式层的 \mcmscfigwidth 写死（**取值与推导的权威**在 ../schematic-style.tex 的
+%   \mcmscfigwidth 注释里 —— 本文件不复述那个算式，避免两处各写一份会漂）。
+%
+% ── 「改哪儿」对照表 ─────────────────────────────────────────────────
+%  类   | 改什么                              | 怎么改
+%  -----|-------------------------------------|------------------------------------------
+%  内容 | 每个节点的文字                       | 只改 {…} 里的字；不要改节点名 (n1)…
+%  内容 | 回环上的说明文字                     | \mcmloopback 的最后一个参数
+%  结构 | 增删一个阶段                         | 见下方「加一个阶段/删一个阶段」两段注释
+%  结构 | 要不要那条回环                       | 删掉 \mcmloopback 整行
+%  ------|-------------------------------------|------------------------------------------
+%  不许动 | 整图宽度 \mcmscfigwidth            | 它是规范（F1 的通过条件）⇒ 要改走 ../schematic-style.tex
+%  不许动 | 颜色 / 线宽 / 圆角 / 间距 / 字号     | 同上：一律走样式层，不许写进本文件
+%  不许动 | 节点等距的坐标算式                  | 改了会让末节点越过版心（F1 判红）
+%  不许动 | \useasboundingbox 那一行            | 页盒 = 图框，删了图宽就失控
+% ─────────────────────────────────────────────────────────────────────
+
+\documentclass[12pt]{article}
+\input{../schematic-style.tex}
+% 页盒 = 整图（交付形态：一个图文件 = 一页）；宽取自样式层，高是本骨架的**结构**选择。
+\usepackage[paperwidth=\mcmscfigwidth,paperheight=1.16in,margin=0pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tikzpicture}[x=1in, y=1in]
+  % 图框写死到版心：宽 = \mcmscfigwidth，高 = 页高
+  \useasboundingbox (0,0) rectangle (\mcmscfigwidth, 1.16in);
+
+  % 5 个阶段：**格宽** 1.02in、格间隙 0.328in ⇒ 5×1.02 + 4×0.328 = 6.412in（≈ 版心 × 0.95 = 6.4125in）
+  %   节点框比格窄：实测框宽 ≈ 0.993in（= text width 0.90in + 两侧 inner sep 3pt + 0.7pt 描边；编译后量得 71.74pt）
+  %   节点在各自格里居中 ⇒ 首节点中心 = 格宽 ÷ 2 = 0.51in、中心间距 = 格宽 + 间隙 = 1.348in
+  % 加一个阶段（k 个）：保持 格宽 : 间隙 的比例（1.02 : 0.328），由 k×格宽 + (k−1)×间隙 = 6.4125in 解出格宽，
+  %             并把每个 \node 复制一行、序号顺延；格宽会随 k 缩小，k 超过 5 时文字会被压行。
+  % 删一个阶段：删一行 \node 与它两端的箭头，再按同一约束取 k=4 重算。
+  \node[mcmnode, text width=0.90in, minimum height=0.44in] (n1) at (0.510, 0.85) {Data};
+  \node[mcmnode, text width=0.90in, minimum height=0.44in] (n2) at (1.858, 0.85) {Preprocess};
+  \node[mcmnode, text width=0.90in, minimum height=0.44in] (n3) at (3.206, 0.85) {Model};
+  \node[mcmnode, text width=0.90in, minimum height=0.44in] (n4) at (4.554, 0.85) {Validate};
+  \node[mcmnode, text width=0.90in, minimum height=0.44in] (n5) at (5.902, 0.85) {Conclude};
+
+  % 主流程：实线 = 主流程（S2）
+  \mcmedge{n1}{n2}
+  \mcmedge{n2}{n3}
+  \mcmedge{n3}{n4}
+  \mcmedge{n4}{n5}
+
+  % 回环：虚线 = 回环 / 反馈（S2）。删掉本行即取消回环。
+  \mcmloopback[0.40in]{n5}{n3}{tune the model when validation falls short}
+\end{tikzpicture}
+\end{document}

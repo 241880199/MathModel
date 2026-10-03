@@ -1,0 +1,27 @@
+% =====================================================================
+% mcm-schematic · tests/skills/schematic/neutral-skeleton.tex
+%
+% A minimal, self-contained TikZ document used as the RED baseline's
+% starting point in Task 3. It compiles with pdflatex as-is and shows the
+% two primitives that baseline needs: a node, and a directed arrow between
+% two nodes. Copy it and build the requested figure on top of it.
+%
+% It deliberately fixes NO competition-style choice: no colour palette, no
+% line width, no corner radius, no spacing discipline, no font package, no
+% figure- or page-width pinning, and no caption convention. Everything below
+% is a plain TikZ default.
+%
+% "Why it looks like this" is written up in red/README.md (Task 3 hard
+% requirement 1).
+% =====================================================================
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+\begin{tikzpicture}
+  \node[draw] (a) {A};
+  \node[draw, right=of a] (b) {B};
+  \draw[->] (a) -- (b);
+\end{tikzpicture}
+\end{document}

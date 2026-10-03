@@ -28,7 +28,7 @@ TEXTWIDTH = "6.31"
 # 场景编号与载体：**唯一一处**定义 —— 图数与判据清单都由它现推，别处**不许再写死**。
 SCENES = (1, 2, 3)
 CARRIERS = ("png", "pdf")
-LINE_RE = re.compile(r"^(PASS|FAIL)\s+(F[0-9][a-d]?)\s+(.*)$")
+LINE_RE = re.compile(r"^(PASS|FAIL)\s+([A-Z][0-9]+[a-d]?)\s+(.*)$")
 RES_RE = re.compile(r"^RESULT: (PASS|FAIL)(?:（(.*)）)?\s*$")
 
 

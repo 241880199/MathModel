@@ -263,7 +263,7 @@ Origin 产物**落哪一态依产物而定**（含内嵌 `Type3` 过程字形件
 给共享判据加条目 ⇒ **所有入库判词转录都要重生成**。已 grep 出的涉及面：
 `fixtures/expected.tsv` · `fixtures/run-expected.py` · `figure-style-baseline.txt` · `chart-types-verify.txt` ·
 `house-style-verify.txt` · `pointer-verify.txt` · `skill-verify.txt` · plot-python 的 **1 份** `*-verify.txt`（`plot-style-verify.txt` —— 实测 `tests/skills/plot-python/` 下只有这一份 `*-verify.txt`；原写「6 份」不实）·
-以及 `mcm.mplstyle` / `mcmplot.py`（派生件）与 `mutate-figure-style.py`（**53/53** —— **设计期值**；今天 = **58**，见 `docs/mcm-suite-todo.md` §H.5）、`check-house-style.py`（**162** 条守卫 / 总 **208** 条；检查器收尾打印原句 = `守卫 162 条 … provenance 46 条 · 总 208 条`，其后一行才是 `RESULT: PASS`）。
+以及 `mcm.mplstyle` / `mcmplot.py`（派生件）与 `mutate-figure-style.py`（**53/53** —— **设计期值**；今天 = **64**，见 `docs/mcm-suite-todo.md` §H.5.3）、`check-house-style.py`（**162** 条守卫 / 总 **208** 条；检查器收尾打印原句 = `守卫 162 条 … provenance 46 条 · 总 208 条`，其后一行才是 `RESULT: PASS`）。
 
 ### 8.2 ★ 与 `M3-plot-gap` 合并
 

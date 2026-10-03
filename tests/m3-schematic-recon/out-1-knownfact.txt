@@ -1,0 +1,38 @@
+### probe_1_knownfact —— 正/负控制（真实语料页）
+# 阈值同 schematicprobe（矢量 >=3 条目 · 图区 >=30x30/8000pt^2）
+
+== C1  正 · 矢量示意图（Literature Review Framework）
+   pdf  = corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2209812.pdf
+   page = 2 (0-based) / 24
+   图注锚点 = 1 条；判出的 kind = ['vector']
+     #1 vector      bbox=[71, 582, 541, 847]  w=470.3 ratio=1.000 colors=3 words=3   'Figure 1: Literature Review Framework'
+        矢量特征 {'n_rect': 3, 'n_small': 10, 'n_long': 0, 'n_curve': 56, 'n_items': 133, 'n_text': 18}
+     crop -> build/m3-schematic-recon/controls/C1_p3_0.png
+   → 期望 kind=vector ；实测 ['vector']  ⇒ PASS
+
+== C2  正 · 位图示意图（Structure of Our Work）
+   pdf  = corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2200289.pdf
+   page = 4 (0-based) / 25
+   图注锚点 = 1 条；判出的 kind = ['raster']
+     #1 raster      bbox=[85, 74, 510, 286]  w=425.2 ratio=0.942 colors=2 words=4   'Figure 1: Structure of Our Work'
+     crop -> build/m3-schematic-recon/controls/C2_p5_0.png
+   → 期望 kind=raster ；实测 ['raster']  ⇒ PASS
+
+== C3  负 · 纯文本页（无图）
+   pdf  = corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2210307.pdf
+   page = 1 (0-based) / 25
+   图注锚点 = 0 条；判出的 kind = []
+   → 期望 kind=no-figure ；实测 []  ⇒ PASS
+
+== C4  负 · 图不在此页（图注行锚点）
+   pdf  = corpus/历届优秀论文/2022年美赛特等奖原版论文集/A/2207343.pdf
+   page = 10 (0-based) / 25
+   图注锚点 = 2 条；判出的 kind = ['raster', 'tiny-vector']
+     #7 raster      bbox=[82, 210, 295, 343]  w=212.6 ratio=0.447 colors=5 words=2   'Figure 7: Ramp division'
+     #8 tiny-vector bbox=[107, 434, 505, 434]  w=397.7 ratio=0.836 colors=None words=5   'Figure 8: Time trial male rider strategy'
+     crop -> build/m3-schematic-recon/controls/C4_p11_0.png
+     crop -> build/m3-schematic-recon/controls/C4_p11_1.png
+   → 期望 kind=nonfigure ；实测 ['raster', 'tiny-vector']  ⇒ PASS
+
+### 汇总：PASS 4 / FAIL 0（共 4）
+★ 若有一条 FAIL：以本文为准订正探针或如实标边界，**不许当没看见**。

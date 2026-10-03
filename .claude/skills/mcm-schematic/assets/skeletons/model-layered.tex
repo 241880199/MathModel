@@ -1,0 +1,62 @@
+% =====================================================================
+% mcm-schematic · assets/skeletons/model-layered.tex
+% 起步骨架 3/5 —— **分层模型结构**：输入 / 隐藏 / 输出（或 数据层 / 模型层 / 决策层）
+%
+% 选取依据：Task 0 侦察读数 6 做不到机械分类（明文降级），成员由判断保留；
+%           本份在抽样里是最主导的形态（18/27），理由见
+%           tests/m3-schematic-recon/README.md「起步五份的逐个去向」。
+% 视觉标准全部来自 ../schematic-style.tex（本文件**不含颜色 / 线宽 / 圆角 / 字号**）。
+%
+% ── 「改哪儿」对照表 ─────────────────────────────────────────────────
+%  类   | 改什么                              | 怎么改
+%  -----|-------------------------------------|------------------------------------------
+%  内容 | 每个单元的文字                       | 只改 {…} 里的字；不要改节点名 (a1)…
+%  内容 | 三名层标签                           | 改 \mcmgroup 后面那个 \node[mcmnote] 的字
+%  内容 | 把哪一格作为强调单元                 | 把该格的 mcmnode 换成 mcmaccent（**整图至多一处**）
+%  结构 | 每层增删单元                         | 见下方「增删单元」注释；层次重算同 pipeline-linear
+%  结构 | 增删一整层                           | 复制一组「\mcmgroup + 三个 \node」，y 与上面的层间距 0.75in 保持一致
+%  ------|-------------------------------------|------------------------------------------
+%  不许动 | 颜色 / 线宽 / 圆角 / 字号            | 一律走 ../schematic-style.tex
+%  不许动 | \useasboundingbox 那一行             | 页盒 = 图框，删了图宽就失控（F1）
+%  不许动 | 跨层连线的**列对齐**                 | 上下两层的同列单元必须同 x，否则连线会斜、看着乱
+% ─────────────────────────────────────────────────────────────────────
+
+\documentclass[12pt]{article}
+\input{../schematic-style.tex}
+\usepackage[paperwidth=\mcmscfigwidth,paperheight=2.00in,margin=0pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tikzpicture}[x=1in, y=1in]
+  \useasboundingbox (0,0) rectangle (\mcmscfigwidth, 2.00in);
+
+  % 三层的分组框（x 从 0.06 到 6.35；每层高 0.44in）
+  \draw[mcmgroup] (0.06, 1.50) rectangle (6.35, 1.94);
+  \draw[mcmgroup] (0.06, 0.75) rectangle (6.35, 1.19);
+  \draw[mcmgroup] (0.06, 0.00) rectangle (6.35, 0.44);
+
+  % 层名（贴左边）
+  \node[mcmnote, anchor=west] at (0.20, 1.72) {Input layer};
+  \node[mcmnote, anchor=west] at (0.20, 0.97) {Hidden layer};
+  \node[mcmnote, anchor=west] at (0.20, 0.22) {Output layer};
+
+  % 每层三个单元，**列对齐**：x = 2.30 / 3.90 / 5.50
+  % 增删单元：改这一层的三个 \node（一并改三层的列数），并把 2.30/3.90/5.50 按列数重算。
+  \node[mcmnode, text width=1.10in] (a1) at (2.30, 1.72) {Feature 1};
+  \node[mcmnode, text width=1.10in] (a2) at (3.90, 1.72) {Feature 2};
+  \node[mcmnode, text width=1.10in] (a3) at (5.50, 1.72) {Feature 3};
+
+  \node[mcmnode, text width=1.10in] (b1) at (2.30, 0.97) {Unit 1};
+  \node[mcmaccent, text width=1.10in] (b2) at (3.90, 0.97) {Unit 2};
+  \node[mcmnode, text width=1.10in] (b3) at (5.50, 0.97) {Unit 3};
+
+  \node[mcmnode, text width=1.10in] (c1) at (2.30, 0.22) {Score};
+  \node[mcmnode, text width=1.10in] (c2) at (3.90, 0.22) {Risk};
+  \node[mcmnode, text width=1.10in] (c3) at (5.50, 0.22) {Decision};
+
+  % 跨层连线：**按列捆扎**（本骨架只画一次每列的连线；原语兜底时自行决定要不要全连接）
+  \mcmedge{a1}{b1}  \mcmedge{a2}{b2}  \mcmedge{a3}{b3}
+  \mcmedge{b1}{c1}  \mcmedge{b2}{c2}  \mcmedge{b3}{c3}
+\end{tikzpicture}
+\end{document}

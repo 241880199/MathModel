@@ -100,6 +100,33 @@ D8（F6 的"内嵌"口径，**Task 3b 修 ③ 逼出**）：Task 3 的 F6 只看
   一个没动；实测 16 份管道内 PDF 上旧新两版**只有 4 份**的 F6 行不同（3 份是措辞细分、
   1 份是新增的"只引用"样本由 FAIL 转 N/A），**其余 12 份 rc 与 F6 行逐字相同**。
   另加变异 `M58` 钉住这条承重件（拆掉内嵌事实 ⇒ 该样本由 `N/A` 转 `FAIL`）。
+
+---
+**mcm-schematic Task 2 新增的 `A` 族（示意图专属，`--schematic` 触发）—— §A 长注**
+
+`A1` 节点框两两不重叠 · `A3` 图内文字不越出页框 · `A4` 描边线宽在允许集合内。
+**`F1–F6` 一字未动**（改的是"追加"，不是"改写"）：不给 `--schematic` ⇒ 判词、退出码、
+`--json` 内容与上一版**逐字相同**（回归证据 = `fixtures/run-expected.py` 仍 `MISMATCH 0 / 34`）。
+
+★ **为什么用 `--schematic` 门控、而不是无条件判**（**实测逼出**，不是设计偏好）：把这套量法
+无条件跑在**既有数据图产物**上会**假红**。逐条实测（`tests/skills/schematic/fixtures/README.md`
+的 A 族探针段有逐码命令与原始读数）：
+  · `A4` 的允许集合是**示意图样式层**的线宽（0.5/0.7/0.9pt + 0.5/1.4mm）⇒ 数据图的描边宽
+    （实测 `plot-python/green/out-G2/figure.pdf` 有一条 0.6pt）**天然不在集合里** ⇒ 会把一张
+    **本来就该全绿**的数据图判红；
+  · `A1` 的"节点框"在数据图里没有对应物 —— 靠几何**推断**"这是不是示意图"实测不可靠
+    （同一套"填充闭合块"规则在 MATLAB 产物上会捞到一批图框，`A1` 当场报 38 处"重叠"）。
+⇒ **判据的射程由调用方声明**（`--schematic`），不由几何推断。这是"验不出来就不许进判据"的**如实限定**。
+
+★ **`A2`（箭头端点不落进节点框）降级到「看一眼」层，不在本脚本里**（设计 §5.1 的 A2 候选）。
+探针实测两种量法**都假红**：① 用矩形 bbox 判"在框内" ⇒ 对**菱形**节点放得太大
+（`pipeline-branch` 的判定菱形 bbox 比它本体大得多，实测报 2 处假红）；② 真实产物的箭头**线端点**
+被 pgf 按**箭头尖长度截短**（实测 `mechanism-block` 的控制信号线端点停在 `Valve` 框**内侧 2.51pt**，
+而真正的箭头尖在框边上）⇒ **"点-多边形"那一列**在 `mechanism-block` 上报 **4** 处假红。**两列的真值**
+（同一份探针捕获 `tests/skills/schematic/fixtures/a-measurability.txt` 段 1 表的
+`A2假红(bbox/点-多边形)`）：`mechanism-block` = **1/4**、`pipeline-branch` = **2/0**；
+全表两种量法合计 `1 + 4 + 2 + 0 = 7` 处。做对需要"箭头尖朝向 + 节点真实轮廓"两块几何，
+`get_drawings()` 给不出稳定形态 ⇒ 降级。**设计 §5.1 与 `schematic-style.md` 同批改准。**
 """
 
 import argparse
@@ -145,6 +172,26 @@ SUBSET_RE = re.compile(r"^[A-Z]{6}\+")     # 剥 PDF 字体子集前缀；与 pl
 FONTFILE_RE = re.compile(r"/FontFile[23]?(?![0-9A-Za-z])")
 FD_RE = re.compile(r"/FontDescriptor\s+(\d+)\s+0\s+R")
 DESC_FONTS_RE = re.compile(r"/DescendantFonts\s*\[\s*(\d+)\s+0\s+R")
+
+# ---- mcm-schematic Task 2 新增的示意图专属判据（`A` 族）的常量 -------------------------
+# ★★ **只在 `--schematic` 下判**（本检查器的默认路径**一字未动**）。为什么不是无条件：
+#   `A3`/`A4` 这类量法落到**数据图**产物上会假红（实测：`plot-python/green/out-G2/figure.pdf`
+#   的描边宽 0.6pt **不在**示意样式集合里 ⇒ `A4` 会红一张**本来就该全绿**的数据图）；
+#   `A1` 的"节点框"在数据图/表格里根本没有对应物。⇒ 判据的射程由**调用方声明**，不由几何**推断**
+#   （推断那一步实测不可靠，见 tests/skills/schematic/fixtures/README.md 的 A 族段）。
+# ★ `A2`（箭头端点不落进节点框）**不在本脚本里** —— 探针实测两种量法都假红（矩形的 bbox 对
+#   **菱形**节点放得太大；线端点在 pgf 里会被**箭头尖截短**，实测伸进框内 2.51pt 属正常）
+#   ⇒ **如实降级到「看一眼」层**（见该 README 的 A 族段与设计 §5.1 的订正）。
+SCH_NODE_MIN_AREA = 200.0        # pt^2：小于此的闭合块不算节点框（挡掉小色标 / 圆点 / 箭头尖）
+SCH_NODE_MIN_W = 10.0            # pt
+SCH_NODE_MIN_H = 6.0             # pt
+_MM_PT = 2.834645669291339       # 1 mm = 2.8346… pt（A4 的毫米线宽换成 pt）
+# `A4` 允许的描边线宽（pt）—— ★ **转写**自 `.claude/skills/mcm-schematic/assets/schematic-style.tex`
+#   的四条声明：`\mcmsclwthin` 0.5 / `\mcmsclwmain` 0.7 / `\mcmsclwaccent` 0.9 / `mcmflowthin` 0.5mm /
+#   `mcmflow` 1.4mm。**这是转写、没有机械绑定**（样式层改宽 ⇒ 这里要跟着改）；口径边界见 §A4 长注。
+SCH_LINEWIDTH_OK = (0.5, 0.7, 0.9, round(0.5 * _MM_PT, 4), round(1.4 * _MM_PT, 4))
+SCH_LW_TOL = 0.02                # pt：实测 fp 偏差 ≤0.003pt（0.498 vs 0.5）；容差 0.02 仍远小于最近两条允许值的间距 0.2
+SCH_PAGE_TOL = 0.5               # pt：A3 判"越出页框"的容差（字形 bbox 的亚像素外溢不算越界）
 
 
 def fail_closed(msg):
@@ -328,7 +375,127 @@ def page_font_split(doc):
     return emb, ref
 
 
-def check(fig, caption, textwidth_in, dpi):
+def _sch_closed(dr):
+    """该 drawing 是否由"闭合轮廓"构成（只有 l/c/qu/re 图元，无其它开路径段）。
+
+    `A1`/`A2` 只对闭合块感兴趣（节点框 / 分组框 / 填充块）；一条孤立线段不是闭合块。
+    """
+    its = dr["items"]
+    return bool(its) and all(x[0] in ("l", "c", "qu", "re") for x in its)
+
+
+def sch_node_boxes(page, words):
+    """`A1` 用的**节点框**集合：既填充又描边的闭合块、尺寸过线、**内部含文字**、且**不被另一个同类框包住**。
+
+    四个条件各挡掉一类非节点：
+      · **既填充又描边**（`"f" in type and "s" in type`，且 `fill` 非空）——挡掉单纯的**填充块**
+        （实测：`mechanism-block` 的"液面"是纯填充 ⇒ 不入集合）与**只描边的分组框**
+        （实测：`model-layered` 的三条 `fit` 分组框 `type='s'` ⇒ 不入集合）；
+      · **尺寸过线**——挡掉色标 / 圆点 / 箭头尖那一类小实心块；
+      · **内部含文字**——节点是"装着标签的框"（`mechanism` 的 `Valve` / `Controller` 命中；
+        无字的储罐体不入集合）；
+      · **不包含另一个同类框**——把"包住子节点的分组框"排除（留最内层）。
+    ★ **已知边界（不声称穷尽）**：`mcmio`（`fill=none`）的节点、以及**不含任何文字**的节点框
+      **不入集合** ⇒ `A1` 对它们**视而不见**。这是"宁可漏、不可乱判"的取舍：几何上无法把
+      "无字节点框"与"装饰用闭合块"分开（见 README 的 A 族探针段）。
+    """
+    cand = []
+    for dr in page.get_drawings():
+        t = dr.get("type") or ""
+        if "f" not in t or "s" not in t or not dr.get("fill"):
+            continue
+        if not _sch_closed(dr):
+            continue
+        r = dr["rect"]
+        if r.width < SCH_NODE_MIN_W or r.height < SCH_NODE_MIN_H or r.width * r.height < SCH_NODE_MIN_AREA:
+            continue
+        ntext = sum(1 for w in words
+                    if r.x0 <= (w[0] + w[2]) / 2.0 <= r.x1 and r.y0 <= (w[1] + w[3]) / 2.0 <= r.y1)
+        cand.append((r, ntext))
+    tb = [(r, n) for r, n in cand if n > 0]                  # 只留有字的
+    out = []
+    for r, _n in tb:
+        nested = any(q != r and q.width * q.height < r.width * r.height - 1
+                     and q.x0 >= r.x0 - 0.5 and q.x1 <= r.x1 + 0.5
+                     and q.y0 >= r.y0 - 0.5 and q.y1 <= r.y1 + 0.5
+                     for q, _m in tb)                        # 被另一个同类框包住 ⇒ 是分组框
+        if not nested:
+            out.append(r)
+    return out
+
+
+def schematic_criteria(fig):
+    """`A` 族——**示意图专属**判据（只由 `--schematic` 触发；默认路径不跑）。
+
+    三条各返回 `(cid, ok, why)`（与 `F1–F6` 同一判词格式、"两条空格、无填充"）：
+      · `A1` **节点框两两不重叠**（`get_drawings()` 取闭合块做相交检测）；
+      · `A3` **图内文字不越出页框**（`get_text("words")` 的词框 vs 页框，容差 `SCH_PAGE_TOL`）；
+      · `A4` **描边线宽在允许集合内**（`get_drawings()` 的 `width`，仅取 `type=='s'` 的**纯描边**）。
+
+    ★ **fail-closed 的口径**（"输入缺失 ⇒ 红"）：判据的**输入 = 产物里承载它的那个图层**
+      （`A1`/`A4` 要矢量层、`A3` 要文字层）。**图层整个为空 ⇒ 红**（一份从样式层编出来的
+      TikZ 示意图必然两层都在；两层都不在说明它根本不是 TikZ 产物，不许静默放行）。
+      **图层在、但该小类为 0**（如 `A4` 的纯描边图元一个都没有）⇒ **判 PASS 并把计数印在判词里**
+      —— 那是"没有可判对象"，不是"量不了"；判词里写清计数**就不是静默绿**。
+      ★ PNG 载体没有矢量/文字层（渲染图的固有事实）⇒ 如实标 `N/A`（同 `F6` 的 PNG 口径，不假绿）。
+    """
+    if fig.suffix.lower() != ".pdf":
+        return [("A1", True, "PNG 载体无矢量层 ⇒ 本判据不适用（如实标，不假绿）"),
+                ("A3", True, "PNG 载体无文字层 ⇒ 本判据不适用（如实标，不假绿）"),
+                ("A4", True, "PNG 载体无矢量层 ⇒ 本判据不适用（如实标，不假绿）")]
+    out = []
+    # ★ 全部读数都在 `with` 块**内**取（`page` 对象在文档关闭后不能再用 —— 实测会抛
+    #   `ValueError: document closed`，而那是裸异常 ⇒ 会假扮成"判过且红"，正是本仓第一号病灶）。
+    try:
+        with fitz.open(fig) as doc:
+            if doc.page_count < 1:
+                fail_closed(f"FAIL: PDF 没有页 {fig}（fail-closed）")
+            page = doc[0]
+            rect = page.rect
+            drawings = page.get_drawings()
+            words = page.get_text("words")
+            boxes = sch_node_boxes(page, words) if drawings else []
+            widths = [(dr.get("width") or 0.0) for dr in drawings if (dr.get("type") or "") == "s"]
+    except Exception as e:                                     # noqa: BLE001（fail-closed 出口）
+        fail_closed(f"FAIL: 读不出 PDF 矢量/文字层 {fig}（{type(e).__name__}: {e}）（fail-closed）")
+
+    # ---- A1 节点框两两不重叠 ----
+    if not drawings:
+        out.append(("A1", False, "PDF 矢量层为空 ⇒ 无法量节点框（fail-closed）"))
+    else:
+        ov = []
+        for i in range(len(boxes)):
+            for j in range(i + 1, len(boxes)):
+                a, b = boxes[i], boxes[j]
+                if (min(a.x1, b.x1) - max(a.x0, b.x0)) > 0.5 and (min(a.y1, b.y1) - max(a.y0, b.y0)) > 0.5:
+                    ov.append((i, j))
+        out.append(("A1", not ov, f"节点框 {len(boxes)} 个，重叠 {len(ov)} 对：{ov[:4]}"))
+    # ---- A3 图内文字不越出页框 ----
+    if not words:
+        out.append(("A3", False, "PDF 文字层为空 ⇒ 无法量文字越界（fail-closed）"))
+    else:
+        bad = [w[4] for w in words
+               if w[0] < -SCH_PAGE_TOL or w[1] < -SCH_PAGE_TOL
+               or w[2] > rect.width + SCH_PAGE_TOL or w[3] > rect.height + SCH_PAGE_TOL]
+        out.append(("A3", not bad, f"越出页框 {len(bad)} 词（容差 {SCH_PAGE_TOL}pt）：{bad[:4]}；共 {len(words)} 词"))
+    # ---- A4 描边线宽在允许集合内 ----
+    if not drawings:
+        out.append(("A4", False, "PDF 矢量层为空 ⇒ 无法量线宽（fail-closed）"))
+    else:
+        # 只取**纯描边**（type == "s"）：`fs`（既填充又描边）里的填充件是**箭头尖 / 节点框**，
+        # 它们的 `width` 是 pgf 的产物、不是设计线宽（实测 mechanism-block 的箭头尖读到 0.861 / 1.435，
+        # 而它所属的流声明的是 0.5mm / 1.4mm）⇒ 一并排除，否则 `A4` 会在合法骨架上假红。
+        if not widths:
+            out.append(("A4", True, "纯描边图元 0 条 ⇒ 无可判对象（如实标，不假绿）"))
+        else:
+            off = sorted({round(w, 3) for w in widths
+                          if min(abs(w - a) for a in SCH_LINEWIDTH_OK) > SCH_LW_TOL})
+            out.append(("A4", not off,
+                        f"越界线宽 {len(off)} 种：{off[:4]}；允许集合 {SCH_LINEWIDTH_OK}（容差 {SCH_LW_TOL}pt）"))
+    return out
+
+
+def check(fig, caption, textwidth_in, dpi, schematic=False):
     res = []
     if textwidth_in <= 0:
         fail_closed("FAIL: --textwidth-in 必须为正（fail-closed）")
@@ -467,6 +634,9 @@ def check(fig, caption, textwidth_in, dpi):
             ok6 = all(any(k in f for k in FONT_FAMILY_OK) for f in emb)
             extra = "" if not ref else f"；另有只被引用、未内嵌的 {sorted(ref)}（未内嵌 ⇒ 不参与判族）"
             res.append(("F6", ok6, f"内嵌字体 {sorted(emb)}{extra}"))
+    # ---- A 族（示意图专属）—— 只在 `--schematic` 下追加；**默认路径上 F1–F6 一字未动** ----
+    if schematic:
+        res += schematic_criteria(fig)
     return res
 
 
@@ -477,12 +647,15 @@ def main():
     ap.add_argument("--textwidth-in", type=float, required=True)
     ap.add_argument("--dpi", type=int)
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--schematic", action="store_true",
+                    help="追加示意图专属的 A 族判据（A1 节点框重叠 / A3 文字越界 / A4 线宽）；"
+                         "默认不开（数据图产物上会假红，理由见模块头 §A 长注）")
     a = ap.parse_args()
     p = pathlib.Path(a.fig)
     if not p.is_file():                       # 不存在 / 是目录 / 是设备文件，一律 fail-closed
         fail_closed(f"FAIL: 图不存在或不是普通文件 {a.fig}（fail-closed）")
     cap = read_caption(a.caption)
-    res = check(p, cap, a.textwidth_in, a.dpi)
+    res = check(p, cap, a.textwidth_in, a.dpi, schematic=a.schematic)
     for cid, ok, why in res:
         print(f"{'PASS' if ok else 'FAIL'}  {cid}  {why}")
     if a.json:                                # JSON 在判词行**之前**（见文件头 D6）

@@ -1,0 +1,65 @@
+% =====================================================================
+% mcm-schematic · assets/skeletons/mechanism-block.tex
+% 起步骨架 5/5 —— **机理块图**：储罐 / 流（粗细编码"量"）/ 示意坐标 / 耦合箭头
+%
+% 选取依据：Task 0 侦察读数 6 做不到机械分类（明文降级），成员由判断保留；
+%           本份的理由见 tests/m3-schematic-recon/README.md「起步五份的逐个去向」。
+% 视觉标准全部来自 ../schematic-style.tex（本文件**不含颜色 / 线宽 / 圆角 / 字号**）。
+%
+% ★ 本骨架里的"坐标"是**示意轴**（一个方向 + 一个高度标注），**不是数据坐标轴**：
+%   house-style H10（去顶右框线 / 刻度方向 / 轴标签带单位）讲的是**数据图**，本支不适用（见规范 §1）。
+%
+% ── 「改哪儿」对照表 ─────────────────────────────────────────────────
+%  类   | 改什么                              | 怎么改
+%  -----|-------------------------------------|------------------------------------------
+%  内容 | 各块的文字与流量的标注                | 只改 {…} 里的字；不要改节点名
+%  内容 | 液位多高                            | 改液面矩形那两个 y（1.05 与 1.42），液面线跟着改
+%  内容 | 哪条流更粗                          | 把 mcmflowthin 换成 mcmflow（粗细 = "量"的大小，S2 之外的第二维语义）
+%  结构 | 增删一个耦合块                       | 复制一个 \node + 一条 \mcmedge，x 保持在版心内
+%  ------|-------------------------------------|------------------------------------------
+%  不许动 | 颜色 / 线宽 / 圆角 / 字号            | 一律走 ../schematic-style.tex
+%  不许动 | \useasboundingbox 那一行             | 页盒 = 图框，删了图宽就失控（F1）
+%  不许动 | 储罐的**最小尺寸**与左右边界         | 流箭头要对齐它的边；改了要重算所有落点
+% ─────────────────────────────────────────────────────────────────────
+
+\documentclass[12pt]{article}
+\input{../schematic-style.tex}
+\usepackage[paperwidth=\mcmscfigwidth,paperheight=2.45in,margin=0pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tikzpicture}[x=1in, y=1in]
+  \useasboundingbox (0,0) rectangle (\mcmscfigwidth, 2.45in);
+
+  % —— 液面（先画，储罐只描边 ⇒ 液面透出来）——
+  \fill[mcmliquid] (1.90, 1.05) rectangle (3.90, 1.42);
+  \draw[mcmdashplain] (1.90, 1.42) -- (3.90, 1.42);
+  \node[mcmnote] at (2.90, 1.24) {liquid};
+  % 液位示意：一根双向细箭头 + 一个标注（H10 不适用：这是示意轴，不是数据轴）
+  \draw[mcmdim] (2.10, 1.05) -- (2.10, 1.42);
+  \node[mcmnote, anchor=west] at (2.16, 1.14) {h(t)};
+
+  % —— 储罐本体（只描边的最小块）——
+  \node[mcmtank, minimum width=2.00in, minimum height=1.00in] (tank) at (2.90, 1.55) {};
+
+  % —— 流入：细流（Q_in 小）；阀块串在流入管线上 ——
+  \node[mcmnode, text width=0.50in, minimum height=0.34in] (valve) at (0.88, 1.70) {Valve};
+  \draw[mcmflowthin] (0.12, 1.70) -- (valve.west);
+  \draw[mcmflowthin] (valve.east) -- (1.90, 1.70);
+  \node[mcmlabel] at (0.50, 1.90) {Q\textsubscript{in}};
+
+  % —— 流出：粗流（Q_out 大）——
+  \draw[mcmflow] (3.90, 1.30) -- (5.10, 1.30);
+  \node[mcmlabel] at (4.50, 1.50) {Q\textsubscript{out}};
+
+  % —— 量测耦合：储罐 → 控制器（细实线箭头）——
+  \draw[mcmarrow] (3.94, 2.05) -- (4.70, 2.05);
+  \node[mcmlabel] at (4.32, 2.19) {h(t)};
+  \node[mcmnode, text width=1.00in] (ctrl) at (5.40, 2.05) {Controller};
+
+  % —— 控制耦合：控制器 → 阀（虚线 = 控制信号，S2）；绕到全图下方走线，避开储罐 ——
+  \draw[mcmdash] (ctrl.south) -- ++(0,-1.60) -| (valve.north);
+  \node[mcmlabel] at (3.20, 0.37) {u(t)};
+\end{tikzpicture}
+\end{document}

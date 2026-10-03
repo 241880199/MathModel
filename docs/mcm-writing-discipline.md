@@ -1,7 +1,7 @@
 # MCM/ICM 论文写作纪律（跨 skill 的**唯一权威**）
 
 > **本文件是"写作类要求"的唯一权威表述**——这是**约定，还没成为既成**：截至本次修订，`grep -rn "mcm-writing-discipline" .claude/` 命中 **0**，即**目前没有任何 skill 指向本文件**。
-> 将来的写作类 skill（**拟建**的 `mcm-section-writer` · `mcm-memo`，以及已建的 `mcm-abstract`；`.claude/skills/` 下现存 9 个 = `mcm-abstract` / `mcm-ai-disclosure` / `mcm-figure-choose` / `mcm-latex-format` / `mcm-plot-matlab` / `mcm-plot-origin` / `mcm-plot-python` / `mcm-selfreview` / `mcm-table`）在这个约定下**只给指针、不重述**——否则同一句话写两处，必有一处忘改（本项目 `docs/mcm-suite-lessons.md` **4.8**）。
+> 将来的写作类 skill（**拟建**的 `mcm-section-writer` · `mcm-memo`，以及已建的 `mcm-abstract`；`.claude/skills/` 下现存 10 个 = `mcm-abstract` / `mcm-ai-disclosure` / `mcm-figure-choose` / `mcm-latex-format` / `mcm-plot-matlab` / `mcm-plot-origin` / `mcm-plot-python` / `mcm-schematic` / `mcm-selfreview` / `mcm-table`）（★ **2026-10-03 改时点**：本行的两个数原记作「现存 **9** 个 / 名单里没有 `mcm-schematic`」；`mcm-schematic` 落地当天，绘图家族由 **4** 个变 **5** 个、skill 总数由 **9** 个变 **10** 个 ⇒ 按本仓"**改时点标注 + 追加现值、不覆盖旧值**"追加现值，旧值即本括注所记）在这个约定下**只给指针、不重述**——否则同一句话写两处，必有一处忘改（本项目 `docs/mcm-suite-lessons.md` **4.8**）。
 >
 > **证据来源（两轮对照；每条规则标题后的〔〕标出它出自哪一轮）**
 > - **RED 轮**（无纪律）：`tests/skills/arch-red-evidence.md` + `tests/skills/arch-cases/judge.md`。做法：给"题面 + 要点清单"让 agent 写论文某一节，再与该论文真实那一节对照。

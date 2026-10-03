@@ -548,6 +548,196 @@ def m58(before, after, mp):
             f"族表里没有它 ⇒ 判族转红；内嵌事实没拆时它走 `N/A` 分支、**不**判族）")
 
 
+# ---------------------------------------------------------------- mcm-schematic Task 2（`A` 族）
+# 这一组打的是**示意图专属**的 `A1`/`A3`/`A4`（检查器带 `--schematic` 才追加）。
+# ★ 为什么单独一组、单独一个 runner：`reader()` 走的是**默认路径**（不带 `--schematic`），
+#   而那正是"F1–F6 一字未动"的回归面 —— 拿它测 A 族会**永远读不到 A 行**（恒 `-`）。
+# ★ 支点 = `tests/skills/schematic/fixtures/*.pdf`（Task 1 的骨架自证控制组；它们**本就该 A 全绿**）。
+SCH_FIX = HERE.parent / "schematic" / "fixtures"
+SCH_LIN = SCH_FIX / "pipeline-linear.pdf"      # 线宽 ∈ {0.5, 0.7} 的两阶段流程图
+SCH_MECH = SCH_FIX / "mechanism-block.pdf"     # 含 0.5mm/1.4mm 两条"流"，fs 里有 pgf 宽 0.861 的箭头尖
+SCH_LAY = SCH_FIX / "model-layered.pdf"        # 9 个节点 + 3 条**只描边**的分组框
+
+
+def sch_run(checker, fig, caption="Figure 1: a schematic"):
+    """跑某检查器（**带 `--schematic`**）：返回 (rc, stdout, stderr)。"""
+    cmd = [sys.executable, str(checker), "--fig", str(fig), "--caption", caption,
+           "--textwidth-in", "6.75", "--schematic"]
+    p = subprocess.run(cmd, capture_output=True, text=True)
+    return p.returncode, p.stdout, p.stderr
+
+
+def sch_v(checker, fig, crit):
+    """某检查器在 `--schematic` 下对某骨架打的某条 A 判词的 PASS/FAIL（`-` = 没这条）。"""
+    return verdict(sch_run(checker, fig)[1], crit)
+
+
+def m59(before, after, mp):
+    """`A1` 的"重叠"谓词参与了判定（取反 ⇒ 干净骨架由 PASS 转 FAIL）；同一条变异体上 A3/A4 **不受影响**。"""
+    lin_b, lin_a = sch_v(CHK, SCH_LIN, "A1"), sch_v(mp, SCH_LIN, "A1")
+    lay_b, lay_a = sch_v(CHK, SCH_LAY, "A1"), sch_v(mp, SCH_LAY, "A1")
+    a3 = sch_v(mp, SCH_LIN, "A3")
+    a4 = sch_v(mp, SCH_LIN, "A4")
+    return (lin_b == "PASS" and lin_a == "FAIL" and lay_b == "PASS" and lay_a == "FAIL"
+            and a3 == "PASS" and a4 == "PASS",
+            f"pipeline-linear A1 {lin_b}→{lin_a}；model-layered A1 {lay_b}→{lay_a}"
+            f"（两条 A1 都翻红 ⇒ 谓词在判定）；同一变异体上 pipeline-linear A3={a3} · A4={a4}"
+            f"（A3/A4 不受影响 ⇒ 变异是定向的）")
+
+
+def m60(before, after, mp):
+    """`A1` 的**射程边界对照（必须仍绿）**：把重叠容差收成"天文数字"（只认大到离谱的交叠）⇒ 干净骨架**仍 PASS**。
+
+    与 `M59` 配对：`M59` 把谓词取反 ⇒ 全部翻红；`M60` 把闸门收到几乎不可能触发 ⇒ 全部仍绿。
+    两条一起把 `A1` 的"红/绿都由真读数决定、不是恒红也不是恒绿"钉住。
+    """
+    lin = sch_v(mp, SCH_LIN, "A1")
+    lay = sch_v(mp, SCH_LAY, "A1")
+    mech = sch_v(mp, SCH_MECH, "A1")
+    return (lin == "PASS" and lay == "PASS" and mech == "PASS",
+            f"容差收到 1e9pt 后：pipeline-linear A1={lin} · model-layered A1={lay} · mechanism-block A1={mech}"
+            f"（三条骨架**仍全绿** ⇒ `A1` 的绿不是「闸门关死」的结果）")
+
+
+def m61(before, after, mp):
+    """`A4` 的"**只取纯描边**"这条窄化承重：把 `fs`（填充+描边）也算进来 ⇒ 只有 `mechanism-block` 翻红
+    （它的箭头尖读到 pgf 宽 0.861，不在允许集合里）。
+
+    ★ 这条同时是**射程边界对照**：同一变异体上 `pipeline-linear`/`model-layered` 的 `fs` 件
+      （节点框 + 箭头尖）宽度都落在 {0.5, 0.7, 0.9} 里 ⇒ **仍绿** ⇒ 翻红的是"箭头尖那类"，
+      不是"整个 A4 恒红"。
+    """
+    mech_b, mech_a = sch_v(CHK, SCH_MECH, "A4"), sch_v(mp, SCH_MECH, "A4")
+    lin_a, lay_a = sch_v(mp, SCH_LIN, "A4"), sch_v(mp, SCH_LAY, "A4")
+    return (mech_b == "PASS" and mech_a == "FAIL" and lin_a == "PASS" and lay_a == "PASS",
+            f"mechanism-block A4 {mech_b}→{mech_a}（把 fs 也算进来 ⇒ 箭头尖的 0.861 越界）；"
+            f"对照 pipeline-linear A4={lin_a} · model-layered A4={lay_a}（它们的 fs 件宽度合法 ⇒ 仍绿）")
+
+
+def m62(before, after, mp):
+    """`A4` 的允许集合真参与判定：收窄成 `(0.5, 0.7)` ⇒ 只用这两档的 `pipeline-linear` **仍绿**，
+    而用 1.4mm/0.5mm 两条"流"的 `mechanism-block` **转红**（同 `M57` 的"收窄"角色）。"""
+    lin_b, lin_a = sch_v(CHK, SCH_LIN, "A4"), sch_v(mp, SCH_LIN, "A4")
+    mech_b, mech_a = sch_v(CHK, SCH_MECH, "A4"), sch_v(mp, SCH_MECH, "A4")
+    return (lin_b == "PASS" and lin_a == "PASS" and mech_b == "PASS" and mech_a == "FAIL",
+            f"允许集合收窄到 (0.5, 0.7)：pipeline-linear A4 {lin_b}→{lin_a}（它的线宽正是这两档 ⇒ **仍绿**）；"
+            f"mechanism-block A4 {mech_b}→{mech_a}（它的流 1.417/3.968 出集合 ⇒ 转红）")
+
+
+def m63(before, after, mp):
+    """`A3` 的谓词参与了判定（取反 ⇒ 干净骨架由 PASS 转 FAIL）。"""
+    lin_b, lin_a = sch_v(CHK, SCH_LIN, "A3"), sch_v(mp, SCH_LIN, "A3")
+    mech_b, mech_a = sch_v(CHK, SCH_MECH, "A3"), sch_v(mp, SCH_MECH, "A3")
+    return (lin_b == "PASS" and lin_a == "FAIL" and mech_b == "PASS" and mech_a == "FAIL",
+            f"pipeline-linear A3 {lin_b}→{lin_a}；mechanism-block A3 {mech_b}→{mech_a}（谓词在判定）")
+
+
+def m64(before, after, mp):
+    """`A3` 的**射程边界对照（必须仍绿）**：把页框容差收到 0pt（最严）⇒ 骨架的文字**本来全在框内**
+    ⇒ 仍 PASS ⇒ `A3` 的绿不是"容差给的"。"""
+    lin = sch_v(mp, SCH_LIN, "A3")
+    mech = sch_v(mp, SCH_MECH, "A3")
+    lay = sch_v(mp, SCH_LAY, "A3")
+    return (lin == "PASS" and mech == "PASS" and lay == "PASS",
+            f"容差收到 0pt 后：pipeline-linear A3={lin} · mechanism-block A3={mech} · model-layered A3={lay}"
+            f"（三条骨架**仍全绿** ⇒ 它们的文字确实都在页框内，不是容差兜的）")
+
+
+def m65(before, after, mp):
+    """`P3b` · **丢格探针**：`A` 行会不会被"只认 `F` 的"证据解析器**静默丢掉**？
+
+    做法：拿**真产物**跑出带 `A` 行的检查器输出（`mechanism-block` + `--schematic`），
+    喂给 `figure-choose/green/make-evidence.py` 里那个**入库的** `CELL_RE`（现在放宽成 `[A-Z]\\d+[a-z]?`），
+    再喂给**放宽前**的老串 `(F\\d[abcd]?)`。断言：放宽后**每条 A 行都被抓到**、老串**把 A 行全丢**。
+    ⇒ 这一条钉的是"**放宽真的承重**"：没有它，`A` 行进证据表就是**少几格而汇总照旧绿**。
+    ★ 它**不是**"判据变异"（不改检查器）—— 是一条**解析器探针**（同 `R1` 的角色），故**不进 `MUTATIONS`**；
+      由 `sch_parser_probe()` 单独跑，不参与 `MUT:n/m 红` 的分子分母。
+
+    ⚠️ **覆盖边界（如实登记，不声称穷尽）**：P3b 放宽的"只认 `F` 前缀"的取证解析器共 **5 处**
+    （`git grep 're.compile/match' × 'PASS|FAIL'` 逐件查过）：`figure-choose/green/make-evidence.py`
+    的 `CELL_RE`（**:85**）与 `verdicts()` 里的内联 `re.match`（**:353**）、`plot-python`（**:31**）、
+    `plot-matlab`（**:37**）、`plot-origin`（**:41**）三份 `make-evidence.py` 的 `LINE_RE`。
+    本探针**只钉住其中 1 处**（`CELL_RE`）；**另外 4 处未被本探针覆盖**。
+    ★ 且 `A` 族被 `--schematic` 门控 ⇒ 这 5 个走默认路径的解析器**今天还收不到 `A` 行**
+    ⇒ 本探针证明的是"**放宽真的承重**"（放宽前老串确实丢 `A` 行），**不是**"今天就在丢格"。
+    """
+    out = sch_run(CHK, SCH_MECH)[1]
+    src = (HERE / "green" / "make-evidence.py").read_bytes().decode("utf-8")
+    m = re.search(r"^CELL_RE = re\.compile\((.*)\)$", src, re.M)
+    if not m:
+        raise AssertionError("green/make-evidence.py 里找不到 CELL_RE 的 `re.compile(...)` 行（驱动器自己报错）")
+    new_pat = re.compile(eval(m.group(1)))                      # noqa: S307（读的是本仓自己的字面量）
+    old_pat = re.compile(r"^(PASS|FAIL)\s+(F\d[abcd]?)\s+(.*)$")
+    def ids(pat):
+        return [ln.split()[1] for ln in out.splitlines() if pat.match(ln)]
+    new_ids, old_ids = ids(new_pat), ids(old_pat)
+    n_a_new = sum(1 for i in new_ids if i.startswith("A"))
+    n_a_old = sum(1 for i in old_ids if i.startswith("A"))
+    ok = (n_a_new >= 3 and n_a_old == 0 and len(new_ids) > len(old_ids))
+    return ok, (f"真产物 mechanism-block（`--schematic`）的输出里 A 行 {n_a_new} 条 —— 入库 `CELL_RE`（放宽后）"
+                f"抓到 {len(new_ids)} 条 id，含 A {n_a_new} 条；**放宽前**的老串 `(F\\d[abcd]?)` 只抓 {len(old_ids)} 条、"
+                f"A {n_a_old} 条 ⇒ {'放宽真的承重' if ok else '未达预期 <<<'}（不放宽 ⇒ 证据表少这几格而汇总照旧绿）")
+
+
+def run_sch_mutations():
+    """跑 `A` 族的变异组（`M59`–`M64`）+ 丢格探针 `M65`。
+
+    变异体的断言**全部**走 `sch_v()`（`--schematic`）；`byte_ok` 在跑完后由调用方统一自证。
+    """
+    src = CHK.read_bytes()
+    MUTD.mkdir(exist_ok=True)
+    rows, failed = [], []
+    for mid, desc, old, new, fn in SCH_MUTATIONS:
+        mp = MUTD / f"check-figure-style.{mid}.py"
+        try:
+            mutate(src, old, new, mp)
+        except AssertionError as e:
+            print(f"RED-BAD  {mid}  {e}——驱动器自己报错")
+            failed.append(mid)
+            rows.append(("RED-BAD", mid, desc, f"驱动器自己报错：{e}"))
+            continue
+        try:
+            ok, detail = fn(None, None, mp)
+        except AssertionError as e:
+            ok, detail = False, f"驱动器自己报错：{type(e).__name__}: {e}"
+        rows.append(("RED-OK" if ok else "RED-BAD", mid, desc, detail))
+        if not ok:
+            failed.append(mid)
+        mp.unlink(missing_ok=True)
+    # 丢格探针（不是判据变异）
+    try:
+        p_ok, p_detail = m65(None, None, None)
+    except (AssertionError, KeyError, StopIteration) as e:      # noqa: BLE001（驱动器自己的出口）
+        p_ok, p_detail = False, f"驱动器自己报错：{type(e).__name__}: {e}"
+    probe = ("RED-OK" if p_ok else "RED-BAD", "M65",
+             "丢格探针：`A` 行会不会被只认 `F` 的证据解析器静默丢掉", p_detail)
+    if not p_ok:
+        failed.append("M65")
+    return rows, failed, probe
+
+
+# (编号, 说明, 原文, 改文, 断言)
+SCH_MUTATIONS = [
+    ("M59", "`A1`：重叠谓词取反（`not ov` → `bool(ov)`）⇒ 干净骨架由 PASS 转 FAIL",
+     'out.append(("A1", not ov, f"节点框 {len(boxes)} 个，重叠 {len(ov)} 对：{ov[:4]}"))',
+     'out.append(("A1", bool(ov), f"节点框 {len(boxes)} 个，重叠 {len(ov)} 对：{ov[:4]}"))', m59),
+    ("M60", "`A1` 射程边界对照（**必须仍绿**）：重叠容差 0.5pt → 1e9pt（几乎不可能触发）",
+     'if (min(a.x1, b.x1) - max(a.x0, b.x0)) > 0.5 and (min(a.y1, b.y1) - max(a.y0, b.y0)) > 0.5:',
+     'if (min(a.x1, b.x1) - max(a.x0, b.x0)) > 1e9 and (min(a.y1, b.y1) - max(a.y0, b.y0)) > 1e9:', m60),
+    ("M61", "`A4` 的\"只取纯描边\"窄化承重：`type == 's'` → `\"s\" in type`（把 fs 也算进来）⇒ "
+            "只有 mechanism-block 翻红（箭头尖 0.861）",
+     'widths = [(dr.get("width") or 0.0) for dr in drawings if (dr.get("type") or "") == "s"]',
+     'widths = [(dr.get("width") or 0.0) for dr in drawings if "s" in (dr.get("type") or "")]', m61),
+    ("M62", "`A4` 允许集合收窄成 (0.5, 0.7)：pipeline-linear **仍绿**、mechanism-block 转红",
+     "SCH_LINEWIDTH_OK = (0.5, 0.7, 0.9, round(0.5 * _MM_PT, 4), round(1.4 * _MM_PT, 4))",
+     "SCH_LINEWIDTH_OK = (0.5, 0.7)", m62),
+    ("M63", "`A3`：越界谓词取反（`not bad` → `bool(bad)`）⇒ 干净骨架由 PASS 转 FAIL",
+     'out.append(("A3", not bad, f"越出页框 {len(bad)} 词（容差 {SCH_PAGE_TOL}pt）：{bad[:4]}；共 {len(words)} 词"))',
+     'out.append(("A3", bool(bad), f"越出页框 {len(bad)} 词（容差 {SCH_PAGE_TOL}pt）：{bad[:4]}；共 {len(words)} 词"))', m63),
+    ("M64", "`A3` 射程边界对照（**必须仍绿**）：页框容差 0.5pt → 0pt（最严）",
+     "SCH_PAGE_TOL = 0.5", "SCH_PAGE_TOL = 0.0", m64),
+]
+
 # (编号, 说明, 原文, 改文, 断言)
 MUTATIONS = [
     ("M1", "F1_HI 1.20 → 0.90", "F1_LO, F1_HI = 0.80, 1.20", "F1_LO, F1_HI = 0.80, 0.90", m1),
@@ -594,10 +784,10 @@ MUTATIONS = [
 
 # 探针（不是"判据变异"，是"验收脚本的 ERROR 分支变异"）：只在 **期望 FAIL 的那一行** fail-closed
 PROBE = ("P1", "run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR 且整轮非零退出",
-         "    res = check(p, cap, a.textwidth_in, a.dpi)",
+         "    res = check(p, cap, a.textwidth_in, a.dpi, schematic=a.schematic)",
          "    if p.name == \"bad-f2-five-colors.pdf\":\n"
          "        sys.exit(EXIT_FAIL_CLOSED)  # 探针：只在期望 FAIL 的那一行 fail-closed\n"
-         "    res = check(p, cap, a.textwidth_in, a.dpi)")
+         "    res = check(p, cap, a.textwidth_in, a.dpi, schematic=a.schematic)")
 
 
 def p1(mp):
@@ -1856,6 +2046,10 @@ def main():
         print(f"RED-BAD  {pmid}  {e}——驱动器自己报错")
         failed.append(pmid)
 
+    # ------------------------------------------------------------ mcm-schematic Task 2（A 族）
+    srows, sfailed, s_probe = run_sch_mutations()
+    failed += sfailed
+
     print("\n" + "=" * 78)
     print("逐条结果")
     print("=" * 78)
@@ -1867,6 +2061,16 @@ def main():
         print("变异探针（被打的不是判据，是验收脚本的 ERROR 分支）")
         print(f"{probe_row[0]:<8} {probe_row[1]:<4} {probe_row[2]}")
         print(f"         {probe_row[3]}")
+    print("\n" + "=" * 78)
+    print(f"`A` 族的变异（M59–M64 · 打的是检查器的 A1/A3/A4；`--schematic` 下以示意骨架为支点，"
+          f"其中 M60/M64 是**必须仍绿**的射程边界对照）· 丢格探针 M65")
+    print("=" * 78)
+    for st, mid, desc, detail in srows:
+        print(f"{st:<8} {mid:<4} {desc}")
+        print(f"         {detail}")
+    print("-" * 78)
+    print(f"{s_probe[0]:<8} {s_probe[1]:<4} {s_probe[2]}")
+    print(f"         {s_probe[3]}")
 
     # ------------------------------------------------------------ 还原自证
     now_hash = git_hash_object(CHK)
@@ -1925,14 +2129,20 @@ def main():
     print(f"MUT: {n_tier_ok}/{n_tier} 达预期（`K3` 的 ASCII 阈值标记臂 M47–M53："
           f"{n_tier - 1} 条必须红 + 1 条**射程边界对照**（`主色 4 个` / `下限 4` / `< 25 词`）必须绿）"
           + ("" if not grp["f_tier"] else f"（未达预期：{', '.join(grp['f_tier'])}）"))
-    print(f"MUT: {len(rows) - len(mut_failed) + n_spec_ok + n_struct_ok + n_skill_ok + n_ptr_ok + n_tier_ok}/"
-          f"{len(MUTATIONS) + n_spec + n_struct + n_skill + n_ptr + n_tier} 达预期（合计）")
+    n_sch = len(SCH_MUTATIONS)
+    n_sch_ok = n_sch - len(sfailed)
+    print(f"MUT: {n_sch_ok}/{n_sch} 达预期（检查器的 `A` 族 M59–M64："
+          f"{n_sch - 2} 条必须红 + 2 条**射程边界对照**（`A1` 容差 / `A3` 容差）必须绿）"
+          + ("" if not sfailed else f"（未达预期：{', '.join(sfailed)}）"))
+    print(f"MUT: {len(rows) - len(mut_failed) + n_spec_ok + n_struct_ok + n_skill_ok + n_ptr_ok + n_tier_ok + n_sch_ok}/"
+          f"{len(MUTATIONS) + n_spec + n_struct + n_skill + n_ptr + n_tier + n_sch} 达预期（合计）")
     print(f"探针 P1: {'红' if probe_ok else '未红'}（check-figure-style.py 的脚本探针）")
     print(f"探针 R1: {'红' if r1_ok else '未红'}（读数条 S4 的『该动的时候动、该判的时候不判』）")
-    print(f"（本驱动器共 {len(MUTATIONS)} 条检查器判据变异 + {n_probe} 条脚本探针"
+    print(f"探针 M65: {'红' if s_probe[0] == 'RED-OK' else '未红'}（丢格探针：只认 `F` 的证据解析器会把 `A` 行丢掉）")
+    print(f"（本驱动器共 {len(MUTATIONS)} 条检查器判据变异 + {n_sch} 条 `A` 族判据变异 + {n_probe} 条脚本探针"
           f" + {n_spec} 条规范数变异 + {n_struct} 条结构变异 + {n_skill} 条 SKILL.md 变异"
           f" + {n_ptr} 条引用完整性变异 + {n_tier} 条 `K3` 阈值标记臂变异"
-          f"（含 1 条射程边界对照）+ 1 条读数条探针）")
+          f"（含射程边界对照：`K3` 1 条 + `A` 族 2 条）+ 1 条读数条探针 + 1 条丢格探针）")
     return 0 if (not failed and not failed_h and byte_ok and clean and selfok_h
                  and rerun.returncode == 0) else 1
 

@@ -33,9 +33,9 @@ Task 7 证据 · 引用完整性检查器（check-spec-pointers.py）+ 假 skill
 ==============================================================================
 §0  blob 自证（git hash-object：被验对象就是即将入库的那几个文件）
 ==============================================================================
-d5eae10e7cc81987891030051691e89bd4ebb6ba  tests/skills/figure-choose/check-spec-pointers.py
-24b84ff30fff8284eef590e7a64c71f53b70c3a2  tests/skills/figure-choose/mutate-figure-style.py
-5399c7efd994063a1e607557884126f19738ab53  tests/skills/figure-choose/gen-pointer-verify.py
+dc198392bc4406ba3ec59299ed9d79e99d228889  tests/skills/figure-choose/check-spec-pointers.py
+3493144ddb5633ecdff8779668d4027c2a330a44  tests/skills/figure-choose/mutate-figure-style.py
+d903fcc157c035f09892aaebe3fb797fe20ba698  tests/skills/figure-choose/gen-pointer-verify.py
 be1ba75683b6433283c067973e7020059af8ff49  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-ok/SKILL.md
 473bae246577ae4e886fe3ff1300a74b23dad8ae  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-nopointer/SKILL.md
 1dba97ae79eee24188551cd4349b22810bfb0367  tests/skills/figure-choose/fixtures/fake-skills/mcm-plot-restate/SKILL.md
@@ -50,7 +50,7 @@ $ python tests/skills/figure-choose/check-spec-pointers.py
 skills-dir = .claude/skills · checker = tests/skills/figure-choose/check-house-style.py
 PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
-普查：扫到 9 个 skill（.claude/skills/*/SKILL.md）· 绘图家族 4 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
+普查：扫到 10 个 skill（.claude/skills/*/SKILL.md）· 绘图家族 5 个（判据射程 = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$）
       非家族  mcm-abstract
       非家族  mcm-ai-disclosure
       非家族  mcm-figure-choose
@@ -58,6 +58,7 @@ PASS  INSTR  K3@空串  禁止串（现取）：小数 85 条 · 阈值值池 �
       家族    mcm-plot-matlab
       家族    mcm-plot-origin
       家族    mcm-plot-python
+      家族    mcm-schematic
       非家族  mcm-selfreview
       家族    mcm-table
 ------------------------------------------------------------------------------
@@ -67,11 +68,13 @@ PASS  K2  mcm-plot-origin  指针 `references/house-style.md` 出现 4 处（必
 PASS  K3  mcm-plot-origin  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K2  mcm-plot-python  指针 `references/house-style.md` 出现 4 处（必须 ≥1；只写 `house-style.md` 不算）
 PASS  K3  mcm-plot-python  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
+PASS  K2  mcm-schematic  指针 `references/house-style.md` 出现 2 处（必须 ≥1；只写 `house-style.md` 不算）
+PASS  K3  mcm-schematic  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 PASS  K2  mcm-table  指针 `references/house-style.md` 出现 3 处（必须 ≥1；只写 `house-style.md` 不算）
 PASS  K3  mcm-table  禁止串（现取）：小数 85 条 · 阈值值池 上界 [3, 4, 12, 17] / 下界 [0, 2, 7, 20, 100] · 命中 无 · 中文数词臂：裸值词 ['七', '二十', '十七', '十二', '四']（由阈值标记现取，≥4）· 单位词 9/9 条出处都在 · 中文命中 无
 ------------------------------------------------------------------------------
-扫到 9 个 skill（绘图家族 4 个）· 判据 K2/K3 · 红 0 条
-RESULT: PASS (绘图家族 4 个，K2/K3 全绿)
+扫到 10 个 skill（绘图家族 5 个）· 判据 K2/K3 · 红 0 条
+RESULT: PASS (绘图家族 5 个，K2/K3 全绿)
 [exit=0]
 
 ==============================================================================
@@ -137,7 +140,7 @@ $ python tests/skills/figure-choose/mutate-figure-style.py
 ==============================================================================
 变异驱动器 · check-figure-style.py
 ==============================================================================
-原检查器 blob  31621e433d239cb0d34ea359d014e7ab4189aab9
+原检查器 blob  0a4bb765a8251970a7036a3bda5f3afad4c9b649
 逐格验收基线  python fixtures/run-expected.py → exit 0
 
 ==============================================================================
@@ -177,9 +180,28 @@ RED-OK   P1   run-expected.py 的 ERROR 分支：rc=2/无判词 ⇒ 记 ERROR �
          干净一遍 exit=0 'MISMATCH 0 / 34'；对变异体一遍 exit=1 'MISMATCH 0 / 34  ERROR 1'（1 行 ERROR）　NOTE/同一行：原检查器 exit=1 判词 F2=FAIL；变异体 exit=2 stdout 空 ⇒ 旧版谓词会记 got=FAIL（= want ⇒ 记 OK，整轮报 MISMATCH 0 假绿）；新版记 ERROR 且 exit≠0
 
 ==============================================================================
+`A` 族的变异（M59–M64 · 打的是检查器的 A1/A3/A4；`--schematic` 下以示意骨架为支点，其中 M60/M64 是**必须仍绿**的射程边界对照）· 丢格探针 M65
+==============================================================================
+RED-OK   M59  `A1`：重叠谓词取反（`not ov` → `bool(ov)`）⇒ 干净骨架由 PASS 转 FAIL
+         pipeline-linear A1 PASS→FAIL；model-layered A1 PASS→FAIL（两条 A1 都翻红 ⇒ 谓词在判定）；同一变异体上 pipeline-linear A3=PASS · A4=PASS（A3/A4 不受影响 ⇒ 变异是定向的）
+RED-OK   M60  `A1` 射程边界对照（**必须仍绿**）：重叠容差 0.5pt → 1e9pt（几乎不可能触发）
+         容差收到 1e9pt 后：pipeline-linear A1=PASS · model-layered A1=PASS · mechanism-block A1=PASS（三条骨架**仍全绿** ⇒ `A1` 的绿不是「闸门关死」的结果）
+RED-OK   M61  `A4` 的"只取纯描边"窄化承重：`type == 's'` → `"s" in type`（把 fs 也算进来）⇒ 只有 mechanism-block 翻红（箭头尖 0.861）
+         mechanism-block A4 PASS→FAIL（把 fs 也算进来 ⇒ 箭头尖的 0.861 越界）；对照 pipeline-linear A4=PASS · model-layered A4=PASS（它们的 fs 件宽度合法 ⇒ 仍绿）
+RED-OK   M62  `A4` 允许集合收窄成 (0.5, 0.7)：pipeline-linear **仍绿**、mechanism-block 转红
+         允许集合收窄到 (0.5, 0.7)：pipeline-linear A4 PASS→PASS（它的线宽正是这两档 ⇒ **仍绿**）；mechanism-block A4 PASS→FAIL（它的流 1.417/3.968 出集合 ⇒ 转红）
+RED-OK   M63  `A3`：越界谓词取反（`not bad` → `bool(bad)`）⇒ 干净骨架由 PASS 转 FAIL
+         pipeline-linear A3 PASS→FAIL；mechanism-block A3 PASS→FAIL（谓词在判定）
+RED-OK   M64  `A3` 射程边界对照（**必须仍绿**）：页框容差 0.5pt → 0pt（最严）
+         容差收到 0pt 后：pipeline-linear A3=PASS · mechanism-block A3=PASS · model-layered A3=PASS（三条骨架**仍全绿** ⇒ 它们的文字确实都在页框内，不是容差兜的）
+------------------------------------------------------------------------------
+RED-OK   M65  丢格探针：`A` 行会不会被只认 `F` 的证据解析器静默丢掉
+         真产物 mechanism-block（`--schematic`）的输出里 A 行 3 条 —— 入库 `CELL_RE`（放宽后）抓到 12 条 id，含 A 3 条；**放宽前**的老串 `(F\d[abcd]?)` 只抓 9 条、A 0 条 ⇒ 放宽真的承重（不放宽 ⇒ 证据表少这几格而汇总照旧绿）
+
+==============================================================================
 还原自证
 ==============================================================================
-  check-figure-style.py  blob  31621e433d239cb0d34ea359d014e7ab4189aab9  == 变异前
+  check-figure-style.py  blob  0a4bb765a8251970a7036a3bda5f3afad4c9b649  == 变异前
   工作树字节 == 变异前字节: True
   fixtures/_mut/ 已清空: True
   还原后复跑逐格验收: exit=0  MISMATCH 0 / 34
@@ -269,11 +291,11 @@ RED-OK   M41  house-style.md：副本里抹掉某个 `H<n>` 的『**验证**：�
 引用完整性检查器的变异（M43–M46 · 打的是 check-spec-pointers.py；`--skills-dir` 指 fixtures/fake-skills/ 与两个坏目录，共 4 条）
 ==============================================================================
 RED-OK   M43  引用完整性：整体跑 `fixtures/fake-skills/` ⇒ `mcm-plot-nopointer` 缺指针由 **K2** 点名、`mcm-plot-restate` 重述数值由 **K3** 点名，家族正则另外两条备选（`mcm-table` / `mcm-schematic`）缺指针也**各自**由 **K2** 点名（四条各打各的）
-         前置(真仓扫到 9 个 skill) exit=0 末行『RESULT: PASS (绘图家族 4 个，K2/K3 全绿)』绿：判到且无 FAIL 行；后置(假 skill 目录扫到 5 份) exit=1 全目录共红 4 条、末行『RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）』 —— `mcm-plot-nopointer` 由 **K2** 点名=True、`mcm-plot-restate` 由 **K3** 点名=True、`mcm-table` 由 **K2** 点名=True、`mcm-schematic` 由 **K2** 点名=True；NOTE/两条规则**各打各的**（另四格全绿）：K3@mcm-plot-nopointer=True · K2@mcm-plot-restate=True · `mcm-plot-ok` 两格=True
+         前置(真仓扫到 10 个 skill) exit=0 末行『RESULT: PASS (绘图家族 5 个，K2/K3 全绿)』绿：判到且无 FAIL 行；后置(假 skill 目录扫到 5 份) exit=1 全目录共红 4 条、末行『RESULT: FAIL（K2@mcm-plot-nopointer,K2@mcm-schematic,K2@mcm-table,K3@mcm-plot-restate）』 —— `mcm-plot-nopointer` 由 **K2** 点名=True、`mcm-plot-restate` 由 **K3** 点名=True、`mcm-table` 由 **K2** 点名=True、`mcm-schematic` 由 **K2** 点名=True；NOTE/两条规则**各打各的**（另四格全绿）：K3@mcm-plot-nopointer=True · K2@mcm-plot-restate=True · `mcm-plot-ok` 两格=True
 RED-OK   M44  引用完整性：只留 `mcm-plot-ok` 再跑 ⇒ **绿**（本组唯一能证这个检查器不是恒 FAIL 的一条）
          只留 `mcm-plot-ok`（临时根，真件不碰；目录名**逐字**打出来自证人不在赌路径）exit=0 K2=PASS、K3=PASS、末行『RESULT: PASS (绘图家族 1 个，K2/K3 全绿)』 ⇒ 这个检查器**不是恒 FAIL**
 RED-OK   M45  check-house-style.py：把 `_k3` 抽参照物的**三族全改坏**（小数正则 + `SK_CN_TIER_RES` 整条 ⇒ 两族值池一起空）⇒ **仪器探针** `FAIL  INSTR K3@空串` ⇒ fail-closed 红（打真仓：全局仪器探针自身 fail-closed —— 哪怕该轮没有逐份对象，它照样承重）
-         前置(真检查器) exit=0 仪器探针绿；后置(副本三族参照物全改坏) exit=1 『FAIL  INSTR  K3@空串  禁止串（现取）：小数 0 条 · 阈值值池 上界 [] / 下界 [] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，…』、全跑共红 5 条（真仓 4 个家族 ⇒ 除仪器探针外逐份判据红 4 条）、末行『RESULT: FAIL（INSTR:K3,K3@mcm-plot-matlab,K3@mcm-plot-origin,K3@mcm-plot-python,K3@mcm-table）』　NOTE/副本已删：True
+         前置(真检查器) exit=0 仪器探针绿；后置(副本三族参照物全改坏) exit=1 『FAIL  INSTR  K3@空串  禁止串（现取）：小数 0 条 · 阈值值池 上界 [] / 下界 [] · 命中 无 ⇒ **参照物抽不齐（小数 / 上界值池 / 下界值池 任一为空，…』、全跑共红 6 条（真仓 5 个家族 ⇒ 除仪器探针外逐份判据红 5 条）、末行『RESULT: FAIL（INSTR:K3,K3@mcm-plot-matlab,K3@mcm-plot-origin,K3@mcm-plot-python,K3@mcm-schematic,K3@mcm-table）』　NOTE/副本已删：True
 RED-OK   M46  引用完整性：`--skills-dir` 指向坏目录 ⇒ 非零退出（分支 a 目录不存在 · 分支 b 目录在但一个 `SKILL.md` 都没有）
          分支 a(目录不存在) exit=1 『FAIL  DIR       `--skills-dir` 不存在或不是目录：tests/skills/figure-choose/fixtu…』；分支 b(目录在、一个 `SKILL.md` 都没有) exit=1 『FAIL  CENSUS    一个 skill 都没扫到（目录里没有 `*/SKILL.md`）⇒ fail-closed…』；两分支都没有 `RESULT: PASS`=True
 
@@ -294,7 +316,7 @@ RED-OK   M53  SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊
          SKILL.md：写进『图注 ≤12 词』（`≤n` 这一族**本尊**（上界方向；值 `12` 现取自规范里的 `上限 12 词`）—— 规范**原话**是 `≤4`/`≤3`，旧臂逐字也只认这两个 ⇒ `≤12` 是值池化后**新增**的射程、旧臂抓不到）⇒ `K3` **阈值标记臂**红（该族原先整族走绿）　前置(原件) exit=0 全绿；后置(改坏) exit=1 被点名守卫 K3=FAIL　NOTE/同副本 `K3` 的『命中』= ['≤12']（**带标记的字面** ⇒ 打在阈值标记臂上）
 RED-OK   M50  SKILL.md：写进三种**不该红**的写法（`主色 4 个` / `下限 4` / `< 25 词`）⇒ `K3` 必须**仍绿** —— 射程边界对照组（不是判据变异，同 `M44`：它证「这条臂没扩到乱红」、且跨方向不算重述）
          前置(原件) exit=0 K3 绿；『主色 4 个』exit=0 **仍绿** ✓（**无标记裸整数** ⇒ 不在射程内（判它就得判『出现 `4` 就红』））；『下限 4』exit=0 **仍绿** ✓（值 `4` 在**另一个方向**的池里（它是 `≤4` 的值）⇒ 跨方向**不算**重述）；『< 25 词』exit=0 **仍绿** ✓（值 `25` **不在任何池里**（规范里没有 25 这个词数）⇒ 不是重述）
-还原自证  house-style.md blob 6812d70ac67fba8abc062a73557d46a954e85806 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob a13c017e86ead20343898b0cd334100c32b7634a · SKILL.md blob c59dff097a74cf24c894c4dd615c8ac7f57a5581 · 原件字面仍在: True · _mut-house/ 已清空: True
+还原自证  house-style.md blob 6812d70ac67fba8abc062a73557d46a954e85806 == 变异前 · provenance.md blob c7346425c8cd39d675a8861b1ab8df700408cd69 · chart-types.md blob a13c017e86ead20343898b0cd334100c32b7634a · SKILL.md blob ffed41cadaa119eafd0be0bb39b2fc295d9b67d4 · 原件字面仍在: True · _mut-house/ 已清空: True
 
 ==============================================================================
 合计
@@ -305,10 +327,12 @@ MUT: 7/7 红（chart-types.md 的结构守卫 S1/S2/S3/S5：7 条 `--only`）
 MUT: 13/13 红（SKILL.md 的短契约守卫 K1–K8：13 条（9 条打 SKILL.md 副本 + 4 条打别的：`K3` fail-closed 臂 / `K6` 的**两个臂**（M33 正向 · M40 反向，均为自造场景）/ `K8`））
 MUT: 4/4 红（引用完整性检查器 check-spec-pointers.py：`--skills-dir` 指假 skill 的全扫 + `K3` 仪器 fail-closed + 坏目录 fail-closed）
 MUT: 7/7 达预期（`K3` 的 ASCII 阈值标记臂 M47–M53：6 条必须红 + 1 条**射程边界对照**（`主色 4 个` / `下限 4` / `< 25 词`）必须绿）
-MUT: 58/58 达预期（合计）
+MUT: 6/6 达预期（检查器的 `A` 族 M59–M64：4 条必须红 + 2 条**射程边界对照**（`A1` 容差 / `A3` 容差）必须绿）
+MUT: 64/64 达预期（合计）
 探针 P1: 红（check-figure-style.py 的脚本探针）
 探针 R1: 红（读数条 S4 的『该动的时候动、该判的时候不判』）
-（本驱动器共 14 条检查器判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 7 条 `K3` 阈值标记臂变异（含 1 条射程边界对照）+ 1 条读数条探针）
+探针 M65: 红（丢格探针：只认 `F` 的证据解析器会把 `A` 行丢掉）
+（本驱动器共 14 条检查器判据变异 + 6 条 `A` 族判据变异 + 1 条脚本探针 + 13 条规范数变异 + 7 条结构变异 + 13 条 SKILL.md 变异 + 4 条引用完整性变异 + 7 条 `K3` 阈值标记臂变异（含射程边界对照：`K3` 1 条 + `A` 族 2 条）+ 1 条读数条探针 + 1 条丢格探针）
 [exit=0]
 
 ==============================================================================
@@ -322,8 +346,8 @@ MUT: 58/58 达预期（合计）
      本器全文的 `re.findall` 调用：0 处（0 处 ⇒ 它没有自己抽一份禁止串表；唯一用 `re` 的地方是家族名匹配）
 
 §5b  家族判定与普查（**import 检查器取同一条正则**；**现算**，不是抄它的输出）
-     正则：`^(?:mcm-plot-.+|mcm-table|mcm-schematic)$`（**现取**自 tests/skills/figure-choose/check-spec-pointers.py：改检查器那条它即跟；对照 `mcm-figure-choose/SKILL.md` 边界段点名的三个前缀）
-     .claude/skills（默认）：扫到 9 个 skill · 绘图家族 4 个
+     正则：`^(?:mcm-plot-.+|mcm-table|mcm-schematic)$`（**现取**自 tests/skills/figure-choose/check-spec-pointers.py：改检查器那条它即跟；对照 `mcm-figure-choose/SKILL.md` 边界段点名的家族载体 4 个：mcm-plot-matlab、mcm-plot-origin、mcm-plot-python、mcm-schematic）
+     .claude/skills（默认）：扫到 10 个 skill · 绘图家族 5 个
        非家族  mcm-abstract
        非家族  mcm-ai-disclosure
        非家族  mcm-figure-choose
@@ -331,6 +355,7 @@ MUT: 58/58 达预期（合计）
        家族    mcm-plot-matlab
        家族    mcm-plot-origin
        家族    mcm-plot-python
+       家族    mcm-schematic
        非家族  mcm-selfreview
        家族    mcm-table
      fixtures/fake-skills：扫到 5 个 skill · 绘图家族 5 个

@@ -1,0 +1,50 @@
+====================================================================================================
+A 族可测性探针 · mcm-schematic Task 2 · 命令：python tests/skills/schematic/fixtures/probe-a-measurability.py
+====================================================================================================
+段 1 · 骨架（A 族要判的产物）：`A1`/`A3`/`A4` 应全 0；`A2` 的两种量法**应当暴露假红**
+----------------------------------------------------------------------------------------------------
+产物                             draw    box   A1ov  A3bad  words  A4off(纯描边)              A2假红(bbox/点-多边形)
+loop-feedback.pdf                13      3      0      0     11  []                      0/0
+mechanism-block.pdf              22      2      0      0      8  []                      1/4
+model-layered.pdf                24      9      0      0     21  []                      0/0
+negative-control-math.pdf         1      1      0      0      6  []                      0/0
+pipeline-branch.pdf              20      5      0      0      9  []                      2/0
+pipeline-linear.pdf              15      5      0      0     12  []                      0/0
+
+段 2 · `A4` 的"只取纯描边"这条窄化是承重的（把 `fs` 也算进来 ⇒ 箭头尖的 pgf 线宽越界）
+----------------------------------------------------------------------------------------------------
+  loop-feedback.pdf            纯描边越界 [] ；把 fs 也算进来 ⇒ 越界 [0.861]
+  mechanism-block.pdf          纯描边越界 [] ；把 fs 也算进来 ⇒ 越界 [0.861]
+
+段 3 · `--schematic` 门控是承重的：同一套量法落到**别的载体的产物**上（数据图）会假红
+----------------------------------------------------------------------------------------------------
+  （这些产物**不该**被 A 族碰 —— 它们是数据图，A 族的家要它们全绿）
+  tests/skills/plot-python/green/out-G1/figure.pdf           box= 0 A1ov= 0 A3bad=0 A4off(纯描边)=[] A4off(含fs)=[]
+  tests/skills/plot-python/green/out-G2/figure.pdf           box= 0 A1ov= 0 A3bad=0 A4off(纯描边)=[0.6] A4off(含fs)=[0.6, 1.0]
+  tests/skills/plot-python/green/out-G3/figure.pdf           box= 0 A1ov= 0 A3bad=0 A4off(纯描边)=[] A4off(含fs)=[]
+  tests/skills/plot-matlab/green/out-G1/figure.pdf           box= 0 A1ov= 0 A3bad=0 A4off(纯描边)=[] A4off(含fs)=[]
+  tests/skills/plot-matlab/green/out-G2/figure.pdf           box= 0 A1ov= 0 A3bad=0 A4off(纯描边)=[] A4off(含fs)=[]
+  tests/skills/plot-matlab/green/out-G3/figure.pdf           box= 0 A1ov= 0 A3bad=0 A4off(纯描边)=[] A4off(含fs)=[]
+  tests/skills/figure-choose/fixtures/ok-05.pdf              box= 0 A1ov= 0 A3bad=0 A4off(纯描边)=[] A4off(含fs)=[]
+
+段 4 · "靠几何**推断**这是不是示意图"不可靠（实测反例）：口径一放宽 ⇒ 数据图的图框成批入集合
+----------------------------------------------------------------------------------------------------
+  （口径 = naive_boxes()：填充+闭合+面积≥400pt²+宽≥18+高≥8，**不要**描边 / 文字 / 最内层三条；
+    它不是本 skill 的口径 —— 这里只用来给"推断不可靠"一句实测背书）
+  tests/skills/plot-python/green/out-G1/figure.pdf           naive 节点框 20 个 ⇒ 若拿它判 `A1` 会报重叠 37 处
+  tests/skills/plot-python/green/out-G2/figure.pdf           naive 节点框  6 个 ⇒ 若拿它判 `A1` 会报重叠  9 处
+  tests/skills/plot-python/green/out-G3/figure.pdf           naive 节点框 20 个 ⇒ 若拿它判 `A1` 会报重叠 37 处
+  tests/skills/plot-matlab/green/out-G1/figure.pdf           naive 节点框 21 个 ⇒ 若拿它判 `A1` 会报重叠 38 处
+  tests/skills/plot-matlab/green/out-G2/figure.pdf           naive 节点框  6 个 ⇒ 若拿它判 `A1` 会报重叠  9 处
+  tests/skills/plot-matlab/green/out-G3/figure.pdf           naive 节点框 21 个 ⇒ 若拿它判 `A1` 会报重叠 38 处
+  tests/skills/figure-choose/fixtures/ok-05.pdf              naive 节点框  4 个 ⇒ 若拿它判 `A1` 会报重叠  0 处
+
+读法（结论见 README.md 的「A 族可测性」段）：
+  · 段 1：`A1`/`A3`/`A4`（纯描边口径）在**全部骨架**上读到 0 —— 三条可测、且对合法产物不假红；
+  · 段 1 的 `A2` 两列在 `mechanism-block` / `pipeline-branch` 上**不是 0** ⇒ 两种量法都在
+    **合法骨架**上假红 ⇒ `A2` 降级到「看一眼」层（不是"没做"，是"做了会乱红"）；
+  · 段 2：`A4` 若不排除 `fs`，箭头尖的 pgf 线宽（0.861）当场越界 ⇒ "只取纯描边"这条窄化承重；
+  · 段 3：`A4` 的允许集合是**示意样式**的 ⇒ 同一套量法打到数据图产物上是**别的数值**
+    （实测 plot-python out-G2 的纯描边宽 0.6 越界）⇒ 无条件跑会把一张该全绿的数据图判红；
+  · 段 4：`A1` 的"节点框"靠几何推断**也不可靠**（放宽口径 ⇒ MATLAB 数据图的图框成批入集合）。
+  ⇒ 合起来：判据的射程由**调用方声明**（`--schematic`），不由几何推断。

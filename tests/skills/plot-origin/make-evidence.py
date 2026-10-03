@@ -38,7 +38,7 @@ CARRIERS = ("png", "pdf")
 # 判据 ID 允许**多位数**（`F10`、`F12`…）：检查器将来新增两位数判据时，下面按行解析的汇总表
 # 不会静默丢格（先例 `M3-plot-INIT`：plot-python 的 `make-evidence.py` 把清单写死成 6 条而实得 9 条
 # ⇒ 汇总表静默归零、判据静默丢掉）。
-LINE_RE = re.compile(r"^(PASS|FAIL)\s+(F[0-9]+[a-d]?)\s+(.*)$")
+LINE_RE = re.compile(r"^(PASS|FAIL)\s+([A-Z][0-9]+[a-d]?)\s+(.*)$")
 RES_RE = re.compile(r"^RESULT: (PASS|FAIL)(?:（(.*)）)?\s*$")
 
 # ★ PDF 侧 `F5` 红的载体限制注（要求 2）—— 两条分支，别把实红也说成假红。
