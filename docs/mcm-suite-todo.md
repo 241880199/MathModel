@@ -2182,3 +2182,35 @@ Fix A（去两处"唯一"）· **Fix A′（`bde3e4d`，越出任务书的一处
 **涟漪 7 · 登记（不建）**：`corpus/官方原题/`（2016–2026）当场读数 = **15** 件数据附件 —— 命令 `find "corpus/官方原题" -type f \( -iname '*.zip' -o -iname '*.csv' -o -iname '*.xlsx' \) | wc -l` ⇒ **15**；该目录**无 `INDEX.md`**（只有 `PROVENANCE.md` 与各年目录）。⇒ 按 **`P2`**（往届附件是**往届题面自带**的数据，与"检索题目没给的数据"不是一回事；建索引是**范畴错误**）⇒ **M5 不建这份索引**，该缺口**只登记、归语料线**。★ 扫描面：该读数**只按 `.zip` / `.csv` / `.xlsx` 计**（该目录下另有 `*.pdf` 题面等其它扩展名，不计入这 15）—— **不声称穷尽**。
 
 **§H.1.7 量词纪律**（同 §H.5.8h / §H.5.8i / §H.5.8j）：本节的 census / 族数字**一律避开** key 字面（不写"扫到 N 个 skill" / "绘图家族 N 个"的**直书形态**）。
+
+### H.6 判据脚本「末行恒为 `RESULT:`」的契约违约 —— 三件 + 一路更重的早退（新登记 · 2026-10-05）
+
+★ **类目**：本仓判据脚本有一条**写明**的契约 —— **stdout 末行恒为 `RESULT: …`**（`check-model-select.py` 工具头自述，锚 `.claude/skills/mcm-model-select/check-model-select.py:83`；`docs/superpowers/plans/2026-09-27-m3-figure-choose.md` 亦印「末行固定为 `RESULT: PASS` 或 `RESULT: FAIL`」）。**破了它但 fail-closed（退出码仍非零）** 这一型**已被认定值得登记** —— 既有成员 = **§H.2 表的 `T7-2`**（`check-spec-pointers.py:118`，`--checker` 指向坏文件时 traceback 且不打 `RESULT:`）。本节把**本轮新实测的三件 + 一路早退**归到**同一类目**下，与 `T7-2` **同类并列**。
+
+**落点选择理由**：落点有二 —— **(甲) 作 §H.2 表的新行、与 `T7-2` 同表并列**；**(乙) 另立本节、把 `T7-2` 作同类的既有成员交叉引用（即"归到同一类下"）**。取 **(乙)**：§H.2 / §H.2.1 的行数与「汇总三数」是**手维护、无机械守卫**的自洽量（该脆弱性**本仓已自登记**：见 §H.2.2 里「§H.2 / §H.2.1 的行数与「汇总三数」是手维护的、无机械守卫」那条），且本支任务**明令不许往 §H.2 加行** ⇒ 另立 `### H.6`（新类目小节，随本文件"新登记另起 `### H.x` 节"的既有惯例落尾部），**不触** §H.2 / §H.2.1 的任何计数。
+
+**违约形态（三件同构）**：FAIL 态**先**打 `RESULT: FAIL`、**再**多打一行 `失败项=…` ⇒ **stdout 末行不是 `RESULT:`**。三件的这一对语句**逐字同构**（`print("RESULT: FAIL")` 紧接 `print("失败项=%s" % ",".join(fails))`，同落在一个 `if fails:` 块内）。
+
+| # | 位置（文件:行 · 必备锚） | 触红调用（当场实跑） | **stdout 末行（原样）** |
+| :-- | :-- | :-- | :-- |
+| ① | `.claude/skills/mcm-abstract/check-summary.py:1064-1065` | `python .claude/skills/mcm-abstract/check-summary.py <一份缺页眉三栏的 .tex>` | `失败项=A1_三栏字样齐全,A2_Problem_Chosen,A3_Team_Control_Number,A4_年份_2027,B.rc=1,B.硬错误,B.无PDF产出` |
+| ② | `.claude/skills/mcm-memo/check-memo.py:414-415` | `python .claude/skills/mcm-memo/check-memo.py <一份落款含机构名的 memo.tex>` | `失败项=MO2 匿名落款,MO3 恰好一页` |
+| ③ | `.claude/skills/mcm-section-writer/check-section.py:893-894` | `python .claude/skills/mcm-section-writer/check-section.py <一份表内数字搜不到且表题含具名外源的 .md> --section 模型建立 --input <brief>` | `失败项=SW1,SW2` |
+
+★ ② ③ 的读数**逐字确定**（给定输入即定）；① 的**项清单随输入变**，但**形态 `失败项=…` 固定**（该行恒为末行）。三件当场实测的 **`stderr` 均为 0 字节**、**退出码均为 1**。
+
+**第二路（更重 · 同一件）**：`check-summary.py` 在**输入文件不存在**时（锚 `.claude/skills/mcm-abstract/check-summary.py:839-841`）走 `sys.stderr.write("错误: 找不到文件 %s\n" % src_path)` + `return 1` ⇒ **stdout 整行为空、整段没有任何 `RESULT:` 行**（`stderr` 一行、退出码 1 = fail-closed）。当场实测：`python .claude/skills/mcm-abstract/check-summary.py <不存在的路径>` ⇒ stdout `''`、stderr 起头 `错误: 找不到文件 …`、`rc=1`。
+
+**影响（只写能证明的）**：三件在 FAIL 态下 stdout **末行不是 `RESULT:`**（当场实测的事实）⇒ **以末行为准判 PASS/FAIL 的调用方**会把这三件的 FAIL **读错**（读不到 `RESULT:` ⇒ 可能误判为"非判词输出 / 无结论"）。**退出码仍为 1（fail-closed）** ⇒ **只看退出码的调用方不受影响**。★ 本轮**不声称**"任何调用方都会读错" —— 只是"**以末行为准的那一类**"会。
+
+**两种处置（本轮只登记、不实施）**：
+- **① 折进单行**：照 **`check-data.py` 的形态**（锚 `.claude/skills/mcm-data/check-data.py:518` 的 `print("RESULT: FAIL（%s）" % ",".join(fails))`）把 `失败项=` **折进** `RESULT: FAIL（…）` 单行 ⇒ 末行恢复为 `RESULT:` 开头。（代价：要动三件的判据脚本。）
+- **② 标为已知偏差**：**不改脚本**，调用方**按正则取 `RESULT:`**、**不要求它在末行**（与 §H.2 的 `T7-2` 现有处置同型）。
+
+**复核命令（一秒复现"末行不是 `RESULT:`"）**：
+`grep -n -B1 'print("失败项=' .claude/skills/mcm-abstract/check-summary.py .claude/skills/mcm-memo/check-memo.py .claude/skills/mcm-section-writer/check-section.py`
+⇒ **3 对**（每件一对、命令共 6 行）：每对显示 `print("RESULT: FAIL")` **紧随**（同 `if fails:` 块内）`print("失败项=…")` ⇒ **FAIL 态末行必为 `失败项=…`、不可能是 `RESULT:`**。
+
+**范围声明**：本条只登记**本轮当场实测的三件 + `check-summary.py` 的"无 `RESULT:` 早退"一路**；**不声称穷尽**全库同类（可能另有 `check-*.py` 破此契约，未逐件普查）。`T7-2`（§H.2）是同类的**既有**成员 ⇒ **不在此重复登记**。
+
+★ **本轮只登记、未改任何判据脚本**（三个 `check-*.py` 一字未动）。★ 本条登记的是**既有**形态（**非本轮引入、亦非 M5 引入**）。
