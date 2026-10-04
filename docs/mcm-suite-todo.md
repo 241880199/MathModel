@@ -6,7 +6,7 @@
 > Task 6 经 6 轮、Task 6b 分 2a/2b 两阶段、Task 7 经「实施 + 复审 + 修复」）。**整分支终审已做完**，
 > 结论是**可以合并**（0 Critical）；终审发现的处置见 **`docs/mcm-suite-triage-2026-09-26.md`**。
 > 另有两件改变既有前提的事：**官方原题语料（2016–2026）已入库**、**本机 TeX 已装** —— 见 §A.1.2、§E.1。
-> **下次第一件事 = Task 9 的 recon（定全量 201 份的题号口径，任务书已起草）；扩语料前不必再做 Task 5/6/7。**
+> **下次第一件事 = Task 9 的 recon（定全量 201 份的题号口径，任务书已起草）；扩语料前不必再做 Task 5/6/7。** ★ **该句已作废（用户 2026-10-05 裁定）：Task 9 的 recon 不做** —— 原话大意「使用 skills 时应该无需索引往届论文」⇒ 现行"下一件事"不再是它；详见 §H.4（含 nuance）。
 
 **开新模块前先读 `docs/mcm-suite-lessons.md` 的 9 条通则与 7 条流程教训，写进派发指令。**
 
@@ -32,7 +32,7 @@
 | 6b | 题型标注 + 配对表 + 匹配度 | ✅ **完成：阶段 1 + 2a + 2b**（67 题标注 · `MODEL_MAP.md` 召回 **0.9130**、精确性 **496/496**、未解释 **0**；`verify_types` 10 条 + `verify_map` 16 条） |
 | 7 | 统一入口 + 试点汇总 + 放行评估 | ✅ **完成**（`faa3aae`）：`tools/papers/cli.py` + `tests/papers/verify_all.py`（8 个判据脚本**由磁盘派生**）。全量放行门实测 **EXIT=0**、`pilot-summary.txt` 逐字节可重放 |
 | 8 | 官方题目获取 | ✅ **已完成**（范围收窄为 **2016–2026**；用户手工下载 → 已入库，见 §A.1.2） |
-| 9 | UMAP 电子版 5 份纳入 | 待排；**新事实**：comap.org 的会员墙挡住 Student Papers 与 Commentary → **2018–2024 的评委点评拿不到**，可用范围须重估。**扩到全量 201 份被题号口径卡着**（`io.problem_of` 实测 **77/201** 取不到题号）⇒ 先 recon 定口径（任务书 `.superpowers/sdd/task-9-recon-brief.md`） |
+| 9 | UMAP 电子版 5 份纳入 | 待排；**新事实**：comap.org 的会员墙挡住 Student Papers 与 Commentary → **2018–2024 的评委点评拿不到**，可用范围须重估。**扩到全量 201 份被题号口径卡着**（`io.problem_of` 实测 **77/201** 取不到题号）⇒ 先 recon 定口径（任务书 `.superpowers/sdd/task-9-recon-brief.md`）。★ **该条已裁决：用户 2026-10-05 裁定「不做」**（原话大意「使用 skills 时应该无需索引往届论文」）⇒ **UMAP 纳入 / 扩到全量 201 份 / 题号口径 recon 一律不做**；详见 §H.4（含 nuance）。 |
 | — | 最终全分支审查 | ✅ **已做（2026-09-26）**：结论 **可以合并**（0 Critical）。处置见 `docs/mcm-suite-triage-2026-09-26.md`；修复轮即本轮 |
 
 ### A.6 Task 4 的产出与遗留（2026-09-24）
@@ -257,7 +257,7 @@ git worktree remove "<仓库外的目录>"
    ②“可编辑矢量”在 TikZ 里同样成立（源码即矢量，改的是代码），且**只有同源才能强制“共用同一份规范”**（M3 的硬约束）。
    ⚠️ **连带失效（按通则 6 全库回扫所得）**：`docs/sci-box-evaluation.md` 里以此为据的几处需一并补注——
    `:89`「取 draw.io 就要改这一行……改动本身我认为**是对的**」、`:103` 的“自写 SKILL.md 把 draw.io 的中文字宽模型/连接器语义下沉”落地方案、
-   `:80`/`:127` 的“与既有 TikZ/Mermaid 决策打架 / 冲突”判定。**（待用户批后再改，见台账。）**
+   `:80`/`:127` 的“与既有 TikZ/Mermaid 决策打架 / 冲突”判定。**（用户 2026-10-05 裁定：不订正** —— 原话大意「可正确绘图即可，不用订正」；`docs/sci-box-evaluation.md` 上列几处连带失效**不加注、不改**。）**
 
 **并有接缝风险**：M3 若拆成"实现半边（提前）"与"设计规范半边（等 M6）"两半，两个半边各自收敛就会回到设计文档 M3 明令禁止的"各自不同视觉标准"。
 
@@ -294,7 +294,7 @@ git worktree remove "<仓库外的目录>"
 > **新增 1 项**：**`差分方程`**（设计 §3 明文具名，控制者词表漏了；`差分` 5 次全是图像差分/中心差分）。
 > **模型形态层（控制者未查）几乎全空**：SIR/SEIR **0** · Lotka-Volterra **0** · 热传导/波动方程/反应扩散 **0** · 参数辨识 **0** · 稳定性分析 **0**（`Logistic` 仅趋势外推曲线，**非生长动力学**）。
 >
-> ### ③ ★★ 待用户裁决：外部取材候选（**常用度有依据 = 2025 O 奖 43 篇 `MODEL_MAP` 去重对 + 67 题题型标注**）
+> ### ③ ★★ 外部取材候选（**该时点待用户裁决**；**用户 2026-10-05 裁定：不做** —— 原话大意「只要模型算法正确即可，无需补充语料」）（**常用度有依据 = 2025 O 奖 43 篇 `MODEL_MAP` 去重对 + 67 题题型标注**）
 > | 优先级 | 缺口 | 常用度依据 | 盘上有无替代 | 代价 |
 > | :--- | :--- | :--- | :--- | :--- |
 > | **1** | **机理/ODE-PDE + 模型形态层** | 题型「机理建模与仿真」**35 次标签**（物理/化学机理 11 核心） | **PDE 与 SIR/Lotka 全 0 ⇒ 无替代** | 中（要"模型形态"，不只是求解器） |
@@ -303,6 +303,7 @@ git worktree remove "<仓库外的目录>"
 > | 次选 | ARIMA | — | 有时序三法（指数平滑/移动平均/趋势外推） | 低 |
 > | 可暂缓 | 排队论 · ABM · t-SNE/UMAP · 差分方程 | 2025 语料 **0–1 命中** | — | — |
 > ★ **常用度证据只有 2025 一年（43 篇）+ 67 题标注** ⇒ **超出此范围的一律标「无依据/凭印象」**。
+> ★★ **用户 2026-10-05 裁定：本节所列外部取材候选一律不做**（原话大意「只要模型算法正确即可，无需补充语料」）⇒ 机理/ODE-PDE 与模型形态层、统计推断三件套、TOPSIS+熵权法、ARIMA 等**均不取**；本节**保留为缺口登记**（判据/证据不动）。
 >
 > ### ④ ★★ 必须订正的一处**错登记**（**M4 开工前办**）
 > - **`corpus/algorithms/INDEX.md:66`**：`## 4. 机理类 mechanism —— ⚠️ **本归档无**`；**`:68`**：`**这是最大的空洞。** …归档里没有任何 ODE/PDE/差分方程的独立实现…`
@@ -464,6 +465,13 @@ git worktree remove "<仓库外的目录>"
     （`verify_all.py:1082-1088` 逐字写着）；它只是把"目视项是不是判定过"摆到读者眼前。
     **红路不进放行**：放行判定用的是全量跑，那时读的就是本次值。
 
+15. **三个合规类 skill 无常驻判据、无 `tests/skills/` 目录 —— 设计上的取舍，非欠账（2026-10-05 登记）。**
+    `mcm-ai-disclosure`（仅 `SKILL.md`）· `mcm-latex-format`（`SKILL.md` + `assets/mcm-2027-summary.tex`）· `mcm-selfreview`（仅 `SKILL.md`）三者**都没有自己的 `check-*.py`**，`tests/skills/` 下也**没有对应子目录**（对照：`mcm-data` / `mcm-code` 有 `check-data.py` / `check-code.py` + `tests/skills/{data,code}/`）。
+    **三者并非完全没有验证证据**：各有**一次性** RED 基线落在 `tests/results/`（**非** `tests/skills/`、**非**自动判据）：`ai-disclosure-baseline.md` · `latex-format-baseline.md`（+ `latex-format-baseline-runB.tex`）· `selfreview-baseline.md`（+ `selfreview-rerun-final-{precondition,violating,zero-input}.md` · `selfreview-a15-rerun.md`），均于 **2026-09-22** 入库（`d928b01` / `ca61797` / `5309e9b`）。**该基线清单不声称穷尽。**
+    **定性 = 设计上的取舍，非遗漏**：设计件 `docs/superpowers/specs/2026-09-22-mcm-skill-suite-design.md` 的「§7 验证方式」表对「合规类」只要求「造一份**故意违规**的样稿（超页、缺页眉、含校名、文件名错），验证 `mcm-selfreview` 能否全部揪出」——**要求的是“拿一份故意违规样稿验证”，没要求建常驻检查器**；三个 skill 正是按这份设计落地的。
+    **若将来要补**（形态已有先例）：新建 `tests/skills/<x>/`（`x` = `ai-disclosure` / `latex-format` / `selfreview`）+ 一个 `check-*.py` 判据脚本 + 正反样例 + 变异驱动器，照 `mcm-data` / `mcm-code`（`tests/skills/{data,code}/`）与 `mcm-section-writer` / `mcm-memo` 的形态。
+    **复核命令（一条·期望“前半无输出、后半 No such file or directory”）**：`find .claude/skills/mcm-ai-disclosure .claude/skills/mcm-latex-format .claude/skills/mcm-selfreview -name 'check-*.py'; ls -d tests/skills/{ai-disclosure,latex-format,selfreview}`。
+
 ## E. 已定的决策 —— 不要再问
 
 - 使用阶段：**赛中执行优先，兼顾备赛**
@@ -542,7 +550,7 @@ git worktree remove "<仓库外的目录>"
 | :--- | :--- | :--- |
 | 1 | **`mcm-plot-python`（建议先行）** | ✅ **已收口，含全分支终审**（Task 1–6 每个都走满「实现 → 独立复审 → 修复 → 聚焦复核」；**终审判 `Ready to merge: With fixes`**，2 Important + 7 Minor 全部处置，并有一条由**控制者亲跑**的定点复验）· **该时点下一步 = `mcm-plot-matlab`**（**2026-10-03 订正（`mcm-playbook` Task 4）**：原文写"下一步 = `mcm-plot-matlab`"，那是 **plot-python 收口当时**的状态；今天 `mcm-plot-matlab` · `mcm-plot-origin` · `mcm-table` · `mcm-schematic` **均已建并收口**，见 §H.5.8c–f）；本模块残留见 §H.2 |
 | 2 | `mcm-plot-matlab` | 本机 R2025b `-batch` 可跑；**设计件已入库**（`docs/superpowers/specs/2026-10-01-m3-plot-matlab-design.md`，`85d2e7a`）。**2026-10-02 订正（原文"下一步 = 它的实施计划"是设计件入库当时的状态）**：**Task 1–5 已收口 + 全分支终审已做**（`Ready to merge: With fixes`，结论 **"能进 `mcm-plot-origin`"**）**并已推送**（见 §H.5.8c） |
-| 3 | `mcm-plot-origin` | **已改判为"脚本化第一等"**（`4777cf8`）；**设计件已入库**（`e4c6c14`）；**origin 列值已由 M3-style Task 2 按 2026-09-30 实测填入**（见设计 §6.3/§10；原写"下一步 = 探针回来填值"与同文档"脚本为权威、值已实测"**自相矛盾**，已订正）⇒ **下一步 = 它的实施计划**（设计 §6.3③ 的 GUI 操作步骤仍待补，已登记为设计 §10 缺口 8）。**2026-10-02 订正（原文"下一步 = 它的实施计划"是设计件入库当时的状态）**：**Task 1–4 已交付**（Task 4 = 全库收口：侦察证据重捕获 + 表同步 + §H.1.3 残留分类，见 §H.5.8d）⇒ **下一步 = 全分支终审 → 推送**。~~**导出物照样能过机械层**（F1/F2/F4/F5 都吃 PNG/PDF）~~ —— **2026-10-02 订正（origin Task 2 实测）**：**`F5` 在 Origin 的 PDF 侧落红**（写入器把填色量化到两位小数 ⇒ 栅格化后每通道差 1 LSB ⇒ `F5` 精确命中判红；**PNG 侧全绿**）⇒ 该句的 **PDF** 那半不成立，见 §H.2 `M3-origin-T2a`。字体那格 `F6` 落哪一态**依产物而定** —— **2026-10-02 订正**，原写"只能判 `N/A`"，见 §H.5 引用） |
+| 3 | `mcm-plot-origin` | **已改判为"脚本化第一等"**（`4777cf8`）；**设计件已入库**（`e4c6c14`）；**origin 列值已由 M3-style Task 2 按 2026-09-30 实测填入**（见设计 §6.3/§10；原写"下一步 = 探针回来填值"与同文档"脚本为权威、值已实测"**自相矛盾**，已订正）⇒ **下一步 = 它的实施计划**（设计 §6.3③ 的 GUI 操作步骤仍待补，已登记为设计 §10 缺口 8）。**2026-10-02 订正（原文"下一步 = 它的实施计划"是设计件入库当时的状态）**：**Task 1–4 已交付**（Task 4 = 全库收口：侦察证据重捕获 + 表同步 + §H.1.3 残留分类，见 §H.5.8d）⇒ **该时点下一步 = 全分支终审 → 推送**；**2026-10-05 订正**：**全分支终审已做、已推送**（`2b0e53a`，见 §H.5.8d）。~~**导出物照样能过机械层**（F1/F2/F4/F5 都吃 PNG/PDF）~~ —— **2026-10-02 订正（origin Task 2 实测）**：**`F5` 在 Origin 的 PDF 侧落红**（写入器把填色量化到两位小数 ⇒ 栅格化后每通道差 1 LSB ⇒ `F5` 精确命中判红；**PNG 侧全绿**）⇒ 该句的 **PDF** 那半不成立，见 §H.2 `M3-origin-T2a`。字体那格 `F6` 落哪一态**依产物而定** —— **2026-10-02 订正**，原写"只能判 `N/A`"，见 §H.5 引用） |
 | 4 | `mcm-table` | 三线表 LaTeX 代码 |
 | 5 | `mcm-schematic` | **TikZ 源码**（载体已裁决，判据 = agent 能否看见产物） |
 | 6 | **最终全分支审查 + Minor 批量清**（见 H.2） | 一次做掉 |
@@ -1597,7 +1605,7 @@ git grep -nE "绘图家族[ ]?5[ ]?个" -- . | wc -l     # 21  F6  家族 5
 - **家族成员计数散文**（`M3-table-T1a` 一族）：`mcm-schematic`（家族最后一位）落地时，`docs/mcm-writing-discipline.md:4` 的"现存 N 个"、`check-spec-pointers.py:53` 的家族名单、`docs/mcm-suite-todo.md` 里 §H/§C 的家族计数**都会再假一次**（`check-writing-discipline.py` 的 `A9` 会因此转红，而 `A9` **不在两道收工门里**）。⇒ **该 skill 落地时必须再清一遍。** **✅ 已清（2026-10-03 `mcm-schematic` Task 4 销账）**：本支就是这条预言的**触发者** —— **散文**四处由 Task 1 同批清、**捕获件**七份由 Task 2 按次序表重生成；清完复核 `check-writing-discipline.py` ⇒ `RESULT: PASS`、`check-spec-pointers.py` ⇒ `RESULT: PASS`（**族 = 5**）。**下一次谁会触发**：只要家族**再添成员**（`check-spec-pointers.py` 的 `FAMILY_RE = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$` 让新 `mcm-plot-*` 类**自动纳入射程**），这四处计数散文就**再假一次**，且这些处**都不在任何机械门内**（`A9` 会红但不在这支两道收工门里 ⇒ 只有人记得才会清）。★ `mcm-schematic` 是计划里的**最后一位** ⇒ **家族若不再加成员，这一类不再复发**（**不声称以后绝不会再发生** —— 家族是否扩充不由本支裁定）。**本行此后仅存史**（“会复发”已兑现并销账）。
 - **§H.2 / §H.2.1 的行数与「汇总三数」是手维护的、无机械守卫**（**新登记** · 2026-10-03 `mcm-schematic` Task 3 修复轮的披露，本任务补登）：`§H.2` 那张表的行数、`§H.2.1` 的 triage 行数、以及 §H.2.1 的**汇总分档**（①/②/③ 各几行、合计几行）**全靠手改**、**没有任何判据核它** —— 唯一涉家族计数的 `check-writing-discipline.py` 的 `A9` **不覆盖** §H.2/§H.2.1 的计数。**它已在一天内动过两次**（93 → 94 → 95：`mcm-schematic` Task 1 加 1 行、Task 3 修复轮再加 1 行）⇒ **下一次再往 §H.2 加行时，§H.2.1 的行数与汇总三数必须同批改准**（口径见 §H.2.1「汇总（本批 · N 行逐行）」那句）。**复核命令（一秒可推翻"它被守卫覆盖"这个反命题）**：`git grep -nE 'H\.2\.1|逐行 triage' -- tests/ .claude/` ⇒ **0 行**（无判据读 §H.2.1 的行数/汇总）。★ 这条**不是缺陷**，是"**会话报告会忘、入库才权威**"（与 Task 3 Minor 6 同型）⇒ **登记在台账里**（那一次的披露只活在 gitignored 的会话报告里）。
 - **判词块的时点差**（新登记）：`red-evidence.md` 的 `check-figure-style.py` 判词块录于 `F4/F5/F6` 落地**前** ⇒ 复算会多出三行（已在生成器头声明）。**只要有人再往检查器加判据，所有"活跑/快照"混用的证据件都会再漂一次。**
-- **`green-evidence.md` 不可由自己的生成器在 HEAD 复现**（新登记 · **本次发现**）：`green/make-evidence.py` 会**当场重跑** `check-figure-style.py`，而该检查器自本件生成（`35133ec`）后**新增了 `F4`/`F5`/`F6`** ⇒ **在 HEAD 重跑，GREEN 三份图都会翻红**（GREEN 产物用的是旧配色/非允许字体族）：其中 **2 格**带 `（F5,F6）`、**1 格**只带 `（F6）`（指 §2.1 的 PDF 组）。**本会话实测**：`80 增 / 32 删`、上述 **3 格**逐格翻红。**处置 = 不做重生成**（重生成会把整段 GREEN 叙事从"全绿"改写成"红"，且要重建 GREEN 产物 = 另一支的大改写）；改为在**件内 + 生成器**加**订正块**，把"这是快照、检查器已移动、产物未按新判据重建（是未重建的代价，非新引入缺陷）"写明 ⇒ **该件从今天起是"自带披露的、生成器在 HEAD 复现不出的快照"**，非遗漏。**复算命令（一条）**：`python tests/skills/figure-choose/green/make-evidence.py && git diff --stat tests/skills/figure-choose/green-evidence.md` —— 显示大量差异即复现本漂移。★ **生成器里那半已写好**（重生成时会一并带出同一段订正）；**件内那半是手改**（既然不重生成 ⇒ 只能手改）。
+- **`green-evidence.md` 不可由自己的生成器在 HEAD 复现**（新登记 · **本次发现**）：`green/make-evidence.py` 会**当场重跑** `check-figure-style.py`，而该检查器自本件生成（`35133ec`）后**新增了 `F4`/`F5`/`F6`** ⇒ **在 HEAD 重跑，GREEN 三份图都会翻红**（GREEN 产物用的是旧配色/非允许字体族）：其中 **2 格**带 `（F5,F6）`、**1 格**只带 `（F6）`（指 §2.1 的 PDF 组）。**本会话实测**：`80 增 / 32 删`、上述 **3 格**逐格翻红。**处置 = 不做重生成**（重生成会把整段 GREEN 叙事从"全绿"改写成"红"，且要重建 GREEN 产物 = 另一支的大改写）；改为在**件内 + 生成器**加**订正块**，把"这是快照、检查器已移动、产物未按新判据重建（是未重建的代价，非新引入缺陷）"写明 ⇒ **该件从今天起是"自带披露的、生成器在 HEAD 复现不出的快照"**，非遗漏。**复算命令（一条）**：`python tests/skills/figure-choose/green/make-evidence.py && git diff --stat tests/skills/figure-choose/green-evidence.md` —— 显示大量差异即复现本漂移。★ **生成器里那半已写好**（重生成时会一并带出同一段订正）；**件内那半是手改**（既然不重生成 ⇒ 只能手改）。 ★★ **用户 2026-10-05 裁定：维持现态** —— **选项 C（披露 + 登记）已落地、不重建**（原话大意「绘图 skill 能够正常输出要求的图表即可」）⇒ 『**选项 B**（按新 `F4`/`F5`/`F6` 重建 GREEN 产物）』**关闭**。
 - **`out-mutate-today.txt` 的 §0 blob 自证是"预批量"值，动它两难**（新登记 · **GC4①/GC6 冲突**）：`tests/m3-matlab-recon/out-mutate-today.txt:4` 记的是**批量清之前**的检查器 blob `47b9f4c355d6…`；该文件在 **GC4① 冻结目录**（`tests/m3-matlab-recon/`，其生成器按 `M3-matlab-T5a` 是**单向**的 —— 照跑会把两件历史捕获覆盖成崩溃输出），而 **GC6**（改判据后重跑绑 blob 的生成器）**要求重跑** ⇒ 两条硬约束**打架**。**裁决 = 不动那件冻结文件**（手改捕获 = 造伪；重跑生成器 = 违 GC4①）⇒ 该处的旧 blob 是**刻意的**。**定位命令**：`sed -n '4p' tests/m3-matlab-recon/out-mutate-today.txt`（显示 `47b9f4c355d6…`）· 交叉参考 §H.2 的 `M3-matlab-T5a` 行。★ **同批对照**：两件**非冻结**模块证据（`plot-matlab/red-green-evidence.md`、`plot-origin/red-green-evidence.md`）的同类旧 blob **已由各自 `make-evidence.py` 重跑更新**（`47b9f4c355d6…`→`31621e433d…`）—— 两者差别**只在冻结与否**。
 - **捕获件里印着「总 skill 数」**（**新登记** · 2026-10-03 `mcm-playbook` Task 1 修复轮）：**现象** —— 一批 `*-verify.txt` / `figure-style-baseline.txt` **逐字捕获件里印着"扫到 N 个 skill"的总数**（当时 = **10**；**该时点实测** `.claude/skills/*/SKILL.md` = **11** ⇒ **已过期**）。★ **它与上一条「家族成员计数」不是同一类**：家族计数**只在家族加成员时**变，而**总 skill 数会因任何新 skill 而变** —— `mcm-playbook` 是**家族外** skill（不进 `FAMILY_RE`），却照样把总数由 10 推到 **11**。§H.2.2 此前**只登记了家族那一种** ⇒ 按它自己的口径，**这一类没人记**（本发现原本只活在 gitignored 的会话报告里 ⇒ 按"会话报告会忘、入库才权威"补登）。**处（不声称穷尽 —— 用下面那条命令现场点名）**：`git grep -n '扫到 10 个 skill\|扫到 11 个 skill'` ⇒ 命中 **7 份捕获件共 12 处**（`tests/skills/figure-choose/` 的 `pointer-verify.txt`(4) · `chart-types-verify.txt`(1) · `figure-style-baseline.txt`(1) · `house-style-verify.txt`(1) · `skill-verify.txt`(1)；`tests/skills/plot-python/plot-style-verify.txt`(3) · `tests/skills/plot-matlab/plot-matlab-verify.txt`(1)），**外加台账自身自命中**（§H 的「Task 7 已交付」行，行号会漂、现场定位；**本行也自命中**）。★ 修复单当初只点了**六**份 —— 现场 `git grep` 另查出 **`chart-types-verify.txt`**（第七份）⇒ 故本处**不写死为"全部"**。**处置**：本支**只登记、不重跑**（这些是**历史快照**，**没有门读它们**〔**依据 = 两半合取**，见下 Task 4 判定的 **(a)+(b)**〕；重跑归 **Task 4 全库收口**）。★★ **【Task 4 判定（2026-10-03 `mcm-playbook` Task 4）· 决定 = 留作历史快照、不重跑】** —— **理由（与代价，两面都写）**：① **没有门读它们** —— **依据 = 两半合取**（**不可只凭其中一半**）：**(a)** **全部收工门在该提交上为绿** —— **这才是"没有门读它们"的实证**（若哪道门读它们、而这些快照已过期，该门本应转红；见本模块 Task 4 报告的收工门表）；**(b)** **没有 checker 硬写这个串**（`git grep` ⇒ 0 行，见下"复核命令"）—— ★ **(b) 单独只证明"没有 `check-*.py` 把该串抄进源码"**，**不排除"某门读了这些文件却不在源码里含该串"**（**门可以不硬写串、仍读文件**）；② 本支**唯一改变的读数**是**总 skill 数**（**家族数不变**，`mcm-playbook` **不进** `FAMILY_RE`）⇒ 重跑**买不到任何判据价值**；③ 重跑要**整条生成器链**（`tests/skills/README.md` 的次序表：① 四台 `figure-choose` 生成器 + 提交、② `plot-python` + **提交**、③ `plot-matlab` + **提交**、④ `figure-style-baseline` 重放式多相）—— 其中 **②/③ 两台断言全仓 `git status` 为空、中间必须提交**（先例 `M3-origin-T1a`：次序跑反即烤进假红）⇒ **真代价 + 真风险**，而收益 = 把那 12 处 `扫到 10` 改成 `扫到 11`。**权衡的另一半（如实）**：留着 = 这 7 份捕获件**不再印"今天"**，而是**该时点（2026-10-03 `mcm-schematic` Task 2）的现值**快照 ⇒ **判断层必须把它们标成「历史快照」、不许当「真仓现值」引**（逐行分类见 **§H.1.6**）。★ **下一次谁会触发**：只要**再添任何 skill**（家族内外皆然），这 7 份的总数读数**再假一次** —— 本决定确立的口径 = **家族外 skill 落地不触发捕获件重生成**（**家族加成员**才触发，见「会复发」上一条）。**复核命令（一秒推翻"它被守卫覆盖"这个反命题）**：`git grep -n '扫到 10 个 skill' -- '**/check-*.py'` ⇒ **0 行**（★ **本命令只证"没有 checker 硬写这个串"** —— "没有门读它们"的**另半证据 = 全部收工门在该提交上为绿**〔见本模块 Task 4 报告的收工门表〕。★ **量词"任何"的扫描面按此放宽** —— 2026-10-03 `mcm-playbook` Task 2 当场改 pathspec 并复跑确认仍 **0 行**：本仓的 `check-*.py` **不只在** `tests/skills/` 下，还有 `tests/check-index-pointers.py` 与 `.claude/skills/mcm-abstract/check-summary.py`；原写 `'tests/skills/**/check-*.py'` 时那句"无任何 `check-*.py`…"的**量词跑出了验证器的扫描面**（本仓最爱犯的一型），放宽后覆盖**全部** `check-*.py`，该量词才成立。★ **本命令只覆盖印着现值 10/11 那批"扫到 N 个 skill"的快照；更早的快照同属此类、未逐一点名**）。 **【2026-10-03 复核（`mcm-topic-select` Task 1 落地）】**：本行预言的**复发已兑现** —— 又一个**家族外** skill（`mcm-topic-select`）落地 ⇒ 那 **7 份**捕获件的总数读数**再假一次**（该时点仍未重跑）。**处置照旧 = 只登记、不重跑、不手改**（依本行已定口径：家族外 skill 落地不触发捕获件重生成；手改捕获件 = 造伪）。★ 本行那句"下一次谁会触发"**继续有效**（再添任何 skill 仍会再假一次）。 **【2026-10-03 `mcm-topic-select` Task 4 再复核】**：本行"下一次谁会触发"**第二次兑现** —— `mcm-topic-select` 落地把总数 11 → **12**（本 skill 亦**家族外**、**不进** `FAMILY_RE`）⇒ 那 **7 份**捕获件的总数读数**再假一次**（**仍未重跑，处置照旧 = 只登记、不重跑、不手改**）。**复核命令（当场实跑）**：`git grep -nE '扫到 (10|11) 个 skill' -- tests/ | wc -l` ⇒ **12**（7 份捕获件：`chart-types-verify.txt` · `figure-style-baseline.txt` · `house-style-verify.txt` · `pointer-verify.txt` · `skill-verify.txt` · `plot-matlab-verify.txt` · `plot-style-verify.txt`）。★ **本命令的量词只覆盖 `扫到 10/11` 那一批"总量快照"**（更早的 `扫到 5–9` 未逐一点名 ⇒ **不声称覆盖全部**）。 **【2026-10-03 `mcm-section-writer` Task 1 再复核 · 第三次兑现】**：又一个**家族外** skill（`mcm-section-writer`，**家族外第三个**）落地 ⇒ skill 总数 **12 → 13**（本 skill 亦**不进** `FAMILY_RE`、**家族计数不变**仍 **5**）⇒ 那 **7 份**捕获件的总数读数**再假一次**（**仍未重跑，处置照旧 = 只登记、不重跑、不手改**）。**复核命令（当场实跑）**：`git grep -lE '扫到 (10|11|12) 个 skill' -- tests/` ⇒ **7 份**捕获件（`chart-types-verify.txt` · `figure-style-baseline.txt` · `house-style-verify.txt` · `pointer-verify.txt` · `skill-verify.txt` · `plot-matlab-verify.txt` · `plot-style-verify.txt`），`git grep -cE …` 合计 **12 处**。★ **本命令的量词只覆盖 `扫到 10/11/12` 这一批"总量快照"**（更早的 `扫到 5–9` 未逐一点名 ⇒ **不声称覆盖全部**）。 **【2026-10-04 `mcm-section-writer` 支 Task 4 再复核 · 第四次兑现】**：又一个**家族外** skill（`mcm-memo`，**家族外第四个**）落地 ⇒ skill 总数 **13 → 14**（本 skill 亦**不进** `FAMILY_RE`、**家族计数不变**仍 **5**）⇒ 那 **7 份**捕获件的总数读数**再假一次**（**仍未重跑，处置照旧 = 只登记、不重跑、不手改**）。**复核命令（当场实跑）**：`git grep -lE '扫到 (10|11|12) 个 skill' -- tests/` ⇒ **7 份**捕获件（`chart-types-verify.txt` · `figure-style-baseline.txt` · `house-style-verify.txt` · `pointer-verify.txt` · `skill-verify.txt` · `plot-matlab-verify.txt` · `plot-style-verify.txt`），`git grep -cE …` 合计 **12 处**（**现值仍全印 `扫到 10`**）。★ **本命令的量词只覆盖 `扫到 10/11/12` 这一批"总量快照"**（更早的 `扫到 5–9` 未逐一点名 ⇒ **不声称覆盖全部**）。 **【2026-10-04 `mcm-model-select` 支 Task 15 再复核 · 第五次兑现】**：又一个**家族外** skill（`mcm-model-select`，**家族外第五个**）落地 ⇒ skill 总数 **14 → 15**（本 skill 亦**不进** `FAMILY_RE`、**家族计数不变**仍 **5**）⇒ 那 **7 份**捕获件的总数读数**再假一次**（**仍未重跑，处置照旧 = 只登记、不重跑、不手改**）。**复核命令（当场实跑）**：`git grep -lE '扫到 (10|11|12) 个 skill' -- tests/` ⇒ **7 份**捕获件（`chart-types-verify.txt` · `figure-style-baseline.txt` · `house-style-verify.txt` · `pointer-verify.txt` · `skill-verify.txt` · `plot-matlab-verify.txt` · `plot-style-verify.txt`），`git grep -cE …` 合计 **12 处**（**现值仍全印 `扫到 10`**）。★ **本命令的量词只覆盖 `扫到 10/11/12` 这一批“总量快照”**（更早的 `扫到 5–9` 未逐一点名 ⇒ **不声称覆盖全部**）。 **【2026-10-04 `mcm-data` + `mcm-code` 支（M5）Task 6 再复核 · 第六次兑现】**：又**两件家族外 skill**（`mcm-data`、`mcm-code`，**家族外第六、第七个**）落地 ⇒ skill 总数 **15 → 17**（二者亦**不进** `FAMILY_RE`、**家族计数不变**仍 **5**）⇒ 那 **7 份**捕获件的总数读数**再假一次**（**仍未重跑，处置照旧 = 只登记、不重跑、不手改**）。**复核命令（当场实跑）**：`git grep -lE '扫到 (10|11|12) 个 skill' -- tests/` ⇒ **7 份**捕获件；`git grep -hE '扫到 (10|11|12) 个 skill' -- tests/ | wc -l` ⇒ **12 处**（**现值仍全印 `扫到 10`**）。★ **量词只覆盖 `扫到 10/11/12` 这一批总量快照**（更早的 `扫到 5–9` 未逐一点名 ⇒ **不声称覆盖全部**）。
 - **判据管不到的假话：`T3` 见名字存在就跳过**（新登记 · 2026-10-03 `mcm-topic-select` Task 1）：**现象** —— `mcm-playbook` 的 **5 处「未建」标记**（`SKILL.md:28`/`:59` · `references/timeline.md:73` · `references/phase-mistakes.md:25`/`:37`）在本轮之前**是对的**（`mcm-topic-select` 那时**不存在**）；`mcm-topic-select` **一落地**，这 5 处**当场变假**（指向一个**已建** skill 却说它「未建」）。**已同批改掉**（5 处逐处去掉那个标记）。★ **为什么 `T3` 抓不到**（**结构性**，不是漏配）：`check-playbook.py` 的 `T3` 逻辑是 `if tok in existing: continue` —— **名字存在就整条跳过** ⇒ 它的判据方向是「**不存在的名字**必须明写「未建」」，对反面（「**存在**的名字却标了「未建」」）**结构上不可达**。⇒ 这属「**判据管不到的假话**」：**必须靠人同批处置**。**实测复核（本支）**：改完 5 处后实跑 `python tests/skills/playbook/check-playbook.py` ⇒ **仍 5/5**（`T3` 读数由「不存在的名字 **3** 个」变「**2** 个」，**无红**）。**下一次怎么发现**（本行登记的重点）：**不能靠 `T3`** ⇒ 用① **新 skill 落地时的普查**：`grep -rn "<新 skill 名>" .` 逐处看有无残留「未建」（**一秒可跑**；★ **扫描面 = 全仓** —— 本处原写 `.claude/`，**射程窄于它登记的类**：陈旧的「未建」**也活在 `.claude/` 外面**，实例就在本文件 `:1798`「`mcm-topic-select` 本轮不做 ⇒ 明写「未建」」那句 ⇒ 2026-10-03 `mcm-topic-select` Task 2 把 pathspec 放宽到全仓，去掉 `.claude/` 那一层限界）；② 或给 `T3` 补一条**反向臂**（「名字**存在**却标了「未建」⇒ FAIL」）—— 本支**不做**（`check-playbook.py` 本支不动）。**复核命令（一秒可推翻"`T3` 能抓这类"这个反命题）**：`grep -rn "mcm-topic-select" .claude/skills/mcm-playbook/ | grep -c "未建"` ⇒ **0**。★ **【2026-10-03 `mcm-topic-select` Task 4 再复核（当场实跑）】**：上列登记**仍成立且现仍准确** —— `.claude/skills/mcm-playbook/` 那 5 处**已清**（`git grep -n 'mcm-topic-select' -- .claude/ | grep -c '未建'` ⇒ **0**）；★ 但**全仓仍有同一型的陈旧「未建」残留**（`mcm-topic-select` **现已建却被写成「未建」**）：**6 行** = `docs/superpowers/plans/2026-10-03-m1-playbook.md:29/158/236` · `docs/superpowers/specs/2026-10-03-m1-playbook-design.md:12/94/207`（**均已执行的计划 / 设计件** ⇒ 按"**不擅动已收口模块的设计 / 计划**"**只登记、就地不改**；★ **"都带"不成立（2026-10-03 Task 4 复核实测）** —— 只有 `plans:236` · `specs:12` **两行**带"**本轮（不做）**"，另四行（`plans:29` · `plans:158` · `specs:94` · `specs:207`）**不带**）。**下一次怎么发现的命令（当场实跑 · 量词扫描面 = 全仓、不外扩）**：`git grep -n 'mcm-topic-select' -- . | grep '未建' | grep -v 'mcm-suite-todo.md' | wc -l` ⇒ **6**；★ **量词口径**：本命令**只**覆盖"同一行同时含 `<新 skill 名>` 与「未建」"的残留（**不声称覆盖其它 skill 名下的陈旧「未建」** —— 那是另一个对象）；**本支实测该普查法有效**（它当场点出上面 6 行）。★ **本命令不含台账自身** —— 其 `grep -v 'mcm-suite-todo.md'` **故意排除台账**，故它**抓不到台账侧的陈旧「未建」**（本轮 `:1798`〔行号会漂、现场定位〕那一处正是**人工**发现的）⇒ **读者别以为它覆盖台账**。
@@ -1619,14 +1627,41 @@ git grep -nE "绘图家族[ ]?5[ ]?个" -- . | wc -l     # 21  F6  家族 5
   ③ 摘要 skill 是**赛时高压**下用的，激进读法会逼使用者在任务中途跳到另一个文件 ⇒ **可用性代价真实**。
   ⇒ **口径**：本条的完成判据 = **"四格的规则权威让渡给纪律文档且不可静默漂移"**，**不是**"字面删到只剩一行"。若要改成激进读法，**须另开一支并重述理由**（**别当它是"没做完"**）。
 - **`mcm-section-writer`**（薄 skill：只在"该写的时刻"被触发 + 交付那份权威纪律）。★ **已建（2026-10-03 `mcm-section-writer` 支 Task 1，提交 `1372e5f`）** —— `.claude/skills/mcm-section-writer/`（`SKILL.md` + 三份 `references` + `check-section.py`）；**同支另建 `mcm-memo`**（Task 4，见 §H.5.8i）。本 bullet 原为"**未建 skill 的去向登记**"，现值 = **已建**（按本仓"**改时点标注 + 追加现值、不覆盖旧值**"）。
-- 写作纪律文档**残余 R1–R12** 里仍该动的；其中 **R6：`grep -rn "mcm-writing-discipline" .claude/` = 0 ⇒ "唯一权威"至今仍只是约定**。★ **R6 已销（2026-10-03 · `mcm-playbook` Task 1）**：`mcm-playbook` 在写作阶段指向 `docs/mcm-writing-discipline.md` ⇒ 该 `grep` 命中数第一次**非 0**（由 **0** 变 **4**），"唯一权威"**第一次成为既成**；同批已把 `docs/mcm-writing-discipline.md:3-4` 的自述改准（`check-writing-discipline.py` 的 `A9` 由红转绿）。**故 R6 不再成立。**（复核命令：`grep -rn "mcm-writing-discipline" .claude/ | wc -l` ⇒ 非 0；本条与 §H.2.2 那条"家族成员计数散文"**无关**——`mcm-playbook` 是**家族外** skill，不进家族正则。） ★ **2026-10-03 Task 4 复核（实跑命令）**：`grep -rn "mcm-writing-discipline" .claude/ | wc -l` ⇒ **4**（**非 0**；4 处全在 `.claude/skills/mcm-playbook/`：`SKILL.md:74` · `references/timeline.md:76` · `references/phase-mistakes.md:76/81`）；**该时点（2026-10-03 `mcm-playbook` Task 4）** `docs/mcm-writing-discipline.md:3-4` 的自述**与彼时事实一致** —— 那两行**同时**印着 `A9` 读的**两个数**（`.claude/skills/` 现存 **11** 个 ✓〔**该时点读数**；现值 **12**、见下条再复核〕、`grep -rn ... .claude/` 命中 **4** ✓）。⇒ **R6 复核通过、维持已销**。★ **2026-10-03 `mcm-topic-select` Task 4 再复核（实跑命令）**：`grep -rn "mcm-writing-discipline" .claude/ | wc -l` ⇒ **5**（**非 0**；4 处在 `.claude/skills/mcm-playbook/`〔`SKILL.md:74` · `references/timeline.md:76` · `references/phase-mistakes.md:76/81`〕+ **第 5 处** = **本支**新增的 `.claude/skills/mcm-topic-select/SKILL.md:28`〔本 skill 在**边界**处指向本文件〕）；`docs/mcm-writing-discipline.md:3-4` 的自述**与新事实一致** —— 那两行**同时**印着 `A9` 读的**两个数**（`.claude/skills/` 现存 **12** 个 ✓、`grep -rn ... .claude/` 命中 **5** ✓）；`python tests/skills/check-writing-discipline.py` ⇒ `RESULT: PASS`。⇒ **R6 仍销、维持**（上一条里的"命中 **4** / 现存 **11**"是 **`mcm-playbook` Task 4** 的**该时点**读数，按"改时点标注 + 追加现值"保留）。
+- 写作纪律文档**残余 R1–R12** 里仍该动的（★ **`R1`–`R12` 的定义与逐条状态已入库为 §H.3.1** —— **入库副本**，原只活在 gitignored 报告 `.superpowers/sdd/task-wd-fix5-verify-report.md` §5 里；**本行原悬在那份会丢的文件上**）；其中 **R6：`grep -rn "mcm-writing-discipline" .claude/` = 0 ⇒ "唯一权威"至今仍只是约定**。★ **R6 已销（2026-10-03 · `mcm-playbook` Task 1）**：`mcm-playbook` 在写作阶段指向 `docs/mcm-writing-discipline.md` ⇒ 该 `grep` 命中数第一次**非 0**（由 **0** 变 **4**），"唯一权威"**第一次成为既成**；同批已把 `docs/mcm-writing-discipline.md:3-4` 的自述改准（`check-writing-discipline.py` 的 `A9` 由红转绿）。**故 R6 不再成立。**（复核命令：`grep -rn "mcm-writing-discipline" .claude/ | wc -l` ⇒ 非 0；本条与 §H.2.2 那条"家族成员计数散文"**无关**——`mcm-playbook` 是**家族外** skill，不进家族正则。） ★ **2026-10-03 Task 4 复核（实跑命令）**：`grep -rn "mcm-writing-discipline" .claude/ | wc -l` ⇒ **4**（**非 0**；4 处全在 `.claude/skills/mcm-playbook/`：`SKILL.md:74` · `references/timeline.md:76` · `references/phase-mistakes.md:76/81`）；**该时点（2026-10-03 `mcm-playbook` Task 4）** `docs/mcm-writing-discipline.md:3-4` 的自述**与彼时事实一致** —— 那两行**同时**印着 `A9` 读的**两个数**（`.claude/skills/` 现存 **11** 个 ✓〔**该时点读数**；现值 **12**、见下条再复核〕、`grep -rn ... .claude/` 命中 **4** ✓）。⇒ **R6 复核通过、维持已销**。★ **2026-10-03 `mcm-topic-select` Task 4 再复核（实跑命令）**：`grep -rn "mcm-writing-discipline" .claude/ | wc -l` ⇒ **5**（**非 0**；4 处在 `.claude/skills/mcm-playbook/`〔`SKILL.md:74` · `references/timeline.md:76` · `references/phase-mistakes.md:76/81`〕+ **第 5 处** = **本支**新增的 `.claude/skills/mcm-topic-select/SKILL.md:28`〔本 skill 在**边界**处指向本文件〕）；`docs/mcm-writing-discipline.md:3-4` 的自述**与新事实一致** —— 那两行**同时**印着 `A9` 读的**两个数**（`.claude/skills/` 现存 **12** 个 ✓、`grep -rn ... .claude/` 命中 **5** ✓）；`python tests/skills/check-writing-discipline.py` ⇒ `RESULT: PASS`。⇒ **R6 仍销、维持**（上一条里的"命中 **4** / 现存 **11**"是 **`mcm-playbook` Task 4** 的**该时点**读数，按"改时点标注 + 追加现值"保留）。
 > **§H.3 逐条判定（2026-10-03 `mcm-playbook` Task 4）**：① **`mcm-abstract` 四格去重**（Q7/Q8/Q9/Q12 改指针）—— **范围外**，要动**已交付的冻结 skill** ⇒ 归 **M2 写作线**（需单独走一遍流程）；② **`mcm-section-writer`** —— **未建** ⇒ 归 **M2**（本支 `SKILL.md`/`references` 已按 GC5 **明写「未建」**，不指向它）；③ **R1–R12 残余** —— **R6 已销**（见上）；其余仍归 **M2 写作线**（本支不动写作纪律正文）。★ **本支派生的新待办 = 0**（无「未建 skill 的第 4 项」）。
 
 > ★ **2026-10-04 时点注（`mcm-section-writer` 支收口）**：上面那条逐条判定**是 2026-10-03 的时点快照，按原文保留**；**现值**如下 —— ① **已办**（Task 5，`268d70f` + 裁决 `86c8235`，见上）；② **已办**：`mcm-section-writer` **已建**（`1372e5f`，详见 §H.5.8i）；③ **R1–R12 残余里仍该动的如实保留** —— 本支**仍不动写作纪律正文**（`R6` 仍销）。
 
+#### H.3.1 `R1`–`R12` 的定义与逐条状态（**入库副本** · 2026-10-05）
+
+> **为什么会有这一节**：§H.3 上一条提到的「残余 `R1`–`R12`」原先**只**活在
+> **`.superpowers/sdd/task-wd-fix5-verify-report.md` §5**（写作纪律文档「修复轮 5（收口轮）」定向复核报告的**残余清单（四条式）表**）—— 那是 **gitignored** 的
+> （本仓纪律「轮次回报只活在会话里、窗口一崩就没了」）⇒ 那句引用**悬在一个会丢的文件上**。本节把它**入库**：定义**逐条摘录** + **逐条状态**。
+> **状态采已查实的结论**（非本处重判）。**扫描面（不声称穷尽）**：本节只搬该报告 §5 表里具名的 `R1`–`R12`；报告 §6「未验证清单」与 §2 的 Q1/Q2/Q3 不在本节射程。
+
+| # | 是什么（摘录自该报告 §5 ①「是什么」栏，行号按本仓口径改写为对象描述） | 逐条状态 |
+| :--- | :--- | :--- |
+| **R1** | 〔判词读数〕的**读数本身一个都不核**：文档里 **19 行**带〔判词读数〕/〔本文件复算〕（普查口径），`JUDGE_READING_ROSTER` 是 **18 条**锚点（名册口径）；两轮判者脚本都没落盘 ⇒ **没有口径可复算** | **不必动**（已声明接受项 —— 已如实声明"读数本身一个都不核"；要么落盘判者脚本，那是项目级决定） |
+| **R2** | `ANCHORS` **76 键**手写 golden：只证"目标文件 == 脚本常量"，**不证"常量 == 当初该登记的内容"** | **不必动**（接受项 —— 已如实声明；新登记锚点时要逐条复核） |
+| **R3** | `CENSUS_CLASS` **20 条类别是人写的**：机器只保证"锚点至少命中一行"与"每行至少被一条锚点接住" | **判不了**（需人语义判断 —— "这一行算不算断言单元、算哪一类"；R9 就是它咬人的一次实例） |
+| **R4** | `E3` 的 `JUDGE_READING_ROSTER` **18 条锚点**未逐条判"这条锚点选得对不对"，只验了双向能红能绿 | **不必动**（接受项 —— 选锚点是语义判断；新增判词读数行时要补锚点） |
+| **R5** | **自指守卫的边界**：`E2` 用 `assume_green=("E2 无守卫面计数",)` 把 U13/U14 按"在场"计 ⇒ 13 里有 2 条是假定的；"13"的最终依据是人写的 `COVERAGE_UNITS` | **不必动**（接受项 —— 已在自检件与文档写明，未藏） |
+| **R6** | **"唯一权威"仍只是约定**：`grep -rn "mcm-writing-discipline" .claude/` 命中 **0**；`mcm-abstract` 的重叠格仍是双份表述（`quality-checklist.md` 的 Q12/Q9 与纪律文档的 C1/A5 各写一遍） | **已销**（2026-10-03 `mcm-playbook` Task 1：该 `grep` 首次非 0 ⇒ "唯一权威"成为既成；见 §H.3 本条**上文 R6 那两段**的逐次复核） |
+| **R7** | `tests/skills/arch-green-evidence.md` 的**自指指针**（指向"自指更正注"那一行）**过期** —— 该注因同提交插入 9 行而下移 ⇒ 读者按指针会落到别的内容（一行 shell 命令）上 | **已处置**（自指指针已改为指向该注的**实际落点**；见该件行内注） |
+| **R8** | `E12` 的 ② 只拒**字面 `True`**、③ 只拒**空 `ast.Constant`** ⇒ `not False` / `1 == 1` / `bool(True)` / `not bad or True` / `f""` **等掏空形态 4 红 4 绿** | **仍欠动**（当场读 `check-writing-discipline.py::check_e12_guard_bodies` 源码确认：仍只判 `ast.Constant` 的 `True`/空字面量 ⇒ 非字面恒真形态接不住） |
+| **R9** | `CENSUS_CLASS` 把纪律文档里那一行归为 **[已覆盖]**，但 `C5` 钉的是**模式**（硬编码 `six` 列表）、**不读文档里的计数词**：把「**6 个** alternation」→「**7 个**」⇒ **全绿** | **仍欠动**（当场读源码确认：`C5` 仍只做 `wide.split("|") != six`、不把 `len(...)` 回比文档计数词） |
+| **R10** | **规则 R 的两条静默通道**：(a) 不带读数形态的裸整数（无单位 / 无小数点 / 不加粗）；(b) 写在"自检边界"节**之后**、带〔判词读数〕且无判词指针的新行 | **仍欠动**（(b) 一处布尔即可改；(a) 建议只登记不动 —— 扩网会涨误报率） |
+| **R11** | **"复述型" = "这个值别处有守卫"，不是"这一处有守卫"** ⇒ 位点口径"改错不红"实测 **311 处** | **不必动**（接受项 —— 结论口径要一直带这句） |
+| **R12** | **改前快照那一跑 `E2` 必然 FAIL**，本轮报告与文档**都没说明** ⇒ 下一位复核跑 `--coverage --doc <快照>` 看到 `RESULT: FAIL` 会以为"改前坏了 / 我跑错了" | **仍欠动**（建议在该报告 §1.2 的表下加一句"改前跑 `E2` 必 FAIL〔快照没有新节〕，是设计使然"） |
+
+★ **状态口径**：**已处置 = `R6`（销）· `R7`**；**仍欠动 = `R8` · `R9` · `R10` · `R12`**（`R3` **判不了**）；**已声明"不必动"的接受项 = `R1` · `R2` · `R4` · `R5` · `R11`**。
+★ **`R8`/`R9` 两条经当场读源码确认仍成立**（`E12` 仍只拒字面 `True`/空字面量；`C5` 仍只比模式、不读 doc 的"6 个"计数词）。
+★ **本节此后是 `R1`–`R12` 的入库权威**（原只活在 gitignored 报告里）；要复算某条状态，**回该报告 §5 表 ① / ④ 两栏**（路径见上）。
+
 ### H.4 更早的待裁决
 
-- **Task 9 的 UMAP 题号口径 recon**（用户已裁"先 recon 定口径"）。
+- ~~**Task 9 的 UMAP 题号口径 recon**（用户 2026-09-26 已裁"先 recon 定口径"）~~ —— ★★ **用户 2026-10-05 裁定：不做**（原话大意「使用 skills 时应该无需索引往届论文」）⇒ **Task 9 的 UMAP 纳入 / 扩到全量 201 份 / 题号口径 recon 一律不做**。★ **nuance（随裁定记）**：`mcm-topic-select` **运行时确实读** `corpus/papers/INDEX.md`（**现有那份只覆盖 2025、43 篇** —— 该索引标题即「2025 美赛 O 奖论文索引」、篇数 **43**，其「覆盖边界」段自记**其余 5 个合集 158 份未建索引**）；而该 skill 在 `references/corpus-lookup.md` §4 边界②**自己声明**「`MODEL_MAP.md` **只覆盖 2025 那一年**」，并要求**该边界随读数一起给**、**不许拿别的年份的论文来凑** ⇒ **故扩索引是可选、非 skill 前提**。（★ **口径核正**：任务书把这句记作 `references/corpus-lookup.md` 的原话「超范围一律标『无依据、凭印象』」—— **实跑 `grep -rn '无依据\|凭印象' .claude/skills/mcm-topic-select/` ⇒ 0 命中**；该措辞实在 `mcm-model-select` 的「P7 口径提醒」里（件内多处）。本行按**可核**写法落，**不引那句为该 skill 原话**。）
+- **`docs/mcm-suite-triage-2026-09-26.md` §5 的「待用户裁决」清单** —— ★★ **用户 2026-10-05 裁定：剩余项不用处理**（原话大意「不用处理」）。**对象与文件**：该文件**不是本台账**；本台账**只此一句登记**、**不擅动该文件**（其 §5 现列 4 项：`INDEX.md`/`PROVENANCE.md` 的可用性补丁 · `index.py` 守卫加严 · `RT-M3`〔已按早前用户裁决做掉〕· Task 9 题号口径〔本条同时被上面这条 B5 裁定不做〕）。
 - `.gitattributes` 自身不在 `-text` 规则内（全新检出一致性上仍会分叉，不影响任何判据）。
 
 ### H.5 M3「跨载体样式单源」线收口 + 全库再扫（2026-10-01 · 本线 Task 6）
@@ -1963,7 +1998,7 @@ Fix A（去两处"唯一"）· **Fix A′（`bde3e4d`，越出任务书的一处
 
 ★ **本节的 census / 族数字（9→10、4→5）与量词一律避开 key 字面**（同 §H.1.1 先例）。
 
-#### H.5.8g `mcm-playbook` **Task 1–4 已交付**（2026-10-03 · **全分支终审 → 推送 待做**）
+#### H.5.8g `mcm-playbook` **Task 1–4 已交付**（2026-10-03 · **已全分支终审并推送**）
 
 **本模块 = `mcm-playbook`（M1 赛程编排），本套件「家族外第一个」skill** —— ★ **这一点必须记住**：它 **不进**
 `check-spec-pointers.py` 的 `FAMILY_RE = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$` ⇒ **家族计数不变**
@@ -1994,7 +2029,7 @@ Fix A（去两处"唯一"）· **Fix A′（`bde3e4d`，越出任务书的一处
 
 ★ **本节的 census / 族数字（10→11、族仍 5）与量词一律避开 key 字面**（同 §H.1.1 先例；`git grep` 实测本节纯文本对 §H.1.6 的 13 条 key **0 命中**）。
 
-#### H.5.8h `mcm-topic-select` **Task 1–4 已交付**（2026-10-03 · **全分支终审 → 推送 待做**）
+#### H.5.8h `mcm-topic-select` **Task 1–4 已交付**（2026-10-03 · **已全分支终审并推送**）
 
 **本模块 = `mcm-topic-select`（M1 选题决策），本套件「家族外第二个」skill**（与「家族外第一个」`mcm-playbook` **并列**）—— ★ **这一点必须记住**：它 **不进** `check-spec-pointers.py` 的 `FAMILY_RE = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$` ⇒ **家族计数不变**（**绘图家族仍 5**）、**无 `K2` 指针义务、无 `K3` 零数字约束**。但它**照样推动「skill 总数」**：`11 → 12`。★ **两类复核见 §H.2.2 的「家族外第二个 skill」那条**（家族成员计数不变 / 总 skill 数再变一次 ⇒ 只登记、不重跑）。
 
@@ -2018,7 +2053,7 @@ Fix A（去两处"唯一"）· **Fix A′（`bde3e4d`，越出任务书的一处
 
 ★ **本节的 census / 族数字（11→12、族仍 5）与量词一律避开 key 字面**（同 §H.1.1 先例；**复核命令**：`awk "/^#### H.5.8h/{f=1} f" docs/mcm-suite-todo.md | grep -cE "扫到 [0-9]+ 个[ ]?skill|绘图家族[ ]?[0-9][ ]?个"` ⇒ **0** —— 本节纯文本对 §H.1.7 的 14 条 key **0 命中**）。
 
-#### H.5.8i `mcm-section-writer` + `mcm-memo` **Task 1–6 已交付**（2026-10-03 开 · 2026-10-04 收口 · **全分支终审 → 推送 待做**）
+#### H.5.8i `mcm-section-writer` + `mcm-memo` **Task 1–6 已交付**（2026-10-03 开 · 2026-10-04 收口 · **已全分支终审并推送**）
 
 **本模块 = M2 写作线的收尾**：**两件新 skill**（`mcm-section-writer` = 逐节写作范式 · `mcm-memo` = 题面要求 letter/memo 时的写作范式）+ **一次冻结 skill 改动**（§H.3 ① 的 `mcm-abstract` 四格去重，Task 5）。★ **两件新 skill 都家族外**（与 `mcm-playbook` / `mcm-topic-select` 同）—— **不进** `check-spec-pointers.py` 的 `FAMILY_RE` ⇒ **家族计数不变**、**无 `K2`/`K3` 义务**；但**照样推动 skill 总数**：**12 → 14**。
 
@@ -2051,7 +2086,7 @@ Fix A（去两处"唯一"）· **Fix A′（`bde3e4d`，越出任务书的一处
 
 **§H.1.7 量词纪律**（同 §H.5.8h）：本节的 census / 族数字**一律避开** key 字面（不写"扫到 N 个 skill" / "绘图家族 N 个"的**直书形态**）。
 
-#### H.5.8j `mcm-model-select`（M4）**Task 0–15 已交付**（2026-10-04 · **全分支终审 → 推送 待做**）
+#### H.5.8j `mcm-model-select`（M4）**Task 0–15 已交付**（2026-10-04 · **已全分支终审并推送**）
 
 **本模块 = M4 数学模型线**：**新建 1 件 skill** `mcm-model-select`（**家族外第五个** skill，与 `mcm-playbook` / `mcm-topic-select` / `mcm-section-writer` / `mcm-memo` **并列**）。★ **它不进** `check-spec-pointers.py` 的 `FAMILY_RE = ^(?:mcm-plot-.+|mcm-table|mcm-schematic)$` ⇒ **家族计数不变**、**无 `K2` 指针义务、无 `K3` 零数字约束**；但**照样推动 skill 总数**：**14 → 15**。
 
@@ -2102,7 +2137,7 @@ Fix A（去两处"唯一"）· **Fix A′（`bde3e4d`，越出任务书的一处
 
 **§H.1.7 量词纪律**（同 §H.5.8h / §H.5.8i）：本节的 census / 族数字**一律避开** key 字面（不写"扫到 N 个 skill" / "绘图家族 N 个"的**直书形态**）。
 
-#### H.5.8k `mcm-data` + `mcm-code`（M5 数据与代码层）**Task 0–6 已交付**（2026-10-04 · **全分支终审 → 推送 待做**）
+#### H.5.8k `mcm-data` + `mcm-code`（M5 数据与代码层）**Task 0–6 已交付**（2026-10-04 · **已全分支终审并推送**）
 
 **本模块 = M5 数据与代码线**：**两件新 skill** —— `mcm-data`（数据侧：题面没给的数据怎么找 / 给了的怎么读 / 两者统一落成一张来源表）与 `mcm-code`（代码侧：可复现工程规范 —— 随机源 / 结果落盘 / 编号与论文对齐 / 附录处置）。★ **两件都家族外**（**家族外第六、第七个**，与 `mcm-playbook` / `mcm-topic-select` / `mcm-section-writer` / `mcm-memo` / `mcm-model-select` 并列）—— **不进** `check-spec-pointers.py` 的 `FAMILY_RE` ⇒ **家族计数不变**、**无 `K2`/`K3` 义务**；但**照样推动 skill 总数**：**15 → 17**。
 
