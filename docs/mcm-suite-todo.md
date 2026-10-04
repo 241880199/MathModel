@@ -1658,6 +1658,16 @@ git grep -nE "绘图家族[ ]?5[ ]?个" -- . | wc -l     # 21  F6  家族 5
 ★ **`R8`/`R9` 两条经当场读源码确认仍成立**（`E12` 仍只拒字面 `True`/空字面量；`C5` 仍只比模式、不读 doc 的"6 个"计数词）。
 ★ **本节此后是 `R1`–`R12` 的入库权威**（原只活在 gitignored 报告里）；要复算某条状态，**回该报告 §5 表 ① / ④ 两栏**（路径见上）。
 
+#### H.3.2 外部 skill「anti-defensive-writing」的评估与采纳（2026-10-05 · 提交 `3c2f24b`）
+
+- **来源**：<https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill>（MIT，纯提示词）。用户 2026-10-05 问它"对防御性写作是否有帮助"。
+- **结论 = 不引入、只取其一个词类**。两条**硬件冲突**：① **COMAP 官方 `corpus/official/instructions.html:1162` 明文要求讨论优缺点**，而它的"不说输 / 打不过的维度不设为比赛 / 重定义故事"与这条对撞；② 本仓层序是 **准确 ≻ 规范 ≻ 文风**，而它的目标函数是"说服力"。它又是**纯提示词**（无判据/无证据），与本仓"判据必须真的会红"不同型。
+- **评估件已入库** = `docs/anti-defensive-writing-skill-evaluation.md`（对照表 · 冲突 · §4 实测探针 · 复现命令）。
+- **采纳落地** = `docs/mcm-writing-discipline.md` §③ 新增「**自我削弱口径**」：实质局限**必须写**（引 `:1162`），要压的是包裹它的**姿态层**；判法 = **人工**（`C1` 减法测试的负向特例）；**明令别用弱化词表**；**机判 = 无**（据实测：显式自我削弱词 RED 0 / 真值 0 / 43 份人写 1 ⇒ 没量；弱化词方向相反 真值 **1.45‰** > RED **0.80‰** ⇒ 词表禁用会伤合法写作）。
+- **涟漪同批**（`GC9`）：`tests/skills/check-writing-discipline.py` 新增 `A11` 复算 + `SELF_COMPUTED_ROSTER` + `ANCHORS(INS,1162)` + 头部自陈 **107→108 条 / 76→77 落点**；`tests/skills/mutate-writing-discipline.py` 的 `M25` 改靶（`107→108` 已成真值）+ 新增 `M44`（`A11` 必须红）。
+- **收工门**（亲跑）：`check-writing-discipline.py` ⇒ `RESULT: PASS`（22 守卫全绿）· `mutate-writing-discipline.py` ⇒ `MUT: 全红（44 条变异；还原 3/3 逐字节）` · `figure-choose/check-spec-pointers.py` ⇒ `RESULT: PASS`。
+- ⚠️ **同批有一条外部 skill 未入库**：被评估的仓库本身**不入库**（评估时临时 clone 到 `build/anti-def/`，已 gitignore）。
+
 ### H.4 更早的待裁决
 
 - ~~**Task 9 的 UMAP 题号口径 recon**（用户 2026-09-26 已裁"先 recon 定口径"）~~ —— ★★ **用户 2026-10-05 裁定：不做**（原话大意「使用 skills 时应该无需索引往届论文」）⇒ **Task 9 的 UMAP 纳入 / 扩到全量 201 份 / 题号口径 recon 一律不做**。★ **nuance（随裁定记）**：`mcm-topic-select` **运行时确实读** `corpus/papers/INDEX.md`（**现有那份只覆盖 2025、43 篇** —— 该索引标题即「2025 美赛 O 奖论文索引」、篇数 **43**，其「覆盖边界」段自记**其余 5 个合集 158 份未建索引**）；而该 skill 在 `references/corpus-lookup.md` §4 边界②**自己声明**「`MODEL_MAP.md` **只覆盖 2025 那一年**」，并要求**该边界随读数一起给**、**不许拿别的年份的论文来凑** ⇒ **故扩索引是可选、非 skill 前提**。（★ **口径核正**：任务书把这句记作 `references/corpus-lookup.md` 的原话「超范围一律标『无依据、凭印象』」—— **实跑 `grep -rn '无依据\|凭印象' .claude/skills/mcm-topic-select/` ⇒ 0 命中**；该措辞实在 `mcm-model-select` 的「P7 口径提醒」里（件内多处）。本行按**可核**写法落，**不引那句为该 skill 原话**。）

@@ -138,6 +138,8 @@ EVIDENCE = ROOT / "tests" / "skills" / "arch-green-evidence.md"
 QC = ROOT / ".claude" / "skills" / "mcm-abstract" / "references" / "quality-checklist.md"
 RUBRIC = ROOT / "tests" / "skills" / "mcm-abstract-quality-rubric.md"
 CORPUS = ROOT / "corpus" / "official"
+# §③ 自我削弱口径里"43 份人写 O 奖论文"那一栏的来源（与 SW9 用的同一批）
+HEDGE_PAPERS = ROOT / "corpus" / "papers" / "md" / "2025美赛O奖论文"
 
 DOC_LINES = DOC.read_text(encoding="utf-8").splitlines()
 DOC_TEXT = "\n".join(DOC_LINES)
@@ -540,6 +542,54 @@ def check_ai_wordlist():
     record("A8 AI 词表两类", not bad, "; ".join(bad))
 
 
+def check_hedge_diminish():
+    """§③ 自我削弱口径：显式自我削弱词两侧为 0（没量 ⇒ 不设机判）；弱化词方向相反（明令别用）。
+
+    口径（模式）从文档现取；读数在 5 份 canonical 正文 + 43 份人写 O 奖论文上重算。
+    """
+    claim(r"自我削弱口径|显式自我削弱词（模式|这一族在本语料")
+    hp = find1(r"显式自我削弱词（模式 `([^`]+)`，`grep -o -i -E`）", what="hedge 模式")
+    dp = find1(r"模式 `([^`]+)` 这一族在本语料", what="弱化词模式")
+    n_red_h, n_true_h, n_paper_h = find1(
+        r"\*\*RED 三份合计 (\d+) 次\*\*、\*\*真值两份合计 (\d+) 次\*\*〔本文件复算〕、"
+        r"\*\*43 份人写 O 奖论文合计 (\d+) 次\*\*", what="hedge 三处读数")
+    want_dt, want_dr = find1(
+        r"\*\*真值两份 ([\d.]+)‰\*\* > \*\*RED 三份 ([\d.]+)‰\*\*", what="弱化词两侧密度")
+    want_med, want_max = find1(
+        r"\*\*43 份人写 43/43 份有\*\*（中位 \*\*(\d+)\*\* 次 / 件，最大 (\d+) 次）", what="弱化词人写分布")
+
+    red, truth = ALL_FILES[:3], ALL_FILES[3:]
+    got_red_h = sum(count(hp, body_text(f)) for f in red)
+    got_true_h = sum(count(hp, body_text(f)) for f in truth)
+    w_red = sum(words(body_text(f)) for f in red)
+    w_true = sum(words(body_text(f)) for f in truth)
+    got_red_d = sum(count(dp, body_text(f)) for f in red)
+    got_true_d = sum(count(dp, body_text(f)) for f in truth)
+
+    texts = [p.read_text(encoding="utf-8", errors="ignore") for p in sorted(HEDGE_PAPERS.rglob("*.md"))]
+    got_paper_h = sum(count(hp, t) for t in texts)
+    p_d = [count(dp, t) for t in texts]
+    got_med = sorted(p_d)[len(p_d) // 2] if p_d else 0
+    got_max = max(p_d) if p_d else 0
+
+    bad = []
+    for label, want, got in (("RED hedge", n_red_h, got_red_h), ("真值 hedge", n_true_h, got_true_h),
+                             ("人写 hedge", n_paper_h, got_paper_h)):
+        if int(want) != got:
+            bad.append(f"{label} 文档={want} 实测={got}")
+    for label, want, got, wd in (("真值弱化词密度", want_dt, got_true_d, w_true),
+                                 ("RED 弱化词密度", want_dr, got_red_d, w_red)):
+        if round(per_mille(got, wd), 2) != float(want):
+            bad.append(f"{label} 文档={want} 实测={per_mille(got, wd):.4f}")
+    if int(want_med) != got_med or int(want_max) != got_max:
+        bad.append(f"人写弱化词分布 文档中位/最大={want_med}/{want_max} 实测={got_med}/{got_max}")
+    if per_mille(got_true_d, w_true) <= per_mille(got_red_d, w_red):
+        bad.append("弱化词密度方向不再相反（真值应 > RED）——『明令别用』的理由已变")
+    print(f"    [i] hedge RED {got_red_h} / 真值 {got_true_h} / 人写 {got_paper_h}；"
+          f"弱化词 真值 {per_mille(got_true_d, w_true):.2f}‰ vs RED {per_mille(got_red_d, w_red):.2f}‰")
+    record("A11 自我削弱口径·文档读数自证", not bad, "; ".join(bad))
+
+
 def check_doc_selfclaim():
     """文档第一行自称的两个数：grep -rn 命中 0、.claude/skills/ 现存 4 个。"""
     want_zero = find1(r"`grep -rn \"mcm-writing-discipline\" \.claude/` 命中 \*\*(\d+)\*\*", what="自称命中数")
@@ -600,6 +650,7 @@ INS = "corpus/official/instructions.html"
 
 ANCHORS = {
     (INS, 952): (r"must document any outside sources of information", (r"引用义务",), False),
+    (INS, 1162): (r"Discuss any apparent strengths or weaknesses", (r"官方硬要求",), False),
     (JG, 10): (r"未落盘", (r"未落盘",), False),
     (JG, 48): (r"WHO global body-weight references", (r"out-S1-g\.md:75",), False),
     (JG, 69): (r"两侧都恰好命中 62\.8", (r"出处声明",), False),
@@ -1627,6 +1678,7 @@ SELF_COMPUTED_ROSTER = [
     (r"模板化过渡词表", "过渡词表合计 1 次"),
     (r"必须分两类写，不能并成一句", "AI 词表两类的分列"),
     (r"第三层里只有两个量是", "文末密度区间"),
+    (r"显式自我削弱词（模式|这一族在本语料", "自我削弱口径的两处实测"),
 ]
 
 
@@ -1703,6 +1755,7 @@ def main():
         ("  A4", check_c2_table_rows), ("  A5", check_c2_old_caliber), ("  A6", check_a1_table),
         ("  A7", check_transition_words), ("  A8", check_ai_wordlist),
         ("  A9", check_doc_selfclaim), ("  A10", check_threshold_range),
+        ("  A11", check_hedge_diminish),
         ("§B 出站指针（以文档为输入）", None),
         ("  B1", check_bare_pointers),
         ("  B2", lambda: check_outbound_pointers(verbose=("--rows" in sys.argv))),

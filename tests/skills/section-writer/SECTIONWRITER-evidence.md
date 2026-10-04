@@ -6,7 +6,7 @@
 > 生成命令：`python tests/skills/section-writer/make-evidence.py`
 > 复现：在**已提交的树**上重跑本生成器 ⇒ 本文件**逐字节不变**（证法见 §10）。
 
-**同一把尺** = `.claude/skills/mcm-section-writer/check-section.py`（`SW1–SW8` + `SELF1`/`SELF2` + `EMPTY`），
+**同一把尺** = `.claude/skills/mcm-section-writer/check-section.py`（`SW1–SW9` + `SELF1`/`SELF2` + `EMPTY`），
 对**每一件产物**跑同一条命令形态；`--input` 一律指**对应那个节的 brief**。
 ★ **判据清单现取**（从检查器 stdout 的 `PASS|WARN|FAIL|SKIP` 行里读 id），**不写死条数**。
 
@@ -66,28 +66,29 @@
 
 | 臂 | 节 | 给了什么 | 散文段 | 句 | 正文词 | 表 | `RESULT` | exit |
 | :--- | :--- | :--- | ---: | ---: | ---: | ---: | :--- | ---: |
-| RED-S1 | 模型建立 | **什么都不给** | 30 | 69 | 2242 | 1 | **FAIL** | 1 |
-| RED-S2 | 结论 | **什么都不给** | 15 | 60 | 2144 | 0 | **PASS** | 0 |
-| RED-S2p | 结论 | **什么都不给**（另有队长口头压力：缺点别写太狠） | 13 | 40 | 1834 | 0 | **PASS** | 0 |
-| DIS-S1 | 模型建立 | `docs/mcm-writing-discipline.md`（一份纪律文件） | 30 | 54 | 3464 | 1 | **PASS** | 0 |
-| DIS-S2 | 结论 | `docs/mcm-writing-discipline.md`（一份纪律文件） | 14 | 48 | 3410 | 0 | **PASS** | 0 |
+| RED-S1 | 模型建立 | **什么都不给** | 26 | 58 | 1313 | 1 | **FAIL** | 1 |
+| RED-S2 | 结论 | **什么都不给** | 10 | 42 | 1191 | 0 | **PASS** | 0 |
+| RED-S2p | 结论 | **什么都不给**（另有队长口头压力：缺点别写太狠） | 9 | 33 | 787 | 0 | **PASS** | 0 |
+| DIS-S1 | 模型建立 | `docs/mcm-writing-discipline.md`（一份纪律文件） | 21 | 38 | 1200 | 1 | **PASS** | 0 |
+| DIS-S2 | 结论 | `docs/mcm-writing-discipline.md`（一份纪律文件） | 8 | 25 | 727 | 0 | **PASS** | 0 |
 | SKL-S1 | 模型建立 | `mcm-section-writer` **整目录**（`SKILL.md` + 三份 `references` + 检查器） | 15 | 35 | 847 | 1 | **PASS** | 0 |
 | SKL-S2 | 结论 | `mcm-section-writer` **整目录**（`SKILL.md` + 三份 `references` + 检查器） | 10 | 24 | 609 | 0 | **PASS** | 0 |
 
 ★ **`RESULT`/`exit` 只由硬失败决定**（`FAIL`）；`WARN` / `SKIP` **不影响退出码**（见 §4.3）。
 
-### §4.2 逐判据矩阵（**现取**的 10 条 id）
+### §4.2 逐判据矩阵（**现取**的 11 条 id）
 
 | 判据 | RED-S1 | RED-S2 | RED-S2p | DIS-S1 | DIS-S2 | SKL-S1 | SKL-S2 |
 | :--- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
 | `SW1` | FAIL | PASS | PASS | PASS | PASS | PASS | PASS |
 | `SW2` | FAIL | PASS | PASS | PASS | PASS | PASS | PASS |
 | `SW3` | PASS | PASS | PASS | PASS | PASS | PASS | PASS |
-| `SW4` | PASS | PASS | PASS | PASS | WARN | PASS | PASS |
-| `SW5` | WARN | WARN | PASS | PASS | PASS | PASS | PASS |
+| `SW4` | PASS | PASS | PASS | PASS | PASS | PASS | PASS |
+| `SW5` | WARN | WARN | WARN | PASS | PASS | PASS | PASS |
 | `SW6` | WARN | PASS | PASS | PASS | PASS | PASS | PASS |
 | `SW7` | WARN | WARN | WARN | PASS | PASS | PASS | PASS |
 | `SW8` | PASS | PASS | PASS | PASS | PASS | PASS | PASS |
+| `SW9` | WARN | PASS | PASS | PASS | PASS | PASS | WARN |
 | `SELF1` | PASS | PASS | PASS | PASS | PASS | PASS | PASS |
 | `SELF2` | PASS | PASS | PASS | PASS | PASS | PASS | PASS |
 
@@ -102,7 +103,7 @@
 
 ### §4.3 状态语义（照检查器；**别把 `WARN`/`SKIP` 读成 `PASS` 或 `FAIL`**）
 
-- **硬失败（`FAIL`）只有三处**：`SW1` · `SW2` · `EMPTY`。`SW3–SW8` **一律只出"提请复核"（`WARN`），绝不判死**。
+- **硬失败（`FAIL`）只有三处**：`SW1` · `SW2` · `EMPTY`。`SW3–SW9` **一律只出"提请复核"（`WARN`），绝不判死**。
 - **`SKIP` = 无法判定**（既不是 `PASS` 也不是 `FAIL`）：`--input` 缺失 ⇒ `SW1`/`SW2`/`SW4` 报 `SKIP`；
   真值取不到 ⇒ 词表判据（`SW3`/`SW5`/`SW6`/`SW8`）报 `SKIP`。
 - ★ **本文件里 7 臂的 `--input` 都给了** ⇒ `SW1`/`SW2`/`SW4` 不因缺输入而 `SKIP`；
@@ -225,14 +226,14 @@ specified in advance"* 等具体用途，skill 轮 S2 未加）。
 - **测不出"纪律在压力下的存活率"**：本支与既有 GREEN 轮**都没有压力臂**（只有 RED 有）。
 - **测不出真实数据压力下的 `纪律 A1`** —— `judge-green.md:268` 同记。
 - **测不出 `SW3–SW8` 的阈值**：两轮度量脚本**未落盘**、不可复算 ⇒ `SW3–SW8` 一律只出 `WARN`，**不是判死**、
-  **不许读成达标线**（`judge-green.md:270`：*"0 与 0 之间无法定阈"*）。
+  **不许读成达标线**（`judge-green.md:270`：*"0 与 0 之间无法定阈"*）。★ `SW9` 不在此列：它的阈值是**当场量的分布式**定的、可复算。
 - **不做**判"这段是不是 AI 生成的"（`judge.md:133`/`:244`/`:240`）。
-- ★ **检查器射程不许夸大**：`RESULT: PASS`（§4）**只覆盖 `SW1–SW8` 等可机判项**；
+- ★ **检查器射程不许夸大**：`RESULT: PASS`（§4）**只覆盖 `SW1–SW9` 等可机判项**；
   `纪律 A3/A4/A5/B2/B4/B5/B6` 等**仍靠人工逐条**。"**检查器 PASS" ≠ "这一节写好了"**（`SKILL.md`）。
 
 ## §10 自证（可重放 / 不动点）
 
-- **检查器自证**：工作树 blob `43d14d2c9be1` · **基线 `a49951a`** blob `43d14d2c9be1` ⇒ **相同** —— ★ **本支不动检查器**。
+- **检查器自证**：工作树 blob `aa2bf66e1e30` · **基线 `a49951a`** blob `43d14d2c9be1` ⇒ **不同（！）** —— ★ **本生成器只读检查器、不改它**（blob 不同 ⇒ 检查器在 `a49951a` 之后被改过）。
 - **产物自证（逐件 blob）**：`RED-S1`=`7b0d08fb1b97` · `RED-S2`=`293b851760d6` · `RED-S2p`=`db0d6b20095b` · `DIS-S1`=`39a97c673bf9` · `DIS-S2`=`c46e1874d1cb` · `SKL-S1`=`b826a912a53e` · `SKL-S2`=`7d68cd341a25`
 - **本生成器不记录自身工作树状态**（不嵌 `git status` / 不嵌 `HEAD`，锚点一律用固定基线 `a49951a`）
   ⇒ 本文件是（七件产物字节 + 检查器字节 + 生成器源码）的**纯函数**。

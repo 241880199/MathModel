@@ -28,7 +28,7 @@ tests/skills/section-writer/
 ## 1. 怎么跑
 
 ```bash
-# ① 变异驱动器：SW1–SW8 逐条证红 + 两条静态自检（SELF1/SELF2）证红 + "必须仍绿"的对照
+# ① 变异驱动器：SW1–SW9 逐条证红 + 两条静态自检（SELF1/SELF2）证红 + "必须仍绿"的对照
 python tests/skills/section-writer/mutate-section-writer.py
 
 # ② 直接跑检查器
@@ -75,6 +75,7 @@ python .claude/skills/mcm-section-writer/check-section.py --help
 | `SW6` | 自评式元话语数 | `WARN` | 读数出 `judge.md:237`；阈值 `2` = 本项目 `[社区]` 口径 |
 | `SW7` | 极短断言句 | `WARN` | `judge.md:308`（最短句 `<8` 词且 `≥3` 处；★ 极短句**下界 `2` 词** = 本项目 `[社区]` 口径，判词只给 `<8` 词） |
 | `SW8` | 可整体删除而信息量不变的句比 | `WARN` | `judge.md:311`（`≥15%`） |
+| `SW9` | 正文加粗密度（`纪律 §③ 加粗口径`：正文里**行内加粗**处数 ÷ **`SW9` 自己的正文词数** × 1000；★ 分母**不是**抬头那行 `正文词数=`，两者不同源、会差） | `WARN` | ★ **无判词出处**（本仓自订）：阈值 `5.0‰` = 当场量的三组分布定（RED 7.38 / GREEN 0.00 / 43 份 O 奖论文最大 4.28） |
 | `EMPTY` | 本节没有可检正文（**无散文行、无表**；**只有公式行也不够** —— "纯公式行"判法见下）⇒ fail-closed | **`FAIL`**（硬） | 本项目口径（**无对象不许判绿**） |
 | `SELF1` | 源码里不得出现四项明令不用的判据（`judge-green.md:202-208`） | `FAIL` | 工具对自己的静态自检 |
 | `SELF2` | 工具头部那段"压力臂局限"文字必须在场 | `FAIL` | 同上 |
@@ -83,13 +84,13 @@ python .claude/skills/mcm-section-writer/check-section.py --help
 
 - **硬失败（`FAIL`）只有三处**：`SW1`、`SW2`（★ **`SW2` 仅在"有具名外源"时判死**（与 `SW1` 同一合取口径）；
   **无具名外源**（一张**自算结果表**的常见形态）⇒ 只出 `WARN`）、`EMPTY`（无正文）。
-  `SW3`–`SW8` **一律只出"提请复核"（`WARN`），绝不判死**。
+  `SW3`–`SW9` **一律只出"提请复核"（`WARN`），绝不判死**。
 - `SKIP` = **无法判定**（不是 PASS，也不是 FAIL）：`--input` 缺失 ⇒ `SW1`/`SW2`/`SW4` 报 `SKIP`；
   真值取不到 ⇒ 词表判据（`SW3`/`SW5`/`SW6`/`SW8`）报 `SKIP`。
 - `EMPTY` = **本节没有可检正文（无散文行、无表；"只有公式行"也不够）** ⇒ **fail-closed `FAIL`** ——
   **不许**对"什么都没写"判 `PASS`（那会让"判据在无对象时不算失败"变成恒真）；
-  ★ **"只有公式、无散文无表"同样触发**：那种形态下 `SW1`/`SW2` 无表、`SW3`–`SW8` 无可切句
-  ⇒ **八条判据一条都检不了**。**一句 4 词的散文（`We use the following.`）仍算正文** ⇒ 不判 `EMPTY`。
+  ★ **"只有公式、无散文无表"同样触发**：那种形态下 `SW1`/`SW2` 无表、`SW3`–`SW9` 无可切句
+  ⇒ **九条判据一条都检不了**。**一句 4 词的散文（`We use the following.`）仍算正文** ⇒ 不判 `EMPTY`。
   ★ **"纯公式行"的判法**：一行掩掉**块级数学**、再抹掉**行内公式**后，**残留里没有一个字母（中英文均可）**
   ⇒ 判**纯公式行**（不算正文）—— ⇒ `$$ E=mc^2 $$.` 的残留只有 `.` ⇒ **仍判公式行**；
   而 `We obtain $T = 18743$ from the fit.` 残留含字母 ⇒ **仍是正文**（不许误伤）。（同一口径也写在工具头部与 `references/metrics.md`。）
@@ -97,7 +98,7 @@ python .claude/skills/mcm-section-writer/check-section.py --help
   （`equation`/`align`/`alignat`/`flalign`/`gather`/`multline`/`eqnarray`/`displaymath`/`math`/`split`/`cases`/`array`，
   及 `$$…$$` / `\[…\]`）；**自定义 / 未列出的环境可能不被识别** ⇒ 那一行可能被当成正文（**漏判 `EMPTY`**）。
 - **退出码**：有 `FAIL` ⇒ **非 0**；只有 `WARN`/`SKIP` ⇒ **0**（`WARN` 会在输出里显眼列出）。
-  ★ 把 `WARN` 做成非 0 = 把"提请复核"变成"判死" —— 驱动器里有 6 条变异**同时断言 `WARN` 时退出码 = 0**。
+  ★ 把 `WARN` 做成非 0 = 把"提请复核"变成"判死" —— 驱动器里有 7 条变异**同时断言 `WARN` 时退出码 = 0**。
 
 **各判据的口径与四条边界**（同一口径写在工具头部、`references/metrics.md` 与本文件三处，
 措辞冲突时以 `references/metrics.md` 为准）：
@@ -132,6 +133,7 @@ python .claude/skills/mcm-section-writer/check-section.py --help
 | `MUT-SW6` | 塞自评套话 | `SW6` → `WARN`（且 exit=0） |
 | `MUT-SW7` | 连续插入极短断言句 | `SW7` → `WARN`（且 exit=0） |
 | `MUT-SW8` | 塞可整句删除的元话语 | `SW8` → `WARN`（且 exit=0） |
+| `MUT-SW9` | 每个散文段加一处**行内加粗**（`**the X**`，句中短语） | `SW9` → `WARN`（且 exit=0） |
 | `MUT-SELF1` | 把明令不用的判据（举一项）**字面**写进工具源码副本 | `SELF1` → `FAIL` |
 | `MUT-SELF2` | 把工具头部那段"压力臂局限"文字**删掉** | `SELF2` → `FAIL` |
 | `CTRL-good-md` / `CTRL-good-tex` | 干净 `.md` / `.tex` 夹具（`.tex` 输入也要能吃） | 无变化（全 `PASS`） |
@@ -139,7 +141,7 @@ python .claude/skills/mcm-section-writer/check-section.py --help
 | `CTRL-selfcalc` | ★ 合法**自算结果表**（无外源、无标注串、数字搜不到） | `SW2` → `WARN`（**只提请复核**、exit=0），**不是** `FAIL` |
 | `CTRL-few-paras` | 段数 `<6` 时节节段末都写成总结句 | `SW3` **不得**出 `WARN`（`≥6 段` 是门） |
 | `CTRL-no-table` | 把表整段删掉 | `SW1`/`SW2` 报 `PASS`（无适用对象）而不是 `FAIL` |
-| `CTRL-truth-S1` / `CTRL-truth-S2` | ★ 真值两节 | **`SW3`–`SW8` 不得出 `WARN`** |
+| `CTRL-truth-S1` / `CTRL-truth-S2` | ★ 真值两节 | **`SW3`–`SW9` 不得出 `WARN`** |
 | `CTRL-no-input` | 不给 `--input` | `SW1`/`SW2`（+`SW4`）→ `SKIP`，**不许** `PASS` |
 | `CTRL-inline-formula-prose` | ★ H2-1 对照：含**行内公式**的散文行（`We obtain $T = 18743$ from the fit.`） | **不得**判 `EMPTY`（残留含字母 ⇒ 仍是正文）、`exit=0` |
 | `CTRL-unknown-section` | `--section` 给不认识的值 | fail-closed 红（退出码非 0） |
@@ -168,7 +170,7 @@ python .claude/skills/mcm-section-writer/check-section.py --help
    "**有具名外源**"才硬失败，此处**忠实判词**。（与 `references/metrics.md` §3 同一口径。）
 2. ★ **`SW1`/`SW2` 在真值 `true-S1.md` 上报 `FAIL` —— 这不是误报。** 真值那张 WHO 表的数字
    （40/38/75/…）**确实不在 `brief-S1.md` 里**（`judge.md` §4.1 同记：*"brief 要了表、要了数、没给数"*）。
-   ⇒ 真值对照**只断言任务书 E.2 要求的那六条**（`SW3`–`SW8` 不得出 `WARN`），**不**把 `SW1`/`SW2` 纳入断言面。
+   ⇒ 真值对照**断言 `SW3`–`SW9` 不得出 `WARN`**（任务书 E.2 要求的是其中 `SW3`–`SW8` 六条；`SW9` 为本工具后加的加粗密度），**不**把 `SW1`/`SW2` 纳入断言面。
    ⇒ 使用者须知：**`--input` 按设计 §1 的输入契约收"要点清单 + 已定稿的图表与结果"**
    （契约全文 = **题面 + 哪一节 + 该节要点清单 + 已定稿的图表与结果**；"哪一节"走 `--section`）——
    必须把"已定稿结果"一并带上，否则 `SW1`/`SW2` 会按"无出处"报红。
@@ -176,8 +178,12 @@ python .claude/skills/mcm-section-writer/check-section.py --help
    `true-S2 0.46×`），本工具的分母是**写手输入（要点清单）** ⇒ 两边**不同源、不可对齐**
    （判词那三个读数 1.7 / 3.3 / 2.2 与本工具的比值不同量级）；
    本工具只给"同一写手输入下横比"的量。★ 阈值 `4.0` 为本项目 `[社区]` 口径，**不是判词的线**。
-4. **`SW3`/`SW7`/`SW8` 是代理量**：段末"评价句"、极短"断言句"、"可整句删除"的判定都靠
-   可复核的启发式（线索词 / 词数 / 句首匹配），**不是语义判断**；口径写在全量打印的 detail 行里。
+4. **`SW3`/`SW7`/`SW8`/`SW9` 是代理量**：段末"评价句"、极短"断言句"、"可整句删除"的判定都靠
+   可复核的启发式（线索词 / 词数 / 句首匹配），`SW9` 靠"正文行内加粗处数 ÷ **`SW9` 自己的正文词数**"这一可复核的计数
+   （★ 分母**不是**抬头那行 `正文词数=`：抬头取自 `prose_paragraphs()`（已 `clean_math`、过 `<5` 词门），
+   `SW9` 取自 `sw9_body_lines()`（不剔公式行/短行）⇒ 两者不同源、RED-S1 上差约 19%；阈值在同一分母上标定，**不要换分母**）。
+   ★ "整行加粗 = 标签"**两种格式对等豁免**（Markdown `**…**` 独占一行 / LaTeX `\textbf{…}` 独占一行 均不计）。
+   —— **都不是语义判断**；口径写在全量打印的 detail 行里。
    `SW7` 会把数学残片、图表题注、纯数字行剔出去（否则 PDF 转换件的公式残片会被当成"极短断言句"）。
 5. **`.tex` 侧只覆盖 `table`/`tabular` 环境**；散在正文的 `\input` 进来的子文件**不读**（工具只读给定的一份节文件）。
 6. **不做**判"这段是不是 AI 生成的"（`judge.md:133` / `:244` / `:240`）；
@@ -208,6 +214,11 @@ python tests/skills/section-writer/make-evidence.py      # 产出 SECTIONWRITER-
 ★ **`green/` 里写了什么**：`out-S{1,2}-skill.tex`（写手交的 `.tex` 片段）· `out-S{1,2}-skill-selfcheck.md`（按节自查单）·
 `writer-run-check-S{1,2}.txt`（写手在**隔离容器**里跑检查器的**原始 stdout**，★ **里面的路径是容器路径**，
 仓库里不复现——它只是"写手确实跑过"的存证；权威读数以 `SECTIONWRITER-evidence.md` §4 的当场重跑为准）。
+★★ **这两个 `.txt` 是"当时工具的 stdout 快照，不代表当前的判据清单"**：它们是在 `SW9` 加入**之前**抓的，
+清单里只列到 `SW1–SW8`。★ **不要当成活体清单读**、**也不要据它判当前判据条数** ——
+当前判据清单以**当场跑检查器**（或 `SECTIONWRITER-evidence.md` §4.2 现取的条数）为准。
+★ **为什么不去重跑它**：重跑 = 用今天的工具覆盖当时的存证（篡改历史）—— 它是"那一刻确实跑过"的证据，
+  只许**加说明**、**不许改 txt 本身**。
 ★ **写手是谁**：**本会话新起的两个独立 agent（非 fork、无上下文）**，在**仓外容器** `D:/Projects/_scratch/m2-sw-green/`
 里干活，**只看到** `brief-S{1,2}.md` + `case-A-problem.txt` + skill 整目录。
 ★ **一个已知行为（不是故障）**：隔离容器里**没有 `tests/` 目录** ⇒ 检查器的词表自测（`边界 2`）取不到 `true-*`

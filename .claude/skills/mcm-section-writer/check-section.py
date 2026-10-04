@@ -14,9 +14,10 @@
   SW6  自评式元话语数（提请复核 · 读数出 `judge.md:237`；阈值 2 = 本项目 `[社区]` 口径）
   SW7  极短断言句（提请复核 · 出处 `judge.md:308`）
   SW8  可整体删除而信息量不变的句比（提请复核 · 出处 `judge.md:311`）
+  SW9  正文加粗密度（提请复核 · **无判词出处**；阈值 5.0‰ = 本仓当场量的三组分布定，见下）
 
 ★ **硬失败（`FAIL`）只有三处：`SW1`、`SW2`（★ 与 `SW1` 同一合取口径）、`EMPTY`（无正文）**；
-  `SW3`–`SW8` **一律只出"提请复核"（`WARN`）**，**绝不判死**。
+  `SW3`–`SW9` **一律只出"提请复核"（`WARN`）**，**绝不判死**。
 ★ **"检查器 PASS" ≠ "这一节写好了"** —— 它只判形式与可机判的那几项；
   `纪律 A3/A4/A5/B2/B4/B5/B6` 等条目**仍靠人工逐条**（同 `mcm-abstract` 的口径：工具只判形式）。
 ★ **本工具不判"这段是不是 AI 生成的"**（`judge.md:133` / `:244` / `:240`）。
@@ -30,7 +31,7 @@
   **对"什么都没写"判 `PASS` 是恒真型失效**（`SW1`/`SW2` 报"无适用对象"不算数）。
   ★ **触发线**：本节**没有任何"非空 ∧ 非标题 ∧ 非公式（数学行）"的行** **且无表** ——
   ⇒ **"只有公式、没有散文、也没有表"同样触发 `EMPTY`**：那种形态下 `SW1`/`SW2` 无表、
-  `SW3`–`SW8` 无可切句 ⇒ **八条判据一条都检不了**，判 `PASS` 就是"判据在什么都没验时报绿"。
+  `SW3`–`SW9` 无可切句 ⇒ **九条判据一条都检不了**，判 `PASS` 就是"判据在什么都没验时报绿"。
   「散文段 `<5` 词不进 `SW3`/`SW7` 统计」是**解析门**（那两条判据的射程），
   **与"本节有没有正文"是两件事** —— **一句 4 词的散文（`We use the following.`）仍算正文**（见 `content_lines()`）。
   ★ **"纯公式行"的判法（判据 = 残留里有没有 ≥1 个字母，中英文均可）**：该行掩掉**块级数学**、
@@ -91,6 +92,31 @@ RED 轮是分臂测的（`out-S2.md` 自由臂 vs `out-S2-p.md` 压力臂），
 **一律不出现在本工具里**；工具自带一条盯着自己的静态自检（`SELF1`），源码里出现其中任一项的字面即 `FAIL`。
 （本工具源码里连它们的**字面**都不留：那张清单按字元在运行时拼出，见 `_forbidden_tokens()`。）
 
+★ **`SW9`（正文加粗密度）的口径 —— 它没有判词出处，是本项目自订的"文风层"代理量**：
+  - **量什么**：**正文**里**行内加粗**的**处数** ÷ 正文词数 × 1000（‰，每千词）。两种格式**都认**：
+    Markdown `**…**`、LaTeX `\textbf{}` / `\bfseries`。
+  - **"正文"怎么切**：先剥掉（a）参考件包壳（`===== BEGIN VERBATIM` 之前）与（b）末尾那段
+    **`## 我的做法说明` 起**的自述（仓库口径：说明段不计入正文统计，见 `tests/skills/arch-cases/judge.md` 与
+    `judge-green.md`）；再**逐行**剔除 **标题行**、**表格行**、**表 / 图题标签行**（`**Table 1** …` 一类）、
+    以及**整行加粗**的行。★ **"整行加粗 = 标签"两种格式对等地豁免**：Markdown `**…**` 独占一行（`RE_WHOLE_BOLD`）
+    与 LaTeX `\textbf{…}` 独占一行（`RE_WHOLE_TEX_BOLD`）**同样不计**——同一视觉构造不许两种格式判定相反（复核 Minor-1）。
+    ⇒ 只有"**嵌在散文句里的加粗**"才计入 —— 这正是纪律 §③ 允许（标签位）与要压（行内强调）的那条分界。
+  - **阈值 `5.0‰` 怎么来的**（本仓"不设魔法阈值"：当场量三组，红侧 / 绿侧要能分开）：
+    | 组 | 件 | 读数（处 / 千词） |
+    | :-- | :-- | --: |
+    | RED（无纪律） | `tests/skills/arch-cases/out-S1.md` | **7.38** |
+    | GREEN（有纪律） | `tests/skills/arch-cases/out-S1-g.md` | **0.00** |
+    | 真值 | `true-S1.md` / `true-S2.md`（包壳之后） | **0.00** / **0.00** |
+    | 人写的 O 奖论文 | `corpus/papers/md/2025美赛O奖论文/` 全部 43 份（2025） | 中位 **0**；**最大 4.28** |
+    ⇒ 取 **5.0‰**：**> 人写样本最大值（4.28）**、**< RED（7.38）** ⇒ 分开红侧与绿侧。
+  - **复算命令**：对每件**跑本工具、读它打出的 `SW9` 行**即可 ——
+    RED：`python .claude/skills/mcm-section-writer/check-section.py tests/skills/arch-cases/out-S1.md --section 模型建立 --input tests/skills/arch-cases/brief-S1.md`；
+    GREEN：同式换 `out-S1-g.md`；真值：换 `true-S1.md --section 模型建立 --input brief-S1.md`（`true-S2.md --section 结论 --input brief-S2.md`）；
+    人写样本那 43 份：对 `corpus/papers/md/2025美赛O奖论文/*/*.md` 逐件跑 `--section 模型建立`、读 `SW9` 行的 ‰ 值（实测中位 `0`、最大 `4.28`）。
+  - **为什么仍只 `WARN`**：它是**文风层**代理量（与 `SW3`–`SW8` 同层），且红侧只有一个样本
+    ⇒ **提请复核、绝不判死**（硬失败仍只有 `SW1`/`SW2`/`EMPTY` 三处）。
+    ★ 与 `SW3`–`SW8` 的**一处不同**：本条的阈值**当场可复算**（上面那张表就是它的来历）。
+
 两条"关于本工具自己"的静态自检（`--selfcheck`；正常运行时也一并跑）
 ------------------------------------------------------------------
   SELF1  源码里不得出现那四项明令不用的判据（字面即红）。
@@ -121,6 +147,9 @@ SW7_SHORT_LOW = 2         # ★ [社区] 本项目自订阈值：判词 judge.md
 SW7_SHORT_MIN = 3         # judge.md:308 —— 且全节 ≥ 3 处
 SW8_RATIO_WARN = 0.15     # judge.md:311 —— ≥15% 的句子可整体删除而信息量不变 ⇒ 提请复核
 SW1_SW2_TRACE_MIN = 0.5   # ★ [社区] 本项目自订阈值："过半搜不到"（判词只有"一个都搜不到"）
+SW9_BOLD_DENSITY_WARN = 5.0  # ★ [社区] 本项目自订阈值，**无判词出处**：正文行内加粗处数 / 千词
+                             #   > 该值 ⇒ 提请复核。来历 = 当场量三组（RED 7.38 / GREEN 0.00 /
+                             #   43 份 O 奖论文最大 4.28）⇒ 取 5.0 分开红绿。见模块 docstring 的 SW9 块。
 
 # ★ 以下三条是**解析门**（决定"哪些内容进统计"），**不是判据线**（不判谁死谁活）——
 #   写成具名常量，免得被当成阈值读（本仓"编辑的涟漪必须与编辑同批处置"）：
@@ -177,6 +206,17 @@ RE_TEX_HEADING = re.compile(r"^\s*\\(?:section|subsection|subsubsection|paragrap
 RE_PIPE_ROW = re.compile(r"^\s*\|.*\|\s*$")
 RE_TABLE_CAP = re.compile(r"^\s*\*{0,2}(?:Table|Figure|Fig\.?)\s*\d", re.I)
 RE_TEX_CAPTION = re.compile(r"\\caption\s*\{")
+# SW9：正文里的**行内加粗**（两种格式都认）；以及"整行加粗"（= 标签，不计）
+RE_MD_BOLD = re.compile(r"\*\*(.+?)\*\*")          # Markdown `**…**`（非贪婪，一行内成对）
+RE_TEX_BOLD = re.compile(r"\\textbf\s*\{")          # LaTeX `\textbf{…}`
+RE_BFSERIES = re.compile(r"\\bfseries\b")           # LaTeX `\bfseries`
+RE_WHOLE_BOLD = re.compile(r"^\s*\*\*[^*].*\*\*\s*$")   # 整行就是 `**…**` ⇒ 章节 / 栏位标签，非行内强调
+# ★ LaTeX 侧的**对等**豁免：整行就是一个 `\textbf{…}`（前后只有空白）= 章节 / 栏位标签，非行内强调。
+#   与 `RE_WHOLE_BOLD` 对 Markdown 的处理**对等** —— 同一视觉构造不许两种格式判定相反（复核 Minor-1）；
+#   只豁免"独占一行"者：`\textbf{Label.} 后面还有散文` 那种**行内领起**仍计入（实测 `green/out-S2-skill.tex` 仍 WARN）。
+RE_WHOLE_TEX_BOLD = re.compile(r"^\s*\\textbf\s*\{.+\}\s*$")
+# SW9：末尾那段自述的起点（`## 我的做法说明` 一类）—— 仓库口径：说明段不计入正文统计
+RE_COMMENTARY_HEAD = re.compile(r"^\s*#{1,6}\s*我的做法说明")
 RE_TEX_TABLE_BEGIN = re.compile(r"\\begin\{(table|tabular)\*?\}")
 RE_TEX_TABLE_END = re.compile(r"\\end\{(table|tabular)\*?\}")
 RE_DOLLAR_BLOCK = re.compile(r"\$\$.*?\$\$", re.S)
@@ -283,6 +323,56 @@ def strip_reference_preamble(text):
     if not marks:
         return text
     return text[marks[-1].end():]
+
+
+def strip_commentary(text):
+    """切掉末尾那段自述（`## 我的做法说明` 起）—— 仓库口径：说明段**不计入正文统计**。
+
+    依据：`tests/skills/arch-cases/judge.md`（"说明段起不计入『论文措辞』的统计"）、
+    `judge-green.md` / `README.md` / `arch-green-evidence.md` 同口径（判据只读正文）。
+    ★ 没有该标题 ⇒ 原样返回（普通节文件不受影响）。`SW9` 只在**正文区间**内数加粗。
+    """
+    lines = text.split("\n")
+    for i, ln in enumerate(lines):
+        if RE_COMMENTARY_HEAD.match(ln):
+            return "\n".join(lines[:i])
+    return text
+
+
+def bold_spans(text):
+    """`text` 里**行内加粗**的处数：Markdown `**…**` + LaTeX `\\textbf{}` / `\\bfseries`。"""
+    return (len(RE_MD_BOLD.findall(text))
+            + len(RE_TEX_BOLD.findall(text))
+            + len(RE_BFSERIES.findall(text)))
+
+
+def sw9_body_lines(raw_lines, tables):
+    """`SW9` 量加粗时那一层**正文行**：剔掉表格区、标题行、表 / 图题标签行、整行加粗行。
+
+    ★ 保留的行**不做"纯公式行"过滤**（与 `content_lines()` 不同）：`SW9` 看的是散文里的加粗，
+      公式行里没有加粗、留着只影响分母一点；切法越简单越可复算。
+    ★ **整行加粗 = 标签**：Markdown `**…**` 与 LaTeX `\\textbf{…}` **两种格式对等地**豁免
+      （`RE_WHOLE_BOLD` / `RE_WHOLE_TEX_BOLD`）—— 同一视觉构造不许两种格式判定相反（复核 Minor-1）。
+    ★ **不声称穷尽**：整行加粗被当成"标签"排除 ⇒ 一份把**整段**都写成 `**…**`（或 `\\textbf{…}`）的产物会被漏计
+      （这是已知局限，见模块 docstring 的 SW9 块）；`\\bfseries` 的"整行"形态未定义（只按行内计）。
+    """
+    tbl = set()
+    for t in tables:
+        tbl.update(range(t["start"], t["end"] + 1))
+    kept = []
+    for i, ln in enumerate(raw_lines):
+        if i in tbl:
+            continue
+        if RE_HEADING.match(ln) or RE_TEX_HEADING.match(ln):
+            continue
+        if RE_PIPE_ROW.match(ln):
+            continue
+        if RE_TABLE_CAP.match(ln):
+            continue
+        if RE_WHOLE_BOLD.match(ln) or RE_WHOLE_TEX_BOLD.match(ln):
+            continue
+        kept.append(ln)
+    return kept
 
 
 def clean_math(text):
@@ -489,7 +579,7 @@ def content_lines(raw_text):
 
     ★ 口径：**只把"非空 ∧ 非标题 ∧ 非公式"的行算作正文** ⇒
       **"只有公式、没有散文、也没有表" ⇒ 无正文 ⇒ `EMPTY` 触发**（fail-closed）：
-      那种形态下 `SW1`/`SW2` 无表、`SW3`–`SW8` 无可切句 ⇒ **八条判据一条都检不了**，
+      那种形态下 `SW1`/`SW2` 无表、`SW3`–`SW9` 无可切句 ⇒ **九条判据一条都检不了**，
       判 `PASS` 就是"判据在什么都没验时报绿"（本仓最恨的恒真型失效）。
     ★ **与 `prose_paragraphs()` 的 `<5` 词下限是两件事**：
       「散文段 `<5` 词不进 `SW3`/`SW7` 统计」是**解析门**（那两条判据的射程）；
@@ -551,7 +641,7 @@ def truth_lexicon_hits(truth):
 
 
 # --------------------------------------------------------------------------
-# 八条判据
+# 九条判据
 # --------------------------------------------------------------------------
 
 def judge(text, raw_lines, tables, paras, input_text, lex_hits):
@@ -707,6 +797,20 @@ def judge(text, raw_lines, tables, paras, input_text, lex_hits):
         out.append(("SW8", "WARN" if ratio >= SW8_RATIO_WARN else "PASS",
                     "可整体删除句 %d/%d = %.1f%%（提请复核线 ≥%.0f%%）"
                     % (len(rm), len(sents), ratio * 100, SW8_RATIO_WARN * 100)))
+
+    # ---------------- SW9 ----------------
+    # 正文行内加粗密度（无判词出处 · [社区] 自订；只出提请复核）。口径与阈值来历见模块 docstring。
+    body9 = "\n".join(sw9_body_lines(raw_lines, tables))
+    n_bold = bold_spans(body9)
+    bold_words = count_words(body9)
+    if bold_words <= 0:
+        out.append(("SW9", "SKIP", "'无法判定'：正文行词数为 0（无可量加粗的正文区间）"))
+    else:
+        dens = n_bold / bold_words * 1000.0
+        out.append(("SW9", "WARN" if dens > SW9_BOLD_DENSITY_WARN else "PASS",
+                    "正文行内加粗 %d 处 / %d 词 = %.2f‰"
+                    "（提请复核线 > %.1f‰ [社区] 本项目自订；★ 无判词出处，阈值来历见 docstring 的 SW9 块）"
+                    % (n_bold, bold_words, dens, SW9_BOLD_DENSITY_WARN)))
     return out
 
 
@@ -751,6 +855,9 @@ def print_boundaries():
     print("边界 1（阈值不可复算）: SW3–SW8 的阈值全部出自判词读数，两轮度量脚本未落盘 "
           "⇒ 不可重跑、不可复算 ⇒ 一律只出『提请复核』，绝不判死；不许读成『达标线』"
           "（judge-green.md:270：『0 与 0 之间无法定阈』）。")
+    print("  ★ SW9 不在此列：它的阈值是**本项目当场量的分布**定的（RED 7.38 / GREEN 0.00 / "
+          "43 份 O 奖论文最大 4.28 ⇒ 取 5.0‰），可复算；但仍属文风层、只出『提请复核』"
+          "（来历见工具头部 docstring 的 SW9 块）。")
     print("边界 2（词表先自测）: 见上方『词表自测』行；真值命中 ⇒ 该项降级为不可判，"
           "不得据此判产物有罪（judge.md:238）。")
     print("边界 3（压力臂）: 压力臂与自由臂必须分别设阈 —— 本工具做不到"
@@ -776,7 +883,7 @@ def do_selfcheck():
 
 def main(argv=None):
     ap = argparse.ArgumentParser(
-        description="MCM/ICM 逐节写作自检：SW1–SW8（SW1/SW2 硬失败；SW3–SW8 只出提请复核）"
+        description="MCM/ICM 逐节写作自检：SW1–SW9（SW1/SW2 硬失败；SW3–SW9 只出提请复核）"
                     "；硬失败另含 EMPTY（本节无可检正文）",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="示例:\n"
@@ -825,6 +932,7 @@ def main(argv=None):
 
     raw_text, enc = read_text(sec_path)
     raw_text = strip_reference_preamble(raw_text)
+    raw_text = strip_commentary(raw_text)
     raw_lines = raw_text.split("\n")
     tables = find_tables(raw_lines)
     paras = prose_paragraphs(raw_text, tables)
@@ -832,7 +940,7 @@ def main(argv=None):
     # ---- F5 / H1：没有可检正文（无散文行、无表）⇒ fail-closed 红 ------------------
     # ★ 不许对"什么都没写"判 `PASS` —— 那会让"判据在无对象时不算失败"变成恒真。
     # ★ 触发线看的是**行**（`content_lines()`）：**非空 ∧ 非标题 ∧ 非公式** 的行才算正文。
-    #   ⇒ "只有公式、无散文、无表" 也判 EMPTY（那种形态八条判据一条都检不了）；
+    #   ⇒ "只有公式、无散文、无表" 也判 EMPTY（那种形态九条判据一条都检不了）；
     #   而一句 4 词的散文（`We use the following.`）**算正文** ⇒ 不判 EMPTY（`<5` 词只是解析门）。
     body = content_lines(raw_text)
     if not body and not tables:
@@ -855,7 +963,7 @@ def main(argv=None):
 
     # ---- 抬头 ----
     print(RULE)
-    print("check-section.py · mcm-section-writer · SW1–SW8")
+    print("check-section.py · mcm-section-writer · SW1–SW9")
     print(RULE)
     print("文件=%s" % sec_path.resolve())
     print("编码=%s" % enc)

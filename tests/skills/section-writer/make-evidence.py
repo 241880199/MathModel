@@ -8,7 +8,7 @@
 
 把**三个工况（七件产物）**摆成一张可读的对照表，**同一把尺**地量：
 
-- **同一把尺** = `.claude/skills/mcm-section-writer/check-section.py`（判据 `SW1–SW8` + `SELF1`/`SELF2` + `EMPTY`）。
+- **同一把尺** = `.claude/skills/mcm-section-writer/check-section.py`（判据 `SW1–SW9` + `SELF1`/`SELF2` + `EMPTY`）。
   对**每一件产物**跑同一条命令形态；`--input` 一律指**对应那个节的 brief**。
 - **三臂**（详见 `SECTIONWRITER-evidence.md` §1）：
   - **RED**（`out-S1.md` / `out-S2.md` / `out-S2-p.md`）：**什么都不给**；
@@ -59,7 +59,7 @@ RESULT_RE = re.compile(r"^RESULT:\s*(PASS|FAIL)")
 SIZE_RE = re.compile(r"散文段数=(\d+)\s*·\s*句子数=(\d+)\s*·\s*正文词数=(\d+)\s*·\s*检出表格=(\d+)")
 LEX_RE = re.compile(r"^词表自测.*?:\s*(.+)$")
 
-ID_ORDER = ["SW1", "SW2", "SW3", "SW4", "SW5", "SW6", "SW7", "SW8",
+ID_ORDER = ["SW1", "SW2", "SW3", "SW4", "SW5", "SW6", "SW7", "SW8", "SW9",
             "SELF1", "SELF2", "EMPTY"]
 
 
@@ -132,7 +132,7 @@ def main():
     a('> 生成命令：`python tests/skills/section-writer/make-evidence.py`')
     a('> 复现：在**已提交的树**上重跑本生成器 ⇒ 本文件**逐字节不变**（证法见 §10）。')
     a('')
-    a('**同一把尺** = `.claude/skills/mcm-section-writer/check-section.py`（`SW1–SW8` + `SELF1`/`SELF2` + `EMPTY`），')
+    a('**同一把尺** = `.claude/skills/mcm-section-writer/check-section.py`（`SW1–SW9` + `SELF1`/`SELF2` + `EMPTY`），')
     a('对**每一件产物**跑同一条命令形态；`--input` 一律指**对应那个节的 brief**。')
     a('★ **判据清单现取**（从检查器 stdout 的 `PASS|WARN|FAIL|SKIP` 行里读 id），**不写死条数**。')
     a('')
@@ -219,7 +219,7 @@ def main():
     a('')
     a('### §4.3 状态语义（照检查器；**别把 `WARN`/`SKIP` 读成 `PASS` 或 `FAIL`**）')
     a('')
-    a('- **硬失败（`FAIL`）只有三处**：`SW1` · `SW2` · `EMPTY`。`SW3–SW8` **一律只出"提请复核"（`WARN`），绝不判死**。')
+    a('- **硬失败（`FAIL`）只有三处**：`SW1` · `SW2` · `EMPTY`。`SW3–SW9` **一律只出"提请复核"（`WARN`），绝不判死**。')
     a('- **`SKIP` = 无法判定**（既不是 `PASS` 也不是 `FAIL`）：`--input` 缺失 ⇒ `SW1`/`SW2`/`SW4` 报 `SKIP`；')
     a('  真值取不到 ⇒ 词表判据（`SW3`/`SW5`/`SW6`/`SW8`）报 `SKIP`。')
     a('- ★ **本文件里 7 臂的 `--input` 都给了** ⇒ `SW1`/`SW2`/`SW4` 不因缺输入而 `SKIP`；')
@@ -352,9 +352,9 @@ def main():
     a('- **测不出"纪律在压力下的存活率"**：本支与既有 GREEN 轮**都没有压力臂**（只有 RED 有）。')
     a('- **测不出真实数据压力下的 `纪律 A1`** —— `judge-green.md:268` 同记。')
     a('- **测不出 `SW3–SW8` 的阈值**：两轮度量脚本**未落盘**、不可复算 ⇒ `SW3–SW8` 一律只出 `WARN`，**不是判死**、')
-    a('  **不许读成达标线**（`judge-green.md:270`：*"0 与 0 之间无法定阈"*）。')
+    a('  **不许读成达标线**（`judge-green.md:270`：*"0 与 0 之间无法定阈"*）。★ `SW9` 不在此列：它的阈值是**当场量的分布式**定的、可复算。')
     a('- **不做**判"这段是不是 AI 生成的"（`judge.md:133`/`:244`/`:240`）。')
-    a('- ★ **检查器射程不许夸大**：`RESULT: PASS`（§4）**只覆盖 `SW1–SW8` 等可机判项**；')
+    a('- ★ **检查器射程不许夸大**：`RESULT: PASS`（§4）**只覆盖 `SW1–SW9` 等可机判项**；')
     a('  `纪律 A3/A4/A5/B2/B4/B5/B6` 等**仍靠人工逐条**。"**检查器 PASS" ≠ "这一节写好了"**（`SKILL.md`）。')
     a('')
 
@@ -364,8 +364,9 @@ def main():
     wt = git_blob(rel(CHK))
     base = subprocess.run(["git", "rev-parse", BASE_REF + ":" + rel(CHK)],
                           cwd=str(REPO), capture_output=True, text=True, encoding="utf-8").stdout.strip()
-    a("- **检查器自证**：工作树 blob `%s` · **基线 `%s`** blob `%s` ⇒ %s —— ★ **本支不动检查器**。"
-      % (wt[:12], BASE_REF, base[:12], "**相同**" if wt == base else "**不同（！）**"))
+    a("- **检查器自证**：工作树 blob `%s` · **基线 `%s`** blob `%s` ⇒ %s —— ★ **本生成器只读检查器、不改它**"
+      "（blob 不同 ⇒ 检查器在 `%s` 之后被改过）。"
+      % (wt[:12], BASE_REF, base[:12], "**相同**" if wt == base else "**不同（！）**", BASE_REF))
     a("- **产物自证（逐件 blob）**：" + " · ".join("`%s`=`%s`" % (r["tag"], r["blob"][:12]) for r in rows))
     a("- **本生成器不记录自身工作树状态**（不嵌 `git status` / 不嵌 `HEAD`，锚点一律用固定基线 `%s`）" % BASE_REF)
     a('  ⇒ 本文件是（七件产物字节 + 检查器字节 + 生成器源码）的**纯函数**。')

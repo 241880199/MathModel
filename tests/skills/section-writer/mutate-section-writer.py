@@ -10,7 +10,7 @@
 **本工具自己的源码**各取一份副本**逐条改坏**（当场改、当场跑、当场判、然后收走），
 断言检查器**点名红在该条判据上**；另设**必须仍绿**的射程边界对照。
 
-**每条判据 `SW1`–`SW8` 至少一条真红作证**，两条静态自检（`SELF1`/`SELF2`）各一条真红作证
+**每条判据 `SW1`–`SW9` 至少一条真红作证**，两条静态自检（`SELF1`/`SELF2`）各一条真红作证
 （本仓硬规矩：判据只能从失败方向证明）。
 
 - **判据本体不动**：驱动器**调 skill 目录那一份**（`.claude/skills/mcm-section-writer/check-section.py`），
@@ -21,7 +21,7 @@
 - **判据清单现取**：先把检查器在**干净夹具**上跑一遍、把 `PASS|WARN|FAIL|SKIP  <id>` 行读成 id 集合，
   **再并上"空节夹具"的输出**（`EMPTY` 只在空节路径出现，不并进来它永远进不了清单 —— 见下），
   拿这个并集当"全部判据"。变异若点名了**不在现取集合里**的判据 ⇒ 该条直接判失败（防"打错靶子还报绿"）。
-  ★ **这条断言不恒真**：驱动器自带一条**自证** —— 造一个点名**清单外**判据（`SW9`）的假 Case，
+  ★ **这条断言不恒真**：驱动器自带一条**自证** —— 造一个点名**清单外**判据（`SW99`）的假 Case，
   断言它**必被** `_bad_target_ids()` 抓到；抓不到即 `rc≠0`（防"白名单把断言架空"）。
 - ★ **`WARN` 不许做成非 0**：每条 `WARN` 变异**同时断言退出码 = 0**（这条正是任务书 C 的硬要求）。
 
@@ -42,12 +42,15 @@
 | `MUT-SW6` | 塞自评套话（`the purpose of this section` / `worth stating`） | `SW6` → `WARN` |
 | `MUT-SW7` | 连续插入极短断言句（4 词 × 多段） | `SW7` → `WARN` |
 | `MUT-SW8` | 塞可整句删除的元话语（`Taken together, …`，占比 ≥15%） | `SW8` → `WARN` |
+| `MUT-SW9` | 每个散文段加一处**行内加粗**（`**the X**`，句中短语） | `SW9` → `WARN` |
+| `MUT-SW9TEX` | **LaTeX 侧**行内加粗（`\textbf{the X}`，句中短语） | `SW9` → `WARN` |
 | `MUT-SELF1` | 把明令不用的判据（举例之一）**字面**写进工具源码副本 | `SELF1` → `FAIL` |
 | `MUT-SELF2` | 把工具头部那段**压力臂局限文字删掉** | `SELF2` → `FAIL` |
 | `CTRL-good-md` | 射程边界：干净 `.md` 夹具（含带出处的表） | （无变化） |
 | `CTRL-good-tex` | 射程边界：干净 `.tex` 夹具（`.tex` 输入也要能吃） | （无变化） |
 | `CTRL-prose-edit` | 射程边界：只改一句普通散文（不碰表 / 词表 / 句长） | （无变化） |
 | `CTRL-selfcalc` | ★ 合法**自算结果表**（无外源、无标注串、数字搜不到） | `SW2` → `WARN`（**只提请复核**、退出码 0） |
+| `CTRL-tex-wholebold-label` | ★ LaTeX 侧**独占一行**的 `\textbf{Data sources}` = 标签（与 Markdown `**…**` 独占一行**对等**） | （无变化：`SW9` 不得 `WARN`） |
 | `CTRL-truth-S1` | ★ 真值 `true-S1.md` —— **`SW3`–`SW8` 不得出 `WARN`** | `SW3`–`SW8` ≠ `WARN` |
 | `CTRL-truth-S2` | ★ 真值 `true-S2.md` —— **`SW3`–`SW8` 不得出 `WARN`** | `SW3`–`SW8` ≠ `WARN` |
 | `CTRL-no-input` | `--input` 缺失 ⇒ `SW1`/`SW2` 必须报**"无法判定"**（`SKIP`），**不许报 `PASS`** | `SW1`,`SW2` → `SKIP` |
@@ -87,7 +90,7 @@ STATUS_RE = re.compile(r"^(PASS|WARN|FAIL|SKIP)\s+(\S+)\s")
 # ★ `EMPTY` 必须在 `IDS` 里：它是 README §2 列为判据的那一条（fail-closed 硬失败）。
 #   它只在**空节路径**出现（见 `check-section.py` 的 `main()`），干净夹具上不出现 ⇒
 #   现取 `criteria` 时要把**空节夹具的输出**并进来，否则 `EMPTY` 永远进不了清单（G2）。
-IDS = ["SW1", "SW2", "SW3", "SW4", "SW5", "SW6", "SW7", "SW8", "SELF1", "SELF2", "EMPTY"]
+IDS = ["SW1", "SW2", "SW3", "SW4", "SW5", "SW6", "SW7", "SW8", "SW9", "SELF1", "SELF2", "EMPTY"]
 
 # --------------------------------------------------------------------------
 # 夹具（B 用；**不落入库件**，只写 build/）
@@ -211,7 +214,7 @@ PAD_PARA = ("The survey team records every depth with the same instrument, and t
 
 # F5 / H1：三种"没有可检正文"的夹具（空文件 / 只有标题 / **只有公式**）——
 #   都必须至少 FAIL，不许 `RESULT: PASS`（"只有公式"那种形态下 `SW1`/`SW2` 无表、
-#   `SW3`–`SW8` 无可切句 ⇒ 八条判据一条都检不了，判 `PASS` 就是恒真型失效）。
+#   `SW3`–`SW9` 无可切句 ⇒ 九条判据一条都检不了，判 `PASS` 就是恒真型失效）。
 EMPTY_MD = ""
 HEADONLY_MD = "## 5 Solution and results\n"
 FORMULA_ONLY_MD = "## 4.1 Model\n\n$$ E = m c^2 $$\n"
@@ -368,6 +371,45 @@ def _pad(n):
     return f
 
 
+def _bold_inline():
+    """给**每个散文段**加一处**行内**加粗（句中短语，`**the X**`）⇒ 把正文加粗密度推过 5.0‰。
+
+    ★ 只动加粗：`**` 不是词、不进任何词表、不改分句 ⇒ 除 `SW9` 外其余判据的读数不变。
+    ★ 是**行内**（加粗后面还有字，整行不是 `**…**`）⇒ 不被"整行加粗 = 标签"那条豁免掉。
+    """
+    def mut(b):
+        new, n = re.subn(r"(?<![\w*])(the [a-z]+)(?![a-z])", r"**\1**", b, count=1)
+        return new if n else b          # 段里没有 "the X" ⇒ 原样（不该发生，但不炸）
+    return _per_para(mut)
+
+
+def _bold_inline_tex():
+    """`\\textbf` 版的行内加粗（**LaTeX 侧**，与 `_bold_inline()` 对等）⇒ 打 `SW9`。
+
+    ★ 证明 **LaTeX 加粗这条路真的在计**：把"整行 `\\textbf{…}` = 标签"豁免加进来之后，
+      若豁免写得太宽、把 LaTeX 侧全吞掉，这条就会**该红不红**当场暴露（防豁免变恒真）。
+    """
+    def mut(b):
+        new, n = re.subn(r"(?<![\w*{])(the [a-z]+)(?![a-z])",
+                         lambda m: "\\textbf{" + m.group(1) + "}", b, count=1)
+        return new if n else b
+    return _per_para(mut)
+
+
+def _tex_wholebold_label(src):
+    """插一行**独占一行**的 `\\textbf{Data sources}`（= LaTeX 侧的"标签位"）⇒ 不得改变任何判据。
+
+    ★ 与 Markdown 的"`**…**` 独占一行 = 标签"**对等**（复核 Minor-1）：同一视觉构造两种格式判定必须一致。
+      插成**独立段落**（前后空行）⇒ 该块只有 3 词、被 `PARSE_MIN_PARA_WORDS` 门挡在 `SW3/SW4` 之外；
+      而 `SW9` 靠"整行 `\\textbf{…}` = 标签"把它排除 ⇒ **全判据读数应与基准逐条相同**。
+      这条若在（未豁免的）旧工具上是 `SW9` → `WARN`，正是 Minor-1 那个"两种格式判定相反"的病。
+    """
+    anchor = "\\subsection{Wear volume and the tread surface}"
+    if anchor not in src:
+        raise AssertionError("tex 夹具里找不到可锚定的小节标题")
+    return src.replace(anchor, anchor + "\n\n\\textbf{Data sources}")
+
+
 # --------------------------------------------------------------------------
 # 变异清单
 # --------------------------------------------------------------------------
@@ -422,7 +464,7 @@ def cases():
                   "（旧口径『残留非空』会把它救活 ⇒ 判绿）",
                   "formulaperiod.md", None, "good", {"EMPTY": "FAIL"}, "nonzero", kind="empty"))
 
-    # ---- SW3–SW8：WARN（★ 同时断言退出码 = 0）----
+    # ---- SW3–SW9：WARN（★ 同时断言退出码 = 0）----
     R.append(Case("MUT-SW3", "把每一段末尾都补成『评价/格言』句（9 段全中）",
                   "good.md", _append("That is what makes the model worth trusting."),
                   "good", {"SW3": "WARN"}, "zero"))
@@ -441,6 +483,12 @@ def cases():
     R.append(Case("MUT-SW8", "塞可整句删除的元话语（`Taken together, …`，占比 ≥15%）",
                   "good.md", _insert_mid("Taken together, the two components describe the same process."),
                   "good", {"SW8": "WARN"}, "zero"))
+    R.append(Case("MUT-SW9", "每个散文段加一处**行内加粗**（`**the X**`，句中短语）"
+                  "⇒ 正文加粗密度越过提请复核线",
+                  "good.md", _bold_inline(), "good", {"SW9": "WARN"}, "zero"))
+    R.append(Case("MUT-SW9TEX", "**LaTeX 侧**行内加粗（`\\textbf{the X}`，句中短语）"
+                  "⇒ `SW9` 必须仍红（证明『整行 `\\textbf{…}` = 标签』的豁免没把 LaTeX 侧全吞掉）",
+                  "good.tex", _bold_inline_tex(), "good", {"SW9": "WARN"}, "zero"))
 
     # ---- 两条静态自检：打工具自己的源码副本 ----
     R.append(Case("MUT-SELF1", "把明令不用的判据（举例之一）字面写进工具源码副本",
@@ -479,6 +527,10 @@ def controls():
                   "★ 合法自算结果表（无外源、无标注串、数字搜不到）⇒ `SW2` 只 `WARN`、退出码 0"
                   "（判词该『提请复核』的情形不许做成『判死』）",
                   "good.md", _to_selfcalc, "good", {"SW2": "WARN"}, "zero", kind="green"))
+    C.append(Case("CTRL-tex-wholebold-label",
+                  "★ 豁免对等（复核 Minor-1）：LaTeX 侧**独占一行**的 `\\textbf{Data sources}` = 标签 ⇒ "
+                  "**全判据读数与基准逐条相同**（`SW9` 不得 WARN）—— 与 Markdown 的 `**…**` 独占一行判定一致",
+                  "good.tex", _tex_wholebold_label, "good", {}, "zero", kind="green"))
     C.append(Case("CTRL-few-paras", "射程边界：段数 < 6 时节节段末都写成总结句，SW3 也**不得**出 WARN"
                   "（判词 309 的 `≥6 段` 是一道门）",
                   "few.md", _append("That is what makes the model worth trusting."),
@@ -493,9 +545,9 @@ def controls():
                   "★ H2-1 对照：含**行内公式**的散文行（`We obtain $T = 18743$ from the fit.`）"
                   "⇒ **不得**判 EMPTY（残留含字母 ⇒ 仍是正文）、exit=0",
                   "inlineformula.md", None, "good", {}, "zero", kind="nonempty"))
-    C.append(Case("CTRL-truth-S1", "★ 真值 true-S1.md —— SW3–SW8 不得出 WARN",
+    C.append(Case("CTRL-truth-S1", "★ 真值 true-S1.md —— SW3–SW9 不得出 WARN",
                   "truth-S1", None, "brief-S1", {}, "any", kind="truth"))
-    C.append(Case("CTRL-truth-S2", "★ 真值 true-S2.md —— SW3–SW8 不得出 WARN",
+    C.append(Case("CTRL-truth-S2", "★ 真值 true-S2.md —— SW3–SW9 不得出 WARN",
                   "truth-S2", None, "brief-S2", {}, "any", kind="truth"))
     C.append(Case("CTRL-no-input", "`--input` 缺失 ⇒ SW1/SW2 必须报『无法判定』（SKIP），不许报 PASS"
                   "（SW4 的分母也在 --input 上 ⇒ 一并 SKIP）",
@@ -512,7 +564,7 @@ def controls():
 
 def main():
     print("=" * 78)
-    print("变异驱动器 · check-section.py（mcm-section-writer）：判据 SW1–SW8 逐条打红 "
+    print("变异驱动器 · check-section.py（mcm-section-writer）：判据 SW1–SW9 逐条打红 "
           "+ SELF1/SELF2 打红 + %d 条对照" % len(controls()))
     print("=" * 78)
     print("检查器 = %s  blob %s" % (CHK.relative_to(ROOT).as_posix(), git_hash_object(CHK)))
@@ -573,10 +625,11 @@ def main():
 
     rows, ctrl_rows, failed = [], [], []
     bad_target = _bad_target_ids(cases() + controls(), criteria)
-    # ★ G2 自证：「点名清单外的判据」这句断言**不恒真** —— 造一个点名**清单外**判据（`SW9`）的
+    # ★ G2 自证：「点名清单外的判据」这句断言**不恒真** —— 造一个点名**清单外**判据（`SW99`）的
     #   假 Case，它必须被 `_bad_target_ids()` 抓到；抓不到 ⇒ 断言已被架空（并入 rc_all ⇒ fail-closed 红）。
-    _probe = Case("__PROBE_OUT_OF_LIST__", "(自证) 点名清单外的判据 SW9", "good.md", None,
-                  "good", {"SW9": "FAIL"}, "zero", kind="red")
+    #   ★ 冒烟器用 `SW99`（不是 `SW9`）：`SW9` 自本任务起**已进现取清单**，拿它当"清单外"样本会恒不成立。
+    _probe = Case("__PROBE_OUT_OF_LIST__", "(自证) 点名清单外的判据 SW99", "good.md", None,
+                  "good", {"SW99": "FAIL"}, "zero", kind="red")
     bad_target_probe = _bad_target_ids([_probe], criteria)
     bad_target_probe_ok = (bad_target_probe == ["__PROBE_OUT_OF_LIST__"])
 
@@ -640,7 +693,7 @@ def main():
     print("合计")
     print("=" * 78)
     print("MUT: %d/%d 达预期（判据打红：SW1 出处 / SW2 标注 / SW3 段末 / SW4 膨胀 / "
-          "SW5 对比式 / SW6 自评 / SW7 短句 / SW8 可删句）%s"
+          "SW5 对比式 / SW6 自评 / SW7 短句 / SW8 可删句 / SW9 加粗密度（md 侧 + LaTeX 侧））%s"
           % (n_mut - len(fail_mut), n_mut,
              "" if not fail_mut else "（未达预期：%s）" % ", ".join(fail_mut)))
     print("MUT: %d/%d 达预期（静态自检打红：SELF1 禁用项入源码 / SELF2 局限文字被删）%s"
@@ -655,7 +708,7 @@ def main():
           % (n_nonempty - len(fail_nonempty), n_nonempty,
              "" if not fail_nonempty else "（未达预期：%s）" % ", ".join(fail_nonempty)))
     print("MUT: 对照 %d/%d 达预期（必须绿：干净 md / 干净 tex / 散文微改 / 自算结果表 SW2 只 WARN / "
-          "真值两节不出 WARN / --input 缺失报不可判 / --section 未知 fail-closed）%s"
+          "LaTeX 整行标签不误报 / 真值两节不出 WARN / --input 缺失报不可判 / --section 未知 fail-closed）%s"
           % (n_ctl - len(fail_ctl), n_ctl,
              "" if not fail_ctl else "（未达预期：%s）" % ", ".join(fail_ctl)))
     total = n_mut + n_self + n_empty + n_nonempty + n_ctl
@@ -750,11 +803,11 @@ def run_case(c, targets, inputs, SECT, base_md, criteria, truth_input=None):
         rc, out, verdict = run_checker(sec, section_name, inp)
         actual = {i: verdict.get(i) for i in criteria}
         if c.kind == "truth":
-            bad = [i for i in ("SW3", "SW4", "SW5", "SW6", "SW7", "SW8")
+            bad = [i for i in ("SW3", "SW4", "SW5", "SW6", "SW7", "SW8", "SW9")
                    if actual.get(i) == "WARN"]
             ok = not bad
             note = "" if ok else "   <<< 真值上出了 WARN：%s" % bad
-            detail = ("对象：%s（--input %s）\n      期望 = SW3–SW8 均不出 WARN · "
+            detail = ("对象：%s（--input %s）\n      期望 = SW3–SW9 均不出 WARN · "
                       "实得 = %s %s\n" % (c.target, c.input_file, actual, note)
                       + _raw("check-section.py %s --section %s --input %s"
                              % (tgt.name, SECT, c.input_file), rc, out))
@@ -775,7 +828,8 @@ def run_case(c, targets, inputs, SECT, base_md, criteria, truth_input=None):
             ok = all(actual.get(i) == want.get(i) for i in criteria)
             if c.expect_rc == "zero" and c.kind == "green":
                 ok = ok and rc == 0
-            if cid in ("MUT-SW3", "MUT-SW4", "MUT-SW5", "MUT-SW6", "MUT-SW7", "MUT-SW8"):
+            if cid in ("MUT-SW3", "MUT-SW4", "MUT-SW5", "MUT-SW6", "MUT-SW7", "MUT-SW8",
+                       "MUT-SW9"):
                 ok = ok and rc == 0           # ★ WARN 不许做成非 0
             note = "" if ok else "   <<< 期望 %s · 实得 %s（exit=%d）" % (want, actual, rc)
         st = ("RED-OK" if rank(c) == "red" else "GREEN-OK") if ok else \
