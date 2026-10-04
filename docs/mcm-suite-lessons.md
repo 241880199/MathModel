@@ -123,7 +123,7 @@
    唯一仍缺的是 **`corpus/templates/`（论文与绘图模板）**——M6 的另一半。进度见 `docs/mcm-suite-todo.md` §A。
 3. **Word 用户的适用性未覆盖。** 官方同时提供 Word 模板（`INDEX.md` §1.1 收录 `.docx`），而三个 skill 均假定稿件为 LaTeX；`mcm-selfreview` 的 A3/A15 判据含 LaTeX 专有表述（`\Team`/`\Problem` 宏），对 Word 用户不可执行。设计文档已声明"论文载体 LaTeX"，属**已声明的取舍**，但宜在使用时留意。
 4. **未做的模块**：M1 赛程编排（含"交稿时间闸门"——`mcm-selfreview` 是"交稿前"闸门，不含时间闸门）、M3 科研图表、M4 模型库、M5 数据与代码。
-5. **算法归档的验证只做了一级层的一半**（2026-09-23 记录）。已完成 7 批、50+ 项数值验证（`tests/algorithms/`）；**未做**：一级层中"执行通过但未列入验证"的那批（模糊模式识别、`interp_grid`、`af_classify_BP/LVQ`、SA/GA 的 TSP 与函数优化、`stepwise_regression`、`unlinear_regression`、`var_cluster` 的聚类结果）、**二级层 1,028 个文件完全未验**、6 个 GUI 死循环脚本无法无人值守。另有两个已登记未重写的缺陷：`BGf.m`（不终止）、自适应滤波（收敛循环只跑一轮）。清单与判据见 `corpus/algorithms/INDEX.md` §10、§12。
+5. **算法归档的验证只做了一级层的一半**（2026-09-23 记录）。已完成 7 批、50+ 项数值验证（`tests/algorithms/`）；**未做**：一级层中"执行通过但未列入验证"的那批（模糊模式识别、`interp_grid`、`af_classify_BP/LVQ`、SA/GA 的 TSP 与函数优化、`stepwise_regression`、`unlinear_regression`、`var_cluster` 的聚类结果）、**二级层 511 个文件完全未验**（★ **2026-10-04 改时点订正**：本处原记 **1,028** —— **该数复现不出**，实测二级层 3 目录 = **511**、三级层 = **465**、一级层 = **285**、全树 **1262**；口径见 `corpus/algorithms/INDEX.md` §10.6 尾注与 §12）、6 个 GUI 死循环脚本无法无人值守。另有两个已登记未重写的缺陷：`BGf.m`（不终止）、自适应滤波（收敛循环只跑一轮）。清单与判据见 `corpus/algorithms/INDEX.md` §10、§12。
 
 ## 四、第二期（M6 语料流水线）的教训（2026-09-23）
 
