@@ -2224,3 +2224,30 @@ Fix A（去两处"唯一"）· **Fix A′（`bde3e4d`，越出任务书的一处
 **范围声明**：本条只登记**本轮当场实测的三件 + `check-summary.py` 的"无 `RESULT:` 早退"一路**；**不声称穷尽**全库同类（可能另有 `check-*.py` 破此契约，未逐件普查）。`T7-2`（§H.2）是同类的**既有**成员 ⇒ **不在此重复登记**。
 
 ★ **本轮只登记、未改任何判据脚本**（三个 `check-*.py` 一字未动）。★ 本条登记的是**既有**形态（**非本轮引入、亦非 M5 引入**）。
+
+### H.7 「每个 `SKILL.md` < 150 行」是**约定**、**不是被守卫的约束**（新登记 · 2026-10-05）
+
+★ **类目**：本仓多处把「**每个 `SKILL.md` 目标 < 150 行**」称作**硬约束**，**但唯一读它的机器检查，其被验对象【写死】只覆盖一个 skill** ⇒ 这条**实际是约定、不是被守卫的约束**。（★ **不作"这是一个缺陷"的定性** —— 是可裁决的两选项，见文末。）
+
+**现状 1 —— 哪些地方称它"硬约束"（不声称穷尽；用文末那条命令现场点名）**：
+- `docs/superpowers/specs/2026-09-22-mcm-skill-suite-design.md` 的「硬约束」一节：原文「**硬约束：每个 SKILL.md 目标 < 150 行**」（**全称读法**）。
+- `docs/superpowers/plans/2026-09-27-m3-figure-choose.md`（`mcm-figure-choose` 计划）：`SKILL.md`「短契约（<150 行，**硬上限由校验强制**）」—— ★ 这句把覆盖范围**说大了**：被"校验"强制的**只有 `figure-choose` 一处**。
+- `docs/mcm-suite-todo.md` §D「已知技术债」第 2 条 · `docs/mcm-suite-lessons.md`（"给 skill 作者的硬约束"一节）：均按"**149/150 行**"（硬上限口径）叙述 `mcm-selfreview` 的处境。
+
+**现状 2 —— 唯一读它的脚本，射程只一个 skill**：`tests/skills/figure-choose/check-house-style.py` 的 `K1`（常量 `SK_MAX_LINES = 150`，判「行数 < 150」）—— 其**被验对象【写死】**是 `mcm-figure-choose/SKILL.md`（该件 `:85` 的 `SK = ROOT / ".claude/skills/mcm-figure-choose/SKILL.md"`）⇒ **它根本不读其它 skill 的 `SKILL.md`**（`K1` 报的**只是 figure-choose 的行数**）。★ 其 `K1`–`K8` 皆绑 figure-choose 契约（§H.2 的 `M3-matlab-T3d` 实测：把被验对象换成 `mcm-plot-matlab` 时 K4/K5/K7 FAIL）。
+
+**复核命令（一秒推翻"这条被守卫覆盖"这个反命题）**：
+`grep -n "mcm-figure-choose/SKILL.md" tests/skills/figure-choose/check-house-style.py`
+⇒ **2 行**（`:85` 的 `SK = ROOT / …` 与 `:506` 的注释），**两处都是 `mcm-figure-choose/SKILL.md`、无一指向别的 skill**。
+
+**哪些 skill 现在的行数逼近上限（当场量 · 2026-10-05）**：
+`for f in .claude/skills/*/SKILL.md; do printf "%s %s\n" "$(wc -l < "$f")" "$f"; done | sort -rn | head -5`
+⇒ **`mcm-selfreview` = 149**（**唯一逼近者**：距 150 只剩 1 行）· `mcm-ai-disclosure` = 108 · `mcm-figure-choose` = 90 · `mcm-latex-format` = 84 · `mcm-schematic` = 80。⇒ **除 `mcm-selfreview` 外皆 ≤ 108、离上限很远**。
+
+**两种处置（本轮只登记、不实施）**：
+- **① 把 `K1` 的射程扩到全部 `SKILL.md`**：逐份读 `.claude/skills/*/SKILL.md`、逐份判「< 150 行」，并决定它进哪道收工门。**代价**：`check-house-style.py` 是 `figure-choose` 的**专属**检查器（`K1`–`K8` 皆绑其契约）⇒ 直扩要把别人的契约塞进它，**宜另立**一枚 suite 级行数检查。
+- **② 把文档里"硬约束"如实改称"约定"**：逐处判定该句是「**全称**」还是「**仅指 figure-choose**」—— 属全称读法的（如 `specs/2026-09-22…` 那处、`plans/2026-09-27-m3-figure-choose.md` 那句"硬上限由校验强制"）改称「**约定（唯 `mcm-figure-choose` 一行由 `K1` 守卫）**」。**代价**：`figure-choose` 那一行**确**由 `K1` 守卫 ⇒ "硬约束"对**它**不算说大，逐处改须**避免把对它成立的那句也误改**。
+
+★ **与既有登记的边界**：§H.2 的 `M3-matlab-T3d`（2026-10-01）已登记"`mcm-plot-matlab/SKILL.md` 的行数**无机械守卫**"、并记"**设计如此、非缺陷**"（射程 = 单 skill）。**本条不重复它**，而是把**更上一层**的现状入账：**文档把这条称作 suite 级的"硬约束"，而其守卫只覆盖一个 skill** ⇒ **"文档口径 vs 守卫射程"不等**，两选项见上。
+
+**范围声明**：本条只登记「`SKILL.md` < 150 行」这**一条**的"**被称硬约束 vs 实为约定**"；**不声称穷尽**全库其它"**被称硬约束却无全称守卫**"的条目（未逐条普查）。★ **本轮只登记、未改任何产物**（`check-house-style.py` 与上列文档一字未动）。
