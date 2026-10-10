@@ -1,2 +1,2 @@
 # loop-feedback · 编译读数（pdflatex，TeX Live 2026）
-rc=0 · Overfull \hbox=0 · Output written on loop-feedback.pdf (1 page, 63435 bytes)
+rc=0 · Overfull \hbox=0 · Output written on loop-feedback.pdf (1 page, 63434 bytes)

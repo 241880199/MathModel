@@ -1,0 +1,82 @@
+% =====================================================================
+% 起步骨架 6/6 —— **分层带 + 小图形编码**：观测 / 规则 / 求解 三层，
+%                 分组靠极浅背景带（不画框），重复单元与占比画成图形（不写句子）。
+%
+% 选取依据：本份是 2026-10-10 随**视觉语言改版**新增的（不是 Task 0 语料抽样得出的）
+%   —— 改版的规范依据见 ../references/schematic-style.md 的 `S4.1`（白底 + 边框层级）、
+%   `S6`（并列槽位）、`S7`（小图形编码）。★ 这三条**都没有本仓语料读数背书**，照实说。
+%   前五份骨架（pipeline-linear / pipeline-branch / model-layered / loop-feedback /
+%   mechanism-block）仍照旧；本份只演示新语言里"分组 + 编码"那一路。
+%
+% 视觉标准全部来自 ../schematic-style.tex（本文件**不含颜色 / 线宽 / 圆角 / 字号**）
+%
+%  ── 「改哪儿」对照表 ─────────────────────────────────────────────────
+%   类   | 改什么                                  | 怎么改
+%   -----|-----------------------------------------|------------------------------------------
+%   内容 | 三条带的名字                            | \node[...mcmFaint] 那三行的字
+%   内容 | 方块条的格数                            | \foreach \i in {0,...,7} 的上界
+%   内容 | 比例条的比例                            | mcmsplita / mcmsplitb 两个矩形的分界 x
+%   内容 | 各节点的文字                            | 只改 {…} 里的字；不要改节点名
+%   结构 | 加一条带                                | 复制一组「\fill[mcmband] + 左侧标签 + 内容」，
+%       |                                         | 带高 0.62in、带间空隙 0.36in，整体上下平移
+%   结构 | 每带的内容排布                          | 改各 \node / \fill 的 x；**并列的元素取同宽**（S6）
+%   ------|-----------------------------------------|------------------------------------------
+%   不许动 | 整图宽度 \mcmscfigwidth                | 它是规范（F1 的通过条件）⇒ 要改走 ../schematic-style.tex
+%   不许动 | 颜色 / 线宽 / 圆角 / 间距 / 字号         | 同上：一律走样式层，不许写进本文件
+%   不许动 | \useasboundingbox 那一行                | 页盒 = 图框，删了图宽就失控（F1）
+%   不许动 | ★ **token 方块里写字**                  | 写了字，出货 `A1` 就会把方块当成"节点框"
+%       |                                         | 卷进去 ⇒ 与别的节点框判成"重叠"而顶红 `A1`（S7 边界①）
+%  ─────────────────────────────────────────────────────────────────────
+%
+% ★ 需要的宏包与库（都来自样式层，论文骨架里也要有）：
+%   \usepackage{tikz}
+%   \usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,shapes.geometric}
+%   \input{.../mcm-schematic/assets/schematic-style.tex}
+% =====================================================================
+\documentclass[12pt]{article}
+\input{../schematic-style.tex}
+% 页盒 = 整图（交付形态：一个图文件 = 一页）；宽取自样式层，高是本骨架的**结构**选择。
+\usepackage[paperwidth=\mcmscfigwidth,paperheight=3.06in,margin=0pt]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tikzpicture}[x=1in, y=1in]
+  % page box = figure box (F1). Do not delete this line.
+  \useasboundingbox (0,0) rectangle (\mcmscfigwidth, 3.06in);
+
+  % ---- 三条分组背景带：分组靠底色，不靠框（S4.1 的落点）----
+  \fill[mcmband] (0.30,2.20) rectangle (6.11,2.82);
+  \fill[mcmband] (0.30,1.22) rectangle (6.11,1.84);
+  \fill[mcmband] (0.30,0.24) rectangle (6.11,0.86);
+
+  % ---- 左侧层级标签（小号大写字母，浅灰，不抢戏）----
+  \node[anchor=west, font=\scriptsize\scshape, text=mcmFaint] at (0.42,2.51) {observed};
+  \node[anchor=west, font=\scriptsize\scshape, text=mcmFaint] at (0.42,1.53) {the rule};
+  \node[anchor=west, font=\scriptsize\scshape, text=mcmFaint] at (0.42,0.55) {solved for};
+
+  % ================= 带 1 · 观测：重复单元画成方块条（S7）=================
+  \foreach \i in {0,...,7}{%
+    \fill[mcmtoken] (1.74+\i*0.145, 2.43) rectangle (1.74+\i*0.145+0.105, 2.59);}
+  \node[anchor=west, font=\small, text=mcmInk] at (3.10,2.51)
+        {one record per period};
+
+  % ================= 带 2 · 规则：占比画成比例条（S7）=================
+  \node[mcmnode, text width=1.20in] (nRule) at (2.30,1.53) {Fit the rule};
+  \fill[mcmsplita] (3.10,1.45) rectangle (3.70,1.61);
+  \fill[mcmsplitb] (3.70,1.45) rectangle (4.60,1.61);
+  \node[anchor=west, font=\footnotesize, text=mcmFaint] at (3.10,1.30)
+        {bar length = the two weights};
+
+  % ================= 带 3 · 求解：每个分量一根，高度 = 大小（S7）=================
+  \node[mcmaccent, text width=1.20in] (nSolve) at (2.30,0.55) {Solve for u};
+  \foreach \i/\h in {0/0.14,1/0.26,2/0.09,3/0.30,4/0.19,5/0.24,6/0.11,7/0.17}{%
+    \fill[mcmtoken] (3.10+\i*0.145, 0.38) rectangle (3.10+\i*0.145+0.105, 0.38+\h);}
+  \node[anchor=west, font=\footnotesize, text=mcmFaint] at (4.35,0.55)
+        {one bar per contestant};
+
+  % ================= 层间箭头：沿一条居中的流线 =================
+  \draw[mcmarrow] (2.30,2.18) -- (2.30,1.86);
+  \draw[mcmarrow] (2.30,1.20) -- (2.30,0.88);
+\end{tikzpicture}
+\end{document}

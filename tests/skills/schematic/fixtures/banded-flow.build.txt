@@ -1,0 +1,2 @@
+# banded-flow · 编译读数（pdflatex，TeX Live 2026）
+rc=0 · Overfull \hbox=0 · Output written on banded-flow.pdf (1 page, 41895 bytes)

@@ -159,7 +159,7 @@ Figure 1: Modelling workflow from data collection to policy recommendation
 
 ```
 $ C:\Users\Shameless\AppData\Local\Programs\Python\Python311\python.exe tests/skills/figure-choose/check-figure-style.py --fig tests/skills/schematic/green/out-G1/figure.pdf --caption @tests/skills/schematic/green/out-G1/caption.txt --textwidth-in 6.75 --schematic
-PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 88.00%）；下限 136
+PASS  F4  外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 91.98%）；下限 136
 PASS  F1  图宽比 0.950（分母 6.75 in）
 PASS  F2  彩色主色数 0
 PASS  F5  越界主色 0 种（不在 H14 允许集合）：[]
@@ -237,7 +237,7 @@ RESULT: PASS
 | G1 | GREEN | F3b | PASS | 图注词数 8（上限 12，硬上限 17） |
 | G1 | GREEN | F3c | PASS | 句末不加句号 |
 | G1 | GREEN | F3d | PASS | 图注正文非空（正文 8 词） |
-| G1 | GREEN | F4 | PASS | 外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 88.00%）；下限 136 |
+| G1 | GREEN | F4 | PASS | 外缘环 RGB (255, 255, 255) 亮度 255（占环 100.00%）；近灰众数 RGB (255, 255, 255) 亮度 255（占全图 91.98%）；下限 136 |
 | G1 | GREEN | F5 | PASS | 越界主色 0 种（不在 H14 允许集合）：[] |
 | G1 | GREEN | F6 | PASS | 内嵌字体 ['TeXGyreTermesX-Regular'] |
 
@@ -761,7 +761,7 @@ $ python tests/skills/schematic/make-evidence.py   # 编译读数（rc · Overfu
 R1  rc=0 · Overfull \hbox=0 · Output written on figure.pdf (1 page, 49529 bytes)
 R2  rc=0 · Overfull \hbox=0 · Output written on figure.pdf (1 page, 49237 bytes)
 R3  rc=0 · Overfull \hbox=0 · Output written on figure.pdf (1 page, 46843 bytes)
-G1  rc=0 · Overfull \hbox=0 · Output written on figure.pdf (1 page, 37073 bytes)
+G1  rc=0 · Overfull \hbox=0 · Output written on figure.pdf (1 page, 37070 bytes)
 ```
 
 ★ 下面是 **`mutate-figure-style.py` 的快照**（**非生成时现跑**）：首行是**复跑命令**，其余是**该命令的合计段读数**（逐字取自快照）。

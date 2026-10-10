@@ -1,2 +1,2 @@
 # pipeline-linear · 编译读数（pdflatex，TeX Live 2026）
-rc=0 · Overfull \hbox=0 · Output written on pipeline-linear.pdf (1 page, 34562 bytes)
+rc=0 · Overfull \hbox=0 · Output written on pipeline-linear.pdf (1 page, 34561 bytes)

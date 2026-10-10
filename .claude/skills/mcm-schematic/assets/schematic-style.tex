@@ -34,11 +34,19 @@
 % ---- 颜色（S4：单色系深浅 + **至多一个**强调色）----
 % 非灰的色必须是 house-style H14 显式色序里的色 —— 出货 F5 要求显著色**精确命中**该集合。
 \definecolor{mcmInk}{gray}{0.10}       % 文字与主描边
-\definecolor{mcmLine}{gray}{0.35}      % 主流程线 / 节点描边
-\definecolor{mcmFaint}{gray}{0.62}     % 虚线 / 回环 / 分组框
-\definecolor{mcmFill}{gray}{0.93}      % 节点底色
-\definecolor{mcmFillAlt}{gray}{0.86}   % 次级节点底色
+\definecolor{mcmLine}{gray}{0.35}      % 主流程线 / 普通节点描边
+\definecolor{mcmFaint}{gray}{0.62}     % 辅助节点描边 / 虚线 / 回环 / 分组框
+\definecolor{mcmFill}{gray}{0.93}      % ★ 不再是"节点底色"：只给 分组带 / 液面 / 泳道 用
+\definecolor{mcmFillAlt}{gray}{0.86}   % 次级块底色（判定菱形 / 支路 / 观测层）
+\definecolor{mcmBand}{gray}{0.96}      % 分组**背景带**（比 mcmFill 更浅；替代"用框分组"）
 \definecolor{mcmAccent}{HTML}{0072B2}  % 强调色（H14 显式色序第五位「蓝」）
+% ★ 三档层级靠**边框**表达，不靠填充（S4 / S6；出处见 references/schematic-style.md）：
+%     主角 = mcmaccent（0.9pt 强调色，整图至多一处）
+%     普通 = mcmnode  （0.7pt mcmLine）
+%     辅助 = mcmnodeaux（0.5pt mcmFaint）
+%   三档线宽**全部落在 check-figure-style.py 的 SCH_LINEWIDTH_OK 里** ⇒ 不改检查器。
+% ★ 颜色 `mcmFill` / `mcmFillAlt` 仍有消费者（mcmliquid / mcmgroupfill / mcmswimlane；
+%   mcmdec / mcmfillalt）⇒ **都不是孤儿**，不要顺手删。
 
 % ---- 线宽 / 圆角 / 间距（唯一定义处）----
 \newlength{\mcmsclwthin}\setlength{\mcmsclwthin}{0.5pt}    % 辅助线 / 虚线
@@ -53,12 +61,17 @@
 % ★ `\tikzset{…}` 的实参里**不许出现空行**（空行 = \par ⇒ pgfkeys 报
 %   "Paragraph ended before \pgfkeys@addpath was complete"）。本块内只用注释分行。
 \tikzset{
-  % —— 节点 ——
-  mcmnode/.style    = {draw=mcmLine, fill=mcmFill, rounded corners=\mcmscround,
+  % —— 节点（**白底**；层级靠边框粗细，不靠填充）——
+  mcmnode/.style    = {draw=mcmLine, fill=white, rounded corners=\mcmscround,
                        line width=\mcmsclwmain, inner sep=3pt, minimum height=6.5mm,
                        align=center, font=\small, text=mcmInk},
+  % 辅助节点：条件 / 可选 / 旁支。白底 + 最细的 mcmFaint 边 ⇒ 比普通节点"轻"。
+  mcmnodeaux/.style = {mcmnode, draw=mcmFaint, line width=\mcmsclwthin},
   mcmterm/.style    = {mcmnode, rounded corners=3mm},
   mcmdec/.style     = {mcmnode, shape=diamond, aspect=2.2, rounded corners=0pt, fill=mcmFillAlt},
+  % ⚠️ `mcmio` 用 fill=none ⇒ 出货 **A1 看不见它**（A1 只收"有非空填充"的图元，
+  %    见 check-figure-style.py 的 §A1 谓词；这也是 schematic-style.md 登记的已知盲点）。
+  %    故 **节点一律走 mcmnode / mcmnodeaux（白底），不要拿 mcmio 画节点框**。
   mcmio/.style      = {mcmnode, fill=none},
   mcmfillalt/.style = {mcmnode, fill=mcmFillAlt},
   mcmaccent/.style  = {mcmnode, draw=mcmAccent, line width=\mcmsclwaccent},
@@ -69,13 +82,27 @@
   mcmdash/.style    = {mcmarrow, draw=mcmFaint, line width=\mcmsclwthin,
                        dash pattern=on 2.2pt off 1.6pt},
   mcmdashplain/.style={draw=mcmFaint, line width=\mcmsclwthin, dash pattern=on 2.2pt off 1.6pt},
-  % —— 分组框 / 泳道 ——
+  % —— 分组 ——
+  % ★ 首选的"分组"不是画框，而是铺一条**背景带**（mcmband）：见 references/schematic-style.md。
+  mcmband/.style    = {fill=mcmBand, draw=none},
   mcmgroup/.style   = {draw=mcmFaint, line width=\mcmsclwthin, rounded corners=\mcmscroundgrp,
                        inner sep=4pt, fill=none},
+  % 虚线分组框：复用 S2 的"虚线 = 可选 / 回环 / 反馈"语义 ⇒ **不构成第三种语义、不需要图例**。
+  % ★ 原先样式层只有实线 mcmgroup ⇒ 想框"超出射程"的一块只能手写死坐标（节点一变就脱框）。
+  mcmgroupdash/.style={mcmgroup, mcmdashplain},
   mcmgroupfill/.style={mcmgroup, fill=mcmFill},
   mcmgroupaccent/.style={mcmgroup, draw=mcmAccent, line width=\mcmsclwmain},
   mcmswimlane/.style= {draw=mcmFaint, line width=\mcmsclwthin, fill=mcmFill, inner sep=3pt,
                        minimum height=9mm, align=left, font=\footnotesize, text=mcmInk},
+  % —— 小图形编码：把"重复单元 / 占比"画成图形，而不是写一句句子 ——
+  %   ★★ token 方块**不许带文字**：出货 `A1` 只把"**含文字**且面积够大"的图元当节点框
+  %      （见 check-figure-style.py 的 §A1 谓词与 SCH_NODE_MIN_AREA/W/H）⇒ 方块一写字
+  %      就会被卷进 A1、与别的节点框判成"重叠"而顶掉 A1。标签写到方块条旁边（mcmnote）。
+  mcmtoken/.style   = {draw=mcmLine, line width=\mcmsclwthin, fill=white},
+  mcmtokenhl/.style = {mcmtoken, fill=mcmFillAlt},
+  % 比例条：两段拼成一根，长度 = 占比（mcmsplita 是第一段、mcmsplitb 是第二段）。
+  mcmsplita/.style  = {draw=mcmLine, line width=\mcmsclwthin, fill=white},
+  mcmsplitb/.style  = {draw=mcmLine, line width=\mcmsclwthin, fill=mcmFillAlt},
   % —— 标注 / 图内文字 ——
   mcmnote/.style    = {font=\footnotesize, text=mcmInk, align=center, inner sep=1pt},
   mcmnoteaccent/.style={mcmnote, text=mcmAccent},
@@ -123,3 +150,28 @@
 \newcommand{\mcmswimlane}[5]{%
   \node[mcmswimlane, minimum width=#2, anchor=west] (#5) at (#1,#3) {#4};%
 }
+
+% =====================================================================
+% 登记（**如实登记，不在本轮清理**）
+% =====================================================================
+% 一、本文件里**已定义、但五份起步骨架零覆盖**的 token（现场普查得出；此表不声称穷尽）：
+%     样式 `mcmio` · `mcmgroupfill` · `mcmgroupaccent` · `mcmswimlane`
+%     宏   `\mcmedgevia` · `\mcmgroup` · `\mcmswimlane`
+%     长度 `\mcmscgap`（★ **全仓无人引用**）· `\mcmscgapcross`（只有 references/schematic-style.md
+%          的 S5 算式提到它）
+%   ⇒ 它们是**原语兜底层**（回落到原语时可用），不是死代码；本轮**不删**。
+%   ⚠️ `mcmio` 另有一层性质：它 `fill=none` ⇒ **出货 A1 看不见它**（见上面节点那一段的警示）。
+%
+% 二、本轮**新增**的 token（骨架族尚未覆盖，属正常——新骨架 banded-flow 会用其中一部分）：
+%     样式 `mcmnodeaux`（辅助节点，0.5pt）· `mcmband`（分组背景带）· `mcmgroupdash`（虚线分组框）
+%          `mcmtoken` / `mcmtokenhl`（小方块）· `mcmsplita` / `mcmsplitb`（比例条）
+%     颜色 `mcmBand`（灰 0.96）
+%
+% 三、本轮**刻意不动**的三处（改动会与 S4/产物的既有语义打架）：
+%     · `mcmdec`（判定菱形）**不降级** —— 它是判定节点、不是辅助块，降到 0.5pt 会让
+%       **判定比普通更轻**，与三档层级的意图相反。
+%     · `mcmfillalt` / `mcmFillAlt` **不改语义** —— 消费者里 `sim/2026/fig/figure-5-model-structure.tex`
+%       拿它当**观测层主块**、`pipeline-branch` 拿它当两条支路 ⇒ 按"辅助"降级是错的。
+%     · `mcmliquid` **不动** —— 它读的是颜色 `mcmFill`（本轮只改了 `mcmnode` 的 fill），
+%       液面照旧可见。
+

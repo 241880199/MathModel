@@ -1,2 +1,2 @@
 # model-layered · 编译读数（pdflatex，TeX Live 2026）
-rc=0 · Overfull \hbox=0 · Output written on model-layered.pdf (1 page, 35668 bytes)
+rc=0 · Overfull \hbox=0 · Output written on model-layered.pdf (1 page, 35664 bytes)
