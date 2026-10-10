@@ -1,0 +1,618 @@
+{
+  "head" : {
+    "vars" : [ "season", "seasonLabel", "start", "end" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q540941"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2008-03-17T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2008-05-20T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 6"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3012011"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2011-09-19T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2011-11-22T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 13"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464709"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2012-03-19T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2012-05-22T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 14"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3464713"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2012-09-24T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2012-11-27T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 15"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3465650"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2005-06-01T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2005-07-06T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 1"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3468454"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2006-01-05T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2006-02-24T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 2"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3468700"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2006-09-12T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2006-11-15T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 3"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3468848"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2007-03-19T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2007-05-22T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 4"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3468953"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2007-09-24T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2007-11-27T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 5"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5215614"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2010-09-20T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2010-11-23T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 11"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5215615"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2010-03-22T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2010-05-25T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 10"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5215616"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2011-03-21T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2011-05-24T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 12"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5215617"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2013-03-18T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2013-05-21T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 16"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5215618"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2008-09-22T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2008-11-25T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 7"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5215619"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2009-03-09T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2009-05-19T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 8"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q5215620"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2009-09-21T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2009-11-24T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 9"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q14822855"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2013-09-16T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2013-11-26T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 17"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16989073"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2014-03-17T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2014-05-20T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 18"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q18019217"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2014-09-15T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2014-11-25T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 19"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q19650344"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2015-03-16T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2015-05-19T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 20"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q21061558"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2015-09-14T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2015-11-24T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 21"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q23022223"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2016-03-21T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2016-05-24T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 22"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q26721355"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2016-09-12T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2016-11-22T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 23"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q28863368"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2017-03-20T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2017-05-23T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 24"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q38212754"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2017-09-18T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2017-11-21T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 25"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q51844213"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2018-04-30T00:00:00Z"
+      },
+      "end" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2018-05-21T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 26"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q56284766"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 27"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q66666951"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 28"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q98478756"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 29"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q108297041"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 30"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q113114610"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 31"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q120497747"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 32"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q129261914"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2024-09-17T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 33"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q134589684"
+      },
+      "start" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+        "type" : "literal",
+        "value" : "2025-09-16T00:00:00Z"
+      },
+      "seasonLabel" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Dancing with the Stars, season 34"
+      }
+    } ]
+  }
+}

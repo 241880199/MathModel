@@ -1,0 +1,99 @@
+{
+  "coverage_boundary": "2015-07-01",
+  "covered_seasons": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "uncovered_seasons": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "per_season": {
+    "21": {
+      "cast_in_article": 26,
+      "in_attachment": 13,
+      "resolved": 13,
+      "unresolved": 0,
+      "episodes_dates": 14,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "22": {
+      "cast_in_article": 24,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 11,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "23": {
+      "cast_in_article": 25,
+      "in_attachment": 13,
+      "resolved": 13,
+      "unresolved": 0,
+      "episodes_dates": 15,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "24": {
+      "cast_in_article": 22,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 11,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "25": {
+      "cast_in_article": 26,
+      "in_attachment": 13,
+      "resolved": 13,
+      "unresolved": 0,
+      "episodes_dates": 12,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "26": {
+      "cast_in_article": 19,
+      "in_attachment": 10,
+      "resolved": 10,
+      "unresolved": 0,
+      "episodes_dates": 4,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "27": {
+      "cast_in_article": 25,
+      "in_attachment": 13,
+      "resolved": 13,
+      "unresolved": 0,
+      "episodes_dates": 11,
+      "week_window_mode": "episodes-iso-week"
+    }
+  },
+  "unresolved": [],
+  "fallback_used": [
+    {
+      "season": 26,
+      "attachment_name": "Jennie Finch Daigle",
+      "article": "Jennie Finch"
+    }
+  ],
+  "n_rows": 813
+}

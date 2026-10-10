@@ -1,0 +1,814 @@
+season,week,contestant,article,w_start,w_end,http,views,days
+21,1,Alek Skarlatos,Alek Skarlatos,2015-09-14,2015-09-21,200,86698,7
+21,2,Alek Skarlatos,Alek Skarlatos,2015-09-21,2015-09-28,200,52017,7
+21,3,Alek Skarlatos,Alek Skarlatos,2015-09-28,2015-10-05,200,40244,7
+21,4,Alek Skarlatos,Alek Skarlatos,2015-10-05,2015-10-12,200,30407,7
+21,5,Alek Skarlatos,Alek Skarlatos,2015-10-12,2015-10-19,200,32988,7
+21,6,Alek Skarlatos,Alek Skarlatos,2015-10-19,2015-10-26,200,19757,7
+21,7,Alek Skarlatos,Alek Skarlatos,2015-10-26,2015-11-02,200,13851,7
+21,8,Alek Skarlatos,Alek Skarlatos,2015-11-02,2015-11-09,200,34278,7
+21,9,Alek Skarlatos,Alek Skarlatos,2015-11-09,2015-11-16,200,23823,7
+21,10,Alek Skarlatos,Alek Skarlatos,2015-11-16,2015-11-23,200,40901,7
+21,11,Alek Skarlatos,Alek Skarlatos,2015-11-23,2015-11-30,200,31919,2
+21,1,Alexa PenaVega,Alexa PenaVega,2015-09-14,2015-09-21,200,45671,7
+21,2,Alexa PenaVega,Alexa PenaVega,2015-09-21,2015-09-28,200,33671,7
+21,3,Alexa PenaVega,Alexa PenaVega,2015-09-28,2015-10-05,200,11310,7
+21,4,Alexa PenaVega,Alexa PenaVega,2015-10-05,2015-10-12,200,10677,7
+21,5,Alexa PenaVega,Alexa PenaVega,2015-10-12,2015-10-19,200,11553,7
+21,6,Alexa PenaVega,Alexa PenaVega,2015-10-19,2015-10-26,200,10193,7
+21,7,Alexa PenaVega,Alexa PenaVega,2015-10-26,2015-11-02,200,5054,7
+21,8,Alexa PenaVega,Alexa PenaVega,2015-11-02,2015-11-09,200,6835,7
+21,9,Alexa PenaVega,Alexa PenaVega,2015-11-09,2015-11-16,200,12530,7
+21,10,Alexa PenaVega,Alexa PenaVega,2015-11-16,2015-11-23,200,8881,7
+21,11,Alexa PenaVega,Alexa PenaVega,2015-11-23,2015-11-30,200,7455,2
+21,1,Andy Grammer,Andy Grammer,2015-09-14,2015-09-21,200,71500,7
+21,2,Andy Grammer,Andy Grammer,2015-09-21,2015-09-28,200,79138,7
+21,3,Andy Grammer,Andy Grammer,2015-09-28,2015-10-05,200,40368,7
+21,4,Andy Grammer,Andy Grammer,2015-10-05,2015-10-12,200,37022,7
+21,5,Andy Grammer,Andy Grammer,2015-10-12,2015-10-19,200,37620,7
+21,6,Andy Grammer,Andy Grammer,2015-10-19,2015-10-26,200,24784,7
+21,7,Andy Grammer,Andy Grammer,2015-10-26,2015-11-02,200,28800,7
+21,8,Andy Grammer,Andy Grammer,2015-11-02,2015-11-09,200,46676,7
+21,9,Andy Grammer,Andy Grammer,2015-11-09,2015-11-16,200,12150,7
+21,10,Andy Grammer,Andy Grammer,2015-11-16,2015-11-23,200,10700,7
+21,11,Andy Grammer,Andy Grammer,2015-11-23,2015-11-30,200,3543,2
+21,1,Bindi Irwin,Bindi Irwin,2015-09-14,2015-09-21,200,163822,7
+21,2,Bindi Irwin,Bindi Irwin,2015-09-21,2015-09-28,200,115143,7
+21,3,Bindi Irwin,Bindi Irwin,2015-09-28,2015-10-05,200,57138,7
+21,4,Bindi Irwin,Bindi Irwin,2015-10-05,2015-10-12,200,141945,7
+21,5,Bindi Irwin,Bindi Irwin,2015-10-12,2015-10-19,200,66754,7
+21,6,Bindi Irwin,Bindi Irwin,2015-10-19,2015-10-26,200,66693,7
+21,7,Bindi Irwin,Bindi Irwin,2015-10-26,2015-11-02,200,70631,7
+21,8,Bindi Irwin,Bindi Irwin,2015-11-02,2015-11-09,200,68715,7
+21,9,Bindi Irwin,Bindi Irwin,2015-11-09,2015-11-16,200,61485,7
+21,10,Bindi Irwin,Bindi Irwin,2015-11-16,2015-11-23,200,55305,7
+21,11,Bindi Irwin,Bindi Irwin,2015-11-23,2015-11-30,200,68305,2
+21,1,Carlos PenaVega,Carlos PenaVega,2015-09-14,2015-09-21,200,21410,7
+21,2,Carlos PenaVega,Carlos PenaVega,2015-09-21,2015-09-28,200,14847,7
+21,3,Carlos PenaVega,Carlos PenaVega,2015-09-28,2015-10-05,200,5581,7
+21,4,Carlos PenaVega,Carlos PenaVega,2015-10-05,2015-10-12,200,6171,7
+21,5,Carlos PenaVega,Carlos PenaVega,2015-10-12,2015-10-19,200,4414,7
+21,6,Carlos PenaVega,Carlos PenaVega,2015-10-19,2015-10-26,200,4191,7
+21,7,Carlos PenaVega,Carlos PenaVega,2015-10-26,2015-11-02,200,2111,7
+21,8,Carlos PenaVega,Carlos PenaVega,2015-11-02,2015-11-09,200,1889,7
+21,9,Carlos PenaVega,Carlos PenaVega,2015-11-09,2015-11-16,200,2990,7
+21,10,Carlos PenaVega,Carlos PenaVega,2015-11-16,2015-11-23,200,2267,7
+21,11,Carlos PenaVega,Carlos PenaVega,2015-11-23,2015-11-30,200,2148,2
+21,1,Chaka Khan,Chaka Khan,2015-09-14,2015-09-21,200,107793,7
+21,2,Chaka Khan,Chaka Khan,2015-09-21,2015-09-28,200,63022,7
+21,3,Chaka Khan,Chaka Khan,2015-09-28,2015-10-05,200,16560,7
+21,4,Chaka Khan,Chaka Khan,2015-10-05,2015-10-12,200,15635,7
+21,5,Chaka Khan,Chaka Khan,2015-10-12,2015-10-19,200,12230,7
+21,6,Chaka Khan,Chaka Khan,2015-10-19,2015-10-26,200,11537,7
+21,7,Chaka Khan,Chaka Khan,2015-10-26,2015-11-02,200,11397,7
+21,8,Chaka Khan,Chaka Khan,2015-11-02,2015-11-09,200,11633,7
+21,9,Chaka Khan,Chaka Khan,2015-11-09,2015-11-16,200,12127,7
+21,10,Chaka Khan,Chaka Khan,2015-11-16,2015-11-23,200,12174,7
+21,11,Chaka Khan,Chaka Khan,2015-11-23,2015-11-30,200,3438,2
+21,1,Gary Busey,Gary Busey,2015-09-14,2015-09-21,200,342254,7
+21,2,Gary Busey,Gary Busey,2015-09-21,2015-09-28,200,251055,7
+21,3,Gary Busey,Gary Busey,2015-09-28,2015-10-05,200,96265,7
+21,4,Gary Busey,Gary Busey,2015-10-05,2015-10-12,200,110843,7
+21,5,Gary Busey,Gary Busey,2015-10-12,2015-10-19,200,29491,7
+21,6,Gary Busey,Gary Busey,2015-10-19,2015-10-26,200,26959,7
+21,7,Gary Busey,Gary Busey,2015-10-26,2015-11-02,200,22637,7
+21,8,Gary Busey,Gary Busey,2015-11-02,2015-11-09,200,27491,7
+21,9,Gary Busey,Gary Busey,2015-11-09,2015-11-16,200,20696,7
+21,10,Gary Busey,Gary Busey,2015-11-16,2015-11-23,200,19584,7
+21,11,Gary Busey,Gary Busey,2015-11-23,2015-11-30,200,5482,2
+21,1,Hayes Grier,Hayes Grier,2015-09-14,2015-09-21,200,66741,7
+21,2,Hayes Grier,Hayes Grier,2015-09-21,2015-09-28,200,78383,7
+21,3,Hayes Grier,Hayes Grier,2015-09-28,2015-10-05,200,29167,7
+21,4,Hayes Grier,Hayes Grier,2015-10-05,2015-10-12,200,38125,7
+21,5,Hayes Grier,Hayes Grier,2015-10-12,2015-10-19,200,39573,7
+21,6,Hayes Grier,Hayes Grier,2015-10-19,2015-10-26,200,28346,7
+21,7,Hayes Grier,Hayes Grier,2015-10-26,2015-11-02,200,35342,7
+21,8,Hayes Grier,Hayes Grier,2015-11-02,2015-11-09,200,10809,7
+21,9,Hayes Grier,Hayes Grier,2015-11-09,2015-11-16,200,7653,7
+21,10,Hayes Grier,Hayes Grier,2015-11-16,2015-11-23,200,7123,7
+21,11,Hayes Grier,Hayes Grier,2015-11-23,2015-11-30,200,2835,2
+21,1,Kim Zolciak-Biermann,Kim Zolciak,2015-09-14,2015-09-21,200,149185,7
+21,2,Kim Zolciak-Biermann,Kim Zolciak,2015-09-21,2015-09-28,200,149926,7
+21,3,Kim Zolciak-Biermann,Kim Zolciak,2015-09-28,2015-10-05,200,101312,7
+21,4,Kim Zolciak-Biermann,Kim Zolciak,2015-10-05,2015-10-12,200,59986,7
+21,5,Kim Zolciak-Biermann,Kim Zolciak,2015-10-12,2015-10-19,200,42025,7
+21,6,Kim Zolciak-Biermann,Kim Zolciak,2015-10-19,2015-10-26,200,28506,7
+21,7,Kim Zolciak-Biermann,Kim Zolciak,2015-10-26,2015-11-02,200,31329,7
+21,8,Kim Zolciak-Biermann,Kim Zolciak,2015-11-02,2015-11-09,200,31575,7
+21,9,Kim Zolciak-Biermann,Kim Zolciak,2015-11-09,2015-11-16,200,34282,7
+21,10,Kim Zolciak-Biermann,Kim Zolciak,2015-11-16,2015-11-23,200,20603,7
+21,11,Kim Zolciak-Biermann,Kim Zolciak,2015-11-23,2015-11-30,200,5068,2
+21,1,Nick Carter,Nick Carter,2015-09-14,2015-09-21,200,3329,7
+21,2,Nick Carter,Nick Carter,2015-09-21,2015-09-28,200,1518,7
+21,3,Nick Carter,Nick Carter,2015-09-28,2015-10-05,200,1001,7
+21,4,Nick Carter,Nick Carter,2015-10-05,2015-10-12,200,1815,7
+21,5,Nick Carter,Nick Carter,2015-10-12,2015-10-19,200,1109,7
+21,6,Nick Carter,Nick Carter,2015-10-19,2015-10-26,200,833,7
+21,7,Nick Carter,Nick Carter,2015-10-26,2015-11-02,200,1038,7
+21,8,Nick Carter,Nick Carter,2015-11-02,2015-11-09,200,1480,7
+21,9,Nick Carter,Nick Carter,2015-11-09,2015-11-16,200,819,7
+21,10,Nick Carter,Nick Carter,2015-11-16,2015-11-23,200,1378,7
+21,11,Nick Carter,Nick Carter,2015-11-23,2015-11-30,200,639,2
+21,1,Paula Deen,Paula Deen,2015-09-14,2015-09-21,200,45900,7
+21,2,Paula Deen,Paula Deen,2015-09-21,2015-09-28,200,41183,7
+21,3,Paula Deen,Paula Deen,2015-09-28,2015-10-05,200,29796,7
+21,4,Paula Deen,Paula Deen,2015-10-05,2015-10-12,200,34845,7
+21,5,Paula Deen,Paula Deen,2015-10-12,2015-10-19,200,21910,7
+21,6,Paula Deen,Paula Deen,2015-10-19,2015-10-26,200,20133,7
+21,7,Paula Deen,Paula Deen,2015-10-26,2015-11-02,200,11445,7
+21,8,Paula Deen,Paula Deen,2015-11-02,2015-11-09,200,10487,7
+21,9,Paula Deen,Paula Deen,2015-11-09,2015-11-16,200,12187,7
+21,10,Paula Deen,Paula Deen,2015-11-16,2015-11-23,200,11521,7
+21,11,Paula Deen,Paula Deen,2015-11-23,2015-11-30,200,3409,2
+21,1,Tamar Braxton,Tamar Braxton,2015-09-14,2015-09-21,200,64698,7
+21,2,Tamar Braxton,Tamar Braxton,2015-09-21,2015-09-28,200,83288,7
+21,3,Tamar Braxton,Tamar Braxton,2015-09-28,2015-10-05,200,45394,7
+21,4,Tamar Braxton,Tamar Braxton,2015-10-05,2015-10-12,200,62899,7
+21,5,Tamar Braxton,Tamar Braxton,2015-10-12,2015-10-19,200,34826,7
+21,6,Tamar Braxton,Tamar Braxton,2015-10-19,2015-10-26,200,31857,7
+21,7,Tamar Braxton,Tamar Braxton,2015-10-26,2015-11-02,200,27540,7
+21,8,Tamar Braxton,Tamar Braxton,2015-11-02,2015-11-09,200,36284,7
+21,9,Tamar Braxton,Tamar Braxton,2015-11-09,2015-11-16,200,71112,7
+21,10,Tamar Braxton,Tamar Braxton,2015-11-16,2015-11-23,200,27084,7
+21,11,Tamar Braxton,Tamar Braxton,2015-11-23,2015-11-30,200,6402,2
+21,1,Victor Espinoza,Victor Espinoza,2015-09-14,2015-09-21,200,28535,7
+21,2,Victor Espinoza,Victor Espinoza,2015-09-21,2015-09-28,200,50773,7
+21,3,Victor Espinoza,Victor Espinoza,2015-09-28,2015-10-05,200,6371,7
+21,4,Victor Espinoza,Victor Espinoza,2015-10-05,2015-10-12,200,4200,7
+21,5,Victor Espinoza,Victor Espinoza,2015-10-12,2015-10-19,200,2964,7
+21,6,Victor Espinoza,Victor Espinoza,2015-10-19,2015-10-26,200,2631,7
+21,7,Victor Espinoza,Victor Espinoza,2015-10-26,2015-11-02,200,10401,7
+21,8,Victor Espinoza,Victor Espinoza,2015-11-02,2015-11-09,200,5884,7
+21,9,Victor Espinoza,Victor Espinoza,2015-11-09,2015-11-16,200,2348,7
+21,10,Victor Espinoza,Victor Espinoza,2015-11-16,2015-11-23,200,1950,7
+21,11,Victor Espinoza,Victor Espinoza,2015-11-23,2015-11-30,200,983,2
+22,1,Antonio Brown,Antonio Brown,2016-03-21,2016-03-28,200,32756,7
+22,2,Antonio Brown,Antonio Brown,2016-03-28,2016-04-04,200,33234,7
+22,3,Antonio Brown,Antonio Brown,2016-04-04,2016-04-11,200,86256,7
+22,4,Antonio Brown,Antonio Brown,2016-04-11,2016-04-18,200,19352,7
+22,5,Antonio Brown,Antonio Brown,2016-04-18,2016-04-25,200,20667,7
+22,6,Antonio Brown,Antonio Brown,2016-04-25,2016-05-02,200,26671,7
+22,7,Antonio Brown,Antonio Brown,2016-05-02,2016-05-09,200,16828,7
+22,8,Antonio Brown,Antonio Brown,2016-05-09,2016-05-16,200,22003,7
+22,9,Antonio Brown,Antonio Brown,2016-05-16,2016-05-23,200,47523,7
+22,10,Antonio Brown,Antonio Brown,2016-05-23,2016-05-30,200,3998,2
+22,1,Doug Flutie,Doug Flutie,2016-03-21,2016-03-28,200,148407,7
+22,2,Doug Flutie,Doug Flutie,2016-03-28,2016-04-04,200,117685,7
+22,3,Doug Flutie,Doug Flutie,2016-04-04,2016-04-11,200,67351,7
+22,4,Doug Flutie,Doug Flutie,2016-04-11,2016-04-18,200,47052,7
+22,5,Doug Flutie,Doug Flutie,2016-04-18,2016-04-25,200,51169,7
+22,6,Doug Flutie,Doug Flutie,2016-04-25,2016-05-02,200,46609,7
+22,7,Doug Flutie,Doug Flutie,2016-05-02,2016-05-09,200,8079,7
+22,8,Doug Flutie,Doug Flutie,2016-05-09,2016-05-16,200,10570,7
+22,9,Doug Flutie,Doug Flutie,2016-05-16,2016-05-23,200,6941,7
+22,10,Doug Flutie,Doug Flutie,2016-05-23,2016-05-30,200,3119,2
+22,1,Geraldo Rivera,Geraldo Rivera,2016-03-21,2016-03-28,200,86926,7
+22,2,Geraldo Rivera,Geraldo Rivera,2016-03-28,2016-04-04,200,78036,7
+22,3,Geraldo Rivera,Geraldo Rivera,2016-04-04,2016-04-11,200,21151,7
+22,4,Geraldo Rivera,Geraldo Rivera,2016-04-11,2016-04-18,200,14883,7
+22,5,Geraldo Rivera,Geraldo Rivera,2016-04-18,2016-04-25,200,25226,7
+22,6,Geraldo Rivera,Geraldo Rivera,2016-04-25,2016-05-02,200,14836,7
+22,7,Geraldo Rivera,Geraldo Rivera,2016-05-02,2016-05-09,200,15483,7
+22,8,Geraldo Rivera,Geraldo Rivera,2016-05-09,2016-05-16,200,12007,7
+22,9,Geraldo Rivera,Geraldo Rivera,2016-05-16,2016-05-23,200,7848,7
+22,10,Geraldo Rivera,Geraldo Rivera,2016-05-23,2016-05-30,200,2257,2
+22,1,Ginger Zee,Ginger Zee,2016-03-21,2016-03-28,200,80966,7
+22,2,Ginger Zee,Ginger Zee,2016-03-28,2016-04-04,200,46049,7
+22,3,Ginger Zee,Ginger Zee,2016-04-04,2016-04-11,200,40540,7
+22,4,Ginger Zee,Ginger Zee,2016-04-11,2016-04-18,200,33129,7
+22,5,Ginger Zee,Ginger Zee,2016-04-18,2016-04-25,200,39439,7
+22,6,Ginger Zee,Ginger Zee,2016-04-25,2016-05-02,200,26264,7
+22,7,Ginger Zee,Ginger Zee,2016-05-02,2016-05-09,200,25683,7
+22,8,Ginger Zee,Ginger Zee,2016-05-09,2016-05-16,200,30404,7
+22,9,Ginger Zee,Ginger Zee,2016-05-16,2016-05-23,200,55239,7
+22,10,Ginger Zee,Ginger Zee,2016-05-23,2016-05-30,200,27941,2
+22,1,Jodie Sweetin,Jodie Sweetin,2016-03-21,2016-03-28,200,156046,7
+22,2,Jodie Sweetin,Jodie Sweetin,2016-03-28,2016-04-04,200,106249,7
+22,3,Jodie Sweetin,Jodie Sweetin,2016-04-04,2016-04-11,200,120836,7
+22,4,Jodie Sweetin,Jodie Sweetin,2016-04-11,2016-04-18,200,68778,7
+22,5,Jodie Sweetin,Jodie Sweetin,2016-04-18,2016-04-25,200,62733,7
+22,6,Jodie Sweetin,Jodie Sweetin,2016-04-25,2016-05-02,200,64627,7
+22,7,Jodie Sweetin,Jodie Sweetin,2016-05-02,2016-05-09,200,40102,7
+22,8,Jodie Sweetin,Jodie Sweetin,2016-05-09,2016-05-16,200,49385,7
+22,9,Jodie Sweetin,Jodie Sweetin,2016-05-16,2016-05-23,200,23765,7
+22,10,Jodie Sweetin,Jodie Sweetin,2016-05-23,2016-05-30,200,6843,2
+22,1,Kim Fields,Kim Fields,2016-03-21,2016-03-28,200,100088,7
+22,2,Kim Fields,Kim Fields,2016-03-28,2016-04-04,200,56784,7
+22,3,Kim Fields,Kim Fields,2016-04-04,2016-04-11,200,42662,7
+22,4,Kim Fields,Kim Fields,2016-04-11,2016-04-18,200,35371,7
+22,5,Kim Fields,Kim Fields,2016-04-18,2016-04-25,200,29357,7
+22,6,Kim Fields,Kim Fields,2016-04-25,2016-05-02,200,24347,7
+22,7,Kim Fields,Kim Fields,2016-05-02,2016-05-09,200,29487,7
+22,8,Kim Fields,Kim Fields,2016-05-09,2016-05-16,200,9775,7
+22,9,Kim Fields,Kim Fields,2016-05-16,2016-05-23,200,6551,7
+22,10,Kim Fields,Kim Fields,2016-05-23,2016-05-30,200,2175,2
+22,1,Marla Maples,Marla Maples,2016-03-21,2016-03-28,200,283975,7
+22,2,Marla Maples,Marla Maples,2016-03-28,2016-04-04,200,194388,7
+22,3,Marla Maples,Marla Maples,2016-04-04,2016-04-11,200,169972,7
+22,4,Marla Maples,Marla Maples,2016-04-11,2016-04-18,200,170109,7
+22,5,Marla Maples,Marla Maples,2016-04-18,2016-04-25,200,67644,7
+22,6,Marla Maples,Marla Maples,2016-04-25,2016-05-02,200,53852,7
+22,7,Marla Maples,Marla Maples,2016-05-02,2016-05-09,200,119196,7
+22,8,Marla Maples,Marla Maples,2016-05-09,2016-05-16,200,80021,7
+22,9,Marla Maples,Marla Maples,2016-05-16,2016-05-23,200,64055,7
+22,10,Marla Maples,Marla Maples,2016-05-23,2016-05-30,200,10809,2
+22,1,Mischa Barton,Mischa Barton,2016-03-21,2016-03-28,200,131898,7
+22,2,Mischa Barton,Mischa Barton,2016-03-28,2016-04-04,200,150640,7
+22,3,Mischa Barton,Mischa Barton,2016-04-04,2016-04-11,200,107961,7
+22,4,Mischa Barton,Mischa Barton,2016-04-11,2016-04-18,200,32825,7
+22,5,Mischa Barton,Mischa Barton,2016-04-18,2016-04-25,200,27648,7
+22,6,Mischa Barton,Mischa Barton,2016-04-25,2016-05-02,200,25766,7
+22,7,Mischa Barton,Mischa Barton,2016-05-02,2016-05-09,200,22183,7
+22,8,Mischa Barton,Mischa Barton,2016-05-09,2016-05-16,200,20474,7
+22,9,Mischa Barton,Mischa Barton,2016-05-16,2016-05-23,200,22058,7
+22,10,Mischa Barton,Mischa Barton,2016-05-23,2016-05-30,200,6011,2
+22,1,Nyle DiMarco,Nyle DiMarco,2016-03-21,2016-03-28,200,120841,7
+22,2,Nyle DiMarco,Nyle DiMarco,2016-03-28,2016-04-04,200,82533,7
+22,3,Nyle DiMarco,Nyle DiMarco,2016-04-04,2016-04-11,200,60966,7
+22,4,Nyle DiMarco,Nyle DiMarco,2016-04-11,2016-04-18,200,94554,7
+22,5,Nyle DiMarco,Nyle DiMarco,2016-04-18,2016-04-25,200,89183,7
+22,6,Nyle DiMarco,Nyle DiMarco,2016-04-25,2016-05-02,200,39876,7
+22,7,Nyle DiMarco,Nyle DiMarco,2016-05-02,2016-05-09,200,41291,7
+22,8,Nyle DiMarco,Nyle DiMarco,2016-05-09,2016-05-16,200,49886,7
+22,9,Nyle DiMarco,Nyle DiMarco,2016-05-16,2016-05-23,200,73355,7
+22,10,Nyle DiMarco,Nyle DiMarco,2016-05-23,2016-05-30,200,52642,2
+22,1,Paige VanZant,Paige VanZant,2016-03-21,2016-03-28,200,61235,7
+22,2,Paige VanZant,Paige VanZant,2016-03-28,2016-04-04,200,69231,7
+22,3,Paige VanZant,Paige VanZant,2016-04-04,2016-04-11,200,55626,7
+22,4,Paige VanZant,Paige VanZant,2016-04-11,2016-04-18,200,49909,7
+22,5,Paige VanZant,Paige VanZant,2016-04-18,2016-04-25,200,48331,7
+22,6,Paige VanZant,Paige VanZant,2016-04-25,2016-05-02,200,42908,7
+22,7,Paige VanZant,Paige VanZant,2016-05-02,2016-05-09,200,56850,7
+22,8,Paige VanZant,Paige VanZant,2016-05-09,2016-05-16,200,42999,7
+22,9,Paige VanZant,Paige VanZant,2016-05-16,2016-05-23,200,65693,7
+22,10,Paige VanZant,Paige VanZant,2016-05-23,2016-05-30,200,53243,2
+22,1,Von Miller,Von Miller,2016-03-21,2016-03-28,200,57254,7
+22,2,Von Miller,Von Miller,2016-03-28,2016-04-04,200,30685,7
+22,3,Von Miller,Von Miller,2016-04-04,2016-04-11,200,39707,7
+22,4,Von Miller,Von Miller,2016-04-11,2016-04-18,200,40200,7
+22,5,Von Miller,Von Miller,2016-04-18,2016-04-25,200,35426,7
+22,6,Von Miller,Von Miller,2016-04-25,2016-05-02,200,25386,7
+22,7,Von Miller,Von Miller,2016-05-02,2016-05-09,200,21943,7
+22,8,Von Miller,Von Miller,2016-05-09,2016-05-16,200,9126,7
+22,9,Von Miller,Von Miller,2016-05-16,2016-05-23,200,8161,7
+22,10,Von Miller,Von Miller,2016-05-23,2016-05-30,200,2825,2
+22,1,Wanya Morris,Wanya Morris,2016-03-21,2016-03-28,200,30729,7
+22,2,Wanya Morris,Wanya Morris,2016-03-28,2016-04-04,200,19288,7
+22,3,Wanya Morris,Wanya Morris,2016-04-04,2016-04-11,200,16299,7
+22,4,Wanya Morris,Wanya Morris,2016-04-11,2016-04-18,200,14804,7
+22,5,Wanya Morris,Wanya Morris,2016-04-18,2016-04-25,200,9685,7
+22,6,Wanya Morris,Wanya Morris,2016-04-25,2016-05-02,200,12271,7
+22,7,Wanya Morris,Wanya Morris,2016-05-02,2016-05-09,200,11520,7
+22,8,Wanya Morris,Wanya Morris,2016-05-09,2016-05-16,200,14934,7
+22,9,Wanya Morris,Wanya Morris,2016-05-16,2016-05-23,200,86371,7
+22,10,Wanya Morris,Wanya Morris,2016-05-23,2016-05-30,200,3034,2
+23,1,Amber Rose,Amber Rose,2016-09-12,2016-09-19,200,304179,7
+23,2,Amber Rose,Amber Rose,2016-09-19,2016-09-26,200,224507,7
+23,3,Amber Rose,Amber Rose,2016-09-26,2016-10-03,200,219371,7
+23,4,Amber Rose,Amber Rose,2016-10-03,2016-10-10,200,195985,7
+23,5,Amber Rose,Amber Rose,2016-10-10,2016-10-17,200,166282,7
+23,6,Amber Rose,Amber Rose,2016-10-17,2016-10-24,200,192249,7
+23,7,Amber Rose,Amber Rose,2016-10-24,2016-10-31,200,59181,7
+23,8,Amber Rose,Amber Rose,2016-10-31,2016-11-07,200,41945,7
+23,9,Amber Rose,Amber Rose,2016-11-07,2016-11-14,200,44595,7
+23,10,Amber Rose,Amber Rose,2016-11-14,2016-11-21,200,36444,7
+23,11,Amber Rose,Amber Rose,2016-11-21,2016-11-28,200,13657,2
+23,1,Babyface,Babyface,2016-09-12,2016-09-19,200,2037,7
+23,2,Babyface,Babyface,2016-09-19,2016-09-26,200,1918,7
+23,3,Babyface,Babyface,2016-09-26,2016-10-03,200,1079,7
+23,4,Babyface,Babyface,2016-10-03,2016-10-10,200,754,7
+23,5,Babyface,Babyface,2016-10-10,2016-10-17,200,311,7
+23,6,Babyface,Babyface,2016-10-17,2016-10-24,200,422,7
+23,7,Babyface,Babyface,2016-10-24,2016-10-31,200,298,7
+23,8,Babyface,Babyface,2016-10-31,2016-11-07,200,301,7
+23,9,Babyface,Babyface,2016-11-07,2016-11-14,200,360,7
+23,10,Babyface,Babyface,2016-11-14,2016-11-21,200,415,7
+23,11,Babyface,Babyface,2016-11-21,2016-11-28,200,95,2
+23,1,Calvin Johnson Jr.,Calvin Johnson,2016-09-12,2016-09-19,200,67271,7
+23,2,Calvin Johnson Jr.,Calvin Johnson,2016-09-19,2016-09-26,200,55444,7
+23,3,Calvin Johnson Jr.,Calvin Johnson,2016-09-26,2016-10-03,200,38114,7
+23,4,Calvin Johnson Jr.,Calvin Johnson,2016-10-03,2016-10-10,200,47120,7
+23,5,Calvin Johnson Jr.,Calvin Johnson,2016-10-10,2016-10-17,200,46332,7
+23,6,Calvin Johnson Jr.,Calvin Johnson,2016-10-17,2016-10-24,200,42559,7
+23,7,Calvin Johnson Jr.,Calvin Johnson,2016-10-24,2016-10-31,200,38252,7
+23,8,Calvin Johnson Jr.,Calvin Johnson,2016-10-31,2016-11-07,200,33631,7
+23,9,Calvin Johnson Jr.,Calvin Johnson,2016-11-07,2016-11-14,200,27368,7
+23,10,Calvin Johnson Jr.,Calvin Johnson,2016-11-14,2016-11-21,200,49424,7
+23,11,Calvin Johnson Jr.,Calvin Johnson,2016-11-21,2016-11-28,200,39878,2
+23,1,Jake T. Austin,Jake T. Austin,2016-09-12,2016-09-19,200,81805,7
+23,2,Jake T. Austin,Jake T. Austin,2016-09-19,2016-09-26,200,88106,7
+23,3,Jake T. Austin,Jake T. Austin,2016-09-26,2016-10-03,200,25504,7
+23,4,Jake T. Austin,Jake T. Austin,2016-10-03,2016-10-10,200,21881,7
+23,5,Jake T. Austin,Jake T. Austin,2016-10-10,2016-10-17,200,18591,7
+23,6,Jake T. Austin,Jake T. Austin,2016-10-17,2016-10-24,200,16608,7
+23,7,Jake T. Austin,Jake T. Austin,2016-10-24,2016-10-31,200,15477,7
+23,8,Jake T. Austin,Jake T. Austin,2016-10-31,2016-11-07,200,15978,7
+23,9,Jake T. Austin,Jake T. Austin,2016-11-07,2016-11-14,200,14410,7
+23,10,Jake T. Austin,Jake T. Austin,2016-11-14,2016-11-21,200,14627,7
+23,11,Jake T. Austin,Jake T. Austin,2016-11-21,2016-11-28,200,4891,2
+23,1,James Hinchcliffe,James Hinchcliffe,2016-09-12,2016-09-19,200,30856,7
+23,2,James Hinchcliffe,James Hinchcliffe,2016-09-19,2016-09-26,200,26805,7
+23,3,James Hinchcliffe,James Hinchcliffe,2016-09-26,2016-10-03,200,19541,7
+23,4,James Hinchcliffe,James Hinchcliffe,2016-10-03,2016-10-10,200,21414,7
+23,5,James Hinchcliffe,James Hinchcliffe,2016-10-10,2016-10-17,200,49494,7
+23,6,James Hinchcliffe,James Hinchcliffe,2016-10-17,2016-10-24,200,59240,7
+23,7,James Hinchcliffe,James Hinchcliffe,2016-10-24,2016-10-31,200,22987,7
+23,8,James Hinchcliffe,James Hinchcliffe,2016-10-31,2016-11-07,200,20222,7
+23,9,James Hinchcliffe,James Hinchcliffe,2016-11-07,2016-11-14,200,24367,7
+23,10,James Hinchcliffe,James Hinchcliffe,2016-11-14,2016-11-21,200,40891,7
+23,11,James Hinchcliffe,James Hinchcliffe,2016-11-21,2016-11-28,200,32383,2
+23,1,Jana Kramer,Jana Kramer,2016-09-12,2016-09-19,200,156212,7
+23,2,Jana Kramer,Jana Kramer,2016-09-19,2016-09-26,200,90272,7
+23,3,Jana Kramer,Jana Kramer,2016-09-26,2016-10-03,200,53209,7
+23,4,Jana Kramer,Jana Kramer,2016-10-03,2016-10-10,200,87094,7
+23,5,Jana Kramer,Jana Kramer,2016-10-10,2016-10-17,200,185836,7
+23,6,Jana Kramer,Jana Kramer,2016-10-17,2016-10-24,200,108631,7
+23,7,Jana Kramer,Jana Kramer,2016-10-24,2016-10-31,200,51616,7
+23,8,Jana Kramer,Jana Kramer,2016-10-31,2016-11-07,200,38286,7
+23,9,Jana Kramer,Jana Kramer,2016-11-07,2016-11-14,200,53777,7
+23,10,Jana Kramer,Jana Kramer,2016-11-14,2016-11-21,200,120940,7
+23,11,Jana Kramer,Jana Kramer,2016-11-21,2016-11-28,200,43154,2
+23,1,Laurie Hernandez,Laurie Hernandez,2016-09-12,2016-09-19,200,58253,7
+23,2,Laurie Hernandez,Laurie Hernandez,2016-09-19,2016-09-26,200,32611,7
+23,3,Laurie Hernandez,Laurie Hernandez,2016-09-26,2016-10-03,200,25574,7
+23,4,Laurie Hernandez,Laurie Hernandez,2016-10-03,2016-10-10,200,30667,7
+23,5,Laurie Hernandez,Laurie Hernandez,2016-10-10,2016-10-17,200,22370,7
+23,6,Laurie Hernandez,Laurie Hernandez,2016-10-17,2016-10-24,200,16529,7
+23,7,Laurie Hernandez,Laurie Hernandez,2016-10-24,2016-10-31,200,13906,7
+23,8,Laurie Hernandez,Laurie Hernandez,2016-10-31,2016-11-07,200,18048,7
+23,9,Laurie Hernandez,Laurie Hernandez,2016-11-07,2016-11-14,200,20628,7
+23,10,Laurie Hernandez,Laurie Hernandez,2016-11-14,2016-11-21,200,35807,7
+23,11,Laurie Hernandez,Laurie Hernandez,2016-11-21,2016-11-28,200,22840,2
+23,1,Marilu Henner,Marilu Henner,2016-09-12,2016-09-19,200,109172,7
+23,2,Marilu Henner,Marilu Henner,2016-09-19,2016-09-26,200,86614,7
+23,3,Marilu Henner,Marilu Henner,2016-09-26,2016-10-03,200,60119,7
+23,4,Marilu Henner,Marilu Henner,2016-10-03,2016-10-10,200,60481,7
+23,5,Marilu Henner,Marilu Henner,2016-10-10,2016-10-17,200,47779,7
+23,6,Marilu Henner,Marilu Henner,2016-10-17,2016-10-24,200,62102,7
+23,7,Marilu Henner,Marilu Henner,2016-10-24,2016-10-31,200,51575,7
+23,8,Marilu Henner,Marilu Henner,2016-10-31,2016-11-07,200,44860,7
+23,9,Marilu Henner,Marilu Henner,2016-11-07,2016-11-14,200,56521,7
+23,10,Marilu Henner,Marilu Henner,2016-11-14,2016-11-21,200,11049,7
+23,11,Marilu Henner,Marilu Henner,2016-11-21,2016-11-28,200,3074,2
+23,1,Maureen McCormick,Maureen McCormick,2016-09-12,2016-09-19,200,197158,7
+23,2,Maureen McCormick,Maureen McCormick,2016-09-19,2016-09-26,200,138024,7
+23,3,Maureen McCormick,Maureen McCormick,2016-09-26,2016-10-03,200,55869,7
+23,4,Maureen McCormick,Maureen McCormick,2016-10-03,2016-10-10,200,89290,7
+23,5,Maureen McCormick,Maureen McCormick,2016-10-10,2016-10-17,200,120097,7
+23,6,Maureen McCormick,Maureen McCormick,2016-10-17,2016-10-24,200,70635,7
+23,7,Maureen McCormick,Maureen McCormick,2016-10-24,2016-10-31,200,78133,7
+23,8,Maureen McCormick,Maureen McCormick,2016-10-31,2016-11-07,200,23273,7
+23,9,Maureen McCormick,Maureen McCormick,2016-11-07,2016-11-14,200,17572,7
+23,10,Maureen McCormick,Maureen McCormick,2016-11-14,2016-11-21,200,14018,7
+23,11,Maureen McCormick,Maureen McCormick,2016-11-21,2016-11-28,200,3716,2
+23,1,Rick Perry,Rick Perry,2016-09-12,2016-09-19,200,54033,7
+23,2,Rick Perry,Rick Perry,2016-09-19,2016-09-26,200,33574,7
+23,3,Rick Perry,Rick Perry,2016-09-26,2016-10-03,200,29690,7
+23,4,Rick Perry,Rick Perry,2016-10-03,2016-10-10,200,11420,7
+23,5,Rick Perry,Rick Perry,2016-10-10,2016-10-17,200,9509,7
+23,6,Rick Perry,Rick Perry,2016-10-17,2016-10-24,200,10383,7
+23,7,Rick Perry,Rick Perry,2016-10-24,2016-10-31,200,9420,7
+23,8,Rick Perry,Rick Perry,2016-10-31,2016-11-07,200,9421,7
+23,9,Rick Perry,Rick Perry,2016-11-07,2016-11-14,200,18515,7
+23,10,Rick Perry,Rick Perry,2016-11-14,2016-11-21,200,14522,7
+23,11,Rick Perry,Rick Perry,2016-11-21,2016-11-28,200,7305,2
+23,1,Ryan Lochte,Ryan Lochte,2016-09-12,2016-09-19,200,141465,7
+23,2,Ryan Lochte,Ryan Lochte,2016-09-19,2016-09-26,200,49192,7
+23,3,Ryan Lochte,Ryan Lochte,2016-09-26,2016-10-03,200,29188,7
+23,4,Ryan Lochte,Ryan Lochte,2016-10-03,2016-10-10,200,21281,7
+23,5,Ryan Lochte,Ryan Lochte,2016-10-10,2016-10-17,200,40396,7
+23,6,Ryan Lochte,Ryan Lochte,2016-10-17,2016-10-24,200,17015,7
+23,7,Ryan Lochte,Ryan Lochte,2016-10-24,2016-10-31,200,14346,7
+23,8,Ryan Lochte,Ryan Lochte,2016-10-31,2016-11-07,200,14545,7
+23,9,Ryan Lochte,Ryan Lochte,2016-11-07,2016-11-14,200,7600,7
+23,10,Ryan Lochte,Ryan Lochte,2016-11-14,2016-11-21,200,8229,7
+23,11,Ryan Lochte,Ryan Lochte,2016-11-21,2016-11-28,200,2354,2
+23,1,Terra Jole,Terra Jolé,2016-09-12,2016-09-19,200,0,0
+23,2,Terra Jole,Terra Jolé,2016-09-19,2016-09-26,200,0,0
+23,3,Terra Jole,Terra Jolé,2016-09-26,2016-10-03,200,0,0
+23,4,Terra Jole,Terra Jolé,2016-10-03,2016-10-10,200,0,0
+23,5,Terra Jole,Terra Jolé,2016-10-10,2016-10-17,200,0,0
+23,6,Terra Jole,Terra Jolé,2016-10-17,2016-10-24,200,0,0
+23,7,Terra Jole,Terra Jolé,2016-10-24,2016-10-31,200,199,1
+23,8,Terra Jole,Terra Jolé,2016-10-31,2016-11-07,200,6715,7
+23,9,Terra Jole,Terra Jolé,2016-11-07,2016-11-14,200,15535,7
+23,10,Terra Jole,Terra Jolé,2016-11-14,2016-11-21,200,34190,7
+23,11,Terra Jole,Terra Jolé,2016-11-21,2016-11-28,200,3227,2
+23,1,Vanilla Ice,Vanilla Ice,2016-09-12,2016-09-19,200,139643,7
+23,2,Vanilla Ice,Vanilla Ice,2016-09-19,2016-09-26,200,101204,7
+23,3,Vanilla Ice,Vanilla Ice,2016-09-26,2016-10-03,200,42781,7
+23,4,Vanilla Ice,Vanilla Ice,2016-10-03,2016-10-10,200,56725,7
+23,5,Vanilla Ice,Vanilla Ice,2016-10-10,2016-10-17,200,29402,7
+23,6,Vanilla Ice,Vanilla Ice,2016-10-17,2016-10-24,200,35566,7
+23,7,Vanilla Ice,Vanilla Ice,2016-10-24,2016-10-31,200,58375,7
+23,8,Vanilla Ice,Vanilla Ice,2016-10-31,2016-11-07,200,19970,7
+23,9,Vanilla Ice,Vanilla Ice,2016-11-07,2016-11-14,200,15591,7
+23,10,Vanilla Ice,Vanilla Ice,2016-11-14,2016-11-21,200,17649,7
+23,11,Vanilla Ice,Vanilla Ice,2016-11-21,2016-11-28,200,4537,2
+24,1,Bonner Bolton,Bonner Bolton,2017-03-20,2017-03-27,200,84602,6
+24,2,Bonner Bolton,Bonner Bolton,2017-03-27,2017-04-03,200,62743,7
+24,3,Bonner Bolton,Bonner Bolton,2017-04-03,2017-04-10,200,26693,7
+24,4,Bonner Bolton,Bonner Bolton,2017-04-10,2017-04-17,200,32159,7
+24,5,Bonner Bolton,Bonner Bolton,2017-04-17,2017-04-24,200,24593,7
+24,6,Bonner Bolton,Bonner Bolton,2017-04-24,2017-05-01,200,17756,7
+24,7,Bonner Bolton,Bonner Bolton,2017-05-01,2017-05-08,200,11827,7
+24,8,Bonner Bolton,Bonner Bolton,2017-05-08,2017-05-15,200,45535,7
+24,9,Bonner Bolton,Bonner Bolton,2017-05-15,2017-05-22,200,10525,7
+24,10,Bonner Bolton,Bonner Bolton,2017-05-22,2017-05-29,200,1498,2
+24,1,Charo,Charo,2017-03-20,2017-03-27,200,653427,7
+24,2,Charo,Charo,2017-03-27,2017-04-03,200,308046,7
+24,3,Charo,Charo,2017-04-03,2017-04-10,200,267807,7
+24,4,Charo,Charo,2017-04-10,2017-04-17,200,36737,7
+24,5,Charo,Charo,2017-04-17,2017-04-24,200,25258,7
+24,6,Charo,Charo,2017-04-24,2017-05-01,200,17172,7
+24,7,Charo,Charo,2017-05-01,2017-05-08,200,12555,7
+24,8,Charo,Charo,2017-05-08,2017-05-15,200,11927,7
+24,9,Charo,Charo,2017-05-15,2017-05-22,200,10997,7
+24,10,Charo,Charo,2017-05-22,2017-05-29,200,3350,2
+24,1,Chris Kattan,Chris Kattan,2017-03-20,2017-03-27,200,182775,7
+24,2,Chris Kattan,Chris Kattan,2017-03-27,2017-04-03,200,252795,7
+24,3,Chris Kattan,Chris Kattan,2017-04-03,2017-04-10,200,26675,7
+24,4,Chris Kattan,Chris Kattan,2017-04-10,2017-04-17,200,15713,7
+24,5,Chris Kattan,Chris Kattan,2017-04-17,2017-04-24,200,15226,7
+24,6,Chris Kattan,Chris Kattan,2017-04-24,2017-05-01,200,15219,7
+24,7,Chris Kattan,Chris Kattan,2017-05-01,2017-05-08,200,10927,7
+24,8,Chris Kattan,Chris Kattan,2017-05-08,2017-05-15,200,9437,7
+24,9,Chris Kattan,Chris Kattan,2017-05-15,2017-05-22,200,11189,7
+24,10,Chris Kattan,Chris Kattan,2017-05-22,2017-05-29,200,3524,2
+24,1,David Ross,David Ross,2017-03-20,2017-03-27,200,816,7
+24,2,David Ross,David Ross,2017-03-27,2017-04-03,200,445,7
+24,3,David Ross,David Ross,2017-04-03,2017-04-10,200,393,7
+24,4,David Ross,David Ross,2017-04-10,2017-04-17,200,517,7
+24,5,David Ross,David Ross,2017-04-17,2017-04-24,200,379,7
+24,6,David Ross,David Ross,2017-04-24,2017-05-01,200,224,7
+24,7,David Ross,David Ross,2017-05-01,2017-05-08,200,230,7
+24,8,David Ross,David Ross,2017-05-08,2017-05-15,200,248,7
+24,9,David Ross,David Ross,2017-05-15,2017-05-22,200,937,7
+24,10,David Ross,David Ross,2017-05-22,2017-05-29,200,195,2
+24,1,Erika Jayne,Erika Jayne,2017-03-20,2017-03-27,200,180763,7
+24,2,Erika Jayne,Erika Jayne,2017-03-27,2017-04-03,200,85001,7
+24,3,Erika Jayne,Erika Jayne,2017-04-03,2017-04-10,200,55316,7
+24,4,Erika Jayne,Erika Jayne,2017-04-10,2017-04-17,200,123643,7
+24,5,Erika Jayne,Erika Jayne,2017-04-17,2017-04-24,200,105262,7
+24,6,Erika Jayne,Erika Jayne,2017-04-24,2017-05-01,200,33373,7
+24,7,Erika Jayne,Erika Jayne,2017-05-01,2017-05-08,200,17135,7
+24,8,Erika Jayne,Erika Jayne,2017-05-08,2017-05-15,200,15041,7
+24,9,Erika Jayne,Erika Jayne,2017-05-15,2017-05-22,200,9524,7
+24,10,Erika Jayne,Erika Jayne,2017-05-22,2017-05-29,200,2731,2
+24,1,Heather Morris,Heather Morris,2017-03-20,2017-03-27,200,78613,7
+24,2,Heather Morris,Heather Morris,2017-03-27,2017-04-03,200,56282,7
+24,3,Heather Morris,Heather Morris,2017-04-03,2017-04-10,200,27487,7
+24,4,Heather Morris,Heather Morris,2017-04-10,2017-04-17,200,46985,7
+24,5,Heather Morris,Heather Morris,2017-04-17,2017-04-24,200,30740,7
+24,6,Heather Morris,Heather Morris,2017-04-24,2017-05-01,200,73401,7
+24,7,Heather Morris,Heather Morris,2017-05-01,2017-05-08,200,14591,7
+24,8,Heather Morris,Heather Morris,2017-05-08,2017-05-15,200,9621,7
+24,9,Heather Morris,Heather Morris,2017-05-15,2017-05-22,200,8102,7
+24,10,Heather Morris,Heather Morris,2017-05-22,2017-05-29,200,2421,2
+24,1,Mr. T,Mr. T,2017-03-20,2017-03-27,200,293648,7
+24,2,Mr. T,Mr. T,2017-03-27,2017-04-03,200,182897,7
+24,3,Mr. T,Mr. T,2017-04-03,2017-04-10,200,132740,7
+24,4,Mr. T,Mr. T,2017-04-10,2017-04-17,200,131971,7
+24,5,Mr. T,Mr. T,2017-04-17,2017-04-24,200,30891,7
+24,6,Mr. T,Mr. T,2017-04-24,2017-05-01,200,26006,7
+24,7,Mr. T,Mr. T,2017-05-01,2017-05-08,200,21257,7
+24,8,Mr. T,Mr. T,2017-05-08,2017-05-15,200,19536,7
+24,9,Mr. T,Mr. T,2017-05-15,2017-05-22,200,26581,7
+24,10,Mr. T,Mr. T,2017-05-22,2017-05-29,200,7910,2
+24,1,Nancy Kerrigan,Nancy Kerrigan,2017-03-20,2017-03-27,200,282305,7
+24,2,Nancy Kerrigan,Nancy Kerrigan,2017-03-27,2017-04-03,200,104830,7
+24,3,Nancy Kerrigan,Nancy Kerrigan,2017-04-03,2017-04-10,200,94596,7
+24,4,Nancy Kerrigan,Nancy Kerrigan,2017-04-10,2017-04-17,200,120235,7
+24,5,Nancy Kerrigan,Nancy Kerrigan,2017-04-17,2017-04-24,200,74865,7
+24,6,Nancy Kerrigan,Nancy Kerrigan,2017-04-24,2017-05-01,200,55194,7
+24,7,Nancy Kerrigan,Nancy Kerrigan,2017-05-01,2017-05-08,200,46858,7
+24,8,Nancy Kerrigan,Nancy Kerrigan,2017-05-08,2017-05-15,200,14881,7
+24,9,Nancy Kerrigan,Nancy Kerrigan,2017-05-15,2017-05-22,200,11321,7
+24,10,Nancy Kerrigan,Nancy Kerrigan,2017-05-22,2017-05-29,200,3068,2
+24,1,Nick Viall,Nick Viall,2017-03-20,2017-03-27,200,6180,5
+24,2,Nick Viall,Nick Viall,2017-03-27,2017-04-03,200,8884,7
+24,3,Nick Viall,Nick Viall,2017-04-03,2017-04-10,200,7356,7
+24,4,Nick Viall,Nick Viall,2017-04-10,2017-04-17,200,9719,7
+24,5,Nick Viall,Nick Viall,2017-04-17,2017-04-24,200,9467,7
+24,6,Nick Viall,Nick Viall,2017-04-24,2017-05-01,200,9986,7
+24,7,Nick Viall,Nick Viall,2017-05-01,2017-05-08,200,8700,7
+24,8,Nick Viall,Nick Viall,2017-05-08,2017-05-15,200,5257,7
+24,9,Nick Viall,Nick Viall,2017-05-15,2017-05-22,200,6308,7
+24,10,Nick Viall,Nick Viall,2017-05-22,2017-05-29,200,4101,2
+24,1,Normani,Normani,2017-03-20,2017-03-27,200,38,6
+24,2,Normani,Normani,2017-03-27,2017-04-03,200,52,6
+24,3,Normani,Normani,2017-04-03,2017-04-10,200,46,6
+24,4,Normani,Normani,2017-04-10,2017-04-17,200,24,7
+24,5,Normani,Normani,2017-04-17,2017-04-24,200,25,7
+24,6,Normani,Normani,2017-04-24,2017-05-01,200,57,7
+24,7,Normani,Normani,2017-05-01,2017-05-08,200,17,6
+24,8,Normani,Normani,2017-05-08,2017-05-15,200,85,6
+24,9,Normani,Normani,2017-05-15,2017-05-22,200,92,7
+24,10,Normani,Normani,2017-05-22,2017-05-29,200,34,2
+24,1,Rashad Jennings,Rashad Jennings,2017-03-20,2017-03-27,200,57830,7
+24,2,Rashad Jennings,Rashad Jennings,2017-03-27,2017-04-03,200,46572,7
+24,3,Rashad Jennings,Rashad Jennings,2017-04-03,2017-04-10,200,21250,7
+24,4,Rashad Jennings,Rashad Jennings,2017-04-10,2017-04-17,200,131328,7
+24,5,Rashad Jennings,Rashad Jennings,2017-04-17,2017-04-24,200,30207,7
+24,6,Rashad Jennings,Rashad Jennings,2017-04-24,2017-05-01,200,46734,7
+24,7,Rashad Jennings,Rashad Jennings,2017-05-01,2017-05-08,200,21085,7
+24,8,Rashad Jennings,Rashad Jennings,2017-05-08,2017-05-15,200,28442,7
+24,9,Rashad Jennings,Rashad Jennings,2017-05-15,2017-05-22,200,59350,7
+24,10,Rashad Jennings,Rashad Jennings,2017-05-22,2017-05-29,200,38038,2
+24,1,Simone Biles,Simone Biles,2017-03-20,2017-03-27,200,61521,7
+24,2,Simone Biles,Simone Biles,2017-03-27,2017-04-03,200,37146,7
+24,3,Simone Biles,Simone Biles,2017-04-03,2017-04-10,200,29354,7
+24,4,Simone Biles,Simone Biles,2017-04-10,2017-04-17,200,96610,7
+24,5,Simone Biles,Simone Biles,2017-04-17,2017-04-24,200,60509,7
+24,6,Simone Biles,Simone Biles,2017-04-24,2017-05-01,200,44795,7
+24,7,Simone Biles,Simone Biles,2017-05-01,2017-05-08,200,29197,7
+24,8,Simone Biles,Simone Biles,2017-05-08,2017-05-15,200,38066,7
+24,9,Simone Biles,Simone Biles,2017-05-15,2017-05-22,200,60706,7
+24,10,Simone Biles,Simone Biles,2017-05-22,2017-05-29,200,6752,2
+25,1,Barbara Corcoran,Barbara Corcoran,2017-09-18,2017-09-25,200,189122,7
+25,2,Barbara Corcoran,Barbara Corcoran,2017-09-25,2017-10-02,200,108116,7
+25,3,Barbara Corcoran,Barbara Corcoran,2017-10-02,2017-10-09,200,24698,7
+25,4,Barbara Corcoran,Barbara Corcoran,2017-10-09,2017-10-16,200,33834,7
+25,5,Barbara Corcoran,Barbara Corcoran,2017-10-16,2017-10-23,200,16743,7
+25,6,Barbara Corcoran,Barbara Corcoran,2017-10-23,2017-10-30,200,17668,7
+25,7,Barbara Corcoran,Barbara Corcoran,2017-10-30,2017-11-06,200,18396,7
+25,8,Barbara Corcoran,Barbara Corcoran,2017-11-06,2017-11-13,200,23123,7
+25,9,Barbara Corcoran,Barbara Corcoran,2017-11-13,2017-11-20,200,14585,7
+25,10,Barbara Corcoran,Barbara Corcoran,2017-11-20,2017-11-27,200,7202,2
+25,1,Debbie Gibson,Debbie Gibson,2017-09-18,2017-09-25,200,149427,7
+25,2,Debbie Gibson,Debbie Gibson,2017-09-25,2017-10-02,200,177341,7
+25,3,Debbie Gibson,Debbie Gibson,2017-10-02,2017-10-09,200,24437,7
+25,4,Debbie Gibson,Debbie Gibson,2017-10-09,2017-10-16,200,20171,7
+25,5,Debbie Gibson,Debbie Gibson,2017-10-16,2017-10-23,200,12951,7
+25,6,Debbie Gibson,Debbie Gibson,2017-10-23,2017-10-30,200,10808,7
+25,7,Debbie Gibson,Debbie Gibson,2017-10-30,2017-11-06,200,9021,7
+25,8,Debbie Gibson,Debbie Gibson,2017-11-06,2017-11-13,200,10421,7
+25,9,Debbie Gibson,Debbie Gibson,2017-11-13,2017-11-20,200,9057,7
+25,10,Debbie Gibson,Debbie Gibson,2017-11-20,2017-11-27,200,2536,2
+25,1,Derek Fisher,Derek Fisher,2017-09-18,2017-09-25,200,45139,7
+25,2,Derek Fisher,Derek Fisher,2017-09-25,2017-10-02,200,37136,7
+25,3,Derek Fisher,Derek Fisher,2017-10-02,2017-10-09,200,14734,7
+25,4,Derek Fisher,Derek Fisher,2017-10-09,2017-10-16,200,71301,7
+25,5,Derek Fisher,Derek Fisher,2017-10-16,2017-10-23,200,10777,7
+25,6,Derek Fisher,Derek Fisher,2017-10-23,2017-10-30,200,7377,7
+25,7,Derek Fisher,Derek Fisher,2017-10-30,2017-11-06,200,9540,7
+25,8,Derek Fisher,Derek Fisher,2017-11-06,2017-11-13,200,6325,7
+25,9,Derek Fisher,Derek Fisher,2017-11-13,2017-11-20,200,5615,7
+25,10,Derek Fisher,Derek Fisher,2017-11-20,2017-11-27,200,1697,2
+25,1,Drew Scott,Drew Scott,2017-09-18,2017-09-25,200,39055,7
+25,2,Drew Scott,Drew Scott,2017-09-25,2017-10-02,200,31931,7
+25,3,Drew Scott,Drew Scott,2017-10-02,2017-10-09,200,19848,7
+25,4,Drew Scott,Drew Scott,2017-10-09,2017-10-16,200,27350,7
+25,5,Drew Scott,Drew Scott,2017-10-16,2017-10-23,200,19832,7
+25,6,Drew Scott,Drew Scott,2017-10-23,2017-10-30,200,18725,7
+25,7,Drew Scott,Drew Scott,2017-10-30,2017-11-06,200,16954,7
+25,8,Drew Scott,Drew Scott,2017-11-06,2017-11-13,200,23231,7
+25,9,Drew Scott,Drew Scott,2017-11-13,2017-11-20,200,34587,7
+25,10,Drew Scott,Drew Scott,2017-11-20,2017-11-27,200,16767,2
+25,1,Frankie Muniz,Frankie Muniz,2017-09-18,2017-09-25,200,322044,7
+25,2,Frankie Muniz,Frankie Muniz,2017-09-25,2017-10-02,200,172767,7
+25,3,Frankie Muniz,Frankie Muniz,2017-10-02,2017-10-09,200,84672,7
+25,4,Frankie Muniz,Frankie Muniz,2017-10-09,2017-10-16,200,192160,7
+25,5,Frankie Muniz,Frankie Muniz,2017-10-16,2017-10-23,200,79976,7
+25,6,Frankie Muniz,Frankie Muniz,2017-10-23,2017-10-30,200,48132,7
+25,7,Frankie Muniz,Frankie Muniz,2017-10-30,2017-11-06,200,47121,7
+25,8,Frankie Muniz,Frankie Muniz,2017-11-06,2017-11-13,200,59681,7
+25,9,Frankie Muniz,Frankie Muniz,2017-11-13,2017-11-20,200,68273,7
+25,10,Frankie Muniz,Frankie Muniz,2017-11-20,2017-11-27,200,72341,2
+25,1,Jordan Fisher,Jordan Fisher,2017-09-18,2017-09-25,200,84893,7
+25,2,Jordan Fisher,Jordan Fisher,2017-09-25,2017-10-02,200,95872,7
+25,3,Jordan Fisher,Jordan Fisher,2017-10-02,2017-10-09,200,43812,7
+25,4,Jordan Fisher,Jordan Fisher,2017-10-09,2017-10-16,200,148381,7
+25,5,Jordan Fisher,Jordan Fisher,2017-10-16,2017-10-23,200,77109,7
+25,6,Jordan Fisher,Jordan Fisher,2017-10-23,2017-10-30,200,60477,7
+25,7,Jordan Fisher,Jordan Fisher,2017-10-30,2017-11-06,200,27891,7
+25,8,Jordan Fisher,Jordan Fisher,2017-11-06,2017-11-13,200,52440,7
+25,9,Jordan Fisher,Jordan Fisher,2017-11-13,2017-11-20,200,79728,7
+25,10,Jordan Fisher,Jordan Fisher,2017-11-20,2017-11-27,200,65990,2
+25,1,Lindsey Stirling,Lindsey Stirling,2017-09-18,2017-09-25,200,80336,7
+25,2,Lindsey Stirling,Lindsey Stirling,2017-09-25,2017-10-02,200,83758,7
+25,3,Lindsey Stirling,Lindsey Stirling,2017-10-02,2017-10-09,200,90586,7
+25,4,Lindsey Stirling,Lindsey Stirling,2017-10-09,2017-10-16,200,71230,7
+25,5,Lindsey Stirling,Lindsey Stirling,2017-10-16,2017-10-23,200,42027,7
+25,6,Lindsey Stirling,Lindsey Stirling,2017-10-23,2017-10-30,200,43370,7
+25,7,Lindsey Stirling,Lindsey Stirling,2017-10-30,2017-11-06,200,43579,7
+25,8,Lindsey Stirling,Lindsey Stirling,2017-11-06,2017-11-13,200,41970,7
+25,9,Lindsey Stirling,Lindsey Stirling,2017-11-13,2017-11-20,200,61242,7
+25,10,Lindsey Stirling,Lindsey Stirling,2017-11-20,2017-11-27,200,42212,2
+25,1,Nick Lachey,Nick Lachey,2017-09-18,2017-09-25,200,81543,7
+25,2,Nick Lachey,Nick Lachey,2017-09-25,2017-10-02,200,64230,7
+25,3,Nick Lachey,Nick Lachey,2017-10-02,2017-10-09,200,41284,7
+25,4,Nick Lachey,Nick Lachey,2017-10-09,2017-10-16,200,75396,7
+25,5,Nick Lachey,Nick Lachey,2017-10-16,2017-10-23,200,28565,7
+25,6,Nick Lachey,Nick Lachey,2017-10-23,2017-10-30,200,32448,7
+25,7,Nick Lachey,Nick Lachey,2017-10-30,2017-11-06,200,18635,7
+25,8,Nick Lachey,Nick Lachey,2017-11-06,2017-11-13,200,21784,7
+25,9,Nick Lachey,Nick Lachey,2017-11-13,2017-11-20,200,14691,7
+25,10,Nick Lachey,Nick Lachey,2017-11-20,2017-11-27,200,5452,2
+25,1,Nikki Bella,Nikki Bella,2017-09-18,2017-09-25,200,75462,7
+25,2,Nikki Bella,Nikki Bella,2017-09-25,2017-10-02,200,82059,7
+25,3,Nikki Bella,Nikki Bella,2017-10-02,2017-10-09,200,60983,7
+25,4,Nikki Bella,Nikki Bella,2017-10-09,2017-10-16,200,66475,7
+25,5,Nikki Bella,Nikki Bella,2017-10-16,2017-10-23,200,61908,7
+25,6,Nikki Bella,Nikki Bella,2017-10-23,2017-10-30,200,66437,7
+25,7,Nikki Bella,Nikki Bella,2017-10-30,2017-11-06,200,54696,7
+25,8,Nikki Bella,Nikki Bella,2017-11-06,2017-11-13,200,39799,7
+25,9,Nikki Bella,Nikki Bella,2017-11-13,2017-11-20,200,37470,7
+25,10,Nikki Bella,Nikki Bella,2017-11-20,2017-11-27,200,14380,2
+25,1,Sasha Pieterse,Sasha Pieterse,2017-09-18,2017-09-25,200,58442,7
+25,2,Sasha Pieterse,Sasha Pieterse,2017-09-25,2017-10-02,200,92179,7
+25,3,Sasha Pieterse,Sasha Pieterse,2017-10-02,2017-10-09,200,33044,7
+25,4,Sasha Pieterse,Sasha Pieterse,2017-10-09,2017-10-16,200,47829,7
+25,5,Sasha Pieterse,Sasha Pieterse,2017-10-16,2017-10-23,200,40982,7
+25,6,Sasha Pieterse,Sasha Pieterse,2017-10-23,2017-10-30,200,17262,7
+25,7,Sasha Pieterse,Sasha Pieterse,2017-10-30,2017-11-06,200,14867,7
+25,8,Sasha Pieterse,Sasha Pieterse,2017-11-06,2017-11-13,200,12621,7
+25,9,Sasha Pieterse,Sasha Pieterse,2017-11-13,2017-11-20,200,11529,7
+25,10,Sasha Pieterse,Sasha Pieterse,2017-11-20,2017-11-27,200,3629,2
+25,1,Terrell Owens,Terrell Owens,2017-09-18,2017-09-25,200,61033,7
+25,2,Terrell Owens,Terrell Owens,2017-09-25,2017-10-02,200,58542,7
+25,3,Terrell Owens,Terrell Owens,2017-10-02,2017-10-09,200,31675,7
+25,4,Terrell Owens,Terrell Owens,2017-10-09,2017-10-16,200,77042,7
+25,5,Terrell Owens,Terrell Owens,2017-10-16,2017-10-23,200,30656,7
+25,6,Terrell Owens,Terrell Owens,2017-10-23,2017-10-30,200,30018,7
+25,7,Terrell Owens,Terrell Owens,2017-10-30,2017-11-06,200,26489,7
+25,8,Terrell Owens,Terrell Owens,2017-11-06,2017-11-13,200,47740,7
+25,9,Terrell Owens,Terrell Owens,2017-11-13,2017-11-20,200,15839,7
+25,10,Terrell Owens,Terrell Owens,2017-11-20,2017-11-27,200,5979,2
+25,1,Vanessa Lachey,Vanessa Lachey,2017-09-18,2017-09-25,200,100221,7
+25,2,Vanessa Lachey,Vanessa Lachey,2017-09-25,2017-10-02,200,95057,7
+25,3,Vanessa Lachey,Vanessa Lachey,2017-10-02,2017-10-09,200,60323,7
+25,4,Vanessa Lachey,Vanessa Lachey,2017-10-09,2017-10-16,200,84622,7
+25,5,Vanessa Lachey,Vanessa Lachey,2017-10-16,2017-10-23,200,32590,7
+25,6,Vanessa Lachey,Vanessa Lachey,2017-10-23,2017-10-30,200,31888,7
+25,7,Vanessa Lachey,Vanessa Lachey,2017-10-30,2017-11-06,200,26860,7
+25,8,Vanessa Lachey,Vanessa Lachey,2017-11-06,2017-11-13,200,19160,7
+25,9,Vanessa Lachey,Vanessa Lachey,2017-11-13,2017-11-20,200,10923,7
+25,10,Vanessa Lachey,Vanessa Lachey,2017-11-20,2017-11-27,200,3570,2
+25,1,Victoria Arlen,Victoria Arlen,2017-09-18,2017-09-25,200,123926,7
+25,2,Victoria Arlen,Victoria Arlen,2017-09-25,2017-10-02,200,112504,7
+25,3,Victoria Arlen,Victoria Arlen,2017-10-02,2017-10-09,200,67380,7
+25,4,Victoria Arlen,Victoria Arlen,2017-10-09,2017-10-16,200,57605,7
+25,5,Victoria Arlen,Victoria Arlen,2017-10-16,2017-10-23,200,30247,7
+25,6,Victoria Arlen,Victoria Arlen,2017-10-23,2017-10-30,200,33295,7
+25,7,Victoria Arlen,Victoria Arlen,2017-10-30,2017-11-06,200,18556,7
+25,8,Victoria Arlen,Victoria Arlen,2017-11-06,2017-11-13,200,35489,7
+25,9,Victoria Arlen,Victoria Arlen,2017-11-13,2017-11-20,200,89455,7
+25,10,Victoria Arlen,Victoria Arlen,2017-11-20,2017-11-27,200,3982,2
+26,1,Adam Rippon,Adam Rippon,2018-04-30,2018-05-07,200,24535,7
+26,2,Adam Rippon,Adam Rippon,2018-05-07,2018-05-14,200,13540,7
+26,3,Adam Rippon,Adam Rippon,2018-05-14,2018-05-21,200,21142,7
+26,4,Adam Rippon,Adam Rippon,2018-05-21,2018-05-28,200,1323,1
+26,1,Arike Ogunbowale,Arike Ogunbowale,2018-04-30,2018-05-07,200,9287,7
+26,2,Arike Ogunbowale,Arike Ogunbowale,2018-05-07,2018-05-14,200,7800,7
+26,3,Arike Ogunbowale,Arike Ogunbowale,2018-05-14,2018-05-21,200,2038,7
+26,4,Arike Ogunbowale,Arike Ogunbowale,2018-05-21,2018-05-28,200,285,1
+26,1,Chris Mazdzer,Chris Mazdzer,2018-04-30,2018-05-07,200,14540,7
+26,2,Chris Mazdzer,Chris Mazdzer,2018-05-07,2018-05-14,200,12918,7
+26,3,Chris Mazdzer,Chris Mazdzer,2018-05-14,2018-05-21,200,11146,7
+26,4,Chris Mazdzer,Chris Mazdzer,2018-05-21,2018-05-28,200,349,1
+26,1,Jamie Anderson,Jamie Anderson,2018-04-30,2018-05-07,200,94,7
+26,2,Jamie Anderson,Jamie Anderson,2018-05-07,2018-05-14,200,24,7
+26,3,Jamie Anderson,Jamie Anderson,2018-05-14,2018-05-21,200,18,7
+26,4,Jamie Anderson,Jamie Anderson,2018-05-21,2018-05-28,200,2,1
+26,1,Jennie Finch Daigle,Jennie Finch,2018-04-30,2018-05-07,200,52150,7
+26,2,Jennie Finch Daigle,Jennie Finch,2018-05-07,2018-05-14,200,35354,7
+26,3,Jennie Finch Daigle,Jennie Finch,2018-05-14,2018-05-21,200,38597,7
+26,4,Jennie Finch Daigle,Jennie Finch,2018-05-21,2018-05-28,200,1868,1
+26,1,Johnny Damon,Johnny Damon,2018-04-30,2018-05-07,200,64834,7
+26,2,Johnny Damon,Johnny Damon,2018-05-07,2018-05-14,200,9985,7
+26,3,Johnny Damon,Johnny Damon,2018-05-14,2018-05-21,200,6990,7
+26,4,Johnny Damon,Johnny Damon,2018-05-21,2018-05-28,200,800,1
+26,1,Josh Norman,Josh Norman,2018-04-30,2018-05-07,200,33711,7
+26,2,Josh Norman,Josh Norman,2018-05-07,2018-05-14,200,23379,7
+26,3,Josh Norman,Josh Norman,2018-05-14,2018-05-21,200,22032,7
+26,4,Josh Norman,Josh Norman,2018-05-21,2018-05-28,200,1353,1
+26,1,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,2018-04-30,2018-05-07,200,367434,7
+26,2,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,2018-05-07,2018-05-14,200,240341,7
+26,3,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,2018-05-14,2018-05-21,200,60540,7
+26,4,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,2018-05-21,2018-05-28,200,8016,1
+26,1,Mirai Nagasu,Mirai Nagasu,2018-04-30,2018-05-07,200,26358,7
+26,2,Mirai Nagasu,Mirai Nagasu,2018-05-07,2018-05-14,200,16102,7
+26,3,Mirai Nagasu,Mirai Nagasu,2018-05-14,2018-05-21,200,13819,7
+26,4,Mirai Nagasu,Mirai Nagasu,2018-05-21,2018-05-28,200,703,1
+26,1,Tonya Harding,Tonya Harding,2018-04-30,2018-05-07,200,363500,7
+26,2,Tonya Harding,Tonya Harding,2018-05-07,2018-05-14,200,166511,7
+26,3,Tonya Harding,Tonya Harding,2018-05-14,2018-05-21,200,178252,7
+26,4,Tonya Harding,Tonya Harding,2018-05-21,2018-05-28,200,14131,1
+27,1,Alexis Ren,Alexis Ren,2018-09-24,2018-10-01,200,67220,7
+27,2,Alexis Ren,Alexis Ren,2018-10-01,2018-10-08,200,48372,7
+27,3,Alexis Ren,Alexis Ren,2018-10-08,2018-10-15,200,43779,7
+27,4,Alexis Ren,Alexis Ren,2018-10-15,2018-10-22,200,23728,7
+27,5,Alexis Ren,Alexis Ren,2018-10-22,2018-10-29,200,34328,7
+27,6,Alexis Ren,Alexis Ren,2018-10-29,2018-11-05,200,53051,7
+27,7,Alexis Ren,Alexis Ren,2018-11-05,2018-11-12,200,58658,7
+27,8,Alexis Ren,Alexis Ren,2018-11-12,2018-11-19,200,41501,7
+27,9,Alexis Ren,Alexis Ren,2018-11-19,2018-11-26,200,3832,1
+27,1,Bobby Bones,Bobby Bones,2018-09-24,2018-10-01,200,54127,7
+27,2,Bobby Bones,Bobby Bones,2018-10-01,2018-10-08,200,37590,7
+27,3,Bobby Bones,Bobby Bones,2018-10-08,2018-10-15,200,50728,7
+27,4,Bobby Bones,Bobby Bones,2018-10-15,2018-10-22,200,16968,7
+27,5,Bobby Bones,Bobby Bones,2018-10-22,2018-10-29,200,19404,7
+27,6,Bobby Bones,Bobby Bones,2018-10-29,2018-11-05,200,14957,7
+27,7,Bobby Bones,Bobby Bones,2018-11-05,2018-11-12,200,32469,7
+27,8,Bobby Bones,Bobby Bones,2018-11-12,2018-11-19,200,44153,7
+27,9,Bobby Bones,Bobby Bones,2018-11-19,2018-11-26,200,2757,1
+27,1,Danelle Umstead,Danelle Umstead,2018-09-24,2018-10-01,200,86167,7
+27,2,Danelle Umstead,Danelle Umstead,2018-10-01,2018-10-08,200,47746,7
+27,3,Danelle Umstead,Danelle Umstead,2018-10-08,2018-10-15,200,6687,7
+27,4,Danelle Umstead,Danelle Umstead,2018-10-15,2018-10-22,200,3352,7
+27,5,Danelle Umstead,Danelle Umstead,2018-10-22,2018-10-29,200,2545,7
+27,6,Danelle Umstead,Danelle Umstead,2018-10-29,2018-11-05,200,2203,7
+27,7,Danelle Umstead,Danelle Umstead,2018-11-05,2018-11-12,200,1885,7
+27,8,Danelle Umstead,Danelle Umstead,2018-11-12,2018-11-19,200,1661,7
+27,9,Danelle Umstead,Danelle Umstead,2018-11-19,2018-11-26,200,222,1
+27,1,DeMarcus Ware,DeMarcus Ware,2018-09-24,2018-10-01,200,70403,7
+27,2,DeMarcus Ware,DeMarcus Ware,2018-10-01,2018-10-08,200,56008,7
+27,3,DeMarcus Ware,DeMarcus Ware,2018-10-08,2018-10-15,200,61826,7
+27,4,DeMarcus Ware,DeMarcus Ware,2018-10-15,2018-10-22,200,18500,7
+27,5,DeMarcus Ware,DeMarcus Ware,2018-10-22,2018-10-29,200,16294,7
+27,6,DeMarcus Ware,DeMarcus Ware,2018-10-29,2018-11-05,200,11538,7
+27,7,DeMarcus Ware,DeMarcus Ware,2018-11-05,2018-11-12,200,24743,7
+27,8,DeMarcus Ware,DeMarcus Ware,2018-11-12,2018-11-19,200,6164,7
+27,9,DeMarcus Ware,DeMarcus Ware,2018-11-19,2018-11-26,200,880,1
+27,1,Evanna Lynch,Evanna Lynch,2018-09-24,2018-10-01,200,54368,7
+27,2,Evanna Lynch,Evanna Lynch,2018-10-01,2018-10-08,200,48092,7
+27,3,Evanna Lynch,Evanna Lynch,2018-10-08,2018-10-15,200,40275,7
+27,4,Evanna Lynch,Evanna Lynch,2018-10-15,2018-10-22,200,27918,7
+27,5,Evanna Lynch,Evanna Lynch,2018-10-22,2018-10-29,200,27112,7
+27,6,Evanna Lynch,Evanna Lynch,2018-10-29,2018-11-05,200,26216,7
+27,7,Evanna Lynch,Evanna Lynch,2018-11-05,2018-11-12,200,32096,7
+27,8,Evanna Lynch,Evanna Lynch,2018-11-12,2018-11-19,200,47944,7
+27,9,Evanna Lynch,Evanna Lynch,2018-11-19,2018-11-26,200,9967,1
+27,1,Joe Amabile,Joe Amabile,2018-09-24,2018-10-01,200,9315,7
+27,2,Joe Amabile,Joe Amabile,2018-10-01,2018-10-08,200,4623,7
+27,3,Joe Amabile,Joe Amabile,2018-10-08,2018-10-15,200,3419,7
+27,4,Joe Amabile,Joe Amabile,2018-10-15,2018-10-22,200,3338,7
+27,5,Joe Amabile,Joe Amabile,2018-10-22,2018-10-29,200,2885,7
+27,6,Joe Amabile,Joe Amabile,2018-10-29,2018-11-05,200,2662,7
+27,7,Joe Amabile,Joe Amabile,2018-11-05,2018-11-12,200,3192,7
+27,8,Joe Amabile,Joe Amabile,2018-11-12,2018-11-19,200,2903,7
+27,9,Joe Amabile,Joe Amabile,2018-11-19,2018-11-26,200,256,1
+27,1,John Schneider,John Schneider,2018-09-24,2018-10-01,200,779,7
+27,2,John Schneider,John Schneider,2018-10-01,2018-10-08,200,292,7
+27,3,John Schneider,John Schneider,2018-10-08,2018-10-15,200,400,7
+27,4,John Schneider,John Schneider,2018-10-15,2018-10-22,200,173,7
+27,5,John Schneider,John Schneider,2018-10-22,2018-10-29,200,275,7
+27,6,John Schneider,John Schneider,2018-10-29,2018-11-05,200,159,7
+27,7,John Schneider,John Schneider,2018-11-05,2018-11-12,200,615,7
+27,8,John Schneider,John Schneider,2018-11-12,2018-11-19,200,88,7
+27,9,John Schneider,John Schneider,2018-11-19,2018-11-26,200,7,1
+27,1,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-09-24,2018-10-01,200,41778,7
+27,2,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-01,2018-10-08,200,30119,7
+27,3,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-08,2018-10-15,200,59774,7
+27,4,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-15,2018-10-22,200,19151,7
+27,5,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-22,2018-10-29,200,19686,7
+27,6,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-29,2018-11-05,200,27493,7
+27,7,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-11-05,2018-11-12,200,24476,7
+27,8,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-11-12,2018-11-19,200,69748,7
+27,9,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-11-19,2018-11-26,200,2008,1
+27,1,Mary Lou Retton,Mary Lou Retton,2018-09-24,2018-10-01,200,219467,7
+27,2,Mary Lou Retton,Mary Lou Retton,2018-10-01,2018-10-08,200,99939,7
+27,3,Mary Lou Retton,Mary Lou Retton,2018-10-08,2018-10-15,200,88499,7
+27,4,Mary Lou Retton,Mary Lou Retton,2018-10-15,2018-10-22,200,37630,7
+27,5,Mary Lou Retton,Mary Lou Retton,2018-10-22,2018-10-29,200,75706,7
+27,6,Mary Lou Retton,Mary Lou Retton,2018-10-29,2018-11-05,200,105166,7
+27,7,Mary Lou Retton,Mary Lou Retton,2018-11-05,2018-11-12,200,15497,7
+27,8,Mary Lou Retton,Mary Lou Retton,2018-11-12,2018-11-19,200,9734,7
+27,9,Mary Lou Retton,Mary Lou Retton,2018-11-19,2018-11-26,200,874,1
+27,1,Milo Manheim,Milo Manheim,2018-09-24,2018-10-01,200,43595,7
+27,2,Milo Manheim,Milo Manheim,2018-10-01,2018-10-08,200,105528,7
+27,3,Milo Manheim,Milo Manheim,2018-10-08,2018-10-15,200,67769,7
+27,4,Milo Manheim,Milo Manheim,2018-10-15,2018-10-22,200,36858,7
+27,5,Milo Manheim,Milo Manheim,2018-10-22,2018-10-29,200,25809,7
+27,6,Milo Manheim,Milo Manheim,2018-10-29,2018-11-05,200,37259,7
+27,7,Milo Manheim,Milo Manheim,2018-11-05,2018-11-12,200,41554,7
+27,8,Milo Manheim,Milo Manheim,2018-11-12,2018-11-19,200,65171,7
+27,9,Milo Manheim,Milo Manheim,2018-11-19,2018-11-26,200,4363,1
+27,1,Nancy McKeon,Nancy McKeon,2018-09-24,2018-10-01,200,153911,7
+27,2,Nancy McKeon,Nancy McKeon,2018-10-01,2018-10-08,200,68057,7
+27,3,Nancy McKeon,Nancy McKeon,2018-10-08,2018-10-15,200,77482,7
+27,4,Nancy McKeon,Nancy McKeon,2018-10-15,2018-10-22,200,13513,7
+27,5,Nancy McKeon,Nancy McKeon,2018-10-22,2018-10-29,200,10341,7
+27,6,Nancy McKeon,Nancy McKeon,2018-10-29,2018-11-05,200,9304,7
+27,7,Nancy McKeon,Nancy McKeon,2018-11-05,2018-11-12,200,9069,7
+27,8,Nancy McKeon,Nancy McKeon,2018-11-12,2018-11-19,200,9296,7
+27,9,Nancy McKeon,Nancy McKeon,2018-11-19,2018-11-26,200,1181,1
+27,1,Nikki Glaser,Nikki Glaser,2018-09-24,2018-10-01,200,49487,7
+27,2,Nikki Glaser,Nikki Glaser,2018-10-01,2018-10-08,200,44736,7
+27,3,Nikki Glaser,Nikki Glaser,2018-10-08,2018-10-15,200,43967,7
+27,4,Nikki Glaser,Nikki Glaser,2018-10-15,2018-10-22,200,12429,7
+27,5,Nikki Glaser,Nikki Glaser,2018-10-22,2018-10-29,200,7843,7
+27,6,Nikki Glaser,Nikki Glaser,2018-10-29,2018-11-05,200,66284,7
+27,7,Nikki Glaser,Nikki Glaser,2018-11-05,2018-11-12,200,12169,7
+27,8,Nikki Glaser,Nikki Glaser,2018-11-12,2018-11-19,200,7864,7
+27,9,Nikki Glaser,Nikki Glaser,2018-11-19,2018-11-26,200,990,1
+27,1,Tinashe,Tinashe,2018-09-24,2018-10-01,200,46087,7
+27,2,Tinashe,Tinashe,2018-10-01,2018-10-08,200,39237,7
+27,3,Tinashe,Tinashe,2018-10-08,2018-10-15,200,43722,7
+27,4,Tinashe,Tinashe,2018-10-15,2018-10-22,200,23035,7
+27,5,Tinashe,Tinashe,2018-10-22,2018-10-29,200,12734,7
+27,6,Tinashe,Tinashe,2018-10-29,2018-11-05,200,18127,7
+27,7,Tinashe,Tinashe,2018-11-05,2018-11-12,200,11734,7
+27,8,Tinashe,Tinashe,2018-11-12,2018-11-19,200,11161,7
+27,9,Tinashe,Tinashe,2018-11-19,2018-11-26,200,1642,1

@@ -1,0 +1,11 @@
+{
+  "_why_this_file_exists": "★ URL 刻意放在非 .py 文件里：出货判据 CD5 的正则 [A-Za-z]:[\\\\/] 会命中 'https://' 里的 's:/'，且它只剥 '#' 注释、保留字符串字面量 ⇒ 取数脚本里不许出现 URL 字面量，一律从这里读。",
+  "_proxy_note": "本机 shell 不继承 Windows 系统代理（Clash Verge / verge-mihomo）。裸连会撞 DNS 投毒（维基被解析成 Facebook 的 IP），必须显式走代理。",
+  "proxy": "http://127.0.0.1:7897",
+  "wikidata_sparql": "https://query.wikidata.org/sparql",
+  "wikipedia_api": "https://en.wikipedia.org/w/api.php",
+  "pageviews_api": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article",
+  "series_qid": "Q2674710",
+  "user_agent": "mcm-sim/1.0 (MCM 2026 dry-run; research use)",
+  "min_interval_sec": 1.1
+}
