@@ -30,6 +30,150 @@
     20
   ],
   "per_season": {
+    "3": {
+      "cast_in_article": 22,
+      "in_attachment": 11,
+      "resolved": 11,
+      "unresolved": 0,
+      "episodes_dates": 20,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "4": {
+      "cast_in_article": 22,
+      "in_attachment": 11,
+      "resolved": 11,
+      "unresolved": 0,
+      "episodes_dates": 19,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "5": {
+      "cast_in_article": 24,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 21,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "6": {
+      "cast_in_article": 23,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 20,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "7": {
+      "cast_in_article": 26,
+      "in_attachment": 13,
+      "resolved": 13,
+      "unresolved": 0,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "8": {
+      "cast_in_article": 24,
+      "in_attachment": 13,
+      "resolved": 13,
+      "unresolved": 0,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "9": {
+      "cast_in_article": 31,
+      "in_attachment": 16,
+      "resolved": 15,
+      "unresolved": 1,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "10": {
+      "cast_in_article": 22,
+      "in_attachment": 11,
+      "resolved": 11,
+      "unresolved": 0,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "11": {
+      "cast_in_article": 22,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "12": {
+      "cast_in_article": 21,
+      "in_attachment": 11,
+      "resolved": 11,
+      "unresolved": 0,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "13": {
+      "cast_in_article": 24,
+      "in_attachment": 12,
+      "resolved": 11,
+      "unresolved": 1,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "14": {
+      "cast_in_article": 24,
+      "in_attachment": 12,
+      "resolved": 11,
+      "unresolved": 1,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "15": {
+      "cast_in_article": 26,
+      "in_attachment": 13,
+      "resolved": 13,
+      "unresolved": 0,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "16": {
+      "cast_in_article": 23,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 0,
+      "week_window_mode": "equal-7d"
+    },
+    "17": {
+      "cast_in_article": 24,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 12,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "18": {
+      "cast_in_article": 24,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 12,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "19": {
+      "cast_in_article": 26,
+      "in_attachment": 13,
+      "resolved": 13,
+      "unresolved": 0,
+      "episodes_dates": 15,
+      "week_window_mode": "episodes-iso-week"
+    },
+    "20": {
+      "cast_in_article": 23,
+      "in_attachment": 12,
+      "resolved": 12,
+      "unresolved": 0,
+      "episodes_dates": 14,
+      "week_window_mode": "episodes-iso-week"
+    },
     "21": {
       "cast_in_article": 26,
       "in_attachment": 13,
@@ -87,7 +231,23 @@
       "week_window_mode": "episodes-iso-week"
     }
   },
-  "unresolved": [],
+  "unresolved": [
+    {
+      "season": 9,
+      "name": "Ashley Hamiliton",
+      "reason": "查无此条目（兜底亦无唯一命中）"
+    },
+    {
+      "season": 13,
+      "name": "Metta World Peace (Ron)",
+      "reason": "查无此条目（兜底亦无唯一命中）"
+    },
+    {
+      "season": 14,
+      "name": "Sherri Sheperd",
+      "reason": "查无此条目（兜底亦无唯一命中）"
+    }
+  ],
   "fallback_used": [
     {
       "season": 26,
@@ -95,5 +255,6 @@
       "article": "Jennie Finch"
     }
   ],
-  "n_rows": 813
+  "n_rows_pageviews": 813,
+  "n_rows_revisions": 3021
 }

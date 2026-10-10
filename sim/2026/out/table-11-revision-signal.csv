@@ -1,0 +1,3022 @@
+season,week,contestant,article,w_start,w_end,revisions
+3,1,Emmitt Smith,Emmitt Smith,2006-09-11,2006-09-18,8
+3,2,Emmitt Smith,Emmitt Smith,2006-09-18,2006-09-25,6
+3,3,Emmitt Smith,Emmitt Smith,2006-09-25,2006-10-02,6
+3,4,Emmitt Smith,Emmitt Smith,2006-10-02,2006-10-09,8
+3,5,Emmitt Smith,Emmitt Smith,2006-10-09,2006-10-16,5
+3,6,Emmitt Smith,Emmitt Smith,2006-10-16,2006-10-23,8
+3,7,Emmitt Smith,Emmitt Smith,2006-10-23,2006-10-30,17
+3,8,Emmitt Smith,Emmitt Smith,2006-10-30,2006-11-06,4
+3,9,Emmitt Smith,Emmitt Smith,2006-11-06,2006-11-13,9
+3,10,Emmitt Smith,Emmitt Smith,2006-11-13,2006-11-20,10
+3,1,Harry Hamlin,Harry Hamlin,2006-09-11,2006-09-18,5
+3,2,Harry Hamlin,Harry Hamlin,2006-09-18,2006-09-25,4
+3,3,Harry Hamlin,Harry Hamlin,2006-09-25,2006-10-02,9
+3,4,Harry Hamlin,Harry Hamlin,2006-10-02,2006-10-09,0
+3,5,Harry Hamlin,Harry Hamlin,2006-10-09,2006-10-16,1
+3,6,Harry Hamlin,Harry Hamlin,2006-10-16,2006-10-23,0
+3,7,Harry Hamlin,Harry Hamlin,2006-10-23,2006-10-30,1
+3,8,Harry Hamlin,Harry Hamlin,2006-10-30,2006-11-06,2
+3,9,Harry Hamlin,Harry Hamlin,2006-11-06,2006-11-13,0
+3,10,Harry Hamlin,Harry Hamlin,2006-11-13,2006-11-20,1
+3,1,Jerry Springer,Jerry Springer,2006-09-11,2006-09-18,6
+3,2,Jerry Springer,Jerry Springer,2006-09-18,2006-09-25,5
+3,3,Jerry Springer,Jerry Springer,2006-09-25,2006-10-02,13
+3,4,Jerry Springer,Jerry Springer,2006-10-02,2006-10-09,7
+3,5,Jerry Springer,Jerry Springer,2006-10-09,2006-10-16,11
+3,6,Jerry Springer,Jerry Springer,2006-10-16,2006-10-23,3
+3,7,Jerry Springer,Jerry Springer,2006-10-23,2006-10-30,8
+3,8,Jerry Springer,Jerry Springer,2006-10-30,2006-11-06,6
+3,9,Jerry Springer,Jerry Springer,2006-11-06,2006-11-13,8
+3,10,Jerry Springer,Jerry Springer,2006-11-13,2006-11-20,2
+3,1,Joey Lawrence,Joey Lawrence,2006-09-11,2006-09-18,7
+3,2,Joey Lawrence,Joey Lawrence,2006-09-18,2006-09-25,5
+3,3,Joey Lawrence,Joey Lawrence,2006-09-25,2006-10-02,3
+3,4,Joey Lawrence,Joey Lawrence,2006-10-02,2006-10-09,4
+3,5,Joey Lawrence,Joey Lawrence,2006-10-09,2006-10-16,3
+3,6,Joey Lawrence,Joey Lawrence,2006-10-16,2006-10-23,6
+3,7,Joey Lawrence,Joey Lawrence,2006-10-23,2006-10-30,5
+3,8,Joey Lawrence,Joey Lawrence,2006-10-30,2006-11-06,1
+3,9,Joey Lawrence,Joey Lawrence,2006-11-06,2006-11-13,17
+3,10,Joey Lawrence,Joey Lawrence,2006-11-13,2006-11-20,4
+3,1,Mario Lopez,Mario Lopez,2006-09-11,2006-09-18,12
+3,2,Mario Lopez,Mario Lopez,2006-09-18,2006-09-25,12
+3,3,Mario Lopez,Mario Lopez,2006-09-25,2006-10-02,9
+3,4,Mario Lopez,Mario Lopez,2006-10-02,2006-10-09,18
+3,5,Mario Lopez,Mario Lopez,2006-10-09,2006-10-16,7
+3,6,Mario Lopez,Mario Lopez,2006-10-16,2006-10-23,12
+3,7,Mario Lopez,Mario Lopez,2006-10-23,2006-10-30,2
+3,8,Mario Lopez,Mario Lopez,2006-10-30,2006-11-06,16
+3,9,Mario Lopez,Mario Lopez,2006-11-06,2006-11-13,15
+3,10,Mario Lopez,Mario Lopez,2006-11-13,2006-11-20,62
+3,1,Monique Coleman,Monique Coleman,2006-09-11,2006-09-18,18
+3,2,Monique Coleman,Monique Coleman,2006-09-18,2006-09-25,10
+3,3,Monique Coleman,Monique Coleman,2006-09-25,2006-10-02,11
+3,4,Monique Coleman,Monique Coleman,2006-10-02,2006-10-09,1
+3,5,Monique Coleman,Monique Coleman,2006-10-09,2006-10-16,5
+3,6,Monique Coleman,Monique Coleman,2006-10-16,2006-10-23,15
+3,7,Monique Coleman,Monique Coleman,2006-10-23,2006-10-30,11
+3,8,Monique Coleman,Monique Coleman,2006-10-30,2006-11-06,125
+3,9,Monique Coleman,Monique Coleman,2006-11-06,2006-11-13,28
+3,10,Monique Coleman,Monique Coleman,2006-11-13,2006-11-20,8
+3,1,Sara Evans,Sara Evans,2006-09-11,2006-09-18,9
+3,2,Sara Evans,Sara Evans,2006-09-18,2006-09-25,16
+3,3,Sara Evans,Sara Evans,2006-09-25,2006-10-02,6
+3,4,Sara Evans,Sara Evans,2006-10-02,2006-10-09,13
+3,5,Sara Evans,Sara Evans,2006-10-09,2006-10-16,27
+3,6,Sara Evans,Sara Evans,2006-10-16,2006-10-23,65
+3,7,Sara Evans,Sara Evans,2006-10-23,2006-10-30,23
+3,8,Sara Evans,Sara Evans,2006-10-30,2006-11-06,1
+3,9,Sara Evans,Sara Evans,2006-11-06,2006-11-13,7
+3,10,Sara Evans,Sara Evans,2006-11-13,2006-11-20,3
+3,1,Shanna Moakler,Shanna Moakler,2006-09-11,2006-09-18,5
+3,2,Shanna Moakler,Shanna Moakler,2006-09-18,2006-09-25,5
+3,3,Shanna Moakler,Shanna Moakler,2006-09-25,2006-10-02,0
+3,4,Shanna Moakler,Shanna Moakler,2006-10-02,2006-10-09,15
+3,5,Shanna Moakler,Shanna Moakler,2006-10-09,2006-10-16,2
+3,6,Shanna Moakler,Shanna Moakler,2006-10-16,2006-10-23,4
+3,7,Shanna Moakler,Shanna Moakler,2006-10-23,2006-10-30,1
+3,8,Shanna Moakler,Shanna Moakler,2006-10-30,2006-11-06,5
+3,9,Shanna Moakler,Shanna Moakler,2006-11-06,2006-11-13,7
+3,10,Shanna Moakler,Shanna Moakler,2006-11-13,2006-11-20,5
+3,1,Tucker Carlson,Tucker Carlson,2006-09-11,2006-09-18,38
+3,2,Tucker Carlson,Tucker Carlson,2006-09-18,2006-09-25,23
+3,3,Tucker Carlson,Tucker Carlson,2006-09-25,2006-10-02,11
+3,4,Tucker Carlson,Tucker Carlson,2006-10-02,2006-10-09,23
+3,5,Tucker Carlson,Tucker Carlson,2006-10-09,2006-10-16,9
+3,6,Tucker Carlson,Tucker Carlson,2006-10-16,2006-10-23,8
+3,7,Tucker Carlson,Tucker Carlson,2006-10-23,2006-10-30,8
+3,8,Tucker Carlson,Tucker Carlson,2006-10-30,2006-11-06,3
+3,9,Tucker Carlson,Tucker Carlson,2006-11-06,2006-11-13,10
+3,10,Tucker Carlson,Tucker Carlson,2006-11-13,2006-11-20,7
+3,1,Vivica A. Fox,Vivica A. Fox,2006-09-11,2006-09-18,7
+3,2,Vivica A. Fox,Vivica A. Fox,2006-09-18,2006-09-25,2
+3,3,Vivica A. Fox,Vivica A. Fox,2006-09-25,2006-10-02,4
+3,4,Vivica A. Fox,Vivica A. Fox,2006-10-02,2006-10-09,1
+3,5,Vivica A. Fox,Vivica A. Fox,2006-10-09,2006-10-16,4
+3,6,Vivica A. Fox,Vivica A. Fox,2006-10-16,2006-10-23,0
+3,7,Vivica A. Fox,Vivica A. Fox,2006-10-23,2006-10-30,1
+3,8,Vivica A. Fox,Vivica A. Fox,2006-10-30,2006-11-06,0
+3,9,Vivica A. Fox,Vivica A. Fox,2006-11-06,2006-11-13,1
+3,10,Vivica A. Fox,Vivica A. Fox,2006-11-13,2006-11-20,0
+3,1,Willa Ford,Willa Ford,2006-09-11,2006-09-18,26
+3,2,Willa Ford,Willa Ford,2006-09-18,2006-09-25,9
+3,3,Willa Ford,Willa Ford,2006-09-25,2006-10-02,10
+3,4,Willa Ford,Willa Ford,2006-10-02,2006-10-09,17
+3,5,Willa Ford,Willa Ford,2006-10-09,2006-10-16,28
+3,6,Willa Ford,Willa Ford,2006-10-16,2006-10-23,10
+3,7,Willa Ford,Willa Ford,2006-10-23,2006-10-30,1
+3,8,Willa Ford,Willa Ford,2006-10-30,2006-11-06,5
+3,9,Willa Ford,Willa Ford,2006-11-06,2006-11-13,7
+3,10,Willa Ford,Willa Ford,2006-11-13,2006-11-20,82
+4,1,Apolo Anton Ohno,Apolo Ohno,2007-03-19,2007-03-26,30
+4,2,Apolo Anton Ohno,Apolo Ohno,2007-03-26,2007-04-02,14
+4,3,Apolo Anton Ohno,Apolo Ohno,2007-04-02,2007-04-09,4
+4,4,Apolo Anton Ohno,Apolo Ohno,2007-04-09,2007-04-16,5
+4,5,Apolo Anton Ohno,Apolo Ohno,2007-04-16,2007-04-23,13
+4,6,Apolo Anton Ohno,Apolo Ohno,2007-04-23,2007-04-30,9
+4,7,Apolo Anton Ohno,Apolo Ohno,2007-04-30,2007-05-07,6
+4,8,Apolo Anton Ohno,Apolo Ohno,2007-05-07,2007-05-14,23
+4,9,Apolo Anton Ohno,Apolo Ohno,2007-05-14,2007-05-21,20
+4,10,Apolo Anton Ohno,Apolo Ohno,2007-05-21,2007-05-28,3
+4,1,Billy Ray Cyrus,Billy Ray Cyrus,2007-03-19,2007-03-26,10
+4,2,Billy Ray Cyrus,Billy Ray Cyrus,2007-03-26,2007-04-02,5
+4,3,Billy Ray Cyrus,Billy Ray Cyrus,2007-04-02,2007-04-09,11
+4,4,Billy Ray Cyrus,Billy Ray Cyrus,2007-04-09,2007-04-16,9
+4,5,Billy Ray Cyrus,Billy Ray Cyrus,2007-04-16,2007-04-23,12
+4,6,Billy Ray Cyrus,Billy Ray Cyrus,2007-04-23,2007-04-30,13
+4,7,Billy Ray Cyrus,Billy Ray Cyrus,2007-04-30,2007-05-07,21
+4,8,Billy Ray Cyrus,Billy Ray Cyrus,2007-05-07,2007-05-14,23
+4,9,Billy Ray Cyrus,Billy Ray Cyrus,2007-05-14,2007-05-21,19
+4,10,Billy Ray Cyrus,Billy Ray Cyrus,2007-05-21,2007-05-28,1
+4,1,Clyde Drexler,Clyde Drexler,2007-03-19,2007-03-26,6
+4,2,Clyde Drexler,Clyde Drexler,2007-03-26,2007-04-02,4
+4,3,Clyde Drexler,Clyde Drexler,2007-04-02,2007-04-09,3
+4,4,Clyde Drexler,Clyde Drexler,2007-04-09,2007-04-16,1
+4,5,Clyde Drexler,Clyde Drexler,2007-04-16,2007-04-23,3
+4,6,Clyde Drexler,Clyde Drexler,2007-04-23,2007-04-30,4
+4,7,Clyde Drexler,Clyde Drexler,2007-04-30,2007-05-07,5
+4,8,Clyde Drexler,Clyde Drexler,2007-05-07,2007-05-14,0
+4,9,Clyde Drexler,Clyde Drexler,2007-05-14,2007-05-21,5
+4,10,Clyde Drexler,Clyde Drexler,2007-05-21,2007-05-28,1
+4,1,Heather Mills,Heather Mills,2007-03-19,2007-03-26,22
+4,2,Heather Mills,Heather Mills,2007-03-26,2007-04-02,47
+4,3,Heather Mills,Heather Mills,2007-04-02,2007-04-09,2
+4,4,Heather Mills,Heather Mills,2007-04-09,2007-04-16,1
+4,5,Heather Mills,Heather Mills,2007-04-16,2007-04-23,2
+4,6,Heather Mills,Heather Mills,2007-04-23,2007-04-30,3
+4,7,Heather Mills,Heather Mills,2007-04-30,2007-05-07,6
+4,8,Heather Mills,Heather Mills,2007-05-07,2007-05-14,46
+4,9,Heather Mills,Heather Mills,2007-05-14,2007-05-21,3
+4,10,Heather Mills,Heather Mills,2007-05-21,2007-05-28,2
+4,1,Ian Ziering,Ian Ziering,2007-03-19,2007-03-26,22
+4,2,Ian Ziering,Ian Ziering,2007-03-26,2007-04-02,9
+4,3,Ian Ziering,Ian Ziering,2007-04-02,2007-04-09,6
+4,4,Ian Ziering,Ian Ziering,2007-04-09,2007-04-16,4
+4,5,Ian Ziering,Ian Ziering,2007-04-16,2007-04-23,2
+4,6,Ian Ziering,Ian Ziering,2007-04-23,2007-04-30,1
+4,7,Ian Ziering,Ian Ziering,2007-04-30,2007-05-07,3
+4,8,Ian Ziering,Ian Ziering,2007-05-07,2007-05-14,1
+4,9,Ian Ziering,Ian Ziering,2007-05-14,2007-05-21,7
+4,10,Ian Ziering,Ian Ziering,2007-05-21,2007-05-28,0
+4,1,Joey Fatone,Joey Fatone,2007-03-19,2007-03-26,14
+4,2,Joey Fatone,Joey Fatone,2007-03-26,2007-04-02,13
+4,3,Joey Fatone,Joey Fatone,2007-04-02,2007-04-09,11
+4,4,Joey Fatone,Joey Fatone,2007-04-09,2007-04-16,12
+4,5,Joey Fatone,Joey Fatone,2007-04-16,2007-04-23,8
+4,6,Joey Fatone,Joey Fatone,2007-04-23,2007-04-30,5
+4,7,Joey Fatone,Joey Fatone,2007-04-30,2007-05-07,3
+4,8,Joey Fatone,Joey Fatone,2007-05-07,2007-05-14,12
+4,9,Joey Fatone,Joey Fatone,2007-05-14,2007-05-21,17
+4,10,Joey Fatone,Joey Fatone,2007-05-21,2007-05-28,9
+4,1,John Ratzenberger,John Ratzenberger,2007-03-19,2007-03-26,23
+4,2,John Ratzenberger,John Ratzenberger,2007-03-26,2007-04-02,3
+4,3,John Ratzenberger,John Ratzenberger,2007-04-02,2007-04-09,10
+4,4,John Ratzenberger,John Ratzenberger,2007-04-09,2007-04-16,13
+4,5,John Ratzenberger,John Ratzenberger,2007-04-16,2007-04-23,1
+4,6,John Ratzenberger,John Ratzenberger,2007-04-23,2007-04-30,19
+4,7,John Ratzenberger,John Ratzenberger,2007-04-30,2007-05-07,11
+4,8,John Ratzenberger,John Ratzenberger,2007-05-07,2007-05-14,5
+4,9,John Ratzenberger,John Ratzenberger,2007-05-14,2007-05-21,3
+4,10,John Ratzenberger,John Ratzenberger,2007-05-21,2007-05-28,1
+4,1,Laila Ali,Laila Ali,2007-03-19,2007-03-26,5
+4,2,Laila Ali,Laila Ali,2007-03-26,2007-04-02,11
+4,3,Laila Ali,Laila Ali,2007-04-02,2007-04-09,1
+4,4,Laila Ali,Laila Ali,2007-04-09,2007-04-16,8
+4,5,Laila Ali,Laila Ali,2007-04-16,2007-04-23,4
+4,6,Laila Ali,Laila Ali,2007-04-23,2007-04-30,5
+4,7,Laila Ali,Laila Ali,2007-04-30,2007-05-07,12
+4,8,Laila Ali,Laila Ali,2007-05-07,2007-05-14,2
+4,9,Laila Ali,Laila Ali,2007-05-14,2007-05-21,8
+4,10,Laila Ali,Laila Ali,2007-05-21,2007-05-28,4
+4,1,Leeza Gibbons,Leeza Gibbons,2007-03-19,2007-03-26,2
+4,2,Leeza Gibbons,Leeza Gibbons,2007-03-26,2007-04-02,3
+4,3,Leeza Gibbons,Leeza Gibbons,2007-04-02,2007-04-09,2
+4,4,Leeza Gibbons,Leeza Gibbons,2007-04-09,2007-04-16,4
+4,5,Leeza Gibbons,Leeza Gibbons,2007-04-16,2007-04-23,0
+4,6,Leeza Gibbons,Leeza Gibbons,2007-04-23,2007-04-30,0
+4,7,Leeza Gibbons,Leeza Gibbons,2007-04-30,2007-05-07,0
+4,8,Leeza Gibbons,Leeza Gibbons,2007-05-07,2007-05-14,3
+4,9,Leeza Gibbons,Leeza Gibbons,2007-05-14,2007-05-21,0
+4,10,Leeza Gibbons,Leeza Gibbons,2007-05-21,2007-05-28,0
+4,1,Paulina Porizkova,Paulina Porizkova,2007-03-19,2007-03-26,7
+4,2,Paulina Porizkova,Paulina Porizkova,2007-03-26,2007-04-02,17
+4,3,Paulina Porizkova,Paulina Porizkova,2007-04-02,2007-04-09,0
+4,4,Paulina Porizkova,Paulina Porizkova,2007-04-09,2007-04-16,5
+4,5,Paulina Porizkova,Paulina Porizkova,2007-04-16,2007-04-23,14
+4,6,Paulina Porizkova,Paulina Porizkova,2007-04-23,2007-04-30,8
+4,7,Paulina Porizkova,Paulina Porizkova,2007-04-30,2007-05-07,0
+4,8,Paulina Porizkova,Paulina Porizkova,2007-05-07,2007-05-14,2
+4,9,Paulina Porizkova,Paulina Porizkova,2007-05-14,2007-05-21,12
+4,10,Paulina Porizkova,Paulina Porizkova,2007-05-21,2007-05-28,0
+4,1,Shandi Finnessey,Shandi Finnessey,2007-03-19,2007-03-26,4
+4,2,Shandi Finnessey,Shandi Finnessey,2007-03-26,2007-04-02,4
+4,3,Shandi Finnessey,Shandi Finnessey,2007-04-02,2007-04-09,22
+4,4,Shandi Finnessey,Shandi Finnessey,2007-04-09,2007-04-16,4
+4,5,Shandi Finnessey,Shandi Finnessey,2007-04-16,2007-04-23,2
+4,6,Shandi Finnessey,Shandi Finnessey,2007-04-23,2007-04-30,5
+4,7,Shandi Finnessey,Shandi Finnessey,2007-04-30,2007-05-07,0
+4,8,Shandi Finnessey,Shandi Finnessey,2007-05-07,2007-05-14,4
+4,9,Shandi Finnessey,Shandi Finnessey,2007-05-14,2007-05-21,4
+4,10,Shandi Finnessey,Shandi Finnessey,2007-05-21,2007-05-28,0
+5,1,Albert Reed,Albert Reed,2007-09-24,2007-10-01,0
+5,2,Albert Reed,Albert Reed,2007-10-01,2007-10-08,0
+5,3,Albert Reed,Albert Reed,2007-10-08,2007-10-15,0
+5,4,Albert Reed,Albert Reed,2007-10-15,2007-10-22,0
+5,5,Albert Reed,Albert Reed,2007-10-22,2007-10-29,0
+5,6,Albert Reed,Albert Reed,2007-10-29,2007-11-05,0
+5,7,Albert Reed,Albert Reed,2007-11-05,2007-11-12,0
+5,8,Albert Reed,Albert Reed,2007-11-12,2007-11-19,0
+5,9,Albert Reed,Albert Reed,2007-11-19,2007-11-26,0
+5,10,Albert Reed,Albert Reed,2007-11-26,2007-12-03,0
+5,1,Cameron Mathison,Cameron Mathison,2007-09-24,2007-10-01,7
+5,2,Cameron Mathison,Cameron Mathison,2007-10-01,2007-10-08,0
+5,3,Cameron Mathison,Cameron Mathison,2007-10-08,2007-10-15,2
+5,4,Cameron Mathison,Cameron Mathison,2007-10-15,2007-10-22,0
+5,5,Cameron Mathison,Cameron Mathison,2007-10-22,2007-10-29,2
+5,6,Cameron Mathison,Cameron Mathison,2007-10-29,2007-11-05,0
+5,7,Cameron Mathison,Cameron Mathison,2007-11-05,2007-11-12,6
+5,8,Cameron Mathison,Cameron Mathison,2007-11-12,2007-11-19,4
+5,9,Cameron Mathison,Cameron Mathison,2007-11-19,2007-11-26,2
+5,10,Cameron Mathison,Cameron Mathison,2007-11-26,2007-12-03,0
+5,1,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-09-24,2007-10-01,11
+5,2,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-10-01,2007-10-08,13
+5,3,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-10-08,2007-10-15,18
+5,4,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-10-15,2007-10-22,11
+5,5,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-10-22,2007-10-29,7
+5,6,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-10-29,2007-11-05,8
+5,7,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-11-05,2007-11-12,20
+5,8,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-11-12,2007-11-19,14
+5,9,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-11-19,2007-11-26,32
+5,10,Floyd Mayweather Jr. ,Floyd Mayweather Jr.,2007-11-26,2007-12-03,12
+5,1,Helio Castroneves,Hélio Castroneves,2007-09-24,2007-10-01,2
+5,2,Helio Castroneves,Hélio Castroneves,2007-10-01,2007-10-08,0
+5,3,Helio Castroneves,Hélio Castroneves,2007-10-08,2007-10-15,3
+5,4,Helio Castroneves,Hélio Castroneves,2007-10-15,2007-10-22,3
+5,5,Helio Castroneves,Hélio Castroneves,2007-10-22,2007-10-29,1
+5,6,Helio Castroneves,Hélio Castroneves,2007-10-29,2007-11-05,0
+5,7,Helio Castroneves,Hélio Castroneves,2007-11-05,2007-11-12,4
+5,8,Helio Castroneves,Hélio Castroneves,2007-11-12,2007-11-19,0
+5,9,Helio Castroneves,Hélio Castroneves,2007-11-19,2007-11-26,4
+5,10,Helio Castroneves,Hélio Castroneves,2007-11-26,2007-12-03,2
+5,1,Jane Seymour,Jane Seymour,2007-09-24,2007-10-01,8
+5,2,Jane Seymour,Jane Seymour,2007-10-01,2007-10-08,11
+5,3,Jane Seymour,Jane Seymour,2007-10-08,2007-10-15,10
+5,4,Jane Seymour,Jane Seymour,2007-10-15,2007-10-22,3
+5,5,Jane Seymour,Jane Seymour,2007-10-22,2007-10-29,10
+5,6,Jane Seymour,Jane Seymour,2007-10-29,2007-11-05,14
+5,7,Jane Seymour,Jane Seymour,2007-11-05,2007-11-12,6
+5,8,Jane Seymour,Jane Seymour,2007-11-12,2007-11-19,11
+5,9,Jane Seymour,Jane Seymour,2007-11-19,2007-11-26,24
+5,10,Jane Seymour,Jane Seymour,2007-11-26,2007-12-03,2
+5,1,Jennie Garth,Jennie Garth,2007-09-24,2007-10-01,1
+5,2,Jennie Garth,Jennie Garth,2007-10-01,2007-10-08,8
+5,3,Jennie Garth,Jennie Garth,2007-10-08,2007-10-15,3
+5,4,Jennie Garth,Jennie Garth,2007-10-15,2007-10-22,2
+5,5,Jennie Garth,Jennie Garth,2007-10-22,2007-10-29,2
+5,6,Jennie Garth,Jennie Garth,2007-10-29,2007-11-05,3
+5,7,Jennie Garth,Jennie Garth,2007-11-05,2007-11-12,9
+5,8,Jennie Garth,Jennie Garth,2007-11-12,2007-11-19,6
+5,9,Jennie Garth,Jennie Garth,2007-11-19,2007-11-26,13
+5,10,Jennie Garth,Jennie Garth,2007-11-26,2007-12-03,4
+5,1,Josie Maran,Josie Maran,2007-09-24,2007-10-01,25
+5,2,Josie Maran,Josie Maran,2007-10-01,2007-10-08,9
+5,3,Josie Maran,Josie Maran,2007-10-08,2007-10-15,2
+5,4,Josie Maran,Josie Maran,2007-10-15,2007-10-22,3
+5,5,Josie Maran,Josie Maran,2007-10-22,2007-10-29,3
+5,6,Josie Maran,Josie Maran,2007-10-29,2007-11-05,2
+5,7,Josie Maran,Josie Maran,2007-11-05,2007-11-12,12
+5,8,Josie Maran,Josie Maran,2007-11-12,2007-11-19,1
+5,9,Josie Maran,Josie Maran,2007-11-19,2007-11-26,5
+5,10,Josie Maran,Josie Maran,2007-11-26,2007-12-03,1
+5,1,Marie Osmond,Marie Osmond,2007-09-24,2007-10-01,14
+5,2,Marie Osmond,Marie Osmond,2007-10-01,2007-10-08,35
+5,3,Marie Osmond,Marie Osmond,2007-10-08,2007-10-15,20
+5,4,Marie Osmond,Marie Osmond,2007-10-15,2007-10-22,4
+5,5,Marie Osmond,Marie Osmond,2007-10-22,2007-10-29,66
+5,6,Marie Osmond,Marie Osmond,2007-10-29,2007-11-05,13
+5,7,Marie Osmond,Marie Osmond,2007-11-05,2007-11-12,42
+5,8,Marie Osmond,Marie Osmond,2007-11-12,2007-11-19,19
+5,9,Marie Osmond,Marie Osmond,2007-11-19,2007-11-26,11
+5,10,Marie Osmond,Marie Osmond,2007-11-26,2007-12-03,11
+5,1,Mark Cuban,Mark Cuban,2007-09-24,2007-10-01,32
+5,2,Mark Cuban,Mark Cuban,2007-10-01,2007-10-08,18
+5,3,Mark Cuban,Mark Cuban,2007-10-08,2007-10-15,28
+5,4,Mark Cuban,Mark Cuban,2007-10-15,2007-10-22,17
+5,5,Mark Cuban,Mark Cuban,2007-10-22,2007-10-29,19
+5,6,Mark Cuban,Mark Cuban,2007-10-29,2007-11-05,9
+5,7,Mark Cuban,Mark Cuban,2007-11-05,2007-11-12,7
+5,8,Mark Cuban,Mark Cuban,2007-11-12,2007-11-19,31
+5,9,Mark Cuban,Mark Cuban,2007-11-19,2007-11-26,14
+5,10,Mark Cuban,Mark Cuban,2007-11-26,2007-12-03,1
+5,1,Mel B,Mel B,2007-09-24,2007-10-01,1
+5,2,Mel B,Mel B,2007-10-01,2007-10-08,8
+5,3,Mel B,Mel B,2007-10-08,2007-10-15,5
+5,4,Mel B,Mel B,2007-10-15,2007-10-22,2
+5,5,Mel B,Mel B,2007-10-22,2007-10-29,2
+5,6,Mel B,Mel B,2007-10-29,2007-11-05,2
+5,7,Mel B,Mel B,2007-11-05,2007-11-12,10
+5,8,Mel B,Mel B,2007-11-12,2007-11-19,0
+5,9,Mel B,Mel B,2007-11-19,2007-11-26,11
+5,10,Mel B,Mel B,2007-11-26,2007-12-03,0
+5,1,Sabrina Bryan,Sabrina Bryan,2007-09-24,2007-10-01,19
+5,2,Sabrina Bryan,Sabrina Bryan,2007-10-01,2007-10-08,10
+5,3,Sabrina Bryan,Sabrina Bryan,2007-10-08,2007-10-15,16
+5,4,Sabrina Bryan,Sabrina Bryan,2007-10-15,2007-10-22,10
+5,5,Sabrina Bryan,Sabrina Bryan,2007-10-22,2007-10-29,19
+5,6,Sabrina Bryan,Sabrina Bryan,2007-10-29,2007-11-05,20
+5,7,Sabrina Bryan,Sabrina Bryan,2007-11-05,2007-11-12,24
+5,8,Sabrina Bryan,Sabrina Bryan,2007-11-12,2007-11-19,10
+5,9,Sabrina Bryan,Sabrina Bryan,2007-11-19,2007-11-26,17
+5,10,Sabrina Bryan,Sabrina Bryan,2007-11-26,2007-12-03,3
+5,1,Wayne Newton,Wayne Newton,2007-09-24,2007-10-01,13
+5,2,Wayne Newton,Wayne Newton,2007-10-01,2007-10-08,7
+5,3,Wayne Newton,Wayne Newton,2007-10-08,2007-10-15,24
+5,4,Wayne Newton,Wayne Newton,2007-10-15,2007-10-22,10
+5,5,Wayne Newton,Wayne Newton,2007-10-22,2007-10-29,10
+5,6,Wayne Newton,Wayne Newton,2007-10-29,2007-11-05,7
+5,7,Wayne Newton,Wayne Newton,2007-11-05,2007-11-12,6
+5,8,Wayne Newton,Wayne Newton,2007-11-12,2007-11-19,0
+5,9,Wayne Newton,Wayne Newton,2007-11-19,2007-11-26,3
+5,10,Wayne Newton,Wayne Newton,2007-11-26,2007-12-03,3
+6,1,Adam Carolla,Adam Carolla,2008-03-17,2008-03-24,10
+6,2,Adam Carolla,Adam Carolla,2008-03-24,2008-03-31,4
+6,3,Adam Carolla,Adam Carolla,2008-03-31,2008-04-07,6
+6,4,Adam Carolla,Adam Carolla,2008-04-07,2008-04-14,20
+6,5,Adam Carolla,Adam Carolla,2008-04-14,2008-04-21,5
+6,6,Adam Carolla,Adam Carolla,2008-04-21,2008-04-28,4
+6,7,Adam Carolla,Adam Carolla,2008-04-28,2008-05-05,4
+6,8,Adam Carolla,Adam Carolla,2008-05-05,2008-05-12,3
+6,9,Adam Carolla,Adam Carolla,2008-05-12,2008-05-19,8
+6,10,Adam Carolla,Adam Carolla,2008-05-19,2008-05-26,0
+6,1,Cristian de la Fuente,Cristián de la Fuente,2008-03-17,2008-03-24,0
+6,2,Cristian de la Fuente,Cristián de la Fuente,2008-03-24,2008-03-31,1
+6,3,Cristian de la Fuente,Cristián de la Fuente,2008-03-31,2008-04-07,11
+6,4,Cristian de la Fuente,Cristián de la Fuente,2008-04-07,2008-04-14,1
+6,5,Cristian de la Fuente,Cristián de la Fuente,2008-04-14,2008-04-21,0
+6,6,Cristian de la Fuente,Cristián de la Fuente,2008-04-21,2008-04-28,0
+6,7,Cristian de la Fuente,Cristián de la Fuente,2008-04-28,2008-05-05,7
+6,8,Cristian de la Fuente,Cristián de la Fuente,2008-05-05,2008-05-12,4
+6,9,Cristian de la Fuente,Cristián de la Fuente,2008-05-12,2008-05-19,10
+6,10,Cristian de la Fuente,Cristián de la Fuente,2008-05-19,2008-05-26,5
+6,1,Jason Taylor,Jason Taylor,2008-03-17,2008-03-24,0
+6,2,Jason Taylor,Jason Taylor,2008-03-24,2008-03-31,0
+6,3,Jason Taylor,Jason Taylor,2008-03-31,2008-04-07,0
+6,4,Jason Taylor,Jason Taylor,2008-04-07,2008-04-14,0
+6,5,Jason Taylor,Jason Taylor,2008-04-14,2008-04-21,0
+6,6,Jason Taylor,Jason Taylor,2008-04-21,2008-04-28,0
+6,7,Jason Taylor,Jason Taylor,2008-04-28,2008-05-05,0
+6,8,Jason Taylor,Jason Taylor,2008-05-05,2008-05-12,0
+6,9,Jason Taylor,Jason Taylor,2008-05-12,2008-05-19,0
+6,10,Jason Taylor,Jason Taylor,2008-05-19,2008-05-26,3
+6,1,Kristi Yamaguchi,Kristi Yamaguchi,2008-03-17,2008-03-24,13
+6,2,Kristi Yamaguchi,Kristi Yamaguchi,2008-03-24,2008-03-31,5
+6,3,Kristi Yamaguchi,Kristi Yamaguchi,2008-03-31,2008-04-07,11
+6,4,Kristi Yamaguchi,Kristi Yamaguchi,2008-04-07,2008-04-14,16
+6,5,Kristi Yamaguchi,Kristi Yamaguchi,2008-04-14,2008-04-21,18
+6,6,Kristi Yamaguchi,Kristi Yamaguchi,2008-04-21,2008-04-28,26
+6,7,Kristi Yamaguchi,Kristi Yamaguchi,2008-04-28,2008-05-05,12
+6,8,Kristi Yamaguchi,Kristi Yamaguchi,2008-05-05,2008-05-12,12
+6,9,Kristi Yamaguchi,Kristi Yamaguchi,2008-05-12,2008-05-19,49
+6,10,Kristi Yamaguchi,Kristi Yamaguchi,2008-05-19,2008-05-26,11
+6,1,Mario,Mario,2008-03-17,2008-03-24,33
+6,2,Mario,Mario,2008-03-24,2008-03-31,26
+6,3,Mario,Mario,2008-03-31,2008-04-07,8
+6,4,Mario,Mario,2008-04-07,2008-04-14,7
+6,5,Mario,Mario,2008-04-14,2008-04-21,5
+6,6,Mario,Mario,2008-04-21,2008-04-28,9
+6,7,Mario,Mario,2008-04-28,2008-05-05,27
+6,8,Mario,Mario,2008-05-05,2008-05-12,39
+6,9,Mario,Mario,2008-05-12,2008-05-19,6
+6,10,Mario,Mario,2008-05-19,2008-05-26,0
+6,1,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-03-17,2008-03-24,5
+6,2,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-03-24,2008-03-31,5
+6,3,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-03-31,2008-04-07,4
+6,4,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-04-07,2008-04-14,3
+6,5,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-04-14,2008-04-21,2
+6,6,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-04-21,2008-04-28,5
+6,7,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-04-28,2008-05-05,14
+6,8,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-05-05,2008-05-12,13
+6,9,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-05-12,2008-05-19,22
+6,10,Marissa Jaret Winokur,Marissa Jaret Winokur,2008-05-19,2008-05-26,0
+6,1,Marlee Matlin,Marlee Matlin,2008-03-17,2008-03-24,12
+6,2,Marlee Matlin,Marlee Matlin,2008-03-24,2008-03-31,10
+6,3,Marlee Matlin,Marlee Matlin,2008-03-31,2008-04-07,0
+6,4,Marlee Matlin,Marlee Matlin,2008-04-07,2008-04-14,1
+6,5,Marlee Matlin,Marlee Matlin,2008-04-14,2008-04-21,5
+6,6,Marlee Matlin,Marlee Matlin,2008-04-21,2008-04-28,15
+6,7,Marlee Matlin,Marlee Matlin,2008-04-28,2008-05-05,9
+6,8,Marlee Matlin,Marlee Matlin,2008-05-05,2008-05-12,0
+6,9,Marlee Matlin,Marlee Matlin,2008-05-12,2008-05-19,2
+6,10,Marlee Matlin,Marlee Matlin,2008-05-19,2008-05-26,0
+6,1,Monica Seles,Monica Seles,2008-03-17,2008-03-24,3
+6,2,Monica Seles,Monica Seles,2008-03-24,2008-03-31,16
+6,3,Monica Seles,Monica Seles,2008-03-31,2008-04-07,11
+6,4,Monica Seles,Monica Seles,2008-04-07,2008-04-14,3
+6,5,Monica Seles,Monica Seles,2008-04-14,2008-04-21,10
+6,6,Monica Seles,Monica Seles,2008-04-21,2008-04-28,2
+6,7,Monica Seles,Monica Seles,2008-04-28,2008-05-05,2
+6,8,Monica Seles,Monica Seles,2008-05-05,2008-05-12,9
+6,9,Monica Seles,Monica Seles,2008-05-12,2008-05-19,4
+6,10,Monica Seles,Monica Seles,2008-05-19,2008-05-26,0
+6,1,Penn Jillette,Penn Jillette,2008-03-17,2008-03-24,8
+6,2,Penn Jillette,Penn Jillette,2008-03-24,2008-03-31,10
+6,3,Penn Jillette,Penn Jillette,2008-03-31,2008-04-07,15
+6,4,Penn Jillette,Penn Jillette,2008-04-07,2008-04-14,2
+6,5,Penn Jillette,Penn Jillette,2008-04-14,2008-04-21,2
+6,6,Penn Jillette,Penn Jillette,2008-04-21,2008-04-28,1
+6,7,Penn Jillette,Penn Jillette,2008-04-28,2008-05-05,0
+6,8,Penn Jillette,Penn Jillette,2008-05-05,2008-05-12,0
+6,9,Penn Jillette,Penn Jillette,2008-05-12,2008-05-19,4
+6,10,Penn Jillette,Penn Jillette,2008-05-19,2008-05-26,0
+6,1,Priscilla Presley,Priscilla Presley,2008-03-17,2008-03-24,38
+6,2,Priscilla Presley,Priscilla Presley,2008-03-24,2008-03-31,19
+6,3,Priscilla Presley,Priscilla Presley,2008-03-31,2008-04-07,14
+6,4,Priscilla Presley,Priscilla Presley,2008-04-07,2008-04-14,11
+6,5,Priscilla Presley,Priscilla Presley,2008-04-14,2008-04-21,16
+6,6,Priscilla Presley,Priscilla Presley,2008-04-21,2008-04-28,5
+6,7,Priscilla Presley,Priscilla Presley,2008-04-28,2008-05-05,4
+6,8,Priscilla Presley,Priscilla Presley,2008-05-05,2008-05-12,3
+6,9,Priscilla Presley,Priscilla Presley,2008-05-12,2008-05-19,7
+6,10,Priscilla Presley,Priscilla Presley,2008-05-19,2008-05-26,2
+6,1,Shannon Elizabeth,Shannon Elizabeth,2008-03-17,2008-03-24,9
+6,2,Shannon Elizabeth,Shannon Elizabeth,2008-03-24,2008-03-31,5
+6,3,Shannon Elizabeth,Shannon Elizabeth,2008-03-31,2008-04-07,4
+6,4,Shannon Elizabeth,Shannon Elizabeth,2008-04-07,2008-04-14,12
+6,5,Shannon Elizabeth,Shannon Elizabeth,2008-04-14,2008-04-21,8
+6,6,Shannon Elizabeth,Shannon Elizabeth,2008-04-21,2008-04-28,21
+6,7,Shannon Elizabeth,Shannon Elizabeth,2008-04-28,2008-05-05,30
+6,8,Shannon Elizabeth,Shannon Elizabeth,2008-05-05,2008-05-12,9
+6,9,Shannon Elizabeth,Shannon Elizabeth,2008-05-12,2008-05-19,6
+6,10,Shannon Elizabeth,Shannon Elizabeth,2008-05-19,2008-05-26,1
+6,1,Steve Guttenberg,Steve Guttenberg,2008-03-17,2008-03-24,2
+6,2,Steve Guttenberg,Steve Guttenberg,2008-03-24,2008-03-31,0
+6,3,Steve Guttenberg,Steve Guttenberg,2008-03-31,2008-04-07,12
+6,4,Steve Guttenberg,Steve Guttenberg,2008-04-07,2008-04-14,4
+6,5,Steve Guttenberg,Steve Guttenberg,2008-04-14,2008-04-21,0
+6,6,Steve Guttenberg,Steve Guttenberg,2008-04-21,2008-04-28,1
+6,7,Steve Guttenberg,Steve Guttenberg,2008-04-28,2008-05-05,4
+6,8,Steve Guttenberg,Steve Guttenberg,2008-05-05,2008-05-12,19
+6,9,Steve Guttenberg,Steve Guttenberg,2008-05-12,2008-05-19,4
+6,10,Steve Guttenberg,Steve Guttenberg,2008-05-19,2008-05-26,0
+7,1,Brooke Burke,Brooke Burke,2008-09-22,2008-09-29,15
+7,2,Brooke Burke,Brooke Burke,2008-09-29,2008-10-06,3
+7,3,Brooke Burke,Brooke Burke,2008-10-06,2008-10-13,9
+7,4,Brooke Burke,Brooke Burke,2008-10-13,2008-10-20,7
+7,5,Brooke Burke,Brooke Burke,2008-10-20,2008-10-27,11
+7,6,Brooke Burke,Brooke Burke,2008-10-27,2008-11-03,17
+7,7,Brooke Burke,Brooke Burke,2008-11-03,2008-11-10,14
+7,8,Brooke Burke,Brooke Burke,2008-11-10,2008-11-17,8
+7,9,Brooke Burke,Brooke Burke,2008-11-17,2008-11-24,11
+7,10,Brooke Burke,Brooke Burke,2008-11-24,2008-12-01,4
+7,1,Cloris Leachman,Cloris Leachman,2008-09-22,2008-09-29,15
+7,2,Cloris Leachman,Cloris Leachman,2008-09-29,2008-10-06,2
+7,3,Cloris Leachman,Cloris Leachman,2008-10-06,2008-10-13,13
+7,4,Cloris Leachman,Cloris Leachman,2008-10-13,2008-10-20,13
+7,5,Cloris Leachman,Cloris Leachman,2008-10-20,2008-10-27,13
+7,6,Cloris Leachman,Cloris Leachman,2008-10-27,2008-11-03,22
+7,7,Cloris Leachman,Cloris Leachman,2008-11-03,2008-11-10,5
+7,8,Cloris Leachman,Cloris Leachman,2008-11-10,2008-11-17,8
+7,9,Cloris Leachman,Cloris Leachman,2008-11-17,2008-11-24,2
+7,10,Cloris Leachman,Cloris Leachman,2008-11-24,2008-12-01,3
+7,1,Cody Linley,Cody Linley,2008-09-22,2008-09-29,17
+7,2,Cody Linley,Cody Linley,2008-09-29,2008-10-06,16
+7,3,Cody Linley,Cody Linley,2008-10-06,2008-10-13,44
+7,4,Cody Linley,Cody Linley,2008-10-13,2008-10-20,48
+7,5,Cody Linley,Cody Linley,2008-10-20,2008-10-27,13
+7,6,Cody Linley,Cody Linley,2008-10-27,2008-11-03,25
+7,7,Cody Linley,Cody Linley,2008-11-03,2008-11-10,32
+7,8,Cody Linley,Cody Linley,2008-11-10,2008-11-17,36
+7,9,Cody Linley,Cody Linley,2008-11-17,2008-11-24,65
+7,10,Cody Linley,Cody Linley,2008-11-24,2008-12-01,6
+7,1,Jeffrey Ross,Jeff Ross,2008-09-22,2008-09-29,5
+7,2,Jeffrey Ross,Jeff Ross,2008-09-29,2008-10-06,1
+7,3,Jeffrey Ross,Jeff Ross,2008-10-06,2008-10-13,2
+7,4,Jeffrey Ross,Jeff Ross,2008-10-13,2008-10-20,0
+7,5,Jeffrey Ross,Jeff Ross,2008-10-20,2008-10-27,1
+7,6,Jeffrey Ross,Jeff Ross,2008-10-27,2008-11-03,1
+7,7,Jeffrey Ross,Jeff Ross,2008-11-03,2008-11-10,7
+7,8,Jeffrey Ross,Jeff Ross,2008-11-10,2008-11-17,1
+7,9,Jeffrey Ross,Jeff Ross,2008-11-17,2008-11-24,3
+7,10,Jeffrey Ross,Jeff Ross,2008-11-24,2008-12-01,3
+7,1,Kim Kardashian,Kim Kardashian,2008-09-22,2008-09-29,80
+7,2,Kim Kardashian,Kim Kardashian,2008-09-29,2008-10-06,48
+7,3,Kim Kardashian,Kim Kardashian,2008-10-06,2008-10-13,88
+7,4,Kim Kardashian,Kim Kardashian,2008-10-13,2008-10-20,8
+7,5,Kim Kardashian,Kim Kardashian,2008-10-20,2008-10-27,23
+7,6,Kim Kardashian,Kim Kardashian,2008-10-27,2008-11-03,29
+7,7,Kim Kardashian,Kim Kardashian,2008-11-03,2008-11-10,9
+7,8,Kim Kardashian,Kim Kardashian,2008-11-10,2008-11-17,4
+7,9,Kim Kardashian,Kim Kardashian,2008-11-17,2008-11-24,5
+7,10,Kim Kardashian,Kim Kardashian,2008-11-24,2008-12-01,0
+7,1,Lance Bass,Lance Bass,2008-09-22,2008-09-29,15
+7,2,Lance Bass,Lance Bass,2008-09-29,2008-10-06,16
+7,3,Lance Bass,Lance Bass,2008-10-06,2008-10-13,12
+7,4,Lance Bass,Lance Bass,2008-10-13,2008-10-20,16
+7,5,Lance Bass,Lance Bass,2008-10-20,2008-10-27,11
+7,6,Lance Bass,Lance Bass,2008-10-27,2008-11-03,13
+7,7,Lance Bass,Lance Bass,2008-11-03,2008-11-10,7
+7,8,Lance Bass,Lance Bass,2008-11-10,2008-11-17,16
+7,9,Lance Bass,Lance Bass,2008-11-17,2008-11-24,16
+7,10,Lance Bass,Lance Bass,2008-11-24,2008-12-01,6
+7,1,Maurice Greene,Maurice Greene,2008-09-22,2008-09-29,0
+7,2,Maurice Greene,Maurice Greene,2008-09-29,2008-10-06,0
+7,3,Maurice Greene,Maurice Greene,2008-10-06,2008-10-13,0
+7,4,Maurice Greene,Maurice Greene,2008-10-13,2008-10-20,1
+7,5,Maurice Greene,Maurice Greene,2008-10-20,2008-10-27,0
+7,6,Maurice Greene,Maurice Greene,2008-10-27,2008-11-03,0
+7,7,Maurice Greene,Maurice Greene,2008-11-03,2008-11-10,0
+7,8,Maurice Greene,Maurice Greene,2008-11-10,2008-11-17,0
+7,9,Maurice Greene,Maurice Greene,2008-11-17,2008-11-24,0
+7,10,Maurice Greene,Maurice Greene,2008-11-24,2008-12-01,0
+7,1,Misty May-Treanor,Misty May-Treanor,2008-09-22,2008-09-29,15
+7,2,Misty May-Treanor,Misty May-Treanor,2008-09-29,2008-10-06,7
+7,3,Misty May-Treanor,Misty May-Treanor,2008-10-06,2008-10-13,36
+7,4,Misty May-Treanor,Misty May-Treanor,2008-10-13,2008-10-20,3
+7,5,Misty May-Treanor,Misty May-Treanor,2008-10-20,2008-10-27,1
+7,6,Misty May-Treanor,Misty May-Treanor,2008-10-27,2008-11-03,5
+7,7,Misty May-Treanor,Misty May-Treanor,2008-11-03,2008-11-10,0
+7,8,Misty May-Treanor,Misty May-Treanor,2008-11-10,2008-11-17,5
+7,9,Misty May-Treanor,Misty May-Treanor,2008-11-17,2008-11-24,1
+7,10,Misty May-Treanor,Misty May-Treanor,2008-11-24,2008-12-01,1
+7,1,Rocco DiSpirito,Rocco DiSpirito,2008-09-22,2008-09-29,4
+7,2,Rocco DiSpirito,Rocco DiSpirito,2008-09-29,2008-10-06,2
+7,3,Rocco DiSpirito,Rocco DiSpirito,2008-10-06,2008-10-13,4
+7,4,Rocco DiSpirito,Rocco DiSpirito,2008-10-13,2008-10-20,7
+7,5,Rocco DiSpirito,Rocco DiSpirito,2008-10-20,2008-10-27,1
+7,6,Rocco DiSpirito,Rocco DiSpirito,2008-10-27,2008-11-03,0
+7,7,Rocco DiSpirito,Rocco DiSpirito,2008-11-03,2008-11-10,6
+7,8,Rocco DiSpirito,Rocco DiSpirito,2008-11-10,2008-11-17,0
+7,9,Rocco DiSpirito,Rocco DiSpirito,2008-11-17,2008-11-24,0
+7,10,Rocco DiSpirito,Rocco DiSpirito,2008-11-24,2008-12-01,0
+7,1,Susan Lucci,Susan Lucci,2008-09-22,2008-09-29,6
+7,2,Susan Lucci,Susan Lucci,2008-09-29,2008-10-06,15
+7,3,Susan Lucci,Susan Lucci,2008-10-06,2008-10-13,11
+7,4,Susan Lucci,Susan Lucci,2008-10-13,2008-10-20,11
+7,5,Susan Lucci,Susan Lucci,2008-10-20,2008-10-27,13
+7,6,Susan Lucci,Susan Lucci,2008-10-27,2008-11-03,7
+7,7,Susan Lucci,Susan Lucci,2008-11-03,2008-11-10,9
+7,8,Susan Lucci,Susan Lucci,2008-11-10,2008-11-17,3
+7,9,Susan Lucci,Susan Lucci,2008-11-17,2008-11-24,3
+7,10,Susan Lucci,Susan Lucci,2008-11-24,2008-12-01,0
+7,1,Ted McGinley,Ted McGinley,2008-09-22,2008-09-29,23
+7,2,Ted McGinley,Ted McGinley,2008-09-29,2008-10-06,1
+7,3,Ted McGinley,Ted McGinley,2008-10-06,2008-10-13,1
+7,4,Ted McGinley,Ted McGinley,2008-10-13,2008-10-20,1
+7,5,Ted McGinley,Ted McGinley,2008-10-20,2008-10-27,0
+7,6,Ted McGinley,Ted McGinley,2008-10-27,2008-11-03,6
+7,7,Ted McGinley,Ted McGinley,2008-11-03,2008-11-10,1
+7,8,Ted McGinley,Ted McGinley,2008-11-10,2008-11-17,0
+7,9,Ted McGinley,Ted McGinley,2008-11-17,2008-11-24,1
+7,10,Ted McGinley,Ted McGinley,2008-11-24,2008-12-01,0
+7,1,Toni Braxton,Toni Braxton,2008-09-22,2008-09-29,17
+7,2,Toni Braxton,Toni Braxton,2008-09-29,2008-10-06,22
+7,3,Toni Braxton,Toni Braxton,2008-10-06,2008-10-13,11
+7,4,Toni Braxton,Toni Braxton,2008-10-13,2008-10-20,3
+7,5,Toni Braxton,Toni Braxton,2008-10-20,2008-10-27,10
+7,6,Toni Braxton,Toni Braxton,2008-10-27,2008-11-03,7
+7,7,Toni Braxton,Toni Braxton,2008-11-03,2008-11-10,8
+7,8,Toni Braxton,Toni Braxton,2008-11-10,2008-11-17,12
+7,9,Toni Braxton,Toni Braxton,2008-11-17,2008-11-24,15
+7,10,Toni Braxton,Toni Braxton,2008-11-24,2008-12-01,1
+7,1,Warren Sapp,Warren Sapp,2008-09-22,2008-09-29,11
+7,2,Warren Sapp,Warren Sapp,2008-09-29,2008-10-06,8
+7,3,Warren Sapp,Warren Sapp,2008-10-06,2008-10-13,20
+7,4,Warren Sapp,Warren Sapp,2008-10-13,2008-10-20,3
+7,5,Warren Sapp,Warren Sapp,2008-10-20,2008-10-27,10
+7,6,Warren Sapp,Warren Sapp,2008-10-27,2008-11-03,5
+7,7,Warren Sapp,Warren Sapp,2008-11-03,2008-11-10,1
+7,8,Warren Sapp,Warren Sapp,2008-11-10,2008-11-17,15
+7,9,Warren Sapp,Warren Sapp,2008-11-17,2008-11-24,17
+7,10,Warren Sapp,Warren Sapp,2008-11-24,2008-12-01,5
+8,1,Belinda Carlisle,Belinda Carlisle,2009-03-09,2009-03-16,16
+8,2,Belinda Carlisle,Belinda Carlisle,2009-03-16,2009-03-23,16
+8,3,Belinda Carlisle,Belinda Carlisle,2009-03-23,2009-03-30,6
+8,4,Belinda Carlisle,Belinda Carlisle,2009-03-30,2009-04-06,25
+8,5,Belinda Carlisle,Belinda Carlisle,2009-04-06,2009-04-13,2
+8,6,Belinda Carlisle,Belinda Carlisle,2009-04-13,2009-04-20,5
+8,7,Belinda Carlisle,Belinda Carlisle,2009-04-20,2009-04-27,1
+8,8,Belinda Carlisle,Belinda Carlisle,2009-04-27,2009-05-04,11
+8,9,Belinda Carlisle,Belinda Carlisle,2009-05-04,2009-05-11,2
+8,10,Belinda Carlisle,Belinda Carlisle,2009-05-11,2009-05-18,3
+8,11,Belinda Carlisle,Belinda Carlisle,2009-05-18,2009-05-25,0
+8,1,Chuck Wicks,Chuck Wicks,2009-03-09,2009-03-16,9
+8,2,Chuck Wicks,Chuck Wicks,2009-03-16,2009-03-23,8
+8,3,Chuck Wicks,Chuck Wicks,2009-03-23,2009-03-30,4
+8,4,Chuck Wicks,Chuck Wicks,2009-03-30,2009-04-06,1
+8,5,Chuck Wicks,Chuck Wicks,2009-04-06,2009-04-13,15
+8,6,Chuck Wicks,Chuck Wicks,2009-04-13,2009-04-20,6
+8,7,Chuck Wicks,Chuck Wicks,2009-04-20,2009-04-27,7
+8,8,Chuck Wicks,Chuck Wicks,2009-04-27,2009-05-04,18
+8,9,Chuck Wicks,Chuck Wicks,2009-05-04,2009-05-11,7
+8,10,Chuck Wicks,Chuck Wicks,2009-05-11,2009-05-18,6
+8,11,Chuck Wicks,Chuck Wicks,2009-05-18,2009-05-25,2
+8,1,David Alan Grier,David Alan Grier,2009-03-09,2009-03-16,3
+8,2,David Alan Grier,David Alan Grier,2009-03-16,2009-03-23,0
+8,3,David Alan Grier,David Alan Grier,2009-03-23,2009-03-30,3
+8,4,David Alan Grier,David Alan Grier,2009-03-30,2009-04-06,3
+8,5,David Alan Grier,David Alan Grier,2009-04-06,2009-04-13,4
+8,6,David Alan Grier,David Alan Grier,2009-04-13,2009-04-20,1
+8,7,David Alan Grier,David Alan Grier,2009-04-20,2009-04-27,1
+8,8,David Alan Grier,David Alan Grier,2009-04-27,2009-05-04,0
+8,9,David Alan Grier,David Alan Grier,2009-05-04,2009-05-11,2
+8,10,David Alan Grier,David Alan Grier,2009-05-11,2009-05-18,9
+8,11,David Alan Grier,David Alan Grier,2009-05-18,2009-05-25,0
+8,1,Denise Richards,Denise Richards,2009-03-09,2009-03-16,15
+8,2,Denise Richards,Denise Richards,2009-03-16,2009-03-23,18
+8,3,Denise Richards,Denise Richards,2009-03-23,2009-03-30,8
+8,4,Denise Richards,Denise Richards,2009-03-30,2009-04-06,7
+8,5,Denise Richards,Denise Richards,2009-04-06,2009-04-13,2
+8,6,Denise Richards,Denise Richards,2009-04-13,2009-04-20,1
+8,7,Denise Richards,Denise Richards,2009-04-20,2009-04-27,6
+8,8,Denise Richards,Denise Richards,2009-04-27,2009-05-04,5
+8,9,Denise Richards,Denise Richards,2009-05-04,2009-05-11,10
+8,10,Denise Richards,Denise Richards,2009-05-11,2009-05-18,5
+8,11,Denise Richards,Denise Richards,2009-05-18,2009-05-25,0
+8,1,Gilles Marini,Gilles Marini,2009-03-09,2009-03-16,2
+8,2,Gilles Marini,Gilles Marini,2009-03-16,2009-03-23,0
+8,3,Gilles Marini,Gilles Marini,2009-03-23,2009-03-30,1
+8,4,Gilles Marini,Gilles Marini,2009-03-30,2009-04-06,8
+8,5,Gilles Marini,Gilles Marini,2009-04-06,2009-04-13,6
+8,6,Gilles Marini,Gilles Marini,2009-04-13,2009-04-20,5
+8,7,Gilles Marini,Gilles Marini,2009-04-20,2009-04-27,0
+8,8,Gilles Marini,Gilles Marini,2009-04-27,2009-05-04,0
+8,9,Gilles Marini,Gilles Marini,2009-05-04,2009-05-11,14
+8,10,Gilles Marini,Gilles Marini,2009-05-11,2009-05-18,16
+8,11,Gilles Marini,Gilles Marini,2009-05-18,2009-05-25,4
+8,1,Holly Madison,Holly Madison,2009-03-09,2009-03-16,21
+8,2,Holly Madison,Holly Madison,2009-03-16,2009-03-23,9
+8,3,Holly Madison,Holly Madison,2009-03-23,2009-03-30,11
+8,4,Holly Madison,Holly Madison,2009-03-30,2009-04-06,6
+8,5,Holly Madison,Holly Madison,2009-04-06,2009-04-13,6
+8,6,Holly Madison,Holly Madison,2009-04-13,2009-04-20,5
+8,7,Holly Madison,Holly Madison,2009-04-20,2009-04-27,0
+8,8,Holly Madison,Holly Madison,2009-04-27,2009-05-04,5
+8,9,Holly Madison,Holly Madison,2009-05-04,2009-05-11,3
+8,10,Holly Madison,Holly Madison,2009-05-11,2009-05-18,13
+8,11,Holly Madison,Holly Madison,2009-05-18,2009-05-25,0
+8,1,Lawrence Taylor,Lawrence Taylor,2009-03-09,2009-03-16,4
+8,2,Lawrence Taylor,Lawrence Taylor,2009-03-16,2009-03-23,3
+8,3,Lawrence Taylor,Lawrence Taylor,2009-03-23,2009-03-30,0
+8,4,Lawrence Taylor,Lawrence Taylor,2009-03-30,2009-04-06,2
+8,5,Lawrence Taylor,Lawrence Taylor,2009-04-06,2009-04-13,8
+8,6,Lawrence Taylor,Lawrence Taylor,2009-04-13,2009-04-20,1
+8,7,Lawrence Taylor,Lawrence Taylor,2009-04-20,2009-04-27,8
+8,8,Lawrence Taylor,Lawrence Taylor,2009-04-27,2009-05-04,0
+8,9,Lawrence Taylor,Lawrence Taylor,2009-05-04,2009-05-11,2
+8,10,Lawrence Taylor,Lawrence Taylor,2009-05-11,2009-05-18,1
+8,11,Lawrence Taylor,Lawrence Taylor,2009-05-18,2009-05-25,0
+8,1,Lil' Kim,Lil' Kim,2009-03-09,2009-03-16,3
+8,2,Lil' Kim,Lil' Kim,2009-03-16,2009-03-23,13
+8,3,Lil' Kim,Lil' Kim,2009-03-23,2009-03-30,0
+8,4,Lil' Kim,Lil' Kim,2009-03-30,2009-04-06,10
+8,5,Lil' Kim,Lil' Kim,2009-04-06,2009-04-13,24
+8,6,Lil' Kim,Lil' Kim,2009-04-13,2009-04-20,45
+8,7,Lil' Kim,Lil' Kim,2009-04-20,2009-04-27,34
+8,8,Lil' Kim,Lil' Kim,2009-04-27,2009-05-04,32
+8,9,Lil' Kim,Lil' Kim,2009-05-04,2009-05-11,63
+8,10,Lil' Kim,Lil' Kim,2009-05-11,2009-05-18,1
+8,11,Lil' Kim,Lil' Kim,2009-05-18,2009-05-25,0
+8,1,Melissa Rycroft,Melissa Rycroft,2009-03-09,2009-03-16,55
+8,2,Melissa Rycroft,Melissa Rycroft,2009-03-16,2009-03-23,12
+8,3,Melissa Rycroft,Melissa Rycroft,2009-03-23,2009-03-30,9
+8,4,Melissa Rycroft,Melissa Rycroft,2009-03-30,2009-04-06,15
+8,5,Melissa Rycroft,Melissa Rycroft,2009-04-06,2009-04-13,14
+8,6,Melissa Rycroft,Melissa Rycroft,2009-04-13,2009-04-20,14
+8,7,Melissa Rycroft,Melissa Rycroft,2009-04-20,2009-04-27,7
+8,8,Melissa Rycroft,Melissa Rycroft,2009-04-27,2009-05-04,36
+8,9,Melissa Rycroft,Melissa Rycroft,2009-05-04,2009-05-11,29
+8,10,Melissa Rycroft,Melissa Rycroft,2009-05-11,2009-05-18,29
+8,11,Melissa Rycroft,Melissa Rycroft,2009-05-18,2009-05-25,12
+8,1,Shawn Johnson,Shawn Johnson East,2009-03-09,2009-03-16,36
+8,2,Shawn Johnson,Shawn Johnson East,2009-03-16,2009-03-23,4
+8,3,Shawn Johnson,Shawn Johnson East,2009-03-23,2009-03-30,54
+8,4,Shawn Johnson,Shawn Johnson East,2009-03-30,2009-04-06,8
+8,5,Shawn Johnson,Shawn Johnson East,2009-04-06,2009-04-13,21
+8,6,Shawn Johnson,Shawn Johnson East,2009-04-13,2009-04-20,36
+8,7,Shawn Johnson,Shawn Johnson East,2009-04-20,2009-04-27,3
+8,8,Shawn Johnson,Shawn Johnson East,2009-04-27,2009-05-04,2
+8,9,Shawn Johnson,Shawn Johnson East,2009-05-04,2009-05-11,1
+8,10,Shawn Johnson,Shawn Johnson East,2009-05-11,2009-05-18,3
+8,11,Shawn Johnson,Shawn Johnson East,2009-05-18,2009-05-25,1
+8,1,Steve Wozniak,Steve Wozniak,2009-03-09,2009-03-16,25
+8,2,Steve Wozniak,Steve Wozniak,2009-03-16,2009-03-23,25
+8,3,Steve Wozniak,Steve Wozniak,2009-03-23,2009-03-30,37
+8,4,Steve Wozniak,Steve Wozniak,2009-03-30,2009-04-06,30
+8,5,Steve Wozniak,Steve Wozniak,2009-04-06,2009-04-13,9
+8,6,Steve Wozniak,Steve Wozniak,2009-04-13,2009-04-20,6
+8,7,Steve Wozniak,Steve Wozniak,2009-04-20,2009-04-27,9
+8,8,Steve Wozniak,Steve Wozniak,2009-04-27,2009-05-04,11
+8,9,Steve Wozniak,Steve Wozniak,2009-05-04,2009-05-11,2
+8,10,Steve Wozniak,Steve Wozniak,2009-05-11,2009-05-18,13
+8,11,Steve Wozniak,Steve Wozniak,2009-05-18,2009-05-25,1
+8,1,Steve-O,Steve-O,2009-03-09,2009-03-16,3
+8,2,Steve-O,Steve-O,2009-03-16,2009-03-23,1
+8,3,Steve-O,Steve-O,2009-03-23,2009-03-30,1
+8,4,Steve-O,Steve-O,2009-03-30,2009-04-06,7
+8,5,Steve-O,Steve-O,2009-04-06,2009-04-13,4
+8,6,Steve-O,Steve-O,2009-04-13,2009-04-20,0
+8,7,Steve-O,Steve-O,2009-04-20,2009-04-27,3
+8,8,Steve-O,Steve-O,2009-04-27,2009-05-04,0
+8,9,Steve-O,Steve-O,2009-05-04,2009-05-11,6
+8,10,Steve-O,Steve-O,2009-05-11,2009-05-18,3
+8,11,Steve-O,Steve-O,2009-05-18,2009-05-25,1
+8,1,Ty Murray,Ty Murray,2009-03-09,2009-03-16,9
+8,2,Ty Murray,Ty Murray,2009-03-16,2009-03-23,5
+8,3,Ty Murray,Ty Murray,2009-03-23,2009-03-30,0
+8,4,Ty Murray,Ty Murray,2009-03-30,2009-04-06,0
+8,5,Ty Murray,Ty Murray,2009-04-06,2009-04-13,0
+8,6,Ty Murray,Ty Murray,2009-04-13,2009-04-20,0
+8,7,Ty Murray,Ty Murray,2009-04-20,2009-04-27,6
+8,8,Ty Murray,Ty Murray,2009-04-27,2009-05-04,14
+8,9,Ty Murray,Ty Murray,2009-05-04,2009-05-11,25
+8,10,Ty Murray,Ty Murray,2009-05-11,2009-05-18,32
+8,11,Ty Murray,Ty Murray,2009-05-18,2009-05-25,0
+9,1,Aaron Carter,Aaron Carter,2009-09-21,2009-09-28,4
+9,2,Aaron Carter,Aaron Carter,2009-09-28,2009-10-05,0
+9,3,Aaron Carter,Aaron Carter,2009-10-05,2009-10-12,0
+9,4,Aaron Carter,Aaron Carter,2009-10-12,2009-10-19,1
+9,5,Aaron Carter,Aaron Carter,2009-10-19,2009-10-26,3
+9,6,Aaron Carter,Aaron Carter,2009-10-26,2009-11-02,1
+9,7,Aaron Carter,Aaron Carter,2009-11-02,2009-11-09,1
+9,8,Aaron Carter,Aaron Carter,2009-11-09,2009-11-16,3
+9,9,Aaron Carter,Aaron Carter,2009-11-16,2009-11-23,3
+9,10,Aaron Carter,Aaron Carter,2009-11-23,2009-11-30,3
+9,1,Chuck Liddell,Chuck Liddell,2009-09-21,2009-09-28,4
+9,2,Chuck Liddell,Chuck Liddell,2009-09-28,2009-10-05,1
+9,3,Chuck Liddell,Chuck Liddell,2009-10-05,2009-10-12,4
+9,4,Chuck Liddell,Chuck Liddell,2009-10-12,2009-10-19,0
+9,5,Chuck Liddell,Chuck Liddell,2009-10-19,2009-10-26,2
+9,6,Chuck Liddell,Chuck Liddell,2009-10-26,2009-11-02,0
+9,7,Chuck Liddell,Chuck Liddell,2009-11-02,2009-11-09,3
+9,8,Chuck Liddell,Chuck Liddell,2009-11-09,2009-11-16,0
+9,9,Chuck Liddell,Chuck Liddell,2009-11-16,2009-11-23,5
+9,10,Chuck Liddell,Chuck Liddell,2009-11-23,2009-11-30,0
+9,1,Debi Mazar,Debi Mazar,2009-09-21,2009-09-28,6
+9,2,Debi Mazar,Debi Mazar,2009-09-28,2009-10-05,1
+9,3,Debi Mazar,Debi Mazar,2009-10-05,2009-10-12,7
+9,4,Debi Mazar,Debi Mazar,2009-10-12,2009-10-19,3
+9,5,Debi Mazar,Debi Mazar,2009-10-19,2009-10-26,11
+9,6,Debi Mazar,Debi Mazar,2009-10-26,2009-11-02,2
+9,7,Debi Mazar,Debi Mazar,2009-11-02,2009-11-09,1
+9,8,Debi Mazar,Debi Mazar,2009-11-09,2009-11-16,5
+9,9,Debi Mazar,Debi Mazar,2009-11-16,2009-11-23,3
+9,10,Debi Mazar,Debi Mazar,2009-11-23,2009-11-30,1
+9,1,Donny Osmond,Donny Osmond,2009-09-21,2009-09-28,2
+9,2,Donny Osmond,Donny Osmond,2009-09-28,2009-10-05,4
+9,3,Donny Osmond,Donny Osmond,2009-10-05,2009-10-12,12
+9,4,Donny Osmond,Donny Osmond,2009-10-12,2009-10-19,4
+9,5,Donny Osmond,Donny Osmond,2009-10-19,2009-10-26,5
+9,6,Donny Osmond,Donny Osmond,2009-10-26,2009-11-02,3
+9,7,Donny Osmond,Donny Osmond,2009-11-02,2009-11-09,4
+9,8,Donny Osmond,Donny Osmond,2009-11-09,2009-11-16,2
+9,9,Donny Osmond,Donny Osmond,2009-11-16,2009-11-23,16
+9,10,Donny Osmond,Donny Osmond,2009-11-23,2009-11-30,10
+9,1,Joanna Krupa,Joanna Krupa,2009-09-21,2009-09-28,12
+9,2,Joanna Krupa,Joanna Krupa,2009-09-28,2009-10-05,1
+9,3,Joanna Krupa,Joanna Krupa,2009-10-05,2009-10-12,3
+9,4,Joanna Krupa,Joanna Krupa,2009-10-12,2009-10-19,22
+9,5,Joanna Krupa,Joanna Krupa,2009-10-19,2009-10-26,6
+9,6,Joanna Krupa,Joanna Krupa,2009-10-26,2009-11-02,16
+9,7,Joanna Krupa,Joanna Krupa,2009-11-02,2009-11-09,11
+9,8,Joanna Krupa,Joanna Krupa,2009-11-09,2009-11-16,13
+9,9,Joanna Krupa,Joanna Krupa,2009-11-16,2009-11-23,45
+9,10,Joanna Krupa,Joanna Krupa,2009-11-23,2009-11-30,0
+9,1,Kathy Ireland,Kathy Ireland,2009-09-21,2009-09-28,18
+9,2,Kathy Ireland,Kathy Ireland,2009-09-28,2009-10-05,2
+9,3,Kathy Ireland,Kathy Ireland,2009-10-05,2009-10-12,2
+9,4,Kathy Ireland,Kathy Ireland,2009-10-12,2009-10-19,3
+9,5,Kathy Ireland,Kathy Ireland,2009-10-19,2009-10-26,3
+9,6,Kathy Ireland,Kathy Ireland,2009-10-26,2009-11-02,0
+9,7,Kathy Ireland,Kathy Ireland,2009-11-02,2009-11-09,0
+9,8,Kathy Ireland,Kathy Ireland,2009-11-09,2009-11-16,0
+9,9,Kathy Ireland,Kathy Ireland,2009-11-16,2009-11-23,2
+9,10,Kathy Ireland,Kathy Ireland,2009-11-23,2009-11-30,0
+9,1,Kelly Osbourne,Kelly Osbourne,2009-09-21,2009-09-28,23
+9,2,Kelly Osbourne,Kelly Osbourne,2009-09-28,2009-10-05,5
+9,3,Kelly Osbourne,Kelly Osbourne,2009-10-05,2009-10-12,4
+9,4,Kelly Osbourne,Kelly Osbourne,2009-10-12,2009-10-19,6
+9,5,Kelly Osbourne,Kelly Osbourne,2009-10-19,2009-10-26,8
+9,6,Kelly Osbourne,Kelly Osbourne,2009-10-26,2009-11-02,11
+9,7,Kelly Osbourne,Kelly Osbourne,2009-11-02,2009-11-09,1
+9,8,Kelly Osbourne,Kelly Osbourne,2009-11-09,2009-11-16,2
+9,9,Kelly Osbourne,Kelly Osbourne,2009-11-16,2009-11-23,12
+9,10,Kelly Osbourne,Kelly Osbourne,2009-11-23,2009-11-30,2
+9,1,Louie Vito,Louie Vito,2009-09-21,2009-09-28,7
+9,2,Louie Vito,Louie Vito,2009-09-28,2009-10-05,13
+9,3,Louie Vito,Louie Vito,2009-10-05,2009-10-12,6
+9,4,Louie Vito,Louie Vito,2009-10-12,2009-10-19,5
+9,5,Louie Vito,Louie Vito,2009-10-19,2009-10-26,23
+9,6,Louie Vito,Louie Vito,2009-10-26,2009-11-02,14
+9,7,Louie Vito,Louie Vito,2009-11-02,2009-11-09,4
+9,8,Louie Vito,Louie Vito,2009-11-09,2009-11-16,0
+9,9,Louie Vito,Louie Vito,2009-11-16,2009-11-23,2
+9,10,Louie Vito,Louie Vito,2009-11-23,2009-11-30,0
+9,1,Macy Gray,Macy Gray,2009-09-21,2009-09-28,16
+9,2,Macy Gray,Macy Gray,2009-09-28,2009-10-05,1
+9,3,Macy Gray,Macy Gray,2009-10-05,2009-10-12,0
+9,4,Macy Gray,Macy Gray,2009-10-12,2009-10-19,4
+9,5,Macy Gray,Macy Gray,2009-10-19,2009-10-26,5
+9,6,Macy Gray,Macy Gray,2009-10-26,2009-11-02,0
+9,7,Macy Gray,Macy Gray,2009-11-02,2009-11-09,1
+9,8,Macy Gray,Macy Gray,2009-11-09,2009-11-16,2
+9,9,Macy Gray,Macy Gray,2009-11-16,2009-11-23,2
+9,10,Macy Gray,Macy Gray,2009-11-23,2009-11-30,0
+9,1,Mark Dacascos,Mark Dacascos,2009-09-21,2009-09-28,8
+9,2,Mark Dacascos,Mark Dacascos,2009-09-28,2009-10-05,3
+9,3,Mark Dacascos,Mark Dacascos,2009-10-05,2009-10-12,5
+9,4,Mark Dacascos,Mark Dacascos,2009-10-12,2009-10-19,0
+9,5,Mark Dacascos,Mark Dacascos,2009-10-19,2009-10-26,1
+9,6,Mark Dacascos,Mark Dacascos,2009-10-26,2009-11-02,2
+9,7,Mark Dacascos,Mark Dacascos,2009-11-02,2009-11-09,1
+9,8,Mark Dacascos,Mark Dacascos,2009-11-09,2009-11-16,6
+9,9,Mark Dacascos,Mark Dacascos,2009-11-16,2009-11-23,2
+9,10,Mark Dacascos,Mark Dacascos,2009-11-23,2009-11-30,0
+9,1,Melissa Joan Hart,Melissa Joan Hart,2009-09-21,2009-09-28,11
+9,2,Melissa Joan Hart,Melissa Joan Hart,2009-09-28,2009-10-05,3
+9,3,Melissa Joan Hart,Melissa Joan Hart,2009-10-05,2009-10-12,6
+9,4,Melissa Joan Hart,Melissa Joan Hart,2009-10-12,2009-10-19,10
+9,5,Melissa Joan Hart,Melissa Joan Hart,2009-10-19,2009-10-26,8
+9,6,Melissa Joan Hart,Melissa Joan Hart,2009-10-26,2009-11-02,13
+9,7,Melissa Joan Hart,Melissa Joan Hart,2009-11-02,2009-11-09,5
+9,8,Melissa Joan Hart,Melissa Joan Hart,2009-11-09,2009-11-16,2
+9,9,Melissa Joan Hart,Melissa Joan Hart,2009-11-16,2009-11-23,0
+9,10,Melissa Joan Hart,Melissa Joan Hart,2009-11-23,2009-11-30,0
+9,1,Michael Irvin,Michael Irvin,2009-09-21,2009-09-28,3
+9,2,Michael Irvin,Michael Irvin,2009-09-28,2009-10-05,3
+9,3,Michael Irvin,Michael Irvin,2009-10-05,2009-10-12,0
+9,4,Michael Irvin,Michael Irvin,2009-10-12,2009-10-19,1
+9,5,Michael Irvin,Michael Irvin,2009-10-19,2009-10-26,0
+9,6,Michael Irvin,Michael Irvin,2009-10-26,2009-11-02,0
+9,7,Michael Irvin,Michael Irvin,2009-11-02,2009-11-09,9
+9,8,Michael Irvin,Michael Irvin,2009-11-09,2009-11-16,1
+9,9,Michael Irvin,Michael Irvin,2009-11-16,2009-11-23,2
+9,10,Michael Irvin,Michael Irvin,2009-11-23,2009-11-30,0
+9,1,Mya,Mya,2009-09-21,2009-09-28,0
+9,2,Mya,Mya,2009-09-28,2009-10-05,0
+9,3,Mya,Mya,2009-10-05,2009-10-12,0
+9,4,Mya,Mya,2009-10-12,2009-10-19,0
+9,5,Mya,Mya,2009-10-19,2009-10-26,0
+9,6,Mya,Mya,2009-10-26,2009-11-02,5
+9,7,Mya,Mya,2009-11-02,2009-11-09,0
+9,8,Mya,Mya,2009-11-09,2009-11-16,3
+9,9,Mya,Mya,2009-11-16,2009-11-23,2
+9,10,Mya,Mya,2009-11-23,2009-11-30,0
+9,1,Natalie Coughlin,Natalie Coughlin,2009-09-21,2009-09-28,3
+9,2,Natalie Coughlin,Natalie Coughlin,2009-09-28,2009-10-05,0
+9,3,Natalie Coughlin,Natalie Coughlin,2009-10-05,2009-10-12,0
+9,4,Natalie Coughlin,Natalie Coughlin,2009-10-12,2009-10-19,2
+9,5,Natalie Coughlin,Natalie Coughlin,2009-10-19,2009-10-26,4
+9,6,Natalie Coughlin,Natalie Coughlin,2009-10-26,2009-11-02,8
+9,7,Natalie Coughlin,Natalie Coughlin,2009-11-02,2009-11-09,2
+9,8,Natalie Coughlin,Natalie Coughlin,2009-11-09,2009-11-16,1
+9,9,Natalie Coughlin,Natalie Coughlin,2009-11-16,2009-11-23,0
+9,10,Natalie Coughlin,Natalie Coughlin,2009-11-23,2009-11-30,0
+9,1,Tom DeLay,Tom DeLay,2009-09-21,2009-09-28,60
+9,2,Tom DeLay,Tom DeLay,2009-09-28,2009-10-05,174
+9,3,Tom DeLay,Tom DeLay,2009-10-05,2009-10-12,119
+9,4,Tom DeLay,Tom DeLay,2009-10-12,2009-10-19,20
+9,5,Tom DeLay,Tom DeLay,2009-10-19,2009-10-26,16
+9,6,Tom DeLay,Tom DeLay,2009-10-26,2009-11-02,8
+9,7,Tom DeLay,Tom DeLay,2009-11-02,2009-11-09,2
+9,8,Tom DeLay,Tom DeLay,2009-11-09,2009-11-16,0
+9,9,Tom DeLay,Tom DeLay,2009-11-16,2009-11-23,2
+9,10,Tom DeLay,Tom DeLay,2009-11-23,2009-11-30,1
+10,1,Aiden Turner,Aiden Turner,2010-03-22,2010-03-29,6
+10,2,Aiden Turner,Aiden Turner,2010-03-29,2010-04-05,5
+10,3,Aiden Turner,Aiden Turner,2010-04-05,2010-04-12,1
+10,4,Aiden Turner,Aiden Turner,2010-04-12,2010-04-19,6
+10,5,Aiden Turner,Aiden Turner,2010-04-19,2010-04-26,0
+10,6,Aiden Turner,Aiden Turner,2010-04-26,2010-05-03,0
+10,7,Aiden Turner,Aiden Turner,2010-05-03,2010-05-10,0
+10,8,Aiden Turner,Aiden Turner,2010-05-10,2010-05-17,0
+10,9,Aiden Turner,Aiden Turner,2010-05-17,2010-05-24,0
+10,10,Aiden Turner,Aiden Turner,2010-05-24,2010-05-31,3
+10,1,Buzz Aldrin,Buzz Aldrin,2010-03-22,2010-03-29,7
+10,2,Buzz Aldrin,Buzz Aldrin,2010-03-29,2010-04-05,1
+10,3,Buzz Aldrin,Buzz Aldrin,2010-04-05,2010-04-12,3
+10,4,Buzz Aldrin,Buzz Aldrin,2010-04-12,2010-04-19,5
+10,5,Buzz Aldrin,Buzz Aldrin,2010-04-19,2010-04-26,0
+10,6,Buzz Aldrin,Buzz Aldrin,2010-04-26,2010-05-03,1
+10,7,Buzz Aldrin,Buzz Aldrin,2010-05-03,2010-05-10,7
+10,8,Buzz Aldrin,Buzz Aldrin,2010-05-10,2010-05-17,2
+10,9,Buzz Aldrin,Buzz Aldrin,2010-05-17,2010-05-24,11
+10,10,Buzz Aldrin,Buzz Aldrin,2010-05-24,2010-05-31,6
+10,1,Chad Ochocinco,Chad Johnson,2010-03-22,2010-03-29,2
+10,2,Chad Ochocinco,Chad Johnson,2010-03-29,2010-04-05,23
+10,3,Chad Ochocinco,Chad Johnson,2010-04-05,2010-04-12,15
+10,4,Chad Ochocinco,Chad Johnson,2010-04-12,2010-04-19,31
+10,5,Chad Ochocinco,Chad Johnson,2010-04-19,2010-04-26,10
+10,6,Chad Ochocinco,Chad Johnson,2010-04-26,2010-05-03,17
+10,7,Chad Ochocinco,Chad Johnson,2010-05-03,2010-05-10,2
+10,8,Chad Ochocinco,Chad Johnson,2010-05-10,2010-05-17,26
+10,9,Chad Ochocinco,Chad Johnson,2010-05-17,2010-05-24,23
+10,10,Chad Ochocinco,Chad Johnson,2010-05-24,2010-05-31,12
+10,1,Erin Andrews,Erin Andrews,2010-03-22,2010-03-29,1
+10,2,Erin Andrews,Erin Andrews,2010-03-29,2010-04-05,9
+10,3,Erin Andrews,Erin Andrews,2010-04-05,2010-04-12,8
+10,4,Erin Andrews,Erin Andrews,2010-04-12,2010-04-19,5
+10,5,Erin Andrews,Erin Andrews,2010-04-19,2010-04-26,7
+10,6,Erin Andrews,Erin Andrews,2010-04-26,2010-05-03,16
+10,7,Erin Andrews,Erin Andrews,2010-05-03,2010-05-10,6
+10,8,Erin Andrews,Erin Andrews,2010-05-10,2010-05-17,8
+10,9,Erin Andrews,Erin Andrews,2010-05-17,2010-05-24,10
+10,10,Erin Andrews,Erin Andrews,2010-05-24,2010-05-31,8
+10,1,Evan Lysacek,Evan Lysacek,2010-03-22,2010-03-29,15
+10,2,Evan Lysacek,Evan Lysacek,2010-03-29,2010-04-05,8
+10,3,Evan Lysacek,Evan Lysacek,2010-04-05,2010-04-12,10
+10,4,Evan Lysacek,Evan Lysacek,2010-04-12,2010-04-19,27
+10,5,Evan Lysacek,Evan Lysacek,2010-04-19,2010-04-26,6
+10,6,Evan Lysacek,Evan Lysacek,2010-04-26,2010-05-03,21
+10,7,Evan Lysacek,Evan Lysacek,2010-05-03,2010-05-10,26
+10,8,Evan Lysacek,Evan Lysacek,2010-05-10,2010-05-17,10
+10,9,Evan Lysacek,Evan Lysacek,2010-05-17,2010-05-24,10
+10,10,Evan Lysacek,Evan Lysacek,2010-05-24,2010-05-31,0
+10,1,Jake Pavelka,Jake Pavelka,2010-03-22,2010-03-29,0
+10,2,Jake Pavelka,Jake Pavelka,2010-03-29,2010-04-05,2
+10,3,Jake Pavelka,Jake Pavelka,2010-04-05,2010-04-12,0
+10,4,Jake Pavelka,Jake Pavelka,2010-04-12,2010-04-19,0
+10,5,Jake Pavelka,Jake Pavelka,2010-04-19,2010-04-26,0
+10,6,Jake Pavelka,Jake Pavelka,2010-04-26,2010-05-03,3
+10,7,Jake Pavelka,Jake Pavelka,2010-05-03,2010-05-10,0
+10,8,Jake Pavelka,Jake Pavelka,2010-05-10,2010-05-17,0
+10,9,Jake Pavelka,Jake Pavelka,2010-05-17,2010-05-24,0
+10,10,Jake Pavelka,Jake Pavelka,2010-05-24,2010-05-31,0
+10,1,Kate Gosselin,Kate Gosselin,2010-03-22,2010-03-29,27
+10,2,Kate Gosselin,Kate Gosselin,2010-03-29,2010-04-05,49
+10,3,Kate Gosselin,Kate Gosselin,2010-04-05,2010-04-12,23
+10,4,Kate Gosselin,Kate Gosselin,2010-04-12,2010-04-19,10
+10,5,Kate Gosselin,Kate Gosselin,2010-04-19,2010-04-26,2
+10,6,Kate Gosselin,Kate Gosselin,2010-04-26,2010-05-03,1
+10,7,Kate Gosselin,Kate Gosselin,2010-05-03,2010-05-10,5
+10,8,Kate Gosselin,Kate Gosselin,2010-05-10,2010-05-17,11
+10,9,Kate Gosselin,Kate Gosselin,2010-05-17,2010-05-24,10
+10,10,Kate Gosselin,Kate Gosselin,2010-05-24,2010-05-31,9
+10,1,Nicole Scherzinger,Nicole Scherzinger,2010-03-22,2010-03-29,15
+10,2,Nicole Scherzinger,Nicole Scherzinger,2010-03-29,2010-04-05,14
+10,3,Nicole Scherzinger,Nicole Scherzinger,2010-04-05,2010-04-12,30
+10,4,Nicole Scherzinger,Nicole Scherzinger,2010-04-12,2010-04-19,21
+10,5,Nicole Scherzinger,Nicole Scherzinger,2010-04-19,2010-04-26,29
+10,6,Nicole Scherzinger,Nicole Scherzinger,2010-04-26,2010-05-03,14
+10,7,Nicole Scherzinger,Nicole Scherzinger,2010-05-03,2010-05-10,14
+10,8,Nicole Scherzinger,Nicole Scherzinger,2010-05-10,2010-05-17,21
+10,9,Nicole Scherzinger,Nicole Scherzinger,2010-05-17,2010-05-24,45
+10,10,Nicole Scherzinger,Nicole Scherzinger,2010-05-24,2010-05-31,20
+10,1,Niecy Nash,Niecy Nash-Betts,2010-03-22,2010-03-29,3
+10,2,Niecy Nash,Niecy Nash-Betts,2010-03-29,2010-04-05,1
+10,3,Niecy Nash,Niecy Nash-Betts,2010-04-05,2010-04-12,7
+10,4,Niecy Nash,Niecy Nash-Betts,2010-04-12,2010-04-19,13
+10,5,Niecy Nash,Niecy Nash-Betts,2010-04-19,2010-04-26,12
+10,6,Niecy Nash,Niecy Nash-Betts,2010-04-26,2010-05-03,6
+10,7,Niecy Nash,Niecy Nash-Betts,2010-05-03,2010-05-10,8
+10,8,Niecy Nash,Niecy Nash-Betts,2010-05-10,2010-05-17,9
+10,9,Niecy Nash,Niecy Nash-Betts,2010-05-17,2010-05-24,0
+10,10,Niecy Nash,Niecy Nash-Betts,2010-05-24,2010-05-31,2
+10,1,Pamela Anderson,Pamela Anderson,2010-03-22,2010-03-29,40
+10,2,Pamela Anderson,Pamela Anderson,2010-03-29,2010-04-05,41
+10,3,Pamela Anderson,Pamela Anderson,2010-04-05,2010-04-12,34
+10,4,Pamela Anderson,Pamela Anderson,2010-04-12,2010-04-19,39
+10,5,Pamela Anderson,Pamela Anderson,2010-04-19,2010-04-26,42
+10,6,Pamela Anderson,Pamela Anderson,2010-04-26,2010-05-03,38
+10,7,Pamela Anderson,Pamela Anderson,2010-05-03,2010-05-10,40
+10,8,Pamela Anderson,Pamela Anderson,2010-05-10,2010-05-17,31
+10,9,Pamela Anderson,Pamela Anderson,2010-05-17,2010-05-24,30
+10,10,Pamela Anderson,Pamela Anderson,2010-05-24,2010-05-31,1
+10,1,Shannen Doherty,Shannen Doherty,2010-03-22,2010-03-29,7
+10,2,Shannen Doherty,Shannen Doherty,2010-03-29,2010-04-05,10
+10,3,Shannen Doherty,Shannen Doherty,2010-04-05,2010-04-12,15
+10,4,Shannen Doherty,Shannen Doherty,2010-04-12,2010-04-19,2
+10,5,Shannen Doherty,Shannen Doherty,2010-04-19,2010-04-26,3
+10,6,Shannen Doherty,Shannen Doherty,2010-04-26,2010-05-03,4
+10,7,Shannen Doherty,Shannen Doherty,2010-05-03,2010-05-10,35
+10,8,Shannen Doherty,Shannen Doherty,2010-05-10,2010-05-17,2
+10,9,Shannen Doherty,Shannen Doherty,2010-05-17,2010-05-24,28
+10,10,Shannen Doherty,Shannen Doherty,2010-05-24,2010-05-31,0
+11,1,Audrina Patridge,Audrina Patridge,2010-09-20,2010-09-27,13
+11,2,Audrina Patridge,Audrina Patridge,2010-09-27,2010-10-04,13
+11,3,Audrina Patridge,Audrina Patridge,2010-10-04,2010-10-11,11
+11,4,Audrina Patridge,Audrina Patridge,2010-10-11,2010-10-18,12
+11,5,Audrina Patridge,Audrina Patridge,2010-10-18,2010-10-25,4
+11,6,Audrina Patridge,Audrina Patridge,2010-10-25,2010-11-01,19
+11,7,Audrina Patridge,Audrina Patridge,2010-11-01,2010-11-08,0
+11,8,Audrina Patridge,Audrina Patridge,2010-11-08,2010-11-15,12
+11,9,Audrina Patridge,Audrina Patridge,2010-11-15,2010-11-22,2
+11,10,Audrina Patridge,Audrina Patridge,2010-11-22,2010-11-29,0
+11,1,Brandy,Brandy,2010-09-20,2010-09-27,1
+11,2,Brandy,Brandy,2010-09-27,2010-10-04,1
+11,3,Brandy,Brandy,2010-10-04,2010-10-11,0
+11,4,Brandy,Brandy,2010-10-11,2010-10-18,1
+11,5,Brandy,Brandy,2010-10-18,2010-10-25,2
+11,6,Brandy,Brandy,2010-10-25,2010-11-01,5
+11,7,Brandy,Brandy,2010-11-01,2010-11-08,3
+11,8,Brandy,Brandy,2010-11-08,2010-11-15,2
+11,9,Brandy,Brandy,2010-11-15,2010-11-22,13
+11,10,Brandy,Brandy,2010-11-22,2010-11-29,2
+11,1,Bristol Palin,Bristol Palin,2010-09-20,2010-09-27,30
+11,2,Bristol Palin,Bristol Palin,2010-09-27,2010-10-04,25
+11,3,Bristol Palin,Bristol Palin,2010-10-04,2010-10-11,19
+11,4,Bristol Palin,Bristol Palin,2010-10-11,2010-10-18,40
+11,5,Bristol Palin,Bristol Palin,2010-10-18,2010-10-25,27
+11,6,Bristol Palin,Bristol Palin,2010-10-25,2010-11-01,14
+11,7,Bristol Palin,Bristol Palin,2010-11-01,2010-11-08,30
+11,8,Bristol Palin,Bristol Palin,2010-11-08,2010-11-15,34
+11,9,Bristol Palin,Bristol Palin,2010-11-15,2010-11-22,62
+11,10,Bristol Palin,Bristol Palin,2010-11-22,2010-11-29,10
+11,1,David Hasselhoff,David Hasselhoff,2010-09-20,2010-09-27,23
+11,2,David Hasselhoff,David Hasselhoff,2010-09-27,2010-10-04,16
+11,3,David Hasselhoff,David Hasselhoff,2010-10-04,2010-10-11,28
+11,4,David Hasselhoff,David Hasselhoff,2010-10-11,2010-10-18,10
+11,5,David Hasselhoff,David Hasselhoff,2010-10-18,2010-10-25,11
+11,6,David Hasselhoff,David Hasselhoff,2010-10-25,2010-11-01,16
+11,7,David Hasselhoff,David Hasselhoff,2010-11-01,2010-11-08,8
+11,8,David Hasselhoff,David Hasselhoff,2010-11-08,2010-11-15,25
+11,9,David Hasselhoff,David Hasselhoff,2010-11-15,2010-11-22,1
+11,10,David Hasselhoff,David Hasselhoff,2010-11-22,2010-11-29,12
+11,1,Florence Henderson,Florence Henderson,2010-09-20,2010-09-27,8
+11,2,Florence Henderson,Florence Henderson,2010-09-27,2010-10-04,4
+11,3,Florence Henderson,Florence Henderson,2010-10-04,2010-10-11,5
+11,4,Florence Henderson,Florence Henderson,2010-10-11,2010-10-18,1
+11,5,Florence Henderson,Florence Henderson,2010-10-18,2010-10-25,19
+11,6,Florence Henderson,Florence Henderson,2010-10-25,2010-11-01,0
+11,7,Florence Henderson,Florence Henderson,2010-11-01,2010-11-08,1
+11,8,Florence Henderson,Florence Henderson,2010-11-08,2010-11-15,0
+11,9,Florence Henderson,Florence Henderson,2010-11-15,2010-11-22,1
+11,10,Florence Henderson,Florence Henderson,2010-11-22,2010-11-29,0
+11,1,Jennifer Grey,Jennifer Grey,2010-09-20,2010-09-27,10
+11,2,Jennifer Grey,Jennifer Grey,2010-09-27,2010-10-04,2
+11,3,Jennifer Grey,Jennifer Grey,2010-10-04,2010-10-11,5
+11,4,Jennifer Grey,Jennifer Grey,2010-10-11,2010-10-18,12
+11,5,Jennifer Grey,Jennifer Grey,2010-10-18,2010-10-25,0
+11,6,Jennifer Grey,Jennifer Grey,2010-10-25,2010-11-01,8
+11,7,Jennifer Grey,Jennifer Grey,2010-11-01,2010-11-08,12
+11,8,Jennifer Grey,Jennifer Grey,2010-11-08,2010-11-15,4
+11,9,Jennifer Grey,Jennifer Grey,2010-11-15,2010-11-22,8
+11,10,Jennifer Grey,Jennifer Grey,2010-11-22,2010-11-29,10
+11,1,Kurt Warner,Kurt Warner,2010-09-20,2010-09-27,12
+11,2,Kurt Warner,Kurt Warner,2010-09-27,2010-10-04,9
+11,3,Kurt Warner,Kurt Warner,2010-10-04,2010-10-11,2
+11,4,Kurt Warner,Kurt Warner,2010-10-11,2010-10-18,6
+11,5,Kurt Warner,Kurt Warner,2010-10-18,2010-10-25,6
+11,6,Kurt Warner,Kurt Warner,2010-10-25,2010-11-01,7
+11,7,Kurt Warner,Kurt Warner,2010-11-01,2010-11-08,10
+11,8,Kurt Warner,Kurt Warner,2010-11-08,2010-11-15,6
+11,9,Kurt Warner,Kurt Warner,2010-11-15,2010-11-22,8
+11,10,Kurt Warner,Kurt Warner,2010-11-22,2010-11-29,4
+11,1,Kyle Massey,Kyle Massey,2010-09-20,2010-09-27,15
+11,2,Kyle Massey,Kyle Massey,2010-09-27,2010-10-04,18
+11,3,Kyle Massey,Kyle Massey,2010-10-04,2010-10-11,8
+11,4,Kyle Massey,Kyle Massey,2010-10-11,2010-10-18,10
+11,5,Kyle Massey,Kyle Massey,2010-10-18,2010-10-25,15
+11,6,Kyle Massey,Kyle Massey,2010-10-25,2010-11-01,4
+11,7,Kyle Massey,Kyle Massey,2010-11-01,2010-11-08,11
+11,8,Kyle Massey,Kyle Massey,2010-11-08,2010-11-15,12
+11,9,Kyle Massey,Kyle Massey,2010-11-15,2010-11-22,9
+11,10,Kyle Massey,Kyle Massey,2010-11-22,2010-11-29,11
+11,1,Margaret Cho,Margaret Cho,2010-09-20,2010-09-27,8
+11,2,Margaret Cho,Margaret Cho,2010-09-27,2010-10-04,10
+11,3,Margaret Cho,Margaret Cho,2010-10-04,2010-10-11,7
+11,4,Margaret Cho,Margaret Cho,2010-10-11,2010-10-18,3
+11,5,Margaret Cho,Margaret Cho,2010-10-18,2010-10-25,0
+11,6,Margaret Cho,Margaret Cho,2010-10-25,2010-11-01,6
+11,7,Margaret Cho,Margaret Cho,2010-11-01,2010-11-08,2
+11,8,Margaret Cho,Margaret Cho,2010-11-08,2010-11-15,3
+11,9,Margaret Cho,Margaret Cho,2010-11-15,2010-11-22,0
+11,10,Margaret Cho,Margaret Cho,2010-11-22,2010-11-29,0
+11,1,Michael Bolton,Michael Bolton,2010-09-20,2010-09-27,6
+11,2,Michael Bolton,Michael Bolton,2010-09-27,2010-10-04,11
+11,3,Michael Bolton,Michael Bolton,2010-10-04,2010-10-11,3
+11,4,Michael Bolton,Michael Bolton,2010-10-11,2010-10-18,7
+11,5,Michael Bolton,Michael Bolton,2010-10-18,2010-10-25,0
+11,6,Michael Bolton,Michael Bolton,2010-10-25,2010-11-01,11
+11,7,Michael Bolton,Michael Bolton,2010-11-01,2010-11-08,3
+11,8,Michael Bolton,Michael Bolton,2010-11-08,2010-11-15,10
+11,9,Michael Bolton,Michael Bolton,2010-11-15,2010-11-22,1
+11,10,Michael Bolton,Michael Bolton,2010-11-22,2010-11-29,7
+11,1,Rick Fox,Rick Fox,2010-09-20,2010-09-27,9
+11,2,Rick Fox,Rick Fox,2010-09-27,2010-10-04,1
+11,3,Rick Fox,Rick Fox,2010-10-04,2010-10-11,5
+11,4,Rick Fox,Rick Fox,2010-10-11,2010-10-18,2
+11,5,Rick Fox,Rick Fox,2010-10-18,2010-10-25,5
+11,6,Rick Fox,Rick Fox,2010-10-25,2010-11-01,4
+11,7,Rick Fox,Rick Fox,2010-11-01,2010-11-08,11
+11,8,Rick Fox,Rick Fox,2010-11-08,2010-11-15,1
+11,9,Rick Fox,Rick Fox,2010-11-15,2010-11-22,7
+11,10,Rick Fox,Rick Fox,2010-11-22,2010-11-29,1
+11,1,The Situation,Situation,2010-09-20,2010-09-27,0
+11,2,The Situation,Situation,2010-09-27,2010-10-04,0
+11,3,The Situation,Situation,2010-10-04,2010-10-11,0
+11,4,The Situation,Situation,2010-10-11,2010-10-18,0
+11,5,The Situation,Situation,2010-10-18,2010-10-25,0
+11,6,The Situation,Situation,2010-10-25,2010-11-01,0
+11,7,The Situation,Situation,2010-11-01,2010-11-08,0
+11,8,The Situation,Situation,2010-11-08,2010-11-15,0
+11,9,The Situation,Situation,2010-11-15,2010-11-22,0
+11,10,The Situation,Situation,2010-11-22,2010-11-29,0
+12,1,Chelsea Kane,Chelsea Kane,2011-03-21,2011-03-28,8
+12,2,Chelsea Kane,Chelsea Kane,2011-03-28,2011-04-04,42
+12,3,Chelsea Kane,Chelsea Kane,2011-04-04,2011-04-11,4
+12,4,Chelsea Kane,Chelsea Kane,2011-04-11,2011-04-18,26
+12,5,Chelsea Kane,Chelsea Kane,2011-04-18,2011-04-25,16
+12,6,Chelsea Kane,Chelsea Kane,2011-04-25,2011-05-02,26
+12,7,Chelsea Kane,Chelsea Kane,2011-05-02,2011-05-09,27
+12,8,Chelsea Kane,Chelsea Kane,2011-05-09,2011-05-16,6
+12,9,Chelsea Kane,Chelsea Kane,2011-05-16,2011-05-23,8
+12,10,Chelsea Kane,Chelsea Kane,2011-05-23,2011-05-30,9
+12,1,Chris Jericho,Chris Jericho,2011-03-21,2011-03-28,11
+12,2,Chris Jericho,Chris Jericho,2011-03-28,2011-04-04,4
+12,3,Chris Jericho,Chris Jericho,2011-04-04,2011-04-11,10
+12,4,Chris Jericho,Chris Jericho,2011-04-11,2011-04-18,6
+12,5,Chris Jericho,Chris Jericho,2011-04-18,2011-04-25,3
+12,6,Chris Jericho,Chris Jericho,2011-04-25,2011-05-02,9
+12,7,Chris Jericho,Chris Jericho,2011-05-02,2011-05-09,14
+12,8,Chris Jericho,Chris Jericho,2011-05-09,2011-05-16,1
+12,9,Chris Jericho,Chris Jericho,2011-05-16,2011-05-23,12
+12,10,Chris Jericho,Chris Jericho,2011-05-23,2011-05-30,0
+12,1,Hines Ward,Hines Ward,2011-03-21,2011-03-28,16
+12,2,Hines Ward,Hines Ward,2011-03-28,2011-04-04,7
+12,3,Hines Ward,Hines Ward,2011-04-04,2011-04-11,5
+12,4,Hines Ward,Hines Ward,2011-04-11,2011-04-18,9
+12,5,Hines Ward,Hines Ward,2011-04-18,2011-04-25,6
+12,6,Hines Ward,Hines Ward,2011-04-25,2011-05-02,2
+12,7,Hines Ward,Hines Ward,2011-05-02,2011-05-09,4
+12,8,Hines Ward,Hines Ward,2011-05-09,2011-05-16,3
+12,9,Hines Ward,Hines Ward,2011-05-16,2011-05-23,16
+12,10,Hines Ward,Hines Ward,2011-05-23,2011-05-30,4
+12,1,Kendra Wilkinson,Kendra Wilkinson,2011-03-21,2011-03-28,0
+12,2,Kendra Wilkinson,Kendra Wilkinson,2011-03-28,2011-04-04,0
+12,3,Kendra Wilkinson,Kendra Wilkinson,2011-04-04,2011-04-11,0
+12,4,Kendra Wilkinson,Kendra Wilkinson,2011-04-11,2011-04-18,1
+12,5,Kendra Wilkinson,Kendra Wilkinson,2011-04-18,2011-04-25,0
+12,6,Kendra Wilkinson,Kendra Wilkinson,2011-04-25,2011-05-02,0
+12,7,Kendra Wilkinson,Kendra Wilkinson,2011-05-02,2011-05-09,2
+12,8,Kendra Wilkinson,Kendra Wilkinson,2011-05-09,2011-05-16,0
+12,9,Kendra Wilkinson,Kendra Wilkinson,2011-05-16,2011-05-23,2
+12,10,Kendra Wilkinson,Kendra Wilkinson,2011-05-23,2011-05-30,0
+12,1,Kirstie Alley,Kirstie Alley,2011-03-21,2011-03-28,18
+12,2,Kirstie Alley,Kirstie Alley,2011-03-28,2011-04-04,2
+12,3,Kirstie Alley,Kirstie Alley,2011-04-04,2011-04-11,18
+12,4,Kirstie Alley,Kirstie Alley,2011-04-11,2011-04-18,3
+12,5,Kirstie Alley,Kirstie Alley,2011-04-18,2011-04-25,5
+12,6,Kirstie Alley,Kirstie Alley,2011-04-25,2011-05-02,10
+12,7,Kirstie Alley,Kirstie Alley,2011-05-02,2011-05-09,5
+12,8,Kirstie Alley,Kirstie Alley,2011-05-09,2011-05-16,2
+12,9,Kirstie Alley,Kirstie Alley,2011-05-16,2011-05-23,14
+12,10,Kirstie Alley,Kirstie Alley,2011-05-23,2011-05-30,8
+12,1,Mike Catherwood,Michael Catherwood,2011-03-21,2011-03-28,3
+12,2,Mike Catherwood,Michael Catherwood,2011-03-28,2011-04-04,13
+12,3,Mike Catherwood,Michael Catherwood,2011-04-04,2011-04-11,6
+12,4,Mike Catherwood,Michael Catherwood,2011-04-11,2011-04-18,1
+12,5,Mike Catherwood,Michael Catherwood,2011-04-18,2011-04-25,3
+12,6,Mike Catherwood,Michael Catherwood,2011-04-25,2011-05-02,0
+12,7,Mike Catherwood,Michael Catherwood,2011-05-02,2011-05-09,3
+12,8,Mike Catherwood,Michael Catherwood,2011-05-09,2011-05-16,11
+12,9,Mike Catherwood,Michael Catherwood,2011-05-16,2011-05-23,5
+12,10,Mike Catherwood,Michael Catherwood,2011-05-23,2011-05-30,0
+12,1,Petra Nemcova,Petra Němcová,2011-03-21,2011-03-28,6
+12,2,Petra Nemcova,Petra Němcová,2011-03-28,2011-04-04,2
+12,3,Petra Nemcova,Petra Němcová,2011-04-04,2011-04-11,0
+12,4,Petra Nemcova,Petra Němcová,2011-04-11,2011-04-18,0
+12,5,Petra Nemcova,Petra Němcová,2011-04-18,2011-04-25,7
+12,6,Petra Nemcova,Petra Němcová,2011-04-25,2011-05-02,1
+12,7,Petra Nemcova,Petra Němcová,2011-05-02,2011-05-09,0
+12,8,Petra Nemcova,Petra Němcová,2011-05-09,2011-05-16,6
+12,9,Petra Nemcova,Petra Němcová,2011-05-16,2011-05-23,0
+12,10,Petra Nemcova,Petra Němcová,2011-05-23,2011-05-30,0
+12,1,Ralph Macchio,Ralph Macchio,2011-03-21,2011-03-28,12
+12,2,Ralph Macchio,Ralph Macchio,2011-03-28,2011-04-04,9
+12,3,Ralph Macchio,Ralph Macchio,2011-04-04,2011-04-11,22
+12,4,Ralph Macchio,Ralph Macchio,2011-04-11,2011-04-18,6
+12,5,Ralph Macchio,Ralph Macchio,2011-04-18,2011-04-25,16
+12,6,Ralph Macchio,Ralph Macchio,2011-04-25,2011-05-02,4
+12,7,Ralph Macchio,Ralph Macchio,2011-05-02,2011-05-09,4
+12,8,Ralph Macchio,Ralph Macchio,2011-05-09,2011-05-16,8
+12,9,Ralph Macchio,Ralph Macchio,2011-05-16,2011-05-23,12
+12,10,Ralph Macchio,Ralph Macchio,2011-05-23,2011-05-30,3
+12,1,Romeo,Romeo,2011-03-21,2011-03-28,3
+12,2,Romeo,Romeo,2011-03-28,2011-04-04,2
+12,3,Romeo,Romeo,2011-04-04,2011-04-11,3
+12,4,Romeo,Romeo,2011-04-11,2011-04-18,0
+12,5,Romeo,Romeo,2011-04-18,2011-04-25,48
+12,6,Romeo,Romeo,2011-04-25,2011-05-02,14
+12,7,Romeo,Romeo,2011-05-02,2011-05-09,7
+12,8,Romeo,Romeo,2011-05-09,2011-05-16,2
+12,9,Romeo,Romeo,2011-05-16,2011-05-23,3
+12,10,Romeo,Romeo,2011-05-23,2011-05-30,5
+12,1,Sugar Ray Leonard,Sugar Ray Leonard,2011-03-21,2011-03-28,11
+12,2,Sugar Ray Leonard,Sugar Ray Leonard,2011-03-28,2011-04-04,3
+12,3,Sugar Ray Leonard,Sugar Ray Leonard,2011-04-04,2011-04-11,7
+12,4,Sugar Ray Leonard,Sugar Ray Leonard,2011-04-11,2011-04-18,9
+12,5,Sugar Ray Leonard,Sugar Ray Leonard,2011-04-18,2011-04-25,0
+12,6,Sugar Ray Leonard,Sugar Ray Leonard,2011-04-25,2011-05-02,3
+12,7,Sugar Ray Leonard,Sugar Ray Leonard,2011-05-02,2011-05-09,0
+12,8,Sugar Ray Leonard,Sugar Ray Leonard,2011-05-09,2011-05-16,3
+12,9,Sugar Ray Leonard,Sugar Ray Leonard,2011-05-16,2011-05-23,5
+12,10,Sugar Ray Leonard,Sugar Ray Leonard,2011-05-23,2011-05-30,3
+12,1,Wendy Williams,Wendy Williams,2011-03-21,2011-03-28,7
+12,2,Wendy Williams,Wendy Williams,2011-03-28,2011-04-04,34
+12,3,Wendy Williams,Wendy Williams,2011-04-04,2011-04-11,27
+12,4,Wendy Williams,Wendy Williams,2011-04-11,2011-04-18,8
+12,5,Wendy Williams,Wendy Williams,2011-04-18,2011-04-25,2
+12,6,Wendy Williams,Wendy Williams,2011-04-25,2011-05-02,8
+12,7,Wendy Williams,Wendy Williams,2011-05-02,2011-05-09,2
+12,8,Wendy Williams,Wendy Williams,2011-05-09,2011-05-16,0
+12,9,Wendy Williams,Wendy Williams,2011-05-16,2011-05-23,4
+12,10,Wendy Williams,Wendy Williams,2011-05-23,2011-05-30,2
+13,1,Carson Kressley,Carson Kressley,2011-09-19,2011-09-26,0
+13,2,Carson Kressley,Carson Kressley,2011-09-26,2011-10-03,1
+13,3,Carson Kressley,Carson Kressley,2011-10-03,2011-10-10,0
+13,4,Carson Kressley,Carson Kressley,2011-10-10,2011-10-17,0
+13,5,Carson Kressley,Carson Kressley,2011-10-17,2011-10-24,10
+13,6,Carson Kressley,Carson Kressley,2011-10-24,2011-10-31,0
+13,7,Carson Kressley,Carson Kressley,2011-10-31,2011-11-07,0
+13,8,Carson Kressley,Carson Kressley,2011-11-07,2011-11-14,0
+13,9,Carson Kressley,Carson Kressley,2011-11-14,2011-11-21,0
+13,10,Carson Kressley,Carson Kressley,2011-11-21,2011-11-28,0
+13,1,Chaz Bono,Chaz Bono,2011-09-19,2011-09-26,8
+13,2,Chaz Bono,Chaz Bono,2011-09-26,2011-10-03,4
+13,3,Chaz Bono,Chaz Bono,2011-10-03,2011-10-10,2
+13,4,Chaz Bono,Chaz Bono,2011-10-10,2011-10-17,1
+13,5,Chaz Bono,Chaz Bono,2011-10-17,2011-10-24,3
+13,6,Chaz Bono,Chaz Bono,2011-10-24,2011-10-31,2
+13,7,Chaz Bono,Chaz Bono,2011-10-31,2011-11-07,2
+13,8,Chaz Bono,Chaz Bono,2011-11-07,2011-11-14,2
+13,9,Chaz Bono,Chaz Bono,2011-11-14,2011-11-21,4
+13,10,Chaz Bono,Chaz Bono,2011-11-21,2011-11-28,0
+13,1,Chynna Phillips,Chynna Phillips,2011-09-19,2011-09-26,10
+13,2,Chynna Phillips,Chynna Phillips,2011-09-26,2011-10-03,1
+13,3,Chynna Phillips,Chynna Phillips,2011-10-03,2011-10-10,4
+13,4,Chynna Phillips,Chynna Phillips,2011-10-10,2011-10-17,10
+13,5,Chynna Phillips,Chynna Phillips,2011-10-17,2011-10-24,1
+13,6,Chynna Phillips,Chynna Phillips,2011-10-24,2011-10-31,2
+13,7,Chynna Phillips,Chynna Phillips,2011-10-31,2011-11-07,2
+13,8,Chynna Phillips,Chynna Phillips,2011-11-07,2011-11-14,2
+13,9,Chynna Phillips,Chynna Phillips,2011-11-14,2011-11-21,0
+13,10,Chynna Phillips,Chynna Phillips,2011-11-21,2011-11-28,1
+13,1,David Arquette,David Arquette,2011-09-19,2011-09-26,2
+13,2,David Arquette,David Arquette,2011-09-26,2011-10-03,6
+13,3,David Arquette,David Arquette,2011-10-03,2011-10-10,1
+13,4,David Arquette,David Arquette,2011-10-10,2011-10-17,1
+13,5,David Arquette,David Arquette,2011-10-17,2011-10-24,3
+13,6,David Arquette,David Arquette,2011-10-24,2011-10-31,0
+13,7,David Arquette,David Arquette,2011-10-31,2011-11-07,2
+13,8,David Arquette,David Arquette,2011-11-07,2011-11-14,1
+13,9,David Arquette,David Arquette,2011-11-14,2011-11-21,0
+13,10,David Arquette,David Arquette,2011-11-21,2011-11-28,2
+13,1,Elisabetta Canalis,Elisabetta Canalis,2011-09-19,2011-09-26,1
+13,2,Elisabetta Canalis,Elisabetta Canalis,2011-09-26,2011-10-03,6
+13,3,Elisabetta Canalis,Elisabetta Canalis,2011-10-03,2011-10-10,2
+13,4,Elisabetta Canalis,Elisabetta Canalis,2011-10-10,2011-10-17,5
+13,5,Elisabetta Canalis,Elisabetta Canalis,2011-10-17,2011-10-24,13
+13,6,Elisabetta Canalis,Elisabetta Canalis,2011-10-24,2011-10-31,4
+13,7,Elisabetta Canalis,Elisabetta Canalis,2011-10-31,2011-11-07,1
+13,8,Elisabetta Canalis,Elisabetta Canalis,2011-11-07,2011-11-14,1
+13,9,Elisabetta Canalis,Elisabetta Canalis,2011-11-14,2011-11-21,0
+13,10,Elisabetta Canalis,Elisabetta Canalis,2011-11-21,2011-11-28,0
+13,1,Hope Solo,Hope Solo,2011-09-19,2011-09-26,7
+13,2,Hope Solo,Hope Solo,2011-09-26,2011-10-03,12
+13,3,Hope Solo,Hope Solo,2011-10-03,2011-10-10,10
+13,4,Hope Solo,Hope Solo,2011-10-10,2011-10-17,8
+13,5,Hope Solo,Hope Solo,2011-10-17,2011-10-24,19
+13,6,Hope Solo,Hope Solo,2011-10-24,2011-10-31,20
+13,7,Hope Solo,Hope Solo,2011-10-31,2011-11-07,15
+13,8,Hope Solo,Hope Solo,2011-11-07,2011-11-14,13
+13,9,Hope Solo,Hope Solo,2011-11-14,2011-11-21,18
+13,10,Hope Solo,Hope Solo,2011-11-21,2011-11-28,2
+13,1,J.R. Martinez,J. R. Martinez,2011-09-19,2011-09-26,20
+13,2,J.R. Martinez,J. R. Martinez,2011-09-26,2011-10-03,1
+13,3,J.R. Martinez,J. R. Martinez,2011-10-03,2011-10-10,16
+13,4,J.R. Martinez,J. R. Martinez,2011-10-10,2011-10-17,10
+13,5,J.R. Martinez,J. R. Martinez,2011-10-17,2011-10-24,8
+13,6,J.R. Martinez,J. R. Martinez,2011-10-24,2011-10-31,10
+13,7,J.R. Martinez,J. R. Martinez,2011-10-31,2011-11-07,12
+13,8,J.R. Martinez,J. R. Martinez,2011-11-07,2011-11-14,12
+13,9,J.R. Martinez,J. R. Martinez,2011-11-14,2011-11-21,18
+13,10,J.R. Martinez,J. R. Martinez,2011-11-21,2011-11-28,5
+13,1,Kristin Cavallari,Kristin Cavallari,2011-09-19,2011-09-26,21
+13,2,Kristin Cavallari,Kristin Cavallari,2011-09-26,2011-10-03,11
+13,3,Kristin Cavallari,Kristin Cavallari,2011-10-03,2011-10-10,14
+13,4,Kristin Cavallari,Kristin Cavallari,2011-10-10,2011-10-17,2
+13,5,Kristin Cavallari,Kristin Cavallari,2011-10-17,2011-10-24,0
+13,6,Kristin Cavallari,Kristin Cavallari,2011-10-24,2011-10-31,8
+13,7,Kristin Cavallari,Kristin Cavallari,2011-10-31,2011-11-07,4
+13,8,Kristin Cavallari,Kristin Cavallari,2011-11-07,2011-11-14,3
+13,9,Kristin Cavallari,Kristin Cavallari,2011-11-14,2011-11-21,1
+13,10,Kristin Cavallari,Kristin Cavallari,2011-11-21,2011-11-28,3
+13,1,Nancy Grace,Nancy Grace,2011-09-19,2011-09-26,1
+13,2,Nancy Grace,Nancy Grace,2011-09-26,2011-10-03,3
+13,3,Nancy Grace,Nancy Grace,2011-10-03,2011-10-10,0
+13,4,Nancy Grace,Nancy Grace,2011-10-10,2011-10-17,0
+13,5,Nancy Grace,Nancy Grace,2011-10-17,2011-10-24,6
+13,6,Nancy Grace,Nancy Grace,2011-10-24,2011-10-31,7
+13,7,Nancy Grace,Nancy Grace,2011-10-31,2011-11-07,0
+13,8,Nancy Grace,Nancy Grace,2011-11-07,2011-11-14,2
+13,9,Nancy Grace,Nancy Grace,2011-11-14,2011-11-21,0
+13,10,Nancy Grace,Nancy Grace,2011-11-21,2011-11-28,0
+13,1,Ricki Lake,Ricki Lake,2011-09-19,2011-09-26,3
+13,2,Ricki Lake,Ricki Lake,2011-09-26,2011-10-03,2
+13,3,Ricki Lake,Ricki Lake,2011-10-03,2011-10-10,21
+13,4,Ricki Lake,Ricki Lake,2011-10-10,2011-10-17,28
+13,5,Ricki Lake,Ricki Lake,2011-10-17,2011-10-24,8
+13,6,Ricki Lake,Ricki Lake,2011-10-24,2011-10-31,3
+13,7,Ricki Lake,Ricki Lake,2011-10-31,2011-11-07,17
+13,8,Ricki Lake,Ricki Lake,2011-11-07,2011-11-14,6
+13,9,Ricki Lake,Ricki Lake,2011-11-14,2011-11-21,6
+13,10,Ricki Lake,Ricki Lake,2011-11-21,2011-11-28,1
+13,1,Rob Kardashian,Rob Kardashian,2011-09-19,2011-09-26,7
+13,2,Rob Kardashian,Rob Kardashian,2011-09-26,2011-10-03,21
+13,3,Rob Kardashian,Rob Kardashian,2011-10-03,2011-10-10,18
+13,4,Rob Kardashian,Rob Kardashian,2011-10-10,2011-10-17,37
+13,5,Rob Kardashian,Rob Kardashian,2011-10-17,2011-10-24,15
+13,6,Rob Kardashian,Rob Kardashian,2011-10-24,2011-10-31,8
+13,7,Rob Kardashian,Rob Kardashian,2011-10-31,2011-11-07,14
+13,8,Rob Kardashian,Rob Kardashian,2011-11-07,2011-11-14,26
+13,9,Rob Kardashian,Rob Kardashian,2011-11-14,2011-11-21,13
+13,10,Rob Kardashian,Rob Kardashian,2011-11-21,2011-11-28,3
+14,1,Donald Driver,Donald Driver,2012-03-19,2012-03-26,2
+14,2,Donald Driver,Donald Driver,2012-03-26,2012-04-02,7
+14,3,Donald Driver,Donald Driver,2012-04-02,2012-04-09,1
+14,4,Donald Driver,Donald Driver,2012-04-09,2012-04-16,0
+14,5,Donald Driver,Donald Driver,2012-04-16,2012-04-23,0
+14,6,Donald Driver,Donald Driver,2012-04-23,2012-04-30,1
+14,7,Donald Driver,Donald Driver,2012-04-30,2012-05-07,5
+14,8,Donald Driver,Donald Driver,2012-05-07,2012-05-14,1
+14,9,Donald Driver,Donald Driver,2012-05-14,2012-05-21,2
+14,10,Donald Driver,Donald Driver,2012-05-21,2012-05-28,2
+14,1,Gavin DeGraw,Gavin DeGraw,2012-03-19,2012-03-26,11
+14,2,Gavin DeGraw,Gavin DeGraw,2012-03-26,2012-04-02,10
+14,3,Gavin DeGraw,Gavin DeGraw,2012-04-02,2012-04-09,6
+14,4,Gavin DeGraw,Gavin DeGraw,2012-04-09,2012-04-16,15
+14,5,Gavin DeGraw,Gavin DeGraw,2012-04-16,2012-04-23,11
+14,6,Gavin DeGraw,Gavin DeGraw,2012-04-23,2012-04-30,7
+14,7,Gavin DeGraw,Gavin DeGraw,2012-04-30,2012-05-07,1
+14,8,Gavin DeGraw,Gavin DeGraw,2012-05-07,2012-05-14,3
+14,9,Gavin DeGraw,Gavin DeGraw,2012-05-14,2012-05-21,3
+14,10,Gavin DeGraw,Gavin DeGraw,2012-05-21,2012-05-28,1
+14,1,Gladys Knight,Gladys Knight,2012-03-19,2012-03-26,11
+14,2,Gladys Knight,Gladys Knight,2012-03-26,2012-04-02,4
+14,3,Gladys Knight,Gladys Knight,2012-04-02,2012-04-09,0
+14,4,Gladys Knight,Gladys Knight,2012-04-09,2012-04-16,1
+14,5,Gladys Knight,Gladys Knight,2012-04-16,2012-04-23,0
+14,6,Gladys Knight,Gladys Knight,2012-04-23,2012-04-30,9
+14,7,Gladys Knight,Gladys Knight,2012-04-30,2012-05-07,1
+14,8,Gladys Knight,Gladys Knight,2012-05-07,2012-05-14,1
+14,9,Gladys Knight,Gladys Knight,2012-05-14,2012-05-21,0
+14,10,Gladys Knight,Gladys Knight,2012-05-21,2012-05-28,0
+14,1,Jack Wagner,Jack Wagner,2012-03-19,2012-03-26,0
+14,2,Jack Wagner,Jack Wagner,2012-03-26,2012-04-02,0
+14,3,Jack Wagner,Jack Wagner,2012-04-02,2012-04-09,0
+14,4,Jack Wagner,Jack Wagner,2012-04-09,2012-04-16,0
+14,5,Jack Wagner,Jack Wagner,2012-04-16,2012-04-23,0
+14,6,Jack Wagner,Jack Wagner,2012-04-23,2012-04-30,0
+14,7,Jack Wagner,Jack Wagner,2012-04-30,2012-05-07,0
+14,8,Jack Wagner,Jack Wagner,2012-05-07,2012-05-14,0
+14,9,Jack Wagner,Jack Wagner,2012-05-14,2012-05-21,0
+14,10,Jack Wagner,Jack Wagner,2012-05-21,2012-05-28,0
+14,1,Jaleel White,Jaleel White,2012-03-19,2012-03-26,12
+14,2,Jaleel White,Jaleel White,2012-03-26,2012-04-02,9
+14,3,Jaleel White,Jaleel White,2012-04-02,2012-04-09,2
+14,4,Jaleel White,Jaleel White,2012-04-09,2012-04-16,6
+14,5,Jaleel White,Jaleel White,2012-04-16,2012-04-23,4
+14,6,Jaleel White,Jaleel White,2012-04-23,2012-04-30,12
+14,7,Jaleel White,Jaleel White,2012-04-30,2012-05-07,7
+14,8,Jaleel White,Jaleel White,2012-05-07,2012-05-14,3
+14,9,Jaleel White,Jaleel White,2012-05-14,2012-05-21,3
+14,10,Jaleel White,Jaleel White,2012-05-21,2012-05-28,4
+14,1,Katherine Jenkins,Katherine Jenkins,2012-03-19,2012-03-26,1
+14,2,Katherine Jenkins,Katherine Jenkins,2012-03-26,2012-04-02,2
+14,3,Katherine Jenkins,Katherine Jenkins,2012-04-02,2012-04-09,3
+14,4,Katherine Jenkins,Katherine Jenkins,2012-04-09,2012-04-16,9
+14,5,Katherine Jenkins,Katherine Jenkins,2012-04-16,2012-04-23,7
+14,6,Katherine Jenkins,Katherine Jenkins,2012-04-23,2012-04-30,4
+14,7,Katherine Jenkins,Katherine Jenkins,2012-04-30,2012-05-07,1
+14,8,Katherine Jenkins,Katherine Jenkins,2012-05-07,2012-05-14,0
+14,9,Katherine Jenkins,Katherine Jenkins,2012-05-14,2012-05-21,3
+14,10,Katherine Jenkins,Katherine Jenkins,2012-05-21,2012-05-28,0
+14,1,Maria Menounos,Maria Menounos,2012-03-19,2012-03-26,9
+14,2,Maria Menounos,Maria Menounos,2012-03-26,2012-04-02,3
+14,3,Maria Menounos,Maria Menounos,2012-04-02,2012-04-09,7
+14,4,Maria Menounos,Maria Menounos,2012-04-09,2012-04-16,24
+14,5,Maria Menounos,Maria Menounos,2012-04-16,2012-04-23,4
+14,6,Maria Menounos,Maria Menounos,2012-04-23,2012-04-30,1
+14,7,Maria Menounos,Maria Menounos,2012-04-30,2012-05-07,0
+14,8,Maria Menounos,Maria Menounos,2012-05-07,2012-05-14,2
+14,9,Maria Menounos,Maria Menounos,2012-05-14,2012-05-21,2
+14,10,Maria Menounos,Maria Menounos,2012-05-21,2012-05-28,0
+14,1,Martina Navratilova,Martina Navratilova,2012-03-19,2012-03-26,3
+14,2,Martina Navratilova,Martina Navratilova,2012-03-26,2012-04-02,9
+14,3,Martina Navratilova,Martina Navratilova,2012-04-02,2012-04-09,4
+14,4,Martina Navratilova,Martina Navratilova,2012-04-09,2012-04-16,1
+14,5,Martina Navratilova,Martina Navratilova,2012-04-16,2012-04-23,0
+14,6,Martina Navratilova,Martina Navratilova,2012-04-23,2012-04-30,6
+14,7,Martina Navratilova,Martina Navratilova,2012-04-30,2012-05-07,0
+14,8,Martina Navratilova,Martina Navratilova,2012-05-07,2012-05-14,0
+14,9,Martina Navratilova,Martina Navratilova,2012-05-14,2012-05-21,2
+14,10,Martina Navratilova,Martina Navratilova,2012-05-21,2012-05-28,1
+14,1,Melissa Gilbert,Melissa Gilbert,2012-03-19,2012-03-26,13
+14,2,Melissa Gilbert,Melissa Gilbert,2012-03-26,2012-04-02,0
+14,3,Melissa Gilbert,Melissa Gilbert,2012-04-02,2012-04-09,1
+14,4,Melissa Gilbert,Melissa Gilbert,2012-04-09,2012-04-16,6
+14,5,Melissa Gilbert,Melissa Gilbert,2012-04-16,2012-04-23,6
+14,6,Melissa Gilbert,Melissa Gilbert,2012-04-23,2012-04-30,5
+14,7,Melissa Gilbert,Melissa Gilbert,2012-04-30,2012-05-07,2
+14,8,Melissa Gilbert,Melissa Gilbert,2012-05-07,2012-05-14,8
+14,9,Melissa Gilbert,Melissa Gilbert,2012-05-14,2012-05-21,2
+14,10,Melissa Gilbert,Melissa Gilbert,2012-05-21,2012-05-28,0
+14,1,Roshon Fegan,Roshon Fegan,2012-03-19,2012-03-26,23
+14,2,Roshon Fegan,Roshon Fegan,2012-03-26,2012-04-02,18
+14,3,Roshon Fegan,Roshon Fegan,2012-04-02,2012-04-09,26
+14,4,Roshon Fegan,Roshon Fegan,2012-04-09,2012-04-16,10
+14,5,Roshon Fegan,Roshon Fegan,2012-04-16,2012-04-23,9
+14,6,Roshon Fegan,Roshon Fegan,2012-04-23,2012-04-30,17
+14,7,Roshon Fegan,Roshon Fegan,2012-04-30,2012-05-07,9
+14,8,Roshon Fegan,Roshon Fegan,2012-05-07,2012-05-14,22
+14,9,Roshon Fegan,Roshon Fegan,2012-05-14,2012-05-21,8
+14,10,Roshon Fegan,Roshon Fegan,2012-05-21,2012-05-28,1
+14,1,William Levy,William Levy,2012-03-19,2012-03-26,6
+14,2,William Levy,William Levy,2012-03-26,2012-04-02,0
+14,3,William Levy,William Levy,2012-04-02,2012-04-09,0
+14,4,William Levy,William Levy,2012-04-09,2012-04-16,0
+14,5,William Levy,William Levy,2012-04-16,2012-04-23,0
+14,6,William Levy,William Levy,2012-04-23,2012-04-30,0
+14,7,William Levy,William Levy,2012-04-30,2012-05-07,0
+14,8,William Levy,William Levy,2012-05-07,2012-05-14,0
+14,9,William Levy,William Levy,2012-05-14,2012-05-21,0
+14,10,William Levy,William Levy,2012-05-21,2012-05-28,0
+15,1,Apolo Anton Ohno,Apolo Ohno,2012-09-24,2012-10-01,1
+15,2,Apolo Anton Ohno,Apolo Ohno,2012-10-01,2012-10-08,0
+15,3,Apolo Anton Ohno,Apolo Ohno,2012-10-08,2012-10-15,0
+15,4,Apolo Anton Ohno,Apolo Ohno,2012-10-15,2012-10-22,0
+15,5,Apolo Anton Ohno,Apolo Ohno,2012-10-22,2012-10-29,0
+15,6,Apolo Anton Ohno,Apolo Ohno,2012-10-29,2012-11-05,1
+15,7,Apolo Anton Ohno,Apolo Ohno,2012-11-05,2012-11-12,4
+15,8,Apolo Anton Ohno,Apolo Ohno,2012-11-12,2012-11-19,5
+15,9,Apolo Anton Ohno,Apolo Ohno,2012-11-19,2012-11-26,6
+15,10,Apolo Anton Ohno,Apolo Ohno,2012-11-26,2012-12-03,0
+15,1,Bristol Palin,Bristol Palin,2012-09-24,2012-10-01,3
+15,2,Bristol Palin,Bristol Palin,2012-10-01,2012-10-08,2
+15,3,Bristol Palin,Bristol Palin,2012-10-08,2012-10-15,4
+15,4,Bristol Palin,Bristol Palin,2012-10-15,2012-10-22,2
+15,5,Bristol Palin,Bristol Palin,2012-10-22,2012-10-29,1
+15,6,Bristol Palin,Bristol Palin,2012-10-29,2012-11-05,2
+15,7,Bristol Palin,Bristol Palin,2012-11-05,2012-11-12,0
+15,8,Bristol Palin,Bristol Palin,2012-11-12,2012-11-19,1
+15,9,Bristol Palin,Bristol Palin,2012-11-19,2012-11-26,0
+15,10,Bristol Palin,Bristol Palin,2012-11-26,2012-12-03,1
+15,1,Drew Lachey,Drew Lachey,2012-09-24,2012-10-01,6
+15,2,Drew Lachey,Drew Lachey,2012-10-01,2012-10-08,1
+15,3,Drew Lachey,Drew Lachey,2012-10-08,2012-10-15,9
+15,4,Drew Lachey,Drew Lachey,2012-10-15,2012-10-22,2
+15,5,Drew Lachey,Drew Lachey,2012-10-22,2012-10-29,0
+15,6,Drew Lachey,Drew Lachey,2012-10-29,2012-11-05,0
+15,7,Drew Lachey,Drew Lachey,2012-11-05,2012-11-12,0
+15,8,Drew Lachey,Drew Lachey,2012-11-12,2012-11-19,0
+15,9,Drew Lachey,Drew Lachey,2012-11-19,2012-11-26,0
+15,10,Drew Lachey,Drew Lachey,2012-11-26,2012-12-03,0
+15,1,Emmitt Smith,Emmitt Smith,2012-09-24,2012-10-01,4
+15,2,Emmitt Smith,Emmitt Smith,2012-10-01,2012-10-08,8
+15,3,Emmitt Smith,Emmitt Smith,2012-10-08,2012-10-15,3
+15,4,Emmitt Smith,Emmitt Smith,2012-10-15,2012-10-22,1
+15,5,Emmitt Smith,Emmitt Smith,2012-10-22,2012-10-29,2
+15,6,Emmitt Smith,Emmitt Smith,2012-10-29,2012-11-05,4
+15,7,Emmitt Smith,Emmitt Smith,2012-11-05,2012-11-12,2
+15,8,Emmitt Smith,Emmitt Smith,2012-11-12,2012-11-19,4
+15,9,Emmitt Smith,Emmitt Smith,2012-11-19,2012-11-26,5
+15,10,Emmitt Smith,Emmitt Smith,2012-11-26,2012-12-03,0
+15,1,Gilles Marini,Gilles Marini,2012-09-24,2012-10-01,0
+15,2,Gilles Marini,Gilles Marini,2012-10-01,2012-10-08,1
+15,3,Gilles Marini,Gilles Marini,2012-10-08,2012-10-15,0
+15,4,Gilles Marini,Gilles Marini,2012-10-15,2012-10-22,1
+15,5,Gilles Marini,Gilles Marini,2012-10-22,2012-10-29,1
+15,6,Gilles Marini,Gilles Marini,2012-10-29,2012-11-05,1
+15,7,Gilles Marini,Gilles Marini,2012-11-05,2012-11-12,1
+15,8,Gilles Marini,Gilles Marini,2012-11-12,2012-11-19,1
+15,9,Gilles Marini,Gilles Marini,2012-11-19,2012-11-26,2
+15,10,Gilles Marini,Gilles Marini,2012-11-26,2012-12-03,0
+15,1,Helio Castroneves,Hélio Castroneves,2012-09-24,2012-10-01,2
+15,2,Helio Castroneves,Hélio Castroneves,2012-10-01,2012-10-08,0
+15,3,Helio Castroneves,Hélio Castroneves,2012-10-08,2012-10-15,1
+15,4,Helio Castroneves,Hélio Castroneves,2012-10-15,2012-10-22,0
+15,5,Helio Castroneves,Hélio Castroneves,2012-10-22,2012-10-29,0
+15,6,Helio Castroneves,Hélio Castroneves,2012-10-29,2012-11-05,0
+15,7,Helio Castroneves,Hélio Castroneves,2012-11-05,2012-11-12,0
+15,8,Helio Castroneves,Hélio Castroneves,2012-11-12,2012-11-19,0
+15,9,Helio Castroneves,Hélio Castroneves,2012-11-19,2012-11-26,0
+15,10,Helio Castroneves,Hélio Castroneves,2012-11-26,2012-12-03,0
+15,1,Joey Fatone,Joey Fatone,2012-09-24,2012-10-01,1
+15,2,Joey Fatone,Joey Fatone,2012-10-01,2012-10-08,5
+15,3,Joey Fatone,Joey Fatone,2012-10-08,2012-10-15,3
+15,4,Joey Fatone,Joey Fatone,2012-10-15,2012-10-22,0
+15,5,Joey Fatone,Joey Fatone,2012-10-22,2012-10-29,0
+15,6,Joey Fatone,Joey Fatone,2012-10-29,2012-11-05,0
+15,7,Joey Fatone,Joey Fatone,2012-11-05,2012-11-12,1
+15,8,Joey Fatone,Joey Fatone,2012-11-12,2012-11-19,4
+15,9,Joey Fatone,Joey Fatone,2012-11-19,2012-11-26,7
+15,10,Joey Fatone,Joey Fatone,2012-11-26,2012-12-03,0
+15,1,Kelly Monaco,Kelly Monaco,2012-09-24,2012-10-01,4
+15,2,Kelly Monaco,Kelly Monaco,2012-10-01,2012-10-08,2
+15,3,Kelly Monaco,Kelly Monaco,2012-10-08,2012-10-15,1
+15,4,Kelly Monaco,Kelly Monaco,2012-10-15,2012-10-22,3
+15,5,Kelly Monaco,Kelly Monaco,2012-10-22,2012-10-29,3
+15,6,Kelly Monaco,Kelly Monaco,2012-10-29,2012-11-05,13
+15,7,Kelly Monaco,Kelly Monaco,2012-11-05,2012-11-12,4
+15,8,Kelly Monaco,Kelly Monaco,2012-11-12,2012-11-19,3
+15,9,Kelly Monaco,Kelly Monaco,2012-11-19,2012-11-26,8
+15,10,Kelly Monaco,Kelly Monaco,2012-11-26,2012-12-03,1
+15,1,Kirstie Alley,Kirstie Alley,2012-09-24,2012-10-01,5
+15,2,Kirstie Alley,Kirstie Alley,2012-10-01,2012-10-08,1
+15,3,Kirstie Alley,Kirstie Alley,2012-10-08,2012-10-15,6
+15,4,Kirstie Alley,Kirstie Alley,2012-10-15,2012-10-22,1
+15,5,Kirstie Alley,Kirstie Alley,2012-10-22,2012-10-29,6
+15,6,Kirstie Alley,Kirstie Alley,2012-10-29,2012-11-05,9
+15,7,Kirstie Alley,Kirstie Alley,2012-11-05,2012-11-12,2
+15,8,Kirstie Alley,Kirstie Alley,2012-11-12,2012-11-19,0
+15,9,Kirstie Alley,Kirstie Alley,2012-11-19,2012-11-26,10
+15,10,Kirstie Alley,Kirstie Alley,2012-11-26,2012-12-03,0
+15,1,Melissa Rycroft,Melissa Rycroft,2012-09-24,2012-10-01,2
+15,2,Melissa Rycroft,Melissa Rycroft,2012-10-01,2012-10-08,2
+15,3,Melissa Rycroft,Melissa Rycroft,2012-10-08,2012-10-15,5
+15,4,Melissa Rycroft,Melissa Rycroft,2012-10-15,2012-10-22,0
+15,5,Melissa Rycroft,Melissa Rycroft,2012-10-22,2012-10-29,2
+15,6,Melissa Rycroft,Melissa Rycroft,2012-10-29,2012-11-05,0
+15,7,Melissa Rycroft,Melissa Rycroft,2012-11-05,2012-11-12,0
+15,8,Melissa Rycroft,Melissa Rycroft,2012-11-12,2012-11-19,1
+15,9,Melissa Rycroft,Melissa Rycroft,2012-11-19,2012-11-26,2
+15,10,Melissa Rycroft,Melissa Rycroft,2012-11-26,2012-12-03,3
+15,1,Pamela Anderson,Pamela Anderson,2012-09-24,2012-10-01,9
+15,2,Pamela Anderson,Pamela Anderson,2012-10-01,2012-10-08,9
+15,3,Pamela Anderson,Pamela Anderson,2012-10-08,2012-10-15,2
+15,4,Pamela Anderson,Pamela Anderson,2012-10-15,2012-10-22,4
+15,5,Pamela Anderson,Pamela Anderson,2012-10-22,2012-10-29,11
+15,6,Pamela Anderson,Pamela Anderson,2012-10-29,2012-11-05,2
+15,7,Pamela Anderson,Pamela Anderson,2012-11-05,2012-11-12,1
+15,8,Pamela Anderson,Pamela Anderson,2012-11-12,2012-11-19,6
+15,9,Pamela Anderson,Pamela Anderson,2012-11-19,2012-11-26,7
+15,10,Pamela Anderson,Pamela Anderson,2012-11-26,2012-12-03,1
+15,1,Sabrina Bryan,Sabrina Bryan,2012-09-24,2012-10-01,6
+15,2,Sabrina Bryan,Sabrina Bryan,2012-10-01,2012-10-08,4
+15,3,Sabrina Bryan,Sabrina Bryan,2012-10-08,2012-10-15,10
+15,4,Sabrina Bryan,Sabrina Bryan,2012-10-15,2012-10-22,10
+15,5,Sabrina Bryan,Sabrina Bryan,2012-10-22,2012-10-29,2
+15,6,Sabrina Bryan,Sabrina Bryan,2012-10-29,2012-11-05,18
+15,7,Sabrina Bryan,Sabrina Bryan,2012-11-05,2012-11-12,1
+15,8,Sabrina Bryan,Sabrina Bryan,2012-11-12,2012-11-19,3
+15,9,Sabrina Bryan,Sabrina Bryan,2012-11-19,2012-11-26,1
+15,10,Sabrina Bryan,Sabrina Bryan,2012-11-26,2012-12-03,1
+15,1,Shawn Johnson,Shawn Johnson East,2012-09-24,2012-10-01,5
+15,2,Shawn Johnson,Shawn Johnson East,2012-10-01,2012-10-08,10
+15,3,Shawn Johnson,Shawn Johnson East,2012-10-08,2012-10-15,4
+15,4,Shawn Johnson,Shawn Johnson East,2012-10-15,2012-10-22,4
+15,5,Shawn Johnson,Shawn Johnson East,2012-10-22,2012-10-29,2
+15,6,Shawn Johnson,Shawn Johnson East,2012-10-29,2012-11-05,7
+15,7,Shawn Johnson,Shawn Johnson East,2012-11-05,2012-11-12,1
+15,8,Shawn Johnson,Shawn Johnson East,2012-11-12,2012-11-19,3
+15,9,Shawn Johnson,Shawn Johnson East,2012-11-19,2012-11-26,1
+15,10,Shawn Johnson,Shawn Johnson East,2012-11-26,2012-12-03,2
+16,1,Alexandra Raisman,Aly Raisman,2013-03-18,2013-03-25,10
+16,2,Alexandra Raisman,Aly Raisman,2013-03-25,2013-04-01,4
+16,3,Alexandra Raisman,Aly Raisman,2013-04-01,2013-04-08,13
+16,4,Alexandra Raisman,Aly Raisman,2013-04-08,2013-04-15,17
+16,5,Alexandra Raisman,Aly Raisman,2013-04-15,2013-04-22,6
+16,6,Alexandra Raisman,Aly Raisman,2013-04-22,2013-04-29,12
+16,7,Alexandra Raisman,Aly Raisman,2013-04-29,2013-05-06,23
+16,8,Alexandra Raisman,Aly Raisman,2013-05-06,2013-05-13,8
+16,9,Alexandra Raisman,Aly Raisman,2013-05-13,2013-05-20,19
+16,10,Alexandra Raisman,Aly Raisman,2013-05-20,2013-05-27,3
+16,1,Andy Dick,Andy Dick,2013-03-18,2013-03-25,4
+16,2,Andy Dick,Andy Dick,2013-03-25,2013-04-01,1
+16,3,Andy Dick,Andy Dick,2013-04-01,2013-04-08,0
+16,4,Andy Dick,Andy Dick,2013-04-08,2013-04-15,0
+16,5,Andy Dick,Andy Dick,2013-04-15,2013-04-22,0
+16,6,Andy Dick,Andy Dick,2013-04-22,2013-04-29,3
+16,7,Andy Dick,Andy Dick,2013-04-29,2013-05-06,0
+16,8,Andy Dick,Andy Dick,2013-05-06,2013-05-13,0
+16,9,Andy Dick,Andy Dick,2013-05-13,2013-05-20,0
+16,10,Andy Dick,Andy Dick,2013-05-20,2013-05-27,0
+16,1,D. L. Hughley,D. L. Hughley,2013-03-18,2013-03-25,0
+16,2,D. L. Hughley,D. L. Hughley,2013-03-25,2013-04-01,0
+16,3,D. L. Hughley,D. L. Hughley,2013-04-01,2013-04-08,6
+16,4,D. L. Hughley,D. L. Hughley,2013-04-08,2013-04-15,0
+16,5,D. L. Hughley,D. L. Hughley,2013-04-15,2013-04-22,5
+16,6,D. L. Hughley,D. L. Hughley,2013-04-22,2013-04-29,0
+16,7,D. L. Hughley,D. L. Hughley,2013-04-29,2013-05-06,0
+16,8,D. L. Hughley,D. L. Hughley,2013-05-06,2013-05-13,0
+16,9,D. L. Hughley,D. L. Hughley,2013-05-13,2013-05-20,0
+16,10,D. L. Hughley,D. L. Hughley,2013-05-20,2013-05-27,0
+16,1,Dorothy Hamill,Dorothy Hamill,2013-03-18,2013-03-25,3
+16,2,Dorothy Hamill,Dorothy Hamill,2013-03-25,2013-04-01,5
+16,3,Dorothy Hamill,Dorothy Hamill,2013-04-01,2013-04-08,0
+16,4,Dorothy Hamill,Dorothy Hamill,2013-04-08,2013-04-15,0
+16,5,Dorothy Hamill,Dorothy Hamill,2013-04-15,2013-04-22,0
+16,6,Dorothy Hamill,Dorothy Hamill,2013-04-22,2013-04-29,0
+16,7,Dorothy Hamill,Dorothy Hamill,2013-04-29,2013-05-06,1
+16,8,Dorothy Hamill,Dorothy Hamill,2013-05-06,2013-05-13,0
+16,9,Dorothy Hamill,Dorothy Hamill,2013-05-13,2013-05-20,0
+16,10,Dorothy Hamill,Dorothy Hamill,2013-05-20,2013-05-27,0
+16,1,Ingo Rademacher,Ingo Rademacher,2013-03-18,2013-03-25,3
+16,2,Ingo Rademacher,Ingo Rademacher,2013-03-25,2013-04-01,0
+16,3,Ingo Rademacher,Ingo Rademacher,2013-04-01,2013-04-08,1
+16,4,Ingo Rademacher,Ingo Rademacher,2013-04-08,2013-04-15,0
+16,5,Ingo Rademacher,Ingo Rademacher,2013-04-15,2013-04-22,3
+16,6,Ingo Rademacher,Ingo Rademacher,2013-04-22,2013-04-29,0
+16,7,Ingo Rademacher,Ingo Rademacher,2013-04-29,2013-05-06,0
+16,8,Ingo Rademacher,Ingo Rademacher,2013-05-06,2013-05-13,1
+16,9,Ingo Rademacher,Ingo Rademacher,2013-05-13,2013-05-20,8
+16,10,Ingo Rademacher,Ingo Rademacher,2013-05-20,2013-05-27,0
+16,1,Jacoby Jones,Jacoby Jones,2013-03-18,2013-03-25,6
+16,2,Jacoby Jones,Jacoby Jones,2013-03-25,2013-04-01,3
+16,3,Jacoby Jones,Jacoby Jones,2013-04-01,2013-04-08,2
+16,4,Jacoby Jones,Jacoby Jones,2013-04-08,2013-04-15,7
+16,5,Jacoby Jones,Jacoby Jones,2013-04-15,2013-04-22,5
+16,6,Jacoby Jones,Jacoby Jones,2013-04-22,2013-04-29,1
+16,7,Jacoby Jones,Jacoby Jones,2013-04-29,2013-05-06,10
+16,8,Jacoby Jones,Jacoby Jones,2013-05-06,2013-05-13,7
+16,9,Jacoby Jones,Jacoby Jones,2013-05-13,2013-05-20,6
+16,10,Jacoby Jones,Jacoby Jones,2013-05-20,2013-05-27,2
+16,1,Kellie Pickler,Kellie Pickler,2013-03-18,2013-03-25,5
+16,2,Kellie Pickler,Kellie Pickler,2013-03-25,2013-04-01,10
+16,3,Kellie Pickler,Kellie Pickler,2013-04-01,2013-04-08,17
+16,4,Kellie Pickler,Kellie Pickler,2013-04-08,2013-04-15,7
+16,5,Kellie Pickler,Kellie Pickler,2013-04-15,2013-04-22,26
+16,6,Kellie Pickler,Kellie Pickler,2013-04-22,2013-04-29,24
+16,7,Kellie Pickler,Kellie Pickler,2013-04-29,2013-05-06,24
+16,8,Kellie Pickler,Kellie Pickler,2013-05-06,2013-05-13,23
+16,9,Kellie Pickler,Kellie Pickler,2013-05-13,2013-05-20,30
+16,10,Kellie Pickler,Kellie Pickler,2013-05-20,2013-05-27,0
+16,1,Lisa Vanderpump,Lisa Vanderpump,2013-03-18,2013-03-25,12
+16,2,Lisa Vanderpump,Lisa Vanderpump,2013-03-25,2013-04-01,8
+16,3,Lisa Vanderpump,Lisa Vanderpump,2013-04-01,2013-04-08,3
+16,4,Lisa Vanderpump,Lisa Vanderpump,2013-04-08,2013-04-15,12
+16,5,Lisa Vanderpump,Lisa Vanderpump,2013-04-15,2013-04-22,3
+16,6,Lisa Vanderpump,Lisa Vanderpump,2013-04-22,2013-04-29,0
+16,7,Lisa Vanderpump,Lisa Vanderpump,2013-04-29,2013-05-06,0
+16,8,Lisa Vanderpump,Lisa Vanderpump,2013-05-06,2013-05-13,0
+16,9,Lisa Vanderpump,Lisa Vanderpump,2013-05-13,2013-05-20,1
+16,10,Lisa Vanderpump,Lisa Vanderpump,2013-05-20,2013-05-27,1
+16,1,Sean Lowe,Sean Lowe,2013-03-18,2013-03-25,0
+16,2,Sean Lowe,Sean Lowe,2013-03-25,2013-04-01,0
+16,3,Sean Lowe,Sean Lowe,2013-04-01,2013-04-08,0
+16,4,Sean Lowe,Sean Lowe,2013-04-08,2013-04-15,0
+16,5,Sean Lowe,Sean Lowe,2013-04-15,2013-04-22,0
+16,6,Sean Lowe,Sean Lowe,2013-04-22,2013-04-29,0
+16,7,Sean Lowe,Sean Lowe,2013-04-29,2013-05-06,0
+16,8,Sean Lowe,Sean Lowe,2013-05-06,2013-05-13,0
+16,9,Sean Lowe,Sean Lowe,2013-05-13,2013-05-20,0
+16,10,Sean Lowe,Sean Lowe,2013-05-20,2013-05-27,0
+16,1,Victor Ortiz,Victor Ortiz,2013-03-18,2013-03-25,2
+16,2,Victor Ortiz,Victor Ortiz,2013-03-25,2013-04-01,1
+16,3,Victor Ortiz,Victor Ortiz,2013-04-01,2013-04-08,0
+16,4,Victor Ortiz,Victor Ortiz,2013-04-08,2013-04-15,3
+16,5,Victor Ortiz,Victor Ortiz,2013-04-15,2013-04-22,0
+16,6,Victor Ortiz,Victor Ortiz,2013-04-22,2013-04-29,23
+16,7,Victor Ortiz,Victor Ortiz,2013-04-29,2013-05-06,10
+16,8,Victor Ortiz,Victor Ortiz,2013-05-06,2013-05-13,8
+16,9,Victor Ortiz,Victor Ortiz,2013-05-13,2013-05-20,0
+16,10,Victor Ortiz,Victor Ortiz,2013-05-20,2013-05-27,1
+16,1,Wynonna Judd,Wynonna Judd,2013-03-18,2013-03-25,2
+16,2,Wynonna Judd,Wynonna Judd,2013-03-25,2013-04-01,1
+16,3,Wynonna Judd,Wynonna Judd,2013-04-01,2013-04-08,12
+16,4,Wynonna Judd,Wynonna Judd,2013-04-08,2013-04-15,0
+16,5,Wynonna Judd,Wynonna Judd,2013-04-15,2013-04-22,0
+16,6,Wynonna Judd,Wynonna Judd,2013-04-22,2013-04-29,0
+16,7,Wynonna Judd,Wynonna Judd,2013-04-29,2013-05-06,1
+16,8,Wynonna Judd,Wynonna Judd,2013-05-06,2013-05-13,0
+16,9,Wynonna Judd,Wynonna Judd,2013-05-13,2013-05-20,0
+16,10,Wynonna Judd,Wynonna Judd,2013-05-20,2013-05-27,0
+16,1,Zendaya,Zendaya,2013-03-18,2013-03-25,9
+16,2,Zendaya,Zendaya,2013-03-25,2013-04-01,9
+16,3,Zendaya,Zendaya,2013-04-01,2013-04-08,16
+16,4,Zendaya,Zendaya,2013-04-08,2013-04-15,8
+16,5,Zendaya,Zendaya,2013-04-15,2013-04-22,1
+16,6,Zendaya,Zendaya,2013-04-22,2013-04-29,0
+16,7,Zendaya,Zendaya,2013-04-29,2013-05-06,5
+16,8,Zendaya,Zendaya,2013-05-06,2013-05-13,6
+16,9,Zendaya,Zendaya,2013-05-13,2013-05-20,5
+16,10,Zendaya,Zendaya,2013-05-20,2013-05-27,3
+17,1,Amber Riley,Amber Riley,2013-09-16,2013-09-23,9
+17,2,Amber Riley,Amber Riley,2013-09-23,2013-09-30,0
+17,3,Amber Riley,Amber Riley,2013-09-30,2013-10-07,3
+17,4,Amber Riley,Amber Riley,2013-10-07,2013-10-14,8
+17,5,Amber Riley,Amber Riley,2013-10-14,2013-10-21,2
+17,6,Amber Riley,Amber Riley,2013-10-21,2013-10-28,14
+17,7,Amber Riley,Amber Riley,2013-10-28,2013-11-04,6
+17,8,Amber Riley,Amber Riley,2013-11-04,2013-11-11,4
+17,9,Amber Riley,Amber Riley,2013-11-11,2013-11-18,3
+17,10,Amber Riley,Amber Riley,2013-11-18,2013-11-25,5
+17,11,Amber Riley,Amber Riley,2013-11-25,2013-12-02,5
+17,1,Bill Engvall,Bill Engvall,2013-09-16,2013-09-23,0
+17,2,Bill Engvall,Bill Engvall,2013-09-23,2013-09-30,0
+17,3,Bill Engvall,Bill Engvall,2013-09-30,2013-10-07,2
+17,4,Bill Engvall,Bill Engvall,2013-10-07,2013-10-14,5
+17,5,Bill Engvall,Bill Engvall,2013-10-14,2013-10-21,0
+17,6,Bill Engvall,Bill Engvall,2013-10-21,2013-10-28,0
+17,7,Bill Engvall,Bill Engvall,2013-10-28,2013-11-04,0
+17,8,Bill Engvall,Bill Engvall,2013-11-04,2013-11-11,0
+17,9,Bill Engvall,Bill Engvall,2013-11-11,2013-11-18,2
+17,10,Bill Engvall,Bill Engvall,2013-11-18,2013-11-25,2
+17,11,Bill Engvall,Bill Engvall,2013-11-25,2013-12-02,1
+17,1,Bill Nye,Bill Nye,2013-09-16,2013-09-23,0
+17,2,Bill Nye,Bill Nye,2013-09-23,2013-09-30,0
+17,3,Bill Nye,Bill Nye,2013-09-30,2013-10-07,6
+17,4,Bill Nye,Bill Nye,2013-10-07,2013-10-14,3
+17,5,Bill Nye,Bill Nye,2013-10-14,2013-10-21,0
+17,6,Bill Nye,Bill Nye,2013-10-21,2013-10-28,0
+17,7,Bill Nye,Bill Nye,2013-10-28,2013-11-04,1
+17,8,Bill Nye,Bill Nye,2013-11-04,2013-11-11,1
+17,9,Bill Nye,Bill Nye,2013-11-11,2013-11-18,0
+17,10,Bill Nye,Bill Nye,2013-11-18,2013-11-25,0
+17,11,Bill Nye,Bill Nye,2013-11-25,2013-12-02,0
+17,1,Brant Daugherty,Brant Daugherty,2013-09-16,2013-09-23,1
+17,2,Brant Daugherty,Brant Daugherty,2013-09-23,2013-09-30,4
+17,3,Brant Daugherty,Brant Daugherty,2013-09-30,2013-10-07,1
+17,4,Brant Daugherty,Brant Daugherty,2013-10-07,2013-10-14,0
+17,5,Brant Daugherty,Brant Daugherty,2013-10-14,2013-10-21,0
+17,6,Brant Daugherty,Brant Daugherty,2013-10-21,2013-10-28,6
+17,7,Brant Daugherty,Brant Daugherty,2013-10-28,2013-11-04,3
+17,8,Brant Daugherty,Brant Daugherty,2013-11-04,2013-11-11,4
+17,9,Brant Daugherty,Brant Daugherty,2013-11-11,2013-11-18,0
+17,10,Brant Daugherty,Brant Daugherty,2013-11-18,2013-11-25,0
+17,11,Brant Daugherty,Brant Daugherty,2013-11-25,2013-12-02,0
+17,1,Christina Milian,Christina Milian,2013-09-16,2013-09-23,0
+17,2,Christina Milian,Christina Milian,2013-09-23,2013-09-30,2
+17,3,Christina Milian,Christina Milian,2013-09-30,2013-10-07,2
+17,4,Christina Milian,Christina Milian,2013-10-07,2013-10-14,7
+17,5,Christina Milian,Christina Milian,2013-10-14,2013-10-21,12
+17,6,Christina Milian,Christina Milian,2013-10-21,2013-10-28,2
+17,7,Christina Milian,Christina Milian,2013-10-28,2013-11-04,5
+17,8,Christina Milian,Christina Milian,2013-11-04,2013-11-11,14
+17,9,Christina Milian,Christina Milian,2013-11-11,2013-11-18,10
+17,10,Christina Milian,Christina Milian,2013-11-18,2013-11-25,0
+17,11,Christina Milian,Christina Milian,2013-11-25,2013-12-02,1
+17,1,Corbin Bleu,Corbin Bleu,2013-09-16,2013-09-23,1
+17,2,Corbin Bleu,Corbin Bleu,2013-09-23,2013-09-30,0
+17,3,Corbin Bleu,Corbin Bleu,2013-09-30,2013-10-07,0
+17,4,Corbin Bleu,Corbin Bleu,2013-10-07,2013-10-14,0
+17,5,Corbin Bleu,Corbin Bleu,2013-10-14,2013-10-21,2
+17,6,Corbin Bleu,Corbin Bleu,2013-10-21,2013-10-28,1
+17,7,Corbin Bleu,Corbin Bleu,2013-10-28,2013-11-04,0
+17,8,Corbin Bleu,Corbin Bleu,2013-11-04,2013-11-11,1
+17,9,Corbin Bleu,Corbin Bleu,2013-11-11,2013-11-18,1
+17,10,Corbin Bleu,Corbin Bleu,2013-11-18,2013-11-25,1
+17,11,Corbin Bleu,Corbin Bleu,2013-11-25,2013-12-02,0
+17,1,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-09-16,2013-09-23,2
+17,2,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-09-23,2013-09-30,1
+17,3,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-09-30,2013-10-07,0
+17,4,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-10-07,2013-10-14,0
+17,5,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-10-14,2013-10-21,0
+17,6,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-10-21,2013-10-28,5
+17,7,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-10-28,2013-11-04,0
+17,8,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-11-04,2013-11-11,0
+17,9,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-11-11,2013-11-18,2
+17,10,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-11-18,2013-11-25,0
+17,11,Elizabeth Berkley Lauren,Elizabeth Berkley,2013-11-25,2013-12-02,0
+17,1,Jack Osbourne,Jack Osbourne,2013-09-16,2013-09-23,1
+17,2,Jack Osbourne,Jack Osbourne,2013-09-23,2013-09-30,0
+17,3,Jack Osbourne,Jack Osbourne,2013-09-30,2013-10-07,0
+17,4,Jack Osbourne,Jack Osbourne,2013-10-07,2013-10-14,2
+17,5,Jack Osbourne,Jack Osbourne,2013-10-14,2013-10-21,1
+17,6,Jack Osbourne,Jack Osbourne,2013-10-21,2013-10-28,2
+17,7,Jack Osbourne,Jack Osbourne,2013-10-28,2013-11-04,4
+17,8,Jack Osbourne,Jack Osbourne,2013-11-04,2013-11-11,2
+17,9,Jack Osbourne,Jack Osbourne,2013-11-11,2013-11-18,0
+17,10,Jack Osbourne,Jack Osbourne,2013-11-18,2013-11-25,2
+17,11,Jack Osbourne,Jack Osbourne,2013-11-25,2013-12-02,0
+17,1,Keyshawn Johnson,Keyshawn Johnson,2013-09-16,2013-09-23,3
+17,2,Keyshawn Johnson,Keyshawn Johnson,2013-09-23,2013-09-30,5
+17,3,Keyshawn Johnson,Keyshawn Johnson,2013-09-30,2013-10-07,0
+17,4,Keyshawn Johnson,Keyshawn Johnson,2013-10-07,2013-10-14,0
+17,5,Keyshawn Johnson,Keyshawn Johnson,2013-10-14,2013-10-21,0
+17,6,Keyshawn Johnson,Keyshawn Johnson,2013-10-21,2013-10-28,0
+17,7,Keyshawn Johnson,Keyshawn Johnson,2013-10-28,2013-11-04,0
+17,8,Keyshawn Johnson,Keyshawn Johnson,2013-11-04,2013-11-11,0
+17,9,Keyshawn Johnson,Keyshawn Johnson,2013-11-11,2013-11-18,1
+17,10,Keyshawn Johnson,Keyshawn Johnson,2013-11-18,2013-11-25,0
+17,11,Keyshawn Johnson,Keyshawn Johnson,2013-11-25,2013-12-02,0
+17,1,Leah Remini,Leah Remini,2013-09-16,2013-09-23,1
+17,2,Leah Remini,Leah Remini,2013-09-23,2013-09-30,1
+17,3,Leah Remini,Leah Remini,2013-09-30,2013-10-07,3
+17,4,Leah Remini,Leah Remini,2013-10-07,2013-10-14,3
+17,5,Leah Remini,Leah Remini,2013-10-14,2013-10-21,1
+17,6,Leah Remini,Leah Remini,2013-10-21,2013-10-28,5
+17,7,Leah Remini,Leah Remini,2013-10-28,2013-11-04,2
+17,8,Leah Remini,Leah Remini,2013-11-04,2013-11-11,14
+17,9,Leah Remini,Leah Remini,2013-11-11,2013-11-18,1
+17,10,Leah Remini,Leah Remini,2013-11-18,2013-11-25,7
+17,11,Leah Remini,Leah Remini,2013-11-25,2013-12-02,0
+17,1,"Nicole ""Snooki"" Polizzi",Snooki,2013-09-16,2013-09-23,1
+17,2,"Nicole ""Snooki"" Polizzi",Snooki,2013-09-23,2013-09-30,14
+17,3,"Nicole ""Snooki"" Polizzi",Snooki,2013-09-30,2013-10-07,0
+17,4,"Nicole ""Snooki"" Polizzi",Snooki,2013-10-07,2013-10-14,0
+17,5,"Nicole ""Snooki"" Polizzi",Snooki,2013-10-14,2013-10-21,3
+17,6,"Nicole ""Snooki"" Polizzi",Snooki,2013-10-21,2013-10-28,5
+17,7,"Nicole ""Snooki"" Polizzi",Snooki,2013-10-28,2013-11-04,14
+17,8,"Nicole ""Snooki"" Polizzi",Snooki,2013-11-04,2013-11-11,0
+17,9,"Nicole ""Snooki"" Polizzi",Snooki,2013-11-11,2013-11-18,0
+17,10,"Nicole ""Snooki"" Polizzi",Snooki,2013-11-18,2013-11-25,0
+17,11,"Nicole ""Snooki"" Polizzi",Snooki,2013-11-25,2013-12-02,0
+17,1,Valerie Harper,Valerie Harper,2013-09-16,2013-09-23,0
+17,2,Valerie Harper,Valerie Harper,2013-09-23,2013-09-30,0
+17,3,Valerie Harper,Valerie Harper,2013-09-30,2013-10-07,5
+17,4,Valerie Harper,Valerie Harper,2013-10-07,2013-10-14,3
+17,5,Valerie Harper,Valerie Harper,2013-10-14,2013-10-21,0
+17,6,Valerie Harper,Valerie Harper,2013-10-21,2013-10-28,0
+17,7,Valerie Harper,Valerie Harper,2013-10-28,2013-11-04,2
+17,8,Valerie Harper,Valerie Harper,2013-11-04,2013-11-11,0
+17,9,Valerie Harper,Valerie Harper,2013-11-11,2013-11-18,0
+17,10,Valerie Harper,Valerie Harper,2013-11-18,2013-11-25,5
+17,11,Valerie Harper,Valerie Harper,2013-11-25,2013-12-02,4
+18,1,Amy Purdy,Amy Purdy,2014-03-17,2014-03-24,24
+18,2,Amy Purdy,Amy Purdy,2014-03-24,2014-03-31,11
+18,3,Amy Purdy,Amy Purdy,2014-03-31,2014-04-07,4
+18,4,Amy Purdy,Amy Purdy,2014-04-07,2014-04-14,4
+18,5,Amy Purdy,Amy Purdy,2014-04-14,2014-04-21,7
+18,6,Amy Purdy,Amy Purdy,2014-04-21,2014-04-28,2
+18,7,Amy Purdy,Amy Purdy,2014-04-28,2014-05-05,4
+18,8,Amy Purdy,Amy Purdy,2014-05-05,2014-05-12,2
+18,9,Amy Purdy,Amy Purdy,2014-05-12,2014-05-19,7
+18,10,Amy Purdy,Amy Purdy,2014-05-19,2014-05-26,6
+18,1,Billy Dee Williams,Billy Dee Williams,2014-03-17,2014-03-24,1
+18,2,Billy Dee Williams,Billy Dee Williams,2014-03-24,2014-03-31,0
+18,3,Billy Dee Williams,Billy Dee Williams,2014-03-31,2014-04-07,9
+18,4,Billy Dee Williams,Billy Dee Williams,2014-04-07,2014-04-14,2
+18,5,Billy Dee Williams,Billy Dee Williams,2014-04-14,2014-04-21,1
+18,6,Billy Dee Williams,Billy Dee Williams,2014-04-21,2014-04-28,1
+18,7,Billy Dee Williams,Billy Dee Williams,2014-04-28,2014-05-05,4
+18,8,Billy Dee Williams,Billy Dee Williams,2014-05-05,2014-05-12,5
+18,9,Billy Dee Williams,Billy Dee Williams,2014-05-12,2014-05-19,5
+18,10,Billy Dee Williams,Billy Dee Williams,2014-05-19,2014-05-26,0
+18,1,Candace Cameron Bure,Candace Cameron Bure,2014-03-17,2014-03-24,6
+18,2,Candace Cameron Bure,Candace Cameron Bure,2014-03-24,2014-03-31,2
+18,3,Candace Cameron Bure,Candace Cameron Bure,2014-03-31,2014-04-07,1
+18,4,Candace Cameron Bure,Candace Cameron Bure,2014-04-07,2014-04-14,6
+18,5,Candace Cameron Bure,Candace Cameron Bure,2014-04-14,2014-04-21,3
+18,6,Candace Cameron Bure,Candace Cameron Bure,2014-04-21,2014-04-28,0
+18,7,Candace Cameron Bure,Candace Cameron Bure,2014-04-28,2014-05-05,4
+18,8,Candace Cameron Bure,Candace Cameron Bure,2014-05-05,2014-05-12,0
+18,9,Candace Cameron Bure,Candace Cameron Bure,2014-05-12,2014-05-19,3
+18,10,Candace Cameron Bure,Candace Cameron Bure,2014-05-19,2014-05-26,6
+18,1,Charlie White,Charles White,2014-03-17,2014-03-24,0
+18,2,Charlie White,Charles White,2014-03-24,2014-03-31,0
+18,3,Charlie White,Charles White,2014-03-31,2014-04-07,0
+18,4,Charlie White,Charles White,2014-04-07,2014-04-14,0
+18,5,Charlie White,Charles White,2014-04-14,2014-04-21,0
+18,6,Charlie White,Charles White,2014-04-21,2014-04-28,0
+18,7,Charlie White,Charles White,2014-04-28,2014-05-05,0
+18,8,Charlie White,Charles White,2014-05-05,2014-05-12,0
+18,9,Charlie White,Charles White,2014-05-12,2014-05-19,0
+18,10,Charlie White,Charles White,2014-05-19,2014-05-26,0
+18,1,Cody Simpson,Cody Simpson,2014-03-17,2014-03-24,14
+18,2,Cody Simpson,Cody Simpson,2014-03-24,2014-03-31,12
+18,3,Cody Simpson,Cody Simpson,2014-03-31,2014-04-07,0
+18,4,Cody Simpson,Cody Simpson,2014-04-07,2014-04-14,14
+18,5,Cody Simpson,Cody Simpson,2014-04-14,2014-04-21,14
+18,6,Cody Simpson,Cody Simpson,2014-04-21,2014-04-28,7
+18,7,Cody Simpson,Cody Simpson,2014-04-28,2014-05-05,7
+18,8,Cody Simpson,Cody Simpson,2014-05-05,2014-05-12,10
+18,9,Cody Simpson,Cody Simpson,2014-05-12,2014-05-19,16
+18,10,Cody Simpson,Cody Simpson,2014-05-19,2014-05-26,0
+18,1,Danica McKellar,Danica McKellar,2014-03-17,2014-03-24,2
+18,2,Danica McKellar,Danica McKellar,2014-03-24,2014-03-31,0
+18,3,Danica McKellar,Danica McKellar,2014-03-31,2014-04-07,5
+18,4,Danica McKellar,Danica McKellar,2014-04-07,2014-04-14,0
+18,5,Danica McKellar,Danica McKellar,2014-04-14,2014-04-21,1
+18,6,Danica McKellar,Danica McKellar,2014-04-21,2014-04-28,0
+18,7,Danica McKellar,Danica McKellar,2014-04-28,2014-05-05,2
+18,8,Danica McKellar,Danica McKellar,2014-05-05,2014-05-12,3
+18,9,Danica McKellar,Danica McKellar,2014-05-12,2014-05-19,1
+18,10,Danica McKellar,Danica McKellar,2014-05-19,2014-05-26,1
+18,1,Diana Nyad,Diana Nyad,2014-03-17,2014-03-24,2
+18,2,Diana Nyad,Diana Nyad,2014-03-24,2014-03-31,10
+18,3,Diana Nyad,Diana Nyad,2014-03-31,2014-04-07,6
+18,4,Diana Nyad,Diana Nyad,2014-04-07,2014-04-14,1
+18,5,Diana Nyad,Diana Nyad,2014-04-14,2014-04-21,2
+18,6,Diana Nyad,Diana Nyad,2014-04-21,2014-04-28,0
+18,7,Diana Nyad,Diana Nyad,2014-04-28,2014-05-05,0
+18,8,Diana Nyad,Diana Nyad,2014-05-05,2014-05-12,0
+18,9,Diana Nyad,Diana Nyad,2014-05-12,2014-05-19,0
+18,10,Diana Nyad,Diana Nyad,2014-05-19,2014-05-26,0
+18,1,Drew Carey,Drew Carey,2014-03-17,2014-03-24,0
+18,2,Drew Carey,Drew Carey,2014-03-24,2014-03-31,1
+18,3,Drew Carey,Drew Carey,2014-03-31,2014-04-07,3
+18,4,Drew Carey,Drew Carey,2014-04-07,2014-04-14,0
+18,5,Drew Carey,Drew Carey,2014-04-14,2014-04-21,5
+18,6,Drew Carey,Drew Carey,2014-04-21,2014-04-28,6
+18,7,Drew Carey,Drew Carey,2014-04-28,2014-05-05,0
+18,8,Drew Carey,Drew Carey,2014-05-05,2014-05-12,5
+18,9,Drew Carey,Drew Carey,2014-05-12,2014-05-19,3
+18,10,Drew Carey,Drew Carey,2014-05-19,2014-05-26,0
+18,1,James Maslow,James Maslow,2014-03-17,2014-03-24,4
+18,2,James Maslow,James Maslow,2014-03-24,2014-03-31,4
+18,3,James Maslow,James Maslow,2014-03-31,2014-04-07,8
+18,4,James Maslow,James Maslow,2014-04-07,2014-04-14,12
+18,5,James Maslow,James Maslow,2014-04-14,2014-04-21,9
+18,6,James Maslow,James Maslow,2014-04-21,2014-04-28,29
+18,7,James Maslow,James Maslow,2014-04-28,2014-05-05,14
+18,8,James Maslow,James Maslow,2014-05-05,2014-05-12,8
+18,9,James Maslow,James Maslow,2014-05-12,2014-05-19,8
+18,10,James Maslow,James Maslow,2014-05-19,2014-05-26,14
+18,1,Meryl Davis,Meryl Davis,2014-03-17,2014-03-24,7
+18,2,Meryl Davis,Meryl Davis,2014-03-24,2014-03-31,2
+18,3,Meryl Davis,Meryl Davis,2014-03-31,2014-04-07,5
+18,4,Meryl Davis,Meryl Davis,2014-04-07,2014-04-14,3
+18,5,Meryl Davis,Meryl Davis,2014-04-14,2014-04-21,4
+18,6,Meryl Davis,Meryl Davis,2014-04-21,2014-04-28,3
+18,7,Meryl Davis,Meryl Davis,2014-04-28,2014-05-05,4
+18,8,Meryl Davis,Meryl Davis,2014-05-05,2014-05-12,5
+18,9,Meryl Davis,Meryl Davis,2014-05-12,2014-05-19,5
+18,10,Meryl Davis,Meryl Davis,2014-05-19,2014-05-26,4
+18,1,NeNe Leakes,NeNe Leakes,2014-03-17,2014-03-24,0
+18,2,NeNe Leakes,NeNe Leakes,2014-03-24,2014-03-31,4
+18,3,NeNe Leakes,NeNe Leakes,2014-03-31,2014-04-07,2
+18,4,NeNe Leakes,NeNe Leakes,2014-04-07,2014-04-14,0
+18,5,NeNe Leakes,NeNe Leakes,2014-04-14,2014-04-21,6
+18,6,NeNe Leakes,NeNe Leakes,2014-04-21,2014-04-28,21
+18,7,NeNe Leakes,NeNe Leakes,2014-04-28,2014-05-05,15
+18,8,NeNe Leakes,NeNe Leakes,2014-05-05,2014-05-12,15
+18,9,NeNe Leakes,NeNe Leakes,2014-05-12,2014-05-19,2
+18,10,NeNe Leakes,NeNe Leakes,2014-05-19,2014-05-26,0
+18,1,Sean Avery,Sean Avery,2014-03-17,2014-03-24,0
+18,2,Sean Avery,Sean Avery,2014-03-24,2014-03-31,5
+18,3,Sean Avery,Sean Avery,2014-03-31,2014-04-07,0
+18,4,Sean Avery,Sean Avery,2014-04-07,2014-04-14,0
+18,5,Sean Avery,Sean Avery,2014-04-14,2014-04-21,2
+18,6,Sean Avery,Sean Avery,2014-04-21,2014-04-28,0
+18,7,Sean Avery,Sean Avery,2014-04-28,2014-05-05,1
+18,8,Sean Avery,Sean Avery,2014-05-05,2014-05-12,0
+18,9,Sean Avery,Sean Avery,2014-05-12,2014-05-19,4
+18,10,Sean Avery,Sean Avery,2014-05-19,2014-05-26,2
+19,1,Alfonso Ribeiro,Alfonso Ribeiro,2014-09-15,2014-09-22,6
+19,2,Alfonso Ribeiro,Alfonso Ribeiro,2014-09-22,2014-09-29,0
+19,3,Alfonso Ribeiro,Alfonso Ribeiro,2014-09-29,2014-10-06,2
+19,4,Alfonso Ribeiro,Alfonso Ribeiro,2014-10-06,2014-10-13,14
+19,5,Alfonso Ribeiro,Alfonso Ribeiro,2014-10-13,2014-10-20,2
+19,6,Alfonso Ribeiro,Alfonso Ribeiro,2014-10-20,2014-10-27,4
+19,7,Alfonso Ribeiro,Alfonso Ribeiro,2014-10-27,2014-11-03,13
+19,8,Alfonso Ribeiro,Alfonso Ribeiro,2014-11-03,2014-11-10,4
+19,9,Alfonso Ribeiro,Alfonso Ribeiro,2014-11-10,2014-11-24,2
+19,10,Alfonso Ribeiro,Alfonso Ribeiro,2014-11-24,2014-12-01,3
+19,11,Alfonso Ribeiro,Alfonso Ribeiro,2014-12-01,2014-12-08,0
+19,1,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-09-15,2014-09-22,0
+19,2,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-09-22,2014-09-29,0
+19,3,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-09-29,2014-10-06,0
+19,4,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-10-06,2014-10-13,1
+19,5,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-10-13,2014-10-20,0
+19,6,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-10-20,2014-10-27,1
+19,7,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-10-27,2014-11-03,7
+19,8,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-11-03,2014-11-10,1
+19,9,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-11-10,2014-11-24,1
+19,10,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-11-24,2014-12-01,0
+19,11,Antonio Sabato Jr.,Antonio Sabàto Jr.,2014-12-01,2014-12-08,0
+19,1,Bethany Mota,Bethany Mota,2014-09-15,2014-09-22,17
+19,2,Bethany Mota,Bethany Mota,2014-09-22,2014-09-29,23
+19,3,Bethany Mota,Bethany Mota,2014-09-29,2014-10-06,7
+19,4,Bethany Mota,Bethany Mota,2014-10-06,2014-10-13,4
+19,5,Bethany Mota,Bethany Mota,2014-10-13,2014-10-20,3
+19,6,Bethany Mota,Bethany Mota,2014-10-20,2014-10-27,7
+19,7,Bethany Mota,Bethany Mota,2014-10-27,2014-11-03,15
+19,8,Bethany Mota,Bethany Mota,2014-11-03,2014-11-10,43
+19,9,Bethany Mota,Bethany Mota,2014-11-10,2014-11-24,1
+19,10,Bethany Mota,Bethany Mota,2014-11-24,2014-12-01,4
+19,11,Bethany Mota,Bethany Mota,2014-12-01,2014-12-08,0
+19,1,Betsey Johnson,Betsey Johnson,2014-09-15,2014-09-22,0
+19,2,Betsey Johnson,Betsey Johnson,2014-09-22,2014-09-29,0
+19,3,Betsey Johnson,Betsey Johnson,2014-09-29,2014-10-06,0
+19,4,Betsey Johnson,Betsey Johnson,2014-10-06,2014-10-13,4
+19,5,Betsey Johnson,Betsey Johnson,2014-10-13,2014-10-20,0
+19,6,Betsey Johnson,Betsey Johnson,2014-10-20,2014-10-27,2
+19,7,Betsey Johnson,Betsey Johnson,2014-10-27,2014-11-03,0
+19,8,Betsey Johnson,Betsey Johnson,2014-11-03,2014-11-10,2
+19,9,Betsey Johnson,Betsey Johnson,2014-11-10,2014-11-24,0
+19,10,Betsey Johnson,Betsey Johnson,2014-11-24,2014-12-01,1
+19,11,Betsey Johnson,Betsey Johnson,2014-12-01,2014-12-08,0
+19,1,Janel Parrish,Janel Parrish,2014-09-15,2014-09-22,8
+19,2,Janel Parrish,Janel Parrish,2014-09-22,2014-09-29,0
+19,3,Janel Parrish,Janel Parrish,2014-09-29,2014-10-06,0
+19,4,Janel Parrish,Janel Parrish,2014-10-06,2014-10-13,1
+19,5,Janel Parrish,Janel Parrish,2014-10-13,2014-10-20,8
+19,6,Janel Parrish,Janel Parrish,2014-10-20,2014-10-27,6
+19,7,Janel Parrish,Janel Parrish,2014-10-27,2014-11-03,10
+19,8,Janel Parrish,Janel Parrish,2014-11-03,2014-11-10,12
+19,9,Janel Parrish,Janel Parrish,2014-11-10,2014-11-24,4
+19,10,Janel Parrish,Janel Parrish,2014-11-24,2014-12-01,2
+19,11,Janel Parrish,Janel Parrish,2014-12-01,2014-12-08,0
+19,1,Jonathan Bennett,Jonathan Bennett,2014-09-15,2014-09-22,0
+19,2,Jonathan Bennett,Jonathan Bennett,2014-09-22,2014-09-29,0
+19,3,Jonathan Bennett,Jonathan Bennett,2014-09-29,2014-10-06,0
+19,4,Jonathan Bennett,Jonathan Bennett,2014-10-06,2014-10-13,0
+19,5,Jonathan Bennett,Jonathan Bennett,2014-10-13,2014-10-20,0
+19,6,Jonathan Bennett,Jonathan Bennett,2014-10-20,2014-10-27,0
+19,7,Jonathan Bennett,Jonathan Bennett,2014-10-27,2014-11-03,0
+19,8,Jonathan Bennett,Jonathan Bennett,2014-11-03,2014-11-10,0
+19,9,Jonathan Bennett,Jonathan Bennett,2014-11-10,2014-11-24,0
+19,10,Jonathan Bennett,Jonathan Bennett,2014-11-24,2014-12-01,0
+19,11,Jonathan Bennett,Jonathan Bennett,2014-12-01,2014-12-08,0
+19,1,Lea Thompson,Lea Thompson,2014-09-15,2014-09-22,0
+19,2,Lea Thompson,Lea Thompson,2014-09-22,2014-09-29,1
+19,3,Lea Thompson,Lea Thompson,2014-09-29,2014-10-06,2
+19,4,Lea Thompson,Lea Thompson,2014-10-06,2014-10-13,3
+19,5,Lea Thompson,Lea Thompson,2014-10-13,2014-10-20,0
+19,6,Lea Thompson,Lea Thompson,2014-10-20,2014-10-27,15
+19,7,Lea Thompson,Lea Thompson,2014-10-27,2014-11-03,0
+19,8,Lea Thompson,Lea Thompson,2014-11-03,2014-11-10,8
+19,9,Lea Thompson,Lea Thompson,2014-11-10,2014-11-24,3
+19,10,Lea Thompson,Lea Thompson,2014-11-24,2014-12-01,0
+19,11,Lea Thompson,Lea Thompson,2014-12-01,2014-12-08,0
+19,1,Lolo Jones,Lolo Jones,2014-09-15,2014-09-22,6
+19,2,Lolo Jones,Lolo Jones,2014-09-22,2014-09-29,1
+19,3,Lolo Jones,Lolo Jones,2014-09-29,2014-10-06,0
+19,4,Lolo Jones,Lolo Jones,2014-10-06,2014-10-13,0
+19,5,Lolo Jones,Lolo Jones,2014-10-13,2014-10-20,0
+19,6,Lolo Jones,Lolo Jones,2014-10-20,2014-10-27,1
+19,7,Lolo Jones,Lolo Jones,2014-10-27,2014-11-03,1
+19,8,Lolo Jones,Lolo Jones,2014-11-03,2014-11-10,0
+19,9,Lolo Jones,Lolo Jones,2014-11-10,2014-11-24,1
+19,10,Lolo Jones,Lolo Jones,2014-11-24,2014-12-01,0
+19,11,Lolo Jones,Lolo Jones,2014-12-01,2014-12-08,0
+19,1,Michael Waltrip,Michael Waltrip,2014-09-15,2014-09-22,2
+19,2,Michael Waltrip,Michael Waltrip,2014-09-22,2014-09-29,4
+19,3,Michael Waltrip,Michael Waltrip,2014-09-29,2014-10-06,0
+19,4,Michael Waltrip,Michael Waltrip,2014-10-06,2014-10-13,4
+19,5,Michael Waltrip,Michael Waltrip,2014-10-13,2014-10-20,2
+19,6,Michael Waltrip,Michael Waltrip,2014-10-20,2014-10-27,41
+19,7,Michael Waltrip,Michael Waltrip,2014-10-27,2014-11-03,25
+19,8,Michael Waltrip,Michael Waltrip,2014-11-03,2014-11-10,5
+19,9,Michael Waltrip,Michael Waltrip,2014-11-10,2014-11-24,0
+19,10,Michael Waltrip,Michael Waltrip,2014-11-24,2014-12-01,1
+19,11,Michael Waltrip,Michael Waltrip,2014-12-01,2014-12-08,0
+19,1,Randy Couture,Randy Couture,2014-09-15,2014-09-22,0
+19,2,Randy Couture,Randy Couture,2014-09-22,2014-09-29,0
+19,3,Randy Couture,Randy Couture,2014-09-29,2014-10-06,2
+19,4,Randy Couture,Randy Couture,2014-10-06,2014-10-13,2
+19,5,Randy Couture,Randy Couture,2014-10-13,2014-10-20,1
+19,6,Randy Couture,Randy Couture,2014-10-20,2014-10-27,4
+19,7,Randy Couture,Randy Couture,2014-10-27,2014-11-03,0
+19,8,Randy Couture,Randy Couture,2014-11-03,2014-11-10,4
+19,9,Randy Couture,Randy Couture,2014-11-10,2014-11-24,0
+19,10,Randy Couture,Randy Couture,2014-11-24,2014-12-01,0
+19,11,Randy Couture,Randy Couture,2014-12-01,2014-12-08,0
+19,1,Sadie Robertson,Sadie Robertson Huff,2014-09-15,2014-09-22,7
+19,2,Sadie Robertson,Sadie Robertson Huff,2014-09-22,2014-09-29,5
+19,3,Sadie Robertson,Sadie Robertson Huff,2014-09-29,2014-10-06,5
+19,4,Sadie Robertson,Sadie Robertson Huff,2014-10-06,2014-10-13,9
+19,5,Sadie Robertson,Sadie Robertson Huff,2014-10-13,2014-10-20,13
+19,6,Sadie Robertson,Sadie Robertson Huff,2014-10-20,2014-10-27,4
+19,7,Sadie Robertson,Sadie Robertson Huff,2014-10-27,2014-11-03,4
+19,8,Sadie Robertson,Sadie Robertson Huff,2014-11-03,2014-11-10,6
+19,9,Sadie Robertson,Sadie Robertson Huff,2014-11-10,2014-11-24,4
+19,10,Sadie Robertson,Sadie Robertson Huff,2014-11-24,2014-12-01,6
+19,11,Sadie Robertson,Sadie Robertson Huff,2014-12-01,2014-12-08,0
+19,1,Tavis Smiley,Tavis Smiley,2014-09-15,2014-09-22,15
+19,2,Tavis Smiley,Tavis Smiley,2014-09-22,2014-09-29,1
+19,3,Tavis Smiley,Tavis Smiley,2014-09-29,2014-10-06,3
+19,4,Tavis Smiley,Tavis Smiley,2014-10-06,2014-10-13,0
+19,5,Tavis Smiley,Tavis Smiley,2014-10-13,2014-10-20,1
+19,6,Tavis Smiley,Tavis Smiley,2014-10-20,2014-10-27,1
+19,7,Tavis Smiley,Tavis Smiley,2014-10-27,2014-11-03,0
+19,8,Tavis Smiley,Tavis Smiley,2014-11-03,2014-11-10,0
+19,9,Tavis Smiley,Tavis Smiley,2014-11-10,2014-11-24,3
+19,10,Tavis Smiley,Tavis Smiley,2014-11-24,2014-12-01,0
+19,11,Tavis Smiley,Tavis Smiley,2014-12-01,2014-12-08,0
+19,1,Tommy Chong,Tommy Chong,2014-09-15,2014-09-22,1
+19,2,Tommy Chong,Tommy Chong,2014-09-22,2014-09-29,7
+19,3,Tommy Chong,Tommy Chong,2014-09-29,2014-10-06,0
+19,4,Tommy Chong,Tommy Chong,2014-10-06,2014-10-13,2
+19,5,Tommy Chong,Tommy Chong,2014-10-13,2014-10-20,0
+19,6,Tommy Chong,Tommy Chong,2014-10-20,2014-10-27,1
+19,7,Tommy Chong,Tommy Chong,2014-10-27,2014-11-03,0
+19,8,Tommy Chong,Tommy Chong,2014-11-03,2014-11-10,2
+19,9,Tommy Chong,Tommy Chong,2014-11-10,2014-11-24,0
+19,10,Tommy Chong,Tommy Chong,2014-11-24,2014-12-01,2
+19,11,Tommy Chong,Tommy Chong,2014-12-01,2014-12-08,0
+20,1,Charlotte McKinney,Charlotte McKinney,2015-03-16,2015-03-23,11
+20,2,Charlotte McKinney,Charlotte McKinney,2015-03-23,2015-03-30,5
+20,3,Charlotte McKinney,Charlotte McKinney,2015-03-30,2015-04-06,8
+20,4,Charlotte McKinney,Charlotte McKinney,2015-04-06,2015-04-13,4
+20,5,Charlotte McKinney,Charlotte McKinney,2015-04-13,2015-04-27,4
+20,6,Charlotte McKinney,Charlotte McKinney,2015-04-27,2015-05-04,34
+20,7,Charlotte McKinney,Charlotte McKinney,2015-05-04,2015-05-11,0
+20,8,Charlotte McKinney,Charlotte McKinney,2015-05-11,2015-05-18,2
+20,9,Charlotte McKinney,Charlotte McKinney,2015-05-18,2015-05-25,5
+20,10,Charlotte McKinney,Charlotte McKinney,2015-05-25,2015-06-01,0
+20,1,Chris Soules,Chris Soules,2015-03-16,2015-03-23,0
+20,2,Chris Soules,Chris Soules,2015-03-23,2015-03-30,0
+20,3,Chris Soules,Chris Soules,2015-03-30,2015-04-06,1
+20,4,Chris Soules,Chris Soules,2015-04-06,2015-04-13,17
+20,5,Chris Soules,Chris Soules,2015-04-13,2015-04-27,3
+20,6,Chris Soules,Chris Soules,2015-04-27,2015-05-04,2
+20,7,Chris Soules,Chris Soules,2015-05-04,2015-05-11,2
+20,8,Chris Soules,Chris Soules,2015-05-11,2015-05-18,2
+20,9,Chris Soules,Chris Soules,2015-05-18,2015-05-25,0
+20,10,Chris Soules,Chris Soules,2015-05-25,2015-06-01,0
+20,1,Michael Sam,Michael Sam,2015-03-16,2015-03-23,0
+20,2,Michael Sam,Michael Sam,2015-03-23,2015-03-30,5
+20,3,Michael Sam,Michael Sam,2015-03-30,2015-04-06,0
+20,4,Michael Sam,Michael Sam,2015-04-06,2015-04-13,2
+20,5,Michael Sam,Michael Sam,2015-04-13,2015-04-27,0
+20,6,Michael Sam,Michael Sam,2015-04-27,2015-05-04,0
+20,7,Michael Sam,Michael Sam,2015-05-04,2015-05-11,1
+20,8,Michael Sam,Michael Sam,2015-05-11,2015-05-18,1
+20,9,Michael Sam,Michael Sam,2015-05-18,2015-05-25,0
+20,10,Michael Sam,Michael Sam,2015-05-25,2015-06-01,0
+20,1,Nastia Liukin,Nastia Liukin,2015-03-16,2015-03-23,5
+20,2,Nastia Liukin,Nastia Liukin,2015-03-23,2015-03-30,8
+20,3,Nastia Liukin,Nastia Liukin,2015-03-30,2015-04-06,1
+20,4,Nastia Liukin,Nastia Liukin,2015-04-06,2015-04-13,0
+20,5,Nastia Liukin,Nastia Liukin,2015-04-13,2015-04-27,2
+20,6,Nastia Liukin,Nastia Liukin,2015-04-27,2015-05-04,8
+20,7,Nastia Liukin,Nastia Liukin,2015-05-04,2015-05-11,3
+20,8,Nastia Liukin,Nastia Liukin,2015-05-11,2015-05-18,3
+20,9,Nastia Liukin,Nastia Liukin,2015-05-18,2015-05-25,1
+20,10,Nastia Liukin,Nastia Liukin,2015-05-25,2015-06-01,0
+20,1,Noah Galloway,Noah Galloway,2015-03-16,2015-03-23,15
+20,2,Noah Galloway,Noah Galloway,2015-03-23,2015-03-30,40
+20,3,Noah Galloway,Noah Galloway,2015-03-30,2015-04-06,12
+20,4,Noah Galloway,Noah Galloway,2015-04-06,2015-04-13,8
+20,5,Noah Galloway,Noah Galloway,2015-04-13,2015-04-27,8
+20,6,Noah Galloway,Noah Galloway,2015-04-27,2015-05-04,9
+20,7,Noah Galloway,Noah Galloway,2015-05-04,2015-05-11,7
+20,8,Noah Galloway,Noah Galloway,2015-05-11,2015-05-18,13
+20,9,Noah Galloway,Noah Galloway,2015-05-18,2015-05-25,4
+20,10,Noah Galloway,Noah Galloway,2015-05-25,2015-06-01,0
+20,1,Patti LaBelle,Patti LaBelle,2015-03-16,2015-03-23,7
+20,2,Patti LaBelle,Patti LaBelle,2015-03-23,2015-03-30,1
+20,3,Patti LaBelle,Patti LaBelle,2015-03-30,2015-04-06,2
+20,4,Patti LaBelle,Patti LaBelle,2015-04-06,2015-04-13,9
+20,5,Patti LaBelle,Patti LaBelle,2015-04-13,2015-04-27,2
+20,6,Patti LaBelle,Patti LaBelle,2015-04-27,2015-05-04,0
+20,7,Patti LaBelle,Patti LaBelle,2015-05-04,2015-05-11,1
+20,8,Patti LaBelle,Patti LaBelle,2015-05-11,2015-05-18,5
+20,9,Patti LaBelle,Patti LaBelle,2015-05-18,2015-05-25,0
+20,10,Patti LaBelle,Patti LaBelle,2015-05-25,2015-06-01,0
+20,1,Redfoo,Redfoo,2015-03-16,2015-03-23,29
+20,2,Redfoo,Redfoo,2015-03-23,2015-03-30,12
+20,3,Redfoo,Redfoo,2015-03-30,2015-04-06,3
+20,4,Redfoo,Redfoo,2015-04-06,2015-04-13,11
+20,5,Redfoo,Redfoo,2015-04-13,2015-04-27,5
+20,6,Redfoo,Redfoo,2015-04-27,2015-05-04,9
+20,7,Redfoo,Redfoo,2015-05-04,2015-05-11,7
+20,8,Redfoo,Redfoo,2015-05-11,2015-05-18,2
+20,9,Redfoo,Redfoo,2015-05-18,2015-05-25,0
+20,10,Redfoo,Redfoo,2015-05-25,2015-06-01,0
+20,1,Riker Lynch,Riker Lynch,2015-03-16,2015-03-23,6
+20,2,Riker Lynch,Riker Lynch,2015-03-23,2015-03-30,7
+20,3,Riker Lynch,Riker Lynch,2015-03-30,2015-04-06,9
+20,4,Riker Lynch,Riker Lynch,2015-04-06,2015-04-13,3
+20,5,Riker Lynch,Riker Lynch,2015-04-13,2015-04-27,2
+20,6,Riker Lynch,Riker Lynch,2015-04-27,2015-05-04,1
+20,7,Riker Lynch,Riker Lynch,2015-05-04,2015-05-11,8
+20,8,Riker Lynch,Riker Lynch,2015-05-11,2015-05-18,19
+20,9,Riker Lynch,Riker Lynch,2015-05-18,2015-05-25,2
+20,10,Riker Lynch,Riker Lynch,2015-05-25,2015-06-01,0
+20,1,Robert Herjavec,Robert Herjavec,2015-03-16,2015-03-23,7
+20,2,Robert Herjavec,Robert Herjavec,2015-03-23,2015-03-30,5
+20,3,Robert Herjavec,Robert Herjavec,2015-03-30,2015-04-06,4
+20,4,Robert Herjavec,Robert Herjavec,2015-04-06,2015-04-13,2
+20,5,Robert Herjavec,Robert Herjavec,2015-04-13,2015-04-27,1
+20,6,Robert Herjavec,Robert Herjavec,2015-04-27,2015-05-04,2
+20,7,Robert Herjavec,Robert Herjavec,2015-05-04,2015-05-11,29
+20,8,Robert Herjavec,Robert Herjavec,2015-05-11,2015-05-18,16
+20,9,Robert Herjavec,Robert Herjavec,2015-05-18,2015-05-25,0
+20,10,Robert Herjavec,Robert Herjavec,2015-05-25,2015-06-01,0
+20,1,Rumer Willis,Rumer Willis,2015-03-16,2015-03-23,3
+20,2,Rumer Willis,Rumer Willis,2015-03-23,2015-03-30,0
+20,3,Rumer Willis,Rumer Willis,2015-03-30,2015-04-06,0
+20,4,Rumer Willis,Rumer Willis,2015-04-06,2015-04-13,5
+20,5,Rumer Willis,Rumer Willis,2015-04-13,2015-04-27,0
+20,6,Rumer Willis,Rumer Willis,2015-04-27,2015-05-04,7
+20,7,Rumer Willis,Rumer Willis,2015-05-04,2015-05-11,4
+20,8,Rumer Willis,Rumer Willis,2015-05-11,2015-05-18,4
+20,9,Rumer Willis,Rumer Willis,2015-05-18,2015-05-25,3
+20,10,Rumer Willis,Rumer Willis,2015-05-25,2015-06-01,0
+20,1,Suzanne Somers,Suzanne Somers,2015-03-16,2015-03-23,3
+20,2,Suzanne Somers,Suzanne Somers,2015-03-23,2015-03-30,0
+20,3,Suzanne Somers,Suzanne Somers,2015-03-30,2015-04-06,0
+20,4,Suzanne Somers,Suzanne Somers,2015-04-06,2015-04-13,3
+20,5,Suzanne Somers,Suzanne Somers,2015-04-13,2015-04-27,2
+20,6,Suzanne Somers,Suzanne Somers,2015-04-27,2015-05-04,3
+20,7,Suzanne Somers,Suzanne Somers,2015-05-04,2015-05-11,1
+20,8,Suzanne Somers,Suzanne Somers,2015-05-11,2015-05-18,0
+20,9,Suzanne Somers,Suzanne Somers,2015-05-18,2015-05-25,0
+20,10,Suzanne Somers,Suzanne Somers,2015-05-25,2015-06-01,0
+20,1,Willow Shields,Willow Shields,2015-03-16,2015-03-23,3
+20,2,Willow Shields,Willow Shields,2015-03-23,2015-03-30,1
+20,3,Willow Shields,Willow Shields,2015-03-30,2015-04-06,0
+20,4,Willow Shields,Willow Shields,2015-04-06,2015-04-13,9
+20,5,Willow Shields,Willow Shields,2015-04-13,2015-04-27,8
+20,6,Willow Shields,Willow Shields,2015-04-27,2015-05-04,22
+20,7,Willow Shields,Willow Shields,2015-05-04,2015-05-11,1
+20,8,Willow Shields,Willow Shields,2015-05-11,2015-05-18,5
+20,9,Willow Shields,Willow Shields,2015-05-18,2015-05-25,0
+20,10,Willow Shields,Willow Shields,2015-05-25,2015-06-01,0
+21,1,Alek Skarlatos,Alek Skarlatos,2015-09-14,2015-09-21,23
+21,2,Alek Skarlatos,Alek Skarlatos,2015-09-21,2015-09-28,12
+21,3,Alek Skarlatos,Alek Skarlatos,2015-09-28,2015-10-05,9
+21,4,Alek Skarlatos,Alek Skarlatos,2015-10-05,2015-10-12,13
+21,5,Alek Skarlatos,Alek Skarlatos,2015-10-12,2015-10-19,6
+21,6,Alek Skarlatos,Alek Skarlatos,2015-10-19,2015-10-26,2
+21,7,Alek Skarlatos,Alek Skarlatos,2015-10-26,2015-11-02,5
+21,8,Alek Skarlatos,Alek Skarlatos,2015-11-02,2015-11-09,7
+21,9,Alek Skarlatos,Alek Skarlatos,2015-11-09,2015-11-16,3
+21,10,Alek Skarlatos,Alek Skarlatos,2015-11-16,2015-11-23,3
+21,11,Alek Skarlatos,Alek Skarlatos,2015-11-23,2015-11-30,3
+21,1,Alexa PenaVega,Alexa PenaVega,2015-09-14,2015-09-21,3
+21,2,Alexa PenaVega,Alexa PenaVega,2015-09-21,2015-09-28,19
+21,3,Alexa PenaVega,Alexa PenaVega,2015-09-28,2015-10-05,5
+21,4,Alexa PenaVega,Alexa PenaVega,2015-10-05,2015-10-12,5
+21,5,Alexa PenaVega,Alexa PenaVega,2015-10-12,2015-10-19,1
+21,6,Alexa PenaVega,Alexa PenaVega,2015-10-19,2015-10-26,2
+21,7,Alexa PenaVega,Alexa PenaVega,2015-10-26,2015-11-02,2
+21,8,Alexa PenaVega,Alexa PenaVega,2015-11-02,2015-11-09,4
+21,9,Alexa PenaVega,Alexa PenaVega,2015-11-09,2015-11-16,6
+21,10,Alexa PenaVega,Alexa PenaVega,2015-11-16,2015-11-23,2
+21,11,Alexa PenaVega,Alexa PenaVega,2015-11-23,2015-11-30,0
+21,1,Andy Grammer,Andy Grammer,2015-09-14,2015-09-21,14
+21,2,Andy Grammer,Andy Grammer,2015-09-21,2015-09-28,1
+21,3,Andy Grammer,Andy Grammer,2015-09-28,2015-10-05,10
+21,4,Andy Grammer,Andy Grammer,2015-10-05,2015-10-12,3
+21,5,Andy Grammer,Andy Grammer,2015-10-12,2015-10-19,2
+21,6,Andy Grammer,Andy Grammer,2015-10-19,2015-10-26,5
+21,7,Andy Grammer,Andy Grammer,2015-10-26,2015-11-02,1
+21,8,Andy Grammer,Andy Grammer,2015-11-02,2015-11-09,7
+21,9,Andy Grammer,Andy Grammer,2015-11-09,2015-11-16,0
+21,10,Andy Grammer,Andy Grammer,2015-11-16,2015-11-23,5
+21,11,Andy Grammer,Andy Grammer,2015-11-23,2015-11-30,0
+21,1,Bindi Irwin,Bindi Irwin,2015-09-14,2015-09-21,4
+21,2,Bindi Irwin,Bindi Irwin,2015-09-21,2015-09-28,16
+21,3,Bindi Irwin,Bindi Irwin,2015-09-28,2015-10-05,2
+21,4,Bindi Irwin,Bindi Irwin,2015-10-05,2015-10-12,14
+21,5,Bindi Irwin,Bindi Irwin,2015-10-12,2015-10-19,4
+21,6,Bindi Irwin,Bindi Irwin,2015-10-19,2015-10-26,8
+21,7,Bindi Irwin,Bindi Irwin,2015-10-26,2015-11-02,5
+21,8,Bindi Irwin,Bindi Irwin,2015-11-02,2015-11-09,15
+21,9,Bindi Irwin,Bindi Irwin,2015-11-09,2015-11-16,12
+21,10,Bindi Irwin,Bindi Irwin,2015-11-16,2015-11-23,7
+21,11,Bindi Irwin,Bindi Irwin,2015-11-23,2015-11-30,5
+21,1,Carlos PenaVega,Carlos PenaVega,2015-09-14,2015-09-21,12
+21,2,Carlos PenaVega,Carlos PenaVega,2015-09-21,2015-09-28,4
+21,3,Carlos PenaVega,Carlos PenaVega,2015-09-28,2015-10-05,3
+21,4,Carlos PenaVega,Carlos PenaVega,2015-10-05,2015-10-12,10
+21,5,Carlos PenaVega,Carlos PenaVega,2015-10-12,2015-10-19,0
+21,6,Carlos PenaVega,Carlos PenaVega,2015-10-19,2015-10-26,4
+21,7,Carlos PenaVega,Carlos PenaVega,2015-10-26,2015-11-02,4
+21,8,Carlos PenaVega,Carlos PenaVega,2015-11-02,2015-11-09,2
+21,9,Carlos PenaVega,Carlos PenaVega,2015-11-09,2015-11-16,7
+21,10,Carlos PenaVega,Carlos PenaVega,2015-11-16,2015-11-23,8
+21,11,Carlos PenaVega,Carlos PenaVega,2015-11-23,2015-11-30,1
+21,1,Chaka Khan,Chaka Khan,2015-09-14,2015-09-21,5
+21,2,Chaka Khan,Chaka Khan,2015-09-21,2015-09-28,1
+21,3,Chaka Khan,Chaka Khan,2015-09-28,2015-10-05,0
+21,4,Chaka Khan,Chaka Khan,2015-10-05,2015-10-12,6
+21,5,Chaka Khan,Chaka Khan,2015-10-12,2015-10-19,2
+21,6,Chaka Khan,Chaka Khan,2015-10-19,2015-10-26,0
+21,7,Chaka Khan,Chaka Khan,2015-10-26,2015-11-02,5
+21,8,Chaka Khan,Chaka Khan,2015-11-02,2015-11-09,1
+21,9,Chaka Khan,Chaka Khan,2015-11-09,2015-11-16,5
+21,10,Chaka Khan,Chaka Khan,2015-11-16,2015-11-23,1
+21,11,Chaka Khan,Chaka Khan,2015-11-23,2015-11-30,0
+21,1,Gary Busey,Gary Busey,2015-09-14,2015-09-21,11
+21,2,Gary Busey,Gary Busey,2015-09-21,2015-09-28,0
+21,3,Gary Busey,Gary Busey,2015-09-28,2015-10-05,0
+21,4,Gary Busey,Gary Busey,2015-10-05,2015-10-12,4
+21,5,Gary Busey,Gary Busey,2015-10-12,2015-10-19,1
+21,6,Gary Busey,Gary Busey,2015-10-19,2015-10-26,1
+21,7,Gary Busey,Gary Busey,2015-10-26,2015-11-02,1
+21,8,Gary Busey,Gary Busey,2015-11-02,2015-11-09,1
+21,9,Gary Busey,Gary Busey,2015-11-09,2015-11-16,0
+21,10,Gary Busey,Gary Busey,2015-11-16,2015-11-23,0
+21,11,Gary Busey,Gary Busey,2015-11-23,2015-11-30,1
+21,1,Hayes Grier,Hayes Grier,2015-09-14,2015-09-21,21
+21,2,Hayes Grier,Hayes Grier,2015-09-21,2015-09-28,16
+21,3,Hayes Grier,Hayes Grier,2015-09-28,2015-10-05,17
+21,4,Hayes Grier,Hayes Grier,2015-10-05,2015-10-12,6
+21,5,Hayes Grier,Hayes Grier,2015-10-12,2015-10-19,2
+21,6,Hayes Grier,Hayes Grier,2015-10-19,2015-10-26,0
+21,7,Hayes Grier,Hayes Grier,2015-10-26,2015-11-02,1
+21,8,Hayes Grier,Hayes Grier,2015-11-02,2015-11-09,3
+21,9,Hayes Grier,Hayes Grier,2015-11-09,2015-11-16,15
+21,10,Hayes Grier,Hayes Grier,2015-11-16,2015-11-23,7
+21,11,Hayes Grier,Hayes Grier,2015-11-23,2015-11-30,0
+21,1,Kim Zolciak-Biermann,Kim Zolciak,2015-09-14,2015-09-21,6
+21,2,Kim Zolciak-Biermann,Kim Zolciak,2015-09-21,2015-09-28,0
+21,3,Kim Zolciak-Biermann,Kim Zolciak,2015-09-28,2015-10-05,22
+21,4,Kim Zolciak-Biermann,Kim Zolciak,2015-10-05,2015-10-12,2
+21,5,Kim Zolciak-Biermann,Kim Zolciak,2015-10-12,2015-10-19,2
+21,6,Kim Zolciak-Biermann,Kim Zolciak,2015-10-19,2015-10-26,0
+21,7,Kim Zolciak-Biermann,Kim Zolciak,2015-10-26,2015-11-02,3
+21,8,Kim Zolciak-Biermann,Kim Zolciak,2015-11-02,2015-11-09,2
+21,9,Kim Zolciak-Biermann,Kim Zolciak,2015-11-09,2015-11-16,41
+21,10,Kim Zolciak-Biermann,Kim Zolciak,2015-11-16,2015-11-23,2
+21,11,Kim Zolciak-Biermann,Kim Zolciak,2015-11-23,2015-11-30,2
+21,1,Nick Carter,Nick Carter,2015-09-14,2015-09-21,4
+21,2,Nick Carter,Nick Carter,2015-09-21,2015-09-28,3
+21,3,Nick Carter,Nick Carter,2015-09-28,2015-10-05,6
+21,4,Nick Carter,Nick Carter,2015-10-05,2015-10-12,1
+21,5,Nick Carter,Nick Carter,2015-10-12,2015-10-19,5
+21,6,Nick Carter,Nick Carter,2015-10-19,2015-10-26,4
+21,7,Nick Carter,Nick Carter,2015-10-26,2015-11-02,12
+21,8,Nick Carter,Nick Carter,2015-11-02,2015-11-09,9
+21,9,Nick Carter,Nick Carter,2015-11-09,2015-11-16,4
+21,10,Nick Carter,Nick Carter,2015-11-16,2015-11-23,7
+21,11,Nick Carter,Nick Carter,2015-11-23,2015-11-30,6
+21,1,Paula Deen,Paula Deen,2015-09-14,2015-09-21,5
+21,2,Paula Deen,Paula Deen,2015-09-21,2015-09-28,6
+21,3,Paula Deen,Paula Deen,2015-09-28,2015-10-05,5
+21,4,Paula Deen,Paula Deen,2015-10-05,2015-10-12,1
+21,5,Paula Deen,Paula Deen,2015-10-12,2015-10-19,3
+21,6,Paula Deen,Paula Deen,2015-10-19,2015-10-26,6
+21,7,Paula Deen,Paula Deen,2015-10-26,2015-11-02,0
+21,8,Paula Deen,Paula Deen,2015-11-02,2015-11-09,3
+21,9,Paula Deen,Paula Deen,2015-11-09,2015-11-16,5
+21,10,Paula Deen,Paula Deen,2015-11-16,2015-11-23,4
+21,11,Paula Deen,Paula Deen,2015-11-23,2015-11-30,0
+21,1,Tamar Braxton,Tamar Braxton,2015-09-14,2015-09-21,14
+21,2,Tamar Braxton,Tamar Braxton,2015-09-21,2015-09-28,11
+21,3,Tamar Braxton,Tamar Braxton,2015-09-28,2015-10-05,8
+21,4,Tamar Braxton,Tamar Braxton,2015-10-05,2015-10-12,11
+21,5,Tamar Braxton,Tamar Braxton,2015-10-12,2015-10-19,3
+21,6,Tamar Braxton,Tamar Braxton,2015-10-19,2015-10-26,0
+21,7,Tamar Braxton,Tamar Braxton,2015-10-26,2015-11-02,5
+21,8,Tamar Braxton,Tamar Braxton,2015-11-02,2015-11-09,2
+21,9,Tamar Braxton,Tamar Braxton,2015-11-09,2015-11-16,8
+21,10,Tamar Braxton,Tamar Braxton,2015-11-16,2015-11-23,13
+21,11,Tamar Braxton,Tamar Braxton,2015-11-23,2015-11-30,1
+21,1,Victor Espinoza,Victor Espinoza,2015-09-14,2015-09-21,0
+21,2,Victor Espinoza,Victor Espinoza,2015-09-21,2015-09-28,4
+21,3,Victor Espinoza,Victor Espinoza,2015-09-28,2015-10-05,1
+21,4,Victor Espinoza,Victor Espinoza,2015-10-05,2015-10-12,2
+21,5,Victor Espinoza,Victor Espinoza,2015-10-12,2015-10-19,0
+21,6,Victor Espinoza,Victor Espinoza,2015-10-19,2015-10-26,0
+21,7,Victor Espinoza,Victor Espinoza,2015-10-26,2015-11-02,1
+21,8,Victor Espinoza,Victor Espinoza,2015-11-02,2015-11-09,1
+21,9,Victor Espinoza,Victor Espinoza,2015-11-09,2015-11-16,0
+21,10,Victor Espinoza,Victor Espinoza,2015-11-16,2015-11-23,0
+21,11,Victor Espinoza,Victor Espinoza,2015-11-23,2015-11-30,0
+22,1,Antonio Brown,Antonio Brown,2016-03-21,2016-03-28,10
+22,2,Antonio Brown,Antonio Brown,2016-03-28,2016-04-04,16
+22,3,Antonio Brown,Antonio Brown,2016-04-04,2016-04-11,12
+22,4,Antonio Brown,Antonio Brown,2016-04-11,2016-04-18,14
+22,5,Antonio Brown,Antonio Brown,2016-04-18,2016-04-25,10
+22,6,Antonio Brown,Antonio Brown,2016-04-25,2016-05-02,7
+22,7,Antonio Brown,Antonio Brown,2016-05-02,2016-05-09,27
+22,8,Antonio Brown,Antonio Brown,2016-05-09,2016-05-16,6
+22,9,Antonio Brown,Antonio Brown,2016-05-16,2016-05-23,28
+22,10,Antonio Brown,Antonio Brown,2016-05-23,2016-05-30,0
+22,1,Doug Flutie,Doug Flutie,2016-03-21,2016-03-28,3
+22,2,Doug Flutie,Doug Flutie,2016-03-28,2016-04-04,3
+22,3,Doug Flutie,Doug Flutie,2016-04-04,2016-04-11,0
+22,4,Doug Flutie,Doug Flutie,2016-04-11,2016-04-18,2
+22,5,Doug Flutie,Doug Flutie,2016-04-18,2016-04-25,5
+22,6,Doug Flutie,Doug Flutie,2016-04-25,2016-05-02,8
+22,7,Doug Flutie,Doug Flutie,2016-05-02,2016-05-09,0
+22,8,Doug Flutie,Doug Flutie,2016-05-09,2016-05-16,1
+22,9,Doug Flutie,Doug Flutie,2016-05-16,2016-05-23,0
+22,10,Doug Flutie,Doug Flutie,2016-05-23,2016-05-30,0
+22,1,Geraldo Rivera,Geraldo Rivera,2016-03-21,2016-03-28,5
+22,2,Geraldo Rivera,Geraldo Rivera,2016-03-28,2016-04-04,9
+22,3,Geraldo Rivera,Geraldo Rivera,2016-04-04,2016-04-11,3
+22,4,Geraldo Rivera,Geraldo Rivera,2016-04-11,2016-04-18,1
+22,5,Geraldo Rivera,Geraldo Rivera,2016-04-18,2016-04-25,0
+22,6,Geraldo Rivera,Geraldo Rivera,2016-04-25,2016-05-02,4
+22,7,Geraldo Rivera,Geraldo Rivera,2016-05-02,2016-05-09,0
+22,8,Geraldo Rivera,Geraldo Rivera,2016-05-09,2016-05-16,2
+22,9,Geraldo Rivera,Geraldo Rivera,2016-05-16,2016-05-23,3
+22,10,Geraldo Rivera,Geraldo Rivera,2016-05-23,2016-05-30,0
+22,1,Ginger Zee,Ginger Zee,2016-03-21,2016-03-28,1
+22,2,Ginger Zee,Ginger Zee,2016-03-28,2016-04-04,2
+22,3,Ginger Zee,Ginger Zee,2016-04-04,2016-04-11,1
+22,4,Ginger Zee,Ginger Zee,2016-04-11,2016-04-18,0
+22,5,Ginger Zee,Ginger Zee,2016-04-18,2016-04-25,1
+22,6,Ginger Zee,Ginger Zee,2016-04-25,2016-05-02,1
+22,7,Ginger Zee,Ginger Zee,2016-05-02,2016-05-09,0
+22,8,Ginger Zee,Ginger Zee,2016-05-09,2016-05-16,0
+22,9,Ginger Zee,Ginger Zee,2016-05-16,2016-05-23,5
+22,10,Ginger Zee,Ginger Zee,2016-05-23,2016-05-30,0
+22,1,Jodie Sweetin,Jodie Sweetin,2016-03-21,2016-03-28,3
+22,2,Jodie Sweetin,Jodie Sweetin,2016-03-28,2016-04-04,0
+22,3,Jodie Sweetin,Jodie Sweetin,2016-04-04,2016-04-11,6
+22,4,Jodie Sweetin,Jodie Sweetin,2016-04-11,2016-04-18,9
+22,5,Jodie Sweetin,Jodie Sweetin,2016-04-18,2016-04-25,0
+22,6,Jodie Sweetin,Jodie Sweetin,2016-04-25,2016-05-02,1
+22,7,Jodie Sweetin,Jodie Sweetin,2016-05-02,2016-05-09,2
+22,8,Jodie Sweetin,Jodie Sweetin,2016-05-09,2016-05-16,2
+22,9,Jodie Sweetin,Jodie Sweetin,2016-05-16,2016-05-23,0
+22,10,Jodie Sweetin,Jodie Sweetin,2016-05-23,2016-05-30,0
+22,1,Kim Fields,Kim Fields,2016-03-21,2016-03-28,6
+22,2,Kim Fields,Kim Fields,2016-03-28,2016-04-04,2
+22,3,Kim Fields,Kim Fields,2016-04-04,2016-04-11,0
+22,4,Kim Fields,Kim Fields,2016-04-11,2016-04-18,3
+22,5,Kim Fields,Kim Fields,2016-04-18,2016-04-25,18
+22,6,Kim Fields,Kim Fields,2016-04-25,2016-05-02,4
+22,7,Kim Fields,Kim Fields,2016-05-02,2016-05-09,1
+22,8,Kim Fields,Kim Fields,2016-05-09,2016-05-16,1
+22,9,Kim Fields,Kim Fields,2016-05-16,2016-05-23,0
+22,10,Kim Fields,Kim Fields,2016-05-23,2016-05-30,1
+22,1,Marla Maples,Marla Maples,2016-03-21,2016-03-28,11
+22,2,Marla Maples,Marla Maples,2016-03-28,2016-04-04,0
+22,3,Marla Maples,Marla Maples,2016-04-04,2016-04-11,3
+22,4,Marla Maples,Marla Maples,2016-04-11,2016-04-18,3
+22,5,Marla Maples,Marla Maples,2016-04-18,2016-04-25,1
+22,6,Marla Maples,Marla Maples,2016-04-25,2016-05-02,7
+22,7,Marla Maples,Marla Maples,2016-05-02,2016-05-09,4
+22,8,Marla Maples,Marla Maples,2016-05-09,2016-05-16,6
+22,9,Marla Maples,Marla Maples,2016-05-16,2016-05-23,4
+22,10,Marla Maples,Marla Maples,2016-05-23,2016-05-30,0
+22,1,Mischa Barton,Mischa Barton,2016-03-21,2016-03-28,1
+22,2,Mischa Barton,Mischa Barton,2016-03-28,2016-04-04,0
+22,3,Mischa Barton,Mischa Barton,2016-04-04,2016-04-11,1
+22,4,Mischa Barton,Mischa Barton,2016-04-11,2016-04-18,0
+22,5,Mischa Barton,Mischa Barton,2016-04-18,2016-04-25,0
+22,6,Mischa Barton,Mischa Barton,2016-04-25,2016-05-02,0
+22,7,Mischa Barton,Mischa Barton,2016-05-02,2016-05-09,0
+22,8,Mischa Barton,Mischa Barton,2016-05-09,2016-05-16,0
+22,9,Mischa Barton,Mischa Barton,2016-05-16,2016-05-23,0
+22,10,Mischa Barton,Mischa Barton,2016-05-23,2016-05-30,0
+22,1,Nyle DiMarco,Nyle DiMarco,2016-03-21,2016-03-28,10
+22,2,Nyle DiMarco,Nyle DiMarco,2016-03-28,2016-04-04,8
+22,3,Nyle DiMarco,Nyle DiMarco,2016-04-04,2016-04-11,7
+22,4,Nyle DiMarco,Nyle DiMarco,2016-04-11,2016-04-18,16
+22,5,Nyle DiMarco,Nyle DiMarco,2016-04-18,2016-04-25,6
+22,6,Nyle DiMarco,Nyle DiMarco,2016-04-25,2016-05-02,6
+22,7,Nyle DiMarco,Nyle DiMarco,2016-05-02,2016-05-09,1
+22,8,Nyle DiMarco,Nyle DiMarco,2016-05-09,2016-05-16,0
+22,9,Nyle DiMarco,Nyle DiMarco,2016-05-16,2016-05-23,6
+22,10,Nyle DiMarco,Nyle DiMarco,2016-05-23,2016-05-30,6
+22,1,Paige VanZant,Paige VanZant,2016-03-21,2016-03-28,1
+22,2,Paige VanZant,Paige VanZant,2016-03-28,2016-04-04,2
+22,3,Paige VanZant,Paige VanZant,2016-04-04,2016-04-11,6
+22,4,Paige VanZant,Paige VanZant,2016-04-11,2016-04-18,0
+22,5,Paige VanZant,Paige VanZant,2016-04-18,2016-04-25,3
+22,6,Paige VanZant,Paige VanZant,2016-04-25,2016-05-02,0
+22,7,Paige VanZant,Paige VanZant,2016-05-02,2016-05-09,1
+22,8,Paige VanZant,Paige VanZant,2016-05-09,2016-05-16,1
+22,9,Paige VanZant,Paige VanZant,2016-05-16,2016-05-23,11
+22,10,Paige VanZant,Paige VanZant,2016-05-23,2016-05-30,3
+22,1,Von Miller,Von Miller,2016-03-21,2016-03-28,22
+22,2,Von Miller,Von Miller,2016-03-28,2016-04-04,10
+22,3,Von Miller,Von Miller,2016-04-04,2016-04-11,7
+22,4,Von Miller,Von Miller,2016-04-11,2016-04-18,19
+22,5,Von Miller,Von Miller,2016-04-18,2016-04-25,3
+22,6,Von Miller,Von Miller,2016-04-25,2016-05-02,25
+22,7,Von Miller,Von Miller,2016-05-02,2016-05-09,2
+22,8,Von Miller,Von Miller,2016-05-09,2016-05-16,21
+22,9,Von Miller,Von Miller,2016-05-16,2016-05-23,3
+22,10,Von Miller,Von Miller,2016-05-23,2016-05-30,2
+22,1,Wanya Morris,Wanya Morris,2016-03-21,2016-03-28,0
+22,2,Wanya Morris,Wanya Morris,2016-03-28,2016-04-04,1
+22,3,Wanya Morris,Wanya Morris,2016-04-04,2016-04-11,2
+22,4,Wanya Morris,Wanya Morris,2016-04-11,2016-04-18,0
+22,5,Wanya Morris,Wanya Morris,2016-04-18,2016-04-25,0
+22,6,Wanya Morris,Wanya Morris,2016-04-25,2016-05-02,0
+22,7,Wanya Morris,Wanya Morris,2016-05-02,2016-05-09,0
+22,8,Wanya Morris,Wanya Morris,2016-05-09,2016-05-16,0
+22,9,Wanya Morris,Wanya Morris,2016-05-16,2016-05-23,2
+22,10,Wanya Morris,Wanya Morris,2016-05-23,2016-05-30,0
+23,1,Amber Rose,Amber Rose,2016-09-12,2016-09-19,10
+23,2,Amber Rose,Amber Rose,2016-09-19,2016-09-26,11
+23,3,Amber Rose,Amber Rose,2016-09-26,2016-10-03,26
+23,4,Amber Rose,Amber Rose,2016-10-03,2016-10-10,14
+23,5,Amber Rose,Amber Rose,2016-10-10,2016-10-17,9
+23,6,Amber Rose,Amber Rose,2016-10-17,2016-10-24,9
+23,7,Amber Rose,Amber Rose,2016-10-24,2016-10-31,4
+23,8,Amber Rose,Amber Rose,2016-10-31,2016-11-07,7
+23,9,Amber Rose,Amber Rose,2016-11-07,2016-11-14,11
+23,10,Amber Rose,Amber Rose,2016-11-14,2016-11-21,7
+23,11,Amber Rose,Amber Rose,2016-11-21,2016-11-28,1
+23,1,Babyface,Babyface,2016-09-12,2016-09-19,3
+23,2,Babyface,Babyface,2016-09-19,2016-09-26,0
+23,3,Babyface,Babyface,2016-09-26,2016-10-03,0
+23,4,Babyface,Babyface,2016-10-03,2016-10-10,0
+23,5,Babyface,Babyface,2016-10-10,2016-10-17,0
+23,6,Babyface,Babyface,2016-10-17,2016-10-24,0
+23,7,Babyface,Babyface,2016-10-24,2016-10-31,0
+23,8,Babyface,Babyface,2016-10-31,2016-11-07,0
+23,9,Babyface,Babyface,2016-11-07,2016-11-14,0
+23,10,Babyface,Babyface,2016-11-14,2016-11-21,0
+23,11,Babyface,Babyface,2016-11-21,2016-11-28,0
+23,1,Calvin Johnson Jr.,Calvin Johnson,2016-09-12,2016-09-19,2
+23,2,Calvin Johnson Jr.,Calvin Johnson,2016-09-19,2016-09-26,2
+23,3,Calvin Johnson Jr.,Calvin Johnson,2016-09-26,2016-10-03,2
+23,4,Calvin Johnson Jr.,Calvin Johnson,2016-10-03,2016-10-10,9
+23,5,Calvin Johnson Jr.,Calvin Johnson,2016-10-10,2016-10-17,12
+23,6,Calvin Johnson Jr.,Calvin Johnson,2016-10-17,2016-10-24,8
+23,7,Calvin Johnson Jr.,Calvin Johnson,2016-10-24,2016-10-31,4
+23,8,Calvin Johnson Jr.,Calvin Johnson,2016-10-31,2016-11-07,16
+23,9,Calvin Johnson Jr.,Calvin Johnson,2016-11-07,2016-11-14,5
+23,10,Calvin Johnson Jr.,Calvin Johnson,2016-11-14,2016-11-21,3
+23,11,Calvin Johnson Jr.,Calvin Johnson,2016-11-21,2016-11-28,2
+23,1,Jake T. Austin,Jake T. Austin,2016-09-12,2016-09-19,0
+23,2,Jake T. Austin,Jake T. Austin,2016-09-19,2016-09-26,1
+23,3,Jake T. Austin,Jake T. Austin,2016-09-26,2016-10-03,0
+23,4,Jake T. Austin,Jake T. Austin,2016-10-03,2016-10-10,1
+23,5,Jake T. Austin,Jake T. Austin,2016-10-10,2016-10-17,0
+23,6,Jake T. Austin,Jake T. Austin,2016-10-17,2016-10-24,0
+23,7,Jake T. Austin,Jake T. Austin,2016-10-24,2016-10-31,0
+23,8,Jake T. Austin,Jake T. Austin,2016-10-31,2016-11-07,2
+23,9,Jake T. Austin,Jake T. Austin,2016-11-07,2016-11-14,1
+23,10,Jake T. Austin,Jake T. Austin,2016-11-14,2016-11-21,0
+23,11,Jake T. Austin,Jake T. Austin,2016-11-21,2016-11-28,0
+23,1,James Hinchcliffe,James Hinchcliffe,2016-09-12,2016-09-19,0
+23,2,James Hinchcliffe,James Hinchcliffe,2016-09-19,2016-09-26,3
+23,3,James Hinchcliffe,James Hinchcliffe,2016-09-26,2016-10-03,0
+23,4,James Hinchcliffe,James Hinchcliffe,2016-10-03,2016-10-10,1
+23,5,James Hinchcliffe,James Hinchcliffe,2016-10-10,2016-10-17,1
+23,6,James Hinchcliffe,James Hinchcliffe,2016-10-17,2016-10-24,7
+23,7,James Hinchcliffe,James Hinchcliffe,2016-10-24,2016-10-31,1
+23,8,James Hinchcliffe,James Hinchcliffe,2016-10-31,2016-11-07,0
+23,9,James Hinchcliffe,James Hinchcliffe,2016-11-07,2016-11-14,2
+23,10,James Hinchcliffe,James Hinchcliffe,2016-11-14,2016-11-21,1
+23,11,James Hinchcliffe,James Hinchcliffe,2016-11-21,2016-11-28,0
+23,1,Jana Kramer,Jana Kramer,2016-09-12,2016-09-19,3
+23,2,Jana Kramer,Jana Kramer,2016-09-19,2016-09-26,2
+23,3,Jana Kramer,Jana Kramer,2016-09-26,2016-10-03,1
+23,4,Jana Kramer,Jana Kramer,2016-10-03,2016-10-10,11
+23,5,Jana Kramer,Jana Kramer,2016-10-10,2016-10-17,11
+23,6,Jana Kramer,Jana Kramer,2016-10-17,2016-10-24,5
+23,7,Jana Kramer,Jana Kramer,2016-10-24,2016-10-31,6
+23,8,Jana Kramer,Jana Kramer,2016-10-31,2016-11-07,6
+23,9,Jana Kramer,Jana Kramer,2016-11-07,2016-11-14,3
+23,10,Jana Kramer,Jana Kramer,2016-11-14,2016-11-21,1
+23,11,Jana Kramer,Jana Kramer,2016-11-21,2016-11-28,6
+23,1,Laurie Hernandez,Laurie Hernandez,2016-09-12,2016-09-19,8
+23,2,Laurie Hernandez,Laurie Hernandez,2016-09-19,2016-09-26,5
+23,3,Laurie Hernandez,Laurie Hernandez,2016-09-26,2016-10-03,8
+23,4,Laurie Hernandez,Laurie Hernandez,2016-10-03,2016-10-10,5
+23,5,Laurie Hernandez,Laurie Hernandez,2016-10-10,2016-10-17,4
+23,6,Laurie Hernandez,Laurie Hernandez,2016-10-17,2016-10-24,2
+23,7,Laurie Hernandez,Laurie Hernandez,2016-10-24,2016-10-31,9
+23,8,Laurie Hernandez,Laurie Hernandez,2016-10-31,2016-11-07,25
+23,9,Laurie Hernandez,Laurie Hernandez,2016-11-07,2016-11-14,7
+23,10,Laurie Hernandez,Laurie Hernandez,2016-11-14,2016-11-21,11
+23,11,Laurie Hernandez,Laurie Hernandez,2016-11-21,2016-11-28,10
+23,1,Marilu Henner,Marilu Henner,2016-09-12,2016-09-19,0
+23,2,Marilu Henner,Marilu Henner,2016-09-19,2016-09-26,0
+23,3,Marilu Henner,Marilu Henner,2016-09-26,2016-10-03,1
+23,4,Marilu Henner,Marilu Henner,2016-10-03,2016-10-10,6
+23,5,Marilu Henner,Marilu Henner,2016-10-10,2016-10-17,1
+23,6,Marilu Henner,Marilu Henner,2016-10-17,2016-10-24,0
+23,7,Marilu Henner,Marilu Henner,2016-10-24,2016-10-31,0
+23,8,Marilu Henner,Marilu Henner,2016-10-31,2016-11-07,4
+23,9,Marilu Henner,Marilu Henner,2016-11-07,2016-11-14,1
+23,10,Marilu Henner,Marilu Henner,2016-11-14,2016-11-21,0
+23,11,Marilu Henner,Marilu Henner,2016-11-21,2016-11-28,0
+23,1,Maureen McCormick,Maureen McCormick,2016-09-12,2016-09-19,0
+23,2,Maureen McCormick,Maureen McCormick,2016-09-19,2016-09-26,1
+23,3,Maureen McCormick,Maureen McCormick,2016-09-26,2016-10-03,0
+23,4,Maureen McCormick,Maureen McCormick,2016-10-03,2016-10-10,2
+23,5,Maureen McCormick,Maureen McCormick,2016-10-10,2016-10-17,1
+23,6,Maureen McCormick,Maureen McCormick,2016-10-17,2016-10-24,0
+23,7,Maureen McCormick,Maureen McCormick,2016-10-24,2016-10-31,1
+23,8,Maureen McCormick,Maureen McCormick,2016-10-31,2016-11-07,4
+23,9,Maureen McCormick,Maureen McCormick,2016-11-07,2016-11-14,3
+23,10,Maureen McCormick,Maureen McCormick,2016-11-14,2016-11-21,0
+23,11,Maureen McCormick,Maureen McCormick,2016-11-21,2016-11-28,0
+23,1,Rick Perry,Rick Perry,2016-09-12,2016-09-19,16
+23,2,Rick Perry,Rick Perry,2016-09-19,2016-09-26,5
+23,3,Rick Perry,Rick Perry,2016-09-26,2016-10-03,1
+23,4,Rick Perry,Rick Perry,2016-10-03,2016-10-10,5
+23,5,Rick Perry,Rick Perry,2016-10-10,2016-10-17,8
+23,6,Rick Perry,Rick Perry,2016-10-17,2016-10-24,0
+23,7,Rick Perry,Rick Perry,2016-10-24,2016-10-31,3
+23,8,Rick Perry,Rick Perry,2016-10-31,2016-11-07,4
+23,9,Rick Perry,Rick Perry,2016-11-07,2016-11-14,4
+23,10,Rick Perry,Rick Perry,2016-11-14,2016-11-21,14
+23,11,Rick Perry,Rick Perry,2016-11-21,2016-11-28,1
+23,1,Ryan Lochte,Ryan Lochte,2016-09-12,2016-09-19,18
+23,2,Ryan Lochte,Ryan Lochte,2016-09-19,2016-09-26,2
+23,3,Ryan Lochte,Ryan Lochte,2016-09-26,2016-10-03,0
+23,4,Ryan Lochte,Ryan Lochte,2016-10-03,2016-10-10,9
+23,5,Ryan Lochte,Ryan Lochte,2016-10-10,2016-10-17,7
+23,6,Ryan Lochte,Ryan Lochte,2016-10-17,2016-10-24,6
+23,7,Ryan Lochte,Ryan Lochte,2016-10-24,2016-10-31,2
+23,8,Ryan Lochte,Ryan Lochte,2016-10-31,2016-11-07,6
+23,9,Ryan Lochte,Ryan Lochte,2016-11-07,2016-11-14,0
+23,10,Ryan Lochte,Ryan Lochte,2016-11-14,2016-11-21,5
+23,11,Ryan Lochte,Ryan Lochte,2016-11-21,2016-11-28,1
+23,1,Terra Jole,Terra Jolé,2016-09-12,2016-09-19,0
+23,2,Terra Jole,Terra Jolé,2016-09-19,2016-09-26,0
+23,3,Terra Jole,Terra Jolé,2016-09-26,2016-10-03,0
+23,4,Terra Jole,Terra Jolé,2016-10-03,2016-10-10,0
+23,5,Terra Jole,Terra Jolé,2016-10-10,2016-10-17,0
+23,6,Terra Jole,Terra Jolé,2016-10-17,2016-10-24,7
+23,7,Terra Jole,Terra Jolé,2016-10-24,2016-10-31,3
+23,8,Terra Jole,Terra Jolé,2016-10-31,2016-11-07,8
+23,9,Terra Jole,Terra Jolé,2016-11-07,2016-11-14,2
+23,10,Terra Jole,Terra Jolé,2016-11-14,2016-11-21,1
+23,11,Terra Jole,Terra Jolé,2016-11-21,2016-11-28,0
+23,1,Vanilla Ice,Vanilla Ice,2016-09-12,2016-09-19,0
+23,2,Vanilla Ice,Vanilla Ice,2016-09-19,2016-09-26,0
+23,3,Vanilla Ice,Vanilla Ice,2016-09-26,2016-10-03,0
+23,4,Vanilla Ice,Vanilla Ice,2016-10-03,2016-10-10,8
+23,5,Vanilla Ice,Vanilla Ice,2016-10-10,2016-10-17,1
+23,6,Vanilla Ice,Vanilla Ice,2016-10-17,2016-10-24,12
+23,7,Vanilla Ice,Vanilla Ice,2016-10-24,2016-10-31,0
+23,8,Vanilla Ice,Vanilla Ice,2016-10-31,2016-11-07,1
+23,9,Vanilla Ice,Vanilla Ice,2016-11-07,2016-11-14,1
+23,10,Vanilla Ice,Vanilla Ice,2016-11-14,2016-11-21,2
+23,11,Vanilla Ice,Vanilla Ice,2016-11-21,2016-11-28,0
+24,1,Bonner Bolton,Bonner Bolton,2017-03-20,2017-03-27,12
+24,2,Bonner Bolton,Bonner Bolton,2017-03-27,2017-04-03,3
+24,3,Bonner Bolton,Bonner Bolton,2017-04-03,2017-04-10,2
+24,4,Bonner Bolton,Bonner Bolton,2017-04-10,2017-04-17,2
+24,5,Bonner Bolton,Bonner Bolton,2017-04-17,2017-04-24,3
+24,6,Bonner Bolton,Bonner Bolton,2017-04-24,2017-05-01,0
+24,7,Bonner Bolton,Bonner Bolton,2017-05-01,2017-05-08,0
+24,8,Bonner Bolton,Bonner Bolton,2017-05-08,2017-05-15,1
+24,9,Bonner Bolton,Bonner Bolton,2017-05-15,2017-05-22,0
+24,10,Bonner Bolton,Bonner Bolton,2017-05-22,2017-05-29,0
+24,1,Charo,Charo,2017-03-20,2017-03-27,16
+24,2,Charo,Charo,2017-03-27,2017-04-03,12
+24,3,Charo,Charo,2017-04-03,2017-04-10,8
+24,4,Charo,Charo,2017-04-10,2017-04-17,2
+24,5,Charo,Charo,2017-04-17,2017-04-24,3
+24,6,Charo,Charo,2017-04-24,2017-05-01,10
+24,7,Charo,Charo,2017-05-01,2017-05-08,12
+24,8,Charo,Charo,2017-05-08,2017-05-15,1
+24,9,Charo,Charo,2017-05-15,2017-05-22,1
+24,10,Charo,Charo,2017-05-22,2017-05-29,0
+24,1,Chris Kattan,Chris Kattan,2017-03-20,2017-03-27,6
+24,2,Chris Kattan,Chris Kattan,2017-03-27,2017-04-03,4
+24,3,Chris Kattan,Chris Kattan,2017-04-03,2017-04-10,0
+24,4,Chris Kattan,Chris Kattan,2017-04-10,2017-04-17,0
+24,5,Chris Kattan,Chris Kattan,2017-04-17,2017-04-24,6
+24,6,Chris Kattan,Chris Kattan,2017-04-24,2017-05-01,0
+24,7,Chris Kattan,Chris Kattan,2017-05-01,2017-05-08,2
+24,8,Chris Kattan,Chris Kattan,2017-05-08,2017-05-15,0
+24,9,Chris Kattan,Chris Kattan,2017-05-15,2017-05-22,0
+24,10,Chris Kattan,Chris Kattan,2017-05-22,2017-05-29,0
+24,1,David Ross,David Ross,2017-03-20,2017-03-27,0
+24,2,David Ross,David Ross,2017-03-27,2017-04-03,0
+24,3,David Ross,David Ross,2017-04-03,2017-04-10,0
+24,4,David Ross,David Ross,2017-04-10,2017-04-17,0
+24,5,David Ross,David Ross,2017-04-17,2017-04-24,2
+24,6,David Ross,David Ross,2017-04-24,2017-05-01,0
+24,7,David Ross,David Ross,2017-05-01,2017-05-08,0
+24,8,David Ross,David Ross,2017-05-08,2017-05-15,0
+24,9,David Ross,David Ross,2017-05-15,2017-05-22,0
+24,10,David Ross,David Ross,2017-05-22,2017-05-29,0
+24,1,Erika Jayne,Erika Jayne,2017-03-20,2017-03-27,6
+24,2,Erika Jayne,Erika Jayne,2017-03-27,2017-04-03,2
+24,3,Erika Jayne,Erika Jayne,2017-04-03,2017-04-10,1
+24,4,Erika Jayne,Erika Jayne,2017-04-10,2017-04-17,6
+24,5,Erika Jayne,Erika Jayne,2017-04-17,2017-04-24,0
+24,6,Erika Jayne,Erika Jayne,2017-04-24,2017-05-01,16
+24,7,Erika Jayne,Erika Jayne,2017-05-01,2017-05-08,12
+24,8,Erika Jayne,Erika Jayne,2017-05-08,2017-05-15,6
+24,9,Erika Jayne,Erika Jayne,2017-05-15,2017-05-22,0
+24,10,Erika Jayne,Erika Jayne,2017-05-22,2017-05-29,0
+24,1,Heather Morris,Heather Morris,2017-03-20,2017-03-27,0
+24,2,Heather Morris,Heather Morris,2017-03-27,2017-04-03,9
+24,3,Heather Morris,Heather Morris,2017-04-03,2017-04-10,0
+24,4,Heather Morris,Heather Morris,2017-04-10,2017-04-17,1
+24,5,Heather Morris,Heather Morris,2017-04-17,2017-04-24,2
+24,6,Heather Morris,Heather Morris,2017-04-24,2017-05-01,15
+24,7,Heather Morris,Heather Morris,2017-05-01,2017-05-08,2
+24,8,Heather Morris,Heather Morris,2017-05-08,2017-05-15,4
+24,9,Heather Morris,Heather Morris,2017-05-15,2017-05-22,4
+24,10,Heather Morris,Heather Morris,2017-05-22,2017-05-29,0
+24,1,Mr. T,Mr. T,2017-03-20,2017-03-27,1
+24,2,Mr. T,Mr. T,2017-03-27,2017-04-03,2
+24,3,Mr. T,Mr. T,2017-04-03,2017-04-10,1
+24,4,Mr. T,Mr. T,2017-04-10,2017-04-17,4
+24,5,Mr. T,Mr. T,2017-04-17,2017-04-24,3
+24,6,Mr. T,Mr. T,2017-04-24,2017-05-01,0
+24,7,Mr. T,Mr. T,2017-05-01,2017-05-08,0
+24,8,Mr. T,Mr. T,2017-05-08,2017-05-15,0
+24,9,Mr. T,Mr. T,2017-05-15,2017-05-22,2
+24,10,Mr. T,Mr. T,2017-05-22,2017-05-29,0
+24,1,Nancy Kerrigan,Nancy Kerrigan,2017-03-20,2017-03-27,1
+24,2,Nancy Kerrigan,Nancy Kerrigan,2017-03-27,2017-04-03,0
+24,3,Nancy Kerrigan,Nancy Kerrigan,2017-04-03,2017-04-10,5
+24,4,Nancy Kerrigan,Nancy Kerrigan,2017-04-10,2017-04-17,1
+24,5,Nancy Kerrigan,Nancy Kerrigan,2017-04-17,2017-04-24,3
+24,6,Nancy Kerrigan,Nancy Kerrigan,2017-04-24,2017-05-01,3
+24,7,Nancy Kerrigan,Nancy Kerrigan,2017-05-01,2017-05-08,2
+24,8,Nancy Kerrigan,Nancy Kerrigan,2017-05-08,2017-05-15,0
+24,9,Nancy Kerrigan,Nancy Kerrigan,2017-05-15,2017-05-22,3
+24,10,Nancy Kerrigan,Nancy Kerrigan,2017-05-22,2017-05-29,0
+24,1,Nick Viall,Nick Viall,2017-03-20,2017-03-27,44
+24,2,Nick Viall,Nick Viall,2017-03-27,2017-04-03,3
+24,3,Nick Viall,Nick Viall,2017-04-03,2017-04-10,0
+24,4,Nick Viall,Nick Viall,2017-04-10,2017-04-17,6
+24,5,Nick Viall,Nick Viall,2017-04-17,2017-04-24,0
+24,6,Nick Viall,Nick Viall,2017-04-24,2017-05-01,1
+24,7,Nick Viall,Nick Viall,2017-05-01,2017-05-08,3
+24,8,Nick Viall,Nick Viall,2017-05-08,2017-05-15,1
+24,9,Nick Viall,Nick Viall,2017-05-15,2017-05-22,0
+24,10,Nick Viall,Nick Viall,2017-05-22,2017-05-29,1
+24,1,Normani,Normani,2017-03-20,2017-03-27,0
+24,2,Normani,Normani,2017-03-27,2017-04-03,0
+24,3,Normani,Normani,2017-04-03,2017-04-10,0
+24,4,Normani,Normani,2017-04-10,2017-04-17,0
+24,5,Normani,Normani,2017-04-17,2017-04-24,0
+24,6,Normani,Normani,2017-04-24,2017-05-01,0
+24,7,Normani,Normani,2017-05-01,2017-05-08,0
+24,8,Normani,Normani,2017-05-08,2017-05-15,0
+24,9,Normani,Normani,2017-05-15,2017-05-22,0
+24,10,Normani,Normani,2017-05-22,2017-05-29,0
+24,1,Rashad Jennings,Rashad Jennings,2017-03-20,2017-03-27,2
+24,2,Rashad Jennings,Rashad Jennings,2017-03-27,2017-04-03,12
+24,3,Rashad Jennings,Rashad Jennings,2017-04-03,2017-04-10,6
+24,4,Rashad Jennings,Rashad Jennings,2017-04-10,2017-04-17,0
+24,5,Rashad Jennings,Rashad Jennings,2017-04-17,2017-04-24,0
+24,6,Rashad Jennings,Rashad Jennings,2017-04-24,2017-05-01,0
+24,7,Rashad Jennings,Rashad Jennings,2017-05-01,2017-05-08,0
+24,8,Rashad Jennings,Rashad Jennings,2017-05-08,2017-05-15,0
+24,9,Rashad Jennings,Rashad Jennings,2017-05-15,2017-05-22,2
+24,10,Rashad Jennings,Rashad Jennings,2017-05-22,2017-05-29,4
+24,1,Simone Biles,Simone Biles,2017-03-20,2017-03-27,16
+24,2,Simone Biles,Simone Biles,2017-03-27,2017-04-03,5
+24,3,Simone Biles,Simone Biles,2017-04-03,2017-04-10,12
+24,4,Simone Biles,Simone Biles,2017-04-10,2017-04-17,4
+24,5,Simone Biles,Simone Biles,2017-04-17,2017-04-24,5
+24,6,Simone Biles,Simone Biles,2017-04-24,2017-05-01,0
+24,7,Simone Biles,Simone Biles,2017-05-01,2017-05-08,4
+24,8,Simone Biles,Simone Biles,2017-05-08,2017-05-15,12
+24,9,Simone Biles,Simone Biles,2017-05-15,2017-05-22,10
+24,10,Simone Biles,Simone Biles,2017-05-22,2017-05-29,0
+25,1,Barbara Corcoran,Barbara Corcoran,2017-09-18,2017-09-25,5
+25,2,Barbara Corcoran,Barbara Corcoran,2017-09-25,2017-10-02,10
+25,3,Barbara Corcoran,Barbara Corcoran,2017-10-02,2017-10-09,1
+25,4,Barbara Corcoran,Barbara Corcoran,2017-10-09,2017-10-16,0
+25,5,Barbara Corcoran,Barbara Corcoran,2017-10-16,2017-10-23,0
+25,6,Barbara Corcoran,Barbara Corcoran,2017-10-23,2017-10-30,0
+25,7,Barbara Corcoran,Barbara Corcoran,2017-10-30,2017-11-06,2
+25,8,Barbara Corcoran,Barbara Corcoran,2017-11-06,2017-11-13,0
+25,9,Barbara Corcoran,Barbara Corcoran,2017-11-13,2017-11-20,7
+25,10,Barbara Corcoran,Barbara Corcoran,2017-11-20,2017-11-27,1
+25,1,Debbie Gibson,Debbie Gibson,2017-09-18,2017-09-25,5
+25,2,Debbie Gibson,Debbie Gibson,2017-09-25,2017-10-02,3
+25,3,Debbie Gibson,Debbie Gibson,2017-10-02,2017-10-09,3
+25,4,Debbie Gibson,Debbie Gibson,2017-10-09,2017-10-16,2
+25,5,Debbie Gibson,Debbie Gibson,2017-10-16,2017-10-23,0
+25,6,Debbie Gibson,Debbie Gibson,2017-10-23,2017-10-30,0
+25,7,Debbie Gibson,Debbie Gibson,2017-10-30,2017-11-06,3
+25,8,Debbie Gibson,Debbie Gibson,2017-11-06,2017-11-13,0
+25,9,Debbie Gibson,Debbie Gibson,2017-11-13,2017-11-20,2
+25,10,Debbie Gibson,Debbie Gibson,2017-11-20,2017-11-27,1
+25,1,Derek Fisher,Derek Fisher,2017-09-18,2017-09-25,0
+25,2,Derek Fisher,Derek Fisher,2017-09-25,2017-10-02,1
+25,3,Derek Fisher,Derek Fisher,2017-10-02,2017-10-09,0
+25,4,Derek Fisher,Derek Fisher,2017-10-09,2017-10-16,2
+25,5,Derek Fisher,Derek Fisher,2017-10-16,2017-10-23,0
+25,6,Derek Fisher,Derek Fisher,2017-10-23,2017-10-30,1
+25,7,Derek Fisher,Derek Fisher,2017-10-30,2017-11-06,1
+25,8,Derek Fisher,Derek Fisher,2017-11-06,2017-11-13,0
+25,9,Derek Fisher,Derek Fisher,2017-11-13,2017-11-20,0
+25,10,Derek Fisher,Derek Fisher,2017-11-20,2017-11-27,0
+25,1,Drew Scott,Drew Scott,2017-09-18,2017-09-25,30
+25,2,Drew Scott,Drew Scott,2017-09-25,2017-10-02,19
+25,3,Drew Scott,Drew Scott,2017-10-02,2017-10-09,7
+25,4,Drew Scott,Drew Scott,2017-10-09,2017-10-16,14
+25,5,Drew Scott,Drew Scott,2017-10-16,2017-10-23,4
+25,6,Drew Scott,Drew Scott,2017-10-23,2017-10-30,3
+25,7,Drew Scott,Drew Scott,2017-10-30,2017-11-06,0
+25,8,Drew Scott,Drew Scott,2017-11-06,2017-11-13,5
+25,9,Drew Scott,Drew Scott,2017-11-13,2017-11-20,35
+25,10,Drew Scott,Drew Scott,2017-11-20,2017-11-27,6
+25,1,Frankie Muniz,Frankie Muniz,2017-09-18,2017-09-25,3
+25,2,Frankie Muniz,Frankie Muniz,2017-09-25,2017-10-02,6
+25,3,Frankie Muniz,Frankie Muniz,2017-10-02,2017-10-09,1
+25,4,Frankie Muniz,Frankie Muniz,2017-10-09,2017-10-16,20
+25,5,Frankie Muniz,Frankie Muniz,2017-10-16,2017-10-23,7
+25,6,Frankie Muniz,Frankie Muniz,2017-10-23,2017-10-30,1
+25,7,Frankie Muniz,Frankie Muniz,2017-10-30,2017-11-06,3
+25,8,Frankie Muniz,Frankie Muniz,2017-11-06,2017-11-13,2
+25,9,Frankie Muniz,Frankie Muniz,2017-11-13,2017-11-20,6
+25,10,Frankie Muniz,Frankie Muniz,2017-11-20,2017-11-27,4
+25,1,Jordan Fisher,Jordan Fisher,2017-09-18,2017-09-25,0
+25,2,Jordan Fisher,Jordan Fisher,2017-09-25,2017-10-02,0
+25,3,Jordan Fisher,Jordan Fisher,2017-10-02,2017-10-09,7
+25,4,Jordan Fisher,Jordan Fisher,2017-10-09,2017-10-16,4
+25,5,Jordan Fisher,Jordan Fisher,2017-10-16,2017-10-23,1
+25,6,Jordan Fisher,Jordan Fisher,2017-10-23,2017-10-30,4
+25,7,Jordan Fisher,Jordan Fisher,2017-10-30,2017-11-06,2
+25,8,Jordan Fisher,Jordan Fisher,2017-11-06,2017-11-13,0
+25,9,Jordan Fisher,Jordan Fisher,2017-11-13,2017-11-20,23
+25,10,Jordan Fisher,Jordan Fisher,2017-11-20,2017-11-27,0
+25,1,Lindsey Stirling,Lindsey Stirling,2017-09-18,2017-09-25,6
+25,2,Lindsey Stirling,Lindsey Stirling,2017-09-25,2017-10-02,6
+25,3,Lindsey Stirling,Lindsey Stirling,2017-10-02,2017-10-09,3
+25,4,Lindsey Stirling,Lindsey Stirling,2017-10-09,2017-10-16,2
+25,5,Lindsey Stirling,Lindsey Stirling,2017-10-16,2017-10-23,2
+25,6,Lindsey Stirling,Lindsey Stirling,2017-10-23,2017-10-30,0
+25,7,Lindsey Stirling,Lindsey Stirling,2017-10-30,2017-11-06,1
+25,8,Lindsey Stirling,Lindsey Stirling,2017-11-06,2017-11-13,5
+25,9,Lindsey Stirling,Lindsey Stirling,2017-11-13,2017-11-20,3
+25,10,Lindsey Stirling,Lindsey Stirling,2017-11-20,2017-11-27,3
+25,1,Nick Lachey,Nick Lachey,2017-09-18,2017-09-25,1
+25,2,Nick Lachey,Nick Lachey,2017-09-25,2017-10-02,0
+25,3,Nick Lachey,Nick Lachey,2017-10-02,2017-10-09,0
+25,4,Nick Lachey,Nick Lachey,2017-10-09,2017-10-16,0
+25,5,Nick Lachey,Nick Lachey,2017-10-16,2017-10-23,0
+25,6,Nick Lachey,Nick Lachey,2017-10-23,2017-10-30,0
+25,7,Nick Lachey,Nick Lachey,2017-10-30,2017-11-06,0
+25,8,Nick Lachey,Nick Lachey,2017-11-06,2017-11-13,3
+25,9,Nick Lachey,Nick Lachey,2017-11-13,2017-11-20,2
+25,10,Nick Lachey,Nick Lachey,2017-11-20,2017-11-27,0
+25,1,Nikki Bella,Nikki Bella,2017-09-18,2017-09-25,0
+25,2,Nikki Bella,Nikki Bella,2017-09-25,2017-10-02,0
+25,3,Nikki Bella,Nikki Bella,2017-10-02,2017-10-09,4
+25,4,Nikki Bella,Nikki Bella,2017-10-09,2017-10-16,4
+25,5,Nikki Bella,Nikki Bella,2017-10-16,2017-10-23,9
+25,6,Nikki Bella,Nikki Bella,2017-10-23,2017-10-30,2
+25,7,Nikki Bella,Nikki Bella,2017-10-30,2017-11-06,7
+25,8,Nikki Bella,Nikki Bella,2017-11-06,2017-11-13,1
+25,9,Nikki Bella,Nikki Bella,2017-11-13,2017-11-20,0
+25,10,Nikki Bella,Nikki Bella,2017-11-20,2017-11-27,0
+25,1,Sasha Pieterse,Sasha Pieterse,2017-09-18,2017-09-25,6
+25,2,Sasha Pieterse,Sasha Pieterse,2017-09-25,2017-10-02,11
+25,3,Sasha Pieterse,Sasha Pieterse,2017-10-02,2017-10-09,0
+25,4,Sasha Pieterse,Sasha Pieterse,2017-10-09,2017-10-16,1
+25,5,Sasha Pieterse,Sasha Pieterse,2017-10-16,2017-10-23,6
+25,6,Sasha Pieterse,Sasha Pieterse,2017-10-23,2017-10-30,4
+25,7,Sasha Pieterse,Sasha Pieterse,2017-10-30,2017-11-06,0
+25,8,Sasha Pieterse,Sasha Pieterse,2017-11-06,2017-11-13,1
+25,9,Sasha Pieterse,Sasha Pieterse,2017-11-13,2017-11-20,0
+25,10,Sasha Pieterse,Sasha Pieterse,2017-11-20,2017-11-27,2
+25,1,Terrell Owens,Terrell Owens,2017-09-18,2017-09-25,63
+25,2,Terrell Owens,Terrell Owens,2017-09-25,2017-10-02,75
+25,3,Terrell Owens,Terrell Owens,2017-10-02,2017-10-09,18
+25,4,Terrell Owens,Terrell Owens,2017-10-09,2017-10-16,89
+25,5,Terrell Owens,Terrell Owens,2017-10-16,2017-10-23,1
+25,6,Terrell Owens,Terrell Owens,2017-10-23,2017-10-30,0
+25,7,Terrell Owens,Terrell Owens,2017-10-30,2017-11-06,2
+25,8,Terrell Owens,Terrell Owens,2017-11-06,2017-11-13,0
+25,9,Terrell Owens,Terrell Owens,2017-11-13,2017-11-20,1
+25,10,Terrell Owens,Terrell Owens,2017-11-20,2017-11-27,0
+25,1,Vanessa Lachey,Vanessa Lachey,2017-09-18,2017-09-25,0
+25,2,Vanessa Lachey,Vanessa Lachey,2017-09-25,2017-10-02,1
+25,3,Vanessa Lachey,Vanessa Lachey,2017-10-02,2017-10-09,0
+25,4,Vanessa Lachey,Vanessa Lachey,2017-10-09,2017-10-16,0
+25,5,Vanessa Lachey,Vanessa Lachey,2017-10-16,2017-10-23,0
+25,6,Vanessa Lachey,Vanessa Lachey,2017-10-23,2017-10-30,0
+25,7,Vanessa Lachey,Vanessa Lachey,2017-10-30,2017-11-06,1
+25,8,Vanessa Lachey,Vanessa Lachey,2017-11-06,2017-11-13,1
+25,9,Vanessa Lachey,Vanessa Lachey,2017-11-13,2017-11-20,5
+25,10,Vanessa Lachey,Vanessa Lachey,2017-11-20,2017-11-27,0
+25,1,Victoria Arlen,Victoria Arlen,2017-09-18,2017-09-25,6
+25,2,Victoria Arlen,Victoria Arlen,2017-09-25,2017-10-02,1
+25,3,Victoria Arlen,Victoria Arlen,2017-10-02,2017-10-09,0
+25,4,Victoria Arlen,Victoria Arlen,2017-10-09,2017-10-16,0
+25,5,Victoria Arlen,Victoria Arlen,2017-10-16,2017-10-23,0
+25,6,Victoria Arlen,Victoria Arlen,2017-10-23,2017-10-30,0
+25,7,Victoria Arlen,Victoria Arlen,2017-10-30,2017-11-06,0
+25,8,Victoria Arlen,Victoria Arlen,2017-11-06,2017-11-13,1
+25,9,Victoria Arlen,Victoria Arlen,2017-11-13,2017-11-20,1
+25,10,Victoria Arlen,Victoria Arlen,2017-11-20,2017-11-27,0
+26,1,Adam Rippon,Adam Rippon,2018-04-30,2018-05-07,0
+26,2,Adam Rippon,Adam Rippon,2018-05-07,2018-05-14,1
+26,3,Adam Rippon,Adam Rippon,2018-05-14,2018-05-21,0
+26,4,Adam Rippon,Adam Rippon,2018-05-21,2018-05-28,0
+26,1,Arike Ogunbowale,Arike Ogunbowale,2018-04-30,2018-05-07,2
+26,2,Arike Ogunbowale,Arike Ogunbowale,2018-05-07,2018-05-14,1
+26,3,Arike Ogunbowale,Arike Ogunbowale,2018-05-14,2018-05-21,0
+26,4,Arike Ogunbowale,Arike Ogunbowale,2018-05-21,2018-05-28,0
+26,1,Chris Mazdzer,Chris Mazdzer,2018-04-30,2018-05-07,0
+26,2,Chris Mazdzer,Chris Mazdzer,2018-05-07,2018-05-14,0
+26,3,Chris Mazdzer,Chris Mazdzer,2018-05-14,2018-05-21,0
+26,4,Chris Mazdzer,Chris Mazdzer,2018-05-21,2018-05-28,0
+26,1,Jamie Anderson,Jamie Anderson,2018-04-30,2018-05-07,0
+26,2,Jamie Anderson,Jamie Anderson,2018-05-07,2018-05-14,0
+26,3,Jamie Anderson,Jamie Anderson,2018-05-14,2018-05-21,0
+26,4,Jamie Anderson,Jamie Anderson,2018-05-21,2018-05-28,0
+26,1,Jennie Finch Daigle,Jennie Finch,2018-04-30,2018-05-07,0
+26,2,Jennie Finch Daigle,Jennie Finch,2018-05-07,2018-05-14,0
+26,3,Jennie Finch Daigle,Jennie Finch,2018-05-14,2018-05-21,0
+26,4,Jennie Finch Daigle,Jennie Finch,2018-05-21,2018-05-28,0
+26,1,Johnny Damon,Johnny Damon,2018-04-30,2018-05-07,1
+26,2,Johnny Damon,Johnny Damon,2018-05-07,2018-05-14,0
+26,3,Johnny Damon,Johnny Damon,2018-05-14,2018-05-21,0
+26,4,Johnny Damon,Johnny Damon,2018-05-21,2018-05-28,0
+26,1,Josh Norman,Josh Norman,2018-04-30,2018-05-07,8
+26,2,Josh Norman,Josh Norman,2018-05-07,2018-05-14,0
+26,3,Josh Norman,Josh Norman,2018-05-14,2018-05-21,1
+26,4,Josh Norman,Josh Norman,2018-05-21,2018-05-28,0
+26,1,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,2018-04-30,2018-05-07,55
+26,2,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,2018-05-07,2018-05-14,0
+26,3,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,2018-05-14,2018-05-21,2
+26,4,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,2018-05-21,2018-05-28,12
+26,1,Mirai Nagasu,Mirai Nagasu,2018-04-30,2018-05-07,0
+26,2,Mirai Nagasu,Mirai Nagasu,2018-05-07,2018-05-14,0
+26,3,Mirai Nagasu,Mirai Nagasu,2018-05-14,2018-05-21,1
+26,4,Mirai Nagasu,Mirai Nagasu,2018-05-21,2018-05-28,0
+26,1,Tonya Harding,Tonya Harding,2018-04-30,2018-05-07,7
+26,2,Tonya Harding,Tonya Harding,2018-05-07,2018-05-14,4
+26,3,Tonya Harding,Tonya Harding,2018-05-14,2018-05-21,2
+26,4,Tonya Harding,Tonya Harding,2018-05-21,2018-05-28,0
+27,1,Alexis Ren,Alexis Ren,2018-09-24,2018-10-01,5
+27,2,Alexis Ren,Alexis Ren,2018-10-01,2018-10-08,5
+27,3,Alexis Ren,Alexis Ren,2018-10-08,2018-10-15,6
+27,4,Alexis Ren,Alexis Ren,2018-10-15,2018-10-22,5
+27,5,Alexis Ren,Alexis Ren,2018-10-22,2018-10-29,2
+27,6,Alexis Ren,Alexis Ren,2018-10-29,2018-11-05,0
+27,7,Alexis Ren,Alexis Ren,2018-11-05,2018-11-12,10
+27,8,Alexis Ren,Alexis Ren,2018-11-12,2018-11-19,7
+27,9,Alexis Ren,Alexis Ren,2018-11-19,2018-11-26,0
+27,1,Bobby Bones,Bobby Bones,2018-09-24,2018-10-01,3
+27,2,Bobby Bones,Bobby Bones,2018-10-01,2018-10-08,0
+27,3,Bobby Bones,Bobby Bones,2018-10-08,2018-10-15,2
+27,4,Bobby Bones,Bobby Bones,2018-10-15,2018-10-22,2
+27,5,Bobby Bones,Bobby Bones,2018-10-22,2018-10-29,1
+27,6,Bobby Bones,Bobby Bones,2018-10-29,2018-11-05,0
+27,7,Bobby Bones,Bobby Bones,2018-11-05,2018-11-12,8
+27,8,Bobby Bones,Bobby Bones,2018-11-12,2018-11-19,1
+27,9,Bobby Bones,Bobby Bones,2018-11-19,2018-11-26,0
+27,1,Danelle Umstead,Danelle Umstead,2018-09-24,2018-10-01,3
+27,2,Danelle Umstead,Danelle Umstead,2018-10-01,2018-10-08,0
+27,3,Danelle Umstead,Danelle Umstead,2018-10-08,2018-10-15,0
+27,4,Danelle Umstead,Danelle Umstead,2018-10-15,2018-10-22,0
+27,5,Danelle Umstead,Danelle Umstead,2018-10-22,2018-10-29,0
+27,6,Danelle Umstead,Danelle Umstead,2018-10-29,2018-11-05,0
+27,7,Danelle Umstead,Danelle Umstead,2018-11-05,2018-11-12,0
+27,8,Danelle Umstead,Danelle Umstead,2018-11-12,2018-11-19,0
+27,9,Danelle Umstead,Danelle Umstead,2018-11-19,2018-11-26,0
+27,1,DeMarcus Ware,DeMarcus Ware,2018-09-24,2018-10-01,3
+27,2,DeMarcus Ware,DeMarcus Ware,2018-10-01,2018-10-08,1
+27,3,DeMarcus Ware,DeMarcus Ware,2018-10-08,2018-10-15,0
+27,4,DeMarcus Ware,DeMarcus Ware,2018-10-15,2018-10-22,0
+27,5,DeMarcus Ware,DeMarcus Ware,2018-10-22,2018-10-29,0
+27,6,DeMarcus Ware,DeMarcus Ware,2018-10-29,2018-11-05,0
+27,7,DeMarcus Ware,DeMarcus Ware,2018-11-05,2018-11-12,0
+27,8,DeMarcus Ware,DeMarcus Ware,2018-11-12,2018-11-19,0
+27,9,DeMarcus Ware,DeMarcus Ware,2018-11-19,2018-11-26,0
+27,1,Evanna Lynch,Evanna Lynch,2018-09-24,2018-10-01,1
+27,2,Evanna Lynch,Evanna Lynch,2018-10-01,2018-10-08,0
+27,3,Evanna Lynch,Evanna Lynch,2018-10-08,2018-10-15,4
+27,4,Evanna Lynch,Evanna Lynch,2018-10-15,2018-10-22,0
+27,5,Evanna Lynch,Evanna Lynch,2018-10-22,2018-10-29,0
+27,6,Evanna Lynch,Evanna Lynch,2018-10-29,2018-11-05,0
+27,7,Evanna Lynch,Evanna Lynch,2018-11-05,2018-11-12,2
+27,8,Evanna Lynch,Evanna Lynch,2018-11-12,2018-11-19,10
+27,9,Evanna Lynch,Evanna Lynch,2018-11-19,2018-11-26,0
+27,1,Joe Amabile,Joe Amabile,2018-09-24,2018-10-01,0
+27,2,Joe Amabile,Joe Amabile,2018-10-01,2018-10-08,0
+27,3,Joe Amabile,Joe Amabile,2018-10-08,2018-10-15,1
+27,4,Joe Amabile,Joe Amabile,2018-10-15,2018-10-22,0
+27,5,Joe Amabile,Joe Amabile,2018-10-22,2018-10-29,0
+27,6,Joe Amabile,Joe Amabile,2018-10-29,2018-11-05,0
+27,7,Joe Amabile,Joe Amabile,2018-11-05,2018-11-12,0
+27,8,Joe Amabile,Joe Amabile,2018-11-12,2018-11-19,0
+27,9,Joe Amabile,Joe Amabile,2018-11-19,2018-11-26,0
+27,1,John Schneider,John Schneider,2018-09-24,2018-10-01,0
+27,2,John Schneider,John Schneider,2018-10-01,2018-10-08,0
+27,3,John Schneider,John Schneider,2018-10-08,2018-10-15,0
+27,4,John Schneider,John Schneider,2018-10-15,2018-10-22,0
+27,5,John Schneider,John Schneider,2018-10-22,2018-10-29,0
+27,6,John Schneider,John Schneider,2018-10-29,2018-11-05,0
+27,7,John Schneider,John Schneider,2018-11-05,2018-11-12,0
+27,8,John Schneider,John Schneider,2018-11-12,2018-11-19,0
+27,9,John Schneider,John Schneider,2018-11-19,2018-11-26,0
+27,1,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-09-24,2018-10-01,1
+27,2,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-01,2018-10-08,9
+27,3,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-08,2018-10-15,4
+27,4,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-15,2018-10-22,0
+27,5,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-22,2018-10-29,0
+27,6,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-10-29,2018-11-05,4
+27,7,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-11-05,2018-11-12,1
+27,8,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-11-12,2018-11-19,3
+27,9,Juan Pablo Di Pace,Juan Pablo Di Pace,2018-11-19,2018-11-26,0
+27,1,Mary Lou Retton,Mary Lou Retton,2018-09-24,2018-10-01,10
+27,2,Mary Lou Retton,Mary Lou Retton,2018-10-01,2018-10-08,0
+27,3,Mary Lou Retton,Mary Lou Retton,2018-10-08,2018-10-15,4
+27,4,Mary Lou Retton,Mary Lou Retton,2018-10-15,2018-10-22,1
+27,5,Mary Lou Retton,Mary Lou Retton,2018-10-22,2018-10-29,0
+27,6,Mary Lou Retton,Mary Lou Retton,2018-10-29,2018-11-05,5
+27,7,Mary Lou Retton,Mary Lou Retton,2018-11-05,2018-11-12,0
+27,8,Mary Lou Retton,Mary Lou Retton,2018-11-12,2018-11-19,5
+27,9,Mary Lou Retton,Mary Lou Retton,2018-11-19,2018-11-26,0
+27,1,Milo Manheim,Milo Manheim,2018-09-24,2018-10-01,4
+27,2,Milo Manheim,Milo Manheim,2018-10-01,2018-10-08,0
+27,3,Milo Manheim,Milo Manheim,2018-10-08,2018-10-15,3
+27,4,Milo Manheim,Milo Manheim,2018-10-15,2018-10-22,5
+27,5,Milo Manheim,Milo Manheim,2018-10-22,2018-10-29,0
+27,6,Milo Manheim,Milo Manheim,2018-10-29,2018-11-05,8
+27,7,Milo Manheim,Milo Manheim,2018-11-05,2018-11-12,6
+27,8,Milo Manheim,Milo Manheim,2018-11-12,2018-11-19,10
+27,9,Milo Manheim,Milo Manheim,2018-11-19,2018-11-26,0
+27,1,Nancy McKeon,Nancy McKeon,2018-09-24,2018-10-01,2
+27,2,Nancy McKeon,Nancy McKeon,2018-10-01,2018-10-08,4
+27,3,Nancy McKeon,Nancy McKeon,2018-10-08,2018-10-15,5
+27,4,Nancy McKeon,Nancy McKeon,2018-10-15,2018-10-22,0
+27,5,Nancy McKeon,Nancy McKeon,2018-10-22,2018-10-29,3
+27,6,Nancy McKeon,Nancy McKeon,2018-10-29,2018-11-05,2
+27,7,Nancy McKeon,Nancy McKeon,2018-11-05,2018-11-12,0
+27,8,Nancy McKeon,Nancy McKeon,2018-11-12,2018-11-19,0
+27,9,Nancy McKeon,Nancy McKeon,2018-11-19,2018-11-26,0
+27,1,Nikki Glaser,Nikki Glaser,2018-09-24,2018-10-01,2
+27,2,Nikki Glaser,Nikki Glaser,2018-10-01,2018-10-08,2
+27,3,Nikki Glaser,Nikki Glaser,2018-10-08,2018-10-15,3
+27,4,Nikki Glaser,Nikki Glaser,2018-10-15,2018-10-22,0
+27,5,Nikki Glaser,Nikki Glaser,2018-10-22,2018-10-29,1
+27,6,Nikki Glaser,Nikki Glaser,2018-10-29,2018-11-05,2
+27,7,Nikki Glaser,Nikki Glaser,2018-11-05,2018-11-12,0
+27,8,Nikki Glaser,Nikki Glaser,2018-11-12,2018-11-19,0
+27,9,Nikki Glaser,Nikki Glaser,2018-11-19,2018-11-26,0
+27,1,Tinashe,Tinashe,2018-09-24,2018-10-01,5
+27,2,Tinashe,Tinashe,2018-10-01,2018-10-08,5
+27,3,Tinashe,Tinashe,2018-10-08,2018-10-15,0
+27,4,Tinashe,Tinashe,2018-10-15,2018-10-22,16
+27,5,Tinashe,Tinashe,2018-10-22,2018-10-29,10
+27,6,Tinashe,Tinashe,2018-10-29,2018-11-05,2
+27,7,Tinashe,Tinashe,2018-11-05,2018-11-12,9
+27,8,Tinashe,Tinashe,2018-11-12,2018-11-19,13
+27,9,Tinashe,Tinashe,2018-11-19,2018-11-26,0

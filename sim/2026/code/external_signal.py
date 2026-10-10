@@ -148,6 +148,15 @@ def _get(url, timeout=45):
     return status, body
 
 
+def _slug(name):
+    """人名 → 缓存文件名里安全的片段。
+
+    ★ 实测踩过：`Nicole "Snooki" Polizzi` 带**双引号**，而 Windows 文件名**不许有**
+      `" < > : | ? * \\ /` ⇒ 直接拿人名当键会 `OSError: Invalid argument`。
+    """
+    return re.sub(r'[<>:"/\\|?*]', "", name).replace(" ", "_")
+
+
 def _cache_path(key):
     return CACHE / (key + ".json")
 
@@ -314,7 +323,7 @@ def search_fallback(name, refresh, tag):
         u2 = cfg["wikipedia_api"] + "?" + urllib.parse.urlencode(
             {"action": "query", "prop": "extracts", "explaintext": "1",
              "titles": t, "format": "json"})
-        _, b2 = _cached(f"extract-{tag}-{t.replace(' ', '_').replace('/', '_')}", u2, refresh)
+        _, b2 = _cached(f"extract-{tag}-{_slug(t)}", u2, refresh)
         pg = list(json.loads(b2).get("query", {}).get("pages", {}).values())
         txt = ((pg[0].get("extract", "") if pg else "") or "")
         if "dancing with the stars" in txt.lower():      # ★ 大小写不敏感（实测会撞上大小写差异）
@@ -340,7 +349,90 @@ def fetch_pageviews(title, start, end, refresh, tag):
     return status, [(it["timestamp"][:8], it["views"]) for it in items]
 
 
+def fetch_revisions(title, start, end, refresh, tag):
+    """**第二路代理：条目修订次数**（逐日时间戳 ⇒ 调用方按 ISO 周汇总）。
+
+    ★★ 为什么要它：pageviews 端点**只有 2015-07-01 之后**的数据 ⇒ 现结论只覆盖 7/25 季。
+       **修订次数从 2001 年就有**，能把同一套检验铺到**全部 25 个百分比法季次**。
+    ★ 它不是同一个量：修订次数衡量的是**编辑活动**（低频、有噪声），与浏览量只是**相关**；
+      两者**同源**（都是维基），故不构成完全独立的第二来源 —— 报的时候要说清。
+    ★ 分页：`rvlimit` 上限 500，超过要接 `rvcontinue`；实测 2010 年的一个热门条目
+      一个季度就有 ~400 次修订 ⇒ 分页是必需的，不是保险起见。
+    """
+    cfg = _sources()
+    stamps, cont, page = [], None, 0
+    while True:
+        params = {"action": "query", "prop": "revisions", "titles": title,
+                  "rvlimit": "500", "rvprop": "timestamp", "rvdir": "newer",
+                  "rvstart": start + "T00:00:00Z", "rvend": end + "T23:59:59Z",
+                  "format": "json"}
+        if cont:
+            params["rvcontinue"] = cont
+        url = cfg["wikipedia_api"] + "?" + urllib.parse.urlencode(params)
+        _, body = _cached(f"rev-{tag}-{page:02d}", url, refresh)
+        d = json.loads(body)
+        pg = list(d.get("query", {}).get("pages", {}).values())
+        for r in (pg[0].get("revisions", []) if pg else []):
+            stamps.append(r["timestamp"][:10])
+        cont = (d.get("continue") or {}).get("rvcontinue")
+        page += 1
+        if not cont or page > 24:
+            break
+    return stamps
+
+
 # ---------------------------------------------------------------- 主流程
+
+def _iso_week(day):
+    """`YYYY-MM-DD` → 该日所属 ISO 周的**周一**（`YYYY-MM-DD`）。"""
+    from datetime import date, timedelta
+    y, m, d = map(int, day.split("-"))
+    dd = date(y, m, d)
+    return (dd - timedelta(days=dd.weekday())).isoformat()
+
+
+def align_season(s, refresh, panel, w):
+    """一季的对齐：季条目 → 参赛者表 / 播出日 → 人名解析 → 逐周窗口。
+
+    返回 None 表示季条目取不到；否则返回 ok / titles / weeks / week_win / unresolved 等。
+    """
+    wt = season_wikitext(s, refresh)
+    if not wt:
+        return None
+    cast = parse_cast(wt)
+    eps = parse_episode_dates(wt)
+    want = sorted({p for (ss, _ww), d in panel.items() if ss == s for p in d})
+    res = resolve_titles(want, refresh, f"s{s:02d}")
+    mis = [n for n in want if not res[n]["exists"]]
+    fb = []
+    for n in list(mis):                      # 兜底：搜索 + 正文含节目名 + 标题词全部来自人名
+        alt = search_fallback(n, refresh, f"s{s:02d}-{_slug(n)}")
+        if alt:
+            res[n] = {"title": alt, "exists": True, "pageid": None}
+            mis.remove(n)
+            fb.append({"season": s, "attachment_name": n, "article": alt})
+    ok = [n for n in want if res[n]["exists"]]
+    if len(eps) >= 2:
+        mode, edges = "episodes-iso-week", iso_week_edges(eps)
+    else:
+        from datetime import date, timedelta
+        y, m, d = map(int, w["start"].split("-"))
+        base = date(y, m, d)
+        mode = "equal-7d"
+        edges = [(base + timedelta(days=7 * k)).isoformat() for k in range(12)]
+    weeks = sorted({ww for (ss, ww), _ in panel.items() if ss == s})
+    while len(edges) < max(weeks) + 1:       # 边界不够就按 7 天递推补，别静默丢周
+        edges.append(_plus7(edges[-1]))
+    week_win = {ww: (edges[ww - 1], edges[ww] if ww < len(edges) else _plus7(edges[ww - 1]))
+                for ww in weeks if ww - 1 < len(edges)}
+    return {"ok": ok, "titles": {n: res[n]["title"] for n in ok}, "weeks": sorted(week_win),
+            "week_win": week_win, "unresolved":
+                [{"season": s, "name": n, "reason": "查无此条目（兜底亦无唯一命中）"} for n in mis],
+            "fallback_used": fb,
+            "meta": {"cast_in_article": len(cast), "in_attachment": len(want),
+                     "resolved": len(ok), "unresolved": len(mis),
+                     "episodes_dates": len(eps), "week_window_mode": mode}}
+
 
 def main():
     ap = argparse.ArgumentParser(description="外部关注度信号：取数 + 对齐（两段式）")
@@ -377,66 +469,51 @@ def main():
     print(f"（季窗口来源：{ {s: win_mode[s] for s in covered} }）")
 
     panel, elim, _order = build_panel(*load(csv_name))
-    rows, unresolved, per_season, fallback_used = [], [], {}, []
-    for s in covered:
-        wt = season_wikitext(s, a.refresh)
-        if not wt:
+    rows, rev_rows, unresolved, per_season, fallback_used = [], [], [], {}, []
+
+    # ★ 两路信号，射程不同：
+    #   修订次数 = **全 25 季**（维基修订 API 从 2001 年就有）⇒ 把 §7 的检验铺满射程；
+    #   浏览量   = **只有 7 季**（端点 2015-07-01 之前无数据）⇒ 留作高样本量的对照。
+    for s in sorted(PERCENT_SEASONS):
+        if s not in win:
+            print(f"  季 {s}: 窗口取不到 ⇒ 跳过")
+            continue
+        al = align_season(s, a.refresh, panel, win[s])
+        if al is None:
             print(f"  季 {s}: 季条目取不到 ⇒ 跳过（如实记未覆盖）")
             continue
-        cast = parse_cast(wt)
-        eps = parse_episode_dates(wt)
-        csvin = {p for (ss, _w), d in panel.items() if ss == s for p in d}
-        # 只保留附件里出现过的人名（附件为准）
-        want = sorted(csvin)
-        res = resolve_titles(want, a.refresh, f"s{s:02d}")
-        mis = [n for n in want if not res[n]["exists"]]
-        # 兜底：搜索 + 正文含节目名 + 唯一命中（否则交人工复核，**不猜**）
-        for n in list(mis):
-            alt = search_fallback(n, a.refresh, f"s{s:02d}-{n.replace(' ', '_')}")
-            if alt:
-                res[n] = {"title": alt, "exists": True, "pageid": None}
-                mis.remove(n)
-                fallback_used.append({"season": s, "attachment_name": n, "article": alt})
-        unresolved += [{"season": s, "name": n, "reason": "查无此条目（兜底亦无唯一命中）"}
-                       for n in mis]
-        ok = [n for n in want if res[n]["exists"]]
-        # 逐周窗口
-        if len(eps) >= 2:
-            mode = "episodes-iso-week"
-            edges = iso_week_edges(eps)
-        else:
-            mode = "equal-7d"
-            d0 = win[s]["start"]
-            from datetime import date, timedelta
-            y, m, dd = map(int, d0.split("-"))
-            base = date(y, m, dd)
-            edges = [(base + timedelta(days=7 * k)).isoformat() for k in range(0, 12)]
-        weeks = sorted({w for (ss, w), _ in panel.items() if ss == s})
-        while len(edges) < max(weeks) + 1:          # 边界不够就按 7 天递推补，别静默丢周
-            edges.append(_plus7(edges[-1]))
+        unresolved += al["unresolved"]
+        fallback_used += al["fallback_used"]
+        per_season[s] = al["meta"]
         s0, s1 = win[s]["start"], win[s]["end"]
-        for n in ok:
-            t = res[n]["title"]
-            # ★ 每位选手**打一次**覆盖整季，再本地切周 ⇒ ~13 次/季，而不是 ~130 次
-            status, series = fetch_pageviews(t, s0, s1, a.refresh,
-                                             f"s{s:02d}-{n.replace(' ', '_')}")
-            by_date = {d: v for d, v in series}
-            for w in weeks:
-                if w - 1 >= len(edges):
-                    continue
-                st = edges[w - 1]
-                en = edges[w] if w < len(edges) else _plus7(st)
-                lo, hi = st.replace("-", ""), en.replace("-", "")
-                vs = [v for d, v in by_date.items() if lo <= d < hi]
-                rows.append({"season": s, "week": w, "contestant": n,
-                             "article": t, "w_start": st, "w_end": en,
-                             "http": status,
-                             "views": sum(vs), "days": len(vs)})
-        per_season[s] = {"cast_in_article": len(cast), "in_attachment": len(want),
-                         "resolved": len(ok), "unresolved": len(mis),
-                         "episodes_dates": len(eps), "week_window_mode": mode}
-        print(f"  季 {s}: 附件 {len(want)} 人 · 解析成功 {len(ok)} · 查无条目 {len(mis)} · "
-              f"窗口口径 {mode}（{len(eps)} 个播出日）")
+        by_pv = s0 >= COVERAGE_START
+        for n in al["ok"]:
+            t = al["titles"][n]
+            slug = _slug(n)
+            # ---- 信号一：条目修订次数（逐日时间戳 → 按 ISO 周汇总）----
+            stamps = fetch_revisions(t, s0, s1, a.refresh, f"s{s:02d}-{slug}")
+            cnt = {}
+            for d in stamps:
+                k = _iso_week(d)
+                cnt[k] = cnt.get(k, 0) + 1
+            for w in al["weeks"]:
+                st, en = al["week_win"][w]
+                rev_rows.append({"season": s, "week": w, "contestant": n, "article": t,
+                                 "w_start": st, "w_end": en, "revisions": cnt.get(st, 0)})
+            # ---- 信号二：浏览量（只有 7 季）----
+            if by_pv:
+                status, series = fetch_pageviews(t, s0, s1, a.refresh, f"s{s:02d}-{slug}")
+                by_date = {d: v for d, v in series}
+                for w in al["weeks"]:
+                    st, en = al["week_win"][w]
+                    lo, hi = st.replace("-", ""), en.replace("-", "")
+                    vs = [v for d, v in by_date.items() if lo <= d < hi]
+                    rows.append({"season": s, "week": w, "contestant": n, "article": t,
+                                 "w_start": st, "w_end": en, "http": status,
+                                 "views": sum(vs), "days": len(vs)})
+        print(f"  季 {s}: 附件 {al['meta']['in_attachment']} 人 · 解析成功 {al['meta']['resolved']}"
+              f" · 查无 {al['meta']['unresolved']} · {al['meta']['week_window_mode']}"
+              f" · 浏览量 {'有' if by_pv else '无（未覆盖）'}")
 
     OUT.mkdir(parents=True, exist_ok=True)
     csv_path = OUT / "table-9-external-signal.csv"
@@ -445,12 +522,20 @@ def main():
                                            "w_start", "w_end", "http", "views", "days"])
         wr.writeheader()
         wr.writerows(rows)
+    rev_path = OUT / "table-11-revision-signal.csv"
+    with rev_path.open("w", newline="", encoding="utf-8") as f:
+        wr = csv.DictWriter(f, fieldnames=["season", "week", "contestant", "article",
+                                           "w_start", "w_end", "revisions"])
+        wr.writeheader()
+        wr.writerows(rev_rows)
     meta = {"coverage_boundary": COVERAGE_START, "covered_seasons": covered,
             "uncovered_seasons": uncovered, "per_season": per_season,
-            "unresolved": unresolved, "fallback_used": fallback_used, "n_rows": len(rows)}
+            "unresolved": unresolved, "fallback_used": fallback_used,
+            "n_rows_pageviews": len(rows), "n_rows_revisions": len(rev_rows)}
     (OUT / "external-signal-alignment.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"落盘：{csv_path.relative_to(ROOT.parent)}（{len(rows)} 行）")
+    print(f"落盘：sim/2026/out/table-9-external-signal.csv（{len(rows)} 行 · 浏览量 · 7 季）")
+    print(f"落盘：sim/2026/out/table-11-revision-signal.csv（{len(rev_rows)} 行 · 修订次数 · 25 季）")
     print(f"落盘：sim/2026/out/external-signal-alignment.json · 未解析 {len(unresolved)} 条")
 
 

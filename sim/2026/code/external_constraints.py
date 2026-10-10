@@ -57,7 +57,8 @@ from fan_vote_bounds import (ROOT, OUT, load, build_panel, judge_pct,  # noqa: E
 from fan_vote_season import season_people                   # noqa: E402
 
 SEED = 2025                       # ★ 入口一处固定随机源（本脚本确定性，留着以防日后加抽样）
-TABLE9 = OUT / "table-9-external-signal.csv"
+TABLE9 = OUT / "table-9-external-signal.csv"        # 浏览量（**只有 7 季**：端点 2015-07 之前无数据）
+TABLE11 = OUT / "table-11-revision-signal.csv"      # 条目修订次数（**全 25 季**：修订 API 从 2001 年就有）
 RHO_GRID = [None, 20.0, 10.0, 5.0, 3.0, 2.0, 1.5, 1.2, 1.05, 1.0]   # None = 基线（不加序约束）
 
 
@@ -189,19 +190,21 @@ def lagged(attn):
     return out
 
 
-def load_attention():
-    """从 table-9 读回：{season: {week: {contestant: views}}}。"""
-    attn = collections.defaultdict(lambda: collections.defaultdict(dict))
-    with TABLE9.open(encoding="utf-8") as f:
+def load_signal(path, col):
+    """从信号表读回：{season: {week: {contestant: value}}}。"""
+    a = collections.defaultdict(lambda: collections.defaultdict(dict))
+    with path.open(encoding="utf-8") as f:
         for r in csv.DictReader(f):
-            attn[int(r["season"])][int(r["week"])][r["contestant"]] = int(r["views"])
-    return attn
+            a[int(r["season"])][int(r["week"])][r["contestant"]] = int(r[col])
+    return a
 
 
 def main():
-    if not TABLE9.exists():
-        raise SystemExit(f"缺 {TABLE9} —— 先跑 `python -I sim/2026/code/external_signal.py`。")
-    attn = load_attention()
+    if not TABLE9.exists() or not TABLE11.exists():
+        raise SystemExit(f"缺 {TABLE9} 或 {TABLE11} —— 先跑 "
+                         f"`python -I sim/2026/code/external_signal.py`（或 `--fill`）。")
+    attn = load_signal(TABLE9, "views")          # 浏览量：7 季
+    rev = load_signal(TABLE11, "revisions")      # 修订次数：全 25 季
     seasons = sorted(attn)
     hdr, body = load(csv_name)
     panel, elim, _ = build_panel(hdr, body)
@@ -238,6 +241,13 @@ def main():
     curve_lag, rho_star_lag, _ = sweep(panel, elim, lagged(attn), seasons, skip=multi)
     curve_lag_all, rho_star_lag_all, _ = sweep(panel, elim, lagged(attn), seasons, skip=set())
 
+    # ★★ 第二路代理：**条目修订次数** ⇒ 铺满射程的**全部 25 季**（本轮"扩覆盖"的目的）。
+    #    它衡量的是**编辑活动**（低频、有噪声），与浏览量只是相关、且**同源**（都是维基）
+    #    ⇒ 不构成完全独立的第二来源；报的时候两路并列，不合成一个数。
+    rev_seasons = sorted(rev)
+    r_curve, r_star, r_rows = sweep(panel, elim, rev, rev_seasons, skip=multi)
+    r_curve_all, r_star_all, _ = sweep(panel, elim, rev, rev_seasons, skip=set())
+
     yard = {}
     for s in seasons:
         # 外部标尺：周级（主口径）与季级（对照）
@@ -265,6 +275,11 @@ def main():
                                            "w_mean", "w_median", "w_p90"])
         wr.writeheader()
         wr.writerows(rows)
+    with (OUT / "table-12-revision-constraints.csv").open("w", newline="", encoding="utf-8") as f:
+        wr = csv.DictWriter(f, fieldnames=["season", "rho", "status", "npairs", "ncon",
+                                           "w_mean", "w_median", "w_p90"])
+        wr.writeheader()
+        wr.writerows(r_rows)
     (OUT / "figure-9-external-signal.json").write_text(json.dumps(
         {"coverage_seasons": seasons, "rho_grid": [str(x) if x else "baseline" for x in RHO_GRID],
          # 四种口径：{curve,rho_star} 主口径 = 排除多人同周淘汰周 + **当周**关注度
@@ -273,6 +288,10 @@ def main():
          "curve_excl_lag1": curve_lag, "rho_star_excl_lag1": rho_star_lag,
          "curve_incl_lag1": curve_lag_all, "rho_star_incl_lag1": rho_star_lag_all,
          "yardstick": yard,
+         # ★ 第二路代理（修订次数）—— **全 25 季**
+         "rev_seasons": rev_seasons,
+         "rev_curve_excl_contemp": r_curve, "rev_rho_star_excl_contemp": r_star,
+         "rev_curve_incl_contemp": r_curve_all, "rev_rho_star_incl_contemp": r_star_all,
          "excluded_multi_elim_weeks": sorted(f"S{a}W{b}" for a, b in multi if a in seasons),
          "seed": SEED}, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -283,7 +302,14 @@ def main():
         print(f" {s} | {rho_star[s]!s:>9} | {rho_star_all[s]!s:>9} | {rho_star_lag[s]!s:>9}"
               f" | {rho_star_lag_all[s]!s:>10} | {curve[s].get('baseline', {}).get('w_median')}"
               f" | {y.get('weekly_median')}")
-    print("\n落盘：sim/2026/out/table-10-external-constraints.csv · figure-9-external-signal.json")
+    ok_rev = [s for s in rev_seasons if r_star[s] is not None or r_star_all[s] is not None]
+    print(f"\n★★ 第二路代理（条目修订次数）：铺到 **{len(rev_seasons)} 季**（S{rev_seasons[0]}–S{rev_seasons[-1]}）")
+    print(f"   其中至少一种口径下 **ρ=20 仍可行** 的季：{len(ok_rev)}/{len(rev_seasons)}")
+    print(f"   四口径全不可行的季："
+          f"{[s for s in rev_seasons if r_star[s] is None and r_star_all[s] is None]}")
+    print(f"   可降到 ρ=1（序几乎全给）的季：{[s for s in rev_seasons if r_star[s] == 1.0]}")
+    print("\n落盘：sim/2026/out/table-10-external-constraints.csv（浏览量）· "
+          "table-12-revision-constraints.csv（修订次数）· figure-9-external-signal.json")
 
 
 if __name__ == "__main__":
