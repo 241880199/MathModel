@@ -1,0 +1,87 @@
+% Section 11 -- Report on Use of AI.  Replaces the placeholder.
+%
+% Mandated chapter title, EXACT wording: "Report on Use of AI" (NOT "...AI
+% Tools").  [official] instructions.html:1216, 1239 (INDEX.md s2.4.4; s3.1
+% conflict 3 -- the annual instructions side is the adopted side).
+% Placed AFTER the 25 pages (see main.tex); NOT counted toward the 25-page limit.
+%
+% Per entry: tool name + version/date + model name (where the tool has one) +
+% purpose ([official] Contest_AI_Policy.txt:54-57; INDEX.md s2.4.5).
+% Conversational LLM use that is NOT translation carries Query/Output fields
+% ([official] Contest_AI_Policy.txt:83-86, 93-99; INDEX.md s2.4.6, s3.2
+% conflict 7).  Mathematics / computing software has no discrete query, so it is
+% given in statement form (same treatment as the code-completion example).
+\section{Report on Use of AI}
+\label{sec:ai}
+
+This section has no page limit and is not counted as part of the 25-page solution.
+
+% Allow a little extra stretch so the long English tool entries below do not
+% overfull their line boxes.
+\setlength{\emergencystretch}{2em}
+
+\begin{enumerate}
+  \item Anthropic Claude Code (v2.1.295, 2026; model: DeepSeek \texttt{deepseek-flash}, 1M context)
+
+  The agentic AI assistant used for essentially all of the intellectual work of
+  this paper.  Its use at each stage was:
+  \begin{itemize}
+    \item \textbf{Topic selection} -- chose Problem C from the six 2027 MCM/ICM problems;
+    \item \textbf{Model selection} -- chose the inverse (feasibility / linear-programming) model, and later obtained and tested the external-proxy alternative rather than rejecting it on principle (the result is reported in Section~\ref{sec:sw});
+    \item \textbf{Data cleaning} -- read, folded and cleaned the \texttt{2026\_MCM\_Problem\_C\_Data.csv} panel, and fetched the external page-view signal from the Wikimedia REST API;
+    \item \textbf{Solution code} -- wrote 100\% of the ten Python scripts under \texttt{code/} and \texttt{fig/} (nine model / result scripts, including the two that fetch and test the external signal, and the figure script);
+    \item \textbf{Figures} -- produced 100\% of the eight figures;
+    \item \textbf{Manuscript} -- drafted 100\% of the body text of Sections 1--9, of the reference list and of this report.
+  \end{itemize}
+  This is a conversational LLM use (discrete prompts in, text out), so Query and
+  Output are given below.  The verbatim prompts were not kept as a standalone
+  transcript, so they are reported as not retained rather than reconstructed.
+
+  Query: <exact wording not retained -- the tasks were issued to the tool as
+    interactive natural-language briefs within the working session>
+  Output: <not reproduced here -- the complete outputs are the manuscript
+    sections, the eight scripts, the result files and the figures that make up
+    this submission>
+
+  \item Python 3.11 (NumPy 2.3, SciPy 1.17) (2026)
+
+  Mathematics / computing software, used under AI-written code to clean the data
+  and to compute every number reported in the paper.  SciPy's \texttt{linprog},
+  with the HiGHS linear-programming solver, solved the per-contestant min/max
+  programs that give the feasible intervals; SciPy's \texttt{spearmanr} computed
+  the rank correlations.  (No discrete query: statement form.)
+
+  \item matplotlib 3.10 (2026)
+
+  Plotting software, used under AI-written code to produce all eight figures in
+  this paper.  (No discrete query: statement form.)
+\end{enumerate}
+
+%% ============ skill feedback (comment; not typeset) ============
+%% Three places where drafting this file with mcm-ai-disclosure stuck:
+%% 1) The hardest sentence: rules 5a/5b require "for non-translation use, give the
+%%    verbatim Query + the full Output", while this paper's LLM use is
+%%    whole-document interactive drafting and the verbatim prompts were not kept
+%%    as a standalone log.  The checklist allows "state it honestly
+%%    (reconstructed... exact wording not retained), never fabricate", but does not
+%%    say WHICH query to file when the whole text was AI-drafted and no single
+%%    query can be produced -- one representative query, or a per-item "not
+%%    retained".  I took the latter (no fabrication).
+%% 2) Whether mathematics/computing software (Python/SciPy/HiGHS/matplotlib) should
+%%    be written in statement form or as Query/Output: the skill only writes out
+%%    "except code-completion", it does not say whether "computing/plotting
+%%    software" follows the same rule.  I treated it as "the tool has no discrete
+%%    query => statement form" (INDEX.md s3.2 conflict 7, item 2).
+%% 3) Where the three elements (tool name / version-date / model name) come from:
+%%    this paper has no usage ledger, so they can only be read from the runtime
+%%    environment (Claude Code v2.1.295 / model deepseek-flash).  The skill does not
+%%    say where to source the three elements when there is no ledger, nor what to do
+%%    when they cannot be sourced.
+%%
+%% Translation pass (this edit): the entry headers and the feedback note were
+%% translated into English.  The mandated title "Report on Use of AI" was left
+%% VERBATIM (not changed to "...AI Tools").  The disclosure was NOT weakened: the
+%% entry still records topic selection, model selection, data cleaning, 100% of the
+%% solution code, 100% of the figures, and 100% of the body-text drafting as done
+%% by the AI, exactly as before translation.
+%% ============ end skill feedback ============

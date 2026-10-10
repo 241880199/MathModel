@@ -1,0 +1,52 @@
+\section{Strengths and Weaknesses of the Model}
+\label{sec:sw}
+
+% Evaluation, not defence and not apology. Per-item labelled by \subsubsection (no bold lead-ins).
+
+This section evaluates the model built in Sections~4 and~5: under what conditions it is usable, and how far its scope reaches, item by item rather than as a list of impressions.
+
+\subsection{Strengths}
+
+\subsubsection{The Constraints Come Only From the Problem's Own Records}
+The inversion's constraints come from the weekly elimination records and the season's combination rule, so no extra uncertainty enters from data provenance or from aligning an external basis, and with the same data and the same seed the readings reproduce exactly. This is a property of what we did, not a claim that the problem needs no other data: the statement explicitly permits additional data provided the sources are documented, and the price of not using any is paid in identification --- see the weakness below.
+
+\subsubsection{Certainty and Consistency Each Have a Quantity to Read Off}
+The feasible-interval width answers ``how precise is this estimate'' and varies with contestant and week; the replay hit rate answers ``can the estimate reproduce the elimination outcomes''. Both rulers part (a) asks for thus have a quantity rather than a qualitative description.
+
+\subsubsection{The Comparison of the Two Rules Reduces to the Rules Themselves}
+Both methods are applied to the same batch of estimates, and the switch of rule is a deterministic transformation on those estimates that introduces no second model, so ``which method better favours the fan vote'' is not contaminated by differences between estimation methods.
+
+\subsubsection{The Mechanism Design Yields a Segment of a Dominance Relation over the Rule Family}
+Part (d)'s answer is a comparison obtained by enumerating the judge weight and toggling the bottom-two step, reporting judge consistency and fan consistency at once, so the trade-off surface is visible.
+
+\subsection{Weaknesses}
+
+\subsubsection{Scope Reaches Only the Percentage-Method Seasons}
+The rank-method seasons (1--2, and 28 onward) are constrained by the order of the rank sums, not by a linear inequality on vote shares, so the inversion has no feasible region for them and no part of (a)--(d) that relies on the latent variable covers them. Of the four controversial contestants named, Jerry Rice (season 2) is outside the scope and seasons 4 and 11 are inside it; season 27's week-by-week eliminations are inside, but its controversy is on the final placing, which week-by-week eliminations do not decide.
+
+\subsubsection{The Consistency Rate Is Not an Upper Bound, and It Is Tied to the Point-Taking Convention}
+The $0.390$ of Section~5 is the achievement of a deliberately simple point estimate, not an upper bound for this model class. Changing the point-estimate and tie-decision conventions in Section~6 leaves it between $0.128$ and $0.401$, while the same data reach $1.000$ under the oracle convention: the shortfall is the estimator's, not an unsatisfiable criterion's, and the number must be cited together with its convention.
+
+\subsubsection{Within-Season Latent Popularity Is a Latent Variable}
+It presses the season's share constraints into one quantity and is not any single week's vote count. Wherever parts (b), (c) and (d) use it as the fan vote they use this estimator, whose uncertainty is the feasible intervals of Section~5; it cannot answer ``how many votes a contestant actually received in a given week''.
+
+\subsubsection{The Season-to-Rule Mapping and the Bottom-Two Tie-Break Are Assumptions of Ours}
+This paper takes seasons 3 to 27 as percentage-method; if the true boundary is earlier, the corresponding seasons move out of the percentage set. Section~6 has rerun with the boundary shifted left by one and by two seasons and the directions are unchanged, but the item rests on a reasonable assumption the problem marks as uncertain, not on an established fact. Separately, the problem says only that one of the bottom two is chosen by a judges' vote, not on what basis the judges vote: Section~6 shows the direction ``adding the bottom-two step raises judge consistency'' is insensitive to this, while the item ``the recommended combination dominates the current rule'' does not hold if the judges are changed to tie-break on the fan vote.
+
+\subsubsection{An External Proxy Was Tried, and It Does Not Pay the Identification Price}
+Identification is the binding constraint on how sharp the estimate can be. Each week contributes exactly one inequality --- the eliminated contestant must be the lowest combined --- and one inequality per week is weak evidence: under single-week constraints the median interval width is $0.992$, and even after the across-week pooling the 90th percentile is still $0.9301$, so about one tenth of the contestants remain essentially unidentifiable. The statement allows additional data provided the sources are documented, and a popularity proxy is the single most promising addition, because it would enter as a second, independent signal on the very quantity the constraints leave loose.
+
+We did obtain one --- the daily page views of each contestant's Wikipedia article over that season's air weeks (Wikimedia Pageviews REST API) --- and it does not pay that price. Read as an ordering on the latent popularity it is rejected by the records: seasons 24 and 27 admit no feasible point even at a $20$-to-$1$ attention margin, and seasons 22 and 23 fail there too; where it is satisfiable at a weak margin it is binding rather than informative, collapsing the intervals to points in seasons 21 and 25. Read as an external ruler it agrees, correlating negatively with the estimate's midpoint in five of the seven seasons covered --- the only ones the endpoint holds at all, since it has nothing before 1 July 2015. We therefore report intervals rather than claims about individual weekly vote counts, and record the attempt rather than a conversion factor we do not have.
+
+% T9-external-signal.tex 已写好但**未进论文**：论文的计入材料正好卡在 25 页上限，
+% 这张表（含表注约 10 行）会把计数材料推到 26 页。数字改在正文里给，表留在
+% out/table-10-external-constraints.csv（结果清单里有登记）。要恢复：取消本行注释并
+% 从正文里删去对应的数字句。
+%\input{T9-external-signal.tex}
+
+\subsubsection{The Characteristic Analysis Claims Only Co-Direction, Not Causation}
+One regression response is itself an estimated latent variable, which pulls coefficients toward zero, so a statement of the kind ``the older, the worse the performance'' can be read only as association.
+
+\subsection{Conditions of Applicability}
+
+The model is more trustworthy on ``rule comparisons within the percentage-method seasons, and the direction of mechanism improvement'': there the constraints are writable and replayable and the three conclusion directions survive all three perturbations. It is less trustworthy on ``the specific vote count of a given contestant in a given week'': the median single-week interval width is $0.992$, so a single-week constraint rules out almost no share combination and the point estimate is one representative taken from a very wide set.

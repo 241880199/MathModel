@@ -1,0 +1,52 @@
+% Section 10 -- References / Bibliography.  Replaces the placeholder.
+%
+% Listing rule: every NON-SELF source the body uses gets an entry here
+% (citation.md; [official] instructions.html:1121), AND every AI tool used is
+% also listed here -- the "double disclosure" rule ([official]
+% Contest_AI_Policy.txt:54-58; INDEX.md s2.4.2).
+%
+% Evidence check: S1..S9, T1..T6 and MEMO.tex were scanned for non-self sources.
+% The body relies on THREE non-self sources -- (1) the problem statement,
+% (2) its data attachment, and (3) the Wikimedia page-view signal tested in S7.
+% to make it look fuller.
+\section{References}
+\label{sec:refs}
+
+The body of this paper relies on exactly three non-self sources: the problem statement, its data attachment, and one external dataset --- the Wikimedia page-view signal tested in Section~
+ef{sec:sw}. Entries [1] to [3] below are those three sources; entries [4] to [6] are the AI tools and the mathematics/computing software this paper used (under the COMAP AI policy, mathematics software is also within the disclosure scope; each tool's version, model and purpose are detailed in the ``Report on Use of AI'' at the end).
+
+\begin{enumerate}
+  \item COMAP. \emph{2026 MCM/ICM Problem C: Data With The Stars} (the Statement). The Consortium for Mathematics and Its Applications (COMAP), 2026. Referred to in the text as ``the Statement''; cited for the data-description notes (notes 1a--1c, notes 5--7), the appendix giving one worked example for each of the two combination rules, and the footnote that marks the exact season of the return to the rank method as uncertain and permits assuming season 28.
+  \item COMAP. \texttt{2026\_MCM\_Problem\_C\_Data.csv} (data file attached to the Statement). COMAP, 2026. $53$ columns $\times$ $421$ rows, covering weekly judge scores and contestant identities for seasons 1--34; referred to in the text as ``the Attachment'', and every reading reported in this paper was recovered from this file.
+  \item Wikimedia Foundation. \emph{Wikimedia Pageviews REST API} (\texttt{wikimedia.org/api/rest\_v1/}), retrieved 10 October 2026. Daily page views of each contestant's English Wikipedia article, used as the external attention signal tested in Section~\ref{sec:sw}; broadcast windows from the same source's season articles and Wikidata (\texttt{Q2674710}). Nothing before 1 July 2015, which limits the test to seasons 21--27. Located by the AI assistant, confirmed by the team before use.
+\end{enumerate}
+
+\noindent\textbf{AI tools and mathematics/computing software}\par
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item Anthropic Claude Code (v2.1.295, 2026; model: DeepSeek \texttt{deepseek-flash}). Used for topic selection, model selection, data cleaning, all solution code, all figures, and the drafting of the entire body text.
+  \item Python 3.11 (NumPy 2.3, SciPy 1.17). Mathematics/computing software; used for data cleaning, model solving and the computation of every reading (linear programming via SciPy's HiGHS solver, rank correlations via SciPy's \texttt{spearmanr}).
+  \item matplotlib 3.10. Plotting software; used to produce every figure in this paper.
+\end{enumerate}
+
+%% ============ skill feedback (comment; not typeset) ============
+%% Two places where drafting this file with mcm-data/references/citation.md stuck:
+%% 1) citation.md only says "the reference list gives all non-self sources"; it
+%%    does not say whether AI-tool entries go in the same list and the same order
+%%    as external sources.  I merged the two into one numbering sequence ([1][2]
+%%    sources, [3]-[5] AI/computing tools), but citation.md and mcm-ai-disclosure
+%%    (2) each cover only half, and neither says whether the numbering must be
+%%    continuous.
+%% 2) citation.md requires "one source per in-text use: an inline mark or a
+%%    footnote"; it assumes the body already carries citation marks.  This task's
+%%    hard rule is "edit only these two .tex files; do not touch S1-S9", so the
+%%    in-text marks cannot be added.  Neither skill covers how the reference list
+%%    should line up with a body that may not be edited.
+%%
+%% Translation pass (this edit): the body prose and this feedback note were
+%% translated into English to satisfy the COMAP all-English requirement.  In the
+%% bracketed source-name glosses I standardised on "the Statement" / "the
+%% Attachment" (capitalised, as proper-name glosses of the two sources) so the
+%% reference entries match the wording used across the paper.  No entry, number or
+%% citation key was added or removed.
+%% ============ end skill feedback ============

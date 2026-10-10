@@ -1,0 +1,28 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+% Conclusion: recycle only. No new derivation, no new numbers.
+
+This paper delivers a model that inverts fan votes from elimination outcomes, a procedure that compares the two combination rules on top of that estimate, and a set of improvement recommendations obtained over the rule family; a one- to two-page memo to the producers is attached separately. The conclusions below recycle the five parts of the problem, with all values taken from Sections~5 and~6.
+
+First, the fan-vote estimate and its two rulers. The constraints built week by week and season by season from ``the eliminated contestant of the week has the lowest combined score'' are all feasible over the $197$ weeks that enter the inversion in the percentage-method seasons, and the season-wide feasible region is non-empty over all $25$ seasons. Certainty is the feasible-interval width: the median single-week width is $0.992$ and the season-wide median is $0.1622$, cross-week smoothing pressing it down to about one sixth; the season-wide 90th percentile is $0.9301$, about one tenth of the contestants remaining essentially unidentifiable even under the season-wide convention. Certainty is not the same for all---within a single season the narrowest contestant has an interval about $0.06$ wide and the widest reaches $0.92$ (see Figure~\ref{fig:intervals})---so the answer to the question asked in the problem, ``does certainty vary with the contestant and the week'', is yes. Consistency is the proportion of replay hits: leave-one-week-out makes $172$ predictions and hits $67$, a consistency rate of $0.390$ against a random baseline of about $0.10$.
+
+Second, the two combination rules. Applied to each season, the two methods give a different eliminated contestant on $39$ of $198$ weeks, a disagreement rate of $0.197$; the survivor--fan-vote rank correlation is almost identical under the two methods (percentage $0.917$, rank $0.928$), the rank method higher in only $6$ of the $24$ comparable seasons. There is thus no systematic leaning between the two methods, and the differences are sporadic. Of the controversial contestants named in the problem, the two inside the scope are season 4 (Billy Ray Cyrus), where the methods differ on two weeks, and season 11 (Bristol Palin), with no week of difference.
+
+Third, the effects of the characteristics. With (season, contestant) as the observation unit and season fixed effects controlled for, the coefficients of age on the judge score and the fan vote are both negative ($-0.0012$ and $-0.0015$ with contestant characteristics only; $-0.0010$ and $-0.0014$ after adding dancer fixed effects), and the US-born coefficients are same-signed but insignificant. The signs agree across the two responses, so these characteristics act on the judge score and the fan vote in the same direction; the conclusion claims association only.
+
+Fourth, the rule recommendation. Enumerating the rule family in which the combined score is the weighted sum of the judge share and the fan share, we recommend lowering the judge weight to about $0.25$ and adding the bottom-two step. Judge consistency reads $0.9746$ against the current $0.9619$ and fan consistency $0.9175$ against the current $0.9170$: a clear improvement in judge consistency with no loss in fan consistency. This explains the direction of the change described in the problem, the addition of the bottom-two step in season 28, and indicates that it should be paired with a lower judge weight. Section~6 has shown that the dominance holds under the rule in which the judges tie-break on score and does not hold if the judges tie-break on the fan vote.
+
+Fifth, the report and the memo. A complete report of no more than $25$ pages and a one- to two-page memo to the producers accompany this paper, the memo summarizing the conclusions above and giving the same set of recommendations.
+
+The conclusion of the whole paper can be condensed into one sentence: the current equal-weight sum puts the judges and the audience on the same weight, whereas the data show that lowering the judge weight to about $0.25$ while letting the judges make one save decision among the bottom two raises the agreement of the outcome with professional judgment without sacrificing audience participation. Two things can be done next: build an inversion for the rank-method seasons that fits the rank-sum constraint, and feed samples inside the feasible region directly into the characteristic regression to avoid the coefficient attenuation that comes from using an estimator as a response. A third --- using an external popularity signal to narrow the single-week intervals --- we have since tried rather than merely proposed: Section~\ref{sec:sw} reports the proxy we obtained and why the elimination records reject the ordering it implies for every season the endpoint covers.
+
+% --- Skill feedback (English-to-English review / translation pass, 2026-10-09).
+% Skill used: academic-translate (Chinese -> English).
+% Hardest sentence to translate: the S7 subsubsection heading whose Chinese noun
+% means "the place where a number lands / can be read off" (no one-word English
+% equivalent); rendered as "Certainty and Consistency Each Have a Quantity to
+% Read Off".
+% Also tricky: the Chinese word for a tied score in S6, whose noun and verb forms
+% ("a tie" / "to tie") must be chosen per clause, and keeping the metric
+% "consistency" distinct from a "hit" in the same sentence.

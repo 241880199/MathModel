@@ -1,0 +1,26 @@
+\section{Analysis of the Problem}
+\label{sec:analysis}
+
+% Motivation: the observable/unobservable gap and the direction taken to close it.
+
+The audience votes are the one quantity the dataset marks as confidential, yet every later question takes them as an input: part (a) asks for an estimate of each couple's vote in each week it competed, and parts (b), (c) and (d) all treat that estimate as known. This section therefore settles where the unobservable quantity is to come from.
+
+\subsection{Three Candidate Directions}
+
+The first is to seek an external proxy. The statement permits supplementing the data, and audience votes are intuitively tied to social buzz or search trends, but no published conversion turns buzz into a vote share. A proxy can at best give an ordering, and whether that ordering transfers to votes is itself an empirical question rather than a definition --- we take it up in Section~\ref{sec:sw} and report there what happened when we tried it.
+
+The second is to invert from the elimination results. They are available week by week and season by season, and they are linked to the unknown votes directly through the season's combination rule: the couple eliminated that week is the one with the lowest combined score. That sentence becomes an inequality about the unknown vote shares, and recording it week by week imposes constraints on them.
+
+The third is to bypass the vote counts and compare only the rules. Each rule's combined score is half fan vote share, so without the votes both rules stay at the level of their verbal definitions: neither who was eliminated nor whether the two rules differ can be computed.
+
+\subsection{Why the Second Direction}
+
+Three reasons support the second direction. Its observations come from the problem's own attachment, so the estimation itself introduces no external data and no extra layer of data-sourcing or basis alignment; the external route is not abandoned but deferred --- Section~\ref{sec:sw} reports the proxy we did obtain and why the records reject the ordering it implies. It matches the form of the information the statement supplies: the two worked examples in its appendix demonstrate precisely that ``the eliminated couple is the one with the lowest combined score,'' and the direction merely generalizes that criterion to all weeks. And it binds estimation to testing---the inverted shares are fed straight back into the season's rule to recompute the week's elimination, whose hit rate falls out exactly as the ``measure of consistency with the elimination results'' the statement requires.
+
+\subsection{Two Kinds of Structure the Inversion Must Supply}
+
+With only ``the eliminated couple has the lowest combined score,'' the model is underdetermined: each week pins down a single inequality while the number of unknowns equals the number of couples present that week. Two kinds of structure must therefore be supplied. The first is normalization: the vote shares of the couples present in a week sum to one. The second is across-week persistence: the latent popularity of a couple changes continuously between adjacent weeks. The former confines the unknowns to a simplex; the latter compresses the week-by-week unknowns into a single quantity shared within a season. Their costs were argued in Assumption 2 of Section~2; here it suffices that they are the premise for the inversion to be solvable.
+
+\subsection{The Resulting Model Form and Its Connections}
+
+The model should therefore not be built as a point estimate, but as ``a feasible set under constraints, together with a rule for drawing a point estimate from that set.'' The two rulers part (a) asks for each get their place: certainty is the interval width of the feasible set, which varies with couple and with week; consistency is the hit rate of feeding the estimate back into the rule. Section 4 turns the three structures above into linear constraints, Section 5 reports the solution results, and Section 6 examines how far the conventions chosen here drive the conclusions.
